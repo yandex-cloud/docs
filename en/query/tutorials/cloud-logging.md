@@ -1,103 +1,47 @@
-# Analyzing Cloud Logging logs
+# Processing {{ cloud-logging-full-name }} logs
 
-[{{ cloud-logging-name }}](../../logging/quickstart.md) is a service for reading and writing logs of Yandex Cloud services and user applications.
+[{{ cloud-logging-full-name }}](../../logging/index.yaml) is a service for reading and writing logs of {{ yandex-cloud }} services and user applications.
 
-With {{ cloud-logging-name }}, you can transfer application logs to {{ yq-full-name }} for realtime processing. Processed data can be sent:
-- To {{ monitoring-name }} to add it to charts and use it in alerting.
-- Write it to a different {{ yds-full-name }} stream and send the data for processing to {{ sf-name }} or {{ data-transfer-name }} [to send the data to different storage systems](../../data-streams/tutorials/data-ingestion.md) from that stream.
+Logs can be sent to a {{ yds-full-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) and then processed in real time using {{ yq-full-name }}. You can do the following with processed data:
 
-Below is the architecture of the solution with {{ cloud-logging-short-name }}.
+* Send it to {{ monitoring-full-name }} to make charts and use it in alerting.
+* Write it to a {{ yds-short-name }} stream and then send it to {{ sf-full-name }} for processing.
+* Write it to a {{ yds-short-name }} stream and then transfer it to {{ data-transfer-full-name }} to be [sent to various storage systems](../../data-streams/tutorials/data-ingestion.md).
+
 ![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
-Sample query that counts the number of sent messages per host, grouped by 10-second intervals:
+In this use case, you will send {{ cloud-logging-short-name }} logs to a {{ yds-short-name }} stream and then run a query to them using {{ yq-name }}. The query will return the number of messages per host grouped by 10s interval.
 
-```sql
-$cloud_logging_data =
-SELECT
-    CAST(JSON_VALUE(data, "$.timestamp") AS Timestamp) AS `timestamp`,
-    JSON_VALUE(data, "$.jsonPayload.host") AS host
-FROM bindings.`cloud-logging`;
+To implement this use case:
 
-SELECT
-    host,
-    COUNT(*) AS message_count,
-    HOP_END() AS `timestamp`
-FROM $cloud_logging_data
-GROUP BY
-    HOP(`timestamp`, "PT10S", "PT10S", "PT10S"),
-    host
-LIMIT 2;
-```
+1. [{#T}](#create-yds-stream).
+1. [{#T}](#create-log-group).
+1. [{#T}](#send-to-loggroup).
+1. [{#T}](#connect-query).
+1. [{#T}](#query).
 
-To learn how to work with streaming data fetched from {{ yds-full-name }}, see [Reading Data from Data Streams](../sources-and-sinks/data-streams.md).
+## Getting started {#before-you-begin}
 
-## Setup {#setup}
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Setup steps:
-1. [Create a {{ yds-full-name }} stream](#create_yds_stream).
-1. [Create a log group](#create_log_group).
-1. [Start sending data to the log group](#send_to_loggroup).
-1. [Creating a connection](#create_connection) to a stream.
-1. [Create a binding](#create_binding) to a data stream.
-1. [Query](#query) the data from the log group.
+Install the {{ yandex-cloud }} [command line interface](../../cli/quickstart.md#install).
 
-### Creating a {{ yds-full-name }} stream {#create_yds_stream}
+## Create a {{ yds-name }} data stream {#create-yds-stream}
 
-For detailed information about creating [streams](../../data-streams/operations/manage-streams.md), see the [{{ yds-full-name }} documentation](../../data-streams/operations/manage-streams.md).
+[Create a stream](../../data-streams/operations/manage-streams.md#create-data-stream) named `cloud-logging-stream`.
 
-### Creating a log group {#create_log_group}
+## Create a {{ cloud-logging-name }} log group {#create-log-group}
 
-To create a [log group](../../logging/concepts/log-group.md) that will send data to a {{ yds-full-name }} stream, run the command:
+[Create a log group](../../logging/operations/create-group.md) named `cloud-logging-group`. When setting the log group parameters, specify `cloud-logging-stream` created in the previous step.
 
-```shell
-yc logging group create \
-  --name <log_group_name> \
-  --folder-id <folder_id> \
-  --data-stream <full_yds_stream_name>
-```
+## Start sending data to the log group {#send-to-loggroup}
 
-Where:
+To start sending data to the log group, run this command:
 
-* `name` is the name of the log group you create.
-* `folder-id` is the folder to create the log group in.
-* `data-stream` is the full name of the {{ yds-full-name }} stream. You can find the stream full name in the {{ yds-full-name }} UI under **Connect**. The format of a stream's full name is `/{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging`.
-
-Sample command that creates a log group named `yds` sending data to a stream named `cloud-logging`:
-
-```shell
-yc logging group create \
-  --name yds \
-  --folder-id b1kmrhakmf8ar1i5l6f8 \
-  --data-stream /{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging
-```
-
-### Sending data to the log group {#send_to_loggroup}
-
-To send data to the log group, run the command:
-
-```shell
-do yc logging write \
-  --group-name=<log_group_name> \
-  --message='<message>' \
-  --timestamp="1s ago" \
-  --level=INFO \
-  --json-payload='<json_payload>' \
-  --folder-id <folder_id>;
-```
-
-Where:
-
-* `group-name` is the log group name.
-* `message` is the message text.
-* `json_payload` is additional message data in JSON format.
-* `folder-id` is the folder where the log group is created.
-
-Sample command that sends data to the `yds` log group in the `b1kmrhakmf8ar1i5l6f8` folder with the `Message` with additional `{"request_id": "1234", "host":"test_host"}` JSON content:
-
-```shell
+```bash
 while true; do yc logging write \
-  --group-name=yds \
-  --message="Message" \
+  --group-name=cloud-logging-group \
+  --message="test_message" \
   --timestamp="1s ago" \
   --level=INFO \
   --json-payload='{"request_id": "1234", "host":"test_host"}' \
@@ -106,28 +50,31 @@ while true; do yc logging write \
 done
 ```
 
-### Creating a connection in {{ yq-full-name }} {#create_connection}
+* `--group-name`: Name of the log group the messages are sent to.
+* `--message`: Message text.
+* `--json_payload`: Additional message data in JSON format.
+* `--folder-id`: ID of the folder where the log group was created.
 
-Follow the steps below to create a [connection](../concepts/glossary.md#connection) named `cloud-logging-connection`:
+## Connect {{ yq-name }} to your data stream {#connect-query}
 
-{% include [create-connection](../_includes/create-connection.md) %}
+1. [Create a connection](../operations/connection.md#create) with the `cloud-logging-connection` name and `Data Streams` type.
+1. On the binding creation page:
+   * Select **Automatically populate columns for Cloud Logging**.
+   * Enter the binding name: `cloud-logging-binding`.
+   * Specify the stream: `cloud-logging-stream`.
+   * Set `json-list` format.
+1. Click **Create**.
 
-### Creating a binding to data in {{ yq-full-name }} {#create_connection}
+## Run a data query {#query}
 
-Create a [binding](../concepts/glossary.md#binding) to {{ yds-full-name }} data named `cloud-logging` with the **Cloud Logging** payload template:
-
-{% include [create-connection](../_includes/create-binding.md) %}
-
-## Data query {#query}
-
-Open the query editor in the {{ yq-full-name }} interface and run the query:
+Open the query editor in the {{ yq-name }} interface and run the query:
 
 ```sql
 $cloud_logging_data =
 SELECT
     CAST(JSON_VALUE(data, "$.timestamp") AS Timestamp) AS `timestamp`,
     JSON_VALUE(data, "$.jsonPayload.host") AS host
-FROM bindings.`cloud-logging`;
+FROM bindings.`cloud-logging-binding`;
 
 SELECT
     host,
@@ -140,8 +87,15 @@ GROUP BY
 LIMIT 2;
 ```
 
-{% note info %}
+Result:
+
+| # | host | message_count | timestamp |
+| :--- | :--- | ---: | :--- |
+| 1 | "test_host" | 3 | 2023-05-09T10:34:00.000000Z |
+| 2 | "test_host" | 4 | 2023-05-09T10:34:10.000000Z |
 
 {% include [limit](../_includes/select-limit.md) %}
 
-{% endnote %}
+## See also {#see-also}
+
+* [{#T}](../sources-and-sinks/data-streams.md).

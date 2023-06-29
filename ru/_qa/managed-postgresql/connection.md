@@ -8,6 +8,10 @@
 
 Подробнее см. в [документации сервиса](../../managed-postgresql/operations/connect.md).
 
+#### Можно ли подключиться к кластеру из Docker-контейнера? {#conn-from-docker}
+
+Да, для этого [настройте Dockerfile](../../managed-postgresql/operations/connect.md#connection-docker).
+
 #### Как получить SSL-сертификат для подключения к {{ mpg-name }} на Windows? {#get-ssl}
 
 SSL-сертификат можно получить с помощью PowerShell:

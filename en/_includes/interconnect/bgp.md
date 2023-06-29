@@ -17,13 +17,16 @@ To set up BGP connectivity, each side must specify the BGP autonomous system num
 
 {% note warning %}
 
-On the {{ yandex-cloud }} side, a 4-byte BGP ASN value, **{{ cic-bgp-asn }}**, is used. When using network equipment from various vendors, using 2-byte BGP ASN values as the most common ones will be prioritized.
+On the {{ yandex-cloud }} side, a 4-byte BGP ASN value, **{{ cic-bgp-asn }}**, is used. When using network equipment from different vendors, using 2-byte BGP ASN values as the most common ones will be prioritized.
 
 When setting up BGP connectivity on the client router side, make sure to explicitly allow 4-byte BGP ASN values in its configuration.
+
+When setting up BGP interaction on the client router, for public connections on public IPv4 addresses owned by the client, make sure to specify the client's public BGP ASN.
 
 {% endnote %}
 
 ### BGP authentication (optional) {#bgp-auth}
+
 To increase the security level of a BGP connection, you can use BGP authentication based on the `BGP MD5 password` mechanism. If the feature is enabled, use a string of more than 20 characters as a password, which may include Latin letters, numbers, and special characters.
 
 ### BFD protocol {#bfd}
@@ -34,5 +37,8 @@ The BFD protocol is always enabled on the {{ yandex-cloud }} equipment side and 
 * `timer`: 300ms
 * `multiplier`: 3
 
-Technical support can change the `timer` parameter value (by only increasing it) upon request. Changes to the `multiplier` parameter value are not allowed.
+These parameter values are fixed and cannot be changed manually.
 
+On their equipment, the client can configure an appropriate `timer` value when needed. When establishing a BFD session, these parameters will be negotiated over BFD between the client equipment and {{ yandex-cloud }} equipment.
+
+We do not recommend setting a `multiplier` other than 3: this might result in suboptimal protocol performance.

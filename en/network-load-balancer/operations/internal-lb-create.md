@@ -46,7 +46,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       1. Select a target group or [create a new one](target-group-create.md):
          * In the **Target group** field, select ![image](../../_assets/plus-sign.svg) **Create target group**.
          * In the resulting window, enter a target group name.
-         * Add virtual machines to the target group.
+         * Add VMs to the target group.
          * Click **Create**.
       1. (Optional) Under **Health check**, click **Configure**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
          * **Name**.

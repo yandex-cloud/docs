@@ -145,20 +145,7 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 {{ PG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\AppData\Roaming\postgresql; `
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-  ```
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -276,6 +263,21 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
     * **Client private key** — выберите файл `private.pem`.
 
 1. Нажмите **Выполнить аутентификацию**.
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mpg-name }} добавьте в Dockerfile следующие строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget postgresql-client --yes && \
+    mkdir -p ~/.postgresql && \
+    wget "{{ crt-web-path }}" \
+        --output-document ~/.postgresql/root.crt && \
+    chmod 0600 ~/.postgresql/root.crt
+```
 
 ## Примеры строк подключения {#connection-string}
 

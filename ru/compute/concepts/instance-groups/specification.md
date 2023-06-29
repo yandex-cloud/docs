@@ -107,7 +107,7 @@ service_account_id: ajefnb8427bhl9t0pvf8
       "description": "ALB target group for example instance group",
       "labels": {
         "foo": "bar",
-        "environment": "production"     
+        "environment": "production"
       }
     }
     ```

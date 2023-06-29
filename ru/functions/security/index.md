@@ -16,9 +16,11 @@ description: "Управление доступом сервиса для зап
 
 Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) и [функцию](../concepts/function.md). Роли, назначенные на облако или каталог, действуют и на функции, которые находятся в них.
 
-## Какие роли действуют в сервисе {#roles}
+## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ sf-name }}.
+
+### Сервисные роли {#service-roles}
 
 {% include [functions-roles-viewer](../../_includes/roles-functions-viewer.md) %}
 
@@ -34,18 +36,6 @@ description: "Управление доступом сервиса для зап
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### Примитивные роли {#primitive-roles}
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список функций или версий и журнал выполнения функции.
-
-### {{ roles-editor }} {#editor}
-
-Пользователь с ролью `{{ roles-editor }}` может управлять функциями и версиями, например создать или удалить версию или отредактировать информацию о функции.
-
-Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
-
-### {{ roles-admin }} {#admin}
-
-Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям запускать функции или работать с версиями.
-
-Роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}

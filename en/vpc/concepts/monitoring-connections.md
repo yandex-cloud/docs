@@ -4,7 +4,7 @@ To ensure the performance of the network load balancer and [security groups](sec
 
 {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-Two records are created for each connection: one for incoming VM traffic and one for outgoing VM traffic. The records are deleted once the following conditions are met:
+Two records are created for each connection: one for incoming VM traffic and another one for outgoing VM traffic. The records are deleted once the following conditions are met:
 
 {% include [conditions-for-deleting-records](../../_includes/vpc/conditions-for-deleting-records.md) %}
 

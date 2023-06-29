@@ -18,7 +18,7 @@ The examples below demonstrates how to use the idempotency mechanism when workin
 
 ### Example 1 {#example-1}
 
-Let's say you send a start VM request:
+Let's assume you sent a start VM request:
 
 ```
 POST /compute/v1/instances/e0m97h0gbq0foeuis03:start

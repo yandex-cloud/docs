@@ -1,6 +1,6 @@
 # Backups
 
-Connection, binding, query, and {{ yq-short-name }} run settings are securely stored and replicated within the {{ yandex-cloud }} infrastructure.
+Connection, binding, query, and {{ yq-name }} run settings are securely stored and replicated within the {{ yandex-cloud }} infrastructure.
 
 {{ yq-full-name }} does not store the data the queries are executed on.
 

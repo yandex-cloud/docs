@@ -1,80 +1,66 @@
-# Analyzing CDC Debezium streams
+# Processing CDC Debezium streams
 
-[Debezium](https://debezium.io) is a change data capture service for streaming DB changes to other systems for processing. You can use {{ yds-full-name }} to capture these changes and {{ yq-full-name }} to process them.
+[Debezium](https://debezium.io) is a change data capture service for streaming DB changes to other systems for processing. You can use {{ yds-full-name }} to capture these changes and {{ yq-full-name }} to process them. You can do the following with processed data:
 
-Processed data can be sent:
-- To {{ monitoring-name }} to add it to charts and use it in alerting.
-- Write it to a different {{ yds-full-name }} stream and send the data for processing to {{ sf-name }} or {{ data-transfer-name }} [to send the data to different storage systems](../../data-streams/tutorials/data-ingestion.md) from that stream.
+* Send it to {{ monitoring-full-name }} to make charts and use it in alerting.
+* Write it to a {{ yds-short-name }} stream and then send it to {{ sf-full-name }} for processing.
+* Write it to a {{ yds-short-name }} stream and then transfer it to {{ data-transfer-full-name }} to be [sent to various storage systems](../../data-streams/tutorials/data-ingestion.md).
 
-See below the solution architecture:
-![debezium-architecture](../../_assets/query/debezium-architecture.png).
+![debezium-architecture](../../_assets/query/debezium-architecture.png)
 
-Sample query for getting the number of changes in DB tables broken down by time every 10 seconds:
+In this use case, you will send [{{ PG }}](https://www.postgresql.org/) database changes to a {{ yds-short-name }} stream using Debezium and then run a query to them with {{ yq-name }}. The query will return the number of changes in DB tables grouped by 10s interval. It is assumed that Debezium is installed on the server with {{ PG }} set up and running.
 
-```sql
-$debezium_data =
-SELECT
-    JSON_VALUE(data,"$.payload.source.table") AS table_name,
-    DateTime::FromMilliseconds(cast(JSON_VALUE(data,"$.payload.source.ts_ms") AS uint64)) AS `timestamp`
-FROM
-(
-    SELECT
-        CAST(Data AS json) AS data
-    FROM yds.`debezium`
-    WITH
-    (
-        format=raw,
-        SCHEMA
-        (
-            Data String
-        )
-    )
-);
+To implement this use case:
 
-SELECT
-    table_name,
-    HOP_END()
-FROM
-    $debezium_data
-GROUP BY
-    HOP(`timestamp`, "PT10S", "PT10S", "PT10S"),
-    table_name
- LIMIT 2;
-```
+1. [{#T}](#create-yds-stream).
+1. [{#T}](#credentials).
+1. [{#T}](#debezium-server).
+1. [{#T}](#connect-query).
+1. [{#T}](#query).
 
-To learn how to work with streaming data fetched from {{ yds-full-name }}, see [Reading Data from Data Streams](../sources-and-sinks/data-streams.md).
+## Getting started {#before-you-begin}
 
-## Setup {#setup}
-To get a data stream:
-1. [Create a {{ yds-full-name }} stream](#create_stream).
-1. [Set parameters for a connection](#credentials) to {{ yds-full-name }}
-1. [Set up and start](#debezium_server) the Debezium Server.
-1. [Run a query in {{ yql-full-name }}](#query) to the data being transferred.
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-### Creating a stream {#create_stream}
+## Create a {{ yds-name }} data stream {#create-yds-stream}
 
-Create a {{ yds-full-name }} stream named `debezium`. For detailed information about creating streams, see the [{{ yds-full-name }} documentation](../../data-streams/operations/manage-streams.md).
+[Create a stream](../../data-streams/operations/manage-streams.md#create-data-stream) named `debezium`.
 
-### Setting {{ yds-full-name }} connection parameters {#credentials}
+## Set the stream connection parameters {#credentials}
 
-{% include [create-environment](../../_includes/data-streams/create-environment.md) %}
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
+1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
+1. On the server where {{ PG }} is set up and running, configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
+   1. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and run this command:
 
-### Setting up Debezium Server {#debezium_server}
+      ```bash
+      aws configure
+      ```
+
+    1. Enter the following one by one:
+
+      * `AWS Access Key ID [None]:`: [ID of the service account's access key](../../iam/concepts/authorization/access-key.md).
+      * `AWS Secret Access Key [None]:`: [Secret access key](../../iam/concepts/authorization/access-key.md) of the service account.
+      * `Default region name [None]:`: The `{{ region-id }}` availability zone.
+
+## Set up Debezium Server {#debezium-server}
+
+On the server where PostgreSQL is set up and running:
 
 {% include [debezium-setup](../../_includes/data-streams/debezium-setup.md) %}
 
-## Running a {{ yql-full-name }} query {#query}
+## Connect {{ yq-name }} to your data stream {#connect-query}
 
-Follow the steps below to create a connection named `yds-connection`:
+1. [Create a connection](../operations/connection.md#create) with the `yds-connection` name and `Data Streams` type.
+1. On the binding creation page:
+   * Enter the binding name: `debezium`.
+   * Specify the stream: `cdebezium`.
+   * Add a `JSON` column named `data`.
+1. Click **Create**.
 
-{% include [create-connection](../_includes/create-connection.md) %}
+## Run a data query {#query}
 
-Create a [binding](../concepts/glossary.md#binding) to {{ yds-full-name }} data named `debezium` with the only **data** column of the **JSON** type:
-
-{% include [create-connection](../_includes/create-binding.md) %}
-
-
-Open the query editor in the {{ yq-full-name }} interface and run the query:
+Open the query editor in the {{ yq-name }} interface and run the query:
 
 ```sql
 $debezium_data =
@@ -94,8 +80,8 @@ GROUP BY
 LIMIT 2;
 ```
 
-{% note info %}
-
 {% include [limit](../_includes/select-limit.md) %}
 
-{% endnote %}
+## See also {#see-also}
+
+* [{#T}](../sources-and-sinks/data-streams.md)

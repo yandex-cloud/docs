@@ -153,70 +153,60 @@
 
   1. Опишите в конфигурационном файле параметры HTTP-роутера и виртуального хоста:
 
-     ```hcl
-     resource "yandex_alb_http_router" "tf-router" {
-       name   = "<имя_HTTP-роутера>"
-       labels = {
-         tf-label    = "tf-label-value"
-         empty-label = ""
-       }
-     }
+      ```hcl
+      resource "yandex_alb_http_router" "tf-router" {
+        name          = "<имя_HTTP-роутера>"
+        labels        = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+      }
     
-     resource "yandex_alb_virtual_host" "my-virtual-host" {
-       name           = "<имя_виртуального_хоста>"
-       http_router_id = yandex_alb_http_router.tf-router.id
-       route {
-         name = "<имя_маршрута>"
-         http_route {
-           http_route_action {
-             backend_group_id = "<идентификатор_группы_бэкендов>"
-             timeout          = "3s"
-           }
-         }
-       }
-     }    
-     ```
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<имя_виртуального_хоста>"
+        http_router_id          = yandex_alb_http_router.tf-router.id
+        route {
+          name                  = "<имя_маршрута>"
+          http_route {
+            http_route_action {
+              backend_group_id  = "<идентификатор_группы_бэкендов>"
+              timeout           = "60s"
+            }
+          }
+        }
+      }    
+      ```
 
-     Где:
+      Где:
 
-     * `yandex_alb_virtual_host` — описание HTTP-роутера:
-       * `name` — имя HTTP-роутера. Формат имени:
-
-          {% include [name-format](../../_includes/name-format.md) %}
-
-       * `labels` — [метки](../../resource-manager/concepts/labels.md) для HTTP-роутера. Укажите пару ключ-значение.
-     * `yandex_alb_virtual_host` — описание виртуального хоста:
-       * `name` — имя виртуального хоста. Формат имени:
+      * `yandex_alb_http_router` — описание HTTP-роутера:
+        * `name` — имя HTTP-роутера. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-       * `http_router_id` — идентификатор HTTP-роутера.
-       * `route` — описание маршрута HTTP-роутера. Укажите имя маршрута, идентификатор группы бэкендов и время для обработки запроса (по умолчанию 60 секунд).
+        * `labels` — [метки](../../resource-manager/concepts/labels.md) для HTTP-роутера. Укажите пару ключ-значение.
+      * `yandex_alb_virtual_host` — описание виртуального хоста:
+        * `name` — имя виртуального хоста. Формат имени:
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в документации провайдера ([yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)).
+          {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Проверьте корректность конфигурационных файлов.
+        * `http_router_id` — идентификатор HTTP-роутера.
+        * `route` — описание маршрута HTTP-роутера:
+          * `name` — имя маршрута.
+          * `http_route_action` — параметр для указания действия с HTTP-трафиком.
+            * `backend_group_id` — идентификатор группы бэкэндов.
+            * `timeout` — максимальный тайм-аут ожидания запроса, в секундах.
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-        ```bash
-        terraform plan
-        ```
+      * Ресурс [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router).
+      * Ресурс [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host).
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+  1. Создайте ресурсы
 
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
         ```bash
         yc alb http-router get <имя_HTTP-роутера>

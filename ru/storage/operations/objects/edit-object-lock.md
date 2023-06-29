@@ -72,7 +72,7 @@
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
        --version-id <идентификатор_версии> \
-       --retention Mode="",RetainUntilDate="" \
+       --retention '{}' \
        --bypass-governance-retention
      ```
    

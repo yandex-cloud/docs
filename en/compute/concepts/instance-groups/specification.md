@@ -9,14 +9,14 @@ You can create or edit an instance group based on the specification in the [YAML
 
 {% note info %}
 
-You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [Create an instance group](../../operations/instance-groups/create-fixed-group.md), and the [resource guide `yandex_compute_instance_group`]({{ tf-provider-link }}/compute_instance_group).
+You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [Create an instance group](../../operations/instance-groups/create-fixed-group.md), and the [`yandex_compute_instance_group` resource guide]({{ tf-provider-link }}/compute_instance_group).
 
 {% endnote %}
 
 
 ## Example {#example}
 
-You can use the specification below to create an automatically scalable VM group, as in the message [processing scenario from the {{ message-queue-full-name }} queue](../../tutorials/autoscale-monitoring.md):
+You can use the specification below to create an automatically scalable instance group, as in the [tutorial on how to process messages from the {{ message-queue-full-name }} queue](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
 folder_id: b1gken0eihqn2oa0fm2k
@@ -87,7 +87,7 @@ Some first-level fields and their nested fields are also described  in the follo
 * [{#T}](policies/deploy-policy.md) (the `deploy_policy` field).
 * [{#T}](policies/scale-policy.md) (the `scale_policy` field).
 
-These sections are updated manually. They may be less up-to-date than the API references and our specification on GitHub.
+These sections are updated manually. They may be not as up-to-date as the API references and our specification on GitHub.
 
 ## Converting JSON and Protobuf to YAML {#translation-to-yaml}
 
@@ -99,16 +99,16 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
   - JSON
 
-    ```json
-    "targetGroupSpec": {
-      "name": "spec-example-tg",
-      "description": "ALB target group for example instance group",
-      "labels": {
-        "foo": "bar",
-        "environment": "production"
+      ```json
+      "targetGroupSpec": {
+        "name": "spec-example-tg",
+        "description": "ALB target group for example instance group",
+        "labels": {
+          "foo": "bar",
+          "environment": "production"
+        }
       }
-    }
-    ```
+      ```
 
   - Protobuf
 
@@ -135,30 +135,30 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 * Arrays (JSON) and fields of the `repeated` type (Protobuf) are converted to YAML lists:
 
-  {% list tabs %}
+   {% list tabs %}
 
-  - JSON
+   - JSON
 
-    ```json
-    "variables": [
-      {
-        "key": "foo",
-        "value": "bar"
-      },
-      {
-        "key": "baz",
-        "value": "foobar"
+      ```json
+      "variables": [
+        {
+          "key": "foo",
+          "value": "bar"
+        },
+        {
+          "key": "baz",
+          "value": "foobar"
+        }
+      ]
+      ```
+
+   - Protobuf
+
+      ```protobuf
+      message Variable {
+        string key = 1;
+        string value = 2;
       }
-    ]
-    ```
-
-  - Protobuf
-
-    ```protobuf
-    message Variable {
-      string key = 1;
-      string value = 2;
-    }
 
     repeated Variable variables = 1;
     ```
@@ -181,16 +181,16 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
   - Protobuf
 
-    ```protobuf
-    message AttachedDiskSpec {
-      enum Mode {
-        MODE_UNSPECIFIED = 0;
-        READ_ONLY = 1;
-        READ_WRITE = 2;
+      ```protobuf
+      message AttachedDiskSpec {
+        enum Mode {
+          MODE_UNSPECIFIED = 0;
+          READ_ONLY = 1;
+          READ_WRITE = 2;
+        }
+        Mode mode = 1;
       }
-      Mode mode = 1;
-    }
-    ```
+      ```
 
   - YAML
 
@@ -203,9 +203,9 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 ## Value format {#values}
 
-In YAML format, all values in dictionary objects are implicitly strings, so you don't need to use quotation marks for them. The string contents must match the types specified in the API reference or in the Protobuf specification: `string`, `int64`, `bool`, and so on.
+In YAML format, all values in dictionary objects are implicitly strings, so you do not need to use quotation marks for them. The string contents must match the types specified in the API reference or in the Protobuf specification: `string`, `int64`, `bool`, etc.
 
-### Suffixes for the `int64` type {#int64}
+## Suffixes for the `int64` type {#int64}
 
 Values of the `int64` type support the following suffixes:
 
@@ -213,16 +213,16 @@ Values of the `int64` type support the following suffixes:
 
 If a value uses a suffix, it must be prefixed by an integer.
 
-### The `boolean` type {#boolean}
+### `boolean` type {#boolean}
 
-In fields of `bool` or `boolean` type, all values listed in the [YAML format specification](https://yaml.org/type/bool.html):
+`bool` or `boolean` fields support all values listed in the [YAML format specification](https://yaml.org/type/bool.html):
 
 * True: `y`, `Y`, `yes`, `Yes`, `YES`, `true`, `True`, `TRUE`, `on`, `On`, `ON`.
 * False: `n`, `N`, `no`, `No`, `NO`, `false`, `False`, `FALSE`, `off`, `Off`, `OFF`.
 
-## How to create or edit an instance group based on a specification {#how}
+## Creating or editing an instance group based on a specification {#how}
 
-You can create an instance group based on a YAML specification using the command line interface (CLI) or API. For more information, see the instructions:
+You can create an instance group based on a YAML specification using the command line interface (CLI) or API. For more information, see these guides:
 
 * [{#T}](../../operations/instance-groups/create-from-yaml.md)
 * [{#T}](../../operations/instance-groups/update-from-yaml.md)

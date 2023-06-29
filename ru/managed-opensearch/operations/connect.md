@@ -35,23 +35,7 @@ keywords:
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
-
-  Сертификат будет сохранен в каталоге `$HOME/.opensearch/root.crt`.
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
-  ```
-
-  Сертификат будет сохранен в каталоге `$HOME\.opensearch\root.crt`.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
 ## Подключение к {{ OS }} Dashboards {#dashboards}
 

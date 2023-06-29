@@ -105,21 +105,7 @@
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
-  ```
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
 
 Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 

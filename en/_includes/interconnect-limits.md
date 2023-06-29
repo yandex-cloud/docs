@@ -9,4 +9,4 @@
 
 | Type of limit | Value |
 ----- | -----
-| Maximum number of prefixes announced over BGP per private connection | 500 |
+| Maximum number of prefixes announced by the customer over BGP per private connection | 500 |

@@ -27,7 +27,7 @@ To create a VM:
       * {{ v100-cascade-lake }}.
       * {{ t4-ice-lake }}.
       * {{ a100-epyc }}.
-   * Select a virtual machine [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPUs.
+   * Select a VM [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPU.
    * Make your VM [preemptible](../../../compute/concepts/preemptible-vm.md), if required.
 
 1. Under **Network settings**:

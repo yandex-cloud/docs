@@ -1,1 +1,5 @@
-Data from a stream source is passed as an infinite stream. In the above example, data being handled is intentionally limited with the `LIMIT N` clause to stop data processing and output the results to the console.
+{% note info %}
+
+Data from a stream source is transferred as an infinite stream. To stop data processing and output the result to the console, the data in the example is limited with the `LIMIT` operator that sets the number of rows in the result.
+
+{% endnote %}

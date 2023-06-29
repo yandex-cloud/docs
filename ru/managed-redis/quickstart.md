@@ -31,7 +31,7 @@
 
 ## Подключитесь к кластеру {#connect}
 
-1. Если в вашем кластере включена поддержка TLS, настройте SSL-сертификат:
+1. Если в вашем кластере включена поддержка TLS, получите SSL-сертификат:
 
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 

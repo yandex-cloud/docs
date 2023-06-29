@@ -27,7 +27,7 @@ Domain names in public zones are available from the internet. If you have a regi
 
 
 
-You can't create public top-level domain (TLD) zones.
+You cannot create public top-level domain (TLD) zones.
 
 For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role in the folder where the parent public zone is located. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).
 
@@ -39,7 +39,7 @@ If somebody is using your public DNS zone, contact [support](../../support/overv
 
 {% endnote %}
 
-Requests to public DNS zones and requests for external DNS names from your virtual machines are public DNS requests. {{ dns-name }} is used for public DNS requests even if your cloud doesn't contain any DNS zones other than service zones.
+Requests to public DNS zones and requests for external DNS names from your VMs are public DNS requests. {{ dns-name }} is used for public DNS requests even if your cloud doesn't contain any DNS zones other than service zones.
 
 We recommend [using caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md#public-dns-requests).
 

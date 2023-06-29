@@ -13,7 +13,7 @@ items:
       - name: Transceivers
         href: concepts/transceivers.md
       - name: Bandwidth
-        href: concepts/bandwidth.md
+        href: concepts/capacity.md
       - name: Trunk
         href: concepts/trunk.md
       - name: Private connection
@@ -26,19 +26,19 @@ items:
         href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Instructions
+  - name: Guides
     expanded: false
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating a new trunk and private connection
-        href: operations/trunk-prc-add.md
-      - name: Creating a new trunk and public connection
-        href: operations/trunk-pbc-add.md
-      - name: Adding a private connection to a trunk
-        href: operations/prc-add.md
-      - name: Adding a public connection to a trunk
-        href: operations/pbc-add.md
+      - name: Creating a direct trunk and a private connection in it
+        href: operations/trunk-priv-add.md
+      - name: Creating a direct trunk and a public connection in it
+        href: operations/trunk-pub-add.md
+      - name: Adding a private connection to a direct or partner trunk
+        href: operations/priv-add.md
+      - name: Adding a public connection to a direct or partner trunk
+        href: operations/pub-add.md
   - name: Pricing policy
     href: pricing.md
 base: en/interconnect

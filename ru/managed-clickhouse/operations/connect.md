@@ -80,35 +80,9 @@
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, получите SSL-сертификат.
+Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  Выполните команды:
-
-  {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-  1. Скачайте и импортируйте сертификат:
-      ```powershell
-      mkdir -Force $HOME\.clickhouse; `
-      (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
-        | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
-      Import-Certificate `
-        -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
-        -CertStoreLocation cert:\CurrentUser\Root
-      ```
-
-  1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
-
-  Сертификат будет сохранен в файле `$HOME\.clickhouse\{{ crt-local-file }}`.
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

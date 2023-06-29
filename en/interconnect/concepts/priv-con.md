@@ -4,11 +4,13 @@ A private connection is a logical connection to your cloud [network](../../vpc/c
 
 {% note warning %}
 
-You cannot set up multiple private connections to a single cloud network in one [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections per cloud network at different [points of presence](./pops.md) however, you cannot have more than one private connection per point of presence.
+You cannot set up multiple private connections to a single cloud network in one [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections in a cloud network at different [points of presence](./pops.md), but no more than one such private connection in a given point of presence.
 
 {% endnote %}
 
 A private connection is set up inside a [trunk](./trunk.md) and has its own unique **VLAN-ID**.
+
+Maximum IP MTU for a private connection is **8,910 bytes**. Changing IP MTU on the {{ yandex-cloud }} equipment is not allowed.
 
 ## Point-to-point subnet {#priv-address}
 
@@ -87,7 +89,7 @@ You do not have your own equipment at the point of presence and you use services
 ## Cloud subnet announcements and communication with {{ vpc-short-name }} {#prc-announce}
 
 To connect one or more cloud subnets to a private connection, you need to have the following:
-* ID of the virtual network (`vpc_net_id`) to connect to a trunk connection.
+* ID of the virtual network (`vpc_net_id`) to connect to a trunk.
 * List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes correspond to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
 
 New subnets that will be created in the virtual network later will not be announced to a {{ interconnect-name }} private connection automatically.
@@ -124,5 +126,5 @@ To automatically announce new subnets in {{ interconnect-name }}, you can use **
 > {{ region-id }}-c [10.140.0.0/16]
 > ```
 >
-> If you then create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space `10.128.0.0/16`.
+> If you then create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space, `10.128.0.0/16`.
 

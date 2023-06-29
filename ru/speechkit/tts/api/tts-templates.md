@@ -1,62 +1,50 @@
-# Синтезировать речь по шаблону с помощью API v3
+# Синтез речи по шаблону с помощью API v3 
 
-Синтез по шаблонам доступен только для голосов [{{ brand-voice-name }}](../brand-voice/index.md). Чтобы использовать синтез по шаблонам, [заполните форму](#contact-form).
+Синтез по шаблонам в {{ brand-voice-premium }} и {{ brand-voice-core }} доступен только для голосов [{{ brand-voice-name }}](../brand-voice/index.md).
 
-Чтобы синтезировать фразу по шаблону:
-
-1. [Подготовьте шаблон аудиозаписи](#prepare-template).
-1. [Отправьте данные в API v3](#send-to-api).
-
-## Перед началом работы {#before-you-begin}
-
-1. Клонируйте [репозиторий {{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
-
-    ```bash
-    git clone https://github.com/yandex-cloud/cloudapi
-    ```
-
-1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
-1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-tts }}` или выше на каталог, в котором он был создан.
-1. [Получите](../../../iam/operations/iam-token/create-for-sa.md) IAM-токен для сервисного аккаунта.
-
-## Подготовьте шаблон аудиозаписи {#prepare-template}
 
 {% note warning %}
 
-Шаблон состоит из аудиозаписи шаблонной фразы и размеченного текста фразы. В API сервиса отправляйте для синтеза только шаблоны с переменными частями. Неизменяемые фразы отправлять не нужно.
+Сервисы {{ brand-voice-premium }} и {{ brand-voice-core }} предоставляются по запросу. Для доступа к технологии [заполните форму](#contact-form).
 
 {% endnote %}
+
+
+Чтобы синтезировать фразу по шаблону:
+
+1. [{#T}](#prepare-template).
+1. [{#T}](#send-to-api).
+
+## Перед началом работы {#before-you-begin}
+
+{% include [template-synthesis-before-you-begin](../../../_includes/speechkit/api-v3-template-synthesis-before.md) %}
+
+## Подготовьте шаблон аудиозаписи {#prepare-template}
+
+Шаблон состоит из аудиозаписи шаблонной фразы и размеченного текста фразы.
+
+Ограничения на параметры шаблона:
+
+* Длительность фразы для синтеза — не более {{ tts-v3-time }} (ограничение API) вместе с переменной частью. Оптимальная для восприятия длительность фразы — не более 16 секунд, как в разговорной речи.
+* Длина шаблона — не более {{ tts-v3-count }} нормализованного текста.
+
+{% note warning %}
+
+Отправляйте в API синтеза шаблоны с переменными частями. Неизменяемые фразы отправлять не нужно.
 
 Примеры неизменяемых фраз:
 >Здравствуйте, с вами говорят из клиники "МедСити".
 >
->Это компания по вывозу строительного мусора "Вывозов".
+>Добрый день, это компания по вывозу строительного мусора "Вывозов".
 >
-
-Чтобы подготовить шаблон:
-
-* Запишите аудио шаблонной фразы.
-* Разметьте текст шаблонной фразы согласно [требованиям](../templates.md#requirements) и оберните переменные части в скобки `{}`.
-
-  Примеры разметки:
-  >Вы записаны к врачу {Ивановой} на {двадцатое марта} в {двенадцать часов}.
-  >
-  >Напоминаем, что {завтра} в {четырнадцать часов} к вам приедет машина с контейнером для вывоза мусора.
-  >
-
-* Определите для каждой переменной части значение времени ее начала и ее длительность в аудиозаписи (в миллисекундах).
-
-{% note info %}
-
-Длительность фразы для синтеза не должна превышать {{ tts-v3-time }} (ограничение API) вместе с переменной частью. Оптимальное восприятие фразы достигается при длительности не более 16 секунд — как в разговорной речи.
-
-Длина шаблона не должна превышать 250 символов нормализованного текста.
 
 {% endnote %}
 
-## Отправьте данные в API {#send-to-api}
+{% include [prepare-template-synthesis](../../../_includes/speechkit/prepare-template-synthesis.md) %}
 
-Создайте клиентское приложение для отправки данных:
+## Отправьте данные в API v3 {#send-to-api}
+
+Создайте и запустите клиентское приложение для отправки данных:
 
 {% list tabs %}
 
@@ -98,11 +86,12 @@
 
         В папке `output` будут созданы файлы с интерфейсом клиента: `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, `tts_service_pb2_grpc.py` и файлы зависимостей.
 
-    1. В корне папки `output` создайте файл (например, `test.py`) и добавьте в него код:
+    1. В корне папки `output` создайте файл `test.py` и добавьте в него код для синтеза API v3 по шаблонам.
+
+          {% cut "test.py" %}
 
           ```python
           import io
-          import grpc
           import pydub
           import argparse
 
@@ -111,7 +100,7 @@
 
           def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
               template = "<шаблонная_фраза_с_разметкой>"
-              # Пример: 'Напоминаю, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
+              # Пример: 'Напоминаем, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
               request = tts_pb2.UtteranceSynthesisRequest(
                   output_audio_spec=tts_pb2.AudioFormatOptions(
                       container_audio=tts_pb2.ContainerAudio(
@@ -120,33 +109,33 @@
                   ),
                   loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS,
                   text_template = tts_pb2.TextTemplate(
-                                  text_template = template,
-                                  variables = [
-                                      # Количество элементов tts_pb2.TextVariable() списка определяется количеством переменных в шаблоне.
-                                      tts_pb2.TextVariable(
-                                          variable_name = "<имя_переменной_в_template>",
-                                          # Пример: '{time}'
-                                          variable_value = "<текст_для_синтеза>"
-                                          # Пример: 'восемь часов тридцать минут'
-                                      )
-                                  ]
-                             ),
+                      text_template = template,
+                      variables = [
+                          # Количество элементов tts_pb2.TextVariable() в списке определяется количеством переменных в шаблоне.
+                          tts_pb2.TextVariable(
+                              variable_name = "<имя_переменной_в_template>",
+                              # Пример: '{time}'
+                              variable_value = "<текст_для_синтеза>"
+                              # Пример: 'восемь часов тридцать минут'
+                          )
+                      ]
+                  ),
                   hints = [
-                     tts_pb2.Hints(
+                      tts_pb2.Hints(
                           audio_template = tts_pb2.AudioTemplate(
                               audio = tts_pb2.AudioContent(
-                                  # Исходное аудио для шаблона
+                                  # Исходное аудио для шаблона.
                                   content = bytes_array,
                                   audio_spec = tts_pb2.AudioFormatOptions(
                                       container_audio = tts_pb2.ContainerAudio(
-                                      container_audio_type = tts_pb2.ContainerAudio.WAV
+                                          container_audio_type = tts_pb2.ContainerAudio.WAV
                                       )
                                   )
                               ),
                               text_template = tts_pb2.TextTemplate(
                                   text_template = template,
                                   variables = [
-                                      # Количество переменных tts_pb2.TextVariable() списка определяется количеством переменных в шаблоне.
+                                      # Количество элементов tts_pb2.TextVariable() в списке определяется количеством переменных в шаблоне.
                                       tts_pb2.TextVariable(
                                           variable_name = "<имя_переменной_в_template>",
                                           variable_value = "<текст_переменной_части_фразы_в_звуковом_файле_шаблона>"
@@ -154,7 +143,7 @@
                                   ]
                               ),
                               variables = [
-                                  # Количество переменных tts_pb2.AudioVariable() в списке определяется шаблоном.
+                                  # Количество элементов tts_pb2.AudioVariable() в списке определяется количеством переменных в шаблоне.
                                   tts_pb2.AudioVariable(
                                       variable_name = "<имя_переменной_в_template>",
                                       # Длина переменной части фразы в аудио шаблона (в миллисекундах).
@@ -164,17 +153,13 @@
                                   )
                               ]
                           )
-                      ),
-                     # Не передавайте этот параметр, если вы используете {{ brand-voice-cc-name }}
+                     ),
                      tts_pb2.Hints(
-                        voice = "<идентификатор_вашего_голоса>"
+                         voice = "<идентификатор_вашего_голоса>"
                      )
-
                   ],
-                  # Укажите этот параметр, если вы используете {{ brand-voice-cc-name }}
-                  model = "zsl"
               )
-    
+
               # Установить соединение с сервером.
               cred = grpc.ssl_channel_credentials()
               channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
@@ -201,7 +186,7 @@
               parser = argparse.ArgumentParser()
               parser.add_argument('--token', required=True, help='IAM token')
               parser.add_argument('--input', required=True, help='Template WAV file')
-              parser.add_argument('--output', required=True, help='Output WAV file with synthesis voice')
+              parser.add_argument('--output', required=True, help='Output WAV file with synthesized speech')
               args = parser.parse_args()
 
               with open(args.input, 'rb') as file:
@@ -212,7 +197,9 @@
                   audio.export(fp, format='wav')
           ```
 
-    1. Выполните созданный файл (в этом примере — `test.py`):
+          {% endcut %}
+
+    1. Выполните файл `test.py`:
 
         ```bash
         export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
@@ -231,3 +218,9 @@
 {% endlist %}
 
 В папке `cloudapi` будет создан файл `speech.wav` с синтезированной по шаблону фразой.
+
+#### См. также {#see-also}
+
+* [{#T}](tts-examples-v3.md)
+* [{#T}](../brand-voice/index.md)
+* [{#T}](../templates.md)

@@ -2,7 +2,7 @@
 
 {{ ddos-protection-full-name }} is the {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks, and is provided in partnership with Qrator Labs.
 
-Activating the service {{ ddos-protection-full-name }} for VM instances or network load balancers allows you to efficiently responds to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances. Such attacks are characterized by a broad bandwidth and produce a large number of packets per second. They are relatively easy to set up: attackers typically send a flood of TCP SYN (SYN Flood) packets or traffic of UDP-based application protocols, e.g. DNS, NTP, SSDP, CLDAP, etc.
+Activating {{ ddos-protection-full-name }} for VM instances or network load balancers allows you to efficiently respond to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances. Such attacks are characterized by a broad bandwidth and produce a large number of packets per second. They are relatively easy to set up: attackers typically send a flood of TCP SYN (SYN Flood) packets or traffic of UDP-based application protocols (such as DNS, NTP, SSDP, CLDAP, and more).
 
 To prevent such attacks, {{ ddos-protection-name }}:
 * Constantly analyzes all incoming traffic.

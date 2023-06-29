@@ -76,11 +76,11 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       Where:
 
-      * `name`: The name of the route table.
-      * `network-id`: The ID of the network where the table will be created.
-      * `route`: The route settings with two parameters:
-         * `destination`: The destination subnet prefix in CIDR notation.
-         * `next-hop`: The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+      * `name`: Name of the route table.
+      * `network-id`: ID of the network where the table will be created.
+      * `route`: Route settings with two parameters:
+         * `destination`: Destination subnet prefix in CIDR notation.
+         * `next-hop`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
 
       Result:
       ```
@@ -147,11 +147,11 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Name of the route table. Use this name format:
+      * `name`: Name of the route table. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `network-id`: The ID of the network where the table will be created.
+      * `network-id`: ID of the network where the table will be created.
       * `static_route`: Static route description:
          * `destination_prefix`: Destination subnet prefix in CIDR notation.
          * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
@@ -194,7 +194,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc route-table list

@@ -26,7 +26,7 @@ To prepare an image ready for use in {{ yandex-cloud }}:
 
       If you put folders with drivers elsewhere, specify the appropriate paths.
    1. Find out the checksum of your distribution (for example, execute `openssl dgst -sha256 <path to distribution>`). Insert the obtained value into the `iso_checksum` parameter after `sha256:`.
-   1. (optional) With MacOS, you need to replace the `accelerator = "kvm"` value to `accelerator = "hvf"`.
+   1. (optional) With MacOS, you need to replace the `accelerator  = "kvm"` value to `accelerator  = "hvf"`.
 1. Go to the folder with the necessary image configuration (for example, `external-windows-packer/ws22gui-qemu`) and execute the `packer build .` command.
 
 After command execution, a disk image is created in `.qcow2` format.
@@ -50,7 +50,7 @@ Using the [{{ compute-name }} API](../compute/api-ref/Image/create.md), you can 
 - Bash
 
    ```bash
-   curl -H "Authorization: Bearer `yc iam create-token`" -H "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
+   curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
    ```
 
 - PowerShell

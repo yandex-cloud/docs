@@ -32,7 +32,7 @@ Sample REST request for a disk:
 
 As you can see from the example, a resource URL is identified by the <q>resource category and resource ID</q> bundle.
 
-The resource category determines the type of resource. For example, `disks` is a category of disks; `instances` is a category of VMs; `images` is a category of images.
+The resource category determines the type of resource. For example, `disks` is a category of disks; `instances` is a category of VMs; and `images` is a category of images.
 
 {% note info %}
 

@@ -12,18 +12,18 @@ For example, to check the status of a trunk physical port:
 * Go to the monitoring service from the resource folder by selecting `Folder → Monitoring`.
 * Select the `Interconnect - Direct Trunk Connection Overview` section.
 * In the drop-down list of the `Resource ID` selector, choose the ID of the trunk in question.
-* The value of the `Connection State` metric must be **1**. This means the trunk port is up and running.
+* Make sure the `Connection State` metric value is **1**, which means the trunk port is up and running.
 
 ## Monitoring the status of a private or public connection {#private-mon}
 
-Customers can check the status of a private or public connection themselves using the monitoring service.
+Customers can check the status of a private or service connection themselves using the monitoring service.
 
-For example, to check the status of BGP connectivity for a private or public connection:
+For example, to check the status of BGP connectivity for a private or service connection:
 
 * Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 * Go to the monitoring service from the resource folder by selecting `Folder → Monitoring`.
 * Select the `Interconnect → Private/Public Connection Overview` section.
-* In the drop-down list of the `Resource ID` selector, choose the ID of the private or public connection in question.
+* In the `Resource ID` drop-down list, choose the ID of the private or public connection.
 * Make sure the `BGP State` metric value is **1**, which means the BGP connectivity for this private connection is up and running.
 
 ## Metric types {#metric-types}
@@ -79,7 +79,7 @@ The monitoring service collects the following types of metrics for {{ interconne
 
 * If the values of the metrics that have `dropped_packets_` and `error_packets_` in their names do not increase, this indicates that there is no packet loss on the {{ interconnect-name }} equipment, but does not guarantee that there is no packet loss along the entire path of user traffic (from the user's resources to {{ yandex-cloud }} and to the user infrastructure).
 * The values of the metrics with `num` and `seconds` in their names can be reset as a result of intentional or forced actions made by the {{ yandex-cloud }} team or due to exceeding the metric measurement range.
-* Trunk connection metrics are available to the user in the case of a direct trunk connection and unavailable in the case of a partner trunk connection.
+* Trunk metrics are available to the user in case of a direct trunk and unavailable in case of a partner trunk.
 
 ## Metric collection point {#collect-point}
 

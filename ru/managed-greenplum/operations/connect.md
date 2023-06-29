@@ -61,20 +61,7 @@
 
 Чтобы использовать SSL-соединение, получите сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\AppData\Roaming\postgresql
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-  ```
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

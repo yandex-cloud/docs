@@ -19,17 +19,15 @@
          Также чтобы указать FQMN, вы можете использовать опции:
          * `Совпадает с` — для маршрутизации всех запросов, совпадающих с указанным FQMN.
          * `Регулярное выражение` — для маршрутизации всех запросов, удовлетворяющих [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax).
-      
      {% note warning %}
 
      FQMN должно начинаться с косой черты `/` и содержать часть полного названия сервиса, на который перенаправляется вызов процедуры.
 
      {% endnote %}
-     
+
      1. В поле **Действие** оставьте `Маршрутизация`.
      1. В списке **Группа бэкендов** выберите имя группы бэкендов из того же каталога, в котором создаете роутер. 
      1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
-
 
 - CLI
 
@@ -129,6 +127,73 @@
           backend_group_id: ds7snban2dvnedokp6kc
           max_timeout: 60s
      ```
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры HTTP-роутера и виртуального хоста:
+
+      ```hcl
+      resource "yandex_alb_http_router" "tf-router" {
+        name          = "<имя_HTTP-роутера>"
+        labels        = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+      }
+
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<имя_виртуального_хоста>"
+        http_router_id          = yandex_alb_http_router.tf-router.id
+        route {
+          name                  = "<имя_маршрута>"
+          grpc_route {
+            grpc_route_action {
+              backend_group_id  = "<идентификатор_группы_бэкендов>"
+              max_timeout       = "60s"
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `yandex_alb_http_router` — описание HTTP-роутера:
+        * `name` — имя HTTP-роутера. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+        * `labels` — [метки](../../resource-manager/concepts/labels.md) для HTTP-роутера. Укажите пару ключ-значение.
+      * `yandex_alb_virtual_host` — описание виртуального хоста:
+        * `name` — имя виртуального хоста. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+        * `http_router_id` — идентификатор HTTP-роутера.
+        * `grpc_route` — описание маршрута для gRPC-трафика:
+          * `name` — имя маршрута.
+          * `grpc_route_action` — параметр для указания действия c gRPC-трафиком.
+             * `backend_group_id` — идентификатор группы бэкэндов.
+             * `max_timeout` — максимальный тайм-аут ожидания запроса, в секундах.
+
+      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+      * Ресурс [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router).
+      * Ресурс [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host).
+
+  1. Создайте ресурсы
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc alb http-router get <имя_HTTP-роутера>
+      ```
 
 - API
 

@@ -50,7 +50,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
    1. **{{ ui-key.yacloud.load-testing.field_target-address }}**: Enter the address of the service to test: `example.myservice.ru`.
    1. **{{ ui-key.yacloud.load-testing.field_target-port }}**: Set to `80` (default HTTP port).
    1. **Testing threads**: `1000`.
-      This means that the load generator can simultaneously process 1000 operations: either create 1000 connections or wait for 1000 responses from the service at the same time.
+      This means that the load generator can simultaneously process 1000 operations (create 1000 connections or wait for 1000 responses from the service at the same time).
 
       {% note warning %}
 

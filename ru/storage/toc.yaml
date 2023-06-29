@@ -45,6 +45,8 @@ items:
             href: operations/objects/download.md
           - name: Восстановление версии объекта
             href: operations/objects/restore-object-version.md
+          - name: Переименование и перемещение объекта
+            href: operations/objects/rename-move.md
           - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
           - name: Настройка блокировок версии объекта

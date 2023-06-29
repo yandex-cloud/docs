@@ -109,10 +109,12 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Асинхронное распознавание формата OggOpus — API v2
         href: stt/api/transcribation-ogg.md
-      - name: Синтез API v3
+      - name: Синтез речи в API v3
         href: tts/api/tts-examples-v3.md
-      - name: Синтез по шаблонам
+      - name: Синтез речи по шаблонам
         href: tts/api/tts-templates.md
+      - name: Синтез речи по шаблонам Brand Voice Call Center
+        href: tts/api/tts-templates-bvcc.md
       - name: Синтез речи в формате WAV — API v1
         href: tts/api/tts-wav.md
       - name: Синтез речи в формате OggOpus — API v1

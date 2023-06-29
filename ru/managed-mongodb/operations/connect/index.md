@@ -29,19 +29,7 @@
 
 Чтобы подключиться к {{ MG }}-хостам с публичным доступом, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-    {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-    ```powershell
-    mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ crt-web-path }}
-    ```
-
-{% endlist %}
+{% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

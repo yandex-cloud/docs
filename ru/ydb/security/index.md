@@ -22,9 +22,11 @@ sourcePath: overlay/security/start_auth.md
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Роли {#roles}
+## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ ydb-name }}.
+
+### Сервисные роли {#service-roles}
 
 {% include [ydb-viewer](../../_includes/iam/roles/ydb-viewer.md) %}
 
@@ -32,16 +34,18 @@ sourcePath: overlay/security/start_auth.md
 
 {% include [ydb-admin](../../_includes/iam/roles/ydb-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
 
 {% include [roles-viewer](../../_includes/roles-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 {% include [roles-editor](../../_includes/roles-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}

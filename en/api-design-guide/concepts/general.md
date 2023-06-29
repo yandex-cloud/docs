@@ -8,7 +8,7 @@
 
 APIs use a resource-based approach. The concepts that apply to all {{ yandex-cloud }} APIs are described below:
 
-- Resources in APIs are VMs, disks, images, and so on. Each resource has a [unique ID](resources-identification.md).
+- In APIs, resources are VMs, disks, images, etc. Each resource has a [unique ID](resources-identification.md).
 
 - Two sets of methods are defined for managing resources in APIs:
 
