@@ -1,3 +1,3 @@
-# Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
+# Delivering data from a {{ KF }} queue to {{ GP }}
 
 {% include [article-body](../../_tutorials/datatransfer/managed-kafka-to-greenplum.md) %}

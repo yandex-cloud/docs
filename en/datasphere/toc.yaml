@@ -43,6 +43,8 @@ items:
             href: operations/projects/control-compute-resources.md
           - name: Checking GPU load
             href: operations/projects/gpu-performance-check.md
+          - name: Getting notebook and cell IDs
+            href: operations/projects/get-notebook-cell-ids.md
           - name: Installing packages
             href: operations/projects/install-dependencies.md
           - name: Resetting the interpreter state
@@ -147,7 +149,7 @@ items:
             href: concepts/dataset.md
           - name: '{{ dataproc-name }} templates'
             href: concepts/data-proc-template.md
-      - name: Using models
+      - name: Deploying models
         href: concepts/deploy/index.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -171,6 +173,8 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Running computations on a schedule
         href: tutorials/regular-launch.md
+      - name: Running computations using the API
+        href: tutorials/batch-code-execution.md
   - name: API reference
     items:
       - name: Overview

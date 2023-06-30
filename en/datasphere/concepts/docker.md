@@ -1,6 +1,6 @@
 # Docker images
 
-You can set up a {{ ml-platform-name }} project environment on your own by using a _Docker image_ with an arbitrary set of software, libraries, environment variables, and configuration files. The Docker image you apply to your project will be used when running code in all of its notebooks.
+You can set up a {{ ml-platform-name }} project environment on your own by using a [_Docker image_](https://docs.docker.com/engine/reference/commandline/image/) with an arbitrary set of software, libraries, environment variables, and configuration files. The Docker image you apply to your project will be used when running code in all of its notebooks.
 
 You can't change Docker images after you create them.
 
@@ -14,6 +14,8 @@ For a Docker image to run and operate correctly in {{ ml-platform-name }}, it mu
 * A Python 3.7, 3.8, or 3.9 installation.
 * A pip installation.
 * A {{ jlab }} user.
+
+{% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 {% note info %}
 

@@ -6,7 +6,7 @@ Maintenance means:
 * Changes to the host class and storage size.
 * Other maintenance activities.
 
-Maintenance includes changes within one {{ OS }} version. 
+Changing a major DBMS version is not part of maintenance. For more information about major version changes, see [{#T}](../operations/cluster-version-update.md).
 
 In {{ mos-name }} single-host clusters, a single host undergoes maintenance. So, such a cluster becomes unavailable if a single host needs to be restarted during maintenance.
 

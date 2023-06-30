@@ -57,6 +57,8 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL
             href: operations/objects/edit-acl.md
+          - name: Object label management
+            href: operations/objects/tagging.md
       - name: Static website hosting
         items:
           - name: Hosting setup
@@ -263,6 +265,12 @@ items:
                     href: s3/api-ref/object/getobjectretention.md
                   - name: getObjectLegalHold
                     href: s3/api-ref/object/getobjectlegalhold.md
+                  - name: putObjectTagging
+                    href: s3/api-ref/object/putobjecttagging.md
+                  - name: getObjectTagging
+                    href: s3/api-ref/object/getobjecttagging.md
+                  - name: deleteObjectTagging
+                    href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
                   - name: General multipart upload procedure
@@ -391,6 +399,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
+  - name: Log reference
+    href: logs-ref.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

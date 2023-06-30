@@ -22,7 +22,7 @@
 
 Чтобы войти в {{ tracker-full-name }}:
 
-1. Перейдите в [{{ tracker-name }}]({{ link-tracker }}). Нажмите кнопку **Войти в Tracker**.
+1. Перейдите в [{{ tracker-name }}]({{ link-tracker }}). Нажмите кнопку **{{ ui-key.startrek.ui_components_promo_Page.login-button-label }}**.
 
 1. Выберите аккаунт, который вы используете для работы в {{ tracker-name }}:
 
@@ -60,7 +60,7 @@
 
 1. На панели слева внизу нажмите на фото профиля.
 
-1. Напротив своего логина нажмите кнопку ![](../../_assets/tracker/svg/logout.svg) **Выйти**.
+1. Напротив своего логина нажмите кнопку ![](../../_assets/tracker/svg/logout.svg) **{{ ui-key.yacloud.component.user-account.label_logout }}**.
 
 1. Выберите другого пользователя из списка или нажмите **Войти в другой аккаунт**. 
 	

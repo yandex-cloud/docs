@@ -10,4 +10,6 @@ For example, the command below creates a session named `ses1` in `my-new-cluster
 %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
 ```
 
+Dynamic resource allocation is enabled in sessions by default. To limit session resources, set `--conf spark.dynamicAllocation.enabled` to `false`.
+
 For a full list of livy session parameters, see the [official documentation](https://livy.incubator.apache.org/docs/latest/rest-api.html).

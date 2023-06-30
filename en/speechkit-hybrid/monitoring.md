@@ -1,10 +1,18 @@
-# Monitoring {{ sk-hybrid-name }}
+# Monitoring {{ sk-hybrid-name }} services
 
-{{ sk-hybrid-name }} collects and stores metrics in [Prometheus](https://prometheus.io/) format. {{ sk-hybrid-name }} metrics are available at the following URL: `<IP address>:17002/metrics/prometheus`, where `<IP address>` is the {{ sk-hybrid-name }} IP address on your network.
+{{ sk-hybrid-name }} collects and stores metrics in [Prometheus](https://prometheus.io/) format. Service metrics {{ sk-hybrid-name }} are available at the URL:
+
+```text
+<IP address>:17002/metrics/prometheus
+```
+
+Where:
+
+* `<IP address>`: IP address of the {{ sk-hybrid-name }} service in your network.
 
 ## Common {{ sk-hybrid-name }} metrics {#metrics}
 
-The metrics collected are either for speech synthesis or speech recognition. The `TYPE grpc_code_*` metric with gRPC response codes is common to all the services. For details, see the [gRPC documentation](https://grpc.github.io/grpc/core/md_doc_statuscodes.html).
+The metrics collected are either for speech synthesis or speech recognition. The `TYPE grpc_code_*` metric with gRPC response codes is common to all the services. For more information, see the [gRPC documentation](https://grpc.github.io/grpc/core/md_doc_statuscodes.html).
 
 ## Speech synthesis metrics {#tts-metrics}
 

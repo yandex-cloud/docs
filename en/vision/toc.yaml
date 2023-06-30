@@ -20,6 +20,8 @@ items:
         href: operations/face-detection/index.md
       - name: Base64 encoding
         href: operations/base64-encode.md
+      - name: Setting up access with API keys
+        href: operations/sa-api-key.md
   - name: Tutorials
     items:
       - name: All tutorials

@@ -10,14 +10,14 @@
 
 - Management console
 
-   1. Go to the folder page and select **{{ mrd-name }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.redis.cluster.switch_logs }}** tab.
    1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
    1. Select the hosts in the drop-down list next to the date input field, if required.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
 
-   If there are too many records and only some of them are displayed, click the **Load more** link at the end of the list.
+   If there are too many records and only some of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
 
 - CLI
 
@@ -31,7 +31,7 @@
       {{ yc-mdb-rd }} cluster list-logs --help
       ```
 
-   1. Run the command to get cluster logs (the example does not contain a complete list of available parameters):
+   1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
 
       ```bash
       {{ yc-mdb-rd }} cluster list-logs <cluster name or ID> \
@@ -60,7 +60,11 @@
 
    To get a cluster log, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+   * `REDIS`, in the `serviceType` parameter.
 
 {% endlist %}
 
@@ -88,6 +92,6 @@ This method allows you to get cluster logs in real time.
 
    To get a cluster's log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * `REDIS`, in the `serviceType` parameter.
 
 {% endlist %}

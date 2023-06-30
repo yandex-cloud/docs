@@ -6,9 +6,9 @@
 1. [Добавьте в {{ tracker-name }} пользователей](add-users.md).
 
 
-1. [Создайте очередь](manager/create-queue.md) с помощью шаблона <q>Общая поддержка</q> или <q>Поддержка по линиям</q>.
+1. [Создайте очередь](manager/create-queue.md) с помощью шаблона <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--basic-support-preset }}</q> или <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--tiered-support-preset }}</q>.
 
-    В этих [шаблонах](manager/workflows.md) уже настроены типы задач и статусы, которые удобно использовать для работы с обращениями. В шаблоне <q>Поддержка по линиям</q> предусмотрены статусы задач <q>Первая линия поддержки</q> и <q>Вторая линия поддержки</q>.
+    В этих [шаблонах](manager/workflows.md) уже настроены типы задач и статусы, которые удобно использовать для работы с обращениями. В шаблоне <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--tiered-support-preset }}</q> предусмотрены статусы задач <q>Первая линия поддержки</q> и <q>Вторая линия поддержки</q>.
 
 1. Добавьте сотрудников службы поддержки в [команду очереди](manager/queue-team.md).
 

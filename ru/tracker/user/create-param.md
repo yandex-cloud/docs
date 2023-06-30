@@ -8,57 +8,57 @@
 
 Поле задачи | Описание
 ----- | -----
-**Системные**  
+**{{ ui-key.startrek-backend.fields.issue.fields.system }}**  
 QA-инженер | Пользователь, который назначен тестировать задачу.
-Автор | Пользователь, который создал задачу.
-Возможно спам | Признак спама для задач, созданных через сервисы, с которыми настроена [интеграция](../manager/queue-mail.md).
-Дата завершения | Дата окончания работы над задачей. 
-Дата начала | Дата начала работы над задачей. 
-Дедлайн | Дата, к которой задача должна быть решена.
-Доски | Список досок, на которые добавлена задача.
-Доступ | Список пользователей, которые имеют доступ к задаче на чтение и редактирование, но не получают уведомлений о ее изменениях.<br/><br/>Правила доступа к задачам зависят от [настроек очереди](../manager/queue-access.md).
-Задача | Название задачи.
-Изменил | Пользователь, который последним внес изменения в задачу.
-Исполнитель | Пользователь, который будет работать над задачей. 
-Исправить в версиях | Версия продукта, к которой относится задача. Список доступных [версий](../manager/versions.md) определяется настройками очереди.
-Ключ | Уникальный идентификатор задачи в рамках очереди. Создается автоматически.
-Комментариев <br/>без сообщения | Количество комментариев к задаче, созданных в сервисе {{tracker-name}}.
-Комментариев <br/>с сообщением | Количество комментариев к задаче, созданных через [почту](../manager/queue-mail.md).
-Компоненты | Метки, с помощью которых можно размечать и сортировать задачи внутри очереди.<br/><br/>Список доступных [компонентов](../manager/components.md) определяется настройками очереди.
-Наблюдатели | Список пользователей, подписанных на задачу. По умолчанию они имеют доступ на чтение и редактирование, получают уведомления о любых изменениях в задаче.<br/><br/>Правила доступа к задачам зависят от [настроек очереди](../manager/queue-access.md).
-Найдено в версиях | [Версия продукта](../manager/versions.md), к которой относится задача. Список доступных версий определяется настройками очереди.
-Нужен ответ <br/>пользователя | Список пользователей, которых [призывали в комментариях](comments.md#call-comment). Как только пользователь отвечает на комментарий, его имя исчезает из этого поля.
-Обновлено | Дата и время последнего [изменения в задаче](history.md).
-Описание | Постановка задачи: описание того, что требуется сделать.
-Очередь | [Ключ очереди](../manager/create-queue.md#key), в которую входит задача.
-Последний комментарий | Дата и время последнего комментария в задаче.
-Приоритет | Значение, которое определяет важность задачи. 
-Проголосовали | Список пользователей, проголосовавших в задаче.
-Проголосовало | Количество пользователей, [проголосовавших за задачу](votes.md).
-Проект | Названия [проектов](../manager/project-new.md), к которым относится задача. 
-Разрешен | Дата и время, когда была проставлена [резолюция](../manager/create-resolution.md).
-Рассылки | Команды и отделы, подписанные на задачу. По умолчанию они имеют доступ к задаче на чтение и редактирование, получают уведомления о любых ее изменениях.<br/><br/>Правила доступа к задачам зависят от [настроек очереди](../manager/queue-access.md).
-Резолюция | Причина закрытия задачи.
-Решивший | Пользователь, который проставил резолюцию в задаче.
-Создано | Дата и время создания задачи.
-Статус | Этап выполнения задачи. Например: <q>Открыт</q>, <q>В работе</q>, <q>Тестируется</q>. Подробнее читайте в разделе [Настроить статусы](../manager/workflow-status-edit.md).
-Статус изменен | Дата и время изменения статуса задачи.
-Теги | Текстовые метки, которые облегчают поиск и сортировку задач. Подробнее читайте в разделе [Структурировать задачи](../structure.md).
-Тип | Тип задачи, например: <q>Новая возможность</q>, <q>Ошибка</q>, <q>Улучшение</q>. Подробнее читайте в разделе [{#T}](../manager/add-ticket-type.md).
-**Учёт Времени** | 
-Затрачено времени | Время, которое исполнитель [потратил на решение задачи](time-spent.md). 
-Оценка | Время, которое пользователь планирует потратить на решение задачи. Значение в поле уменьшается при указании [затраченного времени](time-spent.md#show-time-spent).
-Первоначальная оценка | Первоначальная оценка времени, необходимого для решения задачи. 
-**Agile** | 
-Story Points | Трудоемкость задачи в баллах Story Points. Подробнее читайте в разделе [Основные понятия гибкой разработки](../manager/agile.md#dlen_sp).
-Спринт | Название [спринта](../manager/create-agile-sprint.md), к которому относится задача.
-**Email** | 
-Кому | Список всех адресов электронной почты, которые пользователь указал в поле **Кому** при отправке письма.
-Копия | Адрес электронной почты, который пользователь указал в поле **Копия** при отправке письма.
-От | Адрес электронной почты отправителя письма.
-Создано по письму на адрес | Адрес электронной почты, на который было отправлено письмо для создания задачи.
-**SLA** | 
-SLA | Таймер, который отсчитывает время для обработки задач очереди. Например, можно задать время, за которое исполнитель должен отреагировать на новую задачу. Подробнее читайте в разделе [SLA](../sla-head.md).
+{{ ui-key.startrek-backend.fields.issue.author-key-value }} | Пользователь, который создал задачу.
+{{ ui-key.startrek-backend.fields.issue.possibleSpam }} | Признак спама для задач, созданных через сервисы, с которыми настроена [интеграция](../manager/queue-mail.md).
+{{ ui-key.startrek-backend.fields.issue.end-key-value }} | Дата окончания работы над задачей. 
+{{ ui-key.startrek-backend.fields.issue.start-key-value }} | Дата начала работы над задачей. 
+{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }} | Дата, к которой задача должна быть решена.
+{{ ui-key.startrek-backend.fields.issue.boards }} | Список досок, на которые добавлена задача.
+{{ ui-key.startrek-backend.fields.issue.access }} | Список пользователей, которые имеют доступ к задаче на чтение и редактирование, но не получают уведомлений о ее изменениях.<br/><br/>Правила доступа к задачам зависят от [настроек очереди](../manager/queue-access.md).
+{{ ui-key.startrek-backend.fields.issue.summary-key-value }} | Название задачи.
+{{ ui-key.startrek-backend.fields.issue.modifier }} | Пользователь, который последним внес изменения в задачу.
+{{ ui-key.startrek-backend.fields.issue.assignee-key-value }} | Пользователь, который будет работать над задачей. 
+{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }} | Версия продукта, к которой относится задача. Список доступных [версий](../manager/versions.md) определяется настройками очереди.
+{{ ui-key.startrek-backend.fields.issue.key-key-value }} | Уникальный идентификатор задачи в рамках очереди. Создается автоматически.
+{{ ui-key.startrek-backend.fields.issue.commentWithoutExternalMessageCount }} | Количество комментариев к задаче, созданных в сервисе {{tracker-name}}.
+{{ ui-key.startrek-backend.fields.issue.commentWithExternalMessageCount }} | Количество комментариев к задаче, созданных через [почту](../manager/queue-mail.md).
+{{ ui-key.startrek-backend.fields.issue.components-key-value }} | Метки, с помощью которых можно размечать и сортировать задачи внутри очереди.<br/><br/>Список доступных [компонентов](../manager/components.md) определяется настройками очереди.
+{{ ui-key.startrek-backend.fields.issue.followers }} | Список пользователей, подписанных на задачу. По умолчанию они имеют доступ на чтение и редактирование, получают уведомления о любых изменениях в задаче.<br/><br/>Правила доступа к задачам зависят от [настроек очереди](../manager/queue-access.md).
+{{ ui-key.startrek-backend.fields.issue.affectedVersions-key-value }} | [Версия продукта](../manager/versions.md), к которой относится задача. Список доступных версий определяется настройками очереди.
+{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }} | Список пользователей, которых [призывали в комментариях](comments.md#call-comment). Как только пользователь отвечает на комментарий, его имя исчезает из этого поля.
+{{ ui-key.startrek-backend.fields.issue.updated-key-value }} | Дата и время последнего [изменения в задаче](history.md).
+{{ ui-key.startrek-backend.fields.issue.description-key-value }} | Постановка задачи: описание того, что требуется сделать.
+{{ ui-key.startrek-backend.fields.issue.queue }} | [Ключ очереди](../manager/create-queue.md#key), в которую входит задача.
+{{ ui-key.startrek-backend.fields.issue.lastCommentUpdatedAt }} | Дата и время последнего комментария в задаче.
+{{ ui-key.startrek-backend.fields.issue.priority-key-value }} | Значение, которое определяет важность задачи. 
+{{ ui-key.startrek-backend.roles.role.name.voted-by-follower }} | Список пользователей, проголосовавших в задаче.
+{{ ui-key.startrek-backend.fields.issue.votes }} | Количество пользователей, [проголосовавших за задачу](votes.md).
+{{ ui-key.startrek-backend.fields.issue.project-key-value }} | Названия [проектов](../manager/project-new.md), к которым относится задача. 
+{{ ui-key.startrek-backend.fields.issue.resolved }} | Дата и время, когда была проставлена [резолюция](../manager/create-resolution.md).
+{{ ui-key.startrek-backend.fields.issue.followingMaillists }} | Команды и отделы, подписанные на задачу. По умолчанию они имеют доступ к задаче на чтение и редактирование, получают уведомления о любых ее изменениях.<br/><br/>Правила доступа к задачам зависят от [настроек очереди](../manager/queue-access.md).
+{{ ui-key.startrek-backend.fields.issue.resolution-key-value }} | Причина закрытия задачи.
+{{ ui-key.startrek-backend.fields.issue.resolver }} | Пользователь, который проставил резолюцию в задаче.
+{{ ui-key.startrek-backend.fields.issue.created-key-value }} | Дата и время создания задачи.
+{{ ui-key.startrek-backend.fields.issue.status-key-value }} | Этап выполнения задачи. Например: <q>Открыт</q>, <q>В работе</q>, <q>Тестируется</q>. Подробнее читайте в разделе [Настроить статусы](../manager/workflow-status-edit.md).
+{{ ui-key.startrek-backend.fields.issue.statusStartTime }} | Дата и время изменения статуса задачи.
+{{ ui-key.startrek-backend.fields.issue.tags-key-value }} | Текстовые метки, которые облегчают поиск и сортировку задач. Подробнее читайте в разделе [Структурировать задачи](../structure.md).
+{{ ui-key.startrek-backend.fields.issue.type-key-value }} | Тип задачи, например: <q>Новая возможность</q>, <q>Ошибка</q>, <q>Улучшение</q>. Подробнее читайте в разделе [{#T}](../manager/add-ticket-type.md).
+**{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** | 
+{{ ui-key.startrek-backend.fields.issue.spent-key-value }} | Время, которое исполнитель [потратил на решение задачи](time-spent.md). 
+{{ ui-key.startrek-backend.fields.issue.estimation-key-value }} | Время, которое пользователь планирует потратить на решение задачи. Значение в поле уменьшается при указании [затраченного времени](time-spent.md#show-time-spent).
+{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }} | Первоначальная оценка времени, необходимого для решения задачи. 
+**{{ ui-key.startrek-backend.fields.issue.fields.agile }}** | 
+{{ ui-key.startrek-backend.fields.issue.storyPoints }} | Трудоемкость задачи в баллах Story Points. Подробнее читайте в разделе [Основные понятия гибкой разработки](../manager/agile.md#dlen_sp).
+{{ ui-key.startrek-backend.fields.issue.sprint }} | Название [спринта](../manager/create-agile-sprint.md), к которому относится задача.
+**{{ ui-key.startrek-backend.fields.issue.fields.email }}** | 
+{{ ui-key.startrek-backend.fields.issue.emailTo }} | Список всех адресов электронной почты, которые пользователь указал в поле **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-to }}** при отправке письма.
+{{ ui-key.startrek-backend.fields.issue.emailCc }} | Адрес электронной почты, который пользователь указал в поле **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-copy }}** при отправке письма.
+{{ ui-key.startrek-backend.fields.issue.emailFrom }} | Адрес электронной почты отправителя письма.
+{{ ui-key.startrek-backend.fields.issue.emailCreatedBy }} | Адрес электронной почты, на который было отправлено письмо для создания задачи.
+**{{ ui-key.startrek-backend.fields.issue.fields.sla }}** | 
+{{ ui-key.startrek-backend.fields.issue.sla-key-value }} | Таймер, который отсчитывает время для обработки задач очереди. Например, можно задать время, за которое исполнитель должен отреагировать на новую задачу. Подробнее читайте в разделе [SLA](../sla-head.md).
 
 ## Локальные поля {#section_local_field}
 
@@ -89,30 +89,30 @@ SLA | Таймер, который отсчитывает время для об
 
 1. Убедитесь, что вы авторизованы как [администратор](../role-model.md).
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **Администрирование** → **Настройка {{ tracker-name }}**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **Настройка {{ tracker-name }}**.
 
-1. Перейдите на вкладку **Поля**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--fields }}**.
 
-1. Нажмите кнопку **Создать поле**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.button--create-field }}**.
 
-1. Выберите тип поля и нажмите кнопку **Продолжить**.
+1. Выберите тип поля и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--next }}**.
 
 1. Задайте параметры нового поля:
-    * **Категория**. Все поля в {{ tracker-name }} сгруппированы по категориям. Выберите категорию, которая лучше всего подходит для нового поля.
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--category }}**. Все поля в {{ tracker-name }} сгруппированы по категориям. Выберите категорию, которая лучше всего подходит для нового поля.
 
-    * **Название**. Старайтесь давать полям короткие и емкие названия.
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name }}**. Старайтесь давать полям короткие и емкие названия.
 
-    * **Название на английском языке**. Это название видно в английском интерфейсе {{ tracker-name }}.
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name-eng }}**. Это название видно в английском интерфейсе {{ tracker-name }}.
 
-    * **Тип чисел** (только для полей типа <q>число</q>).
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--number-type }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-number }}</q>).
 
-    * **Значения списка** (только для полей типа <q>выпадающий список</q>) — укажите возможные значения и их порядок.
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--options }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q>) — укажите возможные значения и их порядок.
 
-    * **Количество значений в списке** (только для полей типа <q>выпадающий список</q>).
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--option-list }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q>).
     
-    * **Количество сотрудников** (только для полей типа <q>выбор сотрудников</q>).
+    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--users-count }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-user }}</q>).
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--create }}**.
 
 
 

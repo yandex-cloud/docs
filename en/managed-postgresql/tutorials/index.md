@@ -6,6 +6,8 @@
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)
 * [{#T}](./data-transfer-ydb.md)
+* [{#T}](./mpg-to-yds.md)
+* [{#T}](./mkf-to-mpg.md)
 
 ## Replication and migration {#replication-and-migration}
 
@@ -14,5 +16,3 @@
 * [{#T}](./outbound-replication.md)
 * [{#T}](../operations/logical-replica-from-rds.md)
 * [{#T}](./mpg-to-objstorage.md)
-* [{#T}](./mpg-to-yds.md)
-* [{#T}](./mkf-to-mpg.md)

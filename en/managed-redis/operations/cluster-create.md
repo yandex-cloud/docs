@@ -18,40 +18,39 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-   1. Select **{{ mrd-name }}**.
-   1. Click **Create cluster**.
-   1. Under **Basic parameters**:
-
-      * Name the cluster in the **Cluster name** field. It must be unique within the folder.
+      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
-         {% note warning %}
+           {% note warning %}
 
-         You can only enable sharding when you create a new cluster. You can't shard an existing non-sharded cluster or disable sharding for a cluster that it's enabled for.
+           You can only enable sharding when you create a new cluster. You can't shard an existing non-sharded cluster or disable sharding for a cluster that it's enabled for.
 
-         {% endnote %}
+           {% endnote %}
 
-      * If required, enable support for encrypted SSL connections to the cluster.
+       * If required, enable support for encrypted SSL connections to the cluster.
 
-         {% note warning %}
+           {% note warning %}
 
-         You can only enable connection encryption when creating a new cluster. You can't disable encryption for a cluster that it's enabled for.
+           You can only enable connection encryption when creating a new cluster. You can't disable encryption for a cluster that it's enabled for.
 
-         {% endnote %}
+           {% endnote %}
 
-   1. Under **Host class**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 
-      * Choose a **Platform**.
-      * Specify the **Type** of the VM to deploy hosts on.
+      * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
+      * Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
       * Select a [host](../concepts/instance-types.md) configuration that defines the technical specifications of the VMs where the DB hosts will be deployed. Changing the configuration changes the properties of all the previously created hosts.
 
-   1. Under **Storage size**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       
       * Select the [disk type](../concepts/storage.md):
@@ -63,28 +62,28 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
-   1. Under **Cluster settings**, in the **Password** field, set the user password.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_config }}**, in the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, set the user password.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
    
-   1. Under **Network settings**, select:
-     * Cloud network for the cluster.
-     * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
+       * Cloud network for the cluster.
+       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+           {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 
-   1. Under **Hosts**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
       * To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its name.
 
-         * **Availability zone**: Select an [availability zone](../../overview/concepts/geo-scope.md).
-         * **Subnet**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
-         * **Public access**: Enable access to the host from the internet if the cluster is created with **TLS support** activated.
-         * **Shard name**: Enables you to change the shard name for the host. The field is only available if the cluster is created with the enabled **Cluster sharding** setting.
+         * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
+         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+         * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Enable access to the host from the internet if the cluster is created with **{{ ui-key.yacloud.redis.field_tls-support }}** activated.
+         * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}**: Enables you to change the shard name for the host. The field is only available if the cluster is created with the enabled **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** setting.
 
-      * To add hosts to the cluster, click **Add host**.
+      * To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
    1. Configure additional cluster settings, if required:
 
@@ -92,7 +91,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Configure the [DBMS settings](../concepts/settings-list.md), if required.
 
-   1. Click **Create cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 
@@ -306,7 +305,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).

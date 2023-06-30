@@ -1,4 +1,4 @@
-# Switching {{ CH }} versions
+# {{ CH }} version upgrade
 
 You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy), but you can't switch:
 
@@ -35,21 +35,21 @@ To learn more about updates within a single version and host maintenance, see [M
 
 {% endlist %}
 
-## Before switching versions {#before-update}
+## Before updating the version {#before-update}
 
-Before changing the {{ CH }} version, make sure this does not affect your apps:
+Make sure this does not affect your applications:
 
-1. See the [change log]({{ ch.docs }}/whats-new/changelog/index/) for {{ CH }} to check which updates might affect your applications.
-1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
-1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
+1. See the {{ CH }} [changelog](https://clickhouse.com/docs/category/changelog) to check how updates might affect your applications.
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only recover MergeTree tables.
+1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
 
-## Switching versions {#start-update}
+## Updating the version {#start-update}
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open the **{{ mch-name }}** page in the folder where you want to change the {{ CH }} version.
+   1. In the [management console]({{ link-console-main }}), open the **{{ mch-name }}** page in the folder where you want to update the {{ CH }} version.
    1. In the list of clusters, select the one to change.
    1. Click **Edit cluster**.
    1. Select the desired version in the **Version** field under **Basic parameters**.
@@ -93,13 +93,13 @@ Before changing the {{ CH }} version, make sure this does not affect your apps:
           ...
       ```
 
-   1. Execute the version change {{ CH }}:
+   1. Update the {{ CH }} version:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
       ```
 
-   When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - {{ TF }}
 

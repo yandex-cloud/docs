@@ -37,7 +37,7 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Creating a Bitrix24 connection
+      - name: Visualizing Bitrix24 data
         href: tutorials/data-from-bitrix24-visualization.md
   - name: Concepts
     items:

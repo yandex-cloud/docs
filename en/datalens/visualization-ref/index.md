@@ -6,14 +6,14 @@ The following types of charts are available in {{ datalens-full-name }}:
 
    - [Line chart](line-chart.md)
    - [Stacked area chart](area-chart.md)
-   - [Normalized stacked area chart](normalized-area-chart.md)
+   - [Normalized area chart](normalized-area-chart.md)
    - [Column chart](column-chart.md)
    - [Normalized column chart](normalized-column-chart.md)
    - [Bar chart](bar-chart.md)
    - [Normalized bar chart](normalized-bar-chart.md)
    - [Scatter chart](scatter-chart.md)
    - [Pie chart](pie-chart.md)
-   - [Ring chart](ring-chart.md)
+   - [Donut chart](ring-chart.md)
    - [Tree chart](tree-chart.md)
    - [Combined chart](combined-chart.md)
 
@@ -29,7 +29,7 @@ The following types of charts are available in {{ datalens-full-name }}:
       - [Point map with clusters](cluster-point-map-chart.md)
       - [Polyline map](polyline-map-chart.md)
       - [Choropleth map](choropleth-map-chart.md)
-      - [Heatmap](heat-map-chart.md)
+      - [Heat map](heat-map-chart.md)
 
 * **Other**:
 
@@ -41,7 +41,6 @@ The following types of charts are available in {{ datalens-full-name }}:
 [QL charts](../concepts/chart/index.md#sql-charts) don't support:
 
 - Any type of map
-- Scatter and donut charts
 - Pivot tables
 
 {% endnote %}

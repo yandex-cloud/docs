@@ -6,4 +6,7 @@
 
 ## Software requirements {#software}
 
-To install and configure {{ sk-hybrid-name }} services, you will need the {{ yandex-cloud }} CLI and a registry in {{ container-registry-full-name }}.
+To install and configure {{ sk-hybrid-name }} services:
+
+* [Install the {{ yandex-cloud }} command line interface](../../cli/operations/install-cli.md).
+* [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).

@@ -24,9 +24,9 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 Before updating the {{ ES }} version, make sure this does not affect your apps:
 
-* View the [past release notes](https://www.elastic.co/downloads/past-releases#elasticsearch) for {{ ES }} to find out how the update might affect your applications.
-* Try updating the version on a test cluster. You can deploy a test cluster from a backup of the main cluster.
-* [Create a backup](cluster-backups.md#create-backup) of the main cluster before updating the version.
+1. See the {{ ES }} [changelog](https://www.elastic.co/downloads/past-releases#elasticsearch) to check how updates might affect your applications.
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ### Updating the {{ ES }} version {#start-version-update}
 
@@ -57,7 +57,7 @@ Before updating the {{ ES }} version, make sure this does not affect your apps:
       {{ yc-mdb-es }} cluster get <cluster name or ID>
       ```
 
-   1. Run the version update:
+   1. Update the version:
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster name of ID> --version <{{ ES }} version>
@@ -144,7 +144,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
       {{ yc-mdb-es }} cluster get <cluster name or ID>
       ```
 
-   1. Run the edition update:
+   1. Update the edition:
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster name or ID> \

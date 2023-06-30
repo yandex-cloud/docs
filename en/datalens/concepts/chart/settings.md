@@ -29,7 +29,11 @@ The availability of individual settings depends on the chart type.
 
 ## Field settings {#field-settings}
 
-You can configure dimensions and measures.
+You can configure:
+
+* Dimensions and measures for [charts based on a dataset](index.md#dataset-based-charts).
+* Measures only for [QL charts](index.md#sql-charts).
+
 To open settings of a dimension or a measure, click the icon to the left of its name.
 
 {% note info %}
@@ -54,10 +58,10 @@ If you apply aggregation to a dimension, it acts as a measure and the measure se
 | Name | Description |
 ----- | -----
 | Name | Sets the measure name. |
-| Type | Sets the type of measure data. |
-| Aggregation | Sets the aggregation type. Aggregation functions are available according to the table [{#T}](../dataset/data-model.md#aggregation). |
+| Type | Sets the data type for measures.<br/>Not supported for [QL charts](./index.md#sql-charts). |
+| Aggregation | Sets the aggregation type. Aggregation functions are available as shown in the [{#T}](../dataset/data-model.md#aggregation) table.<br/>Not supported for [QL charts](./index.md#sql-charts). |
 | Format | Sets the format of the value display. |
-| Decimal places | Sets the number of characters displayed after the decimal point in a value. |
+| Decimal places | Sets the number of characters displayed after the decimal point in a value.<br/>Not supported for [QL charts](./index.md#sql-charts). |
 | Display groups of thousands | Allows you to display groups of thousands for numeric values.<br/><br/>Possible values:<br/>**With separator**: Display spaces between groups of thousands.<br/>**Merged**: Hide spaces between groups of thousands. |
 | Prefix | Sets a text displayed before a value. |
 | Postfix | Sets a text displayed after a value. |
@@ -70,11 +74,12 @@ To open section settings, click ![image](../../../_assets/datalens/gear.svg) in 
 ### Axes {#axis-settings}
 
 Axis settings are only available for charts that have at least one X or Y axis:
-- Line chart
-- Area chart (Stacked and Normalized)
-- Column chart (including a Normalized column chart)
-- Bar chart (including a Normalized bar chart)
-- Scatter chart
+
+* Line chart.
+* Area chart (Stacked and Normalized).
+* Column chart (including a Normalized column chart).
+* Bar chart (including a Normalized bar chart).
+* Scatter chart.
 
 You can configure settings for both the **X** and **Y** axes.
 
@@ -115,24 +120,26 @@ You can [create color palettes](../../operations/chart/create-palette.md) and us
 Display a measure value on the chart.
 
 Labels are available for the following charts types:
-- Line chart
-- Area chart (Stacked and Normalized)
-- Column chart (including a Normalized column chart)
-- Bar chart (including a Normalized bar chart)
-- Pie chart
-- Map
+
+* Line chart.
+* Area chart (Stacked and Normalized).
+* Column chart (including a Normalized column chart).
+* Bar chart (including a Normalized bar chart).
+* Pie chart.
+* Map.
 
 ### Sorting {#sort}
 
 Allows you to sort chart values by measure or dimension.
 
 Sorting is available for the following chart types:
-- Line chart
-- Area chart (Stacked and Normalized)
-- Column chart (including a Normalized column chart)
-- Bar chart (including a Normalized bar chart)
-- Pie chart
-- Table (including a Pivot table)
+
+* Line chart.
+* Area chart (Stacked and Normalized).
+* Column chart (including a Normalized column chart).
+* Bar chart (including a Normalized bar chart).
+* Pie chart.
+* Table (including a Pivot table).
 
 ### Filters {#filter}
 
@@ -161,9 +168,10 @@ Depending on the visualization type, different settings are available.
 ### Layers {#map-layer}
 
 You can add up to 5 layers with any visualization types to a single map:
-- Scatter chart: **Geopoints** dimension type.
-- Choropleth map: **Geopolygons** dimension type.
-- Heat map: **Geopoints (heat map)** dimension type.
+
+* Scatter chart: **Geopoints** dimension type.
+* Choropleth map: **Geopolygons** dimension type.
+* Heat map: **Geopoints (heat map)** dimension type.
 
 Layers can be deleted and renamed.
 

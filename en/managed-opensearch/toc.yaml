@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Changing cluster settings
         href: operations/update.md
+      - name: Updating the {{ OS }} version
+        href: operations/cluster-version-update.md
       - name: Configuring SAML authentication
         href: operations/saml-authentication.md
       - name: Configuring access to {{ objstorage-name }}
@@ -71,6 +73,8 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: '{{ OS }} plugins'
         href: concepts/plugins.md
+      - name: '{{ OS }} versioning policy'
+        href: concepts/update-policy.md
       - name: Maintenance
         href: concepts/maintenance.md
   - name: Access management

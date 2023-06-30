@@ -169,3 +169,4 @@
 - [создание и обновление чеклиста в задаче](../manager/trigger-examples.md#checklist);
 
 - [создание задачи со значениями полей из родительской задачи](../manager/trigger-examples.md#create-ticket-with-params).
+

@@ -1,17 +1,17 @@
 ---
 title: "{{ dataproc-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
+description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage does not depend on the host class."
 ---
 
-# Host classes in {{ dataproc-name }}
+# {{ dataproc-name }} host classes
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
-The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
-Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
 

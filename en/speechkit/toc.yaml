@@ -23,6 +23,8 @@ items:
         href: stt/normalization.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
+      - name: Detecting the end of utterance
+        href: stt/eou.md
   - name: Speech synthesis
     items:
       - name: About the technology

@@ -114,18 +114,18 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       
       ```bash
       {{ yc-mdb-pg }} cluster create \
-         --name <cluster name> \
-         --environment <environment, prestable or production> \
-         --network-name <network name> \
-         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
-         --database name=<DB name>,owner=<DB owner name> \
-         --disk-size <storage size, GB> \
-         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-         --security-group-ids <list of security group IDs> \
-         --connection-pooling-mode=<connection manager mode> \
-         --deletion-protection=<cluster deletion protection: true or false>
+        --name <cluster name> \
+        --environment <environment, prestable or production> \
+        --network-name <network name> \
+        --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --resource-preset <host class> \
+        --user name=<username>,password=<user password> \
+        --database name=<DB name>,owner=<DB owner name> \
+        --disk-size <storage size, GB> \
+        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --security-group-ids <list of security group IDs> \
+        --connection-pooling-mode=<connection manager mode> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       You need to specify `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
@@ -137,12 +137,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
-      * Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
-      * Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
-         * The host with the highest priority value in the cluster becomes the synchronous replica.
-         * If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
-         * The lowest priority is `0` (default), while the highest one is `100`.
+      You can also set the additional `replication-source` option in the `--host` parameter to [manually manage replication threads](../concepts/replication.md#replication-manual).
 
       
       

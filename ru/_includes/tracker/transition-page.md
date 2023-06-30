@@ -1,1 +1,1 @@
-На панели слева нажмите ![](../../_assets/tracker/svg/queues.svg) **Очереди** и выберите очередь.
+На панели слева нажмите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.blocks-desktop_b-head.queues }}** и выберите очередь.

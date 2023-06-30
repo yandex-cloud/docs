@@ -28,6 +28,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 * [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/gpu-performance-check.md)
+* [{#T}](projects/get-notebook-cell-ids.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/snippets.md)

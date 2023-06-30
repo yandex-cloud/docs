@@ -36,9 +36,9 @@
 | [listObjectVersions](bucket/listObjectVersions.md) | Returns metadata for all versions of objects in the bucket. |
 | [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Sets up the mechanism of [object version locks](../../concepts/object-lock.md) in a [versioned bucket](../../concepts/versioning.md). |
 | [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Returns the lock configuration. |
-| [putBucketTagging](bucket/putbuckettagging.md) | Adds [tags](../../../resource-manager/concepts/labels.md) to a bucket. |
-| [getBucketTagging](bucket/getbuckettagging.md) | Returns bucket tags. |
-| [deleteBucketTagging](bucket/deletebuckettagging.md) | Deletes bucket tags. |
+| [putBucketTagging](bucket/putbuckettagging.md) | Adds [labels](../../concepts/tags.md) to a bucket. |
+| [getBucketTagging](bucket/getbuckettagging.md) | Returns bucket labels. |
+| [deleteBucketTagging](bucket/deletebuckettagging.md) | Deletes bucket labels. |
 
 
 
@@ -59,6 +59,9 @@
 | [putObjectLegalHold](object/putobjectlegalhold.md) | Puts or removes legal hold for an object version. |
 | [getObjectRetention](object/getobjectretention.md) | Returns the settings of retention put on the object version. |
 | [getObjectLegalHold](object/getobjectlegalhold.md) | Returns the settings of legal hold put on the object version. |
+| [putObjectTagging](object/putobjecttagging.md) | Adds [labels](../../concepts/tags.md) to an object. |
+| [getObjectTagging](object/getobjecttagging.md) | Returns object labels. |
+| [deleteObjectTagging](object/deleteobjecttagging.md) | Deletes object labels. |
 
 ### Multipart upload service {#multipart-upload-service}
 

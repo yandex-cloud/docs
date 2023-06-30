@@ -1,14 +1,14 @@
 ---
 title: "{{ mmg-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the MongoDB cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
+description: "The host class determines the computing power allocated for each host in a MongoDB cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
 ---
 
-# Host classes in {{ MG }}
+# {{ MG }} host classes
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
-The host class affects the list of available [disk types](./storage.md):
+The host class also determines which [disk types](./storage.md) are available:
 
 * **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
@@ -20,7 +20,7 @@ For storage limitations, see [{#T}](limits.md).
 ## Available host classes {#available-flavors}
 
 
-Hosts in {{ mmg-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mmg-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
 
@@ -30,7 +30,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
-| **Intel Broadwell** |
+|| **Intel Broadwell** |
 | b1.medium | 2 | 50% | 4 | 10 - 512 |
 | s1.micro | 2 | 100% | 8 | 10 - 2232 |
 | s1.small | 4 | 100% | 16 | 10 - 2232 |

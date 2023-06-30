@@ -1,6 +1,6 @@
 # DBMS clients supported in {{ mmg-name }}
 
-{{ mmg-short-name }} guarantees operation only with certain DBMS clients, but you are free to use other clients without restrictions.
+{{ mmg-short-name }} guarantees operation only with certain DBMS clients; however, you can also use other clients.
 
 The following clients are supported:
 

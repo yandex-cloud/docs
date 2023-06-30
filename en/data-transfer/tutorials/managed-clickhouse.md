@@ -1,4 +1,4 @@
-# Migrating data to {{ mch-full-name }}
+# Migrating {{ CH }} clusters
 
 With {{ data-transfer-name }}, you can transfer your database from a third-party {{ CH }} source cluster to a {{ mch-name }} target cluster.
 

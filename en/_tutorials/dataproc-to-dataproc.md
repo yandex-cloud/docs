@@ -1,6 +1,6 @@
-You can save data from a {{ dataproc-name }} cluster to a {{ objstorage-name }} bucket using a separate [{{ metastore-name }}](../data-proc/operations/metastore/index.md) server to store table metadata. This will allow a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} server to work with the saved data.
+You can save data from a {{ dataproc-name }} cluster to a {{ objstorage-name }} bucket using a separate [{{ metastore-name }}](../data-proc/concepts/metastore.md) server to store table metadata. This will allow a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} server to work with the saved data.
 
-To set up shared use of tables with two {{ dataproc-name }} clusters through [{{ metastore-name }}](../data-proc/operations/metastore/index.md):
+To set up shared use of tables with two {{ dataproc-name }} clusters through {{ metastore-name }}:
 
 1. [Connect {{ dataproc-name }} to {{ metastore-name }}](#connect).
 1. [Create a test table](#create-table).

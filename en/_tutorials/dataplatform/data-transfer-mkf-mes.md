@@ -1,4 +1,4 @@
-# Delivering data from {{ mkf-full-name }} to {{ mes-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from a {{ KF }} {{ ES }} queue using {{ data-transfer-full-name }}
 
 A {{ mes-name }} cluster can get data from {{ KF }} topics in real time.
 
@@ -327,7 +327,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 Delete the other resources, depending on the method used to create them:
 

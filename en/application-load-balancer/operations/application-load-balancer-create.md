@@ -18,10 +18,22 @@ To create an L7 load balancer:
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-
    1. (Optional) In the **Autoscaling settings** section, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
-      The number of units will change automatically depending on the actual load on the load balancer and the limits set. The number of units affects the [load balancer pricing](../pricing.md).
+      The number of units will change automatically depending on the actual load on the load balancer and the limits you specified. The number of units affects the [load balancer pricing](../pricing.md).
+
+   1. (Optional) Under **Log settings**:
+      1. Enable **Write logs**.
+      1. Select the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write load balancer logs to.
+      1. Click **Add discard rule** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
+
+         * **HTTP codes**: Add HTTP status codes.
+         * **HTTP code classes**: Add classes of HTTP status codes.
+         * **gRPC codes**: Add gRPC codes.
+         * **Share of discarded logs**: Set the percentage of logs to discard.
+
+         You can set multiple rules.
+
 
    1. Under **Allocation**, select three subnets for the load balancer's nodes and enable traffic to these subnets.
 
@@ -54,11 +66,13 @@ To create an L7 load balancer:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command to create an L7 load balancer:
+
       ```bash
       yc alb load-balancer create --help
       ```
 
    1. Run the following command, specifying the network and subnets that will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups):
+
       ```bash
       yc alb load-balancer create <load_balancer_name> \
         --network-name <network_name> \
@@ -70,23 +84,23 @@ To create an L7 load balancer:
       Result:
 
       
-      ```
+      ```yaml
       done (1m40s)
-      id: a5d88ep483cmbfm63g9t
+      id: a5d88ep483cmbfm.....
       name: test-balancer2
-      folder_id: aoe197919j8elpeg1lkp
+      folder_id: aoe197919j8elpe.....
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: c64l1c06d15178sa87k0
+      network_id: c64l1c06d15178s.....
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-a
-          subnet_id: buc4gsmpj8hvramg61g8
+          subnet_id: buc4gsmpj8hvram.....
         - zone_id: {{ region-id }}-b
-          subnet_id: blt6pcatjje62sqvjq5b
+          subnet_id: blt6pcatjje62sq.....
         - zone_id: {{ region-id }}-c
-          subnet_id: fo2ap2nrhjk9vpfdnno8
-      log_group_id: eolul9ap0bv02i8bsp87
+          subnet_id: fo2ap2nrhjk9vpf.....
+      log_group_id: eolul9ap0bv02i8.....
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
 
@@ -96,19 +110,65 @@ To create an L7 load balancer:
 
       {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
+   1. (Optional) Set parameters for writing [logs](../logs-ref.md) to [{{ cloud-logging-full-name }}](../../logging/):
+
+      1. View a description of the CLI command for enabling load balancer logging:
+
+         ```bash
+         yc alb load-balancer logging --help
+         ```
+
+      1. Link a log group to the load balancer and set up a [rule for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+
+         ```bash
+         yc alb load-balancer logging <load_balancer_name> \
+           --log-group-id <log_group_ID> \
+           --enable \
+           --discard codes=[<HTTP_code>,<HTTP_code_class>,<gRPC_code>],percent=<perentage_of_logs_to_discard>
+         ```
+
+         Where:
+
+         * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md).
+         * `--discard`: Rule for discarding logs. Rule parameters:
+            * `codes`: HTTP status codes, classes of HTTP status codes, or gRPC codes.
+            * `percent`: Percentage of logs to be discarded.
+
+            You can set multiple rules.
+
+         Result:
+
+         ```yaml
+         done (42s)
+         id: ds76g83js9gfej12nab6
+         name: test-load-balancer
+         folder_id: b1gu33ev7lh690at5bm7
+         ...
+         log_options:
+           log_group_id: e23p9bfjvsgra3tliktf
+           discard_rules:
+             - http_codes:
+                 - "200"
+               http_code_intervals:
+                 - HTTP_3XX
+               grpc_codes:
+                 - OK
+               discard_percent: "90"
+         ```
+
    1. Add a listener for an L7 load balancer:
 
       * HTTP listener:
 
          1. View a description of the CLI command for adding an HTTP listener for an L7 load balancer:
 
-            ```
+            ```bash
             yc alb load-balancer add-listener --help
             ```
 
          1. Add a listener by running the command:
 
-            ```
+            ```bash
             yc alb load-balancer add-listener <load balancer name> \
               --listener-name <listener name> \
               --http-router-id <HTTP router ID> \
@@ -119,13 +179,13 @@ To create an L7 load balancer:
 
          1. View a description of the CLI command for adding a Stream listener for an L7 load balancer:
 
-            ```
+            ```bash
             yc alb load-balancer add-stream-listener --help
             ```
 
          1. Add a listener by running the command:
 
-            ```
+            ```bash
             yc alb load-balancer add-stream-listener <load balancer name> \
               --listener-name=<listener name> \
               --backend-group-id=<backend group ID> \
@@ -134,13 +194,13 @@ To create an L7 load balancer:
 
       Result of adding two listeners:
 
-      ```
+      ```yaml
       done (42s)
-      id: ds76g8b2op3fej12nab6
+      id: ds76g8b2op3fej1.....
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690at5bm7
+      folder_id: b1gu6g9ielh690a.....
       status: ACTIVE
-      network_id: enp0uulja5s3j1ftvfei
+      network_id: enp0uulja5s3j1f.....
       listeners:
       - name: tslistener
         endpoints:
@@ -151,7 +211,7 @@ To create an L7 load balancer:
           - "80"
         http:
           handler:
-            http_router_id: ds7d7b14b3fsv7qjkvel
+            http_router_id: ds7d7b14b3fsv7q.....
       - name: teststreamlistener
         endpoints:
         - addresses:
@@ -161,19 +221,29 @@ To create an L7 load balancer:
           - "443"
         stream:
           handler:
-            backend_group_id: ds77tero4f5h46l4e2gl
+            backend_group_id: ds77tero4f5h46l.....
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bs1hp7lgdl1g3n6ci1
+          subnet_id: e9bs1hp7lgdl1g3.....
         - zone_id: {{ region-id }}-b
-          subnet_id: e2le8i7hqa216f6i6php
+          subnet_id: e2le8i7hqa216f6.....
         - zone_id: {{ region-id }}-c
-          subnet_id: b0cgk1au6fn203f3tqnf
-      log_group_id: ckgs4u5km3u8j9f360md
+          subnet_id: b0cgk1au6fn203f.....
+      log_group_id: ckgs4u5km3u8j9f.....
       security_group_ids:
-      - enp49ot04g63ih1scuap
+      - enp49ot04g63ih1.....
       created_at: "2022-04-04T02:12:40.160629110Z"
+      log_options:
+        log_group_id: e23p9bfjvsgra3t.....
+        discard_rules:
+          - http_codes:
+              - "200"
+            http_code_intervals:
+              - HTTP_3XX
+            grpc_codes:
+              - OK
+            discard_percent: "90"
       ```
 
 - {{ TF }}
@@ -186,18 +256,18 @@ To create an L7 load balancer:
 
       ```hcl
       resource "yandex_alb_load_balancer" "test-balancer" {
-        name        = "<L7 load balancer name>"
-        network_id  = "<network ID>"
+        name        = "<name_of_L7_load_balancer>"
+        network_id  = "<network_ID>"
 
         allocation_policy {
           location {
-            zone_id   = "<availability zone>"
-            subnet_id = "<subnet ID>"
+            zone_id   = "<availability_zone>"
+            subnet_id = "<subnet_ID>"
           }
         }
 
         listener {
-          name = "<listener name>"
+          name = "<listener_name>"
           endpoint {
             address {
               external_ipv4_address {
@@ -207,8 +277,18 @@ To create an L7 load balancer:
           }
           http {
             handler {
-              http_router_id = "<HTTP router ID>"
+              http_router_id = "<HTTP_router_ID>"
             }
+          }
+        }
+
+        log_options {
+          log_group_id = "<log_group_ID>"
+          discard_rule {
+            http_codes          = ["<HTTP_code>"]
+            http_code_intervals = ["<HTTP_code_class>"]
+            grpc_codes          = ["<gRPC_code>"]
+            discard_percent     = <percentage_of_logs_to_discard>
           }
         }
       }
@@ -223,12 +303,21 @@ To create an L7 load balancer:
       * `network_id`: Network ID.
       * `allocation_policy`: Description of the L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zone and subnet IDs.
       * `listener`: Description of the L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) parameters:
-         * `name`: The name of the listener. The name format is as follows:
+         * `name`: Name of the listener. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
          * `endpoint`: Description of the listener's addresses and ports. Set the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` parameter is not set, a public IP address is assigned automatically.
          * `http`: Description of the listener's HTTP endpoint. Specify the HTTP router ID.
+         * `log_options`: (Optional) Parameters for writing [logs](../logs-ref.md) to [{{ cloud-logging-full-name }}](../../logging/):
+            * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md).
+            * `discard_rule`: [Rule for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+               * `http_codes`: HTTP status codes.
+               * `http_code_intervals`: Classes of HTTP status codes.
+               * `grpc_codes`: gRPC codes.
+               * `discard_percent`: Percentage of logs to discard.
+
+               You can set multiple rules.
 
       For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
@@ -237,7 +326,7 @@ To create an L7 load balancer:
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
@@ -247,15 +336,15 @@ To create an L7 load balancer:
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
-         ```
+         ```bash
          yc alb load-balancer list
          ```
 

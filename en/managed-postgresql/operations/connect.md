@@ -216,16 +216,16 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% endlist %}
 
-## Connecting from pgAdmin 4 {#connection-pgadmin}
+## Connecting from {{ pgadmin }} {#connection-pgadmin}
 
-The connection was tested for [pgAdmin 4](https://www.pgadmin.org/download/) ver. 7.0 in Ubuntu 20.04.
+The connection was tested for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.0 on Ubuntu 20.04.
 
-You can only use pgAdmin 4 to connect to public cluster hosts using SSL certificates.
+You can only use {{ pgadmin }} to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
 
 Create a new server connection:
 
 1. Select **Object** → **Register** → **Server...**
-1. In the **General** tab, in the **Name** field, specify the name to display the cluster under in the pgAdmin 4 interface. You can set any name.
+1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
 1. In the **Connection** tab, specify the connection parameters:
 
    * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
@@ -237,7 +237,7 @@ Create a new server connection:
 1. In the **Parameters** tab:
 
    * Set the **SSL mode** parameter to `verify-full`.
-   * Add a new **Root certificate** parameter and specify the path to the saved [SSL certificate](#get-ssl-cert) file in it.
+   * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
 
 1. Click **Save** to save the server connection settings.
 

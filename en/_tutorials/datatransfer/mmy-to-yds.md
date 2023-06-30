@@ -1,4 +1,6 @@
-You can set up asynchronous replication of data from {{ mmy-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}. To do this:
+You can track data changes in a {{ mmy-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+
+To set up CDC using {{ data-transfer-name }}:
 
 1. [Set up the transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
@@ -15,9 +17,8 @@ Prepare the infrastructure:
 - Manually
 
    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable [configuration](../../managed-mysql/concepts/instance-types.md) with publicly available hosts and the following settings:
-      * Database name: `db1`.
-      * Username: `mmy-user`.
-      * Password: `<user password>`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`.
 
    1. [Grant the user](../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
 
@@ -34,7 +35,7 @@ Prepare the infrastructure:
 - Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [mysql-yds.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/mysql-yds.tf) configuration file to the same working directory.
 
       This file describes:
@@ -50,7 +51,7 @@ Prepare the infrastructure:
 
    1. In the `mysql-yds.tf` file, specify the {{ MY }} user password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -93,9 +94,9 @@ Prepare the infrastructure:
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/data-streams.md) of the `{{ yds-name }}` type with the following settings:
 
-   * Database: `ydb-example`.
-   * Stream: `mpg-stream`.
-   * Service account: `yds-sa`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`.
 
 1. Create a source endpoint and a transfer.
 
@@ -105,13 +106,13 @@ Prepare the infrastructure:
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify the cluster connection parameters in it:
 
-         * **Connection type**: `Managed Service for MySQL cluster`.
-         * **Cluster**: `<{{ MY }} source cluster name>` from the drop-down list.
-         * **Database**: `db1`.
-         * **User**: `mmy-user`.
-         * **Password**: `<user password>`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<{{ MY }} source cluster name>` from the drop-down list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}**: `db1`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `mmy-user` password.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 
    - Using {{ TF }}
 
@@ -154,38 +155,40 @@ Prepare the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
+{% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
+
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate) and wait for its status to change to _{{ dt-status-stopped }}_.
-* [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Delete the {{ yds-name }} stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
-* Delete the transfer, the source endpoint, the {{ mmy-name }} cluster, and the {{ ydb-name }} database:
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the {{ yds-name }} stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-   {% list tabs %}
+Delete the other resources, depending on the method used to create them:
 
-   * Manually
+{% list tabs %}
 
-      * [Transfer](../../data-transfer/operations/transfer.md#delete).
-      * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-      * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-      * [{{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+* Manually
 
-   * Using {{ TF }}
+   * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+   * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+   * [{{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
-      1. Delete the `mysql-yds.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+* Using {{ TF }}
 
-         ```bash
-         terraform validate
-         ```
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete the `mysql-yds.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+      ```bash
+      terraform validate
+      ```
 
-      1. Confirm the resources have been updated:
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. Confirm the resources have been updated.
 
-         All the resources described in the `mysql-yds.tf` configuration file will be deleted.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   {% endlist %}
+      All the resources described in the `mysql-yds.tf` configuration file will be deleted.
+
+{% endlist %}

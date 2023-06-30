@@ -1,10 +1,10 @@
-# Delivering data from {{ ydb-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}
+# {{ ydb-short-name }} change data capture and delivery to {{ DS }}
 
 A {{ yds-name }} stream can get data from {{ ydb-name }} databases in real time using the [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC) technology.
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
-To run data delivery:
+To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the {{ ydb-name }} source database](#prepare-source-ydb).
 1. [Create a stream for the {{ yds-name }} target](#create-target-yds).
@@ -128,13 +128,15 @@ Prepare the infrastructure:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.array_item_label }} 1**: `test`.
 
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ yds-full-name }}` target](../../data-transfer/operations/endpoint/source/data-streams.md):
+1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ yds-full-name }}` target](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-   **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database for the target stream from the list.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database for the target stream from the list.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_auto.title }}`.
 
 1. Create a transfer:
 
@@ -200,11 +202,7 @@ Prepare the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-{% note info %}
-
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
-
-{% endnote %}
+{% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 

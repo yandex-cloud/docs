@@ -11,7 +11,7 @@ You can connect to a cluster:
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -39,15 +39,15 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule allows you to connect to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -129,6 +129,41 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+## Connecting from {{ pgadmin }} {#connection-pgadmin}
+
+The connection has been checked for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.1 on macOS Ventura 13.0 and Microsoft Windows 10 Pro 21H1.
+
+You can only use {{ pgadmin }} to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+
+Create a new server connection:
+
+1. Select **Object** → **Register** → **Server...**
+1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
+1. In the **Connection** tab, specify the connection parameters:
+
+   * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Port**: `{{ port-mgp }}`.
+   * **Maintenance database**: Name of the `postgres` maintenance database.
+   * **Username**: Name of the user to connect under.
+   * **Password**: User password.
+
+1. In the **Parameters** tab:
+
+   * Set the **SSL mode** parameter to `verify-full`.
+   * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
+
+1. Click **Save** to save the server connection settings.
+
+As a result, the cluster appears in the server list in the navigation menu.
+
+To monitor the cluster status, use [{{ monitoring-full-name }}](monitoring.md) instead of the **Dashboard** tab in {{ pgadmin }} which might generate an error:
+
+```text
+column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait_event AS wait_event, ^
+```
+
+This error does not occur in other tabs in {{ pgadmin }}.
 
 ## Sample connection strings {#connection-string}
 

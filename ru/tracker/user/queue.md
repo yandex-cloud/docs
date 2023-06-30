@@ -4,13 +4,13 @@
 
 Чтобы просмотреть все задачи очереди, откройте ее страницу:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **Очереди**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
 1. Выберите фильтр для отображения списка очередей:
-    * **Мои очереди**.
+    * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--owned--queues }}**.
     * **Я владелец**.
-    * **Избранные**.
-    * **Недавно просмотренные**.
+    * **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}**.
+    * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--recent }}**.
 
 1. Если отобразились не все нужные очереди, откройте полный список:
 
@@ -20,7 +20,7 @@
 
 1. Нажмите на название нужной очереди.
 
-По умолчанию на странице очереди отображаются только активные задачи (опция **Резолюция: Без значения**). Вы можете настроить отображение задач с помощью кнопок [фильтров по параметрам](../manager/quick-filters.md) над списком задач.
+По умолчанию на странице очереди отображаются только активные задачи (опция **{{ ui-key.startrek.ui_components_projects_utils.field-name-resolution }}: {{ ui-key.startrek.ui_components_projects_utils.filter-macro-empty_ }}**). Вы можете настроить отображение задач с помощью кнопок [фильтров по параметрам](../manager/quick-filters.md) над списком задач.
 
 ## Добавить очередь в избранное {#queue-fav}
 
@@ -28,13 +28,13 @@
 
 1. Откройте страницу очереди.
 
-1. Вверху страницы над названием очереди нажмите на значок ![](../../_assets/tracker/svg/favourites.svg) **Добавить в избранное**.
+1. Вверху страницы над названием очереди нажмите на значок ![](../../_assets/tracker/svg/favourites.svg) **{{ ui-key.startrek.ui_components_macros_FavoriteButton.button-tooltip-add }}**.
 
 Чтобы открыть список избранных очередей:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **Очереди**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
-1. В списке справа выберите фильтр **Избранные**.
+1. В списке справа выберите фильтр **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}**.
 
 
 ## Сохранить список в файл {#save-file}
@@ -49,7 +49,7 @@
 
 Чтобы сохранить список задач в файл:
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/export.svg) **Выгрузить**.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/export.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.export }}**.
 
 1. Выберите формат, в котором вы хотите сохранить список задач.
 

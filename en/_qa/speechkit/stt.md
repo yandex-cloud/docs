@@ -73,7 +73,7 @@ When using the [header](../../speechkit/stt/api/request-api.md#http_request) `Tr
 
 #### A streaming recognition session is broken/terminated {#broken-session}
 
-If the [streaming recognition](../../speechkit/stt/streaming.md#session-restrictions) service doesn't receive data to recognize within 5 seconds, a session is aborted. You can't change this parameter.
+If the [streaming recognition](../../speechkit/stt/streaming.md#session-restrictions) service doesn't receive data to recognize within 5 seconds, a session is aborted. You cannot change this parameter.
 
 Streaming recognition runs in real time. You can send "silence" for recognition so that the service doesn't terminate the connection.
 
@@ -82,6 +82,10 @@ Streaming recognition runs in real time. You can send "silence" for recognition 
 The end of an utterance is determined automatically by the "silence" after the utterance.
 
 [The maximum duration of a session](../../speechkit/stt/streaming.md#session-restrictions) is 5 minutes.
+
+#### What should I do if {{ speechkit-name }} does not listen to a conversation to the end or, conversely, it takes too long to wait until it ends? {#eou-tune}
+
+Interruptions or delays during [streaming recognition](../../speechkit/stt/streaming.md) may occur due to detecting the end of utterance (EOU). For EOU setup recommendations, see [{#T}](../../speechkit/stt/eou.md).
 
 #### Error: OutOfRange desc = Exceeded maximum allowed stream duration {#duration-exceeded}
 

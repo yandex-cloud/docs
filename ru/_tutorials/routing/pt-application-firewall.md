@@ -1,4 +1,4 @@
-# Настройка и тестирование PT Application Firewall
+# Настройка PT Application Firewall
 
 [PT Application Firewall](https://www.ptsecurity.com/ru-ru/products/af/) — [межсетевой экран уровня веб-приложений](https://ru.wikipedia.org/wiki/Файрвол_веб-приложений), который обеспечивает непрерывную защиту веб-приложений, пользователей и сетевой инфраструктуры и помогает соответствовать стандартам безопасности.
 

@@ -2,7 +2,7 @@
 noIndex: true
 ---
 
-# Asynchronously replicating data from {{ metrika }} to {{ CH }} using {{ data-transfer-full-name }}
+# Uploading data from {{ metrika }} to a {{ CH }} data mart using {{ data-transfer-full-name }}
 
 {% include [note-metrica-pro](../_includes/data-transfer/note-metrica-pro.md) %}
 

@@ -12,13 +12,13 @@ You can only upgrade to a version that immediately follows the current one, such
 
 {% endnote %}
 
-## Before upgrading {#before-update}
+## Before updating the version {#before-update}
 
 Prior to upgrading a cluster, make sure this does not affect your applications:
 
-1. Review the [change log](https://docs.mongodb.com/manual/release-notes/) for the {{ MG }} versions that you are upgrading your cluster to, and make sure that changes do not affect your application.
-1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
-1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
+1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Upgrading a cluster {#start-update}
 

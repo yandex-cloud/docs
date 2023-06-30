@@ -62,6 +62,7 @@ The accuracy of speech recognition is also affected by:
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](streaming.md)
+* [{#T}](eou.md)
 * [{#T}](normalization.md)
 * [{#T}](request.md)
 * [{#T}](transcribation.md)

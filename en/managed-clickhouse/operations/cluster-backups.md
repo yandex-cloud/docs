@@ -63,7 +63,7 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster). You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
+You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
 
@@ -75,7 +75,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
    1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
 
    To restore a previously deleted cluster from a backup:
@@ -83,7 +83,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
    1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
 
    {{ mch-name }} launches the operation to create a cluster from the backup.
@@ -143,7 +143,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--environment`: Environment:
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ MS}} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ MS}} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--host`: Host parameters:

@@ -35,12 +35,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. (Optional) [Create an intermediate Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
 
-      * Under **Image/boot disk selection**, select **Operating systems** → `Ubuntu 20.04`.
-      * Under **Network settings**:
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → `Ubuntu 20.04`.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-         * **Public address**: `Auto`.
-         * **Private address**: `Auto`.
-         * **Security group**: Select the same security group as for the {{ mrd-name }} cluster.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Select the same security group as for the {{ mrd-name }} cluster.
 
    
    1. If you use {{ vpc-name }} security groups, [configure them](../../managed-redis/operations/connect/index.md#configuring-security-groups).
@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the configuration file for the appropriate cluster type to the same working directory:
 
          * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-non-sharded.tf): For an unsharded cluster.
@@ -318,8 +318,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Make sure that the dump is restored completely {#check-data}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
-1. In the list of services, select **{{ mrd-name }}**.
-1. Click on the name of the cluster and open the [Monitoring](../../managed-redis/operations/monitoring.md) tab.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. Click the name of the desired cluster and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-redis/operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-redis/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys in the shards.
 

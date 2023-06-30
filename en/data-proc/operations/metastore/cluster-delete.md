@@ -1,16 +1,12 @@
----
-noIndex: true
----
+# Deleting a {{ metastore-full-name }} cluster
 
-# Deleting a {{ metastore-name }} server
+You can delete a {{ metastore-name }} cluster along with its stored data.
 
-You can delete a server along with all the data stored on it.
+## Before deleting a cluster {#before-you-delete}
 
-## Before deleting a server {#before-you-delete}
+Disable deletion protection for the cluster if it is enabled.
 
-Disable deletion protection for the server if it is enabled.
-
-## Deleting a server {#delete}
+## Delete the cluster {#delete}
 
 {% list tabs %}
 
@@ -18,7 +14,7 @@ Disable deletion protection for the server if it is enabled.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. In the left-hand panel, click ![image](../../../_assets/data-proc/metastore.svg) **Metastore server**.
-   1. Click ![image](../../../_assets/options.svg) for the appropriate server and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
-   1. Confirm server deletion.
+   1. Click the ![image](../../../_assets/options.svg) icon for the desired cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+   1. In the window that opens, click **Delete**.
 
 {% endlist %}

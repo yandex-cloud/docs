@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-В очередь могут входить задачи разных типов, например <q>Новая возможность</q>, <q>Улучшение</q> или <q>Ошибка</q>. Каждому типу задач соответствует свой [воркфлоу](./workflows.md) и набор [резолюций](./create-resolution.md). В настройках очереди вы можете изменить набор типов, которые доступны при создании новой задачи, а также указать тип по умолчанию для новых задач.
+В очередь могут входить задачи разных типов, например <q>Новая возможность</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q> или <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Каждому типу задач соответствует свой [воркфлоу](./workflows.md) и набор [резолюций](./create-resolution.md). В настройках очереди вы можете изменить набор типов, которые доступны при создании новой задачи, а также указать тип по умолчанию для новых задач.
 
 Список всех типов задач можно посмотреть в [настройках {{ tracker-name }}]({{ link-admin-types }}).
 
@@ -16,22 +16,22 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **Настройки очереди**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **Типы задач**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--types }}**.
 
-1. Нажмите кнопку **Добавить тип задачи**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}**.
 
 1. Задайте параметры:
-    * **Тип задачи** — выберите один из доступных типов.
+    * **{{ ui-key.startrek.blocks-desktop_b-queue-form.choose-issue-type }}** — выберите один из доступных типов.
         В {{ tracker-name }} доступны наиболее популярные типы задач. Если нужного вам типа среди них нет, администратор может [создать его](#create-ticket-type).
-    * **Воркфлоу** — укажите воркфлоу, который будет применяться к задачам этого типа. Выберите один из готовых воркфлоу или [создайте новый](add-workflow.md) на его основе.
-    * **Резолюции** — выберите возможные резолюции.
+    * **{{ ui-key.startrek.blocks-desktop_b-queue-form.choose-workflow }}** — укажите воркфлоу, который будет применяться к задачам этого типа. Выберите один из готовых воркфлоу или [создайте новый](add-workflow.md) на его основе.
+    * **{{ ui-key.startrek.blocks-desktop_b-queue-form.choose-resolutions }}** — выберите возможные резолюции.
         По умолчанию в {{ tracker-name }} доступны наиболее популярные резолюции. Если нужной вам резолюции среди них нет, администратор может [создать ее](create-resolution.md).
 
-1. В блоке **Статусы и переходы** отображаются основные параметры выбранного воркфлоу. При необходимости вы можете его отредактировать или создать копию.
+1. В блоке **{{ ui-key.startrek.blocks-desktop_b-queue-issue-type.workflow-view-label }}** отображаются основные параметры выбранного воркфлоу. При необходимости вы можете его отредактировать или создать копию.
 
-1. Нажмите кнопку **Сохранить** внизу вкладки.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-queue-form.save }}** внизу вкладки.
 
 {% note tip %}
 
@@ -52,13 +52,13 @@
 
 1. Убедитесь, что вы авторизованы в {{ tracker-full-name }} как [администратор](../role-model.md).
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **Администрирование** → **Настройки {{ tracker-name }}**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue.cp }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.tracker-settings }}**.
 
-1. Перейдите на вкладку **Типы задач**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--types }}**.
 
-1. Нажмите кнопку **Создать тип задачи**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab.create--types }}**.
 
-1. Заполните поля и нажмите **Создать**.
+1. Заполните поля и нажмите **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form__labels.submit }}**.
 
 
 ## Удалить тип задачи из очереди {#delete-ticket-type}
@@ -75,10 +75,10 @@
 
 1. Перейдите на страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **Настройки очереди**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **Типы задач**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--types }}**.
 
 1. Удалите тип с помощью кнопки ![](../../_assets/tracker/remove-task-type.png).
 
-1. Нажмите кнопку **Сохранить** внизу вкладки.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-queue-form.save }}** внизу вкладки.

@@ -1,103 +1,69 @@
-# {{ tracker-full-name }} revision history for March 2023
+# {{ tracker-full-name }} revision history for April 2023
 
-* [Ideas from our users](#your-ideas)
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
-## Ideas from our users {#your-ideas}
-
-
-While working on our main goals, we also try to listen to our users' ideas. This month, we implemented the two most popular ideas:
-
-
-### Canceling the sending of an email {#mail-timer}
-
-**158 votes**
-
-You can now cancel an email sent from an [issue comment](../user/comments.md). Click **Cancel** at the bottom of the screen within 5 seconds of sending an email: your email will not be sent and you will be able to edit the comment.
-
-### New workflow editor {#workflow-editor}
-
-**154 votes**
-
-[Queue](../queue-intro.md) settings now have a visual editor for [workflows](../manager/create-work-process.md). All statuses and transitions are now displayed in the diagram. We also added some new settings, for example, you can now enable transitions to a status from all other statuses with just a single click.
-
- 
-
 ## Updates {#top-news}
 
-### Updated All Boards page {#new-boadrs-page}
 
-The **All Boards** page has a new design.
+### Choosing a color for issues on a project's Gantt chart {#issues-colors}
 
+A [Gantt chart for projects](../manager/gantt-project.md) now allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
 
-### Inviting users to your organization {#invite-org}
+You can edit the list of values by adding and deleting values and choosing their color.
 
-You can now send users invitations to {{ org-full-name }} from the {{ tracker-name }} interface. You can send invitations to any email address, not just Yandex. Once a user accepts your invitation, they can select a Yandex account to use to join your organization or create a new account.
+If an issue has two or more color components, the resulting color will be selected from the list of values by priority.
 
+### Retaining settings for a Gantt chart created based on a filter {#save-the-columns}
 
-### Burn down chart {#burnout-diagramm}
+The settings of a [Gantt chart created based on a filter](../manager/gantt.md#section_pwy_tgx_tdb) and issue parameters in the list to the left of the chart persist and are not reset when you refresh a page.
 
-[New boards](../manager/agile-new.md) with a [backlog](../manager/backlog.md) now have a **Burn down chart** tab available for the sprint selected. By default, the chart shows the current sprint.
+### Creating an issue from a comment {#task-from-comment}
 
-### Saving Gantt chart settings to filter issues {#gantt-preset-colors}
+The ![](../../_assets/tracker/svg/actions.svg) **Comment actions** menu now contains an item named **Create issue from comment**. This item will create a linked issue with the comment text in its description. You can edit the description, if required.
 
-[Gantt chart](../manager/gantt.md) settings for issue system filters (**My projects**, **Created by me**, and other) are saved even after you refresh the page with the respective filter.
+### Limiting the number of issues per column {#column-limits}
 
+On [new boards](../manager/agile-new.md), you can set a limit on the number of issues per column. The number of issues and the set limit are displayed next to the column name. If the number of issues exceeds the limit, the column color turns yellow; this will still allow you to continue adding issues.
 
-### Managing organizations {#org-add}
+You can set a limit in the column settings by selecting ![](../../_assets/tracker/svg/actions.svg) → **Edit** → **Maximum number of issues**.
 
-{{ tracker-name }} now lets you [change an organization](../cloud-vs-360.md#reconnect) from {{ ya-360 }} to {{ org-full-name }}.
+![](../../_assets/tracker/changelogs/column-limits.png)
 
+### Setting up a transition from _Any status_ {#meta-transition}
 
-### Color settings for filter and queue Gantt charts {#gantt-colors-queue}
+The new workflow editor has the **Allow transitions from any status** setting for statuses. In this case, a diagram gets a status called **Any status**. Previously, you could not edit a transition from **Any status**. Now, you can set up its automation, criteria, and transition screens similarly to any other transition on a diagram.
 
-You can now select a color for a specific issue in a [Gantt chart](../manager/gantt.md) for an issue filter or queue.
+### Canceling the last action in the workflow editor {#hot-keys}
 
-### Invitations to comments in projects {#project-summons}
-
-You can now invite users to comment on the [project](../manager/project-new.md) either on the page or in the project card.
-
-### Access to projects for customers {#customer-access}
-
-We updated [project](../manager/project-new.md) access settings: now, when selecting the **All participants** access level, access is granted to the reporter, responsible employee, project participants, and customers.
-
-### Displaying an issue list in a Gantt chart by filter or queue {#gantt-settings-columns}
-
-In a Gantt chart created based on an issue filter or queue, you can select the issue parameters to be displayed in the list to the left of the chart. To select the desired parameters, click ![](../../_assets/tracker/svg/settings-old.svg) in the top-right corner of the issue list in the chart.
-
-
-### Onboarding for new {{ tracker-name }} users {#onboarding}
-
-Onboarding is now available for new {{ tracker-name }} users: when they log in to {{ tracker-name }}for the first time, they can select a suitable [workflow template](../manager/create-work-process.md) and get a set of required tools.
-
-![](../../_assets/tracker/onboarding.png =690x395)
-
-
-
-### New boards in workflow templates {#new-boards-presets}
-
-We updated [workflow templates](../manager/create-work-process.md): now, [new issue boards](../manager/agile-new.md) are created in them.
-
-
-### Migrating to new boards {#create-board-popup}
-
-Now, you can only create [new issue boards](../manager/agile-new.md). You can no longer create old boards, but you can continue to use all previously created ones.
+The workflow editor allows you to use keyboard shortcuts to cancel and restore the last action.
+* Windows: **Ctrl** + **Z** to cancel an action and **Ctrl** + **Shift** + **Z** to restore the canceled action.
+* Mac OS: **⌘** + **Z** to cancel an action and **⌘** + **Shift** + **Z** to restore the canceled action.
 
 ## Fixes and improvements {#fixes}
 
-### Retaining a sprint after you edit a board {#spint-saved}
+### Issue filter for a Gantt chart created based on a list of projects
 
-Now, after you rename fields or update a set of fields in a card, the selected sprint remains on your [issue board](../manager/agile-new.md).
+On a [Gantt chart for a list of projects](../manager/gantt-project.md), you can set up an additional filter by issue.
 
-### Displaying issue links in a Gantt chart for projects {#gantt-linked-tasks}
+![](../../_assets/tracker/changelogs/tasks-filter.png =690x112)
 
-In a [Gantt chart for projects](../manager/gantt-project.md), you can now more effectively edit issue links by adding or removing blockers, dependent issues, or sub-issues. Now, changes you make to the chart apply to issues and immediately appear on charts opened by other users.
+### Invitations to comments in projects {#bell-summons}
 
-### Selecting a end date for a sprint {#sprint-end-date}
+You can invite users to comment on projects. Notifications of invitations are sent to a user's email address.
 
-We fixed the error that prevented users from specifying an end date for a [sprint](../manager/create-agile-sprint.md). The **Other** option now works properly.
+### Choosing a color for an issue status {#statuses-color}
 
-### Grouping issues on a board {#tasks-groups}
+An issue status is additionally highlighted with a color, depending on the status type:
+* ![](../../_assets/tracker/changelogs/status-1-open.png)
+* ![](../../_assets/tracker/changelogs/status-2-in-progress.png)
+* ![](../../_assets/tracker/changelogs/status-3-needs-info.png)
+* ![](../../_assets/tracker/changelogs/status-4-solved.png)
+* ![](../../_assets/tracker/changelogs/status-5-closed.png)
 
-The [issue grouping](../manager/agile-new-use.md#group) on the selected board remains after you refresh and open the page again.
+### Updating planning poker on boards {#new-poker-ui}
+
+On [new boards](../manager/agile-new.md), **planning poker** opens to the full height of a board and you can drag an issue to any part of the opened tab.
+It is now more convenient to estimate issues: the drop-down list is replaced with buttons that show estimates, a counter of users who voted for issues, and a button to view the estimates.
+
+![](../../_assets/tracker/changelogs/poker-estimate-buttons.png)

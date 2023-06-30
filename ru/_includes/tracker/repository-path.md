@@ -1,1 +1,1 @@
-На панели слева нажмите ![](../../_assets/tracker/svg/still.svg) → выберите **Администрирование** → ![](../../_assets/tracker/svg/repositories.svg) **Репозитории** → **Подключить репозиторий**.
+На панели слева нажмите ![](../../_assets/tracker/svg/still.svg) → выберите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → ![](../../_assets/tracker/svg/repositories.svg) **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-repositories }}** → **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.connect }}**.

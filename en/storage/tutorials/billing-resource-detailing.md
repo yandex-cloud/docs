@@ -12,15 +12,16 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
 
 - Management console
 
-  1. In the [management console]({{ link-console-billing }}), select the account you wish to get billing details for.
-  1. On the **Overview** page, go to the **Export details** tab.
-  1. Click **Create**.
-  1. In the **Create periodic export** window that opens, enter:
-     * In the **Bucket** field, the name of the bucket to store the CSV file with details.
-     * In the **Directory** field, the name of the directory for the file. The last character must be `/`.
-     * Select the language for product names: English or Russian.
-     * Select **Resource** as the detailed view type.
-  1. Click **Create**.
+   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+   1. Select the billing account you need from the list.
+   1. Click the **{{ ui-key.yacloud.billing.account.switch_detail }}** tab.
+   1. At the top right, click **{{ ui-key.yacloud.billing.account.detail.button_export }}** and select **{{ ui-key.yacloud.billing.account.detail.button_create-periodic-export }}**.
+   1. In the window that opens:
+      * In the **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** field, enter the name of the bucket to store the CSV file with details.
+      * In the **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** field, enter the name of the directory for the file. The last character must be `/`.
+      * In the **{{ ui-key.yacloud.billing.account.exports.field_locale }}** field, select the language to display product names in: **{{ ui-key.yacloud.billing.account.exports.locale_value_en-lang }}** or **{{ ui-key.yacloud.billing.account.exports.locale_value_ru-lang }}**.
+      * In the **{{ ui-key.yacloud.billing.account.exports.field_detail-type }}** field, select the **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** type of details.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

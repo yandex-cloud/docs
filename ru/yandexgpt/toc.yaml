@@ -1,0 +1,37 @@
+title: YandexGPT
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    items:
+      - name: О сервисе {{ yagpt-name }}
+        href: concepts/index.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: TextGenerationService
+            href: api-ref/grpc/llm_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: TextGeneration
+            items:
+              - name: Overview
+                href: api-ref/TextGeneration/index.md
+              - name: instruct
+                href: api-ref/TextGeneration/instruct.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/yandexgpt

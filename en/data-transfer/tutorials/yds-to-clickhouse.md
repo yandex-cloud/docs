@@ -1,3 +1,3 @@
-# Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+# Saving a {{ DS }} data stream in {{ CH }}
 
 {% include notitle [Stream from YDS to MCH with Data Transfer](../../_tutorials/dataplatform/yds-to-clickhouse.md) %}

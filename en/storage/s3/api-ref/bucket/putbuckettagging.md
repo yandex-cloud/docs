@@ -2,6 +2,8 @@
 
 Adds [labels](../../../concepts/tags.md) to a bucket. This overwrites any existing bucket labels.
 
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
+
 ## Query {#request}
 
 ```http

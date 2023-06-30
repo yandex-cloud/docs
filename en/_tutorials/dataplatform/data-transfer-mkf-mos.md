@@ -1,4 +1,4 @@
-# Delivering data from {{ mkf-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from a {{ KF }} queue to {{ OS }} using {{ data-transfer-full-name }}
 
 A {{ mos-name }} cluster can get data from {{ KF }} topics in real time.
 
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
+      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the topic created.
 
       
       1. To connect to the cluster from the user's local machine, configure security groups:
@@ -290,7 +290,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
    To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
 
-1. Check that the `sensors` index in the {{ mos-name }} cluster contains the sent data:
+1. Check that the `sensors` index in the {{ mos-name }} cluster contains the data sent:
 
    {% list tabs %}
 

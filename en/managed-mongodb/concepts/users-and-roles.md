@@ -1,38 +1,38 @@
 # Users and roles in {{ mmg-name }} 
 
-The data in {{ mmg-name }} is handled on behalf of the cluster users. To differentiate user access rights, the [role model](https://docs.mongodb.com/manual/core/authorization/) is used. To assign a user specific access rights for the database, [grant them](../operations/cluster-users.md) the relevant role in this database.
+The data in {{ mmg-name }} is handled on behalf of the cluster users. To differentiate user access rights, the [role model](https://docs.mongodb.com/manual/core/authorization/) is used. To assign specific access rights for the database to a user, you will need to [grant them](../operations/cluster-users.md) an appropriate role in this database.
 
 ## Database user roles {#db-user-roles}
 
-Standard roles available for any user database.
+These are regular roles available to any user database.
 
 ### read {#read}
 
-Users granted the `read` role have read access to all non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. Learn more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#read).
+The users granted the `read` role have the read access to all non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. You can read more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#read).
 
 ### readWrite {#readWrite}
 
-Users granted the `readWrite` role have read and write access to all non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. Learn more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite).
+The users granted the `readWrite` role have the write and read access to all non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. You can read more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite).
 
 ### mdbDbAdmin {#mdbDbAdmin}
 
-Database administrator role. Grants all [readWrite](#readWrite) role rights and the rights needed for database administration:
+This is the database administrator role that grants the user all [readWrite](#readWrite) role permissions, as well as the permissions required for database administration:
 
 * [collMod](https://docs.mongodb.com/manual/reference/privilege-actions/#collMod)
 * [planCacheWrite](https://docs.mongodb.com/manual/reference/privilege-actions/#planCacheWrite)
 * [planCacheRead](https://docs.mongodb.com/manual/reference/privilege-actions/#planCacheRead)
-* planCacheIndexFilter: Lets you use the commands [planCacheListFilters](https://docs.mongodb.com/manual/reference/command/planCacheListFilters/index.html), [planCacheClearFilters](https://docs.mongodb.com/manual/reference/command/planCacheClearFilters/index.html) and [planCacheSetFilter](https://docs.mongodb.com/manual/reference/command/planCacheSetFilter/index.html).
+* planCacheIndexFilter (which allows you to use the [planCacheListFilters](https://docs.mongodb.com/manual/reference/command/planCacheListFilters/index.html), [planCacheClearFilters](https://docs.mongodb.com/manual/reference/command/planCacheClearFilters/index.html), and [planCacheSetFilter](https://docs.mongodb.com/manual/reference/command/planCacheSetFilter/index.html) commands)
 * [bypassDocumentValidation](https://docs.mongodb.com/manual/reference/privilege-actions/#bypassDocumentValidation)
 
 ## Cluster administrator roles {#cluster-admin-roles}
 
-Roles needed for cluster monitoring and administration. Those roles are assigned for the privileged MongoDB [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+These roles are required for cluster monitoring and administration. They are assigned for the privileged MongoDB [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 
 ### mdbMonitor {#mdbMonitor}
 
-A role for collecting statistics and monitoring. It grants the following rights to the user:
+This role is required for collecting statistics and monitoring. It grants the following permissions to the user:
 
-* Actions on the cluster as a whole:
+* Working with the cluster:
 
    * [connPoolStats](https://docs.mongodb.com/manual/reference/privilege-actions/#connPoolStats)
    * [getLog](https://docs.mongodb.com/manual/reference/privilege-actions/#getLog)
@@ -50,7 +50,7 @@ A role for collecting statistics and monitoring. It grants the following rights 
    * [shardingState](https://docs.mongodb.com/manual/reference/privilege-actions/#shardingState)
    * [top](https://docs.mongodb.com/manual/reference/privilege-actions/#top)
 
-* Actions on all databases in a cluster:
+* Working with all databases in the cluster:
 
    * [collStats](https://docs.mongodb.com/manual/reference/privilege-actions/#collStats)
    * [dbStats](https://docs.mongodb.com/manual/reference/privilege-actions/#dbStats)
@@ -58,11 +58,11 @@ A role for collecting statistics and monitoring. It grants the following rights 
    * [indexStats](https://docs.mongodb.com/manual/reference/privilege-actions/#indexStats)
    * [useUUID](https://docs.mongodb.com/manual/reference/privilege-actions/#useUUID)
 
-* Actions with all [system.profile](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.profile) collections in all databases:
+* Working with all [system.profile](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.profile) collections in all databases:
 
    * [find](https://docs.mongodb.com/manual/reference/privilege-actions/#find)
 
-* Actions with the [system.indexes](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.indexes), [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js), [system.namespaces](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.namespaces) collections of the [local](https://docs.mongodb.com/manual/reference/local-database/) and [config](https://docs.mongodb.com/manual/reference/config-database/) databases:
+* Working with the [system.indexes](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.indexes), [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js), and [system.namespaces](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.namespaces) collections of the [local](https://docs.mongodb.com/manual/reference/local-database/) and [config](https://docs.mongodb.com/manual/reference/config-database/) databases:
 
    * [collStats](https://docs.mongodb.com/manual/reference/privilege-actions/#collStats)
    * [dbHash](https://docs.mongodb.com/manual/reference/privilege-actions/#dbHash)
@@ -75,13 +75,13 @@ A role for collecting statistics and monitoring. It grants the following rights 
 
 ### mdbShardingManager {#mdbShardingManager}
 
-A role for managing cluster sharding. It grants the following rights to the user:
+This role is used for managing cluster sharding. It grants the following permissions to the user:
 
-* Actions with the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database:
+* Working with the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database:
 
    * [viewRole](https://docs.mongodb.com/manual/reference/privilege-actions/#viewRole)
 
-* Actions with any resource in the cluster:
+* Working with any resource in the cluster:
 
    * [enableSharding](https://docs.mongodb.com/manual/reference/privilege-actions/#enableSharding)
    * [flushRouterConfig](https://docs.mongodb.com/manual/reference/privilege-actions/#flushRouterConfig)
@@ -92,6 +92,6 @@ A role for managing cluster sharding. It grants the following rights to the user
    * [splitChunk](https://docs.mongodb.com/manual/reference/privilege-actions/#splitChunk)
    * [splitVector](https://docs.mongodb.com/manual/reference/privilege-actions/#splitVector)
 
-* Actions with the [config](https://docs.mongodb.com/manual/reference/config-database/) database:
+* Working with the [config](https://docs.mongodb.com/manual/reference/config-database/) database:
 
    * [find](https://docs.mongodb.com/manual/reference/privilege-actions/#find)

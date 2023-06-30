@@ -31,7 +31,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       * Specify the DBMS version.
 
@@ -301,20 +301,28 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Create a {{ mmg-name }} cluster and a network for it with test characteristics:
 
-   * Named `mymg`.
-   * Versions `{{ versions.tf.latest }}`.
-   * In the `PRODUCTION` environment.
-   * In the cloud with the `{{ tf-cloud-id }}` ID.
-   * In the folder with the `{{ tf-folder-id }}` ID.
-   * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
-      * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
-   * With one user, `user1`, with the password `user1user1`.
-   * With one database, `db1`.
-   * With protection against accidental cluster deletion.
+   * Name: `mymg`.
+   * Version: `{{ versions.tf.latest }}`.
+   * Environment `PRODUCTION`.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
+   * Network: `mynet`.
+   * Host class: `{{ host-class }}`.
+   * Number of `host` blocks: 1.
+   * Subnet: `mysubnet`. Network settings:
 
-   The configuration file for the cluster looks like this:
+      * Availability zone: `{{ region-id }}-a`.
+      * Range: `10.5.0.0/24`.
+
+      * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+   * SSD network storage: `{{ disk-type-example }}`.
+   * Storage size: 20 GB.
+   * User: `user1`.
+   * Password: `user1user1`.
+   * Database: `db1`.
+   * Protection against accidental cluster deletion: Enabled.
+
+   Configuration file for a single-host cluster:
 
    
    
@@ -380,5 +388,272 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 
 
+
+{% endlist %}
+
+### Creating sharded clusters {#creating-a-sharded-cluster}
+
+You can create {{ mmg-name }} clusters with [standard](#std-sharding) or [advanced](#adv-sharding) sharding. For more information about sharding types, see [{#T}](../concepts/sharding.md#shard-management).
+
+#### Standard sharding {#std-sharding}
+
+Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
+
+* One `MONGOD` host.
+* Three `MONGOINFRA` hosts.
+
+Cluster test characteristics:
+
+* Name: `mymg`.
+* Environment `PRODUCTION`.
+* Protection against accidental cluster deletion: Enabled.
+* Version: `{{ versions.tf.latest }}`.
+* Database: `db1`.
+* User: `user1`.
+* Password: `user1user1`.
+* `MONGOD` host class: `{{ host-class }}`.
+* `MONGOINFRA` host class: `c3-c2-m4`.
+* SSD network storage: `{{ disk-type-example }}`.
+* Storage size: 10 GB.
+* Number of `host` blocks: 4. For each of them, set the host type: `mongod` or `mongoinfra`.
+
+Network specifications:
+
+* Network: `mynet`.
+* Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+* Subnet: `mysubnet`.
+* Availability zone: `{{ region-id }}-a`.
+* Range: `10.5.0.0/24`.
+
+{% list tabs %}
+
+- {{ TF }}
+
+   Configuration file for a cluster with standard sharding:
+
+   ```hcl
+   resource "yandex_mdb_mongodb_cluster" "mymg" {
+     name                = "mymg"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+     deletion_protection = true
+
+     cluster_config {
+       version = "{{ versions.tf.latest }}"
+     }
+
+     database {
+       name = "db1"
+     }
+
+     user {
+       name     = "user1"
+       password = "user1user1"
+       permission {
+         database_name = "db1"
+       }
+     }
+
+     resources_mongod {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 10
+     }
+
+     resources_mongoinfra {
+       resource_preset_id = "c3-c2-m4"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 10
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongod"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongoinfra"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongoinfra"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongoinfra"
+     }
+
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
+
+   resource "yandex_vpc_security_group" "mymg-sg" {
+     name       = "mymg-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "MongoDB"
+       port           = {{ port-mmg }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
+
+{% endlist %}
+
+#### Advanced sharding {#adv-sharding}
+
+Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
+
+* One `MONGOD` host.
+* Two `MONGOS` hosts.
+* Three `MONGOCFG` hosts.
+
+Cluster test characteristics:
+
+* Name: `mymg`.
+* Environment `PRODUCTION`.
+* Protection against accidental cluster deletion: Enabled.
+* Version: `{{ versions.tf.latest }}`.
+* Database: `db1`.
+* User: `user1`.
+* Password: `user1user1`.
+* Host class: `{{ host-class }}`.
+* SSD network storage: `{{ disk-type-example }}`.
+* Storage size: 10 GB.
+* Number of `host` blocks: 6. For each of them, set the host type: `mongod`, `mongos`, or `mongocfg`.
+
+Network specifications:
+
+* Network: `mynet`.
+* Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+* Subnet: `mysubnet`.
+* Availability zone: `{{ region-id }}-a`.
+* Range: `10.5.0.0/24`.
+
+{% list tabs %}
+
+- {{ TF }}
+
+   Configuration file for a cluster with advanced sharding:
+
+   ```hcl
+   resource "yandex_mdb_mongodb_cluster" "mymg" {
+     name                = "mymg"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+     deletion_protection = true
+
+     cluster_config {
+       version = "{{ versions.tf.latest }}"
+     }
+
+     database {
+       name = "db1"
+     }
+
+     user {
+       name     = "user1"
+       password = "user1user1"
+       permission {
+         database_name = "db1"
+       }
+     }
+
+     resources_mongod {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 10
+     }
+
+     resources_mongos {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 10
+     }
+
+     resources_mongocfg {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 10
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongod"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongos"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongos"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongocfg"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongocfg"
+     }
+
+     host {
+       zone_id   = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+       type      = "mongocfg"
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
+
+   resource "yandex_vpc_security_group" "mymg-sg" {
+     name       = "mymg-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "MongoDB"
+       port           = {{ port-mmg }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
 
 {% endlist %}

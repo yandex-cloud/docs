@@ -1,3 +1,3 @@
-# Asynchronously replicating data from {{ mmy-full-name }} to {{ ydb-full-name }}
+# Migrating databases from {{ MY }} to {{ ydb-short-name }}
 
 {% include notitle [MMY to YDB with Data Transfer](../../_tutorials/dataplatform/mmy-ydb-migration.md) %}

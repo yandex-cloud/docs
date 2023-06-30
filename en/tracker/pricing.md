@@ -19,18 +19,12 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Pricing {#sec_price}
 
-{% note warning %}
-
-The indicated prices are valid until January 2024 if you have activated a paid version until June 29, 2023.
-
-{% endnote %}
 
 
-
-
-{% include [usd.md](../_pricing/tracker/usd.md) %}
 
 {% include [usd-after-30June.md](../_pricing/tracker/usd-after-30June.md) %}
+
+{% include [usd.md](../_pricing/tracker/usd.md) %}
 
 
 {% note info %}
@@ -57,15 +51,15 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 * For large companies, the monthly fee is calculated on a progressive scale.
 
-> For example, the following pricing was in effect in January:
+> For example, the following pricing was in effect in July:
 >
-> * For the first 100 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} per user per month.
+> * For the first 100 users: $3.520000 per user per month.
 >
-> * For the next 150 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} per user per month.
+> * For the next 150 users: $3.200000 per user per month.
 >
-> * For all users over 250: {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }} per user per month.
+> * For all users over 250: $2.880000 per user per month.
 >
-> In January, the number of employees with full access to {{ tracker-name }} varied as follows:
+> In July, the number of employees with full access to {{ tracker-name }} varied as follows:
 >
 > * There were 245 employees for 14 days.
 >
@@ -83,7 +77,7 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >
 > >
 > ```
-> 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
+> 100 × $3.520000 + 150 × $3.200000 + 20 × $2.880000
 > ```
 >
 > 

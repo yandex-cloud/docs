@@ -143,14 +143,14 @@ You can use the following types of links for a widget pair:
 
 {% note warning %}
 
-You can't create a link with [{#T}](#text) and [{#T}](#title) widgets.
+You cannot create a link with [{#T}](#text) and [{#T}](#title) widgets.
 
 {% endnote %}
 
-Some widgets can't affect other widgets. Possible types of links between widgets are shown in the table:
+Some widgets cannot affect other widgets. The table below shows possible types of links between widgets:
 
 | Affects/Affected | Selector | Charts |
------ | ----- | -----
+| ----- | ----- | ----- |
 | **Selector** | Link<br/>Incoming link<br/>Outgoing link<br/>Ignore | Outgoing link<br/>Ignore |
 | **Chart** | Incoming link<br/>Ignore | — |
 
@@ -158,7 +158,7 @@ Some widgets can't affect other widgets. Possible types of links between widgets
 
 An alias is a link between fields of different datasets, which determines how widgets impact each other when you link them.
 
-Aliases let you link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, a selector by the `[Region]` field from one dataset will filter data in a chart with the `[Country]` field of another dataset. For widgets based on the same dataset, aliases are created automatically. Creating aliases is required when you need to:
+Aliases allow you to link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, a selector by the `[Region]` field from one dataset will filter data in a chart with the `[Country]` field of another dataset. For widgets based on the same dataset, aliases are created automatically. Creating aliases is required when you need to:
 
 * Establish links between selectors that are based on different datasets, so that the values of one selector filter the list of available values of another selector.
 
@@ -308,6 +308,6 @@ The **Data sources** section displays information about the sources used in a ch
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
 
 
-#### For details, see also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](optimization_recommendations.md)

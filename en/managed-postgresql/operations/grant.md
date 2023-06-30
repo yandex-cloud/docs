@@ -13,6 +13,8 @@ The user created with a **{{ mpg-name }}** cluster is the owner of the first dat
 - [Granting a privilege to a user](#grant-privilege).
 - [Revoking a privilege from a user](#revoke-privilege).
 
+{% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
+
 ## Updating the list of user roles {#grant-role}
 
 To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.

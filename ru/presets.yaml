@@ -76,6 +76,7 @@ default:
   ya-360: Яндекс 360 для бизнеса
   yandex-360: Яндекс 360
   storage-aws-cli-alias: ycs3
+  yagpt-full-name: YandexGPT
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -157,6 +158,7 @@ default:
   logfeller-name: Logfeller
   backup-name: Cloud Backup
   search-api-name: Search API
+  yagpt-name: YandexGPT
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -256,6 +258,7 @@ default:
   roles-vpc-admin: vpc.admin
   roles-vision-user: ai.vision.user
   roles-translate-user: ai.translate.user
+  roles-yagpt-user: ai.languageModels.user
   roles-lb-viewer: load-balancer.viewer
   roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin
@@ -3070,6 +3073,10 @@ default:
         requests|string: Не тарифицируется
   ui-key:
     datalens:
+      chartkit:
+        menu:
+          export:
+            format_markdown: Markdown
       collections:
         action_create: Создать
       component:
@@ -3105,8 +3112,17 @@ default:
           button_create-dataset: Создать датасет
           button_specify-manually: Указать вручную
           button_verify: Проверить подключение
+          field_cache-ttl-sec: "Время жизни кeша в\_секундах"
+          field_click-house-port: Порт HTTP-интерфейса
+          field_cloud-and-folder: Облако и каталог
           field_cluster: Кластер
+          field_fill-mode: Подключение
           field_host-name: Имя хоста
+          field_password: Пароль
+          field_raw-sql-level: Уровень доступа SQL запросов
+          field_username: Имя пользователя
+          value_default: По умолчанию
+          value_raw-sql-level-off: Запретить
       dash:
         action-panel:
           view:
@@ -3141,6 +3157,8 @@ default:
           edit:
             button_add: Добавить
             button_save: Сохранить
+            field_autoheight: Автовысота
+            field_description: Описание
             field_title: Название
             field_widget: Чарт
       dataset:
@@ -3163,17 +3181,21 @@ default:
             button_connect-data-source: Создать подключение
             button_create-dashboards: Создать дашборд
             button_create-dataset: Создать датасет
+            button_create-widget: Создать чарт
       wizard:
         add_field_item: Поле
         button_apply: Применить
         button_apply-filter: Применить фильтр
+        button_choose-dataset: Выберите датасет
         button_save: Сохранить
         button_save-as: Сохранить как
         label_bars-color: Цвет
+        label_datasets: Датасеты
         label_gradient-type: Тип градиента
         label_thresholds: Задать пороговые значения
         label_visualization-area: Накопительная диаграмма с областями
         label_visualization-column: Столбчатая диаграмма
+        label_visualization-flat-table: Таблица
         label_visualization-pie: Круговая диаграмма
         label_visualization-pivot-table: Сводная таблица
         number-field-formatting:
@@ -3194,6 +3216,1094 @@ default:
         section_sort: Сортировка
         section_x: X
         section_y: 'Y'
+    startrek-backend:
+      applinks:
+        samsara:
+          resolution:
+            duplicate: Дубликат
+            rejected: Не будет исправлено
+            resolved: Решен
+          status:
+            closed: Закрыт
+            in:
+              progress: В работе
+            need:
+              info: Требуется информация
+            new: Новый
+            'on':
+              hold: Приостановлен
+            open: Открыт
+            resolved: Решен
+      fields:
+        issue:
+          access: Доступ
+          affectedVersions-key-value: Найдено в версиях
+          assignee-key-value: Исполнитель
+          author-key-value: Автор
+          boards: Доски
+          commentWithExternalMessageCount: Комментариев с сообщением
+          commentWithoutExternalMessageCount: Комментариев без сообщения
+          components-key-value: Компоненты
+          created-key-value: Создано
+          description-key-value: Описание
+          dueDate-key-value: Дедлайн
+          emailCc: Копия
+          emailCreatedBy: Создано по письму на адрес
+          emailFrom: От
+          emailTo: Кому
+          end-key-value: Дата завершения
+          estimation-key-value: Оценка
+          fields:
+            agile: Agile
+            email: Email
+            sla: SLA
+            system: Системные
+            timetracking: Учёт Времени
+          fixVersions-key-value: Исправить в версиях
+          followers: Наблюдатели
+          followingMaillists: Рассылки
+          goals-key-value: Цели
+          key-key-value: Ключ
+          lastCommentUpdatedAt: Последний комментарий
+          links:
+            relationship:
+              has:
+                epic: Подэпик
+          modifier: Изменил
+          originalEstimation-key-value: Первоначальная оценка
+          paletteColor: Цвет
+          pendingReplyFrom: Нужен ответ пользователя
+          possibleSpam: Возможно спам
+          priority-key-value: Приоритет
+          project-key-value: Проект
+          queue: Очередь
+          resolution-key-value: Резолюция
+          resolved: Разрешен
+          resolver: Решивший
+          sla-key-value: SLA
+          spent-key-value: Затрачено времени
+          sprint: Спринт
+          start-key-value: Дата начала
+          status-key-value: Статус
+          statusStartTime: Статус изменен
+          storyPoints: Story Points
+          summary-key-value: Задача
+          tags-key-value: Теги
+          type-key-value: Тип
+          updated-key-value: Обновлено
+          votes: Проголосовало
+      messages:
+        boards:
+          poker:
+            aggregate:
+              function:
+                maximum:
+                  double: Максимальное значение
+        sla:
+          issue:
+            created:
+              timer:
+                trigger:
+                  condition:
+                    type: Создана задача
+            'on':
+              status:
+                timer:
+                  trigger:
+                    condition:
+                      type: Пока задача находится в статусе
+          send:
+            mail:
+              threshold:
+                excess:
+                  function:
+                    type: Письмо
+          status:
+            changed:
+              timer:
+                trigger:
+                  condition:
+                    type: Задача переведена в статус
+          team:
+            commented:
+              timer:
+                trigger:
+                  condition:
+                    type: Получен ответ от команды очереди
+        trigger:
+          condition:
+            type:
+              and: И
+              fieldBecameEqual: стало равно
+              or: Или
+        user:
+          named:
+            request:
+              folder:
+                my: Мои
+                shared: Общие
+        workflow:
+          field:
+            maillists: Рассылки
+      presets:
+        advancedDevelopment:
+          board:
+            column:
+              ready:
+                for:
+                  test: Можно тестировать
+        developmentPreset:
+          board:
+            column:
+              need:
+                info: Требуется информация
+              ready:
+                for:
+                  test: Можно тестировать
+              release:
+                candidate: Релиз-кандидат
+              review: Ревью
+              tested: Протестировано
+              testing: Тестируется
+        devPreset:
+          board:
+            column:
+              closed: Закрыт
+              in:
+                progress: В работе
+              open: Открыт
+        kanbanDevelopmentPreset:
+          board:
+            column:
+              in:
+                progress: В работе
+              need:
+                info: Требуется информация
+              open: Бэклог
+              ready:
+                for:
+                  test: Можно тестировать
+              release:
+                candidate: Релиз-кандидат
+              review: Ревью
+              tested: Протестировано
+              testing: Тестируется
+        scrumDevelopmentPreset:
+          board:
+            column:
+              in:
+                progress: В работе
+              need:
+                info: Требуется информация
+              ready:
+                for:
+                  test: Можно тестировать
+              release:
+                candidate: Релиз-кандидат
+              review: Ревью
+              tested: Протестировано
+              testing: Тестируется
+          name: Скрам
+        supportPreset:
+          board:
+            column:
+              open: Открыт
+      profiles:
+        category:
+          everything: Все события
+      roles:
+        role:
+          name:
+            access: Доступ
+            assignee: Исполнитель
+            author: Автор
+            favorite-follower: Избранное
+            follower-key-value: Наблюдатель
+            modifier: Автор изменения
+            queue-follower-key-value: Подписчик очереди
+            queue-lead: Владелец очереди
+            team-member: Участник команды очереди
+            voted-by-follower: Проголосовали
+      types:
+        types:
+          sla:
+            settings: SLA
+          trigger:
+            action:
+              create:
+                issue: Создать задачу
+    startrek:
+      blocks_touch_b-related-issues:
+        delete: Удалить связь
+        type-relates: Связанные
+      blocks-desktop_agile-create-issue:
+        create: Создать
+      blocks-desktop_agile-form-modal:
+        board-mode-filter: автоматически
+        board-type--default: Простая
+        board-type--kanban: Канбан
+        label-board-mode: Добавить задачи
+        new-board-ad-control: Попробовать новые доски
+      blocks-desktop_b-access-category:
+        access-type--outsource: Не только Яндекс
+        access-type--yandex: Яндекс
+      blocks-desktop_b-agile-board:
+        add-note: Добавить заметку
+        edit-note: Редактировать заметку
+      blocks-desktop_b-bulk-change:
+        edit-fields: Изменить параметры
+      blocks-desktop_b-create-ticket-form__labels:
+        submit: Создать
+      blocks-desktop_b-create-ticket-form:
+        copy-url: Скопировать ссылку на заполненную форму
+        fill-desc: Описание задачи
+      blocks-desktop_b-dashboard-widget:
+        group-day: По дням
+        hint-name: Название виджета
+        sort-column: Сортировка в столбцах
+        sort-row: Сортировка в строках
+        title-field: Ключевой параметр
+        title-fields: Столбцы
+        title-filter: Фильтр
+        title-group-by: Группировка
+        title-is-cumulative: Показывать итог
+        title-on-first-page: Количество строк на странице
+        title-per-page: Количество задач на странице
+        title-refresh: Автообновление
+        title-show-sum: Показывать сумму
+        title-sort: Сортировка
+        title-sum: Ячейки
+        title-x-axis: Столбцы
+        title-y-axis: Строки
+        versions: Показать версии
+      blocks-desktop_b-file-list_sort_yes:
+        date: По дате
+      blocks-desktop_b-filter:
+        apply: Применить
+        by-components: По компоненту
+        favorite: Избранное
+        no-group: Без группировки
+        type-query: Запрос
+      blocks-desktop_b-form-new-component:
+        button-create: Создать
+        button-update: Сохранить
+        name: Название
+        task-assignee: Назначать исполнителем по умолчанию
+      blocks-desktop_b-head:
+        add-user: Добавить пользователя
+        dashboards: Дашборды
+        filters: Задачи
+        manage-subscriptions: Настройки уведомлений
+        menu-group--recent: Недавно просмотренные
+        new_issue: Создать задачу
+        new-agile-board: Создать доску задач
+        new-dashboard: Создать дашборд
+        new-queue: Создать очередь
+        queues: Очереди
+        settings: Персональные настройки
+      blocks-desktop_b-page_type_projects:
+        deadline: Дедлайн
+        startDate: Дата начала
+      blocks-desktop_b-page_type_queue:
+        tab_commits: Коммиты
+        tab_components: Компоненты
+        tab_description: Описание
+        tab_stat: Статистика
+        tab_versions: Версии
+      blocks-desktop_b-page_type_versions:
+        name: Название
+      blocks-desktop_b-page-agile-admin-tab_type_card-settings:
+        action_add-field: Добавить поле
+        action_remove-all: Удалить дополнительные поля
+        field-assignee: Исполнитель
+        field-components: Компоненты
+        field-status: Статус
+        field-tags: Теги
+        issue-status-open: Открыт
+        issue-summary: Название задачи
+        issue-type-task: Задача
+        title: Вид карточки
+      blocks-desktop_b-page-agile-admin-tab_type_columns:
+        issues-limit: Максимальное число задач в колонке
+        status-list-title: Неиспользуемые статусы
+      blocks-desktop_b-page-agile-admin-tab_type_main:
+        default-queue: Очередь для создания задач
+        delete-btn: Удалить доску
+        filter-title: Параметры фильтра
+        filter-type-conditions: Условия
+        filter-type-query: Запрос
+        name: Название
+        save-btn: Сохранить
+        use-ranking: Разрешить менять порядок задач
+      blocks-desktop_b-page-agile-admin-tab_type_poker:
+        action-save: Сохранить
+        title: Покер
+      blocks-desktop_b-page-agile-admin:
+        tab-title--columns: Колонки
+      blocks-desktop_b-page-agile-board:
+        auto-refresh-off: Выключено
+        auto-refresh-period: Каждую минуту
+        auto-refresh-text: Автообновление
+        full-screen-off: Выйти из режима
+        poker: Покер
+        reports: Диаграмма сгорания задач
+        sprints: Спринты
+      blocks-desktop_b-page-agile-sprints:
+        archived-sprints: Архивные спринты
+        components: Компоненты
+        create-epic: Создать эпик
+        epics: Эпики
+        sprints: Спринты
+        tags: Теги
+        tasks: Бэклог
+        versions: Версии
+        without-epics: Без эпиков
+      blocks-desktop_b-page-components:
+        action--add: Создать компонент
+        action--delete: Удалить
+        action--edit: Редактировать
+        action--subscribe: Подписаться на задачи с этим компонентом
+      blocks-desktop_b-page-dashboard:
+        access-control: Настроить права доступа
+        change-owner: Сменить владельца
+        copy-btn: Создать копию
+        create-btn: Создать
+        create-zone: Добавить виджет
+        delete-btn: Удалить
+        edit-button: Редактировать
+        save-btn: Сохранить
+      blocks-desktop_b-page-goals:
+        subscribe: Подписаться
+      blocks-desktop_b-page-issues:
+        page-title: Фильтры
+      blocks-desktop_b-page-projects:
+        create: Создать проект
+      blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
+        type-toggle--create: Создание задач
+        type-toggle--update: Обновление задач
+      blocks-desktop_b-page-queue-admin-tab_type_events:
+        field--default-priority: Приоритет задач по умолчанию
+      blocks-desktop_b-page-queue-admin-tab_type_notifications:
+        components: Задачи с нужным компонентом
+        queue: Все задачи
+        versions: Задачи определенной версии
+      blocks-desktop_b-page-queue-admin-tab_type_permissions:
+        access-denied-msg: Сообщение для пользователей без доступа
+        allow-external: Разрешить доступ внешним сотрудникам
+        column-title--create: Создание задач
+        column-title--read: Просмотр задач
+        column-title--write: Редактирование задач
+        issues-access: Права доступа
+        reset: Очистить
+        save: Сохранить
+        tab--components: Задачи с компонентом
+        tab--queue: Все задачи
+        update-access-denied-msg-btn: Редактировать
+      blocks-desktop_b-page-queue-admin-tab_type_sla:
+        add-sla: Создать правило
+        notification-condition-min: Предупреждение
+        sla-condition-pause: Пауза
+      blocks-desktop_b-page-queue-admin-tab_type_team:
+        field--bind-to-lead: Назначать владельца исполнителем по умолчанию
+      blocks-desktop_b-page-queue-admin-tab_type_triggers:
+        button-create: Создать триггер
+        title: Триггеры
+      blocks-desktop_b-page-queue-admin-tab_type_types:
+        add-issue-type: Добавить тип задачи
+        save: Сохранить
+      blocks-desktop_b-page-queue-admin-tab_type_workflows:
+        actions--copy: Копировать
+        copy-queue-workflow: Скопировать воркфлоу из другой очереди
+      blocks-desktop_b-page-queue-admin:
+        tab-title--events: Журнал изменений
+        tab-title--fields: Поля очереди
+        tab-title--main: Основные параметры
+        tab-title--permissions: Доступ
+        tab-title--sla: SLA
+        tab-title--team: Команда очереди
+        tab-title--types: Типы задач
+        tab-title--workflows: Воркфлоу
+      blocks-desktop_b-page-queue-description:
+        description: Описание очереди
+      blocks-desktop_b-page-queue:
+        cp: Администрирование
+      blocks-desktop_b-page-settings-templates:
+        item-actions-permissions: Права доступа
+      blocks-desktop_b-page-settings:
+        comments-and-history: Порядок сообщений в задаче
+        comments-new-on-top: Сначала новые
+        date-format: Формат дат
+        digest: Получать дайджест об изменениях в задачах
+        event-type-in-subject: Показывать тип события в уведомлениях
+        letters-sender-display-style-title: Имя отправителя в письмах
+        org-id: ID организации для API
+        prefer-icons-in-lists: Включить режим портретов для списков пользователей
+        prefer-login: Показывать логин вместо имени
+        receive-own-events: Получать письма о моих действиях
+        save: Сохранить
+        sprint-columns-view-content: Отображать спринты и задачи в одной колонке
+        users-display-format: Отображение пользователей
+      blocks-desktop_b-page-stat:
+        make-report: Отчёт по затратам времени
+      blocks-desktop_b-page-subscriptions-manage:
+        goals: Цели
+      blocks-desktop_b-page-subscriptions-roles:
+        add-role: Добавить роль
+        reset: Удалить уведомления
+      blocks-desktop_b-page:
+        actionEdit: Редактировать
+        actionFollow: Подписаться
+        btnAdd: Создать версию
+        btnUpdate: Сохранить
+      blocks-desktop_b-queue-form:
+        abc: Сервис в ABC
+        add-issue-key-in-email-checkbox: Добавлять номер задачи в тему письма
+        advanced-settings: Расширенные настройки
+        advanced-settings-show: Показать расширенные настройки
+        choose-issue-type: Тип задачи
+        choose-resolutions: Резолюции
+        choose-workflow: Воркфлоу
+        commits: Отображать вкладку «Коммиты»
+        department: Подразделение
+        goals: Отображать вкладку «Цели»
+        integration-settings: Настройки интеграций
+        mail: Отправка писем
+        mail-checkbox: Разрешить отправку писем наружу
+        notification-fields: Поля в уведомлениях
+        oebs: Отображать вкладку «Транзакции OEBS»
+        otrs-settings-assignee: Изменение исполнителя
+        otrs-settings-comment: Создание комментария
+        otrs-settings-status: Изменение статуса
+        projects: Отображать вкладку «Проекты»
+        queue-team: Команда
+        required-fields: Обязательные для отображения поля
+        save: Сохранить
+        show-create-issue-form: Показывать стандартную форму создания задачи
+        status-on-link: Статус при добавлении внешней связи
+        voting: Голосование в задачах
+      blocks-desktop_b-queue-issue-type__workflow-table:
+        button-name: Название кнопки
+      blocks-desktop_b-queue-issue-type:
+        workflow-view-label: Статусы и переходы
+      blocks-desktop_b-queues-info:
+        admin: Администрирование
+        projects: Проекты
+      blocks-desktop_b-screen:
+        worklog: Учёт времени
+      blocks-desktop_b-sprint-task:
+        actions-menu--add-to-poker: Добавить в покер
+      blocks-desktop_b-sprints-list:
+        sprint-status--archived: В архиве
+      blocks-desktop_b-subscriptions-header:
+        roles: Уведомления
+        subscriptions: Подписки
+      blocks-desktop_b-ticket-fields:
+        status: Статус
+      blocks-desktop_b-ticket-sidebar:
+        action--select-fields: Выбрать поля
+      blocks-desktop_b-ticket-workflow:
+        comments: Комментарии
+        commits: Коммиты
+        history: История
+        new-comment-type--external: Письмо
+        new-on-top: Сначала новые
+      blocks-desktop_b-widget:
+        export-xlsx: Выгрузить в XLSX
+        pivot: Отчёт по трудозатратам
+        queue-hint: Очередь
+        timesheet: Отчёт по исполнителям
+      blocks-desktop_comment-form:
+        save: Сохранить
+        send: Отправить
+      blocks-desktop_comment:
+        reply: Ответить
+      blocks-desktop_create-issue-dropdown:
+        create: Создать задачу
+      blocks-desktop_dashboard-create-zone:
+        created-vs-resolved-title: График «Создано/Решено»
+        filter-title: Задачи
+        invite-links-title: Форма приглашения
+        issues-title: Статистика по задачам
+        note-title: Заметка
+        security-title: Безопасность
+        table-sum-title: Сводная таблица с суммой значений
+        table-title: Сводная таблица
+        time-since-title: График событий
+      blocks-desktop_epic-card:
+        create-subtask: Создать подзадачу
+      blocks-desktop_favorite-toggler:
+        favorite: Добавить в Избранное
+      blocks-desktop_field-create-form:
+        field-type-number: Число
+        field-type-option-list: Выпадающий список
+        field-type-user: Список сотрудников
+        label--category: Категория
+        label--name: Название
+        label--name-eng: Название на английском
+        label--number-type: Тип чисел
+        label--option-list: Количество значений в списке
+        label--options: Значения списка
+        label--users-count: Количество сотрудников
+        value--one: Одно значение
+      blocks-desktop_field-create-modal:
+        button--create: Создать
+        button--next: Продолжить
+      blocks-desktop_file:
+        copy-link-button: Скопировать ссылку
+        delete-button: Удалить
+      blocks-desktop_form-clone:
+        clone-all-fields: Скопировать параметры задачи
+        link-with-original: Связать задачи после клонирования
+        submit-button: Клонировать
+      blocks-desktop_guide:
+        common--header--settings--title: Настройки
+        queue--tabs--gantt--title: Диаграмма Ганта
+        ticket--buttons--workflow_buttons--content-link: Подробнее
+        ticket--tabs--invites--title: Призыв в комментарии
+      blocks-desktop_i-autocomplete-control:
+        assign-me: Я
+      blocks-desktop_i-ticket-subscription:
+        worklogs: Затрачено времени
+      blocks-desktop_issue-reminder:
+        save-btn: Сохранить
+      blocks-desktop_issue-reply-form:
+        email-cc: Копия
+        email-from: От кого
+        email-nickname: Псевдоним
+        email-subject: Тема
+        submit: Отправить
+      blocks-desktop_issues-filter-save-modal:
+        action_submit: Сохранить
+      blocks-desktop_issues-filter-update-modal:
+        access-rights--read: Просмотр
+        access-rights--share: Добавить в общую папку
+        access-rights--write: Редактирование
+        action_submit: Сохранить
+        filter-remove-confirm-submit: Удалить
+        permissions-group--groups: Группы
+      blocks-desktop_issues-filter:
+        action--apply-query: Применить
+      blocks-desktop_issues-table:
+        group-by--null: Без группировки
+        select-columns: Настроить столбцы
+      blocks-desktop_m-head:
+        filters-favorite: Избранные
+        group-title--owned--filters: Мои фильтры
+        group-title--owned--queues: Мои очереди
+        group-title--recent: Недавно просмотренные
+        menu-agile: Доски
+        menu-dashboards: Дашборды
+        menu-queues: Очереди
+        new-issue: Создать задачу
+      blocks-desktop_migration-button:
+        migrate-button: Миграция на новые технологии
+      blocks-desktop_onboarding-form:
+        template-1: Скрам
+      blocks-desktop_page-admin-tab_type_fields:
+        button--create-field: Создать поле
+        change-category-form--change: Сохранить
+        field-type--project: Проект
+        field-type--resolution: Резолюция
+        field-type--status: Статус
+        field-type--uri: Ссылка
+      blocks-desktop_page-admin-tab_type_repositories:
+        connect: Подключить репозиторий
+      blocks-desktop_page-admin-tab:
+        create--resolutions: Создать резолюцию
+        create--statuses: Создать статус
+        create--types: Создать тип задачи
+      blocks-desktop_page-admin:
+        breadcrumbs-title: Администрирование
+        tab-title--fields: Поля
+        tab-title--resolutions: Резолюции
+        tab-title--statuses: Статусы задач
+      blocks-desktop_page-agile-boards:
+        create: Создать доску
+        filter-type--favorite: Избранные
+      blocks-desktop_queue-new-presets:
+        category--business: Создание товаров и услуг
+        category--development: Разработка
+        category--support: Работа с людьми и документами
+        choose-btn: Выбрать
+        copy-title: Скопируйте очередь
+        create: Создать
+        preset--task-type--absence: Отсутствие
+        preset--task-type--bug: Ошибка
+        preset--task-type--candidate: Кандидат
+        preset--task-type--changes: Изменения
+        preset--task-type--documents: Документы
+        preset--task-type--epic: Эпик
+        preset--task-type--improvement: Улучшение
+        preset--task-type--incident: Инцидент
+        preset--task-type--mission: Командировка
+        preset--task-type--project: Проект
+        preset--task-type--release: Релиз
+        preset--task-type--request: Запрос
+        preset--task-type--service-request: Запрос на обслуживание
+        preset--task-type--story: Story
+        preset--task-type--task: Задача
+        preset--task-type--vacancy: Вакансия
+        preset-title--basic-support-preset: Общая поддержка
+        preset-title--custom-queue: Настройте очередь вручную
+        preset-title--development-preset: Базовая разработка
+        preset-title--kanban-development-preset: Канбан
+        preset-title--outsource-development-preset: Разработка на заказ
+        preset-title--scrum-development-preset: Скрам
+        preset-title--tiered-support-preset: Поддержка по линиям
+      blocks-desktop_roles-table:
+        access-control: Права доступа
+        apply: Применить
+        groups: Группы
+        read: Чтение
+        roles: Роли
+        users: Люди и роботы
+        write: Запись
+      blocks-desktop_sla-editor:
+        excesses--title: Оповещения
+        thresholds--max: Время на выполнение
+        thresholds--new: Создать новый фильтр
+        thresholds--title: Сроки выполнения задач
+        timers--start: Старт
+        timers--stop: Стоп
+      blocks-desktop_spotlight-preview:
+        owner: Владелец
+      blocks-desktop_sprint-form:
+        button-save: Сохранить
+      blocks-desktop_st-color-tokens:
+        delete-btn: Удалить из списка
+      blocks-desktop_st-extra-filter:
+        assignee: Я исполнитель
+        author: Я автор
+        followers: Я наблюдатель
+        resolution--default: Все
+        resolution--empty: Без резолюции
+        resolution--notEmpty: С резолюцией
+      blocks-desktop_st-field-utils:
+        field--assignee: Исполнитель
+        field--author: Автор
+        field--followers: Наблюдатели
+        field--resolution: Резолюция
+      blocks-desktop_st-tokens-chooser:
+        choose-from-list-button: Выбрать цвета
+      blocks-desktop_trigger-action:
+        select-action--transition: Изменить статус задачи
+        title_createissue: Создание задачи
+        webhook-variables: Переменные
+      blocks-desktop_wiki-widget-copy-url:
+        title: Получить код для Вики
+      blocks-desktop_workflow-condition:
+        type--all: все
+        type--any: любые
+      blocks-desktop_workflow-editor--action_tab_general:
+        name-en--label: Название кнопки на английском
+        name-ru--label: Название кнопки
+        target-status--label: Переход в статус
+      blocks-desktop_workflow-editor--action_tab_screen:
+        comment-enable: Форма для комментария
+        linking-enable: Добавление связей на экране перехода
+        screen-elements-title: Поля на экране перехода
+        screen-title--label-en: Название экрана на английском языке
+        screen-title--label-ru: Название экрана
+        worklogs-enable: Форма учёта времени
+      blocks-desktop_workflow-editor--action:
+        tab-title--conditions: Условия
+        tab-title--functions: Функции
+        tab-title--general: Основная информация
+        tab-title--screen: Экран перехода
+      blocks-desktop_workflow-editor--step_tab_actions-on-comment:
+        make-no-transition: Ничего не делать
+        make-transition: Выполнить переход
+        on-assignee-comment-only: Только если комментарий оставил исполнитель
+        prev-status: Вернуться в предыдущий статус
+        revert-assignee: Назначить исполнителя из предыдущего статуса
+        select-action: Выберите действие
+      blocks-desktop_workflow-editor--step_tab_create-action:
+        name-en--label: Название кнопки на английском
+        target-status--label: Переход в статус
+      blocks-desktop_workflow-editor--step:
+        button--submit: Сохранить
+        tab-title--actions-on-comment: Действия при комментировании
+        tab-title--create-action: Добавить переход
+      blocks-desktop_workflow-editor:
+        add-status-popup--name: Название кнопки перехода
+        add-status-popup--name-en: Название кнопки перехода на английском
+        sidebar-add-status: Добавить статус
+        sidebar-title: Статусы и переходы
+      components_FormButtons:
+        create: Создать
+        update: Сохранить
+      components_FormCreateIssue:
+        field--assignee: Исполнитель
+        field--components: Компоненты
+        field--dueDate: Дедлайн
+        field--followers: Наблюдатели
+        field--priority: Приоритет
+        field--tags: Теги
+        field--type: Тип
+      components_IssueFieldView:
+        me-multiple: Добавить меня
+      components_Licenses:
+        default-full-access-label: Полный доступ для всех новых пользователей
+        department-access-title--readOnly: Только чтение
+        departments: Отделы
+      components_LicensesDefaultFullAccessModal:
+        button-submit--toEnable: Включить
+      components_Poker:
+        estimate: Оценить
+        mark-title: Оценка
+        users-section-title: Команда
+      components_QueuePresetOnboarding:
+        preset-name--scrum-development-preset: Скрам
+      lib_goals-info:
+        status--BLOCKED: Заблокирована
+        status--CANCELLED: Отменена
+        status--NEW: Новая
+        status--PLANNED: По плану
+        status--REACHED: Достигнута
+        status--RISK: Есть риски
+      ui_components_actions-panel_ActionsPanel:
+        action-menu-title: Действия
+      ui_components_AddWorklogDialog:
+        apply-button: Сохранить
+        duration-label: Затрачено времени
+      ui_components_agile_agile-board_AgileBoardActionsMenu:
+        delete-board-menu-item: Удалить доску
+        filters-manage: Управление фильтрами
+        migration-rollback: Миграция в старую версию
+      ui_components_agile_agile-board_AgileBoardAddColumnButton:
+        new-column-button: Добавить колонку
+      ui_components_agile_agile-board_AgileBoardColumnHeader:
+        column-menu--add-note: Добавить заметку
+        column-menu--delete: Удалить
+        column-menu--edit: Редактировать
+      ui_components_agile_agile-board_AgileBoardCreateModal:
+        submit-btn: Создать
+      ui_components_agile_agile-board_AgileBoardEmptyScreen:
+        empty-screen--new-issue: Новая задача
+      ui_components_agile_agile-board_AgileBoardIssue:
+        issue-actions--delete-from-board: Убрать с доски
+      ui_components_agile_agile-board_AgileBoardIssuesImportButton:
+        import-issues: Импорт задач
+      ui_components_agile_agile-board_AgileBoardMigrationForm:
+        submit-btn: Начать миграцию
+      ui_components_agile_agile-board_AgileBoardUnusedStatuses:
+        unused-statuses-add-to-column: Добавить в колонку
+      ui_components_agile_backlog_BacklogIssue:
+        backlog-default-column: Бэклог
+      ui_components_agile_backlog_BacklogIssuesImportButton:
+        import-issues: Импорт задач
+      ui_components_agile_common_AddIssueButton:
+        add-issue-button: Добавить задачу
+      ui_components_agile_common_AgileFilterParamsPicker:
+        save: Сохранить
+      ui_components_agile_common_AgileTabs:
+        backlog: Бэклог
+        board: Доска
+      ui_components_agile_common_ColumnForm:
+        create-column-label--statuses: Статусы в колонке
+        create-column-submit-button--create: Добавить
+      ui_components_agile_common_QuickFiltersItem:
+        quick-filter--assignee-me: Я исполнитель
+        quick-filter--author-me: Я автор
+      ui_components_agile_poker_PokerButton:
+        poker: Покер
+      ui_components_agile_poker_PokerIssueForm:
+        apply-estimate: Выставить оценку
+        show-estimates: Показать оценки
+      ui_components_agile_settings_PokerSettings:
+        aggregation-function-field-label: Расчёт итоговой оценки
+      ui_components_AttachmentsManager:
+        attach: Прикрепить файлы
+      ui_components_BoardsPanel:
+        favourites: Избранные
+      ui_components_bulk_BulkChangeParametersDialog:
+        button-submit-text: Применить
+      ui_components_BulkChangeParametersDialog:
+        add-parameter: Изменить список параметров
+        clear-previous-value: Удалить значения
+      ui_components_BulkSuggestPopup:
+        apply: Применить
+      ui_components_Checklist:
+        button-cancel: Отменить
+        button-submit: Сохранить
+        header-title: Чеклист
+        new-item-button-caption: Добавить пункт
+        remove-title: Удалить чеклист
+      ui_components_Confirm:
+        ok-button-text: Да
+      ui_components_CreateIssueForm:
+        create-issue: Создать задачу
+      ui_components_CreateIssueLinkButton:
+        add-relation: Добавить связь
+      ui_components_CreateIssuePopup:
+        existing-issue: Существующая задача
+        new-issue: Новая задача
+      ui_components_dashboard_DashboardActionsMenu:
+        delete-action: Удалить
+        set-start-page-action: Сделать стартовой
+      ui_components_dashboard_DashboardHeader:
+        dashboard-header-add-button: Добавить
+        dashboard-header-add-orgAdmin: Информация для сотрудников
+        dashboard-header-settings-button: Редактировать
+      ui_components_dashboard_FilterEditor:
+        editor-source-radio-query: Язык запросов
+      ui_components_dashboard_IssuesStatEditor:
+        editor-source-radio-parameters: Параметры
+      ui_components_dashboard_OrgAdminEditor:
+        editor-published-field-label: Виджет опубликован
+        editor-save-button: Сохранить
+      ui_components_dashboard_TableWidget:
+        show-all: Показать все
+      ui_components_dashboard:
+        summary-field-name: Задача
+      ui_components_FieldsSelect:
+        applyChanges: Применить
+      ui_components_filter-field:
+        save-button: Сохранить
+      ui_components_filter-pane_FieldsSelectButton:
+        add-filter-field-button-title: Добавить поле для фильтрации
+      ui_components_filter-pane_ViewModeSwitch:
+        mode-gantt: Диаграмма Ганта
+      ui_components_filter-pane:
+        action-title-save: Сохранить
+        action-title-save-as: Сохранить как новый
+        all-issues-filter-title: Все задачи
+        list-mode-flat: Одноуровневый список
+        list-mode-tree: Древовидный список
+        reset-button: Сбросить
+        search-placeholder: Поиск по названию задачи
+      ui_components_FilterEditorPane:
+        all-issues-filter-title: Все задачи
+        reset-button: Сбросить
+      ui_components_FilterExportMenu:
+        menu-item-export: Экспортировать
+        title: Действия над фильтром
+      ui_components_FilterFieldsSelect:
+        applyChanges: Применить
+      ui_components_Gantt_IssueActionsCell:
+        issue-action-menu-title: Меню действий задачи
+      ui_components_Gantt:
+        color-type-by-manual: назначать вручную
+        color-type-by-parameter: по параметрам задачи
+        delete-link: Удалить связь
+        scale-days: Неделя
+        scale-month: Месяц
+        scale-quarters: Квартал
+        shift-blocked-with-blocker: >-
+          Автоматически сдвигать сроки зависимой задачи при переносе дедлайна
+          блокирующей задачи
+        show-external-blockers: Показывать внешние блокеры
+        show-issue-assignee: исполнителя
+        show-issue-title: название
+        show-links: Показывать блокирующие связи
+        task-bar: Полоса задачи
+        timeline-config: Настройки диаграммы
+      ui_components_issue-comments-templates:
+        create-template-item: Создать шаблон
+      ui_components_IssueBulkActionPanel:
+        add-link: Добавить связь
+        add-me-to-followers: Добавить меня в наблюдатели
+        add-to-board: Добавить на доску
+        add-to-projects: Добавить в проект
+        assignee: Исполнитель
+        assignee-me: Назначить меня исполнителем
+        change-status: Изменить cтатус
+        edit-parameters: Редактировать параметры
+        followers: Наблюдатели
+        move: Переместить
+        remove-from-both-fields: Из обоих полей
+        remove-me-from: Удалить меня из поля...
+      ui_components_IssueChecklist:
+        add-checklist: Добавить чеклист
+      ui_components_IssueCommentEditor:
+        transport-copy: Копия
+        transport-to: Кому
+      ui_components_IssueLinks:
+        external-relations: Связи с внешними приложениями
+        links-group-title--relates: Связанные
+      ui_components_IssueListsPanel:
+        filter-assignee: Я исполнитель
+        filter-author: Я автор
+        filter-favorite: Избранные задачи
+        filter-follower: Я наблюдатель
+        filter-my-issues: Все мои задачи
+        filter-waiting: Ждут ответа
+        filters: Фильтры
+        issues-list: Задачи
+        queue: Очередь
+      ui_components_IssueMenu:
+        add-notification: Добавить напоминание
+        add-worklog: Указать затраченное время
+        calendar-event-all: Встреча со всеми участниками задачи
+        calendar-event-author-assignee: Встреча с автором и исполнителем
+        calendar-event-me: Зарезервировать время для работы над задачей
+        clone-issue-action-title: Клонировать задачу
+        convert-to-project: Конвертировать в проект
+        create-calendar-event: Создать событие в календаре
+        create-subissue: Добавить подзадачу
+        move-issue: Изменить очередь
+        title: Действия
+        to-subissue: Сделать подзадачей
+      ui_components_issues-import_IssuesImportDialog:
+        import: Импортировать
+      ui_components_issues-import_IssuesImportFilters:
+        add-parameters: Добавить параметры
+      ui_components_IssueSidebar:
+        add-sidebar-field: Изменить список параметров
+      ui_components_IssuesPresetSelect:
+        preset_assignee: Я исполнитель
+        preset_author: Я автор
+        preset_deadline: Скоро дедлайн
+        preset-deadline: Скоро дедлайн
+      ui_components_IssueTabs:
+        fields-tab: Параметры
+      ui_components_macros_FavoriteButton:
+        button-tooltip-add: Добавить в избранное
+      ui_components_NavigationBar_BoardsPanel:
+        create-button: Создать доску
+        menu-group-my-link: Полный список созданных мной досок
+      ui_components_NavigationBar_IssuesPanel:
+        all-items-link: Все задачи
+        caption: Задачи
+        filter-items-link: Полный список задач по фильтру
+        search-input-placeholder: Поиск по названию задачи
+      ui_components_NavigationBar_ProjectsPanel:
+        all-projects-link: Все проекты
+      ui_components_NavigationBar:
+        appearance-title: Интерфейс
+        boards: Доски задач
+        issue-lists-menu-item: Задачи
+        start-page-title: Стартовая страница
+        templates-settings: Управление шаблонами
+      ui_components_page-admin_OrganizationSmallPane:
+        add-org-button: Добавить организацию
+      ui_components_page-admin_OrgPanes_CloudOrgPane:
+        federation-task-action: Подключить
+        source-title: Yandex Cloud Organization
+      ui_components_page-admin_OrgPanes_DirectoryOrgPane:
+        source-title: Яндекс 360 для бизнеса
+      ui_components_page-admin_OrgUsersPane:
+        access-level_full-access: Полный
+        access-level_read_only: Чтение
+        title_access: Доступ в Tracker
+      ui_components_page-admin_PageAdmin:
+        menu-item-groups: Группы
+        menu-item-issue-statuses: Статусы задач
+        menu-item-orgs: Организации
+        menu-item-repositories: Репозитории
+        menu-item-users: Пользователи
+        tracker-settings: Настройки Tracker
+      ui_components_page-issues_touch:
+        all-issues-filter-title: Все задачи
+        query-language: Язык запросов
+      ui_components_page-my_PageMy:
+        page-title: Моя страница
+      ui_components_page-queue-admin_AliasesCreateForm:
+        mail-address: Почта
+        mail-allow-external: Принимать письма не только от сотрудников организации
+        mail-archive-folder: Папка для архива
+        mail-imap: Адрес IMAP-сервера
+        mail-incoming-folder: Папка для входящих
+        mail-login: Логин
+        mail-password: Пароль
+        mail-port: Порт
+        mail-process-messages-from: Дата начала обработки писем
+        mail-settings-title: Почта для получения писем
+        mail-ssl: Защищенное соединение (SSL)
+        save-button: Сохранить
+      ui_components_page-queue-admin_AliasesEmptyList:
+        action-configure-mail: Настроить почту
+      ui_components_page-queue-admin_AliasesFormSendPanel:
+        send-mail-login: Логин
+        send-mail-password: Пароль
+        send-mail-port: Порт
+        send-mail-smtp: Адрес SMTP-сервера
+        send-mail-ssl: Защищенное соединение (SSL)
+        send-settings-title: Почта для отправки ответов
+        signature-settings-title: Подписи
+        test-mail-button: Отправить тестовое письмо
+      ui_components_page-queue-admin_AliasesStateList:
+        action-add-mail: Добавить адрес
+        action-domain: Подключить домен
+      ui_components_page-queue-admin_QueueActionsMenu:
+        remove-queue-action: Удалить очередь
+      ui_components_page-queue-admin_QueueAdminPageContent:
+        menu-item-aliases: Почтовые ящики
+      ui_components_page-queue-admin_Signature:
+        alias-title: Псевдоним
+      ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
+        enable-backlog: Включить бэклог
+      ui_components_PageAgileBoard_PageAgileBoardHeader:
+        settings: Настройки
+      ui_components_PageAgileBoardSettings_Header:
+        settings: Настройки
+      ui_components_PageCreateIssue:
+        add-parameter: Изменить список параметров
+        empty-template: Без формы
+      ui_components_PageIssues_FilterInputTypeSwitch:
+        parameters: Параметры
+        query-language: Язык запросов
+      ui_components_PageQueue_header:
+        export: Выгрузить
+        settings: Настройки очереди
+        subscribe: Подписаться
+        subscribe-all: Подписаться на все уведомления
+        subscribe-new-tickets: Подписаться на создание задач
+      ui_components_Project_Header_IssuesImportButton:
+        import-issues: Импорт задач
+      ui_components_Project:
+        sidebar-param-title--clients: Заказчики
+        sidebar-param-title--createdBy: Автор
+        sidebar-param-title--endDate: Дата завершения
+        sidebar-param-title--lead: Ответственный
+        sidebar-param-title--startDate: Дата начала
+        sidebar-param-title--status: Статус
+        sidebar-param-title--tags: Теги
+        sidebar-param-title--teamUsers: Участники
+      ui_components_ProjectAccessButton:
+        private-access: Только участникам
+      ui_components_ProjectMenu:
+        create-board: Создать доску проекта
+        remove-board: Удалить доску проекта
+        remove-project: Удалить проект
+        title: Меню проекта
+      ui_components_projects_HeaderTabs:
+        board-tab: Доска задач
+        description-tab: О проекте
+        gantt-tab: Диаграмма Ганта
+        issues-tab: Список задач
+      ui_components_projects_list_FilterPane:
+        preset-author: Я автор
+        preset-client: Я заказчик
+        preset-favorite: Избранные
+        preset-mine: Мои проекты
+        preset-participant: Я участник
+        preset-responsible: Я ответственный
+        search-placeholder: Поиск
+      ui_components_projects_ListFilterPane:
+        filter-issues: По задачам
+        filter-projects: По проектам
+        search-placeholder: Поиск
+      ui_components_projects_Table:
+        add-issue: Добавить задачу
+        add-sub-issue: Добавить подзадачу
+      ui_components_projects_utils:
+        field-name-resolution: Резолюция
+        filter-macro-empty_: Без значения
+      ui_components_promo_Page:
+        login-button-label: Войти в Tracker
+      ui_components_SortButton:
+        default-title: Сортировка
+      ui_components_Table2:
+        added-columns: Добавленные
+      ui_components_TrackerSearch:
+        queues: Очереди
+      ui_components_TrackerSelect:
+        applyChanges: Применить
+      ui_components_TransitionScreen:
+        screen-next-button: Продолжить
+      ui_components_workflow-conditions_ConditionsMenu:
+        add-condition: Добавить условие
     yacloud_monitoring:
       actions:
         common:
@@ -3227,6 +4337,11 @@ default:
       entity:
         invitation:
           action_send-invitation: Отправить приглашение
+      form:
+        federation:
+          create:
+            action:
+              create: Создать федерацию
       page:
         users:
           action:
@@ -3321,14 +4436,18 @@ default:
         add: Добавить
         apply: Применить
         availability: Доступность
+        button_cron-day: Каждый день
         clone: Клонировать
         create: Создать
         delete: Удалить
         description: Описание
+        disabled: Выключено
         edit: Редактировать
+        enabled: Включено
         id: Идентификатор
         import: Импортировать
         label_auto: Автоматически
+        label_https: HTTPS
         label_key: Ключ
         label_list: Список
         label_value: Значение
@@ -3388,12 +4507,17 @@ default:
         mdb:
           settings:
             popup_settings-submit: Сохранить
+        navigation-menu:
+          label_notifications: Уведомления
         service-account-select:
+          button_create-account-new: Создать новый
           label_no-service-account: Не выбрано
         symmetric-key-select:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
+        user-account:
+          label_logout: Выйти
         vpc-security-group-select:
           label_add-security-group: Добавить группу безопасности
         vpc:
@@ -3683,7 +4807,6 @@ default:
         label_connector-operation-REUPLOAD: Перезагрузить
         label_connector-status-DONE: Завершен
         label_connector-status-RUNNING: Реплицируется
-        label_connector-status-STOPPED: Остановлен
         label_connectors: Трансферы
         label_dashboard-link: Ссылка на дашборд
         label_endpoint-type-CLICKHOUSE: ClickHouse
@@ -3756,6 +4879,7 @@ default:
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_monitoring: Monitoring
+            label_products: Все сервисы
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
@@ -3900,6 +5024,7 @@ default:
           button_create: Создать кластер
         datalens:
           button-action_activate: Активировать
+          button-action_new-connection: Создать подключение
         dialogs:
           popup_button_move-cluster: Переместить
           popup-confirm-delete-cluster_button: Удалить
@@ -3912,6 +5037,7 @@ default:
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
           backup-window-start: Начало резервного копирования (UTC)
+          base_field_environment: Окружение
           base_field_folder: Каталог
           base_field_name: Имя кластера
           base_field_service-account: Сервисный аккаунт
@@ -3936,6 +5062,7 @@ default:
           config_field_version: Версия
           config_field_zone: Зона доступности
           database_field_name: Имя БД
+          database_field_sql-database-management: Управление базами данных через SQL
           database_field_sql-user-management: Управление пользователями через SQL
           database_field_user-login: Имя пользователя
           database_field_user-password: Пароль
@@ -3954,6 +5081,7 @@ default:
           label_network: Сеть
           maintenance-window-type: Окно обслуживания
           new_section_resource: Ресурсы
+          resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
           resource_presets_field-type: Тип
           section_additional: Дополнительные настройки
@@ -3999,6 +5127,7 @@ default:
             create-file: Создать файл
             field_entry: Точка входа
             field_environment-variables: Переменные окружения
+            field_method: Способ
             field_resources-memory: Память
             field_timeout: Таймаут, c
             label_lang-bash: Bash
@@ -4013,6 +5142,10 @@ default:
             button_editor-create: Создать в редакторе
           overview:
             label_title-latest-version: Последняя версия
+          switch_editor: Редактор
+          switch_testing: Тестирование
+          testing:
+            button_run-test: Запустить тест
         list:
           button_create: Создать функцию
         switch_list-triggers: Триггеры
@@ -4041,6 +5174,11 @@ default:
             value_event-type-create-object: Создание объекта
           list:
             button_create: Создать триггер
+      settings:
+        label_settings: Настройки
+        switch_appearance: Оформление
+        switch_experiments: Эксперименты
+        switch_lang: Язык и регион
       storage:
         bucket:
           button_action-delete: Удалить

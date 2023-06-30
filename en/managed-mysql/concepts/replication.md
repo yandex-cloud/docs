@@ -12,7 +12,7 @@ You can change the number of replicas required for a transaction to complete in 
 
 ### Recommended cluster configuration {#replication-auto}
 
-Once a {{ MY }} cluster with multiple hosts is created, it contains one master host and replicas. Replicas use the host master as the replication source.
+Once a {{ MY }} cluster with multiple hosts is created, it contains one master host and replicas. Replicas use the master host as a replication source.
 
 Example auto replicated cluster configuration:
 
@@ -30,10 +30,10 @@ If a replica and the master are located in different availability zones, transac
 
 Specifics of automatic replication in {{ mmy-name }}:
 
-* If the master host fails, its replica becomes the new master.
+* If the master host fails, its replica becomes a new master.
 * When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
-For more information about selecting the master host, see [{#T}](#master-failover).
+For more information, see [{#T}](#master-failover).
 
 ### Manual cluster configuration management {#manual-source}
 
@@ -58,9 +58,9 @@ Assigning a replication source for the cluster hosts lets you:
 
 If the master host fails, any of the cluster hosts available for replication becomes a new master. To affect master selection in a {{ MY }} cluster, [set the required priority values](../operations/hosts.md#update) for the cluster's hosts. The host with the highest priority will become the master, or in a cluster with several replicas of equal priority, the replica with the least lag with respect to the master will be selected. Replicas lagging more than the value of the [Mdb priority choice max lag](settings-list.md#setting-mdb-priority-choice-max-lag) setting (60 seconds, by default) will be excluded from the selection.
 
-You can set the priority for the host:
+You can set the priority for a host:
 
-* When [creating a cluster](../operations/cluster-create.md) via the YC CLI, API, or {{ TF }}.
+* When [creating a cluster](../operations/cluster-create.md) with the YC CLI, API, or {{ TF }}.
 * When [changing the host settings](../operations/hosts.md#update).
 
-The lowest priority is `0` (default), the highest is `100`.
+The lowest priority is `0` (default), while the highest one is `100`.

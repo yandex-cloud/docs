@@ -215,9 +215,9 @@ Connecting without an SSL certificate is only supported for hosts that are not p
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
-
 If the connection to the cluster and the test query are successful, the {{ CH }} version is output.
+
+{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
 
 ## Selecting an available host automatically {#auto}
 

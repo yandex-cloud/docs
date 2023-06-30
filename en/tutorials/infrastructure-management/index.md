@@ -30,7 +30,7 @@
 * [Configuring a local caching DNS resolver](local-dns-cache.md)
 
 
-* [Migrating DNS zones from Yandex 360 to {{ dns-full-name }}](connect-migration.md)
+* [Migrating DNS zones from Yandex 360 to {{ dns-full-name }}](connect-migration.md)
 
 
 * [{#T}](dns-integration.md)

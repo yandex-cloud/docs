@@ -1,12 +1,8 @@
----
-noIndex: true
----
-
 # Connecting {{ dataproc-name }} to {{ metastore-name }}
 
 {% note info %}
 
-To use the {{ metastore-name }} server, a {{ dataproc-name }} cluster must have the following components:
+To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have the following components:
 
 * `SPARK`
 * `YARN`
@@ -18,16 +14,16 @@ To use the {{ metastore-name }} server, a {{ dataproc-name }} cluster must have 
 
 - Management console
 
-   1. [Create a {{ metastore-name }} server](./cluster-create.md).
+   1. [Create a {{ metastore-name }} cluster](./cluster-create.md).
    1. When [creating](../cluster-create.md) or [updating](../cluster-update.md) a {{ dataproc-name }} cluster, specify the following [property](../../concepts/settings-list.md):
 
       ```text
       spark:spark.hive.metastore.uris=thrift://<{{ metastore-name }} IP address>:{{ port-metastore }}
       ```
 
-      To find out the {{ metastore-name }} IP address, go to the {{ metastore-name }} page in the management console. You will see the IP address in the **{{ ui-key.yacloud.common.section-base }}** section.
+      To find out the {{ metastore-name }} cluster IP address, in the [management console]({{ link-console-main }}), select **{{ dataproc-name }}**, then in the left panel, select the ![image](../../../_assets/data-proc/metastore.svg) **Metastore server** page. You will see the cluster's IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
-   1. If the {{ metastore-name }} server and the {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
+   1. If the {{ metastore-name }} cluster and {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
 
       There are [multiple ways](../../../tutorials/routing/index.md) to configure routing. For example, you can [create an IPsec tunnel](../../../tutorials/routing/ipsec-vpn.md).
 
@@ -40,4 +36,4 @@ To use the {{ metastore-name }} server, a {{ dataproc-name }} cluster must have 
 
 {% endlist %}
 
-For an example of using {{ dataproc-name }} with enabled {{ metastore-name }}, see the [{#T}](../../tutorials/dataproc-to-dataproc.md) tutorial.
+For an example of using {{ dataproc-name }} with enabled {{ metastore-name }} cluster, see the [{#T}](../../tutorials/dataproc-to-dataproc.md) tutorial.

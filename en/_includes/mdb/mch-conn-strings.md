@@ -6,7 +6,7 @@
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
@@ -55,7 +55,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    ```bash
    curl --header "X-ClickHouse-User: <DB username>" \
         --header "X-ClickHouse-Key: <DB user password>" \
-        'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT%20version()'
+        'http://<Any {{ CH }} host FQDN>:8123/?database=<DB name>&query=SELECT%20version()'
    ```
 
 
@@ -65,7 +65,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    curl --cacert {{ crt-local-dir }}{{ crt-local-file }} \
         --header "X-ClickHouse-User: <DB username>" \
         --header "X-ClickHouse-Key: <DB user password>" \
-        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
+        'https://<Any {{ CH }} host FQDN>:8443/?database=<DB name>&query=SELECT%20version()'
    ```
 
 {% endlist %}
@@ -802,8 +802,8 @@ pip3 install requests
        'https://{0}:8443'.format('<FQDN of any {{ CH }} host>'),
        params={
            'query': 'SELECT version()',
-           'verify': '{{ crt-local-dir }}{{ crt-local-file }}',
        },
+       verify='/usr/local/share/ca-certificates/Yandex/YandexCA.crt',
        headers={
            'X-ClickHouse-User': '<DB user name>',
            'X-ClickHouse-Key': '<DB user password>',

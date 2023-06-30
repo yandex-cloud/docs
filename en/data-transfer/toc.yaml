@@ -83,96 +83,92 @@ items:
         href: tutorials/index.md
       - name: Data migration
         items:
-          - name: Migrating data between {{ mkf-full-name }} clusters
-            href: tutorials/mkf-to-mkf.md
-          - name: Migrating data to {{ mch-full-name }}
-            href: tutorials/managed-clickhouse.md
-          - name: Migrating data to {{ mgp-full-name }}
-            href: tutorials/managed-greenplum.md
-          - name: Migrating data to {{ mmg-full-name }}
-            href: tutorials/managed-mongodb.md
-          - name: Migrating data to {{ mmy-full-name }}
-            href: tutorials/managed-mysql.md
-          - name: Migrating data from {{ mmy-full-name }} to {{ MY }}
-            href: tutorials/managed-mysql-to-mysql.md
-          - name: Migrating data to {{ mpg-full-name }}
+          - name: Migrating {{ PG }} clusters
             href: tutorials/managed-postgresql.md
-      - name: Data delivery
+          - name: Migrating data to {{ MY }}
+            href: tutorials/managed-mysql.md
+          - name: Migrating to a third-party {{ MY }} cluster
+            href: tutorials/managed-mysql-to-mysql.md
+          - name: Migrating {{ MG }} clusters
+            href: tutorials/managed-mongodb.md
+          - name: Migrating {{ CH }} clusters
+            href: tutorials/managed-clickhouse.md
+          - name: Migrating {{ GP }} clusters
+            href: tutorials/managed-greenplum.md
+      - name: Data mirroring
         items:
-          - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
-            href: tutorials/mkf-to-mch.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
-            href: tutorials/managed-kafka-to-greenplum.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mes-full-name }}
-            href: tutorials/mkf-to-mes.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mmg-full-name }}
-            href: tutorials/mkf-to-mmg.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mmy-full-name }}
-            href: tutorials/mkf-to-mmy.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mos-full-name }}
-            href: tutorials/mkf-to-mos.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ mpg-full-name }}
-            href: tutorials/mkf-to-mpg.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
-            href: tutorials/mkf-to-ydb.md
-          - name: Delivering data from {{ mkf-full-name }} to {{ yds-full-name }}
-            href: tutorials/mkf-to-yds.md
-          - name: Delivering data from {{ GP }} to {{ CH }}
-            href: tutorials/greenplum-to-clickhouse.md
-          - name: Delivering data from {{ GP }} to {{ PG }}
-            href: tutorials/greenplum-to-postgresql.md
-          - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }}
-            href: tutorials/cdc-mmy.md
-          - name: >-
-              Delivering data from {{ mmy-full-name }} to {{
-              objstorage-full-name }}
-            href: tutorials/mmy-objs-migration.md
-          - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
-            href: tutorials/cdc-mpg.md
-          - name: Delivering data from {{ ydb-full-name }} to {{ mkf-full-name }}
-            href: tutorials/cdc-ydb.md
-          - name: >-
-              Delivering data from {{ mpg-full-name }} to {{
-              objstorage-full-name }}
-            href: tutorials/mpg-to-objstorage.md
-          - name: Delivering logs from {{ at-full-name }} to {{ mos-full-name }}
-            href: tutorials/trails-to-os.md
-          - name: Delivering data from {{ ydb-full-name }} to {{ yds-full-name }}
-            href: tutorials/ydb-to-yds.md
-      - name: Asynchronous replication of data
+          - name: '{{ KF }} mirroring'
+            href: tutorials/mkf-to-mkf.md
+      - name: Migration with data storage type changed
         items:
-          - name: >-
-              Asynchronously replicating data from {{ mmy-full-name }} to {{
-              mch-full-name }}
-            href: tutorials/mysql-to-clickhouse.md
-          - name: >-
-              Asynchronously replicating data from {{ mmy-full-name }} to {{
-              ydb-full-name }}
+          - name: Migrating {{ MY }} to {{ ydb-short-name }}
             href: tutorials/managed-mysql-to-ydb.md
-          - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
-            href: tutorials/rdbms-to-clickhouse.md
-          - name: >-
-              Asynchronously replicating data from {{ mpg-full-name }} to {{
-              ydb-full-name }}
+          - name: Migrating {{ PG }} to {{ ydb-short-name }}
             href: tutorials/mpg-to-ydb.md
-          - name: >-
-              Asynchronously replicating data from {{ mpg-full-name }} to {{
-              yds-full-name }}
-            href: tutorials/mpg-to-yds.md
-          - name: >-
-              Asynchronously replicating data from {{ mmy-full-name }} to {{
-              yds-full-name }}
-            href: tutorials/mmy-to-yds.md
-          - name: Asynchronously replicating data from {{ metrika } to {{ CH }}
-            href: tutorials/metrika-to-clickhouse.md
-      - name: Saving data streams
+      - name: Change data capture
         items:
-          - name: Saving a {{ yds-full-name }} data stream in {{ CH }}
-            href: tutorials/yds-to-clickhouse.md
-          - name: >-
-              Saving a stream from {{ yds-full-name }} to {{
-              objstorage-full-name }}
+          - name: '{{ MY }} change data capture and delivery to {{ KF }}'
+            href: tutorials/cdc-mmy.md
+          - name: '{{ MY }} change data capture and delivery to {{ DS }}'
+            href: tutorials/mmy-to-yds.md
+          - name: '{{ PG }} change data capture and delivery to {{ KF }}'
+            href: tutorials/cdc-mpg.md
+          - name: '{{ PG }} change data capture and delivery to {{ DS }}'
+            href: tutorials/mpg-to-yds.md
+          - name: '{{ ydb-short-name }} change data capture and delivery to {{ KF }}'
+            href: tutorials/cdc-ydb.md
+          - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+            href: tutorials/ydb-to-yds.md
+      - name: Delivering data from queues
+        items:
+          - name: Delivering data from {{ KF }} to {{ CH }}
+            href: tutorials/mkf-to-mch.md
+          - name: Delivering data from {{ KF }} to {{ PG }}
+            href: tutorials/mkf-to-mpg.md
+          - name: Delivering data from {{ KF }} to {{ GP }}
+            href: tutorials/managed-kafka-to-greenplum.md
+          - name: Delivering data from {{ KF }} to {{ ES }}
+            href: tutorials/mkf-to-mes.md
+          - name: Delivering data from {{ KF }} to {{ MG }}
+            href: tutorials/mkf-to-mmg.md
+          - name: Delivering data from {{ KF }} to {{ MY }}
+            href: tutorials/mkf-to-mmy.md
+          - name: Delivering data from {{ KF }} to {{ OS }}
+            href: tutorials/mkf-to-mos.md
+          - name: Delivering data from {{ KF }} to {{ ydb-short-name }}
+            href: tutorials/mkf-to-ydb.md
+          - name: Delivering data from {{ KF }} to {{ DS }}
+            href: tutorials/mkf-to-yds.md
+          - name: Delivering data from {{ KF }} to {{ CH }}](yds-to-clickhouse.md)
+            href: tutorials/mkf-to-mch.md
+          - name: Delivering data from {{ KF }} to {{ objstorage-name }}
             href: tutorials/yds-to-objstorage.md
+      - name: Uploading data to data marts
+        items:
+          - name: Uploading data from {{ KF }} to {{ CH }}
+            href: tutorials/mkf-to-mch.md
+          - name: Uploading data from {{ GP }} to {{ CH }}
+            href: tutorials/greenplum-to-clickhouse.md
+          - name: Uploading data from {{ MY }} to {{ CH }}
+            href: tutorials/mysql-to-clickhouse.md
+          - name: Uploading data from {{ metrika }} to {{ CH }}
+            href: tutorials/metrika-to-clickhouse.md
+          - name: Uploading data from {{ PG }} to {{ CH }}
+            href: tutorials/rdbms-to-clickhouse.md
+          - name: Uploading data from {{ DS }} to {{ CH }}
+            href: tutorials/yds-to-clickhouse.md
+          - name: Uploading data from {{ GP }} to {{ PG }}
+            href: tutorials/greenplum-to-postgresql.md
+      - name: Uploading data to {{ objstorage-name }}
+        items:
+          - name: Uploading data from {{ MY }} to {{ objstorage-name }}
+            href: tutorials/mmy-objs-migration.md
+          - name: Uploading data from {{ PG }} to {{ objstorage-name }}
+            href: tutorials/mpg-to-objstorage.md
+          - name: Uploading data from {{ DS }} to {{ objstorage-name }}
+            href: tutorials/yds-to-objstorage.md
+          - name: Uploading data from {{ at-name }} to {{ objstorage-name }}
+            href: tutorials/trails-to-os.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -181,6 +177,8 @@ items:
         href: concepts/transfer-lifecycle.md
       - name: What objects can be transferred
         href: concepts/transferred-objects.md
+      - name: Data transformations
+        href: concepts/data-transformation.md
       - name: '{{ data-transfer-full-name }} specifics for sources and targets'
         href: concepts/work-with-endpoints.md
       - name: Operations on transfers

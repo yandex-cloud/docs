@@ -4,9 +4,9 @@
 
 Чтобы создать шаблон задачи для вашей очереди и разрешить использовать его участникам команды:
 
-1. На панели слева нажмите ![](../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Управление шаблонами**. Вы также можете перейти по ссылке [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
+1. На панели слева нажмите ![](../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Затем выберите ![](../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** и нажмите **{{ ui-key.startrek.ui_components_NavigationBar.templates-settings }}**. Вы также можете перейти по ссылке [{{ link-tracker-templates }}]({{ link-tracker-templates }}).
 
-1. Выберите опцию **Задачи** и нажмите кнопку **Создать шаблон**.
+1. Выберите опцию **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** и нажмите кнопку **{{ ui-key.startrek.ui_components_issue-comments-templates.create-template-item }}**.
 
 1. Задайте название и описание шаблона.
 
@@ -14,7 +14,7 @@
 
 1. Заполните поля шаблона и сохраните его. Заданные значения полей будут автоматически подставляться в задачи, созданные с помощью шаблона.
 
-1. Чтобы настроить доступ к шаблону, рядом с шаблоном нажмите кнопку **Права доступа** и добавьте нужные группы или пользователей.
+1. Чтобы настроить доступ к шаблону, рядом с шаблоном нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.item-actions-permissions }}** и добавьте нужные группы или пользователей.
 
 1. Чтобы участники вашей команды могли использовать шаблон для создания задач:
 

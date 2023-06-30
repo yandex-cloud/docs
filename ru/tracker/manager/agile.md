@@ -20,11 +20,11 @@
 
 Работа с досками задач в {{ tracker-name }} похожа на [работу с обычными досками со стикерами](#dlen_board). Используйте доски разных типов для планирования и отслеживания работы по гибким методологиям:
 
-- **Простая** доска позволяет распределить задачи по колонкам в зависимости от их статуса.
+- **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}** доска позволяет распределить задачи по колонкам в зависимости от их статуса.
 
-- Доска **Скрам**, помимо отображения статусов задач, включает инструменты для управления [спринтами](#dlen_sprint), [оценки сложности задач](planning-poker.md) и [диаграмму сгорания задач](#dlen_burndown).
+- Доска **{{ ui-key.startrek.blocks-desktop_onboarding-form.template-1 }}**, помимо отображения статусов задач, включает инструменты для управления [спринтами](#dlen_sprint), [оценки сложности задач](planning-poker.md) и [диаграмму сгорания задач](#dlen_burndown).
 
-- Доска **Канбан** — похожа на простую доску, но все задачи в статусе **Открыт** автоматически попадают в колонку [**Бэклог**](#dlen_backlog).
+- Доска **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}** — похожа на простую доску, но все задачи в статусе **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}** автоматически попадают в колонку [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](#dlen_backlog).
 
 Подробнее о том, как работать с досками задач:
 

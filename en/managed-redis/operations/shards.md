@@ -15,8 +15,8 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of a cluster and open the **Shards** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
 - CLI
 
@@ -83,16 +83,15 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to add a shard to.
-   1. Select **{{ mrd-name }}**.
-   1. Click the cluster name and go to the **Shards** tab.
-   1. Click **Add shard**.
-   1. Enter the **Shard name**.
-   1. Under **Hosts**:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+   1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
       * (optional) Edit the host settings.
-      * Click **Add host**.
-      * In the window that opens, select the **Availability zone** and **Subnet**, and enable the **Public access** option.
-      * Click **Save**.
-   1. Click **Create shard**.
+      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+      * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, choose the availability zone, select **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable the **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** option.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI
 
@@ -177,10 +176,10 @@ All the shard hosts are deleted with the shard.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to delete the shard from.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
-   1. In the line of the appropriate shard, click ![image](../../_assets/options.svg) and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
+   1. In the line of the appropriate shard, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -237,13 +236,13 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
    To rebalance a cluster:
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster in question.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the name of the cluster you need.
-   1. On the **Overview** tab, click **Rebalance**.
+   1. In the **{{ ui-key.yacloud.common.overview }}** tab, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
 
    {% note tip %}
 
-   You can also rebalance a cluster using the **Rebalance cluster** button on the **Shards** tab.
+   You can also rebalance a cluster using the **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster }}** button on the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
    {% endnote %}
 

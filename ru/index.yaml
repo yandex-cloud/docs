@@ -185,3 +185,6 @@ links:
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/
+  - title: YandexGPT
+    description: Генеративные языковые модели для ваших бизнес-приложений.
+    href: yandexgpt/

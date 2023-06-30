@@ -415,6 +415,7 @@ default:
   SPRK: Apache Spark™
   TF: Terraform
   TF-full: Hashicorp Terraform
+  TF-version: '0.90'
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   metrika: Yandex Metrica
@@ -423,6 +424,7 @@ default:
   metrika-link: https://metrika.yandex.com/
   DS: YDS
   ssms: SQL Server Management Studio
+  pgadmin: "pgAdmin\_4"
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -3057,6 +3059,10 @@ default:
         requests|string: Free
   ui-key:
     datalens:
+      chartkit:
+        menu:
+          export:
+            format_markdown: Markdown
       collections:
         action_create: Create
       component:
@@ -3092,8 +3098,17 @@ default:
           button_create-dataset: Create dataset
           button_specify-manually: Specify manually
           button_verify: Check connection
+          field_cache-ttl-sec: "Cache TTL in\_seconds"
+          field_click-house-port: HTTP interface port
+          field_cloud-and-folder: Cloud and folder
           field_cluster: Cluster
+          field_fill-mode: Connection
           field_host-name: Hostname
+          field_password: Password
+          field_raw-sql-level: Raw SQL level
+          field_username: Username
+          value_default: Default
+          value_raw-sql-level-off: Forbid
       dash:
         action-panel:
           view:
@@ -3128,6 +3143,8 @@ default:
           edit:
             button_add: Add
             button_save: Save
+            field_autoheight: Auto height
+            field_description: Description
             field_title: Title
             field_widget: Chart
       dataset:
@@ -3150,17 +3167,21 @@ default:
             button_connect-data-source: Create connection
             button_create-dashboards: Create dashboard
             button_create-dataset: Create dataset
+            button_create-widget: Create chart
       wizard:
         add_field_item: Field
         button_apply: Apply
         button_apply-filter: Apply filter
+        button_choose-dataset: Select dataset
         button_save: Save
         button_save-as: Save as
         label_bars-color: Color
+        label_datasets: Datasets
         label_gradient-type: Gradient type
         label_thresholds: Set threshold values
         label_visualization-area: Stacked area chart
         label_visualization-column: Column chart
+        label_visualization-flat-table: Table
         label_visualization-pie: Pie chart
         label_visualization-pivot-table: Pivot table
         number-field-formatting:
@@ -3181,6 +3202,1094 @@ default:
         section_sort: Sorting
         section_x: X
         section_y: 'Y'
+    startrek-backend:
+      applinks:
+        samsara:
+          resolution:
+            duplicate: Duplicate
+            rejected: Will not fix
+            resolved: Resolved
+          status:
+            closed: Closed
+            in:
+              progress: In Progress
+            need:
+              info: Need Info
+            new: New
+            'on':
+              hold: On Hold
+            open: Open
+            resolved: Resolved
+      fields:
+        issue:
+          access: Access
+          affectedVersions-key-value: Affected Version
+          assignee-key-value: Assignee
+          author-key-value: Author
+          boards: Boards
+          commentWithExternalMessageCount: Number of comments with message
+          commentWithoutExternalMessageCount: Number of comments without message
+          components-key-value: Components
+          created-key-value: Created
+          description-key-value: Description
+          dueDate-key-value: Deadline
+          emailCc: Email Cc
+          emailCreatedBy: Created By email to
+          emailFrom: Email From
+          emailTo: Email To
+          end-key-value: End Date
+          estimation-key-value: Estimate
+          fields:
+            agile: Agile
+            email: Email
+            sla: SLA
+            system: System
+            timetracking: Time Tracking
+          fixVersions-key-value: Fix Version
+          followers: Followers
+          followingMaillists: Maillists
+          goals-key-value: Goals
+          key-key-value: Key
+          lastCommentUpdatedAt: ' Last Comment'
+          links:
+            relationship:
+              has:
+                epic: Has epic
+          modifier: Modifier
+          originalEstimation-key-value: Original Estimate
+          paletteColor: Color
+          pendingReplyFrom: Pending reply from
+          possibleSpam: Possible spam
+          priority-key-value: Priority
+          project-key-value: Project
+          queue: Queue
+          resolution-key-value: Resolution
+          resolved: Resolved
+          resolver: Resolver
+          sla-key-value: SLA
+          spent-key-value: Time Spent
+          sprint: Sprint
+          start-key-value: Start Date
+          status-key-value: Status
+          statusStartTime: Last status change
+          storyPoints: Story Points
+          summary-key-value: Summary
+          tags-key-value: Tags
+          type-key-value: Type
+          updated-key-value: Updated
+          votes: Votes
+      messages:
+        boards:
+          poker:
+            aggregate:
+              function:
+                maximum:
+                  double: Maximum value
+        sla:
+          issue:
+            created:
+              timer:
+                trigger:
+                  condition:
+                    type: Issue created
+            'on':
+              status:
+                timer:
+                  trigger:
+                    condition:
+                      type: Issue has the status
+          send:
+            mail:
+              threshold:
+                excess:
+                  function:
+                    type: Email
+          status:
+            changed:
+              timer:
+                trigger:
+                  condition:
+                    type: Issue status changed to
+          team:
+            commented:
+              timer:
+                trigger:
+                  condition:
+                    type: Queue team responded
+        trigger:
+          condition:
+            type:
+              and: And
+              fieldBecameEqual: Field value became equal to
+              or: Or
+        user:
+          named:
+            request:
+              folder:
+                my: My
+                shared: Shared
+        workflow:
+          field:
+            maillists: Mailing lists
+      presets:
+        advancedDevelopment:
+          board:
+            column:
+              ready:
+                for:
+                  test: Ready for Test
+        developmentPreset:
+          board:
+            column:
+              need:
+                info: Need Info
+              ready:
+                for:
+                  test: Ready for Test
+              release:
+                candidate: Ready for release
+              review: Review
+              tested: Tested
+              testing: Testing
+        devPreset:
+          board:
+            column:
+              closed: Closed
+              in:
+                progress: In Progress
+              open: Open
+        kanbanDevelopmentPreset:
+          board:
+            column:
+              in:
+                progress: In Progress
+              need:
+                info: Need Info
+              open: Backlog
+              ready:
+                for:
+                  test: Ready for Test
+              release:
+                candidate: Ready for release
+              review: Review
+              tested: Tested
+              testing: Testing
+        scrumDevelopmentPreset:
+          board:
+            column:
+              in:
+                progress: In Progress
+              need:
+                info: Need Info
+              ready:
+                for:
+                  test: Ready for Test
+              release:
+                candidate: Ready for release
+              review: Review
+              tested: Tested
+              testing: Testing
+          name: Development with Scrum
+        supportPreset:
+          board:
+            column:
+              open: Open
+      profiles:
+        category:
+          everything: All Events
+      roles:
+        role:
+          name:
+            access: Access
+            assignee: Assignee
+            author: Author
+            favorite-follower: Favorites
+            follower-key-value: Follower
+            modifier: Modifier
+            queue-follower-key-value: Queue Follower
+            queue-lead: Queue Owner
+            team-member: Team Member
+            voted-by-follower: Voted
+      types:
+        types:
+          sla:
+            settings: SLA
+          trigger:
+            action:
+              create:
+                issue: Create issue
+    startrek:
+      blocks_touch_b-related-issues:
+        delete: Delete link
+        type-relates: Related
+      blocks-desktop_agile-create-issue:
+        create: Create
+      blocks-desktop_agile-form-modal:
+        board-mode-filter: automatic
+        board-type--default: Basic
+        board-type--kanban: Kanban
+        label-board-mode: Add issues
+        new-board-ad-control: Try new boards
+      blocks-desktop_b-access-category:
+        access-type--outsource: Not only Yandex
+        access-type--yandex: Yandex
+      blocks-desktop_b-agile-board:
+        add-note: Add note
+        edit-note: Edit note
+      blocks-desktop_b-bulk-change:
+        edit-fields: Edit fields
+      blocks-desktop_b-create-ticket-form__labels:
+        submit: Create
+      blocks-desktop_b-create-ticket-form:
+        copy-url: Copy link to form template
+        fill-desc: Issue description
+      blocks-desktop_b-dashboard-widget:
+        group-day: By day
+        hint-name: Widget name
+        sort-column: Sort columns
+        sort-row: Sort rows
+        title-field: Key parameter
+        title-fields: Columns
+        title-filter: Filter
+        title-group-by: Group
+        title-is-cumulative: Show cumulative total
+        title-on-first-page: Number of rows on page
+        title-per-page: Number of issues per page
+        title-refresh: Auto-update
+        title-show-sum: Show total
+        title-sort: Sort by
+        title-sum: Cells
+        title-x-axis: Columns
+        title-y-axis: Rows
+        versions: Show versions
+      blocks-desktop_b-file-list_sort_yes:
+        date: By date
+      blocks-desktop_b-filter:
+        apply: Apply
+        by-components: By component
+        favorite: Favorite
+        no-group: Not grouped
+        type-query: Query
+      blocks-desktop_b-form-new-component:
+        button-create: Create
+        button-update: Save
+        name: Name
+        task-assignee: Assign to issues by default
+      blocks-desktop_b-head:
+        add-user: Add users
+        dashboards: Dashboards
+        filters: Issues
+        manage-subscriptions: Notification settings
+        menu-group--recent: Viewed recently
+        new_issue: New issue
+        new-agile-board: New board
+        new-dashboard: New dashboard
+        new-queue: New queue
+        queues: Queues
+        settings: Personal settings
+      blocks-desktop_b-page_type_projects:
+        deadline: Deadline
+        startDate: Start date
+      blocks-desktop_b-page_type_queue:
+        tab_commits: Commits
+        tab_components: Components
+        tab_description: Description
+        tab_stat: Statistics
+        tab_versions: Versions
+      blocks-desktop_b-page_type_versions:
+        name: Name
+      blocks-desktop_b-page-agile-admin-tab_type_card-settings:
+        action_add-field: Add field
+        action_remove-all: Remove additional fields
+        field-assignee: Assignee
+        field-components: Components
+        field-status: Status
+        field-tags: Tags
+        issue-status-open: Open
+        issue-summary: Issue name
+        issue-type-task: Task
+        title: Card view
+      blocks-desktop_b-page-agile-admin-tab_type_columns:
+        issues-limit: Maximum number of issues per column
+        status-list-title: Unused statuses
+      blocks-desktop_b-page-agile-admin-tab_type_main:
+        default-queue: Queue for creating issues
+        delete-btn: Delete board
+        filter-title: Filter settings
+        filter-type-conditions: Conditions
+        filter-type-query: Query
+        name: Name
+        save-btn: Save
+        use-ranking: Allow changing the order of issues
+      blocks-desktop_b-page-agile-admin-tab_type_poker:
+        action-save: Save
+        title: Planning poker
+      blocks-desktop_b-page-agile-admin:
+        tab-title--columns: Columns
+      blocks-desktop_b-page-agile-board:
+        auto-refresh-off: Disabled
+        auto-refresh-period: Every minute
+        auto-refresh-text: Auto-update
+        full-screen-off: Leave full screen
+        poker: Poker
+        reports: Burn down chart
+        sprints: Sprints
+      blocks-desktop_b-page-agile-sprints:
+        archived-sprints: Archived sprints
+        components: Components
+        create-epic: Create epic
+        epics: Epics
+        sprints: Sprints
+        tags: Tags
+        tasks: Backlog
+        versions: Versions
+        without-epics: Without epics
+      blocks-desktop_b-page-components:
+        action--add: Create component
+        action--delete: Remove
+        action--edit: Edit
+        action--subscribe: Subscribe to issues with this component
+      blocks-desktop_b-page-dashboard:
+        access-control: Edit access control
+        change-owner: Change owner
+        copy-btn: Create copy
+        create-btn: Create
+        create-zone: Add widget
+        delete-btn: Delete
+        edit-button: Edit
+        save-btn: Save
+      blocks-desktop_b-page-goals:
+        subscribe: Subscribe
+      blocks-desktop_b-page-issues:
+        page-title: Filters
+      blocks-desktop_b-page-projects:
+        create: Create project
+      blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
+        type-toggle--create: Create issues
+        type-toggle--update: Update issues
+      blocks-desktop_b-page-queue-admin-tab_type_events:
+        field--default-priority: Default priority of issues
+      blocks-desktop_b-page-queue-admin-tab_type_notifications:
+        components: Issues with the required component
+        queue: All issues
+        versions: Issues for a specific version
+      blocks-desktop_b-page-queue-admin-tab_type_permissions:
+        access-denied-msg: Message for users without access
+        allow-external: Allow access for external users
+        column-title--create: Create issues
+        column-title--read: View issues
+        column-title--write: Edit issues
+        issues-access: Access control
+        reset: Reset
+        save: Save
+        tab--components: Issues with component
+        tab--queue: All issues
+        update-access-denied-msg-btn: Edit
+      blocks-desktop_b-page-queue-admin-tab_type_sla:
+        add-sla: Create a rule
+        notification-condition-min: Warning
+        sla-condition-pause: Pause
+      blocks-desktop_b-page-queue-admin-tab_type_team:
+        field--bind-to-lead: Assign new issues to lead
+      blocks-desktop_b-page-queue-admin-tab_type_triggers:
+        button-create: Create trigger
+        title: Triggers
+      blocks-desktop_b-page-queue-admin-tab_type_types:
+        add-issue-type: Add issue type
+        save: Save
+      blocks-desktop_b-page-queue-admin-tab_type_workflows:
+        actions--copy: Copy
+        copy-queue-workflow: Copy workflow from another queue
+      blocks-desktop_b-page-queue-admin:
+        tab-title--events: Changelog
+        tab-title--fields: Queue fields
+        tab-title--main: Basic settings
+        tab-title--permissions: Access
+        tab-title--sla: SLA
+        tab-title--team: Queue team
+        tab-title--types: Issue types
+        tab-title--workflows: Workflow
+      blocks-desktop_b-page-queue-description:
+        description: Queue description
+      blocks-desktop_b-page-queue:
+        cp: Configure
+      blocks-desktop_b-page-settings-templates:
+        item-actions-permissions: Access control
+      blocks-desktop_b-page-settings:
+        comments-and-history: Message order in issues
+        comments-new-on-top: Newest first
+        date-format: Date format
+        digest: Receive digest of issue updates
+        event-type-in-subject: Show event type in notifications
+        letters-sender-display-style-title: Sender's name in emails
+        org-id: Organization ID for API
+        prefer-icons-in-lists: Show avatars instead of names
+        prefer-login: Display login instead of name
+        receive-own-events: Receive updates with my own actions
+        save: Save
+        sprint-columns-view-content: Display sprints and issues in a single column
+        users-display-format: User display
+      blocks-desktop_b-page-stat:
+        make-report: Time Spent Report
+      blocks-desktop_b-page-subscriptions-manage:
+        goals: Goals
+      blocks-desktop_b-page-subscriptions-roles:
+        add-role: Add role
+        reset: Delete notifications
+      blocks-desktop_b-page:
+        actionEdit: Edit
+        actionFollow: Subscribe
+        btnAdd: Create version
+        btnUpdate: Save
+      blocks-desktop_b-queue-form:
+        abc: ABC service
+        add-issue-key-in-email-checkbox: Add the issue number in the subject line
+        advanced-settings: Advanced settings
+        advanced-settings-show: Show advanced settings
+        choose-issue-type: Choose issue type
+        choose-resolutions: Choose resolutions
+        choose-workflow: Workflow
+        commits: Show "Сommits" tab
+        department: Department
+        goals: ' Show "Goals" tab'
+        integration-settings: Integration settings
+        mail: Sending mails
+        mail-checkbox: Allow emails to be sent externally
+        notification-fields: Fields in notifications
+        oebs: Show "OEBS Transactions" tab
+        otrs-settings-assignee: Changing assignee
+        otrs-settings-comment: Creating comment
+        otrs-settings-status: Changing status
+        projects: Show "Projects" tab
+        queue-team: Queue team
+        required-fields: Required fields for the queue
+        save: Save
+        show-create-issue-form: Show the standard issue creation form
+        status-on-link: Status after adding external link
+        voting: Voting in issues
+      blocks-desktop_b-queue-issue-type__workflow-table:
+        button-name: Button name
+      blocks-desktop_b-queue-issue-type:
+        workflow-view-label: Statuses and transitions
+      blocks-desktop_b-queues-info:
+        admin: Configure
+        projects: Projects
+      blocks-desktop_b-screen:
+        worklog: Time spent
+      blocks-desktop_b-sprint-task:
+        actions-menu--add-to-poker: Add to poker
+      blocks-desktop_b-sprints-list:
+        sprint-status--archived: Archived
+      blocks-desktop_b-subscriptions-header:
+        roles: Notifications
+        subscriptions: Subscriptions
+      blocks-desktop_b-ticket-fields:
+        status: Status
+      blocks-desktop_b-ticket-sidebar:
+        action--select-fields: Select fields
+      blocks-desktop_b-ticket-workflow:
+        comments: Comments
+        commits: Commits
+        history: History
+        new-comment-type--external: Email
+        new-on-top: Newest first
+      blocks-desktop_b-widget:
+        export-xlsx: Export as XLSX
+        pivot: Pivot report
+        queue-hint: Queue
+        timesheet: Timesheet report
+      blocks-desktop_comment-form:
+        save: Save
+        send: Submit
+      blocks-desktop_comment:
+        reply: Reply
+      blocks-desktop_create-issue-dropdown:
+        create: Create issue
+      blocks-desktop_dashboard-create-zone:
+        created-vs-resolved-title: Created vs. Resolved Graph
+        filter-title: Issues
+        invite-links-title: Invitation form
+        issues-title: Issue Statistics
+        note-title: Note Widget
+        security-title: Security
+        table-sum-title: Summary table with totaled values
+        table-title: Summary table
+        time-since-title: Events
+      blocks-desktop_epic-card:
+        create-subtask: Create sub-issue
+      blocks-desktop_favorite-toggler:
+        favorite: Add to Favorites
+      blocks-desktop_field-create-form:
+        field-type-number: Number
+        field-type-option-list: Dropdown list
+        field-type-user: User list
+        label--category: Category
+        label--name: Name in Russian
+        label--name-eng: Name in English
+        label--number-type: Type of number
+        label--option-list: Item selection
+        label--options: List items
+        label--users-count: Number of employees
+        value--one: Single item
+      blocks-desktop_field-create-modal:
+        button--create: Create
+        button--next: Next
+      blocks-desktop_file:
+        copy-link-button: Copy link
+        delete-button: Remove
+      blocks-desktop_form-clone:
+        clone-all-fields: Copy issue fields
+        link-with-original: Link the cloned issue
+        submit-button: Clone
+      blocks-desktop_guide:
+        common--header--settings--title: Settings
+        queue--tabs--gantt--title: Gantt chart
+        ticket--buttons--workflow_buttons--content-link: More
+        ticket--tabs--invites--title: Invitation to comments
+      blocks-desktop_i-autocomplete-control:
+        assign-me: Me
+      blocks-desktop_i-ticket-subscription:
+        worklogs: Time spent
+      blocks-desktop_issue-reminder:
+        save-btn: Save
+      blocks-desktop_issue-reply-form:
+        email-cc: CC
+        email-from: From
+        email-nickname: Nickname
+        email-subject: Subject
+        submit: Submit
+      blocks-desktop_issues-filter-save-modal:
+        action_submit: Save
+      blocks-desktop_issues-filter-update-modal:
+        access-rights--read: View
+        access-rights--share: Add to shared folder
+        access-rights--write: Edit
+        action_submit: Save
+        filter-remove-confirm-submit: Delete
+        permissions-group--groups: Groups
+      blocks-desktop_issues-filter:
+        action--apply-query: Apply
+      blocks-desktop_issues-table:
+        group-by--null: Not grouped
+        select-columns: Change columns
+      blocks-desktop_m-head:
+        filters-favorite: Favorites
+        group-title--owned--filters: My filters
+        group-title--owned--queues: My Queues
+        group-title--recent: Recently viewed
+        menu-agile: Boards
+        menu-dashboards: Dashboards
+        menu-queues: Queues
+        new-issue: Create issue
+      blocks-desktop_migration-button:
+        migrate-button: Switch to our new technologies
+      blocks-desktop_onboarding-form:
+        template-1: Scrum
+      blocks-desktop_page-admin-tab_type_fields:
+        button--create-field: Create field
+        change-category-form--change: Save
+        field-type--project: Project
+        field-type--resolution: Resolution
+        field-type--status: Status
+        field-type--uri: URL
+      blocks-desktop_page-admin-tab_type_repositories:
+        connect: Connect repository
+      blocks-desktop_page-admin-tab:
+        create--resolutions: Create resolution
+        create--statuses: Create a status
+        create--types: Create an issue type
+      blocks-desktop_page-admin:
+        breadcrumbs-title: Admin
+        tab-title--fields: Fields
+        tab-title--resolutions: Resolutions
+        tab-title--statuses: Issue statuses
+      blocks-desktop_page-agile-boards:
+        create: Create board
+        filter-type--favorite: Favorites
+      blocks-desktop_queue-new-presets:
+        category--business: Creating products and services
+        category--development: Development
+        category--support: Working with people and documents
+        choose-btn: Select
+        copy-title: Copy queue
+        create: Create
+        preset--task-type--absence: Leave
+        preset--task-type--bug: Error
+        preset--task-type--candidate: Candidate
+        preset--task-type--changes: Changes
+        preset--task-type--documents: Documents
+        preset--task-type--epic: Epic
+        preset--task-type--improvement: Improvement
+        preset--task-type--incident: Incident
+        preset--task-type--mission: Business trip
+        preset--task-type--project: Project
+        preset--task-type--release: Release
+        preset--task-type--request: Query
+        preset--task-type--service-request: Service request
+        preset--task-type--story: Story
+        preset--task-type--task: Issue
+        preset--task-type--vacancy: Vacancy
+        preset-title--basic-support-preset: Basic support
+        preset-title--custom-queue: Configure the queue manually
+        preset-title--development-preset: Basic development model
+        preset-title--kanban-development-preset: Kanban
+        preset-title--outsource-development-preset: Software development as a service
+        preset-title--scrum-development-preset: Scrum
+        preset-title--tiered-support-preset: Multi-tiered support
+      blocks-desktop_roles-table:
+        access-control: Access control
+        apply: Apply
+        groups: Groups
+        read: Read
+        roles: Roles
+        users: Users and robots
+        write: Write
+      blocks-desktop_sla-editor:
+        excesses--title: Notifications
+        thresholds--max: Time until expiration
+        thresholds--new: Create a new filter
+        thresholds--title: Timeframes for issues
+        timers--start: Start
+        timers--stop: Stop
+      blocks-desktop_spotlight-preview:
+        owner: Owner
+      blocks-desktop_sprint-form:
+        button-save: Save
+      blocks-desktop_st-color-tokens:
+        delete-btn: Remove from list
+      blocks-desktop_st-extra-filter:
+        assignee: Assigned to me
+        author: Reported by me
+        followers: Followed by me
+        resolution--default: All
+        resolution--empty: Without resolution
+        resolution--notEmpty: With resolution
+      blocks-desktop_st-field-utils:
+        field--assignee: Assignee
+        field--author: Reporter
+        field--followers: Followers
+        field--resolution: Resolution
+      blocks-desktop_st-tokens-chooser:
+        choose-from-list-button: Choose colors
+      blocks-desktop_trigger-action:
+        select-action--transition: Change issue status
+        title_createissue: Creating issues
+        webhook-variables: Variables
+      blocks-desktop_wiki-widget-copy-url:
+        title: Get the Wiki code
+      blocks-desktop_workflow-condition:
+        type--all: all
+        type--any: any
+      blocks-desktop_workflow-editor--action_tab_general:
+        name-en--label: Button name in English
+        name-ru--label: Button name in Russian
+        target-status--label: Transition to status
+      blocks-desktop_workflow-editor--action_tab_screen:
+        comment-enable: Form for comments
+        linking-enable: Adding links on transition screen
+        screen-elements-title: Fields on transition screen
+        screen-title--label-en: Screen title
+        screen-title--label-ru: Screen title
+        worklogs-enable: Form for time spent
+      blocks-desktop_workflow-editor--action:
+        tab-title--conditions: Conditions
+        tab-title--functions: Functions
+        tab-title--general: General information
+        tab-title--screen: Screen
+      blocks-desktop_workflow-editor--step_tab_actions-on-comment:
+        make-no-transition: Do nothing
+        make-transition: Make transition
+        on-assignee-comment-only: Only if comment was left by assignee
+        prev-status: Return to previous status
+        revert-assignee: Set assignee from previous status
+        select-action: Choose an action
+      blocks-desktop_workflow-editor--step_tab_create-action:
+        name-en--label: Button name in English
+        target-status--label: Transition to status
+      blocks-desktop_workflow-editor--step:
+        button--submit: Save
+        tab-title--actions-on-comment: Actions on comment
+        tab-title--create-action: Add transition
+      blocks-desktop_workflow-editor:
+        add-status-popup--name: Transition button name in Russian
+        add-status-popup--name-en: Transition button name
+        sidebar-add-status: Add status
+        sidebar-title: Statuses and transitions
+      components_FormButtons:
+        create: Create
+        update: Save
+      components_FormCreateIssue:
+        field--assignee: Assignee
+        field--components: Components
+        field--dueDate: Deadline
+        field--followers: Followers
+        field--priority: Priority
+        field--tags: Tags
+        field--type: Type
+      components_IssueFieldView:
+        me-multiple: Add me
+      components_Licenses:
+        default-full-access-label: Full access for all new users
+        department-access-title--readOnly: Read only
+        departments: Departments
+      components_LicensesDefaultFullAccessModal:
+        button-submit--toEnable: Enable
+      components_Poker:
+        estimate: Estimate
+        mark-title: Estimate
+        users-section-title: Team
+      components_QueuePresetOnboarding:
+        preset-name--scrum-development-preset: Scrum
+      lib_goals-info:
+        status--BLOCKED: Blocked
+        status--CANCELLED: Canceled
+        status--NEW: New
+        status--PLANNED: As planned
+        status--REACHED: Achieved
+        status--RISK: At risk
+      ui_components_actions-panel_ActionsPanel:
+        action-menu-title: Actions
+      ui_components_AddWorklogDialog:
+        apply-button: Save
+        duration-label: Time spent
+      ui_components_agile_agile-board_AgileBoardActionsMenu:
+        delete-board-menu-item: Delete board
+        filters-manage: Manage filters
+        migration-rollback: Switch back to the old version
+      ui_components_agile_agile-board_AgileBoardAddColumnButton:
+        new-column-button: Add column
+      ui_components_agile_agile-board_AgileBoardColumnHeader:
+        column-menu--add-note: Add note
+        column-menu--delete: Delete
+        column-menu--edit: Edit
+      ui_components_agile_agile-board_AgileBoardCreateModal:
+        submit-btn: Create
+      ui_components_agile_agile-board_AgileBoardEmptyScreen:
+        empty-screen--new-issue: New issue
+      ui_components_agile_agile-board_AgileBoardIssue:
+        issue-actions--delete-from-board: Remove from board
+      ui_components_agile_agile-board_AgileBoardIssuesImportButton:
+        import-issues: Import issues
+      ui_components_agile_agile-board_AgileBoardMigrationForm:
+        submit-btn: Start switching
+      ui_components_agile_agile-board_AgileBoardUnusedStatuses:
+        unused-statuses-add-to-column: Add to column
+      ui_components_agile_backlog_BacklogIssue:
+        backlog-default-column: Backlog
+      ui_components_agile_backlog_BacklogIssuesImportButton:
+        import-issues: Import issues
+      ui_components_agile_common_AddIssueButton:
+        add-issue-button: Add issue
+      ui_components_agile_common_AgileFilterParamsPicker:
+        save: Save
+      ui_components_agile_common_AgileTabs:
+        backlog: Backlog
+        board: Board
+      ui_components_agile_common_ColumnForm:
+        create-column-label--statuses: Column statuses
+        create-column-submit-button--create: Add
+      ui_components_agile_common_QuickFiltersItem:
+        quick-filter--assignee-me: Assigned to me
+        quick-filter--author-me: Created by me
+      ui_components_agile_poker_PokerButton:
+        poker: Poker
+      ui_components_agile_poker_PokerIssueForm:
+        apply-estimate: Set an estimate
+        show-estimates: Show estimates
+      ui_components_agile_settings_PokerSettings:
+        aggregation-function-field-label: Calculation of the final score
+      ui_components_AttachmentsManager:
+        attach: Attach files
+      ui_components_BoardsPanel:
+        favourites: Favorites
+      ui_components_bulk_BulkChangeParametersDialog:
+        button-submit-text: Apply
+      ui_components_BulkChangeParametersDialog:
+        add-parameter: Edit parameters list
+        clear-previous-value: Delete value
+      ui_components_BulkSuggestPopup:
+        apply: Apply
+      ui_components_Checklist:
+        button-cancel: Cancel
+        button-submit: Save
+        header-title: Checklist
+        new-item-button-caption: Add item
+        remove-title: Delete checklist
+      ui_components_Confirm:
+        ok-button-text: 'Yes'
+      ui_components_CreateIssueForm:
+        create-issue: Create issue
+      ui_components_CreateIssueLinkButton:
+        add-relation: Add link
+      ui_components_CreateIssuePopup:
+        existing-issue: Existing issue
+        new-issue: New issue
+      ui_components_dashboard_DashboardActionsMenu:
+        delete-action: Delete
+        set-start-page-action: Set as start page
+      ui_components_dashboard_DashboardHeader:
+        dashboard-header-add-button: Add
+        dashboard-header-add-orgAdmin: Information for employees
+        dashboard-header-settings-button: Edit
+      ui_components_dashboard_FilterEditor:
+        editor-source-radio-query: Query language
+      ui_components_dashboard_IssuesStatEditor:
+        editor-source-radio-parameters: Parameters
+      ui_components_dashboard_OrgAdminEditor:
+        editor-published-field-label: Widget published
+        editor-save-button: Save
+      ui_components_dashboard_TableWidget:
+        show-all: Show All
+      ui_components_dashboard:
+        summary-field-name: Summary
+      ui_components_FieldsSelect:
+        applyChanges: Apply
+      ui_components_filter-field:
+        save-button: Save
+      ui_components_filter-pane_FieldsSelectButton:
+        add-filter-field-button-title: Add a field for filtering
+      ui_components_filter-pane_ViewModeSwitch:
+        mode-gantt: Gantt chart
+      ui_components_filter-pane:
+        action-title-save: Save
+        action-title-save-as: Save as new
+        all-issues-filter-title: All issues
+        list-mode-flat: Flat list
+        list-mode-tree: Tree list
+        reset-button: Reset
+        search-placeholder: Search by issue name
+      ui_components_FilterEditorPane:
+        all-issues-filter-title: All issues
+        reset-button: Reset
+      ui_components_FilterExportMenu:
+        menu-item-export: Export
+        title: Filter actions
+      ui_components_FilterFieldsSelect:
+        applyChanges: Apply
+      ui_components_Gantt_IssueActionsCell:
+        issue-action-menu-title: Issue actions menu
+      ui_components_Gantt:
+        color-type-by-manual: manual
+        color-type-by-parameter: by task parameters
+        delete-link: Remove link
+        scale-days: Week
+        scale-month: Month
+        scale-quarters: Quarter
+        shift-blocked-with-blocker: >-
+          Automatically move the deadline of the dependent issue when the
+          blocking issue's deadline changes
+        show-external-blockers: Show external blockers
+        show-issue-assignee: assignee
+        show-issue-title: name
+        show-links: Show blocking links
+        task-bar: Issue bar
+        timeline-config: Chart settings
+      ui_components_issue-comments-templates:
+        create-template-item: Create template
+      ui_components_IssueBulkActionPanel:
+        add-link: Add link
+        add-me-to-followers: Add me as follower
+        add-to-board: Add to board
+        add-to-projects: Add to project
+        assignee: Assignee
+        assignee-me: Assign to me
+        change-status: Change status
+        edit-parameters: Edit fields
+        followers: Followers
+        move: Move
+        remove-from-both-fields: From both fields
+        remove-me-from: Remove move from field...
+      ui_components_IssueChecklist:
+        add-checklist: Add checklist
+      ui_components_IssueCommentEditor:
+        transport-copy: Cc
+        transport-to: To
+      ui_components_IssueLinks:
+        external-relations: Links to external applications
+        links-group-title--relates: Related
+      ui_components_IssueListsPanel:
+        filter-assignee: Assigned to me
+        filter-author: Created by me
+        filter-favorite: Favorite issues
+        filter-follower: Followed by me
+        filter-my-issues: All my issues
+        filter-waiting: Waiting for response
+        filters: Filters
+        issues-list: Issues
+        queue: Queue
+      ui_components_IssueMenu:
+        add-notification: Add reminder
+        add-worklog: Add time spent
+        calendar-event-all: Meeting with all issue participants
+        calendar-event-author-assignee: Meeting with reporter and assignee
+        calendar-event-me: Schedule a time to work on this issue
+        clone-issue-action-title: Clone issue
+        convert-to-project: Convert to project
+        create-calendar-event: Create calendar event
+        create-subissue: Add sub-issue
+        move-issue: Change queue
+        title: Actions
+        to-subissue: Convert to sub-issue
+      ui_components_issues-import_IssuesImportDialog:
+        import: Import
+      ui_components_issues-import_IssuesImportFilters:
+        add-parameters: Add parameters
+      ui_components_IssueSidebar:
+        add-sidebar-field: Edit parameters list
+      ui_components_IssuesPresetSelect:
+        preset_assignee: Assigned to me
+        preset_author: Created by me
+        preset_deadline: Deadline approaching
+        preset-deadline: Deadline approaching
+      ui_components_IssueTabs:
+        fields-tab: Parameters
+      ui_components_macros_FavoriteButton:
+        button-tooltip-add: Add to favorites
+      ui_components_NavigationBar_BoardsPanel:
+        create-button: Create board
+        menu-group-my-link: Full list of boards created by me
+      ui_components_NavigationBar_IssuesPanel:
+        all-items-link: All issues
+        caption: Issues
+        filter-items-link: Full list of filtered issues
+        search-input-placeholder: Search by issue name
+      ui_components_NavigationBar_ProjectsPanel:
+        all-projects-link: All projects
+      ui_components_NavigationBar:
+        appearance-title: Interface
+        boards: Boards
+        issue-lists-menu-item: Issues
+        start-page-title: Start page
+        templates-settings: Template management
+      ui_components_page-admin_OrganizationSmallPane:
+        add-org-button: Add organization
+      ui_components_page-admin_OrgPanes_CloudOrgPane:
+        federation-task-action: Connect
+        source-title: Yandex Cloud Organization
+      ui_components_page-admin_OrgPanes_DirectoryOrgPane:
+        source-title: Yandex 360 for Business
+      ui_components_page-admin_OrgUsersPane:
+        access-level_full-access: Full
+        access-level_read_only: Read
+        title_access: Access to Tracker
+      ui_components_page-admin_PageAdmin:
+        menu-item-groups: Groups
+        menu-item-issue-statuses: Issue statuses
+        menu-item-orgs: Organizations
+        menu-item-repositories: Repositories
+        menu-item-users: Users
+        tracker-settings: Tracker Settings
+      ui_components_page-issues_touch:
+        all-issues-filter-title: All issues
+        query-language: Query language
+      ui_components_page-my_PageMy:
+        page-title: My page
+      ui_components_page-queue-admin_AliasesCreateForm:
+        mail-address: Email
+        mail-allow-external: Accept letters not only from employees of the organization
+        mail-archive-folder: Archive folder
+        mail-imap: IMAP server address
+        mail-incoming-folder: Inbox folder
+        mail-login: Login
+        mail-password: Password
+        mail-port: Port
+        mail-process-messages-from: Start date of email processing
+        mail-settings-title: Mail for receiving emails
+        mail-ssl: Secure connection (SSL)
+        save-button: Save
+      ui_components_page-queue-admin_AliasesEmptyList:
+        action-configure-mail: Configure mail
+      ui_components_page-queue-admin_AliasesFormSendPanel:
+        send-mail-login: Login
+        send-mail-password: Password
+        send-mail-port: Port
+        send-mail-smtp: SMTP server address
+        send-mail-ssl: Secure connection (SSL)
+        send-settings-title: Email for sending responses
+        signature-settings-title: Signatures
+        test-mail-button: Send a test email
+      ui_components_page-queue-admin_AliasesStateList:
+        action-add-mail: Add an email
+        action-domain: Connect a domain
+      ui_components_page-queue-admin_QueueActionsMenu:
+        remove-queue-action: Delete queue
+      ui_components_page-queue-admin_QueueAdminPageContent:
+        menu-item-aliases: Mailboxes
+      ui_components_page-queue-admin_Signature:
+        alias-title: Alias
+      ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
+        enable-backlog: Enable backlog
+      ui_components_PageAgileBoard_PageAgileBoardHeader:
+        settings: Settings
+      ui_components_PageAgileBoardSettings_Header:
+        settings: Settings
+      ui_components_PageCreateIssue:
+        add-parameter: Edit parameters list
+        empty-template: No form
+      ui_components_PageIssues_FilterInputTypeSwitch:
+        parameters: Parameters
+        query-language: Query language
+      ui_components_PageQueue_header:
+        export: Export
+        settings: Queue settings
+        subscribe: Subscribe
+        subscribe-all: Subscribe to all notifications
+        subscribe-new-tickets: Subscribe to new issues
+      ui_components_Project_Header_IssuesImportButton:
+        import-issues: Import issues
+      ui_components_Project:
+        sidebar-param-title--clients: Clients
+        sidebar-param-title--createdBy: Author
+        sidebar-param-title--endDate: End date
+        sidebar-param-title--lead: Responsible
+        sidebar-param-title--startDate: Start date
+        sidebar-param-title--status: Status
+        sidebar-param-title--tags: Tags
+        sidebar-param-title--teamUsers: Participants
+      ui_components_ProjectAccessButton:
+        private-access: Members only
+      ui_components_ProjectMenu:
+        create-board: Create project board
+        remove-board: Delete project board
+        remove-project: Delete project
+        title: Project menu
+      ui_components_projects_HeaderTabs:
+        board-tab: Issue board
+        description-tab: About the project
+        gantt-tab: Gantt chart
+        issues-tab: Issue list
+      ui_components_projects_list_FilterPane:
+        preset-author: I'm author
+        preset-client: I'm a client
+        preset-favorite: Favorites
+        preset-mine: My projects
+        preset-participant: I'm a participant
+        preset-responsible: I'm responsible
+        search-placeholder: Search
+      ui_components_projects_ListFilterPane:
+        filter-issues: Issues
+        filter-projects: Projects
+        search-placeholder: Search
+      ui_components_projects_Table:
+        add-issue: Add issue
+        add-sub-issue: Add sub-issue
+      ui_components_projects_utils:
+        field-name-resolution: Resolution
+        filter-macro-empty_: No value
+      ui_components_promo_Page:
+        login-button-label: Log in to Tracker
+      ui_components_SortButton:
+        default-title: Sort
+      ui_components_Table2:
+        added-columns: Added
+      ui_components_TrackerSearch:
+        queues: Queues
+      ui_components_TrackerSelect:
+        applyChanges: Apply
+      ui_components_TransitionScreen:
+        screen-next-button: Continue
+      ui_components_workflow-conditions_ConditionsMenu:
+        add-condition: Add condition
     yacloud_monitoring:
       actions:
         common:
@@ -3214,6 +4323,11 @@ default:
       entity:
         invitation:
           action_send-invitation: Send invitation
+      form:
+        federation:
+          create:
+            action:
+              create: Create federation
       page:
         users:
           action:
@@ -3308,14 +4422,18 @@ default:
         add: Add
         apply: Apply
         availability: Availability
+        button_cron-day: Every day
         clone: Clone
         create: Create
         delete: Delete
         description: Description
+        disabled: Disabled
         edit: Edit
+        enabled: Enabled
         id: ID
         import: Import
         label_auto: Auto
+        label_https: HTTPS
         label_key: Key
         label_list: List
         label_value: Value
@@ -3375,12 +4493,17 @@ default:
         mdb:
           settings:
             popup_settings-submit: Save
+        navigation-menu:
+          label_notifications: Notifications
         service-account-select:
+          button_create-account-new: Create new account
           label_no-service-account: Not selected
         symmetric-key-select:
           button_create-key: Create key
           button_create-key-new: Create new key
           label_no-symmetric-key: Not selected
+        user-account:
+          label_logout: Log out
         vpc-security-group-select:
           label_add-security-group: Add security group
         vpc:
@@ -3670,7 +4793,6 @@ default:
         label_connector-operation-REUPLOAD: Reload
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
-        label_connector-status-STOPPED: Stopped
         label_connectors: Transfers
         label_dashboard-link: Link to dashboard
         label_endpoint-type-CLICKHOUSE: ClickHouse
@@ -3743,6 +4865,7 @@ default:
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_monitoring: Monitoring
+            label_products: All services
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
@@ -3887,6 +5010,7 @@ default:
           button_create: Create cluster
         datalens:
           button-action_activate: Activate
+          button-action_new-connection: Create connection
         dialogs:
           popup_button_move-cluster: Move
           popup-confirm-delete-cluster_button: Delete
@@ -3899,6 +5023,7 @@ default:
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
           backup-window-start: Backup start time (UTC)
+          base_field_environment: Environment
           base_field_folder: Folder
           base_field_name: Cluster name
           base_field_service-account: Service account
@@ -3923,6 +5048,7 @@ default:
           config_field_version: Version
           config_field_zone: Availability zone
           database_field_name: DB name
+          database_field_sql-database-management: Managing databases via SQL
           database_field_sql-user-management: User management via SQL
           database_field_user-login: Username
           database_field_user-password: Password
@@ -3941,6 +5067,7 @@ default:
           label_network: Network
           maintenance-window-type: Maintenance window
           new_section_resource: Resources
+          resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Platform
           resource_presets_field-type: Type
           section_additional: Advanced settings
@@ -3986,6 +5113,7 @@ default:
             create-file: Create file
             field_entry: Entrypoint
             field_environment-variables: Environment variables
+            field_method: Method
             field_resources-memory: Memory
             field_timeout: Timeout, sec
             label_lang-bash: Bash
@@ -4000,6 +5128,10 @@ default:
             button_editor-create: Create in editor
           overview:
             label_title-latest-version: Last version
+          switch_editor: Editor
+          switch_testing: Testing
+          testing:
+            button_run-test: Run test
         list:
           button_create: Create function
         switch_list-triggers: Triggers
@@ -4028,6 +5160,11 @@ default:
             value_event-type-create-object: Create object
           list:
             button_create: Create trigger
+      settings:
+        label_settings: Settings
+        switch_appearance: Appearance
+        switch_experiments: Experiments
+        switch_lang: Language and region
       storage:
         bucket:
           button_action-delete: Delete
@@ -5359,7 +6496,7 @@ default:
         build-path: Build path
         docker-template: Docker template
         dockerfile: Docker file
-        repository: Repository
+        repository: Docker name
         tag: Tag
       edit-project-page:
         advanced-settings: Advanced settings

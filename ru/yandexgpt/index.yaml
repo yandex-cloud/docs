@@ -1,0 +1,32 @@
+title: YandexGPT
+description:
+  - >-
+    <em>Сервис YandexGPT находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>. Доступ к
+    сервису предоставляется по запросу</em>.
+  - >-
+    YandexGPT — это сервис Yandex Cloud, который позволит вам использовать
+    возможности генеративных языковых моделей в ваших бизнес-приложениях и
+    веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить развитие
+    бизнеса с технологиями машинного обучения.
+meta:
+  title: YandexGPT
+links:
+  - title: Начало работы
+    description: Отправьте свой первый запрос в YandexGPT
+    href: quickstart
+  - title: Концепции
+    description: Узнайте про концепции сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Справочник API
+    description: Узнайте об авторизации в сервисе и вызовах API
+    href: api-ref/authentication
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

@@ -57,7 +57,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 {#hosts-table}
 
 | Sharding type | MONGOD | MONGOINFRA | MONGOS | MONGOCFG |
-| ---------------- | ---------- | ---------- | ---------- | ---------- |
+--- | --- | --- | --- | ---
 | No sharding | ⩾ 1 | — | — | — |
 | Standard | ⩾ 1 | ⩾ 3 | — | — |
 | Advanced | ⩾ 1 | N/A | ⩾ 2 | ⩾ 3 |
@@ -143,19 +143,19 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
           disk_size          = <storage size, GB>
         }
 
-        resources_mongoinfra { # Add this for standard sharding
+        resources_mongoinfra { # Add this for standard sharding.
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage size, GB>
         }
 
-        resources_mongos { # Add this for advanced sharding
+        resources_mongos { # Add this for advanced sharding.
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage size, GB>
         }
 
-        resources_mongocfg { # Add this for advanced sharding
+        resources_mongocfg { # Add this for advanced sharding.
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage size, GB>
@@ -164,10 +164,10 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
         host {
           role             = "<replica type: PRIMARY or SECONDARY>"
           zone_id          = "<availability zone>"
-          subnet_id        = "<subnet in the availability zone>"
+          subnet_id        = "<subnet in availability zone>"
           assign_public_ip = true / false
-          shard_name       = "<shard name in a sharded cluster>"
-          type             = "<host type in a sharded cluster: MONGOD, MONGOINFRA, MONGOS, or MONGOCFG>"
+          shard_name       = "<shard name in sharded cluster>"
+          type             = "<host type in sharded cluster: MONGOD, MONGOINFRA, MONGOS, or MONGOCFG>"
           ...
         }
       }
@@ -211,7 +211,7 @@ You can remove a `MONGOD` host from a {{ mmg-name }} cluster if it is not the on
 
 If the host is a primary one at the time of removal, {{ mmg-name }} automatically selects a new primary replica.
 
-From a {{ mmg-name }} [sharded cluster](../operations/shards.md#enable), you may remove the `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts that exceed the [minimum number](#hosts-table) needed for sharding.
+From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may remove the `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts that exceed the [minimum number](#hosts-table) needed for sharding.
 
 {% list tabs %}
 
@@ -233,7 +233,7 @@ From a {{ mmg-name }} [sharded cluster](../operations/shards.md#enable), you may
 
    ```bash
    {{ yc-mdb-mg }} host delete <hostname>
-     --cluster-name <cluster name>
+        --cluster-name <cluster name>
    ```
 
    You can request the host name with a list of [{{ mmg-name }} cluster hosts](#list-hosts) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -301,16 +301,10 @@ During this operation:
 
    ```bash
    {{ yc-mdb-mg }} hosts resetup <host_name>
-     --cluster-name <cluster name>
-  ```
+      --cluster-name <cluster name>
+   ```
 
    You can obtain the host name with a [list of hosts in the folder](hosts.md#list-hosts). You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
-
-- API
-
-   To resync a host, use the [resetupHosts](../api-ref/Cluster/resetupHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ResetupHosts](../api-ref/grpc/cluster_service.md#ResetupHosts) gRPC API call and provide the following in the request:
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * Host name, in the `hostNames` parameter. To find out the name, [request a list of hosts in the cluster](#list-hosts).
 
 - API
 

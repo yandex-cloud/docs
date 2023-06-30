@@ -8,7 +8,6 @@ Diagnostic information about the transfer status is presented as charts.
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you'll receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
 
 
-
 ## Monitoring the transfer status {#monitoring}
 
 {% list tabs %}
@@ -24,55 +23,56 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 
 The following charts open on the page:
 
-### Data upload lag (histogram by seconds) {#sinker.pusher.time.row_lag_sec}
-`sinker.pusher.time.row_lag_sec`
+### Number of source events {#publisher.data.changeitems}
+`publisher.data.changeitems`
 
-The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is divided into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+Number of source events generated for a transfer (apart from the data to transfer, these events may include housekeeping operations).
 
-### Successfully pushed rows {#sinker.pusher.data.row_events_pushed}
-`sinker.pusher.data.row_events_pushed`
+### Number of target events {#sinker.pusher.data.changeitems}
+`sinker.pusher.data.changeitems`
 
-For table-based DBMS, table row insert speed. For non-relational DBMS, this is the transfer speed for objects stored in collections (objects per second).
+Number of events written to the target (apart from the data to transfer, these events may include housekeeping operations).
 
-### Maximum lag on delivery {#sinker.pusher.time.row_max_lag_sec}
+### Maximum data transfer delay {#sinker.pusher.time.row_max_lag_sec}
 `sinker.pusher.time.row_max_lag_sec`
 
 Maximum data lag (in seconds).
 
-### Successfully pushed rows by tables (top-50 tables) {#sinker.table.rows}
-`sinker.table.rows`
-
-50 tables with the maximum number of rows written to the target.
-
-### Read buffer size {#publisher.consumer.log_usage_bytes}
-`publisher.consumer.log_usage_bytes`
-
-The size, in bytes, of the buffer or write ahead log (when supported) in the source.
-
-### Read bytes from source (top-50 workers) {#publisher.data.bytes}
+### Reads {#publisher.data.bytes}
 `publisher.data.bytes`
 
 The amount of data read from the source (in bytes).
 
-### Sink response time (histogram by seconds) {#sinker.pusher.time.batch_push_distribution_sec}
+### Data transfer delay {#sinker.pusher.time.row_lag_sec}
+`sinker.pusher.time.row_lag_sec`
+
+Time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is divided into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+
+### Source buffer size {#publisher.consumer.log_usage_bytes}
+`publisher.consumer.log_usage_bytes`
+
+The size, in bytes, of the buffer or write ahead log (when supported) in the source.
+
+### Rows written to target, by table {#sinker.table.rows}
+`sinker.table.rows`
+
+50 tables with the maximum number of rows written to the target.
+
+### Target response time {#sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
 
 Full time it takes to write a batch to the target, including data preprocessing (in seconds).
 
-### Read rows (parsed/unparsed) {#publisher.data.*parsed_rows}
-`publisher.data.*parsed_rows`
-
-The number of rows read from the source.
-
-### Snapshot task progress (top-50 tables) {#task.snapshot.remainder.table}
+### Rows awaiting transfer, by table {#task.snapshot.remainder.table}
 `task.snapshot.remainder.table`
 
 The number of rows awaiting transfer.
 
-### Snapshot task status {#task.status}
+### Operation status {#task.status}
 `task.status`
 
 Type of the operation in progress: `1`, meaning the task is active.
+
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
@@ -81,7 +81,7 @@ Type of the operation in progress: `1`, meaning the task is active.
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder with the transfer you want to set up alerts for.
-  1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
@@ -105,7 +105,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems`
 
     ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
@@ -124,7 +124,7 @@ Alert parameters:
 
 ### Number of target events {#target-change-items}
 
-Alert triggering means that the target base recorded no replicated {{ data-transfer-name }} events during the evaluation window.
+When an alert is triggered, it means that the target database recorded no replicated {{ data-transfer-name }} events during the evaluation window.
 
 Possible causes:
 
@@ -136,7 +136,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
     ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
@@ -166,7 +166,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Alert settings:
 
@@ -192,7 +192,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes`
     ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:

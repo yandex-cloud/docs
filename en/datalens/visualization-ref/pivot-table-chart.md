@@ -44,11 +44,11 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 | Section<br/> in the wizard | Description |
 ----- | ----
 | Columns | Dimensions. |
-| Rows | Dimensions. |
+| Stings | Dimensions. |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a pivot table {#create-diagram}
 
@@ -66,7 +66,7 @@ To create a pivot table:
 1. Drag a dimension from the dataset to the **Columns** section.
 1. Drag a dimension from the dataset to the **Rows** section.
 1. Drag a measure from the dataset to the **Measures** section. The values are displayed in the table cells.
-1. Drag a measure from the dataset to the **Colors** section. Cells with the measure are filled in with a color from the color gradient, depending on the measure value.
+1. Drag a measure from the dataset to the **Color** section. Cells with the measure are filled in with a color from the color gradient, depending on the measure value.
 
 ## Additional settings {#additional-settings}
 
@@ -74,6 +74,7 @@ To create a pivot table:
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
+
 
 ### Adding a row with totals {#add-totals}
 
@@ -86,10 +87,11 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 {% note info %}
 
 * Values in the row with totals are calculated only for measures. For dimensions, the row is empty.
-* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Chart filters** or **Dashboard filters** section.
+* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
 * Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
 
 {% endnote %}
+
 
 ## Recommendations {#recomendations}
 

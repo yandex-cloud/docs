@@ -9,7 +9,7 @@ keywords:
 
 # Changing {{ OS }} cluster settings
 
-After creating a cluster, you can edit its service settings. To update the configuration of individual host groups, follow the instructions in [Managing host groups](host-groups.md#update-host-group).
+After creating a cluster, you can edit its service settings. You can also change the [host group configuration](host-groups.md#update-host-group) and update the [{{ OS }} version](cluster-version-update.md).
 
 ## Updating service settings {#change-service-settings}
 
@@ -30,12 +30,9 @@ After creating a cluster, you can edit its service settings. To update the confi
 
 - API
 
-   To change service settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter.
-
-      {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
-
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New `admin` user password in the `configSpec.adminPassword` parameter.
    * List of plugins in the `configSpec.opensearchSpec.plugins` parameter. The plugins that are not included in the list will be disabled.
    * Settings for access from other services in the `configSpec.access` parameter.

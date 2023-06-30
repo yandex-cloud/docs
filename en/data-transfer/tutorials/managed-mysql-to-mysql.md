@@ -1,4 +1,4 @@
-# Migrating databases from {{ mmy-full-name }} to {{ MY }}
+# Migration to a third-party {{ MY }} cluster
 
 To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party {{ MY }} cluster:
 
