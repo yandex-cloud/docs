@@ -27,7 +27,8 @@ POST https://compute.{{ api-host }}/compute/v1/disks
   "size": "string",
   "blockSize": "string",
   "diskPlacementPolicy": {
-    "placementGroupId": "string"
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
   },
   "snapshotScheduleIds": [
     "string"
@@ -54,6 +55,7 @@ size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes. 
 blockSize | **string** (int64)<br><p>Block size used for disk, specified in bytes. The default is 4096.</p> 
 diskPlacementPolicy | **object**<br>Placement policy configuration.
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 snapshotScheduleIds[] | **string**<br><p>List of IDs of the snapshot schedules to attach the disk to.</p> 
 imageId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 snapshotId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 

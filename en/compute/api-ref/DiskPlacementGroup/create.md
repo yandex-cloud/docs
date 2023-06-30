@@ -22,7 +22,14 @@ POST https://compute.{{ api-host }}/compute/v1/diskPlacementGroups
   "description": "string",
   "labels": "object",
   "zoneId": "string",
-  "spreadPlacementStrategy": {}
+
+  //  includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
+  "spreadPlacementStrategy": {},
+  "partitionPlacementStrategy": {
+    "partitions": "string"
+  },
+  // end of the list of possible fields
+
 }
 ```
 
@@ -34,7 +41,9 @@ name | **string**<br><p>Name of the placement group.</p> <p>Value must match the
 description | **string**<br><p>Description of the placement group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 zoneId | **string**<br><p>Required. ID of the availability zone where the placement group resides. To get a list of available zones use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-spreadPlacementStrategy | **object**<br>Distribute disks over distinct failure domains.
+spreadPlacementStrategy | **object**<br>Distribute disks over distinct failure domains. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy | **object**<br>Distribute disks over partitions. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy.<br>partitions | **string** (int64)
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

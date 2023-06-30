@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/g
 
 # API Gateway Service, REST: ApiGateway.get
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request.
+To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request.
  
 To get the list of all available API gateways, make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
  

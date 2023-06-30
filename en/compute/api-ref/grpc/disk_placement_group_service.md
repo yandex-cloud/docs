@@ -44,13 +44,21 @@ description | **string**<br>Description of the placement group.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy)**<br>Distribute instances over distinct failure domains. 
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy.
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy)**<br>Distribute disks over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[DiskPartitionPlacementStrategy](#DiskPartitionPlacementStrategy)**<br>Distribute disks over partitions. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy}
 
 Empty.
+
+### DiskPartitionPlacementStrategy {#DiskPartitionPlacementStrategy}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> 
+
 
 ## List {#List}
 
@@ -88,13 +96,21 @@ description | **string**<br>Description of the placement group.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy1)**<br>Distribute instances over distinct failure domains. 
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy.
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy1)**<br>Distribute disks over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[DiskPartitionPlacementStrategy](#DiskPartitionPlacementStrategy1)**<br>Distribute disks over partitions. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy1}
 
 Empty.
+
+### DiskPartitionPlacementStrategy {#DiskPartitionPlacementStrategy1}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> 
+
 
 ## Create {#Create}
 
@@ -115,13 +131,21 @@ name | **string**<br>Name of the placement group. Value must match the regular e
 description | **string**<br>Description of the placement group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 zone_id | **string**<br>Required. ID of the availability zone where the placement group resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy2)**<br>Distribute disks over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[DiskPartitionPlacementStrategy](#DiskPartitionPlacementStrategy2)**<br>Distribute disks over partitions. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy2}
 
 Empty.
+
+### DiskPartitionPlacementStrategy {#DiskPartitionPlacementStrategy2}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> 
+
 
 ### Operation {#Operation}
 
@@ -158,8 +182,9 @@ description | **string**<br>Description of the placement group.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy.
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute disks over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[DiskPartitionPlacementStrategy](#DiskPartitionPlacementStrategy3)**<br>Distribute disks over partitions. 
 
 
 ## Update {#Update}
@@ -218,13 +243,21 @@ description | **string**<br>Description of the placement group.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy.
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute disks over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[DiskPartitionPlacementStrategy](#DiskPartitionPlacementStrategy3)**<br>Distribute disks over partitions. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy3}
 
 Empty.
+
+### DiskPartitionPlacementStrategy {#DiskPartitionPlacementStrategy3}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> 
+
 
 ## Delete {#Delete}
 
@@ -317,6 +350,7 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Place
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ## ListOperations {#ListOperations}

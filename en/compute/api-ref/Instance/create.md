@@ -50,7 +50,8 @@ POST https://compute.{{ api-host }}/compute/v1/instances
       "size": "string",
       "blockSize": "string",
       "diskPlacementPolicy": {
-        "placementGroupId": "string"
+        "placementGroupId": "string",
+        "placementGroupPartition": "string"
       },
 
       // `bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
@@ -77,7 +78,8 @@ POST https://compute.{{ api-host }}/compute/v1/instances
         "size": "string",
         "blockSize": "string",
         "diskPlacementPolicy": {
-          "placementGroupId": "string"
+          "placementGroupId": "string",
+          "placementGroupPartition": "string"
         },
 
         // `secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`
@@ -215,6 +217,7 @@ bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of 
 bootDiskSpec.<br>diskSpec.<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes. The default is 4096.</p> 
 bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
 bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 bootDiskSpec.<br>diskId | **string** <br>`bootDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 
@@ -230,6 +233,7 @@ secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Required. 
 secondaryDiskSpecs[].<br>diskSpec.<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes. The default is 4096.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
 secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskId | **string** <br>`secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 

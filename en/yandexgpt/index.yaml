@@ -1,0 +1,28 @@
+title: YandexGPT
+description:
+  - >-
+    <em>YandexGPT is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a>. Access to
+    the service is granted on request</em>.
+  - "YandexGPT is a Yandex Cloud service allowing you to\_use generative language models in your business applications and web services. This service will be useful for everyone who\_seeks the ways to streamline\_their business\_with machine learning."
+meta:
+  title: YandexGPT
+links:
+  - title: Getting started
+    description: Send your first request to YandexGPT
+    href: quickstart
+  - title: Concepts
+    description: Learn more about the concepts of the service
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: API reference
+    description: Learn how to authorize in the service and work with API calls
+    href: api-ref/authentication
+  - title: Access management
+    description: Set up access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

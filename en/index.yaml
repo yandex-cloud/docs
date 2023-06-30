@@ -171,3 +171,6 @@ links:
   - title: '{{ ydb-name }}'
     description: Fault-tolerant distributed NewSQL DBMS
     href: ydb/
+  - title: YandexGPT
+    description: Generative language models for your business applications
+    href: yandexgpt/

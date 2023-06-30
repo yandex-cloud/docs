@@ -1,0 +1,37 @@
+title: YandexGPT
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    items:
+      - name: About {{ yagpt-name }}
+        href: concepts/index.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: TextGenerationService
+            href: api-ref/grpc/llm_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: TextGeneration
+            items:
+              - name: Overview
+                href: api-ref/TextGeneration/index.md
+              - name: instruct
+                href: api-ref/TextGeneration/instruct.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/yandexgpt

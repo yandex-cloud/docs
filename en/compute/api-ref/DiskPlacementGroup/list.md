@@ -37,7 +37,14 @@ filter | <p>A filter expression that filters resources listed in the response. C
       "labels": "object",
       "zoneId": "string",
       "status": "string",
-      "spreadPlacementStrategy": {}
+
+      // `diskPlacementGroups[]` includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
+      "spreadPlacementStrategy": {},
+      "partitionPlacementStrategy": {
+        "partitions": "string"
+      },
+      // end of the list of possible fields`diskPlacementGroups[]`
+
     }
   ],
   "nextPageToken": "string"
@@ -56,5 +63,7 @@ diskPlacementGroups[].<br>description | **string**<br><p>Description of the plac
 diskPlacementGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 diskPlacementGroups[].<br>zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
 diskPlacementGroups[].<br>status | **string**<br>Current status of the placement group
-diskPlacementGroups[].<br>spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.
+diskPlacementGroups[].<br>spreadPlacementStrategy | **object**<br>Distribute disks over distinct failure domains. <br>`diskPlacementGroups[]` includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+diskPlacementGroups[].<br>partitionPlacementStrategy | **object**<br>Distribute disks over partitions. <br>`diskPlacementGroups[]` includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+diskPlacementGroups[].<br>partitionPlacementStrategy.<br>partitions | **string** (int64)
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/DiskPlacementGroup/list#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/DiskPlacementGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/DiskPlacementGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/DiskPlacementGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

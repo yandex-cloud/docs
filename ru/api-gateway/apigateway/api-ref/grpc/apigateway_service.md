@@ -26,7 +26,7 @@ A set of methods for managing API gateways.
 
 ## Get {#Get}
 
-Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request. <br>To get the list of all available API gateways, make a [List](#List) request.
+Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request. <br>To get the list of all available API gateways, make a [List](#List) request.
 
 **rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](#ApiGateway))**
 

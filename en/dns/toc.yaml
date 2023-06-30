@@ -99,6 +99,8 @@ items:
                 href: api-ref/DnsZone/update.md
               - name: updateAccessBindings
                 href: api-ref/DnsZone/updateAccessBindings.md
+              - name: updatePrivateNetworks
+                href: api-ref/DnsZone/updatePrivateNetworks.md
               - name: updateRecordSets
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
