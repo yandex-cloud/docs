@@ -1,14 +1,14 @@
 ---
 title: "{{ mch-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the ClickHouse cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in the ClickHouse cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
 ---
 
 # Host classes in {{ mch-name }}
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
-The host class affects the list of available [disk types](./storage.md):
+The host class also determines which [disk types](./storage.md) are available:
 
 * **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
@@ -22,7 +22,7 @@ The host class affects the **Max server memory usage** DBMS setting that limits 
 ## Available host classes {#available-flavors}
 
 
-Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
 

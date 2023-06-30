@@ -1,10 +1,10 @@
 - **Audit log**{#setting-audit-log} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-   [Audit system log](https://www.mongodb.com/docs/manual/core/auditing/) settings. Only available for the {{ mmg-name }} cluster Enterprise version.
+   [Audit system log](https://www.mongodb.com/docs/manual/core/auditing/) settings, which are only available for the {{ mmg-name }} cluster Enterprise version.
 
    - **Filter**{#setting-filter}
 
-      The setting defines what audit events will be logged. The input parameter is any field from an [audit message](https://www.mongodb.com/docs/manual/reference/audit-message/) in JSON string format.
+      This setting defines which audit events will be logged. The input parameter is any field from an [audit message](https://www.mongodb.com/docs/manual/reference/audit-message/) in JSON string format.
 
       For example, to only log audit events related to a user named `example-user`, specify the following:
 
@@ -16,7 +16,7 @@
 
    - **Runtime configuration**{#setting-runtime-configuration}
 
-      The setting lets you change a filter's configuration during the server runtime.
+      This setting allows you to change filter configuration during the server runtime.
 
       For more information, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/tutorial/configure-audit-filters/#filter-configuration-at-runtime).
 
@@ -32,18 +32,18 @@
 
    {% note info %}
 
-   The setting is unavailable for hosts with the `MONGOS` role in a sharded cluster.
+   This setting is unavailable for hosts with the `MONGOS` role in a sharded cluster.
 
    {% endnote %}
 
-   DBMS profiler settings. The profiler collects query data. It then uses this data to determine a query optimization strategy.
+   DBMS profiler settings. The profiler collects query data and then uses it to determine a query optimization strategy.
 
    - **Mode**{#setting-operation-profiling-mode}
 
       DBMS profiler mode:
 
       - `off`: Profiling is disabled.
-      - `slowOp` (default): Only collects information about slow operations (that take longer than the threshold value set by the [Slow op threshold](#setting-slow-op-threshold) setting).
+      - `slowOp` (default): Only collects information about slow operations (that take longer than the threshold value specified in the [Slow op threshold](#setting-slow-op-threshold) setting).
       - `all`: Collects information about all queries in progress.
 
       For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
@@ -52,13 +52,13 @@
 
       Sets the operation execution time (in milliseconds). If exceeded, the operation is considered slow.
 
-      The minimum value is `0` and the maximum value is `36000000` (10 hours). Defaults to `300`.
+      The minimum value is `0` and the maximum value is `36000000` (10 hours). The default value is `300`.
 
       For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
 
 - **Security**{#setting-security} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-   Settings of storage data encryption at rest. Only available for the {{ mmg-name }} cluster Enterprise version.
+   Settings of storage data encryption at rest, which are only available for the {{ mmg-name }} cluster Enterprise version.
 
    Data is encrypted using the Key Management Interoperability Protocol (KMIP).
 
@@ -66,7 +66,7 @@
 
    - **Enable encryption**{#enabling-encryption}
 
-      The setting enables encryption for data in storage.
+      This setting enables encryption for data in the storage.
 
       For more information, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--enableEncryption).
 
@@ -86,9 +86,9 @@
 
          Unique ID of the encryption key on the KMIP server.
 
-         If not specified, {{ MG }} requests the KMIP server to create a new key and will use it.
+         If it is not specified, {{ MG }} will request the KMIP server to create a new key, and will use it.
 
-         If the KMIP server has no key with the specified ID or the data is already encrypted with a different key, {{ MG }} returns an error.
+         If the KMIP server has no key with the specified ID or the data is already encrypted with a different key, {{ MG }} will return an error.
 
          For more information, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipKeyIdentifier).
 
@@ -110,9 +110,9 @@
 
       - **Server name**{#setting-server-name}
 
-         Domain name or IP address of the KMIP server that {{ MG }} connects to.
+         Domain name or IP address of the KMIP server {{ MG }} connects to.
 
-         You can specify multiple KMIP servers as a comma-separated list with no spaces, such as: `server1.example.com,server2.example.com`. In this case, {{ MG }} will try to sequentially connect to each server in the specified order and establish a connection to the first available server.
+         You can specify multiple KMIP servers as a comma-separated list without spaces, such as: `server1.example.com,server2.example.com`. In this case, {{ MG }} will try to connect to each server, one by one, in the specified order and establish a connection to the first available server.
 
          For more information, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--kmipServerName).
 
@@ -120,19 +120,19 @@
 
    {% note info %}
 
-   The setting is unavailable for hosts with the `MONGOS` role in a sharded cluster.
+   This setting is unavailable for hosts with the `MONGOS` role in a sharded cluster.
 
    Hosts with the `MONGOCFG` role only have the **Engine config → Cache size gb** setting available.
 
    {% endnote %}
 
-   Settings for {{ MG }} interactions with the [storage engine](https://docs.mongodb.com/manual/core/storage-engines/).
+   Settings that define how {{ MG }} works with the [storage](https://docs.mongodb.com/manual/core/storage-engines/).
 
    - **Journal → Commit interval**{#setting-journal-commit-interval}
 
       The interval in milliseconds between when {{ MG }} [journal data](https://docs.mongodb.com/manual/core/journaling/) is written to disk.
 
-      The minimum value is `1` and the maximum value is `500`. Defaults to `300`.
+      The minimum value is `1` and the maximum value is `500`. The default value is `300`.
 
       For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.journal.commitIntervalMs).
 
@@ -145,7 +145,7 @@
          Data compression option. The value set here only applies to new collections. You can also redefine it for [individual collections](https://docs.mongodb.com/manual/reference/method/db.createCollection/#create-collection-storage-engine-options) and [indexes](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#options).
 
          - `none`: Compression is disabled.
-         - `snappy`: Data is compressed using the [snappy](https://google.github.io/snappy/) library. If you select this setting, data compression and decompression will, in most cases, be faster than if you use the `zlib` library, but the resulting file size will be 20%–100% larger.
+         - `snappy`: Data is compressed using the [snappy](https://google.github.io/snappy/) library. If you select this setting, data compression and decompression will be, in most cases, faster than if you use the `zlib` library; however, the resulting file size will be 20% to 100% larger.
          - `zlib`: Data is compressed using the [zlib](http://www.zlib.net/) library. This method is slower than using the `snappy` library, but, in most cases, it compresses data better.
 
          For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor).
@@ -154,9 +154,9 @@
 
          The maximum size of the internal cache used for data storage (in GB). This setting does not affect the amount of RAM used to create an index.
 
-         The minimum value is `0.25`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
+         The minimum value is `0.25`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by these formulas:
 
-         - The maximum value: `0.9 × <amount of RAM on the host>`.
-         - The default value: `0.5 × <amount of RAM on the host>`.
+         - Maximum value: `0.9 × <amount of RAM on the host>`
+         - Default value: `0.5 × <amount of RAM on the host>`
 
          For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).

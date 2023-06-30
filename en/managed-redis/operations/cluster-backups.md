@@ -20,21 +20,21 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    To restore an existing cluster from a backup:
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
-   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    To restore a previously deleted cluster from a backup:
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-   1. Select **{{ mrd-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
+   1. Find the desired backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    {{ mrd-name }} launches the operation to create a cluster from the backup.
 
@@ -106,9 +106,9 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a backup in.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
-   1. Click **Create backup**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -152,13 +152,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    To get a list of cluster backups:
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. Select **{{ mrd-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI
 
@@ -201,13 +201,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    To get information about the backup of an existing cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder with the cluster to get backup information for.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder that contained the deleted cluster.
-   1. Select **{{ mrd-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI
 
@@ -237,7 +237,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - Management console
 
-   When [creating](cluster-create.md) or [updating](update.md#change-redis-config) a cluster, you can set the backup start time under **Additional settings**.
+   When [creating](cluster-create.md) or [updating](update.md#change-redis-config) a cluster, you can set the backup start time under **{{ ui-key.yacloud.mdb.forms.section_additional }}**.
 
 - CLI
 

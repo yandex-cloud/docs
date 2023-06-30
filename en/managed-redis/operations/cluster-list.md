@@ -15,7 +15,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to get a list of clusters for.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 
 - CLI
 
@@ -54,7 +54,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to get cluster details for.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the name of the cluster you need.
 
 - CLI

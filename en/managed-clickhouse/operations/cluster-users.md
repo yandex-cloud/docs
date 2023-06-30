@@ -35,7 +35,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To get a list of cluster users, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user list
       --cluster-name=<cluster name>
    ```
@@ -94,7 +94,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To create a user in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user create <username> \
       --cluster-name=<cluster name> \
       --password=<user password> \
@@ -109,7 +109,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user create <username> \
       ...
       --quota="<quota 0 settings>" \
@@ -182,6 +182,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 ## Changing a password {#updateuser}
 
+We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may revert to the previous one after [maintenance](../concepts/maintenance.md).
+
 {% list tabs %}
 
 - Management console
@@ -201,7 +203,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To change the user's password, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user update <username>\
      --cluster-name=<cluster name>\
      --password=<new password>
@@ -259,22 +261,11 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-- SQL
-
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
-   1. Change the user's password:
-
-      ```sql
-      ALTER USER <username> IDENTIFIED BY '<new password>';
-      ```
-
-      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
-
-   For more information about changing users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
 {% endlist %}
 
 ## Changing the admin password {#admin-password-change}
+
+We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may revert to the previous one after [maintenance](../concepts/maintenance.md).
 
 {% list tabs %}
 
@@ -345,19 +336,6 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-- SQL
-
-   1. [Connect](./connect.md) to a cluster [as `admin`](#sql-user-management).
-   1. Execute the SQL query below:
-
-      ```sql
-      ALTER USER admin IDENTIFIED BY '<new password>';
-      ```
-
-      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
-
-   To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
 {% endlist %}
 
 ## Changing user settings {#update-settings}
@@ -390,7 +368,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    You can change the user settings from the command line interface:
    1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} user update <username> \
          --cluster-name=<cluster name> \
          --permissions=<list of databases to grant a user access to>
@@ -404,7 +382,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. To change the user's [quota settings](../concepts/settings-list.md#quota-settings), run the command with a list of all quotas, using `--quota` parameters (one parameter per quota):
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} user update <username> \
          --cluster-name=<cluster name> \
          --quota=<quota 0 settings (no change)> \
@@ -427,7 +405,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} user update <username> \
          --cluster-name=<cluster name> \
          --settings=<list of {{ CH }} settings>
@@ -541,7 +519,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change a user account, use the [ALTER USER](https://{{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change a user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
@@ -567,7 +545,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To remove a user, run:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user delete <username>\
       --cluster-name <cluster name>
    ```
@@ -639,7 +617,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
    Run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user create "ro-user" \
       --cluster-name="mych" \
       --password="Passw0rd" \

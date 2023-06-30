@@ -43,6 +43,8 @@ items:
             href: operations/application-load-balancer-get-stats.md
           - name: Viewing L7 load balancer logs
             href: operations/application-load-balancer-get-logs.md
+          - name: Setting up L7 load balancer logging
+            href: operations/application-load-balancer-manage-logs.md
           - name: Getting log group ID of L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Stopping and restarting an L7 load balancer

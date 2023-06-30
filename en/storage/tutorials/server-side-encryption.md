@@ -37,17 +37,18 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
 - Management console
 
-   1. Go to the [management console]({{ link-console-main }}) and select the folder to perform your steps in.
-   1. On the folder page, click **Create resource** and select **Bucket**.
-   1. In the **Name** field, name the bucket, such as `example-bucket`.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify `example-bucket`.
 
       The name must meet the following requirements:
 
       {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
    1. Specify the maximum size of the bucket in GB.
-   1. Choose **Limited** access to the bucket.
-   1. Click **Create bucket**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - {{ TF }}
 
@@ -169,14 +170,15 @@ Create a new key or use an existing one. To create a key:
 
 - Management console
 
-   1. Log in to the [management console]({{ link-console-main }}).
-   1. Select **{{ kms-name }}**.
-   1. In the **Keys** tab, click **Create** and set the key attributes:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
+   1. In the window that opens:
 
-      * The key's name and optional description in any form, like `key-1` and `bucket-key`.
-      * Encryption algorithm, such as `AES-256`.
-      * [Rotation](../../kms/concepts/version.md#rotate-key)  period, for example, `7 days`.
-      * Click **Create**.
+      * In the **{{ ui-key.yacloud.common.name }}** field, specify `bucket-key`.
+      * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** field, select `AES-256`.
+      * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** field, set the [rotation](../../kms/concepts/version.md#rotate-key) period to `7 days`.
+      * Click **{{ ui-key.yacloud.kms.symmetric-key.create.button_create }}**.
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
@@ -314,10 +316,12 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to `example-bucket`.
-   1. In the left panel, select **Encryption**.
-   1. In the **{{ kms-short-name }} key** field, select `key-1`.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Select `example-bucket`.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `key-1`.
+   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 
@@ -448,7 +452,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
    		"BucketKeyEnabled": true
 	  }
    	]
-    }'
+  }'
   ```
 
   As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.
@@ -469,10 +473,12 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to `example-bucket`.
-   1. In the left panel, select **Encryption**.
-   1. In the **{{ kms-short-name }} key** field, set **Not selected**.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Select `example-bucket`.
+   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - {{ TF }}
 

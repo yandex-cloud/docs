@@ -6,7 +6,7 @@ Information is collected and analyzed in {{ ml-platform-name }}. Regular cell ex
 
 To set up regular runs of {{ jlab }} Notebook:
 
-1. [Prepare the infrastructure](#infra).
+1. [Prepare your infrastructure](#infra).
 1. [Create a notebook](#create-notebook).
 1. [Upload and process data](#load-data).
 1. [Create a {{ sf-name }}](#create-function).
@@ -208,14 +208,11 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
       Where:
 
       * `<project_ID>`: ID of the {{ ml-platform-name }} project placed on the project page under the name.
-      * `<notebook_ID>`: ID of the notebook to run computations in. To find it, open the context menu with a right click on any notebook cell and select **Copy Notebook Id**.
+      * `<notebook_ID>`: [ID of the `test_classifier.ipynb` notebook](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id).
 
-   1. Set the version parameters:
-      * Entry point: `index.handler`.
-      * Timeout: 5 sec.
-      * RAM: 128 MB.
-      * [Service account](../../../iam/concepts/users/service-accounts): `reddit-user`.
-      * [Environment variables](../../functions/concepts/runtime/environment-variables.md): None selected.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `reddit-user`.
    1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

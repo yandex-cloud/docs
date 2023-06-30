@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: How to translate text
         href: operations/translate.md
@@ -15,6 +15,8 @@ items:
         href: operations/detect.md
       - name: Getting a list of supported languages
         href: operations/list.md
+      - name: Setting up access with API keys
+        href: operations/sa-api-key.md
   - name: Concepts
     items:
       - name: Overview

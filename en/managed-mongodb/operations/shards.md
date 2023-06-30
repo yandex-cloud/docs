@@ -1,8 +1,8 @@
 # Managing shards {{ MG }}
 
-You can enable [sharding](../concepts/sharding.md) for a cluster as well as add and configure individual shards.
+You can [create a sharded](cluster-create.md#creating-a-sharded-cluster) cluster or [enable sharding](#enable) later. After that, you can [add and configure shards](#add-shard).
 
-Make sure that your shards consist of at least 3 `MONGOD` hosts to ensure higher availability. We don't recommend sharding small collections: query processing is faster with a standard replica cluster.
+Make sure that your shards consist of at least three `MONGOD` hosts to ensure higher availability. We do not recommend sharding small collections: query processing is faster with a standard replica cluster.
 
 {% note alert %}
 
@@ -24,7 +24,7 @@ To enable sharding, you need:
 
 {% note info %}
 
-Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts with the classes **b1.medium** and **b2.medium**. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
+Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts of **b1.medium** and **b2.medium** classes. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
 
 {% endnote %}
 
@@ -133,6 +133,105 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
          * `disk-size`: Storage size in GB.
          * `disk-type`: The [type of disk](../concepts/storage.md).
 
+- {{ TF }}
+
+   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
+   1. Add additional resources to the configuration file.
+
+      {% cut "For standard sharding of the cluster using `MONGOINFRA` hosts" %}
+
+      ```hcl
+      resources_mongoinfra {
+        resource_preset_id = "<host class>"
+        disk_type_id       = "<disk type>"
+        disk_size          = <storage size in GB>
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongoinfra"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongoinfra"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongoinfra"
+      }
+      ```
+
+      {% endcut %}
+
+      {% cut "For advanced sharding of the cluster using `MONGOS` and `MONGOCFG` hosts" %}
+
+
+      ```hcl
+      resources_mongos {
+        resource_preset_id = "<host class>"
+        disk_type_id       = "<disk type>"
+        disk_size          = <storage size in GB>
+      }
+
+      resources_mongocfg {
+        resource_preset_id = "<host class>"
+        disk_type_id       = "<disk type>"
+        disk_size          = <storage size in GB>
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongos"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongos"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongocfg"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongocfg"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongocfg"
+      }
+      ```
+
+      {% endcut %}
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the resources have been updated:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+
 - API
 
    To enable cluster sharding, use the [enableSharding](../api-ref/Cluster/enableSharding.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/EnableSharding](../api-ref/grpc/cluster_service.md#EnableSharding) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
@@ -220,17 +319,21 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - {{ TF }}
 
+   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add the required number of `host` blocks to the {{ mmg-name }} cluster description and specify the shard name in the `shard_name` parameter:
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
+   1. Add to the {{ mmg-name }} cluster description the required number of `host` blocks of the `MONGOD` type set in the `type` parameter and the shard name specified in the `shard_name` parameter:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         ...
         host {
-          zone       = "<availability zone>"
+          zone_id    = "<availability zone>"
           subnet_id  = "<subnet ID>"
+          type       = "mongod"
           shard_name = "<shard name>"
         }
       }
@@ -296,7 +399,8 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
    1. Delete all shard-related `host` blocks from the {{ mmg-name }} cluster description.
    1. Make sure the settings are correct.
 

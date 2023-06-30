@@ -39,6 +39,8 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Визуализация данных Битрикс24
         href: tutorials/data-from-bitrix24-visualization.md
+      - name: Визуализация данных из {{ tracker-full-name }}
+        href: tutorials/data-from-tracker.md
       - name: Визуализация данных {{ yq-full-name }}
         href: tutorials/data-from-yandex-query-visualization.md
       - name: Веб-аналитика с подключением к Яндекс Метрике
@@ -53,6 +55,9 @@ items:
         href: tutorials/data-from-ch-to-sql-chart.md
       - name: Визуализация данных с использованием параметров
         href: tutorials/data-from-ch-with-parameters.md
+      - name: Визуализация данных с использованием инструмента "Тепловые карты"
+        hidden: true
+        href: tutorials/data-on-heat-map-dashboard.md
   - name: Подключение
     items:
       - name: Обзор
@@ -545,6 +550,8 @@ items:
             href: concepts/window-function-tutorial.md
           - name: LOD-выражения и управление фильтрацией в агрегатных функциях
             href: concepts/lod-aggregation.md
+          - name: Функции для работы с временными рядами
+            href: concepts/time-series-functions.md
       - name: Параметры
         href: concepts/parameters.md
   - name: Чарты

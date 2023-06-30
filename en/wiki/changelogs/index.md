@@ -1,26 +1,26 @@
-# {{ wiki-full-name }} revision history for March 2023
+# {{ wiki-full-name }} revision history for April 2023
 
-* [Migration to the new interface](#new-interface)
-* [The new editor is now the default one](#new-editor)
-* [Setting column width in dynamic tables](#col-width)
-* [Opening a parent table](#parent-table)
+* [The state of the _Cluster tree_ section persists when navigating between pages](#open-content)
+* [Access to former employees pages and clusters](#deleting-pages-of-former-employees)
+* [Automatic settings of the width of dynamic tables](#auto-table-size)
+* [Choosing the color of rows and columns](#table-coloring)
 
+## The state of the _Cluster tree_ section persists when navigating between pages {#open-content}
 
-## Migration to the new interface {#new-interface}
-
-We have migrated all {{ wiki-full-name }} users to the new interface. They can no longer switch back to the old interface.
-
+If you work with the [Cluster tree](../cluster-overview.md#toc) section, the contents will not be updated when navigating between pages: collapsed and expanded subclusters will retain their status.
 
 
-## The new editor is now the default one {#new-editor}
+## Access to former employees pages and clusters {#deleting-pages-of-former-employees}
 
-There is now a new sequence of formats in the page creation window. The user is first prompted to create a page in the [new editor](../wysiwyg-create.md) and then in the [old](../create-page.md) one.
+Now, [organization administrators](../../organization/roles.md#service-roles) have access to the pages and clusters of former employees even if these are pages with restricted access. An administrator will be able to assign a new author to control access and make sure a page is up-to-date, or to [delete](../delete-page.md) the page.
 
 
-## Setting column width in dynamic tables {#col-width}
+## Automatic settings of the width of dynamic tables {#auto-table-size}
 
-In the [dynamic table](../actions/grid-reference.md) column settings, you can set the width in pixels or as a percentage, as well as leave the default `Auto` width. In `Auto` mode, all columns have the same width, regardless of the cell content.
+The width of a dynamic table automatically adapts to the user's screen size and the browser window scale.
 
-## Opening a parent table {#parent-table}
+## Choosing the color of rows and columns {#table-coloring}
 
-The settings of [embedded](../actions/grid-reference.md) dynamic tables now contain a new item: ![](../../_assets/wiki/svg/parent-table.svg) **Parent table**. This allows you to open the parent table of an embedded dynamic table in a new browser tab. Quick access to the parent table is helpful, for example, if edits are disabled for the embedded table.
+Dynamic tables now allow you to choose the color of rows and columns.
+
+![](../../_assets/wiki/table-coloring.png)

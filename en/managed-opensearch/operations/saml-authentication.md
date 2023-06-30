@@ -76,15 +76,32 @@ Incorrect settings may cause the cluster to fail.
 
       * **Activate**: Shows whether to activate an authorization source after creating it.
 
-         {% note info %}
-
-         For more information about SAML attributes, see the [{{ OS }} documentation](https://opensearch.org/docs/latest/security/authentication-backends/saml/).
-
-         {% endnote %}
-
    1. Click **Create**.
 
+- API
+
+   1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
+   1. To set identity provider settings on the cluster side, use the [updateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateAuthSettings](../api-ref/grpc/cluster_service.md#UpdateAuthSettings) gRPC API call, and provide the following in the request:
+
+      * Cluster ID in the `clusterId` parameter.
+
+         {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+
+      * The `true` value, in the `enabled` parameter.
+      * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
+      * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
+      * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+      * URL of the {{ OS }} host with the `DASHBOARDS` role, in the `dashboardsUrl` parameter.
+      * (Optional) The SAML response parameter that stores the roles, in the `rolesKey` parameter.
+      * (Optional) The SAML response parameter that stores the subject, in the `subjectKey` parameter.
+
 {% endlist %}
+
+{% note info %}
+
+For more information about SAML attributes, see the [{{ OS }} documentation]({{ os.docs }}/security/authentication-backends/saml/).
+
+{% endnote %}
 
 ## Configure roles for SSO {#roles-sso}
 

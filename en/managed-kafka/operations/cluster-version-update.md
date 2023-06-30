@@ -6,7 +6,7 @@ We recommend upgrading to a version that immediately follows the current one, su
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
-## Before upgrading {#before-update}
+## Before updating the version {#before-update}
 
 Prior to upgrading a cluster, make sure this does not affect your applications. See the {{ KF }} [changelog](https://kafka.apache.org/downloads) to check which updates might affect your apps.
 

@@ -33,11 +33,11 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **Basic parameters**, enter a new name and description for the cluster.
-   1. Click **Save changes**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -117,18 +117,18 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **Host class**:
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 
-      * Choose a **Platform**.
-      * Select the **Type** of virtual machine that hosts will be deployed on:
+      * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
+      * Select the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of virtual machine that hosts will be deployed on:
          * `high-memory`: More RAM per 1 vCPU.
          * `burstable`: Only a guaranteed share of vCPU performance. VMs with a guaranteed share of less than 100% ensure the specified level of performance with a possible temporary performance increase up to 100%. Clusters with such hosts are good for tasks that don't require guaranteed permanent performance (for example, testing).
       * Modify the host configuration.
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -237,11 +237,11 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    To increase the cluster storage size:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Edit the settings in the **Storage** section.
-   1. Click **Save changes**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_disk }}** section.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -321,12 +321,12 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **DBMS settings**, click **Settings**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Configure the available parameters according to the [{{ RD }} documentation](https://redis.io/documentation).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
 - {{ TF }}
 
@@ -383,14 +383,14 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Change additional cluster settings:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -421,7 +421,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -452,11 +452,11 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   1. Go to the folder page and select **{{ mrd-name }}**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
-   1. Click **Move**.
+   1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
    1. Select the folder you want to move the cluster to.
-   1. Click **Move**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -504,10 +504,10 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **Network settings**, select security groups for cluster network traffic.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI
 

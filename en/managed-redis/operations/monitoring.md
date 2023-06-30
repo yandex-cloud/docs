@@ -21,9 +21,9 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster and open the **Monitoring** tab.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
 
    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -158,9 +158,9 @@ To view detailed information about the status of individual {{ mrd-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
    1. Select the host from the drop-down list.
 
    This page displays charts showing the load on an individual host in the cluster:
@@ -188,14 +188,14 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-   1. Under **Service dashboards**, select:
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mpg-name }} — Host Overview** to configure host alerts.
-   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
-   1. Click **Create alert**.
+   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
@@ -228,9 +228,9 @@ To view a cluster's state and status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
-   1. Select **{{ mrd-name }}**.
-   1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the row of the cluster you need.
 
 {% endlist %}
 

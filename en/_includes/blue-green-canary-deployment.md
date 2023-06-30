@@ -63,18 +63,16 @@ The cost of this infrastructure includes:
 
 All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
-To create a network and subnets:
-
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click **Create network**.
-   1. Specify the **Name** of the network: `canary-network`.
-   1. In the **Advanced** field, select **Create subnets**.
-   1. Click **Create network**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `canary-network`.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 
@@ -235,20 +233,18 @@ To create a network and subnets:
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
 
-Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
-
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ objstorage-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Create a bucket named `canary-bucket-blue`:
 
-      1. Click **Create bucket**.
-      1. Specify the bucket **Name**: `canary-bucket-blue`.
-      1. In the **Object read access** and **Object listing access** fields, select **Public**.
-      1. Click **Create bucket**.
+      1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify `canary-bucket-blue`.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
    1. Similarly create a bucket named `canary-bucket-green`.
 
@@ -368,9 +364,9 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ objstorage-name }}**.
-      1. In the bucket list, select `canary-bucket-blue`.
-      1. Click **Upload** and select the `index.html` file for version 1.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Select the `canary-bucket-blue` bucket.
+      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for version 1.
       1. Similarly upload to the `canary-bucket-green` bucket the `index.html` file for version 2.
 
    - AWS CLI
@@ -462,12 +458,12 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Click the **Security groups** tab.
-   1. Click **Create group**.
-   1. Enter the **Name** of the group: `canary-sg`.
-   1. Select the `canary-network` **Network**.
-   1. Under **Rules**, create the following rules using the instructions below the table:
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `canary-sg`.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `canary-network`.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
       | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
       | --- | --- | --- | --- | --- | --- |
@@ -476,19 +472,18 @@ To create security groups:
       | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
-      1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
-      1. Click **Add rule**.
-      1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-      1. In the **Purpose** or **Source** field, select the purpose of the rule:
+      1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, select the purpose of the rule:
 
-         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-         * **Load balancer health checks**: Rule that allows an L7 load balancer to check the health of VMs.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}**: Rule that allows an L7 load balancer to check the health of VMs.
 
-      1. Click **Save**. Repeat the steps to create all rules from the table.
+      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all rules from the table.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -627,19 +622,27 @@ To create security groups:
    1. Create a backend group named `canary-bg-production` with the` canary-backend-blue` and `canary-backend-green` backends:
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
-      1. Click **Create backend group**.
-      1. Enter the backend group name: `canary-bg-production`.
-      1. Under **Backends**, click **Add**. Specify the backend settings:
-         1. Enter the backend name: `canary-backend-blue`.
-         1. Set the weight of the backend: `100`.
-         1. Select **Bucket** as the backend type.
-         1. In the **Bucket** field, enter the bucket name: `canary-bucket-blue`.
-      1. Click **Add** and similarly enter settings for the `canary-backend-green` backend with the weight of `0` and the `canary-bucket-green` bucket.
-      1. Click **Create**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. In the left-hand panel, select ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+      1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-bg-production`.
+      1. Create a backend named `canary-backend-blue`:
+         1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **Add**.
+         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-backend-blue`.
+         1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `100`.
+         1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_bucket }}**.
+         1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select `canary-bucket-blue`.
+      1. Create a backend named `canary-backend-green`:
+         1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **Add**.
+         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-backend-green`.
+         1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `0`.
+         1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_bucket }}**.
+         1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select `canary-bucket-green`.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`; for `canary-backend-green`, set the weight to `100`.
-   1. If you are going to complete the next steps in {{ TF }}, copy the IDs of the `canary-bg-production` and `canary-bg-staging` backend groups from the **Backend groups** tab.
+
+   If you are going to complete the next steps in {{ TF }}, copy the IDs of the `canary-bg-production` and `canary-bg-staging` backend groups from the ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
 
 - API
 
@@ -649,36 +652,36 @@ To create security groups:
 
 ## Create an HTTP router and virtual hosts {#create-route-hosts}
 
-Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-staging.mywebsite.com`:
-
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ alb-name }}** and go to the **HTTP routers** tab.
-   1. Click **Create HTTP router**.
-   1. Enter the router name: `canary-router`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-router`.
    1. Create a virtual host named `canary-vh-production`:
 
-      1. Under **Virtual hosts**, click **Add virtual host**.
-      1. Enter the host name: `canary-vh-production`.
-      1. Specify the value for **Authority**: `cdn.yandexcloud.example`
-      1. Click **Add route**.
-      1. Enter the **Name**: `canary-route-production`.
-      1. In the **Path** field, select **Starts with** and specify the path `/`.
-      1. In the **HTTP methods** list, select **GET**.
-      1. In the **Action** field, leave the **Routing** value.
-      1. In the **Backend group** list, select `canary-bg-production`.
+      1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-vh-production`.
+      1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify `cdn.yandexcloud.example`.
+      1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-route-production`.
+      1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select **{{ ui-key.yacloud.alb.label_match-prefix }}** and specify the path `/`.
+      1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select **GET**.
+      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, leave **{{ ui-key.yacloud.alb.label_route-action-route }}**.
+      1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `canary-bg-production`.
 
-   1. In a similar way, create a virtual host named `canary-vh-staging` with the following parameters:
+   1. Create a virtual host named `canary-vh-staging`:
 
-      * **Authority**: `cdn-staging.yandexcloud.example`.
-      * Route **Name**: `canary-route-staging`.
-      * **Backend group**: `canary-bg-staging`.
+      * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`.
+      * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`.
+      * Route **{{ ui-key.yacloud.common.name }}**: `canary-route-staging`.
+      * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`.
       * The other parameters are the same as for `canary-vh-production`.
 
-   1. Leave all other settings as they are and click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -870,24 +873,24 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ alb-name }}**, then click **Load balancers**.
-   1. Click **Create L7 load balancer**.
-   1. Enter the load balancer name: `canary-balancer`.
-   1. Under **Network settings**:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. At the top right, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-balancer`.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
-      1. Select the `canary-network` **Network**.
-      1. Select the `canary-sg` **Security group**. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
+      1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `canary-network`.
+      1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `canary-sg`. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
 
-   1. Under **Allocation**, select three subnets for the load balancer nodes: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
-   1. Click **Add listener** under **Listeners**. Set the listener settings:
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
 
-      1. Enter the listener name: `canary-listener`.
-      1. Under **Public IP address settings**, enable traffic.
-      1. Set the port to `80`.
-      1. In the **Assign IP address** field, select **Automatically**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-listener`.
+      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
+        * In the **{{ ui-key.yacloud.alb.label_port }}** field, enter `80`.
+        * In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_address-auto }}**.
 
-   1. In the **HTTP router** field, select `canary-router`.
-   1. Click **Create**.
+      1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `canary-router`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -1092,18 +1095,20 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ cdn-name }}**.
-   1. If the CDN provider hasn't been activated yet, click **Activate provider**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. If the CDN provider hasn't been activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
    1. Create a CDN resource:
 
-      1. On the **CDN resources** tab, click **Create resource**.
-      1. Set up the main parameters of the CDN resource as follows:
+      1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+      1. Set the main parameters of the CDN resource:
 
-         * **Content query**: **From one origin**.
-         * **Source type**: **L7 load balancer**.
-         * **L7 load balancer**: `canary-balancer`.
-         * **IP address**: The IP address assigned to the load balancer (the only one in the list).
-         * **Domain names for content distribution**: `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example`.
+         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: **{{ ui-key.yacloud.cdn.value_query-type-one-origin }}**.
+         * **{{ ui-key.yacloud.cdn.label_source-type }}**: **{{ ui-key.yacloud.cdn.value_source-type-balancer }}**.
+         * **{{ ui-key.yacloud.cdn.label_balancer }}**: `canary-balancer`.
+         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: The IP address assigned to the load balancer (the only one in the list).
+         * Under **{{ ui-key.yacloud.cdn.label_section-domain }}**:
+            * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify `cdn.yandexcloud.example`.
+            * Click **{{ ui-key.yacloud.cdn.button_add-domain }}** and specify `cdn-staging.yandexcloud.example`.
 
             {% note alert %}
 
@@ -1111,33 +1116,33 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
             {% endnote %}
 
-         * In the **Advanced** section:
+         * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
 
-            * In the **Source protocol** field, select **HTTP**.
-            * In the **Redirect clients** field, select **Don't use**.
-            * Enable **End-user access to content**.
-            * In the **Certificate type** field, select **Let's Encrypt®** to automatically issue a certificate for the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names after creating the CDN resource.
-            * In the **Host header** field, select **Forward**.
+            * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select **HTTP**.
+            * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select **{{ ui-key.yacloud.cdn.value_do-not-use }}**.
+            * Select **{{ ui-key.yacloud.cdn.field_access }}**.
+            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select **{{ ui-key.yacloud.cdn.md_value_certificate-le }}** to automatically issue a certificate for the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names after creating the CDN resource.
+            * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select **{{ ui-key.yacloud.cdn.value_host-header-resend }}**.
 
-      1. Click **Create**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
       Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
 
    1. Enable a client redirect from HTTP to HTTPS:
 
-      1. In the ![image](../_assets/cdn/cdn-res.svg) **CDN resources** tab, select the previously created resource.
-      1. Make sure the certificate status under **Additional** changes to `Issued`.
-      1. At the top right, click ![image](../_assets/pencil.svg) **Edit**.
-      1. Under **Additional**, in the **Redirect clients** field, select **HTTP to HTTPS**.
-      1. Click **Save**.
+      1. Select the previously created resource.
+      1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+      1. At the top right, click ![image](../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select **{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}** in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    1. Enable caching on CDN servers for the resource:
 
-      1. In the ![image](../_assets/cdn/cdn-res.svg) **CDN resources** tab, select the previously created resource.
-      1. Go to **Caching**.
-      1. At the top right, click ![image](../_assets/pencil.svg) **Edit**.
-      1. Enable **CDN caching**.
-      1. Click **Save**.
+      1. Select the previously created resource.
+      1. Go to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+      1. At the top right, click ![image](../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -1265,7 +1270,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    1. Enable client redirect for a resource. Add the following field at the beginning of the `options` section for a CDN resource:
 
@@ -1313,9 +1318,9 @@ To configure DNS:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **DNS settings**, copy the domain name in `cl-....edgecdn.ru` format.
+      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the domain name in `cl-....edgecdn.ru` format.
 
    {% endlist %}
 
@@ -1335,23 +1340,23 @@ To configure DNS:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ dns-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you don't have a public DNS zone, create one:
 
-         1. Click **Create zone**.
-         1. In the **Zone** field, enter the site's domain name with a trailing dot: `yandexcloud.example`.
-         1. Select the zone **Type**: **Public**.
-         1. Specify the **Name** of the zone: `canary-dns-zone`.
+         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
+         1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the site's domain name with a trailing dot: `yandexcloud.example`.
+         1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.dns.label_public }}**.
+         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-dns-zone`.
          1. Click **Create**.
 
       1. In the zone, create a CNAME record for `cdn.yandexcloud.example`:
 
-         1. In the list of zones, click `canary-dns-zone`.
-         1. Click **Create record**.
+         1. Select `canary-dns-zone`.
+         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
          1. In the **Name** field, enter `cdn`.
-         1. Select the record **Type**: **CNAME**.
+         1. In the **Type** field, specify **CNAME**.
          1. In the **Value** field, paste the copied value in `cl-....edgecdn.ru` format.
-         1. Click **Create**.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. In a similar way, create in the same zone a CNAME record for `cdn-staging.yandexcloud.example`. In the **Name** field, specify `cdn-staging`.
 
@@ -1466,13 +1471,13 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Content** tab.
-      1. Click **Purge cache**.
-      1. Select the purge type: **Selective**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}**.
       1. Enter the path to the uploaded file: `/index.html`.
-      1. Click **Purge cache**.
+      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    - CLI
 
@@ -1536,12 +1541,12 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Caching** tab
-      1. Click **Edit**.
-      1. Disable **CDN caching**.
-      1. Click **Save**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+      1. Click **{{ ui-key.yacloud.common.edit }}**.
+      1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - API
 
@@ -1557,13 +1562,13 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Content** tab.
-      1. Click **Purge cache**.
-      1. Select the purge type: **Selective**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}**.
       1. Enter the path to the uploaded file: `/index.html`.
-      1. Click **Purge cache**.
+      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    - CLI
 
@@ -1619,16 +1624,17 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
-      1. Select `canary-bg-production` in the backend group list.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. In the left-hand panel, select ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+      1. Select `canary-bg-production`.
       1. For the `canary-backend-blue` backend, set the weight to 80 instead of 100:
 
-         1. In the **Backends** section, find `canary-backend-blue`, then click ![...](../_assets/horizontal-ellipsis.svg) → **Edit**.
-         1. In the **Weight** field, enter `80`.
-         1. Click **Save**.
+         1. In the **{{ ui-key.yacloud.alb.label_backends }}** section, find `canary-backend-blue`, click ![image](../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+         1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `80`.
+         1. Click **{{ ui-key.yacloud.common.save }}**.
 
       1. Similarly set the weight to 20 instead of 0 for `canary-backend-green`.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
 
@@ -1704,12 +1710,12 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Caching** tab
-      1. Click **Edit**.
-      1. Enable **CDN caching**.
-      1. Click **Save**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+      1. Click **{{ ui-key.yacloud.common.edit }}**.
+      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - API
 
@@ -1727,12 +1733,12 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Caching** tab
-      1. Click **Edit**.
-      1. Disable **CDN caching**.
-      1. Click **Save**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+      1. Click **{{ ui-key.yacloud.common.edit }}**.
+      1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - API
 
@@ -1748,13 +1754,13 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Content** tab.
-      1. Click **Purge cache**.
-      1. Select the purge type: **Selective**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}**.
       1. Enter the path to the uploaded file: `/index.html`.
-      1. Click **Purge cache**.
+      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    - CLI
 
@@ -1810,16 +1816,17 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
-      1. Select `canary-bg-production` in the backend group list.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. In the left-hand panel, select ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+      1. Select `canary-bg-production`.
       1. For the `canary-backend-blue` backend, set the weight to 100 instead of 0:
 
-         1. In the **Backends** section, find `canary-backend-blue`, then click ![...](../_assets/horizontal-ellipsis.svg) → **Edit**.
-         1. In the **Weight** field, enter `100`.
-         1. Click **Save**.
+         1. In the **{{ ui-key.yacloud.alb.label_backends }}** section, find `canary-backend-blue`, click ![image](../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+         1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `100`.
+         1. Click **{{ ui-key.yacloud.common.save }}**.
 
       1. Similarly, set the weight to 0 instead of 100 for `canary-bucket-green`.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
 
@@ -1888,12 +1895,12 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-      1. Go to the **Caching** tab
-      1. Click **Edit**.
-      1. Enable **CDN caching**.
-      1. Click **Save**.
+      1. Click the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+      1. Click **{{ ui-key.yacloud.common.edit }}**.
+      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - API
 

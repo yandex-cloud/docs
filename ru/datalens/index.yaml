@@ -19,7 +19,7 @@ links:
     href: tutorials/
   - title: Подключение
     description: Подключитесь к различным источникам данных
-    href: concepts/connection.md
+    href: concepts/connection
   - title: Датасет
     description: Опишите структуру данных, полученных из источника
     href: concepts/dataset/
@@ -28,7 +28,7 @@ links:
     href: concepts/chart/
   - title: Дашборд
     description: Соберите свои чарты на одной странице
-    href: concepts/dashboard.md
+    href: concepts/dashboard
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

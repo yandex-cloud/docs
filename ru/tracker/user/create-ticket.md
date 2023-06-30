@@ -7,7 +7,7 @@
 
 Чтобы создать задачу:
 
-1. Нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **Создать задачу** на панели слева.
+1. Нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_m-head.new-issue }}** на панели слева.
 
 1. В левом верхнем углу выберите очередь, в которой вы хотите создать задачу.
 
@@ -23,21 +23,21 @@
 
 1. Добавьте описание задачи. Для форматирования текста используйте [разметку YFM](markup.md).
 
-1. Чтобы добавить в задачу файлы или изображения, нажмите **Прикрепить файлы**.
+1. Чтобы добавить в задачу файлы или изображения, нажмите **{{ ui-key.startrek.ui_components_AttachmentsManager.attach }}**.
 
-1. Чтобы добавить список этапов выполнения задачи, нажмите кнопку **Добавить чеклист**.
+1. Чтобы добавить список этапов выполнения задачи, нажмите кнопку **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
 
 1. На панели справа укажите: 
     
-    * Основные параметры задачи: <q>Тип</q>, <q>Приоритет</q>, <q>Дедлайн</q>, <q>Проект</q>, <q>Теги</q>.
+    * Основные параметры задачи: <q>{{ ui-key.startrek.components_FormCreateIssue.field--type }}</q>, <q>{{ ui-key.startrek.components_FormCreateIssue.field--priority }}</q>, <q>{{ ui-key.startrek.components_FormCreateIssue.field--dueDate }}</q>, <q>{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--project }}</q>, <q>{{ ui-key.startrek.components_FormCreateIssue.field--tags }}</q>.
 
-    * Список пользователей, которые имеют отношение к задаче: введите имя или логин в полях <q>Исполнитель</q> и <q>Наблюдатели</q> или нажмите кнопку **Я**, чтобы добавить себя.
+    * Список пользователей, которые имеют отношение к задаче: введите имя или логин в полях <q>{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}</q> и <q>{{ ui-key.startrek.components_FormCreateIssue.field--followers }}</q> или нажмите кнопку **{{ ui-key.startrek.blocks-desktop_i-autocomplete-control.assign-me }}**, чтобы добавить себя.
     
         Вы также можете оставить значения по умолчанию, чтобы настроить их позже.
 
-1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **Изменить список параметров** и заполните их.
+1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** и заполните их.
 
-1. Нажмите кнопку **Создать задачу**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 
     {% note tip %}
 
@@ -63,11 +63,11 @@
 
 1. Откройте страницу задачи, к которой вы хотите создать подзадачу.
 
-1. В правом верхнем углу выберите **Действия** → **Добавить подзадачу**.
+1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
 
 1. Заполните поля так же, как при [создании новой задачи](#create-task).
 
-1. Нажмите кнопку **Создать задачу**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 
 
 #### Следующий шаг 

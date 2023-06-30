@@ -1,13 +1,13 @@
 # Preparing for connecting
 
-Available connection methods depend on whether [sharding](../../concepts/sharding.md) is enabled in a cluster:
+Available connection methods depend on whether [sharding](../../concepts/sharding.md):
 
 * [Connecting to a non-sharded cluster](./non-sharded.md).
 * [Connecting to a sharded cluster](./sharded.md).
 
 ## Encryption support {#tls-support}
 
-Encrypted SSL connections are supported for {{ mrd-short-name }} clusters. To use SSL, enable **TLS support** when [creating a cluster](../cluster-create.md).
+Encrypted SSL connections are supported for {{ mrd-short-name }} clusters. To use SSL, enable **{{ ui-key.yacloud.redis.field_tls-support }}** when [creating a cluster](../cluster-create.md).
 
 When using SSL to connect to a cluster with encryption support, disable application FQDN matching and certificate verification. Otherwise, you will not be able to connect to the cluster since {{ RD }} returns the host IP instead of the host FQDN, which produces an error when verifying the host name.
 
@@ -33,7 +33,7 @@ You can connect to {{ mrd-name }} cluster hosts:
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [Security groups notice](../../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -55,7 +55,7 @@ Security group settings for sharded and non-sharded clusters differ.
 
    To do this, create the following rule for incoming traffic:
 
-   * Port range: create a separate rule for each port:
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: create a separate rule for each port:
 
       * `{{ port-mrd }}`: For direct unencrypted host connections.
       * `{{ port-mrd-tls }}`: For direct host connections using SSL encryption.
@@ -63,9 +63,9 @@ Security group settings for sharded and non-sharded clusters differ.
 
          To connect to a cluster using Sentinel, you must also create a rule enabling connections via port `{{ port-mrd }}` or `{{ port-mrd-tls }}`.
 
-   * Protocol: `TCP`.
-   * Source: `Security group`.
-   * Security group: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Security group assigned to the VM. If it is the same as the configured group, specify **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}**.
 
 * Sharded clusters
 
@@ -73,10 +73,10 @@ Security group settings for sharded and non-sharded clusters differ.
 
    To do this, create the following rule for incoming traffic:
 
-   * Port range: `{{ port-mrd }}` or only `{{ port-mrd-tls }}` for clusters with SSL encryption support.
-   * Protocol: `TCP`.
-   * Source: `Security group`.
-   * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mrd }}` or only `{{ port-mrd-tls }}` for clusters with SSL encryption support.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` as the value. Otherwise, specify the VM security group.
 
 {% endlist %}
 

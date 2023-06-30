@@ -9,17 +9,17 @@
 
 Чтобы добавить колонку на доску задач:
 
-1. На странице доски нажмите кнопку **Добавить колонку**.
+1. На странице доски нажмите кнопку **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardAddColumnButton.new-column-button }}**.
 
 1. Введите параметры новой колонки:
 
-    * Укажите один или несколько статусов в поле **Статусы в колонке**. Для этого начните вводить название статуса и выберите значение из списка.
+    * Укажите один или несколько статусов в поле **{{ ui-key.startrek.ui_components_agile_common_ColumnForm.create-column-label--statuses }}**. Для этого начните вводить название статуса и выберите значение из списка.
 
     * Введите название колонки.
 
-1. Нажмите **Добавить**.
+1. Нажмите **{{ ui-key.startrek.ui_components_agile_common_ColumnForm.create-column-submit-button--create }}**.
 
-1. Чтобы просмотреть список статусов, которые не используются на доске, рядом с крайней правой колонкой нажмите значок ![](../../_assets/tracker/svg/unused-status.svg). Добавьте нужные статусы на доску: на карточке статуса нажмите ![](../../_assets/tracker/svg/actions.svg), затем **Создать колонку** или **Добавить в колонку**.
+1. Чтобы просмотреть список статусов, которые не используются на доске, рядом с крайней правой колонкой нажмите значок ![](../../_assets/tracker/svg/unused-status.svg). Добавьте нужные статусы на доску: на карточке статуса нажмите ![](../../_assets/tracker/svg/actions.svg), затем **{{ ui-key.startrek.ui_components_agile_common_ColumnForm.create-column-label--statuses }}** или **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardUnusedStatuses.unused-statuses-add-to-column }}**.
 
    {% note info %}
 
@@ -27,23 +27,23 @@
 
    {% endnote %}
     
-1. Чтобы добавить заметку с текстом, который будет отображаться под названием колонки, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Добавить заметку**.
+1. Чтобы добавить заметку с текстом, который будет отображаться под названием колонки, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--add-note }}**.
 
 ### Изменить колонку {#edit-cols}
 
 Вы можете изменить параметры колонки и ее расположение на доске.
 
-* Чтобы отредактировать название или изменить статусы колонки, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-edit.svg) **Редактировать**.
+* Чтобы отредактировать название или изменить статусы колонки, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-edit.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--edit }}**.
 
 * Чтобы изменить расположение колонки на доске, перетащите ее в нужное место.
 
-* Чтобы отредактировать заметку с текстом, который отображается под названием колонки, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Редактировать заметку**.
+* Чтобы отредактировать заметку с текстом, который отображается под названием колонки, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.blocks-desktop_b-agile-board.edit-note }}**.
 
 ### Удалить колонку {#delete-cols}
 
-Чтобы удалить колонку с доски, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Удалить**.
+Чтобы удалить колонку с доски, наведите указатель на колонку и нажмите ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--delete }}**.
 
-Если в удаленной колонке были задачи, они будут перенесены в блок **Неиспользуемые статусы**. Чтобы просмотреть такие задачи, рядом с крайней правой колонкой нажмите значок ![](../../_assets/tracker/svg/unused-status.svg), затем нажмите название статуса.
+Если в удаленной колонке были задачи, они будут перенесены в блок **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_columns.status-list-title }}**. Чтобы просмотреть такие задачи, рядом с крайней правой колонкой нажмите значок ![](../../_assets/tracker/svg/unused-status.svg), затем нажмите название статуса.
 
 ## Настроить карточки {#cards}
 
@@ -53,13 +53,13 @@
 
 1. На странице доски в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/icon-card.svg) **Выбрать поля карточки**.
 
-1. Отметьте поля задачи, которые будут отображаться на карточке. Можно добавить любые поля или убрать уже настроенные, кроме названия задачи (поле **Задача**).
+1. Отметьте поля задачи, которые будут отображаться на карточке. Можно добавить любые поля или убрать уже настроенные, кроме названия задачи (поле **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-type-task }}**).
 
-1. Нажмите кнопку **Применить**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_FieldsSelect.applyChanges }}**.
 
 1. Чтобы выделить определенные теги или компоненты задач цветами:
    
-   1. Настройте карточку, чтобы на ней отображались поля **Теги** или **Компоненты**.
+   1. Настройте карточку, чтобы на ней отображались поля **{{ ui-key.startrek.components_FormCreateIssue.field--tags }}** или **{{ ui-key.startrek.components_FormCreateIssue.field--components }}**.
    
    2. На карточке задачи нажмите название тега или компонента и выберите цвет.
    
@@ -71,7 +71,7 @@
 
 1. Перейдите на доску.
 
-1. В правом верхнем углу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить доску**.
+1. В правом верхнем углу нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.delete-board-menu-item }}**.
 
 
 1. Подтвердите удаление.

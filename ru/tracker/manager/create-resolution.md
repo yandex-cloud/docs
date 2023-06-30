@@ -1,6 +1,6 @@
 # Настроить резолюции
 
-Резолюция — это атрибут задачи, который обозначает причину ее закрытия. Например, задача может быть закрыта, потому что она выполнена (резолюция <q>Решен</q>) или потому что она дублирует другую задачу (резолюция <q>Дубликат</q>).
+Резолюция — это атрибут задачи, который обозначает причину ее закрытия. Например, задача может быть закрыта, потому что она выполнена (резолюция <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}</q>) или потому что она дублирует другую задачу (резолюция <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}</q>).
 
 
 ## Создать резолюцию {#create-resolution}
@@ -15,13 +15,13 @@
 
 1. Убедитесь, что вы авторизованы в {{ tracker-full-name }} как [администратор](../role-model.md).
 
-1. На панели справа выберите ![](../../_assets/tracker/svg/admin.svg) **Администрирование** → **Настройка {{ tracker-name }}**.
+1. На панели справа выберите ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue.cp }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.tracker-settings }}**.
 
-1. Перейдите на вкладку **Резолюции**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--resolutions }}**.
 
-1. Нажмите кнопку **Создать резолюцию**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab.create--resolutions }}**.
 
-1. Заполните поля и нажмите **Создать**.
+1. Заполните поля и нажмите **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.
 
 
 ## Удалить резолюцию из очереди {#delete-resolution}
@@ -36,8 +36,8 @@
 
 1. Откройте страницу очереди.
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **Настройки очереди**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **Типы задач**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--types }}**.
 
 1. Удалите резолюцию в тех типах задач, где резолюция выбрана.

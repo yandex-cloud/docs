@@ -5,6 +5,7 @@
 * [Connecting to clusters](connect.md)
 * [Stopping and starting clusters](cluster-stop.md)
 * [Changing cluster settings](update.md)
+* [{#T}](cluster-version-update.md)
 * [Configuring SAML authentication](saml-authentication.md)
 * [Setting up access to {{ objstorage-name }}](s3-access.md)
 * [Managing host groups](host-groups.md)

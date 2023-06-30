@@ -28,4 +28,4 @@ You cannot change locale settings after you create a database. You can:
 
 #### Can I change the DB owner? {#db-owner}
 
-Once you create a database, you cannot change its owner.
+Once you create a DB, you cannot change its owner. If you [create a DB via {{ TF }}](../../managed-postgresql/operations/databases.md#add-db) and then change its owner in the `owner` parameter, this will recreate the DB and its data will be lost.

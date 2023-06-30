@@ -1,4 +1,4 @@
-# Get expense details by folder
+# Getting expense details by folder
 
 You can get a CSV file with your general or per-resource spending details.
 
@@ -26,7 +26,7 @@ You can get a CSV file with your general or per-resource spending details.
    1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
    1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
    1. Select the account you want to get details for.
-   1. On the **Overview** page, go to the **Export details** tab.
+   1. In the left-hand panel, select **Export details**.
    1. Click **Create**.
    1. In the **Create periodic export** window that opens, enter:
       * In the **Bucket** field, the name of the bucket to store the CSV file with details.

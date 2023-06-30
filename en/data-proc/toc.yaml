@@ -35,14 +35,9 @@ items:
             href: operations/jobs-hive.md
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
-      - name: Server management {{ metastore-name }}
-        hidden: true
+      - name: Managing {{ metastore-name }} clusters
         items:
-          - name: What is {{ metastore-full-name }}?
-            hidden: true
-            href: operations/metastore/index.md
-          - name: Creating a {{ metastore-name }} server
-            hidden: true
+          - name: Creating a {{ metastore-name }} cluster
             href: operations/metastore/cluster-create.md
           - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
             hidden: true
@@ -117,6 +112,8 @@ items:
         href: concepts/environment.md
       - name: '{{ dataproc-name }} component interfaces and ports'
         href: concepts/interfaces.md
+      - name: '{{ metastore-full-name }} clusters'
+        href: concepts/metastore.md
       - name: Jobs in {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Spark jobs

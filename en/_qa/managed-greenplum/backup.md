@@ -11,3 +11,7 @@ Clusters remain fully accessible during backups.
 Yes, backup is enabled by default. For {{ GP }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups persist for 7 days.
+
+#### Can I run {{ mgp-name }} cluster backups manually? {#manual-backup}
+
+No, {{ mgp-name }} does not support manual cluster backups.

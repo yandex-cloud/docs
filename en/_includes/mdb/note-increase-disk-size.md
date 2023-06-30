@@ -1,3 +1,3 @@
 
-Make sure the cloud has enough quota to increase the storage size. Open the cloud's [Quotas]({{ link-console-quotas }}) page and make sure there is space available under **Managed Databases** in the **HDD storage capacity** or the **SDD storage capacity** line.
+Make sure the cloud has enough quota to increase the storage size. Open the cloud's [Quotas]({{ link-console-quotas }}) page and make sure there is space available under **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**in the **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** or **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** line.
 

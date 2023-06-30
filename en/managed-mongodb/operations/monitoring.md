@@ -20,9 +20,9 @@ To view detailed information about the {{ mmg-name }} cluster status:
 The following charts open on the page:
 
 * **Asserts total**: The number of [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) triggered in the cluster.
-* **Average operation time per host**: The average time of command execution by each host (in microseconds).
-* **Average operations time on primary**: The average command execution time on primary replicas (in microseconds).
-* **Average operations time on secondaries**: The average command execution time on secondary replicas (in microseconds).
+* **Average operation time per host**: Average time of operation execution by each host (in microseconds).
+* **Average operations time on primary**: Average operation execution time on primary replicas (in microseconds).
+* **Average operations time on secondaries**: Average operation execution time on secondary replicas (in microseconds).
 * **CPU usage per host**: vCPU usage on each host (in thousandths).
 * **CPU usage per host, top 5 hosts**: 5 hosts with the highest vCPU utilization (%).
 * **Configured oplog size per host**: The size of the oplog on each cluster host (in GB).

@@ -26,7 +26,7 @@
 
 Чтобы начать работу с бета-версией новой доски задач:
 
-* [создайте простую доску задач](agile-new-create.md) или доску типа **Скрам**, включив опцию  **Попробовать новые доски**; 
+* [создайте простую доску задач](agile-new-create.md) или доску типа **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}**, включив опцию  **{{ ui-key.startrek.blocks-desktop_agile-form-modal.new-board-ad-control }}**; 
 
 * создайте [проект в бета-версии нового интерфейса](create-project.md#add-tickets), и доска для проекта будет создана автоматически. 
 

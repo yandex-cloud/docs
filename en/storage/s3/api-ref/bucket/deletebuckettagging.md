@@ -2,6 +2,8 @@
 
 Deletes bucket [labels](../../../concepts/tags.md).
 
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
+
 ## Query {#request}
 
 ```http

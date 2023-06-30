@@ -37,13 +37,13 @@ For more information about configuring the profiler and how to interpret its res
 
 ### Currently running queries {#list-running-queries}
 
-To view queries that don't pertain to the current user, under the user with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role, run [db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/):
+To view queries that do not pertain to the current user, run the [db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/) query under the user with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role:
 
 ```javascript
 db.currentOp()
 ```
 
-To view the current user's queries, run `db.currentOp()` with the `true` value to [configure](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
+To view the current user's queries, run the `db.currentOp()` query with the `true` value to [configure](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
 
 ```javascript
 db.currentOp({ "$ownOps": true })

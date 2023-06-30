@@ -99,36 +99,14 @@ Incorrect settings may cause the cluster to fail.
 
          * **attribute_dn**: ID of the `X.500 Distinguished Name` user (optional).
 
-            {% note info %}
-
-            For more information about SAML attributes, see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/saml-guide-authentication.html#saml-user-properties).
-
-            {% endnote %}
-
    1. Click **Create**.
 
 - API
 
-   1. Convert the metadata file received from the IdP to Base64 format.
-   1. Prepare a `saml.txt` file:
+   1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
+   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
 
-      ```json
-      {
-          "providers": [{
-              "type": "SAML",
-              "name": "<Provider name>",
-              "enabled": true,
-              "description": "<Provider description>",
-              "saml": {
-                  "idp_entity_id": "<Identity Provider Issuer value>",
-                  "idp_metadata_file": "<base64 metadata file>",
-                  "sp_entity_id": "<SP Entity ID (Audience URI) value>",
-                  "kibana_url": "<URL Kibana, same as SP Entity ID>",
-                  "attribute_principal": "nameid:persistent"
-              }
-          }]
-      }
-      ```
+      * Cluster ID in the `clusterId` parameter.
 
    1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
       * Cluster ID in the `clusterId` parameter.
@@ -138,6 +116,12 @@ Incorrect settings may cause the cluster to fail.
       * A file with the provider's configuration.
 
 {% endlist %}
+
+{% note info %}
+
+Learn more about SAML attributes in the [Elasticsearch documentation]({{ links.es.docs }}/elasticsearch/reference/6.8/saml-guide-authentication.html#saml-user-properties).
+
+{% endnote %}
 
 ## Configure roles for SSO {#roles-sso}
 

@@ -1,13 +1,12 @@
 ---
-description: "Face detection is a service that allows you to find people's faces in an image. For example, to tag people in a photo or find all photos with portraits. The service looks for people's faces in the image and highlights them with rectangles. Supported file formats – JPEG, PNG, PDF."
+description: "Face detection is a tool that lets you find human faces in an image. For example, you can use it to mark people in a photo or find all photos with portraits. The service searches for human faces in the image and marks them with rectangles. Supported file formats: JPEG, PNG, and PDF."
 keywords:
   - face detection
-  - face detection service
 ---
 
 # Face detection
 
-_Face detection is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
+_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
 This section describes how the _face detection_ feature works in the service.
 
@@ -55,22 +54,21 @@ Sample response with the coordinates of the detected face:
         "faces": [{
           "boundingBox": {
             "vertices": [{
-                "x": "410",
-                "y": "404"
-              },
-              {
-                "x": "410",
-                "y": "467"
-              },
-              {
-                "x": "559",
-                "y": "467"
-              },
-              {
-                "x": "559",
-                "y": "404"
-              }
-            ]
+              "x": "410",
+              "y": "404"
+            },
+            {
+              "x": "410",
+              "y": "467"
+            },
+            {
+              "x": "559",
+              "y": "467"
+            },
+            {
+              "x": "559",
+              "y": "404"
+            }]
           }
         }]
       }

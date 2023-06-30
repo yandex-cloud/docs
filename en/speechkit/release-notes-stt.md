@@ -6,6 +6,20 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release 07/06/23 {#070623}
+
+New changes to `general:rc`:
+
+* Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, Polish, and Hebrew.
+* Added number [normalization](stt/normalization.md) for Uzbek.
+* Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) in FullData mode.
+
+## Previous versions {#previous}
+
+### Release on 25/05/23 {#250523}
+
+Upgrades to the [May 17, 2023 release](#170523) are now available in the `general` model.
+
 ### Release on 17/05/23 {#170523}
 
 New changes to `general:rc`:
@@ -15,8 +29,6 @@ New changes to `general:rc`:
 * Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, and Polish.
 * Added support for a [new recognition language](stt/models.md): Hebrew (`he-HE`).
 
-
-## Previous versions {#previous}
 
 ### Release on 14/04/2023 {#140423}
 

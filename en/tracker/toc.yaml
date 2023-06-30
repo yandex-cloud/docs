@@ -625,8 +625,10 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: March 2023
+      - name: April 2023
         href: changelogs/index.md
+      - name: March 2023
+        href: changelogs/2303.md
       - name: February 2023
         href: changelogs/2302.md
       - name: January 2023

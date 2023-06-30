@@ -1,4 +1,4 @@
-# Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
+# Delivering data from a {{ KF }} queue to {{ ydb-short-name }}
 
 A {{ ydb-name }} cluster can get data from {{ KF }} topics in real time. This data is automatically added to {{ ydb-short-name }} tables with topic names.
 
@@ -336,7 +336,7 @@ Delete the other resources, depending on the method used to create them:
 
       If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

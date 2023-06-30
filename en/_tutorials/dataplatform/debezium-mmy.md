@@ -159,15 +159,15 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    Where:
 
    * `name`: Logical name of the Debezium connector. Used for the connector's internal needs.
-   * `database.hostname`: A [special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
+   * `database.hostname`: [Special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
 
       You can get the cluster ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-   * `database.user`: The {{ MY }} username.
-   * `database.dbname`: The {{ MY }} database name.
+   * `database.user`: {{ MY }} username.
+   * `database.dbname`: {{ MY }} database name.
    * `database.server.name`: Name of the database server that [Debezium will use](#prepare-target) when choosing a topic for sending messages.
    * `table.include.list`: Names of tables for which Debezium should track changes. Specify full names that include the database name (`db1`). [Debezium will use](#prepare-target) values from this field when selecting a topic for sending messages.
-   * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: The heartbeat settings [needed for](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-interval-ms) Debezium.
+   * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required for](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-interval-ms) Debezium.
    * `database.history.kafka.topic`: Name of the service topic used by the connector for notifications of any changes to the data schema in the source cluster.
 
 ## Prepare the target cluster{#prepare-target}

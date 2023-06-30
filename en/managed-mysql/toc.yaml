@@ -51,6 +51,8 @@ items:
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
       - name: Network in Managed Service for MySQL
@@ -99,9 +101,7 @@ items:
         href: tutorials/mmy-ydb-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
-      - name: >-
-          Asynchronously replicating data from {{ mmy-name }} to {{
-          yds-full-name }}
+      - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
   - name: Access management
     href: security/index.md

@@ -2,6 +2,8 @@ title: Yandex SpeechKit Hybrid
 href: index.yaml
 noIndex: true
 items:
+  - name: Getting started
+    href: quickstart.md
   - name: System requirements
     href: system-requirements.md
   - name: CPU system requirements
@@ -25,8 +27,10 @@ items:
     items:
       - name: Service settings
         href: settings.md
-      - name: Monitoring
+      - name: '{{ sk-hybrid-name }} service monitoring'
         href: monitoring.md
+      - name: Envoy monitoring
+        href: monitoring-envoy.md
       - name: Logging levels
         href: operations/logging.md
       - name: TLS termination
