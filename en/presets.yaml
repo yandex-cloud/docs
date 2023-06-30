@@ -76,6 +76,7 @@ default:
   ya-360: Yandex 360 for business
   yandex-360: Yandex 360
   storage-aws-cli-alias: ycs3
+  yagpt-full-name: YandexGPT
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -156,6 +157,7 @@ default:
   logbroker-name: Logbroker
   logfeller-name: Logfeller
   backup-name: Cloud Backup
+  yagpt-name: YandexGPT
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -253,6 +255,7 @@ default:
   roles-vpc-admin: vpc.admin
   roles-vision-user: ai.vision.user
   roles-translate-user: ai.translate.user
+  roles-yagpt-user: ai.languageModels.user
   roles-lb-viewer: load-balancer.viewer
   roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin

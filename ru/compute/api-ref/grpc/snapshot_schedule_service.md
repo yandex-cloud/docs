@@ -689,5 +689,6 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Place
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 

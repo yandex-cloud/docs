@@ -26,7 +26,8 @@ A set of methods for managing Disk resources.
     "string"
   ],
   "diskPlacementPolicy": {
-    "placementGroupId": "string"
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
   },
 
   //  includes only one of the fields `sourceImageId`, `sourceSnapshotId`
@@ -54,6 +55,7 @@ status | **string**<br>Current status of the disk.<br><ul> <li>CREATING: Disk is
 instanceIds[] | **string**<br><p>Array of instances to which the disk is attached.</p> 
 diskPlacementPolicy | **object**<br>Placement policy configuration.
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 sourceImageId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 sourceSnapshotId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
 

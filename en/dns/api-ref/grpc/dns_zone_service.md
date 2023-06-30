@@ -22,6 +22,7 @@ A set of methods for managing DNS zones.
 | [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified DNS zone. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified DNS zone. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified DNS zone. |
+| [UpdatePrivateNetworks](#UpdatePrivateNetworks) | Atomically updates zone private networks |
 
 ## Calls DnsZoneService {#calls}
 
@@ -672,4 +673,72 @@ Field | Description
 --- | ---
 resource_id | **string**<br>ID of the resource for which access bindings are being updated. 
 
+
+## UpdatePrivateNetworks {#UpdatePrivateNetworks}
+
+Atomically updates zone private networks
+
+**rpc UpdatePrivateNetworks ([UpdateDnsZonePrivateNetworksRequest](#UpdateDnsZonePrivateNetworksRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDnsZonePrivateNetworksMetadata](#UpdateDnsZonePrivateNetworksMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DnsZone](#DnsZone4)<br>
+
+### UpdateDnsZonePrivateNetworksRequest {#UpdateDnsZonePrivateNetworksRequest}
+
+Field | Description
+--- | ---
+dns_zone_id | **string**<br>ID of the DNS zone which private networks will be updated 
+private_network_id_additions[] | **string**<br>Network IDs to remove 
+private_network_id_deletions[] | **string**<br>Network IDs to add 
+
+
+### Operation {#Operation8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDnsZonePrivateNetworksMetadata](#UpdateDnsZonePrivateNetworksMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DnsZone](#DnsZone4)>**<br>if operation finished successfully. 
+
+
+### UpdateDnsZonePrivateNetworksMetadata {#UpdateDnsZonePrivateNetworksMetadata}
+
+Field | Description
+--- | ---
+dns_zone_id | **string**<br>ID of the DNS zone which private networks was updated 
+
+
+### DnsZone {#DnsZone4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the DNS zone. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the DNS zone belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the DNS zone. The name is unique within the folder. 
+description | **string**<br>Description of the DNS zone. 
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
+zone | **string**<br>DNS zone suffix. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
+
+
+### PrivateVisibility {#PrivateVisibility4}
+
+Field | Description
+--- | ---
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
+
+
+### PublicVisibility {#PublicVisibility4}
+
+Empty.
 

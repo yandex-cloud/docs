@@ -62,6 +62,7 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Place
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ## List {#List}
@@ -116,6 +117,7 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy1)**<br>Plac
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ## Create {#Create}
@@ -152,6 +154,7 @@ snapshot_schedule_ids[] | **string**<br>List of IDs of the snapshot schedules to
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ### Operation {#Operation}
@@ -228,6 +231,7 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Plac
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ### Operation {#Operation1}
@@ -426,6 +430,7 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Plac
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ## Relocate {#Relocate}
@@ -499,6 +504,7 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy5)**<br>Plac
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ## ListSnapshotSchedules {#ListSnapshotSchedules}

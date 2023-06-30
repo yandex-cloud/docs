@@ -125,4 +125,6 @@ items:
     href: ydb/index.yaml
   - name: Query
     href: query/index.yaml
+  - name: YandexGPT
+    href: yandexgpt/index.yaml
 base: en
