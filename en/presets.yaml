@@ -5520,8 +5520,13 @@ default:
                       service_account_id:
                         title: Service account
                     Serializer:
+                      Debezium:
+                        parameters:
+                          title: Debezium serializer settings
                       serializer_auto:
                         title: Auto
+                      serializer_debezium:
+                        title: Debezium
                       serializer:
                         title: Serializing settings
             elasticsearch:
@@ -5984,6 +5989,8 @@ default:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
                         title: Raw Data
                     ObjectStorageTarget:
+                      any_as_string:
+                        title: Convert complex data to strings
                       connection_settings:
                         title: Connection settings
                       output_encoding:

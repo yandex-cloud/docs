@@ -45,3 +45,10 @@
 
 Подробнее об ограничениях сервиса {{ mmg-short-name }} см. раздел [{#T}](../../managed-mongodb/concepts/limits.md).
 
+#### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-mongodb/operations/update.md#change-disk-size).
+
+Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../../managed-mongodb/operations/cluster-backups.md#restore) из резервной копии.

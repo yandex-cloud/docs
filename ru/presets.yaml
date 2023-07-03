@@ -641,6 +641,7 @@ default:
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
   link-datasphere-main: https://datasphere.yandex.ru/
+  link-docs: https://cloud.yandex.ru/docs
   link-org-main: https://org.cloud.yandex.ru/
   link-org-acl: https://org.cloud.yandex.ru/acl
   link-org-users: https://org.cloud.yandex.ru/users
@@ -5531,8 +5532,13 @@ default:
                       service_account_id:
                         title: Сервисный аккаунт
                     Serializer:
+                      Debezium:
+                        parameters:
+                          title: Настройки сериализации Debezium
                       serializer_auto:
                         title: Auto
+                      serializer_debezium:
+                        title: Debezium
                       serializer:
                         title: Настройки сериализации
             elasticsearch:
@@ -5993,6 +5999,8 @@ default:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
                         title: Сырые данные
                     ObjectStorageTarget:
+                      any_as_string:
+                        title: Преобразовать комплексные значения в строки
                       connection_settings:
                         title: Настройки подключения
                       output_encoding:

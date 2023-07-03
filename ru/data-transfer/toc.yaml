@@ -173,6 +173,8 @@ items:
         href: concepts/transferred-objects.md
       - name: Трансформация данных
         href: concepts/data-transformation.md
+      - name: Сериализация
+        href: concepts/serializer.md
       - name: Работа {{ data-transfer-full-name }} с источниками и приемниками
         href: concepts/work-with-endpoints.md
       - name: Операции над трансфером
