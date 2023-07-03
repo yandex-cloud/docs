@@ -7,7 +7,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [кластеру {{ mkf-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
+* Настройки подключения к [кластеру {{ mkf-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise) и [настройки сериализации](#serializer), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Это обязательные параметры.
 * [Настройки топика Apache Kafka](#kafka-settings).
 
 ## Кластер {{ mkf-name }} {#managed-service}
@@ -47,5 +47,15 @@ description: "Из статьи вы узнаете, как задать нас�
     {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}** — не разбивать поток событий на независимые очереди по таблицам.
+
+{% endlist %}
+
+## {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
+
+{% list tabs %}
+
+- Консоль управления
+
+    {% include [serializer](../../../../_includes/data-transfer/serializer.md) %}
 
 {% endlist %}

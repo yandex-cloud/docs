@@ -77,3 +77,11 @@ SET allow_experimental_object_type=1;
 {% endnote %}
 
 Подробную информацию см. в [документации {{ CH }}](https://clickhouse.com/docs/en/guides/developer/working-with-json/json-semi-structured/#json-object-type).
+
+#### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-clickhouse/operations/update.md#change-disk-size).
+
+Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии.

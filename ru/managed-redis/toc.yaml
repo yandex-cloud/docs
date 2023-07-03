@@ -49,9 +49,9 @@ items:
     items:
       - name: Все сценарии
         href: tutorials/index.md
-      - name: Хранение сессий PHP в Managed Service for Redis
+      - name: Хранение сессий PHP в {{ mrd-name }}
         href: tutorials/redis-as-php-sessions-storage.md
-      - name: Миграция базы данных в Managed Service for Redis
+      - name: Миграция базы данных в {{ mrd-name }}
         href: tutorials/data-migration.md
   - name: Концепции
     items:
@@ -65,7 +65,7 @@ items:
             items:
               - name: До 20 июня 2023 года
                 href: concepts/instance-types-archive/instance-types-20062023.md
-      - name: Сеть в Managed Service for Redis
+      - name: Сеть в {{ mrd-name }}
         href: concepts/network.md
       - name: Шардирование
         href: concepts/sharding.md
@@ -83,11 +83,11 @@ items:
         href: concepts/supported-features.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы диска
+      - name: Типы дисков
         href: concepts/storage.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки Redis
+      - name: Настройки {{ RD }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md

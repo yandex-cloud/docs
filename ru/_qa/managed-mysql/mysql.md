@@ -20,3 +20,10 @@
 
 Подробнее об ограничениях {{ mmy-short-name }} см. раздел [{#T}](../../managed-mysql/concepts/limits.md). В разделе [{#T}](../../managed-mysql/concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью {{ mmy-short-name }}.
 
+#### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-mysql/operations/update.md#change-disk-size).
+
+Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../../managed-mysql/operations/cluster-backups.md#restore) из резервной копии.

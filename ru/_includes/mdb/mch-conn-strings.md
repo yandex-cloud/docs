@@ -584,7 +584,7 @@ isql -v ClickHouse
 #### Windows {#odbc-windows}
 
 1. [Установите драйвер clickhouse-odbc](https://github.com/ClickHouse/clickhouse-odbc#installation) подходящей разрядности. Например, если вы используете 32-разрядное приложение для подключения через ODBC, установите драйвер такой же разрядности.
-1. [Запустите приложение «Администратор источника данных ODBC»](https://learn.microsoft.com/ru-ru/sql/database-engine/configure-windows/open-the-odbc-data-source-administrator).
+1. [Запустите приложение <q>Администратор источника данных ODBC</q>](https://learn.microsoft.com/ru-ru/sql/database-engine/configure-windows/open-the-odbc-data-source-administrator).
 1. На вкладке **Пользовательские DSN** нажмите кнопку **Добавить...**
 1. Выберите драйвер {{ CH }} с подходящей кодировкой и нажмите кнопку **Готово**.
 1. Укажите параметры подключения к кластеру {{ CH }}:
