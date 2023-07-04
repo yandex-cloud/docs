@@ -6,16 +6,16 @@
 
 1. Откройте список задач. 
 
-1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/filter-mobile.svg) **Фильтры**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/filter-mobile.svg) **{{ ui-key.startrek.ui_components_IssueListsPanel.filters }}**.
 
 1. Выберите параметр задачи, затем задайте его значение.
 
-1. Нажмите кнопку **Применить**. В списке останутся только те задачи, параметры которых удовлетворяют заданному условию.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**. В списке останутся только те задачи, параметры которых удовлетворяют заданному условию.
 
 1. Если нужно уточнить условия поиска, добавьте еще несколько параметров.
 
 {% note info %}
 
-Чтобы сохранить фильтр, используйте веб-версию {{ tracker-name }}. Ваши сохраненные фильтры доступны в поле выбора **Все задачи** в разделе **Мои**. 
+Чтобы сохранить фильтр, используйте веб-версию {{ tracker-name }}. Ваши сохраненные фильтры доступны в поле выбора **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**. 
 
 {% endnote %}

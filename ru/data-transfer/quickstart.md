@@ -145,6 +145,6 @@
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте больше о [подготовке баз данных для использования сервиса](operations/prepare.md) и [настройке трансферов](operations/transfer.md).
-* Ознакомьтесь с [вопросами и ответами](qa/index.md).
+* Ознакомьтесь с [практическими руководствами по работе с сервисом](tutorials/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

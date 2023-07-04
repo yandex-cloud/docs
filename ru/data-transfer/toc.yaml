@@ -247,8 +247,6 @@ items:
                 href: api-ref/Transfer/list.md
               - name: update
                 href: api-ref/Transfer/update.md
-  - name: Вопросы и ответы
-    href: qa/index.md
   - name: Обучающие курсы
     href: training.md
 base: ru/data-transfer

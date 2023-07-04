@@ -31,7 +31,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ dataproc-full-name }}](../data-proc/qa/index.md)
 * [{{ yds-full-name }}](../data-streams/qa/index.md)
-* [{{ data-transfer-full-name }}](../data-transfer/qa/index.md)
+* [{{ data-transfer-full-name }}](../data-transfer/troubleshooting/index.md)
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)

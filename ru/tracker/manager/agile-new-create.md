@@ -1,37 +1,32 @@
 # Как создать доску в {{ tracker-name }}
 
-## Создать доску
+## Создание простой доски {#basic}
 
-Чтобы создать новую доску задач:
+**{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** подходит любым командам и позволяет распределять задачи по колонкам в зависимости от их статуса.
 
-1. На верхней панели Tracker выберите **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-agile-board }}**.
+Чтобы создать простую доску:
 
-   {% note info %}
+1. На панели слева нажмите **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
 
-   В [бета-версии нового интерфейса {{ tracker-full-name }}](../user/personal.md#sec_beta) на панели слева выберите ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}**, затем нажмите **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
+1. Выберите тип доски **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** и нажмите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. Будет создана доска с названием <q>Новая доска</q>. Это поле на доске доступно для редактирования, так что вы сможете его скорректировать и изменить название.
 
-   {% endnote %}
+На доске уже добавлены несколько колонок со статусами **Открыт**, **В работе** и **Закрыт**. Можно удалить эти колонки, добавить другие или создать произвольные, не привязанные к статусам задач.
 
-1. Выберите тип доски **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}**, затем включите опцию **{{ ui-key.startrek.blocks-desktop_agile-form-modal.new-board-ad-control }}**. 
+После [добавления на доску задач](agile-new-set-board.md#add-task) вы сможете настроить отображение карточек задач, группировать и фильтровать задачи, а также перемещать их между колонками. На простой доске доступно [подключение бэклога](backlog.md#add-backlog) — доска преобразуется к виду доски **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}**. Обратный переход невозможен.
 
-1. Введите название доски и нажмите кнопку **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**.
+## Создание доски с бэклогом и спринтами {#backlog-and-sprints}
 
-1. [Добавьте](./agile-new-use.md#from-board) задачи на доску:
+Доска **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** предназначена для Agile-команд и позволяет формировать [бэклог](backlog.md), управлять [спринтами](create-agile-sprint.md), [оценивать сложность задач](poker.md) и анализировать [диаграмму сгорания задач](burndown-diagram.md).
 
-    * Чтобы добавить первую задачу на доску, нажмите кнопку **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardEmptyScreen.empty-screen--new-issue }}**. Вы можете выбрать существующую задачу или создать новую. Добавить задачу можно из любой доступной вам очереди.
+Чтобы создать доску с бэклогом и спринтами:
 
-    * Чтобы добавить сразу несколько задач с определенными параметрами, используйте [фильтр](./agile-new-use.md#from-bulk) или выполните [импорт](./agile-new-use.md#import) задач.
-    
-        {% note info %}
+1. На панели слева нажмите **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
 
-		Импорт задач выполняется разово. Для обновления списка задач на доске снова выполните импорт.
-		
-		На доску можно добавить не более 2000 задач.
+1. Выберите тип доски **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** и нажмите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. Будет создана доска с названием <q>Новая доска</q>. Это поле на доске доступно для редактирования, так что вы сможете его скорректировать и изменить название.
 
-        {% endnote %}
+Доска состоит из трех вкладок:
+* Бэклог — чтобы сформировать бэклог задач и создавать спринты;
+* Доска — для распределения задач из бэклога [по статусам](agile-new-columns.md#status) или [произвольным колонкам](agile-new-columns.md#user-columns) (эта вкладка аналогична **Простой доске**);
+* Диаграмма сгорания — показывает скорость выполнения задач и оставшийся объем работы в течение спринта.
 
-1. Если требуется, [настройте колонки и внешний вид карточки задачи](agile-new-set.md).
-
-## Создать доску для проекта
-
-[Создайте проект в бета-версии нового интерфейса {{ tracker-full-name }}](./create-project.md) и добавьте в него задачи. Для такого проекта будет автоматически создана новая доска задач. Все задачи проекта будут отображаться на доске.
+После [добавления задач в бэклог](backlog.md#add-new-backlog) вы сможете планировать спринты, настраивать отображение карточек задач, группировать и фильтровать задачи на доске, а также анализировать скорость выполнения задач.

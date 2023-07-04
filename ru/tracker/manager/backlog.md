@@ -2,42 +2,43 @@
 
 Бэклог — это список задач или требований к продукту, которые нужно реализовать. Обычно задачи в бэклоге упорядочены по приоритету.
 
-{% note warning %}
-
-Работа с бэклогом возможна только на досках типа **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** или на [новых досках](agile-new.md).
-
-{% endnote %}
-
-## Бэклог на новых досках {#new-backlog}
-
-В [новых досках](agile-new.md) для бэклога можно подключить отдельную вкладку. Вкладка **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** состоит из двух частей:
-
-* задачи бэклога;
-* спринты.
-
 На вкладке **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** можно собрать список приоритетных задач команды, отсортировать их по важности и распределить по спринтам. Вы сможете создавать задачи или добавлять существующие как в бэклог, так и сразу в спринт. Чтобы взять задачу из бэклога в спринт, достаточно перетащить ее карточку из одного списка в другой.
 
-Следите за актуальностью задач в бэклоге: в нем не должно быть закрытых задач, дубликатов, а также задач, которые не будут взяты в работу в ближайшее время.
+Следите за [актуальностью](agile-new.md#tips) задач в бэклоге: в нем не должно быть закрытых задач, дубликатов, а также задач, которые не будут взяты в работу в ближайшее время.
+
+Помимо колонок бэклога и спринтов, можно создать [произвольные колонки](agile-new-columns.md#user-columns) и использовать их как дополнительный бэклог с отобранными вручную задачами. Например, в произвольную колонку можно поместить задачи, которые надо обсудить с командой на ближайшем планировании или оценке задач (рефайменте).
+
+## Как включить бэклог на простых досках {#add-backlog}
+
+Вкладка **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** с бэклогом и спринтами по умолчанию присутствует на досках **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}**. На **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** такой вкладки нет, но ее можно подключить.
 
 {% note warning %}
 
-Отдельная вкладка **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** подключается прямо на доске. Отключить вкладку **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** и спринты пока нельзя, но в будущем появится такая возможность.
+Отключить вкладку **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** и спринты пока нельзя, но в будущем появится такая возможность.
 
 {% endnote %}
 
-Чтобы включить бэклог и спринты на новых простых досках:
+Чтобы включить бэклог и спринты на **Простых** досках:
 1. Нажмите **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton.enable-backlog }}** в верхней части экрана.
+
 1. Если на доске уже есть задачи, выберите, куда их перенести: в бэклог или спринт.
 
 Появится вкладка **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** со списком задач бэклога и спринтами.
 
-## Как добавить задачи в бэклог на новых досках {##add-new-backlog}
+## Как добавить задачи в бэклог {#add-new-backlog}
+
+Вы можете добавить или создать задачу из любой доступной вам очереди.
 
 Чтобы добавить одну задачу:
-1. Решите, куда требуется добавить задачу: в бэклог или спринт, и в нужном разделе нажмите **+ {{ ui-key.startrek.ui_components_agile_common_AddIssueButton.add-issue-button }}**.
-1. Выберите существующую задачу или создайте новую прямо на доске. Вы можете добавить или создать задачу из любой доступной вам очереди.
 
-Чтобы добавить группу задач, например, все задачи очереди с определенным исполнителем, выполните импорт задач:
-1. Нажмите **{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssuesImportButton.import-issues }}** в верхней части экрана.
-1. Выберите, куда поместить задачу: в бэклог или в спринт.
-1. Нажмите **+ {{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}** и задайте условие для выбора задач. Нажмите **{{ ui-key.startrek.ui_components_issues-import_IssuesImportDialog.import }}**. Задачи появятся на вкладке **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** или среди задач бэклога, или в спринте.
+1. Решите, куда требуется добавить задачу: в бэклог или спринт, и в нужном разделе нажмите **+ {{ ui-key.startrek.blocks-desktop_b-agile-board.create-issue--title }}**.
+1. Выберите существующую задачу или создайте новую прямо на доске.
+
+Чтобы добавить группу задач, например, все задачи очереди с определенным исполнителем, используйте автодобавление:
+
+1. На доске нажмите **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}** → **{{ ui-key.startrek.ui_components_agile_settings_AgileSettingsLayout.issue-updates }}**.
+1. В блоке **{{ ui-key.startrek.ui_components_agile_settings_BoardIssueUpdatesSettings.import-title }}** нажмите **+ {{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**. Выберите из списка параметр и укажите значение. Например, чтобы добавить на доску все задачи, в которых вы являетесь исполнителем, выберите параметр **Исполнитель** и укажите для него значение **Я**. Чтобы добавить дополнительные параметры, повторите этот шаг.
+
+Также группу задач можно добавить с помощью операций [массового редактирования](agile-new-issues.md#bulk):
+1. На странице [поиска задач]({{ link-tracker }}issues) отметить нужные задачи с помощью чекбоксов слева от задачи.
+1. На появившейся внизу экрана панели с массовыми действиями над задачами нажмите ![](../../_assets/tracker/svg/actions.svg) → **Добавить на доску**. Поиском по названию отыщите нужную доску и нажмите **Применить**.
