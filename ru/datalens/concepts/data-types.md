@@ -231,29 +231,104 @@ FALSE
 
 {% note info %}
 
-Создание дерева доступно только в типе чарта **Таблица**.
-
-Для хранения деревьев можно использовать источники, которые поддерживают работу с массивами:
-
-
-* {{ CH }}
-* {{ PG }}
+Дерево можно использовать только в чарте типа **Таблица**.
 
 {% endnote %}
 
 ### Создание дерева {#how-to-create-tree}
 
-1. В источнике данных определите массив с полным путем для каждого узла дерева. Например:
+Чтобы создать дерево, добавьте [вычисляемое поле](../operations/dataset/create-calculated-field.md) на уровне датасета или чарта через формулу `TREE(ARRAY([lev_1],[lev_2],[lev_3],[lev_n]))`, где `[lev_1]`,`[lev_2]`,`[lev_3]`, `[lev_n]` — поля датасета, определяющие иерархию дерева. 
 
-   * United States — `["United States"]`
-   * West — `["United States", "West"]`
-   * Idaho — `["United States", "West", "Idaho"]`
+{% cut "Пример создания дерева для БД-источника, не содержащего массив данных" %}
 
-   При наличии столбцов со значениями иерархии такой массив можно создать с помощью функции [ARRAY](../function-ref/ARRAY.md). Например: `ARRAY([Country], [Region], [State])`.
+1. Подготовьте данные в источнике:
 
-1. На основе массива [создайте вычисляемое поле](../operations/dataset/create-calculated-field.md) через формулу: `TREE([Raw Geo-Tree])`, где `Raw Geo-Tree` — имя поля с типом **Массив строк**, описывающего дерево.
+   1. Создайте таблицу со столбцами, которые содержат значения иерархии.
+
+      {% cut "Пример создания таблицы в {{ PG }}" %}
+
+      ```sql
+      CREATE TABLE table_without_tree (
+         id serial primary key,
+         country text,
+         region text,
+         city text
+      );
+      ```
+
+      {% endcut %}
+
+   1. Добавьте в таблицу данные с полным путем для каждого узла дерева.
+
+      {% cut "Пример добавления данных в {{ PG }}" %}
+
+      ```sql
+      INSERT INTO table_without_tree (country, region, city)
+      VALUES('Russia', 'Altay', 'Barnaul');
+
+      INSERT INTO table_without_tree (country, region, city)
+      VALUES('Russia', 'Altay', 'Biysk');
+
+      INSERT INTO table_without_tree (country, region, city)
+      VALUES('Russia', 'Altay', 'Aleisk');
+      ```
+
+      {% endcut %}
+
+1. В датасете создайте:
+
+   * Вычисляемое поле с типом **Массив строк**, описывающее дерево. Например, поле `position` с формулой `ARRAY([country], [region], [city])`.
+   * Вычисляемое поле с типом **Дерево строк**. Например, поле `hierarchy` с формулой `TREE([position])`, где `position` — поле с типом **Массив строк**, описывающее дерево.
+
+     {% note tip %}
+
+     Создание массива и дерева строк можно объединить в одном поле с формулой `TREE(ARRAY([country], [region], [city]))`.
+
+     {% endnote %}
+
+{% endcut %}
+
+{% cut "Пример создания дерева для БД-источника, содержащего массив данных" %}
+
+1. Подготовьте данные в источнике:
+
+   1. Создайте таблицу, содержащую массив строк.
+
+      {% cut "Пример создания таблицы в {{ PG }}" %}
+
+      ```sql
+      CREATE TABLE table_with_tree (
+        id serial primary key,
+        position text[]
+      );
+      ```
+
+      {% endcut %}
+
+   1. Добавьте в таблицу данные в виде массива с полным путем для каждого узла дерева.
+
+      {% cut "Пример добавления данных в {{ PG }}" %}
+
+      ```sql
+      INSERT INTO table_with_tree (position)
+      VALUES('{"Russia","Altay","Barnaul"}');
+
+      INSERT INTO table_with_tree (position)
+      VALUES('{"Russia","Altay","Biysk"}');
+
+      INSERT INTO table_with_tree (position)
+      VALUES('{"Russia","Altay","Aleisk"}');
+      ```
+
+      {% endcut %}
+
+1. В датасете создайте вычисляемое поле с типом **Дерево строк**. Например, поле `hierarchy` с формулой `TREE([position])`, где `position` — поле с типом **Массив строк**, описывающее дерево.
+
+{% endcut %}
 
 ### Использование дерева в чарте {#how-to-use-tree}
+
+Подготовленные в источнике данные можно использовать для создания дерева в чарте **Таблица**:
 
 1. [Создайте](../visualization-ref/table-chart.md#create-diagram) чарт **Таблица**.
 1. Перетащите в секцию **Столбцы** измерение с типом **Дерево строк**. В области визуализации отобразится древовидная иерархия. Используйте значок **+** или **-**, чтобы раскрыть или свернуть дерево.

@@ -20,13 +20,13 @@
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %} 
 
-    1. В поле **Платформа** выберите GitHub.
+    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitHub.
 
-    1. Укажите адрес публичного репозитория в формате `https://github.com/<логин владельца репозитория>/<имя репозитория>`. Поле **Токен** оставьте пустым.
+    1. Укажите адрес публичного репозитория в формате `https://github.com/<логин владельца репозитория>/<имя репозитория>`. Поле **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** оставьте пустым.
 
-    1. Нажмите кнопку **Подключить**.
+    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 - Закрытый репозиторий
 
@@ -34,7 +34,7 @@
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. В поле **Платформа** выберите GitHub.
+    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitHub.
 
     1. Получите на GitHub OAuth-токен для своего репозитория:
 
@@ -62,18 +62,18 @@
 
     1. Укажите адрес репозитория в формате `https://github.com/<логин владельца репозитория>/<имя репозитория>` и токен для подключения.
 
-    1. Нажмите кнопку **Подключить**.
+    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 {% endlist %}
 
 Чтобы привязать коммит к задаче в {{ tracker-name }}, укажите ключ задачи в комментарии к коммиту. Привязанные коммиты можно просмотреть:
 
-- на странице задачи на вкладке **Коммиты**;
-- на странице очереди на вкладке **Коммиты**.
+- на странице задачи на вкладке **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}**;
+- на странице очереди на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**.
 
-Если вы не видите вкладки **Коммиты**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
+Если вы не видите вкладки **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
 
 ## GitLab {#section_kjw_cy2_ggb}
 
@@ -87,13 +87,13 @@
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. В поле **Платформа** выберите GitLab.
+    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitLab.
 
-    1. Укажите адрес публичного репозитория в формате `https://gitlab.com/<логин владельца репозитория>/<имя репозитория>`. Поле **Токен** оставьте пустым.
+    1. Укажите адрес публичного репозитория в формате `https://gitlab.com/<логин владельца репозитория>/<имя репозитория>`. Поле **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** оставьте пустым.
 
-    1. Нажмите кнопку **Подключить**.
+    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 - Закрытый репозиторий
 
@@ -107,7 +107,7 @@
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. В поле **Платформа** выберите GitLab.
+    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitLab.
 
     1. Получите на GitLab OAuth-токен для своего репозитория:
 
@@ -137,18 +137,18 @@
 
     1. Укажите адрес публичного репозитория в формате `https://gitlab.com/<логин владельца репозитория>/<имя репозитория>` и токен для подключения.
 
-    1. Нажмите кнопку **Подключить**.
+    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 {% endlist %}
 
 Чтобы привязать коммит к задаче в {{ tracker-name }}, укажите ключ задачи в комментарии к коммиту. Привязанные коммиты можно просмотреть:
 
-- на странице задачи на вкладке **Коммиты**;
-- на странице очереди на вкладке **Коммиты**.
+- на странице задачи на вкладке **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}**;
+- на странице очереди на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**.
 
-Если вы не видите вкладки **Коммиты**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
+Если вы не видите вкладки **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
 
 ## Bitbucket {#section_u5z_zxk_m2b}
 
@@ -156,7 +156,7 @@
 
 1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-1. В поле **Платформа** выберите Bitbucket.
+1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите Bitbucket.
 
 1. Создайте для {{ tracker-name }} пароль на Bitbucket. С помощью этого пароля {{ tracker-name }} сможет подключаться к вашим репозиториям.
     - Авторизуйтесь на Bitbucket.
@@ -179,13 +179,13 @@
 
 1. Вставьте пароль, который вы создали для доступа {{ tracker-name }} к Bitbucket. Ваш личный пароль от Bitbucket для этого не подойдет.
 
-1. Нажмите кнопку **Подключить**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
+1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 Чтобы привязать коммит к задаче в {{ tracker-name }}, укажите ключ задачи в комментарии к коммиту. Привязанные коммиты можно просмотреть:
 
-- на странице задачи на вкладке **Коммиты**;
-- на странице очереди на вкладке **Коммиты**.
+- на странице задачи на вкладке **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}**;
+- на странице очереди на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**.
 
-Если вы не видите вкладки **Коммиты**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
+Если вы не видите вкладки **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).

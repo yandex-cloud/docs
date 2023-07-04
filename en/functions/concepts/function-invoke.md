@@ -81,6 +81,17 @@ Where:
    }
    ```
 
+   `authorizer` element structure:
+   ```
+   {
+       "jwt": { // Field that is filled in by the API Gateway JWT authorizer. Contains data about the user and their permissions'
+         "claims": "<dictionary of JWT body fields>",
+         "scopes": "<list of JWT owner permissions>"
+       }
+       //  Other authorization context fields returned from the authorizer function
+   }
+   ```
+
 - `body`: The request body in string format. Data can be Base64-encoded (in this case, {{ sf-name }} sets `isBase64Encoded: true`).
 
    {% note info %}

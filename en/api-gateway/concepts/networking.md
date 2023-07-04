@@ -6,10 +6,12 @@ By default, an API gateway is located in the isolated IPv4 network with the enab
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-You can specify a [cloud network](../../vpc/concepts/network.md#network) in API gateway settings, if required. In this case, the gateway will:
-
-* Be hosted in the specified cloud network.
-* Have access to the internet and user resources in the specified network, such as databases and VMs.
-* Have an IP address within the `198.19.0.0/16` range when accessing user resources.
+You can specify a [cloud network](../../vpc/concepts/network.md#network) in API gateway settings, if required. In this case, it will have access to the internet and user resources in the specified network, such as databases and VMs.
 
 {% include [network](../../_includes/functions/network.md) %}
+
+If the user specifies a network in the API gateway settings, each [availability zone](../../overview/concepts/geo-scope.md) will have a service subnet created with IP addresses from the 198.19.0.0/16 range. The API gateway will be assigned an IP address from the respective subnet and will have access to all network resources.
+
+{% include [network](../../_includes/functions/network-note.md) %}
+
+To delete the network specified in the API gateway, delete all functions, containers, and API gateways it was set in and wait from 15 minutes to 24 hours.

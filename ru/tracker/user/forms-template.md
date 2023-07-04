@@ -22,13 +22,13 @@
 
 Чтобы создать форму для задач:
 
-1. На панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **Создать задачу**.
+1. На панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
 
 1. В поле вверху страницы выберите очередь.
 
-1. Если в очереди еще нет форм, выберите **Создать форму**. Если у вас уже есть формы, нажмите кнопку **Создать новую форму**.
+1. Если в очереди еще нет форм, выберите **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**. Если у вас уже есть формы, нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new-template }}**.
 
-1. Введите название и описание для формы и нажмите **Продолжить**.
+1. Введите название и описание для формы и нажмите **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
 
 1. Добавьте поля на форму.
 
@@ -75,22 +75,22 @@
     
     * [Отправлять HTTP-запрос](../../forms/send-request.md).
 
-1. Нажмите **Сохранить**.
+1. Нажмите **{{ ui-key.startrek.components_FormButtons.update }}**.
 
 ## Управлять формами {#manage-template}
 
 Управление формами доступно [администратору {{ tracker-name }}](../role-model.md#admin),  владельцу очереди и пользователям, которые имеют [доступ](../manager/queue-access.md) к изменению настроек очереди.
 
-Чтобы перейти к формам очереди, на панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **Создать задачу**.
+Чтобы перейти к формам очереди, на панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
 
 ### Настроить страницу создания задачи {#new-task-page}
 
 Чтобы изменить порядок расположения форм на странице создания задачи, нажмите на значок ![](../../_assets/tracker/svg/range.svg) и перетащите форму.
 
-Вы можете настроить возможность создавать задачи без формы или только с помощью формы. Для этого в правом верхнем углу выберите опцию **Разрешить создание задач без формы**:
-* **всегда** — все пользователи смогут создавать задачи без формы;
-* **никогда** — создание задач будет доступно только через форму;
-* **только команде очереди** — только участники [команды очереди](../manager/queue-team.md) смогут создавать задачи без формы.
+Вы можете настроить возможность создавать задачи без формы или только с помощью формы. Для этого в правом верхнем углу выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}**:
+* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.always }}** — все пользователи смогут создавать задачи без формы;
+* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** — создание задач будет доступно только через форму;
+* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.team }}** — только участники [команды очереди](../manager/queue-team.md) смогут создавать задачи без формы.
 
 ### Изменить параметры формы {#edit-template-name}
 
@@ -98,9 +98,9 @@
 
 1. Выберите форму и нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Выберите **Изменить название и описание**. 
+1. Выберите **{{ ui-key.startrek.ui_components_PageCreateIssue.change-title-and-description }}**. 
 
-1. Введите новые название и описание формы и нажмите **Сохранить**.
+1. Введите новые название и описание формы и нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-main_QueueAdminTabMain.save }}**.
 
 ### Изменить форму {#edit-template}
 
@@ -108,7 +108,7 @@
 
 1. Выберите форму и нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Выберите **Редактировать форму**.
+1. Выберите **{{ ui-key.startrek.ui_components_PageCreateIssue.change-template }}**.
 
 1. Отредактируйте вопросы формы во встроенном конструкторе {{ forms-full-name }} и настройте интеграции с {{ tracker-name }}, как при [создании формы](#create-template).
 
@@ -118,6 +118,6 @@
 
 1. Выберите форму и нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Выберите **Перейти в админку**. 
+1. Выберите **{{ ui-key.startrek.ui_components_PageCreateIssue.switch-to-admin-panel }}**. 
 
 1. В настройках очереди напротив формы нажмите кнопку ![](../../_assets/tracker/icon-delete.png).

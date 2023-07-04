@@ -16,3 +16,4 @@
 * [{#T}](bucket-to-bucket.md)
 * [{#T}](regular-launch-datasphere.md)
 * [{#T}](serverless-live-debug.md)
+* [{#T}](ory-kratos-authorization.md)

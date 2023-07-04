@@ -16,16 +16,16 @@
 
 1. При необходимости отфильтруйте лишние шаблоны с помощью кнопки ![](../../_assets/tracker/queue-filter.png).
 
-1. Возле нужного шаблона нажмите кнопку **Права доступа**.
+1. Возле нужного шаблона нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.item-actions-permissions }}**.
 
-1. Настройте разрешения **Чтение**, **Запись** и **Настройка прав** для категорий:
-    - **Люди и роботы** — индивидуальные настройки для отдельных пользователей. Чтобы добавить пользователя в эту категорию, введите его логин или имя в строку поиска в верхней части таблицы.
-    - **Группы** — настройки для всех сотрудников.
+1. Настройте разрешения **{{ ui-key.startrek.blocks-desktop_roles-table.read }}**, **{{ ui-key.startrek.blocks-desktop_roles-table.write }}** и **{{ ui-key.startrek.blocks-desktop_roles-table.grant }}** для категорий:
+    - **{{ ui-key.startrek.blocks-desktop_roles-table.users }}** — индивидуальные настройки для отдельных пользователей. Чтобы добавить пользователя в эту категорию, введите его логин или имя в строку поиска в верхней части таблицы.
+    - **{{ ui-key.startrek.blocks-desktop_roles-table.groups }}** — настройки для всех сотрудников.
 
 
-    - **Роли** — настройки для пользователей, обладающих определенными ролями по отношению к шаблону:
-        - **Владелец** — владелец шаблона. По умолчанию владелец — это создатель шаблона и только у него есть разрешения **Запись** и **Настройка прав**.
-        - **Участник команды очереди** — пользователи-участники команды очереди, к которой привязана задача.
+    - **{{ ui-key.startrek.blocks-desktop_roles-table.roles }}** — настройки для пользователей, обладающих определенными ролями по отношению к шаблону:
+        - **{{ ui-key.startrek-backend.roles.templateRole.name.OWNER }}** — владелец шаблона. По умолчанию владелец — это создатель шаблона и только у него есть разрешения **{{ ui-key.startrek.blocks-desktop_roles-table.write }}** и **{{ ui-key.startrek.blocks-desktop_roles-table.grant }}**.
+        - **{{ ui-key.startrek-backend.roles.templateRole.name.QUEUE_TEAM_MEMBER }}** — пользователи-участники команды очереди, к которой привязана задача.
 
 Общие шаблоны доступны для подключения всем пользователям на вкладке **Подключение**.
 
@@ -35,17 +35,17 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %} 
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Управление шаблонами**.
+1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-head.manage-templates }}**.
 
 1. Выберите нужную опцию:
-    - **Задачи**, чтобы изменить шаблон задачи.
-    - **Комментарии**, чтобы изменить шаблон комментария.
+    - **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}**, чтобы изменить шаблон задачи.
+    - **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}**, чтобы изменить шаблон комментария.
 
 1. При необходимости отфильтруйте лишние шаблоны с помощью кнопки ![](../../_assets/tracker/queue-filter.png).
 
-1. Возле нужного шаблона выберите ![](../../_assets/tracker/share.png) → **Ссылка на шаблон**.
+1. Возле нужного шаблона выберите ![](../../_assets/tracker/share.png) → **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.link-to-template }}**.
 
 1. Скопируйте содержимое адресной строки браузера и отправьте его пользователю, с которым хотите поделиться.
 
@@ -61,13 +61,13 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %} 
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Управление шаблонами**.
+1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-head.manage-templates }}**.
 
 1. Выберите нужную опцию:
-    - **Задачи**, чтобы изменить шаблон задачи.
-    - **Комментарии**, чтобы изменить шаблон комментария.
+    - **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}**, чтобы изменить шаблон задачи.
+    - **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}**, чтобы изменить шаблон комментария.
 
 1. При необходимости отфильтруйте лишние шаблоны с помощью кнопки ![](../../_assets/tracker/queue-filter.png).
 

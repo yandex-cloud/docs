@@ -885,9 +885,9 @@ default:
       license:
         v1|int|string: Free
         v1|pricingRate:
-          100|int|string: ₸1332
-          250|int|string: ₸1110
-          6|int|string: ₸1548
+          100|int|string: ₸2000
+          250|int|string: ₸1800
+          6|int|string: ₸2200
   sku|KZT|cdn:
     api:
       network:
@@ -1627,9 +1627,9 @@ default:
       license:
         v1|int|string: Free
         v1|pricingRate:
-          100|int|string: ₽222
-          250|int|string: ₽185
-          6|int|string: ₽258
+          100|int|string: ₽400
+          250|int|string: ₽360
+          6|int|string: ₽440
   sku|RUB|cdn:
     api:
       network:
@@ -2375,9 +2375,9 @@ default:
     tracker:
       license:
         v1|pricingRate:
-          100|string: $2.846154
-          250|string: $2.371795
-          6|string: $3.307692
+          100|string: $3.200000
+          250|string: $2.880000
+          6|string: $3.520000
         v1|string: Free
   sku|USD|cdn:
     api:
@@ -3223,6 +3223,11 @@ default:
               hold: On Hold
             open: Open
             resolved: Resolved
+      defaults:
+        sla:
+          default:
+            filter:
+              name: All queue issues
       fields:
         issue:
           access: Access
@@ -3232,6 +3237,7 @@ default:
           boards: Boards
           commentWithExternalMessageCount: Number of comments with message
           commentWithoutExternalMessageCount: Number of comments without message
+          commits-key-value: Commits
           components-key-value: Components
           created-key-value: Created
           description-key-value: Description
@@ -3258,6 +3264,11 @@ default:
             relationship:
               has:
                 epic: Has epic
+              is:
+                dependent:
+                  by: Is dependent by
+          meta:
+            comment: Comment
           modifier: Modifier
           originalEstimation-key-value: Original Estimate
           paletteColor: Color
@@ -3281,6 +3292,21 @@ default:
           type-key-value: Type
           updated-key-value: Updated
           votes: Votes
+        trigger:
+          condition:
+            field:
+              comment: Comment text
+            property:
+              ignoreCase: Ignore case
+              noMatchBefore: Did not match before
+              removeMarkup: Ignore markup
+            type:
+              links:
+                created: Link created
+              text:
+                field:
+                  equals:
+                    string: Equals string
       messages:
         boards:
           poker:
@@ -3289,18 +3315,54 @@ default:
                 maximum:
                   double: Maximum value
         sla:
+          assignee:
+            deleted:
+              timer:
+                trigger:
+                  condition:
+                    type: Unassigned
+            set:
+              timer:
+                trigger:
+                  condition:
+                    type: Assigned
+          client:
+            commented:
+              timer:
+                trigger:
+                  condition:
+                    type: Response from requester
           issue:
             created:
               timer:
                 trigger:
                   condition:
                     type: Issue created
+            has:
+              assignee:
+                condition:
+                  type: Issue has assignee
+              'no':
+                assignee:
+                  condition:
+                    type: Issue has no assignee
             'on':
               status:
                 timer:
                   trigger:
                     condition:
                       type: Issue has the status
+          resolution:
+            deleted:
+              timer:
+                trigger:
+                  condition:
+                    type: Resolution deleted
+            set:
+              timer:
+                trigger:
+                  condition:
+                    type: Resolution set
           send:
             mail:
               threshold:
@@ -3323,7 +3385,19 @@ default:
           condition:
             type:
               and: And
+              calculate:
+                formula:
+                  watch: Formula fields changed
+              CommentMessage:
+                External: E-mail comment
+                Internal: Common comment
+              eventType:
+                create: Issue created
+                update: Issue changed
               fieldBecameEqual: Field value became equal to
+              fieldBecameNotEmpty: Field value became not empty.
+              fieldEquals: Field equals
+              fieldIsEmpty: Field value is empty
               or: Or
         user:
           named:
@@ -3413,14 +3487,22 @@ default:
             queue-lead: Queue Owner
             team-member: Team Member
             voted-by-follower: Voted
+        templateRole:
+          name:
+            OWNER: Owner
+            QUEUE_TEAM_MEMBER: Queue Team Member
       types:
         types:
           sla:
             settings: SLA
           trigger:
             action:
+              calc:
+                formula: Calculate formula
               create:
+                comment: Write comment
                 issue: Create issue
+              duty: Get a duty
     startrek:
       blocks_touch_b-related-issues:
         delete: Delete link
@@ -3438,6 +3520,7 @@ default:
         access-type--yandex: Yandex
       blocks-desktop_b-agile-board:
         add-note: Add note
+        create-issue--title: Add issue
         edit-note: Edit note
       blocks-desktop_b-bulk-change:
         edit-fields: Edit fields
@@ -3478,12 +3561,18 @@ default:
         button-update: Save
         name: Name
         task-assignee: Assign to issues by default
+      blocks-desktop_b-form-related-issues:
+        remove-link: Remove link
       blocks-desktop_b-head:
         add-user: Add users
+        cloud-burger-billing: Billing
+        cloud-burger-users-licenses: Manage users
         dashboards: Dashboards
         filters: Issues
         manage-subscriptions: Notification settings
+        manage-templates: Manage templates
         menu-group--recent: Viewed recently
+        my-page: My page
         new_issue: New issue
         new-agile-board: New board
         new-dashboard: New dashboard
@@ -3510,7 +3599,6 @@ default:
         field-tags: Tags
         issue-status-open: Open
         issue-summary: Issue name
-        issue-type-task: Task
         title: Card view
       blocks-desktop_b-page-agile-admin-tab_type_columns:
         issues-limit: Maximum number of issues per column
@@ -3523,6 +3611,7 @@ default:
         filter-type-query: Query
         name: Name
         save-btn: Save
+        title: Basic settings
         use-ranking: Allow changing the order of issues
       blocks-desktop_b-page-agile-admin-tab_type_poker:
         action-save: Save
@@ -3538,13 +3627,8 @@ default:
         reports: Burn down chart
         sprints: Sprints
       blocks-desktop_b-page-agile-sprints:
-        archived-sprints: Archived sprints
         components: Components
         create-epic: Create epic
-        epics: Epics
-        sprints: Sprints
-        tags: Tags
-        tasks: Backlog
         versions: Versions
         without-epics: Without epics
       blocks-desktop_b-page-components:
@@ -3568,10 +3652,39 @@ default:
       blocks-desktop_b-page-projects:
         create: Create project
       blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
+        action_add-action: Add new action
+        action_add-condition: Add condition
+        filter-type--query: Query
+        label_filter: Filter settings
         type-toggle--create: Create issues
         type-toggle--update: Update issues
+      blocks-desktop_b-page-queue-admin-tab_type_autoactions:
+        button-create: Create auto action
+        title: Auto actions
+      blocks-desktop_b-page-queue-admin-tab_type_calendar-editor:
+        action-save: Save
+        holidays-title: Holidays and transferred holiday days
+        no-holidays-title: Manage exceptions
+      blocks-desktop_b-page-queue-admin-tab_type_calendars:
+        create-calendar: Create schedule
+        custom-calendars: My schedules
+        edit-button: Edit
       blocks-desktop_b-page-queue-admin-tab_type_events:
+        field--allow-external-mailing: Allow to send emails outside of the intranet
         field--default-priority: Default priority of issues
+      blocks-desktop_b-page-queue-admin-tab_type_form-editor:
+        create-btn: Create
+      blocks-desktop_b-page-queue-admin-tab_type_forms:
+        add-btn: Add form
+      blocks-desktop_b-page-queue-admin-tab_type_macro-editor:
+        action_create: Create
+        field-action--set: Set value
+        label_actions: Actions
+        label_body: Message
+        label_name: Macro name
+      blocks-desktop_b-page-queue-admin-tab_type_macros:
+        button-create: Create macro
+        title: Macros
       blocks-desktop_b-page-queue-admin-tab_type_notifications:
         components: Issues with the required component
         queue: All issues
@@ -3590,12 +3703,24 @@ default:
         update-access-denied-msg-btn: Edit
       blocks-desktop_b-page-queue-admin-tab_type_sla:
         add-sla: Create a rule
+        create-sla: Create a rule
+        edit-sla: Edit
         notification-condition-min: Warning
+        sla-condition-end: Stop
         sla-condition-pause: Pause
+        sla-condition-start: Start
       blocks-desktop_b-page-queue-admin-tab_type_team:
         field--bind-to-lead: Assign new issues to lead
+      blocks-desktop_b-page-queue-admin-tab_type_trigger-editor:
+        action_add-action: Add new action
+        action_create: Create
+        action_save: Save
+        label_actions: Actions
+        label_conditions: Trigger conditions
       blocks-desktop_b-page-queue-admin-tab_type_triggers:
+        bulk-move-button: Change trigger order
         button-create: Create trigger
+        content-header--status: Status
         title: Triggers
       blocks-desktop_b-page-queue-admin-tab_type_types:
         add-issue-type: Add issue type
@@ -3604,12 +3729,15 @@ default:
         actions--copy: Copy
         copy-queue-workflow: Copy workflow from another queue
       blocks-desktop_b-page-queue-admin:
+        group-title--automatization: Automation
         tab-title--events: Changelog
         tab-title--fields: Queue fields
+        tab-title--forms: Forms integration
         tab-title--main: Basic settings
         tab-title--permissions: Access
         tab-title--sla: SLA
         tab-title--team: Queue team
+        tab-title--triggers: Triggers
         tab-title--types: Issue types
         tab-title--workflows: Workflow
       blocks-desktop_b-page-queue-description:
@@ -3617,7 +3745,12 @@ default:
       blocks-desktop_b-page-queue:
         cp: Configure
       blocks-desktop_b-page-settings-templates:
+        create-template: Create template
+        edit-form-label-queue: 'Queue binding:'
         item-actions-permissions: Access control
+        link-to-template: Link to template
+        type-comments: Comments
+        type-issues: Issues
       blocks-desktop_b-page-settings:
         comments-and-history: Message order in issues
         comments-new-on-top: Newest first
@@ -3630,7 +3763,6 @@ default:
         prefer-login: Display login instead of name
         receive-own-events: Receive updates with my own actions
         save: Save
-        sprint-columns-view-content: Display sprints and issues in a single column
         users-display-format: User display
       blocks-desktop_b-page-stat:
         make-report: Time Spent Report
@@ -3656,6 +3788,7 @@ default:
         department: Department
         goals: ' Show "Goals" tab'
         integration-settings: Integration settings
+        integration-settings-show: Show integration settings
         mail: Sending mails
         mail-checkbox: Allow emails to be sent externally
         notification-fields: Fields in notifications
@@ -3668,6 +3801,9 @@ default:
         required-fields: Required fields for the queue
         save: Save
         show-create-issue-form: Show the standard issue creation form
+        show-create-issue-form--always: Always
+        show-create-issue-form--never: Never
+        show-create-issue-form--team: Team only
         status-on-link: Status after adding external link
         voting: Voting in issues
       blocks-desktop_b-queue-issue-type__workflow-table:
@@ -3679,13 +3815,11 @@ default:
         projects: Projects
       blocks-desktop_b-screen:
         worklog: Time spent
-      blocks-desktop_b-sprint-task:
-        actions-menu--add-to-poker: Add to poker
-      blocks-desktop_b-sprints-list:
-        sprint-status--archived: Archived
       blocks-desktop_b-subscriptions-header:
         roles: Notifications
         subscriptions: Subscriptions
+      blocks-desktop_b-table-related-issues:
+        relation-is-duplicated-by: Duplicates
       blocks-desktop_b-ticket-fields:
         status: Status
       blocks-desktop_b-ticket-sidebar:
@@ -3701,6 +3835,8 @@ default:
         pivot: Pivot report
         queue-hint: Queue
         timesheet: Timesheet report
+      blocks-desktop_calendar-editor--working-time-select:
+        option--daily24x7: Round the clock
       blocks-desktop_comment-form:
         save: Save
         send: Submit
@@ -3725,6 +3861,7 @@ default:
       blocks-desktop_field-create-form:
         field-type-number: Number
         field-type-option-list: Dropdown list
+        field-type-uri: Link
         field-type-user: User list
         label--category: Category
         label--name: Name in Russian
@@ -3737,9 +3874,13 @@ default:
       blocks-desktop_field-create-modal:
         button--create: Create
         button--next: Next
+      blocks-desktop_fields-switcher:
+        switcher-title: Choose fields
       blocks-desktop_file:
         copy-link-button: Copy link
         delete-button: Remove
+      blocks-desktop_filter-edit-modal:
+        filter--title: Filter settings
       blocks-desktop_form-clone:
         clone-all-fields: Copy issue fields
         link-with-original: Link the cloned issue
@@ -3760,6 +3901,7 @@ default:
         email-from: From
         email-nickname: Nickname
         email-subject: Subject
+        from-robot-checkbox: Send as robot
         submit: Submit
       blocks-desktop_issues-filter-save-modal:
         action_submit: Save
@@ -3771,7 +3913,9 @@ default:
         filter-remove-confirm-submit: Delete
         permissions-group--groups: Groups
       blocks-desktop_issues-filter:
+        action--add-field: Add filter
         action--apply-query: Apply
+        action--reset: Reset
       blocks-desktop_issues-table:
         group-by--null: Not grouped
         select-columns: Change columns
@@ -3783,6 +3927,7 @@ default:
         menu-agile: Boards
         menu-dashboards: Dashboards
         menu-queues: Queues
+        my-settings: Personal settings
         new-issue: Create issue
       blocks-desktop_migration-button:
         migrate-button: Switch to our new technologies
@@ -3791,12 +3936,15 @@ default:
       blocks-desktop_page-admin-tab_type_fields:
         button--create-field: Create field
         change-category-form--change: Save
+        field-type--issue: Issue
         field-type--project: Project
         field-type--resolution: Resolution
         field-type--status: Status
         field-type--uri: URL
+        table-head--type: Type
       blocks-desktop_page-admin-tab_type_repositories:
         connect: Connect repository
+        status--success: Connected
       blocks-desktop_page-admin-tab:
         create--resolutions: Create resolution
         create--statuses: Create a status
@@ -3839,25 +3987,38 @@ default:
         preset-title--outsource-development-preset: Software development as a service
         preset-title--scrum-development-preset: Scrum
         preset-title--tiered-support-preset: Multi-tiered support
+      blocks-desktop_repository-modal:
+        button--connect: Connect
+        platform: Platform
+        token: Token
       blocks-desktop_roles-table:
         access-control: Access control
         apply: Apply
+        grant: Grant
         groups: Groups
         read: Read
         roles: Roles
         users: Users and robots
         write: Write
       blocks-desktop_sla-editor:
+        actions--save: Save
+        calendar: Schedule
+        example--state-in-progress: In progress
+        excesses--recipients: Recipients
         excesses--title: Notifications
+        excesses--type: Notify via
+        restart-checkbox-text: Restart the timer each time start conditions are triggered
+        restart-header: Restart
         thresholds--max: Time until expiration
         thresholds--new: Create a new filter
         thresholds--title: Timeframes for issues
         timers--start: Start
         timers--stop: Stop
+        timers--title: Timer settings
+      blocks-desktop_sla-status-card:
+        pause-condition-title: Pause
       blocks-desktop_spotlight-preview:
         owner: Owner
-      blocks-desktop_sprint-form:
-        button-save: Save
       blocks-desktop_st-color-tokens:
         delete-btn: Remove from list
       blocks-desktop_st-extra-filter:
@@ -3875,9 +4036,54 @@ default:
       blocks-desktop_st-tokens-chooser:
         choose-from-list-button: Choose colors
       blocks-desktop_trigger-action:
+        action_add-variable: Add variable
+        action_select-field: Select field
+        calculateformula-add-variable: Add a variable
+        calculateformula-formula-label: Formula for automatic calculation
+        calculateformula-output-field: Choose the field
+        calculateformula-output-field-label: Field for calculation
+        createcomment--invite-from-field: Invite users from a field
+        createissue-create: Fill in the fields
+        createissue-fromRobot: Create as robot
+        createissue-linkWithInitialIssue: Link with initial issue
+        field-action_add: Add to list
+        field-action_remove: Remove from list
+        field-action_set: Set value
+        field-action_unset: Clear field
+        select-action--checklist: Create a checklist
+        select-action--comment: Add comment
+        select-action--createissue: Create issue
+        select-action--field: Update fields
+        select-action--formula: Calculate value
+        select-action--move: Move issue
         select-action--transition: Change issue status
+        select-action--webhook: HTTP request
         title_createissue: Creating issues
+        title_webhook: Webhook
+        transition-status: Next status
+        webhook-auth: Auth type
+        webhook-auth--basic: Basic
+        webhook-auth--noauth: NoAuth
+        webhook-auth--oauth: OAuth 2.0
+        webhook-body: Request body
+        webhook-content-type: Content type
+        webhook-method: Method
+        webhook-method--post: POST
+        webhook-token: Token
+        webhook-token-header: Auth header
+        webhook-token-type: Token type
+        webhook-url: URL
         webhook-variables: Variables
+      blocks-desktop_trigger-condition:
+        condition-type--and_short: All
+        condition-type--checklist: Checklist
+        condition-type--comment: Comment text
+        condition-type--comment-author: Comment author
+        condition-type--comment-type: Comment type
+        condition-type--event: Event
+        condition-type--links: Action with link
+        condition-type--or_short: Any
+        title: Conditions to be met
       blocks-desktop_wiki-widget-copy-url:
         title: Get the Wiki code
       blocks-desktop_workflow-condition:
@@ -3918,6 +4124,10 @@ default:
         add-status-popup--name-en: Transition button name
         sidebar-add-status: Add status
         sidebar-title: Statuses and transitions
+      components_Checklist:
+        new-item-button-caption: Add item
+      components_ChecklistItem_ChecklistItemForm:
+        button-submit: Save
       components_FormButtons:
         create: Create
         update: Save
@@ -3929,18 +4139,28 @@ default:
         field--priority: Priority
         field--tags: Tags
         field--type: Type
+      components_HiThere:
+        wrong-user-btn: Log in
       components_IssueFieldView:
         me-multiple: Add me
       components_Licenses:
         default-full-access-label: Full access for all new users
         department-access-title--readOnly: Read only
         departments: Departments
+        group-access-title--readOnly: Read only
       components_LicensesDefaultFullAccessModal:
         button-submit--toEnable: Enable
       components_Poker:
         estimate: Estimate
         mark-title: Estimate
         users-section-title: Team
+      components_QueueAdminAutoactions_CreateTicketForm:
+        actions: Action
+        actions-create: Create issue
+      components_QueueAdminAutoactions_Cron:
+        every: Every
+        every-week: Every
+        every-work-day: Every work day
       components_QueuePresetOnboarding:
         preset-name--scrum-development-preset: Scrum
       lib_goals-info:
@@ -3957,7 +4177,6 @@ default:
         duration-label: Time spent
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Delete board
-        filters-manage: Manage filters
         migration-rollback: Switch back to the old version
       ui_components_agile_agile-board_AgileBoardAddColumnButton:
         new-column-button: Add column
@@ -3966,43 +4185,85 @@ default:
         column-menu--delete: Delete
         column-menu--edit: Edit
       ui_components_agile_agile-board_AgileBoardCreateModal:
+        board-type--scrum: With backlog and sprints
+        board-type--simple: Basic
         submit-btn: Create
       ui_components_agile_agile-board_AgileBoardEmptyScreen:
         empty-screen--new-issue: New issue
       ui_components_agile_agile-board_AgileBoardIssue:
         issue-actions--delete-from-board: Remove from board
-      ui_components_agile_agile-board_AgileBoardIssuesImportButton:
-        import-issues: Import issues
+        issue-actions--move-down: Move to bottom of column
+        issue-actions--move-up: Move to top of column
       ui_components_agile_agile-board_AgileBoardMigrationForm:
         submit-btn: Start switching
       ui_components_agile_agile-board_AgileBoardUnusedStatuses:
         unused-statuses-add-to-column: Add to column
+        unused-statuses-create-column: Create column
+      ui_components_agile_agile-board_FinishSprintDialog:
+        finish: Finish
+      ui_components_agile_backlog_BacklogAddColumnButton:
+        add-column: Add column
       ui_components_agile_backlog_BacklogIssue:
         backlog-default-column: Backlog
-      ui_components_agile_backlog_BacklogIssuesImportButton:
-        import-issues: Import issues
       ui_components_agile_common_AddIssueButton:
         add-issue-button: Add issue
-      ui_components_agile_common_AgileFilterParamsPicker:
-        save: Save
+      ui_components_agile_common_AgileFilters:
+        action-title-save: Save
+        all-issues-filter-title: All issues
+        reset-button: Reset
       ui_components_agile_common_AgileTabs:
         backlog: Backlog
         board: Board
+        poker: Planning poker
+      ui_components_agile_common_BulkActionsPanel:
+        add-to-sprint: Add to sprint
       ui_components_agile_common_ColumnForm:
         create-column-label--statuses: Column statuses
         create-column-submit-button--create: Add
+      ui_components_agile_common_FieldsSelect:
+        fields-settings: Card fields
+      ui_components_agile_common_FinishedSprintsButton:
+        finished-sprints: Finished sprints
+      ui_components_agile_common_IssueActionsMenu:
+        select-issue: Select
+      ui_components_agile_common_QuickFilterPopup:
+        filters-manage: Manage filters
       ui_components_agile_common_QuickFiltersItem:
         quick-filter--assignee-me: Assigned to me
         quick-filter--author-me: Created by me
+      ui_components_agile_common_SprintForm:
+        create-sprint: Create sprint
+      ui_components_agile_common_SprintFormFields:
+        take-sprint-to-work: Take to work
+      ui_components_agile_common_StartSprintButton:
+        start: Start
+      ui_components_agile_common_UnusedStatusesButton:
+        unused-statuses-button: Unused statuses
+      ui_components_agile_common_ViewModeControl:
+        columns: Columns
+        columnsByStatus: Columns by statuses
+        customColumns: Custom columns
+      ui_components_agile_poker_hooks:
+        add-issue-to-poker: Add to poker
       ui_components_agile_poker_PokerButton:
         poker: Poker
       ui_components_agile_poker_PokerIssueForm:
         apply-estimate: Set an estimate
         show-estimates: Show estimates
+      ui_components_agile_settings_AgileSettingsLayout:
+        issue-updates: Automatic issues addition and removal
+        poker: Poker
+      ui_components_agile_settings_BoardIssueUpdatesSettings:
+        import-title: Adding issues to the board
+        removal-title: Removal of issues from the board
       ui_components_agile_settings_PokerSettings:
         aggregation-function-field-label: Calculation of the final score
+        deck-field-label: Deck of estimates
+        display-estimated-field-label: Display estimated issues
+        save: Save
       ui_components_AttachmentsManager:
         attach: Attach files
+        attachments-section-title: Files
       ui_components_BoardsPanel:
         favourites: Favorites
       ui_components_bulk_BulkChangeParametersDialog:
@@ -4017,7 +4278,10 @@ default:
         button-submit: Save
         header-title: Checklist
         new-item-button-caption: Add item
+        remove-item-title: Delete item
         remove-title: Delete checklist
+      ui_components_CommentEditor:
+        write-comment: Write a comment
       ui_components_Confirm:
         ok-button-text: 'Yes'
       ui_components_CreateIssueForm:
@@ -4028,7 +4292,6 @@ default:
         existing-issue: Existing issue
         new-issue: New issue
       ui_components_dashboard_DashboardActionsMenu:
-        delete-action: Delete
         set-start-page-action: Set as start page
       ui_components_dashboard_DashboardHeader:
         dashboard-header-add-button: Add
@@ -4036,7 +4299,11 @@ default:
         dashboard-header-settings-button: Edit
       ui_components_dashboard_FilterEditor:
         editor-source-radio-query: Query language
+      ui_components_dashboard_InfoPresetsWidget:
+        choose-template-button: Select template
+        widget-title: Workflow templates
       ui_components_dashboard_IssuesStatEditor:
+        editor-sort-by-field-label: Sorting
         editor-source-radio-parameters: Parameters
       ui_components_dashboard_OrgAdminEditor:
         editor-published-field-label: Widget published
@@ -4045,6 +4312,8 @@ default:
         show-all: Show All
       ui_components_dashboard:
         summary-field-name: Summary
+      ui_components_FieldEdit:
+        form-submit: Save
       ui_components_FieldsSelect:
         applyChanges: Apply
       ui_components_filter-field:
@@ -4063,7 +4332,6 @@ default:
         search-placeholder: Search by issue name
       ui_components_FilterEditorPane:
         all-issues-filter-title: All issues
-        reset-button: Reset
       ui_components_FilterExportMenu:
         menu-item-export: Export
         title: Filter actions
@@ -4089,6 +4357,8 @@ default:
         timeline-config: Chart settings
       ui_components_issue-comments-templates:
         create-template-item: Create template
+      ui_components_IssueActionsButton:
+        menu-item-create-subticket: Create sub-issue
       ui_components_IssueBulkActionPanel:
         add-link: Add link
         add-me-to-followers: Add me as follower
@@ -4107,10 +4377,18 @@ default:
       ui_components_IssueCommentEditor:
         transport-copy: Cc
         transport-to: To
+      ui_components_IssueComments:
+        comment-action-item-answer: Respond
+        comment-action-item-copy-link: Copy link
+        comment-action-item-delete: Remove
+        comment-action-item-edit: Edit
+        create-issue: Create issue from comment
       ui_components_IssueLinks:
+        empty-list-button: Create sub-issue
         external-relations: Links to external applications
         links-group-title--relates: Related
       ui_components_IssueListsPanel:
+        create: Create
         filter-assignee: Assigned to me
         filter-author: Created by me
         filter-favorite: Favorite issues
@@ -4120,6 +4398,7 @@ default:
         filters: Filters
         issues-list: Issues
         queue: Queue
+        queues: Queues
       ui_components_IssueMenu:
         add-notification: Add reminder
         add-worklog: Add time spent
@@ -4144,13 +4423,19 @@ default:
         preset_author: Created by me
         preset_deadline: Deadline approaching
         preset-deadline: Deadline approaching
+        show-closed-issues: Show completed issues
       ui_components_IssueTabs:
+        description-tab: Description
         fields-tab: Parameters
+        links-tab: Links
+      ui_components_macros_Dialog:
+        apply-button-label: Run
       ui_components_macros_FavoriteButton:
         button-tooltip-add: Add to favorites
+      ui_components_ModalTextEditor:
+        save: Save
       ui_components_NavigationBar_BoardsPanel:
         create-button: Create board
-        menu-group-my-link: Full list of boards created by me
       ui_components_NavigationBar_IssuesPanel:
         all-items-link: All issues
         caption: Issues
@@ -4164,8 +4449,26 @@ default:
         issue-lists-menu-item: Issues
         start-page-title: Start page
         templates-settings: Template management
+      ui_components_new-process_ProcessTypeStep:
+        next-button: Next
+        process-type-development: Development
+        process-type-project: Project management
+        process-type-standard: Basic template
+        process-type-support: Support
+        standard-info-section-time: Time spent
+      ui_components_page-admin_BillingAccountInfo:
+        rebind-account: Change billing account
+        refill-balance: Top up balance
+        refill-dialog-ok-issue: Issue an invoice
+      ui_components_page-admin_BillingAccountList:
+        bind: Link
+        create-account: Create new account
+      ui_components_page-admin_BillingScreen:
+        create-account: Create
       ui_components_page-admin_OrganizationSmallPane:
         add-org-button: Add organization
+      ui_components_page-admin_OrgMainInfoPane:
+        org-manage-button: Manage organization
       ui_components_page-admin_OrgPanes_CloudOrgPane:
         federation-task-action: Connect
         source-title: Yandex Cloud Organization
@@ -4182,6 +4485,9 @@ default:
         menu-item-repositories: Repositories
         menu-item-users: Users
         tracker-settings: Tracker Settings
+      ui_components_page-issues_touch_FilterSettingsMenu:
+        item-filters: Filters
+        item-group: Grouping
       ui_components_page-issues_touch:
         all-issues-filter-title: All issues
         query-language: Query language
@@ -4218,6 +4524,7 @@ default:
         remove-queue-action: Delete queue
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
+        menu-item-calendars: Schedules
       ui_components_page-queue-admin_Signature:
         alias-title: Alias
       ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
@@ -4228,10 +4535,21 @@ default:
         settings: Settings
       ui_components_PageCreateIssue:
         add-parameter: Edit parameters list
+        change-template: Edit form
+        change-title-and-description: Change title and description
+        create-new: Create form
+        create-new-template: Create new form
         empty-template: No form
+        switch-to-admin-panel: Switch to admin panel
+      ui_components_PageCreateIssueForm:
+        continue: Continue
+      ui_components_PageHiThere:
+        wrong-user-btn: Log in
       ui_components_PageIssues_FilterInputTypeSwitch:
         parameters: Parameters
         query-language: Query language
+      ui_components_PageIssues:
+        search-title: Search by all tasks
       ui_components_PageQueue_header:
         export: Export
         settings: Queue settings
@@ -4281,10 +4599,25 @@ default:
         filter-macro-empty_: No value
       ui_components_promo_Page:
         login-button-label: Log in to Tracker
+      ui_components_queue-admin-tab-main_QueueAdminTabMain:
+        save: Save
+      ui_components_queue-admin-tab-workflows_StatusTypeSelector:
+        status-canceled-name: Canceled
+      ui_components_queue-admin-tab-workflows_TransitionEditPageScreen:
+        time-spent: Time spent
+      ui_components_QueueAdminTemplateOptions:
+        allow-empty-template: Allow issues to be created without a form
+        always: Always
+        never: Never
+        team: Only for the queue team
+      ui_components_settings_IssueUpdatesSettings:
+        save: Save
       ui_components_SortButton:
         default-title: Sort
       ui_components_Table2:
         added-columns: Added
+      ui_components_TextEditor:
+        submit: Send
       ui_components_TrackerSearch:
         queues: Queues
       ui_components_TrackerSelect:
@@ -4293,6 +4626,12 @@ default:
         screen-next-button: Continue
       ui_components_workflow-conditions_ConditionsMenu:
         add-condition: Add condition
+    yacloud_billing_account:
+      cloud-billing-account:
+        account_label_new: New payer
+        payment-type_label_card: Bank card
+        payment-type_label_invoice: Bank transfer
+        section_persons: Payers
     yacloud_monitoring:
       actions:
         common:
@@ -4367,6 +4706,11 @@ default:
         section_external-address-specs: Public IP address
       billing:
         account:
+          button_billing-payment-action: Switch to the paid version
+          create-new:
+            section_persons: Payers
+          dashboard:
+            popup-go-pay_label_confirmation: I am switching to the paid version
           detail:
             button_create-periodic-export: Periodic export
             button_export: Export details
@@ -4378,8 +4722,16 @@ default:
             label_include-resources: Resource
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
+          overview:
+            card_label_edit: Change bank card
+            section_card: Bank card
+          switch_dashboard: Overview
           switch_detail: Usage details
+          switch_history: Payment history
           switch_offers: Commitments
+        accounts:
+          label_title: List of accounts
+        switch_accounts: List of accounts
       cdn:
         button_add-domain: Add domain name
         button_resource-content-purge-cache: Purge cache
@@ -5644,9 +5996,21 @@ default:
               console:
                 form:
                   kafka:
+                    KafkaAuthMechanism:
+                      KAFKA_AUTH_MECHANISM_SHA256:
+                        title: SHA 256
+                      KAFKA_AUTH_MECHANISM_SHA512:
+                        title: SHA 512
                     KafkaConnectionType:
                       managed:
                         title: Managed Service for Kafka cluster
+                    KafkaSaslSecurity:
+                      mechanism:
+                        title: Mechanism
+                      password:
+                        title: Password
+                      user:
+                        title: Username
                     KafkaSource:
                       advanced_settings:
                         title: Advanced settings
@@ -5709,6 +6073,8 @@ default:
                       subnet_id:
                         title: Endpoint network interface
                     OnPremiseKafkaAuth:
+                      no_auth:
+                        title: No authentication
                       sasl:
                         title: SASL
             logbroker:

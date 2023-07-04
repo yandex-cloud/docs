@@ -48,6 +48,12 @@ items:
         href: tutorials/websocket-app.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: tutorials/serverless-live-debug.md
+      - name: >-
+          Deploying a web app with JWT authorization in {{ api-gw-name }} and
+          authentication in Firebase
+        href: tutorials/jwt-authorizer-firebase.md
+      - name: Authorization using {{ sf-name }} functions in Ory Kratos
+        href: tutorials/ory-kratos-authorization.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -84,6 +90,8 @@ items:
             href: concepts/extensions/any-method.md
           - name: Authorization using a function
             href: concepts/extensions/function-authorizer.md
+          - name: Authorization using a JWT
+            href: concepts/extensions/jwt-authorizer.md
           - name: WebSocket protocol support
             href: concepts/extensions/websocket.md
           - name: Data validation

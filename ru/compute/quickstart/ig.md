@@ -28,6 +28,8 @@
 
     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
 
+      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
+
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите нужные зоны доступности. Виртуальные машины группы могут находиться в разных зонах и регионах доступности. Подробнее о географии {{ yandex-cloud }} см. в разделе [Обзор платформы](../../overview/concepts/geo-scope.md).
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой виртуальной машины:
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание базовой ВМ.

@@ -50,6 +50,9 @@
        Где:
        * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
        * `service_account_id` — идентификатор сервисного аккаунта.
+
+         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
        * `description` — произвольное описание группы ВМ.
      * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md), например:
 
@@ -235,6 +238,9 @@
 
      Где:
      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+
+       {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
      * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
      * `yandex_compute_instance_group` — описание группы ВМ:
        * Общая информация о группе ВМ:

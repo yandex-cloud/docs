@@ -8,6 +8,12 @@
 
 Группа виртуальных машин может иметь только один сервисный аккаунт, созданный в том же каталоге, что и группа.
 
+{% note info %}
+
+{% include [sa-dependence](../../../_includes/instance-groups/sa-dependence.md) %}
+
+{% endnote %}
+
 #### См. также {#see-also}
 
 - [{#T}](../../quickstart/ig.md).

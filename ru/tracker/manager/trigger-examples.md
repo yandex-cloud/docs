@@ -36,21 +36,21 @@
 1. Убедитесь, что у всех сотрудников, которые могут быть назначены исполнителями задач, есть [полный доступ к {{ tracker-name }}](../access.md).
 
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера. 
 
-1. Задайте условия, чтобы триггер срабатывал при изменении параметров задачи <q>Статус</q> или <q>Компоненты</q>:
+1. Задайте условия, чтобы триггер срабатывал при изменении параметров задачи <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}</q> или <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-components }}</q>:
 
-    1. Выберите опцию **Будут выполнены условия** → **Все**.
+    1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-    1. Добавьте условие **Событие** → **Задача изменилась**.
+    1. Добавьте условие **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.update }}**.
 
-    1. Чтобы назначать исполнителя задачи при изменении статуса, добавьте условие **Системные** → **Статус** → **стало равно** и укажите статус. Доступные статусы зависят от [воркфлоу](workflow.md), который настроен для очереди. 
+    1. Чтобы назначать исполнителя задачи при изменении статуса, добавьте условие **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** и укажите статус. Доступные статусы зависят от [воркфлоу](workflow.md), который настроен для очереди. 
 
         ![](../../_assets/tracker/trigger-example-status.png)
 
-        Чтобы назначать исполнителя задачи при изменении компонентов, добавьте условие **Системные** → **Компоненты** → **стало равно** и укажите компоненты.
+        Чтобы назначать исполнителя задачи при изменении компонентов, добавьте условие **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-components }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** и укажите компоненты.
 
         ![](../../_assets/tracker/trigger-example-components.png)
 
@@ -62,9 +62,9 @@
 
 1. Задайте действие триггера: 
 
-    1. Добавьте действие **Изменить значения в полях**.
+    1. Добавьте действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**.
 
-    1. Выберите поле **Системные** → **Исполнитель** → **Установить значение** и укажите сотрудника, который должен быть назначен исполнителем при срабатывании триггера. 
+    1. Выберите поле **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** → **{{ ui-key.startrek.blocks-desktop_trigger-action.field-action_set }}** и укажите сотрудника, который должен быть назначен исполнителем при срабатывании триггера. 
 
         ![](../../_assets/tracker/trigger-example-assignee.png)
 
@@ -75,27 +75,27 @@
 
 Выполнив задачу, сотрудник может забыть указать важную информацию, например, затраченное время. В этом случае можно настроить триггер, который будет автоматически призывать исполнителя, если задача закрыта и не указано затраченное время:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера.
 
-1. Задайте условия, чтобы триггер срабатывал при закрытии задачи в случае, если поле <q>Затраченное время</q> не заполнено:
+1. Задайте условия, чтобы триггер срабатывал при закрытии задачи в случае, если поле <q>{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEditPageScreen.time-spent }}</q> не заполнено:
 
-    1. Выберите опцию **Будут выполнены условия** → **Все**.
+    1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-    1. Добавьте условие **Системные** → **Статус** → **стало равно** → **Закрыт**. Доступные статусы зависят от [воркфлоу](workflow.md), который настроен для очереди. 
+    1. Добавьте условие **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. Доступные статусы зависят от [воркфлоу](workflow.md), который настроен для очереди. 
 
-    1. Добавьте условие **Учёт Времени** → **Затрачено времени** → **Значение поля пусто**.
+    1. Добавьте условие **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** → **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldIsEmpty }}**.
 
 1. Задайте действия триггера:
 
-    1. Добавьте действие **Добавить комментарий**.
+    1. Добавьте действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**.
 
-    1. Нажмите ![](../../_assets/tracker/summon.png) и в строке **Призвать пользователей из поля** введите <q>Исполнитель</q>.
+    1. Нажмите ![](../../_assets/tracker/summon.png) и в строке **{{ ui-key.startrek.blocks-desktop_trigger-action.createcomment--invite-from-field }}** введите <q>Исполнитель</q>.
 
-    1. Введите текст комментария, который должен увидеть исполнитель, и выберите опцию **Отправлять от имени робота**.
+    1. Введите текст комментария, который должен увидеть исполнитель, и выберите опцию **{{ ui-key.startrek.blocks-desktop_issue-reply-form.from-robot-checkbox }}**.
 
-1. Сохраните триггер, нажав кнопку **Создать**.
+1. Сохраните триггер, нажав кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
 
     ![](../../_assets/tracker/trigger-example-summon.png)
 
@@ -103,37 +103,37 @@
 
 ## Изменять статус задачи после создания связи {#new-link}
 
-Во многих проектах задачи зависят друг от друга, даже когда над ними работают разные люди. Если задача влияет на выполнение одной или нескольких других, важно оповестить коллег о возникших проблемах. Например, связать такие задачи между собой и установить [тип связи](../user/links.md) **Блокирующая задача**.
+Во многих проектах задачи зависят друг от друга, даже когда над ними работают разные люди. Если задача влияет на выполнение одной или нескольких других, важно оповестить коллег о возникших проблемах. Например, связать такие задачи между собой и установить [тип связи](../user/links.md) **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}**.
 
-Настроим триггер, который будет изменять статус задачи и добавлять комментарий для автора, если появилась связь **Блокирующая задача**:
+Настроим триггер, который будет изменять статус задачи и добавлять комментарий для автора, если появилась связь **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}**:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера.
 
-1. Задайте условия, чтобы триггер срабатывал при появлении связи **Блокирующая задача**:
+1. Задайте условия, чтобы триггер срабатывал при появлении связи **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}**:
 
-    1. Выберите опцию **Будут выполнены условия** → **Все**.
+    1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-    1. Добавьте условие **Действие со связью** → **Связь создана** → **Блокирующая задача**.
+    1. Добавьте условие **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--links }}** → **{{ ui-key.startrek-backend.fields.trigger.condition.type.links.created }}** → **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}**.
 
     ![](../../_assets/tracker/blocker-conditions.png)
 
 1. Задайте действия триггера:
 
-    1. Добавьте действие **Изменить статус задачи**.
+    1. Добавьте действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--transition }}**.
 
-    1. В поле **Новый статус задачи** выберите статус, который будет установлен у задачи после выполнения условия. Например, **Требуется информация**. Доступные статусы зависят от [воркфлоу](workflow.md), который настроен для очереди. 
+    1. В поле **{{ ui-key.startrek.blocks-desktop_trigger-action.transition-status }}** выберите статус, который будет установлен у задачи после выполнения условия. Например, **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**. Доступные статусы зависят от [воркфлоу](workflow.md), который настроен для очереди. 
 
-    1. Добавьте действие **Добавить комментарий**.
+    1. Добавьте действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**.
 
-    1. Нажмите ![](../../_assets/tracker/summon.png) и в строке **Призвать пользователей из поля** введите <q>Автор</q>.
+    1. Нажмите ![](../../_assets/tracker/summon.png) и в строке **{{ ui-key.startrek.blocks-desktop_trigger-action.createcomment--invite-from-field }}** введите <q>Автор</q>.
 
-    1. Введите текст комментария, который должен увидеть автор задачи, и выберите опцию **Отправлять от имени робота**. Иначе комментарий будет отправлен от имени пользователя, который запустил действие триггера — добавил связь. 
+    1. Введите текст комментария, который должен увидеть автор задачи, и выберите опцию **{{ ui-key.startrek.blocks-desktop_issue-reply-form.from-robot-checkbox }}**. Иначе комментарий будет отправлен от имени пользователя, который запустил действие триггера — добавил связь. 
 
     ![](../../_assets/tracker/blocker-actions.png)
 
-1. Сохраните триггер, нажав кнопку **Создать**.
+1. Сохраните триггер, нажав кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
 
 ## Отправлять уведомление о создании задачи из письма {#notify_mail}
 
@@ -165,31 +165,31 @@
 
 Настройте триггер, который при создании новой задачи из письма будет отправлять пользователю уведомление по почте:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера.
 
 1. Задайте условия, чтобы триггер срабатывал при создании новой задачи из входящего письма:
 
-    1. Выберите опцию **Будут выполнены условия** → **Все**.
+    1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-    1. Добавьте условие **Событие** → **Создана задача**.
+    1. Добавьте условие **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
-    1. Добавьте условие **Email** → **Создано по письму на адрес** → **Равно строке** и введите почтовый адрес очереди.
+    1. Добавьте условие **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailCreatedBy }}** → **{{ ui-key.startrek-backend.fields.trigger.condition.type.text.field.equals.string }}** и введите почтовый адрес очереди.
 
-    1. Включите опцию **Игнорировать регистр** на случай, если пользователь введет адрес очереди с заглавной буквы.
+    1. Включите опцию **{{ ui-key.startrek-backend.fields.trigger.condition.property.ignoreCase }}** на случай, если пользователь введет адрес очереди с заглавной буквы.
 
     ![](../../_assets/tracker/trigger-example-mail-condition.png)
 
 1. В качестве действия триггера задайте отправку письма:
 
-    1. Выберите действие **Добавить комментарий**.
+    1. Выберите действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**.
 
-    1. Включите опцию **Письмо**.
+    1. Включите опцию **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}**.
 
-    1. В поле **Кому** добавьте переменную с адресом пользователя, от которого пришло обращение. Для этого выберите поле **Кому**, нажмите кнопку **Добавить переменную** и выберите **Email** → **От**.
+    1. В поле **{{ ui-key.startrek-backend.fields.issue.emailTo }}** добавьте переменную с адресом пользователя, от которого пришло обращение. Для этого выберите поле **{{ ui-key.startrek-backend.fields.issue.emailTo }}**, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}** и выберите **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}**.
 
-    1. Напишите текст письма. Вы можете добавить в письмо [параметры задачи](../user/vars.md) с помощью кнопки **Добавить переменную**.
+    1. Напишите текст письма. Вы можете добавить в письмо [параметры задачи](../user/vars.md) с помощью кнопки **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}**.
 
     ![](../../_assets/tracker/trigger-example-mail-action.png)
 
@@ -233,9 +233,9 @@
 
     1. Укажите очередь и другие параметры задачи.
 
-    1. В поле **Описание задачи** добавьте ответы на вопросы формы.
+    1. В поле **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** добавьте ответы на вопросы формы.
 
-    1. Чтобы сохранить в параметрах задачи почтовый адрес пользователя, добавьте поле **От** и выберите **Переменные** → **Ответ на вопрос** → **Почта**.
+    1. Чтобы сохранить в параметрах задачи почтовый адрес пользователя, добавьте поле **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** и выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-variables }}** → **Ответ на вопрос** → **Почта**.
         
     1. Сохраните параметры интеграции.
 
@@ -247,29 +247,29 @@
 
 Настройте триггер, который при создании новой задачи через форму будет отправлять пользователю уведомление по почте:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера.
 
 1. Задайте условия, чтобы триггер срабатывал при создании новой задачи из входящего письма:
 
-    1. Выберите опцию **Будут выполнены условия** → **Все**.
+    1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-    1. Добавьте условие **Событие** → **Создана задача**.
+    1. Добавьте условие **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
-    1. Добавьте условие **Email** → **От** → **Значение поля установлено**.
+    1. Добавьте условие **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameNotEmpty }}**
 
     ![](../../_assets/tracker/trigger-example-form-condition.png)
 
 1. В качестве действия триггера задайте отправку письма:
 
-    1. Выберите действие **Добавить комментарий**.
+    1. Выберите действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**.
 
-    1. Включите опцию **Письмо**.
+    1. Включите опцию **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}**.
 
-    1. В поле **Кому** добавьте переменную с адресом пользователя, от которого пришло обращение. Для этого выберите поле **Кому**, нажмите кнопку **Добавить переменную** и выберите **Email** → **От**.
+    1. В поле **{{ ui-key.startrek-backend.fields.issue.emailTo }}** добавьте переменную с адресом пользователя, от которого пришло обращение. Для этого выберите поле **{{ ui-key.startrek-backend.fields.issue.emailTo }}**, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}** и выберите **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}**.
 
-    1. Напишите текст письма. Вы можете добавить в письмо [параметры задачи](../user/vars.md) с помощью кнопки **Добавить переменную**.
+    1. Напишите текст письма. Вы можете добавить в письмо [параметры задачи](../user/vars.md) с помощью кнопки **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}**.
 
     ![](../../_assets/tracker/trigger-example-mail-action.png)
 
@@ -291,17 +291,17 @@
 
 #### Шаг 2. Создать триггер для добавления формы
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Задайте условия, чтобы триггер срабатывал при закрытии задачи:
 
-    1. Выберите опцию **Будут выполнены условия** → **Все**.
+    1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-    1. Добавьте условие **Статус** → **стало равно** → **Закрыт**.
+    1. Добавьте условие **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
     ![](../../_assets/tracker/trigger-example-add-form-1.png)
 
-1. Добавьте действие **Добавить комментарий**.
+1. Добавьте действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**.
 
 1. В текст комментария вставьте код:
 
@@ -318,7 +318,7 @@
 
     - `<значение>` — значение, которое нужно подставить в поле формы.
 
-      Чтобы передать в форму параметры задачи, в качестве значений используйте [переменные](../user/vars.md): внизу окна нажмите кнопку **Добавить переменную** и выберите параметр задачи, затем вокруг имени переменной замените символы `not_var{{ }}` на `<% %>`.
+      Чтобы передать в форму параметры задачи, в качестве значений используйте [переменные](../user/vars.md): внизу окна нажмите кнопку **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}** и выберите параметр задачи, затем вокруг имени переменной замените символы `not_var{{ }}` на `<% %>`.
 
       Например, чтобы передать ключ задачи, используйте значение `<%issue.key%>`. Чтобы передать логин исполнителя задачи, используйте значение `<%issue.assignee.login%>`.
 
@@ -331,12 +331,12 @@
    
 
 
-1. Нажмите ![](../../_assets/tracker/summon.png) и в строке **Призвать пользователей из поля** введите <q>Исполнитель</q>.
+1. Нажмите ![](../../_assets/tracker/summon.png) и в строке **{{ ui-key.startrek.blocks-desktop_trigger-action.createcomment--invite-from-field }}** введите <q>Исполнитель</q>.
 
-1. Включите опцию **Отправлять от имени робота**.
+1. Включите опцию **{{ ui-key.startrek.blocks-desktop_issue-reply-form.from-robot-checkbox }}**.
 
 
-1. Сохраните триггер, нажав кнопку **Создать**.
+1. Сохраните триггер, нажав кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
 
 #### Шаг 3. Добавить в очередь yndx-forms-cnt-robot@
 
@@ -360,11 +360,11 @@
 
 Рассмотрим пример триггера, который добавляет задачу на доску при назначении исполнителем определенного пользователя:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера.
 
-1. Задайте условие: **Исполнитель** → **стало равно** → `<Имя пользователя>`.
+1. Задайте условие: **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → `<Имя пользователя>`.
 
    {% note info %}
 
@@ -374,11 +374,11 @@
 
 1. Задайте действие:
 
-    1. Выберите действие **Изменить значения в полях**.
+    1. Выберите действие **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**.
 
-    1. Выберите поле **Доски**.
+    1. Выберите поле **{{ ui-key.startrek-backend.fields.issue.boards }}**.
 
-    1. Выберите действие **Добавить к списку** и укажите доску, на которую нужно добавлять задачу.
+    1. Выберите действие **{{ ui-key.startrek.blocks-desktop_trigger-action.field-action_add }}** и укажите доску, на которую нужно добавлять задачу.
 
     ![](../../_assets/tracker/trigger-example-board.png)
 
@@ -394,35 +394,35 @@
 
 Настроим триггер для автоматического вычисления разницы между датами в {{ tracker-name }}:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Введите название триггера.
 
-1. Выберите опцию **Будут выполнены условия** → **Все**.
+1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-1. Добавьте условие **Событие** → **Поля формулы изменились**.
+1. Добавьте условие **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.calculate.formula.watch }}**.
 
     ![](../../_assets/tracker/create_trigger.png)
 
 1. Задайте действия триггера:
 
-    1. Добавьте значение **Вычислить значение**.
+    1. Добавьте значение **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--formula }}**.
 
-    1. Чтобы получить значение разницы дат, выраженное в днях, в поле **Введите формулу для вычисления значения** укажите:
+    1. Чтобы получить значение разницы дат, выраженное в днях, в поле **{{ ui-key.startrek.blocks-desktop_trigger-action.calculateformula-formula-label }}** укажите:
 
         ```
         (not_var{{issue.end.unixEpoch}}-not_var{{issue.start.unixEpoch}})/86400000
         ```
 
-    1. Выберите **Вычисляемое поле** из [списка]({{ link-admin-fields}}).
+    1. Выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.calculateformula-output-field-label }}** из [списка]({{ link-admin-fields}}).
 
         Вы можете выбрать поле из стандартных или [создать новое](../user/create-param.md), например, **Длительность**:
 
         ![](../../_assets/tracker/create_trigger_two.png)
 
-1. Сохраните триггер, нажав кнопку **Создать**.
+1. Сохраните триггер, нажав кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
 
-Чтобы проверить работу триггера, измените значение полей **Дата начала** и **Дата завершения**.
+Чтобы проверить работу триггера, измените значение полей **{{ ui-key.startrek-backend.fields.issue.start-key-value }}** и **{{ ui-key.startrek-backend.fields.issue.end-key-value }}**.
 
  
 
@@ -430,24 +430,24 @@
 
 Рассмотрим пример триггера, который создает подзадачу и заполняет поля значениями из исходной задачи. С помощью триггера и [{{ api-name }}](../about-api.md) вы можете настроить автоматическое создание такой задачи:
 
-1. Перейдите в настройки очереди и в разделе **Триггеры** нажмите кнопку [**Создать триггер**](../user/create-trigger.md).
+1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
 1. Выберите [условия срабатывания триггера](../user/set-condition.md).
 
-1. В качестве целевого действия выберите [**HTTP-запрос**](../user/set-action.md#create-http).
+1. В качестве целевого действия выберите [**{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**](../user/set-action.md#create-http).
 
-1. Укажите параметры запроса. В поле **Тело запроса** укажите параметры создаваемой подзадачи. Для подстановки значений из исходной задачи используйте [переменные](../user/vars.md):
+1. Укажите параметры запроса. В поле **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** укажите параметры создаваемой подзадачи. Для подстановки значений из исходной задачи используйте [переменные](../user/vars.md):
 
     #|
     || **Поле** | **Содержание** ||
-    || Метод | POST ||
-    || Адрес | `{{ host }}/{{ ver }}/issues` ||
-    || Способ авторизации | OAuth 2.0 ||
-    || Токен | [Руководство по получению токена](../concepts/access.md#section_about_OAuth) ||
-    || Заголовок авторизации | Authorization ||
-    || Тип токена | OAuth ||
-    || Тип содержимого | application/json ||
-    || Тело запроса |
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-method }} | {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-method--post }} ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-url }} | `{{ host }}/{{ ver }}/issues` ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-auth }} | {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-auth--oauth }} ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token }} | [Руководство по получению токена](../concepts/access.md#section_about_OAuth) ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token-header }} | Authorization ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token-type }} | OAuth ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-content-type }} | application/json ||
+    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }} |
 
     >Пример: создать подзадачу и передать в нее поля из исходной: описание, исполнитель, наблюдатели и теги.
     >
@@ -469,7 +469,7 @@
     >```
     Подробнее о запросе: [{#T}](../concepts/issues/create-issue.md), [{#T}](../concepts/issues/link-issue.md). ||
     || Заголовки | Заголовок: `X-Org-ID`.
-    Значение: Идентификатор организации. Идентификатор указан в поле **ID организации для API** на странице [настроек {{ tracker-name }}]({{ link-settings }}). ||
+    Значение: Идентификатор организации. Идентификатор указан в поле **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}** на странице [настроек {{ tracker-name }}]({{ link-settings }}). ||
     |#
 
     {% note info %}
@@ -478,4 +478,4 @@
 
     {% endnote %}
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.

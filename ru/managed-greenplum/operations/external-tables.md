@@ -210,7 +210,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
 - {{ objstorage-name }}
 
-    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с именем `test-bucket`.
+    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом.
 
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md).
 
@@ -227,11 +227,11 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
     1. Чтобы считать данные из бакета {{ objstorage-name }}:
 
-        1. Создайте внешнюю таблицу `pxf_s3_read`, которая будет ссылаться на бакет `test-bucket`:
+        1. Создайте внешнюю таблицу `pxf_s3_read`, которая будет ссылаться на бакет:
 
             ```sql
             CREATE READABLE EXTERNAL TABLE pxf_s3_read(a int, b int)
-            LOCATION ('pxf://test-bucket/test.csv?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
+            LOCATION ('pxf://<имя бакета>/test.csv?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
             FORMAT 'CSV';
             ```
 
@@ -258,7 +258,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
             ```sql
             CREATE WRITABLE EXTERNAL TABLE pxf_s3_write(a int, b int)
-            LOCATION ('pxf://test-bucket/?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
+            LOCATION ('pxf://<имя бакета>/?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
             FORMAT 'CSV';
             ```
 

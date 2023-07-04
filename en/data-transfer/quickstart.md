@@ -145,6 +145,6 @@ For more information, see [{#T}](operations/transfer.md).
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [preparing databases for the service](operations/prepare.md) and [setting up transfers](operations/transfer.md).
-* Read [questions and answers](qa/index.md).
+* Read [tutorials](tutorials/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

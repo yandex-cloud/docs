@@ -9,8 +9,8 @@
 Чтобы удалить шаблон задачи или комментария:
 
 1. Выберите нужную опцию:
-    - [Задачи]({{ link-settings }}/templates/issues), чтобы изменить шаблон задачи.
-    - [Комментарии]({{ link-settings }}/templates/comments), чтобы изменить шаблон комментария.
+    - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}]({{ link-settings }}/templates/issues), чтобы изменить шаблон задачи.
+    - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}]({{ link-settings }}/templates/comments), чтобы изменить шаблон комментария.
 
 1. При необходимости отфильтруйте лишние шаблоны с помощью кнопки ![](../../_assets/tracker/queue-filter.png).
 
@@ -23,8 +23,8 @@
 Чтобы отключить шаблон:
 
 1. Выберите нужную опцию:
-    - [Задачи]({{ link-settings }}/templates/issues), чтобы изменить шаблон задачи.
-    - [Комментарии]({{ link-settings }}/templates/comments), чтобы изменить шаблон комментария.
+    - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}]({{ link-settings }}/templates/issues), чтобы изменить шаблон задачи.
+    - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}]({{ link-settings }}/templates/comments), чтобы изменить шаблон комментария.
 
 1. При необходимости отфильтруйте лишние шаблоны с помощью кнопки ![](../../_assets/tracker/queue-filter.png).
 

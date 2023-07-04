@@ -23,23 +23,26 @@ The cost of resources for the application includes:
 
 ## Getting started {#before-begin}
 
-1. [Get](../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys) an SSH key pair to connect to a virtual machine (VM).
+1. [Get](../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys) an SSH key pair to connect to a VM.
 1. Request from your email service provider the data required to connect to the SMTP server, including the SMTP server address and port, username and password to access the SMTP server. This data will be used for authorization in the service sending emails.
+1. [Create](../vpc/operations/network-create.md) a cloud network {{ vpc-name }}.
 
 ## Deploy the application {#deploy-app}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you wish to deploy the application.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to deploy the application.
 1. Select **{{ cloud-apps-name }}**.
 1. On the left-hand panel, select **Marketplace**.
-1. Select **Identity Server based on Ory Kratos** and, if you have access to the [Cloud Functions user network](../functions/concepts/networking.md#user-network) feature, click **Use**. Otherwise, click **Request access** and then click **Send request** in the window that opens.
+1. Select **Identity Server based on Ory Kratos** and click **Use**.
 1. Specify the following:
    * Application name.
    * (optional) Application description.
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
+   * ID of the [cloud network](../vpc/concepts/network.md#network) that you [previously created](#before-begin).
+   * CIDRs of [subnets](../vpc/concepts/network.md#subnet) in the `ru-central1-a`, `ru-central1-b`, and `ru-central1-c` [availability zones](../overview/concepts/geo-scope.md). The subnets will be automatically created in the specified cloud network during the application installation.
    * Number of VM instances for the Ory Kratos API.
    * Username to use to access the VM instances via SSH.
    * Public SSH key that you [obtained earlier](#before-begin).
-   * Username and password to access the DB. Come up with your username and password yourself. The password must be at least eight characters long.
+   * Username and password to access the DB. Come up with your username and password yourself. Password must be at least eight characters long.
    * Password to access the private Ory Kratos API. Come up with the password yourself.
    * [Previously obtained](#before-begin) SMTP server address and port, username and password to access the SMTP server.
    * Sender username and email address to specify in emails from Identity Server based on Ory Kratos.

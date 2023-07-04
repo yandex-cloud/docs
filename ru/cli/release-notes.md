@@ -2,15 +2,29 @@
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.107.0 (15.06.23) {#version0.107.0}
+### Версия 0.108.0 (04.07.23) {#version0.108.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в CLI {#cli}
 
-#### {{ compute-name }} {#compute}
+* Добавлена команда `oslogin`, предназначенная для получения логина текущего пользователя ОС.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ kms-name }} {#kms}
+
+* В {{ kms-full-name }} поддержана работа с асимметричными криптографическими ключами. Функционал находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](https://cloud.yandex.ru/docs/kms/).
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.107.0 (15.06.23) {#version0.107.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ compute-name }} {#compute}
 
 * В команду `yc compute placement-group create` добавлен параметр `--partitions`, позволяющий указать количество партиций в `partitionPlacementStrategy`.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -25,8 +39,6 @@
 **{{ mmy-name }}**
 
 * В команду `yc managed-mysql user update` добавлен параметр `--global-permissions`, позволяющий выдать привилегии `FLUSH_OPTIMIZER_COSTS` и `SHOW_ROUTINE`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.106.0 (19.05.23) {#version0.106.00}
 
