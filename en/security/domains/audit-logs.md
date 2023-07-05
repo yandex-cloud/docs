@@ -18,7 +18,7 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 ### Collecting events {#collect}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. See the [instructions](../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../audit-trails/concepts/format.md) and [reference](../../audit-trails/concepts/events.md) of events.
+The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For details, see the [instructions](../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../audit-trails/concepts/format.md) and [reference](../../audit-trails/concepts/events.md) of events.
 
 {% note info %}
 
@@ -55,7 +55,7 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
-To set up export to any SIEM, use utilities such as [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage/tools/s3fs.md). They let you mount an {{ objstorage-full-name }} bucket as a VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket.
+Utilities like [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage/tools/s3fs.md) can help set up export to any SIEM. They allow you to mount an {{ objstorage-full-name }} bucket as a VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket.
 
 #### Metrics {{ monitoring-full-name }}
 
@@ -70,9 +70,9 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 ## OS level {#os-level}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
-- [Osquery](https://osquery.io/)
-- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
-- [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
+  - [Osquery](https://osquery.io/)
+  - [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
+  - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 

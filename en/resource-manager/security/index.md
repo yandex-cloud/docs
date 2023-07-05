@@ -12,11 +12,11 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
@@ -54,8 +54,8 @@ The table below lists the roles needed to perform a particular action. You can a
 | [Create a folder in the cloud](../operations/folder/create.md) | `create` | `editor` or `resource-manager.editor` for the cloud |
 | [Updating a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder |
 | [Deleting a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder |
-| **Manage resource access** | |
-| [Add a new user to the cloud](../../iam/operations/users/create.md) | `setAccessBindings` | `admin` for the cloud if it has no organization |
+| **Managing resource access** | |
+| Inviting a new user to an organization | | `{{ roles-organization-admin }}` |
 | [Make a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
 | View roles granted for a resource | `listAccessBindings` | `viewer` for this resource |
 | View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.viewer` for the folder or cloud |

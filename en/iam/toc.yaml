@@ -17,7 +17,7 @@ items:
         items:
           - name: Adding users
             href: operations/users/create.md
-          - name: Getting user ID or email
+          - name: Getting user information
             href: operations/users/get.md
           - name: Deleting a user
             href: operations/users/delete.md

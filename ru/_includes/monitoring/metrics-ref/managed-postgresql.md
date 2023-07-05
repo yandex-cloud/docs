@@ -129,6 +129,7 @@ subcluster_name | Имя подкластера
 | `pooler-avg_xact_time`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения одной транзакции на каждом из хостов БД. | 
 | `pooler-bytes_recieved`<br/>`DGAUGE`, байты | Объем полученных данных. | 
 | `pooler-bytes_sent`<br/>`DGAUGE`, байты | Объем отправленных данных. | 
+| `pooler-db_name_tcp_connections`<br/>`DGAUGE`, штуки | Количество TCP-подключений к БД. | 
 | `pooler-free_clients`<br/>`DGAUGE`, штуки | Количество оставшихся клиентских подключений в менеджере соединений. | 
 | `pooler-free_servers`<br/>`DGAUGE`, штуки | Количество оставшихся серверных подключений в менеджере соединений. | 
 | `pooler-is_alive`<br/>`DGAUGE`, 0/1 | Работоспособность пулера, для каждого хоста в каждой из ролей: мастера и реплики. |
@@ -140,7 +141,9 @@ subcluster_name | Имя подкластера
 | `pooler-query_0.95`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.95 процентиль. | 
 | `pooler-query_0.99`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.99 процентиль. | 
 | `pooler-query_0.999`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.999 процентиль. | 
-| `pooler-query_count`<br/>`DGAUGE`, штуки | Количество запросов, выполняющихся на каждом из хостов БД. |
+| `pooler-query_count`<br/>`DGAUGE`, штуки | Количество запросов, выполняющихся на каждом из хостов БД. | 
+| `pooler-tcp_conn_count`<br/>`DGAUGE`, штуки | Количество TCP-подключений к каждому хосту БД. | 
+| `pooler-tcp_conn_count-db_name-username`<br/>`DGAUGE`, штуки | Количество TCP-подключений каждого пользователя к БД. | 
 | `pooler-total_tcp_connections`<br/>`DGAUGE`, подключений/с | Количество TCP-подключений postgresql и pgbouncer. | 
 | `pooler-transaction_0.5`<br/>`DGAUGE`, секунды | Время обработки транзакций, медиана. | 
 | `pooler-transaction_0.75`<br/>`DGAUGE`, секунды | Время обработки транзакций, 0.75 процентиль. | 

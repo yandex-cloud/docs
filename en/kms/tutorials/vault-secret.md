@@ -1,10 +1,10 @@
 # Auto Unseal in Hashicorp Vault
 
-A [Hashicorp Vault](https://www.vaultproject.io/) build with {{ kms-name }} support is available as a [VM image](/marketplace/products/yc/vault-yckms) in {{ marketplace-full-name }} and a [Docker image](../../container-registry/concepts/docker-image.md). It differs from the [primary](https://hub.docker.com/_/vault) version by a single binary Vault file that supports {{ kms-name }}.
+A [Hashicorp Vault](https://www.vaultproject.io/) build with [{{ kms-full-name }}](../index.yaml) support is available as a [VM image](/marketplace/products/yc/vault-yckms) in {{ marketplace-name }} and a Docker image. It differs from the [primary](https://hub.docker.com/_/vault) version by a single binary Vault file that supports {{ kms-name }}.
 
 This build will enable you to use {{ kms-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
 
-In this guide, you will learn how to set up the Auto Unseal feature to work with {{ kms-name }}.
+In this guide, you will learn how to set up the Auto Unseal feature to work with {{ kms-short-name }}.
 
 To set up Auto Unseal:
 1. [Prepare your cloud](#before-you-begin).
@@ -12,13 +12,13 @@ To set up Auto Unseal:
 
 ## Prepare your cloud {#before-you-begin}
 
-1. Download the most recent Docker image:
+1. Download the most recent Docker image using the command below:
 
    ```bash
-   docker pull {{ registry }}/yc/vault
+   docker pull cr.yandex/yc/vault
    ```
 
-1. Select one of the methods to authenticate Vault requests to {{ kms-name }}. You can authenticate via:
+1. Select one of the methods to authenticate Vault requests to {{ kms-short-name }}. You can authenticate via:
 
    {% list tabs %}
 
@@ -28,7 +28,7 @@ To set up Auto Unseal:
 
       {% note tip %}
 
-      This option is the most preferable for security reasons. When configuring settings using the [service account](../../iam/concepts/users/service-accounts.md) linked to the [VM](../../compute/concepts/vm.md), you do not need to specify your credentials.
+      This option is the most preferable for security reasons. When configuring settings using the [service account](../../iam/concepts/users/service-accounts.md) linked to the VM, you do not need to specify your credentials.
 
       {% endnote %}
 
@@ -38,7 +38,7 @@ To set up Auto Unseal:
 
    - Yandex or federated account
 
-      Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or {{ iam-name }} token.
+      Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or [{{ iam-name }} token](../../iam/concepts/authorization/iam-token.md).
 
       {% note tip %}
 
@@ -49,15 +49,15 @@ To set up Auto Unseal:
    {% endlist %}
 
 1. [Create](../operations/key.md#create) a separate [{{ kms-name}} key](../concepts/key.md) for Vault (recommended).
-1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-name }}. When working with {{ kms-name }}, Vault only performs [encryption and decryption](../concepts/encryption.md) operations, so the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md) is sufficient.
+1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When working with {{ kms-short-name }}, Vault only performs [encryption and decryption](../concepts/encryption.md) operations, so the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md) is sufficient.
 
 
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for the number of active {{ kms-name }} key versions and completed cryptographic operations (see [{{ vpc-name }} pricing](../../kms/pricing.md)).
+* Fee for using a dynamic or static [public IP](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for the number of active {{ kms-short-name }} key versions and completed cryptographic operations (see [{{ vpc-full-name }} pricing](../../kms/pricing.md)).
 
 
 ## Set up Auto Unseal {#setup}
@@ -66,19 +66,19 @@ To set up the Auto Unseal feature, make the following changes to the Vault [conf
 
 {% note warning %}
 
-If Vault has already been initialized, you have to do a [migration procedure](https://www.vaultproject.io/docs/concepts/seal#seal-migration) to modify the configuration.
+If Vault has already been initialized, you have to run a [migration procedure](https://www.vaultproject.io/docs/concepts/seal#seal-migration) to modify the configuration.
 
 {% endnote %}
 
 1. Under [seal](https://www.vaultproject.io/docs/configuration/seal#seal-stanza), enter `"yandexcloudkms"` as the value.
-1. Add the `kms_key_id` parameter with the {{ kms-name }} encryption key ID.
+1. Add the `kms_key_id` parameter with the {{ kms-short-name }} encryption key ID.
 1. Authenticate using one the following methods:
 
    {% list tabs %}
 
    - The service account linked to your VM
 
-      [Link the service account to your VM](../../compute/operations/vm-connect/auth-inside-vm.md).
+      Link a service account to a VM by following the [instructions](../../compute/operations/vm-connect/auth-inside-vm.md).
 
    - Any service account
 
@@ -86,19 +86,19 @@ If Vault has already been initialized, you have to do a [migration procedure](ht
 
    - Yandex or federated account
 
-      In the `oauth_token` parameter, specify the OAuth token.
+      If you are using a Yandex account, specify the OAuth token in the `oauth_token` parameter. For a federated account, specify the IAM token.
 
    {% endlist %}
 
 1. Under [seal](https://www.vaultproject.io/docs/configuration/seal#seal-stanza), enter `"yandexcloudkms"` as the value.
-1. Add the `kms_key_id` parameter with the {{ kms-name }} encryption key ID.
+1. Add the `kms_key_id` parameter with the {{ kms-short-name }} encryption key ID.
 1. Authenticate using one the following methods:
 
    {% list tabs %}
 
    - The service account linked to your VM
 
-      [Link the service account to your VM](../../compute/operations/vm-connect/auth-inside-vm.md).
+      Link a service account to a VM by following the [instructions](../../compute/operations/vm-connect/auth-inside-vm.md).
 
    - Any service account
 
@@ -106,20 +106,18 @@ If Vault has already been initialized, you have to do a [migration procedure](ht
 
    - Yandex or federated account
 
-      In the `oauth_token` parameter, specify the OAuth token.
+      If you are using a Yandex account, specify the OAuth token in the `oauth_token` parameter. For a federated account, use the IAM token.
 
    {% endlist %}
 
 {% note info %}
 
 You can use environment variables instead of the configuration file to set parameter values:
-* `YANDEXCLOUD_KMS_KEY_ID` refers to the `kms_key_id` configuration file parameter.
-* `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` refers to the `service_account_key_file` parameter.
-* `YANDEXCLOUD_OAUTH_TOKEN` refers to the `oauth_token` parameter.
+* The `YANDEXCLOUD_KMS_KEY_ID` variable corresponds to the `kms_key_id` configuration file parameter.
+* The `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` variable to the `service_account_key_file` parameter.
+* The `YANDEXCLOUD_OAUTH_TOKEN` variable to the `oauth_token` parameter.
 
 The environment variable values prevail over those from the configuration file.
-
-{% endnote %}
 
 {% endnote %}
 
@@ -134,6 +132,7 @@ The environment variable values prevail over those from the configuration file.
    seal "yandexcloudkms" {
      kms_key_id = "<KMS_key_ID>"
    }
+   ...
    ```
 
 - Any service account with a key
@@ -141,9 +140,10 @@ The environment variable values prevail over those from the configuration file.
    ```json
    ...
    seal "yandexcloudkms" {
-     kms_key_id               = "<KMS key ID>"
+     kms_key_id               = "<KMS_key_ID>"
      service_account_key_file = "<path_to_JSON_file_with_authorized_key>"
    }
+   ...
    ```
 
 - Yandex or federated account
@@ -154,17 +154,18 @@ The environment variable values prevail over those from the configuration file.
      kms_key_id  = "<KMS_key_ID>"
      oauth_token = "<user_token>"
    }
+   ...
    ```
 
 {% endlist %}
 
 ## Key rotation {#rotation}
 
-When the Vault master key is encrypted with a {{ kms-name }} key, Vault also saves the [key version](../concepts/version.md) it was encrypted with.
+When the Vault master key is encrypted with a {{ kms-short-name }} key, Vault also saves the [key version](../concepts/version.md) it was encrypted with.
 
-When the Vault master key is decrypted (at Vault restart), the saved version of the {{ kms-name }} key used to encrypt the Vault master key is compared with the primary version of the {{ kms-name }} key. If the key versions are different, the Vault master key is re-encrypted with the new primary version of the {{ kms-name }} key.
+When the Vault master key is decrypted (at Vault restart), the saved version of the {{ kms-short-name }} key used to encrypt the Vault master key is compared with the primary version of the {{ kms-short-name }} key. If the key versions are different, the Vault master key is re-encrypted with the new primary version of the {{ kms-short-name }} key.
 
-This way you can rotate the Vault master key through [key rotation in {{ kms-name }}](../concepts/version.md#rotate-key). Rotating the key in {{ kms-name }} will automatically rotate the master key when Vault is restarted next time.
+This way you can rotate the Vault master key through [key rotation in {{ kms-short-name }}](../concepts/version.md#rotate-key). Rotating the key in {{ kms-name }} will automatically rotate the master key when Vault is restarted the next time.
 
 ## How to delete the resources you created {#clear-out}
 
@@ -174,6 +175,6 @@ To stop paying for the resources you created:
 * [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).
 
 ## See also {#see-also}
-* [Hashicorp Vault](https://www.vaultproject.io/).
-* [Seal/Unseal in Vault](https://www.vaultproject.io/docs/concepts/seal).
-* [Seal configuration in Vault](https://www.vaultproject.io/docs/configuration/seal).
+* [Hashicorp Vault](https://www.vaultproject.io/)
+* [Seal/Unseal in Vault](https://www.vaultproject.io/docs/concepts/seal)
+* [Seal configuration in Vault](https://www.vaultproject.io/docs/configuration/seal)

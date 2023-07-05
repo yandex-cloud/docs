@@ -341,6 +341,10 @@ default:
       viewer: managed-redis.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
+  roles-search-api-executor: search-api.executor
+  roles-organization-admin: organization-manager.admin
+  roles-organization-owner: organization-manager.organizations.owner
+  roles-organization-viewer: organization-manager.viewer
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor

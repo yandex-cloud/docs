@@ -140,6 +140,7 @@ Add users to the IdP server:
       * `organization-id`: Your organization ID.
 
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -385,22 +386,22 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 
-### Specify the redirection URL {#add-link}
+### Specify the redirect URL {#add-link}
 
-Once you create a federation, finalize the SAML application in Azure AD:
+Once you have created a federation, complete the creation of the SAML application in Azure AD:
 
 1. Open the **SAML-based sign-on** SAML application settings page.
 
-1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and the **Response URL (assertion consumer service URL)** fields, enter the URL to redirect users to after authentication:
+1. In Section **1. Basic SAML** configuration, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and **Response URL (assertion consumer service URL)** fields, enter the URL to redirect users to after successful authentication:
 
    ```
    https://{{ auth-host }}/federations/<federation_ID>
    ```
 
-   {% cut "How to get the federation ID" %}
-  
+   {% cut "How to get a federation ID" %}
+
    {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
-  
+
    {% endcut %}
 
 1. Click **Save**.
@@ -451,7 +452,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -517,13 +518,13 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the management console login URL:
+1. Follow the URL to log in to the management console:
 
    ```
    https://{{ console-host }}/federations/<federation_ID>
    ```
 
-   {% cut "How to get the federation ID" %}
+   {% cut "How to get a federation ID" %}
 
    {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
@@ -533,7 +534,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Next**.
 
-If the authentication is successful, the IdP server will redirect you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the Azure AD settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

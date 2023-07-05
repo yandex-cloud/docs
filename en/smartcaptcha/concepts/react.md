@@ -51,6 +51,7 @@ Available properties:
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
 | `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. As an argument, the handler gets a unique user token. |
+| `onTokenExpired` | `() => void` \| `undefined` | The method is invoked when the token obtained by the user after passing the verification gets invalidated. |
 
 `SmartCaptcha` usage example:
 
@@ -81,6 +82,7 @@ Available properties:
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
 | `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. The handler gets a unique user token as an argument. |
+| `onTokenExpired` | `() => void` \| `undefined` | The method is invoked when the token obtained by the user after passing the verification gets invalidated. |
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -119,6 +121,7 @@ Both components provide methods for [subscribing](./widget-methods.md#subscribe)
 * `onChallengeHidden`
 * `onNetworkError`
 * `onSuccess`
+* `onTokenExpired`
 
 You can use these methods, for example, to invoke a function when a task is shown to the user.
 
@@ -138,6 +141,10 @@ export const SubscriptionToCaptcha = () => {
     setStatus('success');
     setToken(token);
   }, []);
+  const handleTokenExpired = useCallback(() => {
+    setStatus('token-expired');
+    setToken('');
+  }, []);
 
   return (
     <>
@@ -148,6 +155,7 @@ export const SubscriptionToCaptcha = () => {
         onChallengeHidden={handleChallengeHidden}
         onNetworkError={handleNetworkError}
         onSuccess={handleSuccess}
+        onTokenExpired={handleTokenExpired}
       />
     </>
   );

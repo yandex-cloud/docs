@@ -35,7 +35,7 @@ For example, you were given the right to create folders in the cloud and you wer
 
 You can currently assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), a [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md).
 
-If you need to grant access to a resource that isn't on the list (such as a VM), assign the role to the parent resource it [inherits](#inheritance) permissions from. VM permissions are inherited from their folder.
+If you need to grant access to a resource that is not on the list (such as a VM), assign a role for the parent resource it [inherits](#inheritance) permissions from. VM permissions are inherited from their folder.
 
 ### Role {#role}
 
@@ -49,15 +49,15 @@ To find out what roles exist and what permissions they include, see [{#T}](roles
 
 Roles are assigned to subjects. There are four types of subjects:
 
-* `userAccount`: A [Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
-* `serviceAccount`: A [service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
+* `userAccount`: [A Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
+* `serviceAccount`: [A service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
    {% include [include](../../../_includes/sa-assign-role-note.md) %}
 * `federatedUser`: A user account  from an [identity federation](../../../organization/add-federation.md), like Active Directory.
 
 * `group`: A group of users created in [{{ org-full-name }}](../../../organization/).
 
-* `system`: A [system group](system-group.md).
+* `system`: [A system group](system-group.md).
 
 ### Access binding {#access-bindings}
 
@@ -72,6 +72,14 @@ Each binding is a single assignment of a role to a subject. To assign a user mul
 If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign a user a role for a folder where a VM instance resides, all permissions of this role will also apply to the instance.
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You can't limit the list of permissions inherited from the parent resource.
+
+### Impersonation {#impersonation}
+
+_Impersonation_ occurs when a user performs certain actions with cloud resources on behalf of a service account with the appropriate permissions. Impersonation is mostly used to temporarily expand user permissions without generating static credentials for the user.
+
+For example, the user needs temporary permissions for viewing a folder they do not have view access for. The administrator can [assign](../../operations/sa/set-access-bindings.md#impersonation) a role for viewing the folder to the service account, and assign the special `iam.serviceAccounts.tokenCreator` role to the user. As a result, the user can view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user cannot edit permissions or delete the service account.
+
+The administrator can revoke the role whenever needed.
 
 ### Access control restrictions in the management console {#console-restrictions}
 

@@ -9,7 +9,7 @@ You can use verified {{ certificate-manager-name }} domains in the following {{ 
 
 If a user confirmed their rights to a domain, they can [indicate](../../../api-gateway/operations/api-gw-domains.md) it as a user domain in {{ api-gw-full-name }}.
 
-{{ api-gw-full-name }} lets you merge several microservices into a single product. These microservices can be run on VMs, containers or implemented as functions. You can use the domain to access the API.
+With {{ api-gw-full-name }}, you can merge several microservices into a single product. These microservices can be run on VMs and containers or implemented as functions. You can use the domain to access the API.
 
 A certificate linked to the domain is used to provide a TLS connection.
 

@@ -73,7 +73,7 @@ To check the rights for the domain `example.com` automatically:
 1. In the list of services, select **{{ certificate-manager-name }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
 1. Under **Check rights for domains**, in the section with the `CNAME` record type, check out the record value for the domain in the **Value** field.
-1. Have your DNS provider or your own DNS server host a `CNAME` record to delegate management privileges to the DNS zone used for the check:
+1. Host a `CNAME` record with your DNS provider or on your own DNS server to delegate management privileges to the DNS zone used for the check:
 
    ```
    _acme-challenge.example.com CNAME <Value>
@@ -121,7 +121,7 @@ A check is performed automatically if the following conditions are met:
    _acme-challenge.example.com CNAME <certificate ID>.cm.yandexcloud.net.
    ```
 
-### Redirecting a static {{ objstorage-name }} website {#auto-s3}
+### Redirecting a static website {{ objstorage-name }} {#auto-s3}
 
 A check is performed automatically if the following conditions are met:
 * The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
