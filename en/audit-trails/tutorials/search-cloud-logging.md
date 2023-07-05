@@ -13,7 +13,7 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 
 ## Who created/stopped/restarted/deleted a VM instance
 
-Searching by VM ID:
+Searching by VM instance ID:
 ```json
 json_payload.details.instance_id="<VM_instance_ID>" and (json_payload.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.UpdateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.DeleteInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StartInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StopInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.RestartInstance")
 ```

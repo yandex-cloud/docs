@@ -4,7 +4,7 @@ This section provides recommendations to customers on security settings in {{ ya
 
 ## Default passwords {#default-credentials}
 
-{{ yandex-cloud }} services don't have default credentials. In each service, the client specifically assigns user passwords and other secrets. However, software managed by the client that is installed on virtual machines or inside containers may contain initial credentials that should be changed (for example, the login `admin` with the password `admin`).
+{{ yandex-cloud }} services do not have default credentials. In each service, the client specifically assigns user passwords and other secrets. However, software managed by the client that is installed on virtual machines or inside containers may contain initial credentials that should be changed (for example, the login `admin` with the password `admin`).
 
 To automatically verify credentials, we recommend using paid security scanners or the following free tools:
 * [changeme](https://github.com/ztgrace/changeme).
@@ -19,7 +19,7 @@ To check your host compliance with the security standards and best practices, we
 
 ### Serial console {#serial-console}
 
-Access to the serial console is disabled on VMs by default. We don't recommend enabling it for security reasons. The risks of using the serial console are listed in the {{ compute-full-name }} documentation, [{#T}](../../compute/operations/serial-console/index.md).
+Access to the serial console is disabled on VMs by default. We do not recommend enabling it for security reasons. The risks of using the serial console are listed in the {{ compute-full-name }} documentation, [{#T}](../../compute/operations/serial-console/index.md).
 
 When working with a serial console:
 * Make sure that critical data is not output to the serial console.
@@ -42,7 +42,7 @@ When deploying a VM instance, we recommend you to:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-full-name }} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-full-name }} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 * Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
@@ -124,7 +124,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-name }} verificati
 
 When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms.
 
-Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of an object and occupies space in {{ objstorage-name }}. By using version control, you can protect your data from both unintentional user actions and application faults.
+Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of an object and occupies space in {{ objstorage-name }}. Using version control protects your data from both unintentional user actions and application faults.
 
 If you delete/modify an object with versioning enabled, a new version of the object with a new ID is effectively created. In the case of deletion, the object becomes unreadable, but its version is kept and can be restored.
 
@@ -141,20 +141,20 @@ The storage period of critical data in a bucket is determined by the client's in
 
 ### Audits {#audit}
 
-When using {{ objstorage-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see the {{ objstorage-name }} documentation, [{#T}](../../storage/concepts/server-logs.md).
+When using {{ objstorage-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see [{#T}](../../storage/concepts/server-logs.md) in the {{ objstorage-name }} documentation.
 
 You can also analyze {{ objstorage-name }} logs in {{ datalens-full-name }}.
 
 
 ### Cross-Origin Resource Sharing (CORS) {#cors}
 
-If you need cross-domain requests to objects in buckets, the client should configure the CORS (cross-origin resource sharing) policy in accordance with the client's information security requirements. For more information, see the {{ objstorage-name }} documentation, [{#T}](../../storage/s3/api-ref/cors/xml-config.md).
+If cross-domain requests to bucket objects are required, the client should configure the CORS (cross-origin resource sharing) policy in accordance with the client's information security requirements. For more information, see [{#T}](../../storage/s3/api-ref/cors/xml-config.md) in the {{ objstorage-name }} documentation.
 
 ## Managed Services for Databases {#managed-services-for-databases}
 
 We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from specific IP addresses. See the instructions in [{#T}](../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
-Do not enable access to databases containing critical data from the management console, {{ datalens-name }}, or other services, unless explicitly required. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from {{ datalens-name }} to visualize and analyze data. For such access, use the {{ yandex-cloud }} service network with authentication and TLS encryption. You can enable and disable access from the management console, {{ datalens-name }}, or other services in the cluster settings or when creating it in the advanced settings section.
+Do not enable access to databases containing critical data from the management console, {{ datalens-name }}, or other services, unless explicitly required. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from {{ datalens-name }} to visualize and analyze data. For such access , use the {{ yandex-cloud }} service network with authentication and TLS encryption. You can enable and disable access from the management console, {{ datalens-name }}, or other services in the cluster settings or when creating it in the advanced settings section.
 
 
 ## {{ sf-full-name }} and {{ api-gw-full-name }} {#cloud-functions-api-gateway}
@@ -210,7 +210,7 @@ When creating backups on demand in {{ objstorage-name }}, follow the recommendat
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers must be used for the purposes of administering VMs or other containers. We recommend that you use delete policies for automatically deleting outdated container images.
 
-We recommend using the image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name }}.
+We recommend using the [image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name }}.
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 

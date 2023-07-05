@@ -91,7 +91,7 @@ When deploying virtual machines, we recommend:
 
       ```bash
       export ORG_ID=export ORG_ID=<organization ID>
-      export IMAGE_ID=<your reference image ID>
+      export IMAGE_ID=<Your reference image ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
       do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
@@ -220,7 +220,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
    1. Run the command below to check the bucket ACL for `allUsers` and `allAuthenticatedUsers`:
 
       ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-acl <your bucket name>
+      aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-acl <your bucket's name>
       ```
 
 {% endlist %}

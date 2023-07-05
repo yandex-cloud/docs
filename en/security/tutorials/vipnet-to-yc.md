@@ -2,7 +2,7 @@
 
 You can install [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) in your cloud and use it as a VPN gateway for a site-to-site VPN between cloud and on-premises resources.
 
-ViPNet Coordinator VA is installed on a VM along with four network interfaces. One interface is assigned a [public](../../vpc/concepts/address.md#public-addresses) IP address for a tunnel to an on-premises gateway. The other interfaces can have [internal](../../vpc/concepts/address.md#internal-addresses) addresses and be connected to different [subnets](../../vpc/concepts/network.md#subnet) of the same availability zone.
+ViPNet Coordinator VA is installed on a VM with four network interfaces. One interface is assigned a [public](../../vpc/concepts/address.md#public-addresses) IP address for a tunnel to an on-premises gateway. The other interfaces can have [internal](../../vpc/concepts/address.md#internal-addresses) addresses and be connected to different [subnets](../../vpc/concepts/network.md#subnet) of the same availability zone.
 
 Used in the cloud, ViPNet Coordinator VA doesn't support the following functions:
 * Export and import of keys and settings in `vbe`.
@@ -19,13 +19,13 @@ Used in the cloud, ViPNet Coordinator VA doesn't support the following functions
 
 To deploy ViPNet Coordinator VA in {{ yandex-cloud }}:
 1. [View a solution description](#description).
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create images of ViPNet Coordinator VA disks](#create-coordinator-images).
 1. [Create a VM with ViPNet Coordinator VA in the cloud](#create-vipnet-cloud).
 1. [Configure ViPNet Coordinator VA](#set-up-vipnet).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Solution description {#description}
@@ -69,7 +69,7 @@ On the on-premises site:
    | 192.168.200.0/24 | 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24 | 192.168.200.5 |
 
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -82,7 +82,7 @@ To create a VM with several network interfaces, [have technical support]({{ link
 
 The cost of the infrastructure includes:
 * A fee for VM computing resources, disks, and images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * A fee for a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -299,7 +299,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
          Result:
 
          ```bash
-         Archive:  va_vipnet_base_x86_64_4.5.1-5668.ova.zip
+         Archive: va_vipnet_base_x86_64_4.5.1-5668.ova.zip
            inflating: va_vipnet_base_x86_64_4.5.1-5668.ova
          ```
 
@@ -610,7 +610,7 @@ The tutorial uses the demo versions of the keys.
       ETH3_SUBNET=segment3-subnet
       ```
 
-   1. Run the command to create a VM:
+   1. Run the following command to create a VM:
 
       ```bash
       yc compute instance create \
@@ -727,9 +727,9 @@ The tutorial uses the demo versions of the keys.
    ```
 
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM with ViPNet Coordinator VA.
 * [Delete](../../compute/operations/image-control/delete.md) the disk images.
 * [Delete](../../storage/operations/buckets/delete.md) the respective bucket.

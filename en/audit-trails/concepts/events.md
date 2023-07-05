@@ -104,16 +104,16 @@ Service name: `audittrails`.
 
 ## {{ sf-name }} {#functions}
 
-Service name: `serverless.functions`.
+Service name: `serverless`.
 
 | Event name | Description |
 | --- | --- |
-| `CreateFunction` | Creating a function |
-| `CreateFunctionVersion` | Creating a function version |
-| `DeleteFunction` | Deleting a function |
-| `RemoveFunctionTag` | Removing a function tag |
-| `SetFunctionTag` | Assigning a function tag |
-| `UpdateFunction` | Updating a function |
+| `functions.CreateFunction` | Creating a function |
+| `functions.CreateFunctionVersion` | Creating a function version |
+| `functions.DeleteFunction` | Deleting a function |
+| `functions.RemoveFunctionTag` | Removing a function tag |
+| `functions.SetFunctionTag` | Assigning a function tag |
+| `functions.UpdateFunction` | Updating a function |
 | `mdbproxy.CreateProxy` | Creating a proxy |
 | `mdbproxy.DeleteProxy` | Deleting a proxy |
 | `mdbproxy.UpdateProxy` | Updating a proxy |
@@ -160,7 +160,7 @@ Service name: `certificatemanager`.
 Service name: `dns`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateDnsZone` | Creating a DNS zone |
 | `DeleteDnsZone` | Deleting a DNS zone |
 | `SetDnsZoneAccessBindings` | Setting access bindings to a DNS zone |

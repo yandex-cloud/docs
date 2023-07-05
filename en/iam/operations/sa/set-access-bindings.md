@@ -65,7 +65,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       +--------------------------------+-------------+
       ```
 
-   1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
+    1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
         ```bash
         yc iam user-account get test-user
@@ -80,7 +80,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
             default_email: test-user@yandex.ru
         ```
 
-   1. Assign a user named `test-user` the `editor` role for the `my-robot` service account. In the subject, specify the `userAccount` type and user ID:
+    1. Assign a user named `test-user` the `editor` role for the `my-robot` service account. In the subject, specify the `userAccount` type and user ID:
 
         ```bash
         yc iam service-account add-access-binding my-robot \
@@ -115,7 +115,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       }
       ```
 
-   1. Find out the user ID from the login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+    1. Find out the user ID from the login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
 
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -151,7 +151,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
                      "type": "userAccount"
          }}}]}' \
          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
-       ```
+        ```
 
 - {{ TF }}
 
@@ -198,7 +198,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
@@ -209,6 +209,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 ## Examples {#examples}
 
 * [{#T}](#multiple-roles).
+* [{#T}](#impersonation).
 * [{#T}](#access-to-sa).
 * [{#T}](#access-to-all).
 
@@ -269,28 +270,28 @@ This section describes how to assign [roles](../../concepts/access-control/roles
        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
    ```
 
-   You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
+    You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
 
-   {% note alert %}
+    {% note alert %}
 
-   The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
-   {% endnote %}
+    {% endnote %}
 
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindings": [{
-           "roleId": "editor",
-           "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-       },{
-           "roleId": "viewer",
-           "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-       }]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
-   ```
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+        }]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+    ```
 
 - {{ TF }}
 
@@ -334,43 +335,119 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
      {% endcut %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-   1. Check the configuration using this command:
-      ```
-      terraform validate
-      ```
+    1. Check the configuration using this command:
+       ```
+       terraform validate
+       ```
 
-      If the configuration is correct, you will get this message:
+       If the configuration is correct, you will get this message:
 
-      ```
-      Success! The configuration is valid.
-      ```
+       ```
+       Success! The configuration is valid.
+       ```
 
-   1. Run this command:
-      ```
-      terraform plan
-      ```
+    1. Run this command:
+       ```
+       terraform plan
+       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
+    1. Apply the configuration changes:
+       ```
+       terraform apply
+       ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+       You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
-      ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
-      ```
+       ```
+       yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+       ```
 
 {% endlist %}
 
+### Set up impersonation {#impersonation}
 
-### Access from one service account to another service account {#access-to-sa}
+[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions on behalf of a service account using the `--impersonate-service-account-id` flag. For this, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
+
+{% list tabs %}
+
+- CLI
+
+   1. Find out the ID of the service account that you want to assign the role to (for example, `test-sa`). For this, get a list of available service accounts (in the administrator profile):
+
+      ```bash
+      yc iam service-account list
+      ```
+
+      Result:
+
+      ```
+      +----------------------+----------+------------------+
+      |          ID          |   NAME   |   DESCRIPTION    |
+      +----------------------+----------+------------------+
+      | ajebqtreob2dpblin8pe | test-sa  | test-description |
+      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      +----------------------+----------+------------------+
+      ```
+
+   1. Assign the `viewer` role for `my-folder` to the `test-sa` service account. In the subject type, specify `serviceAccount`, and in its value, specify the ID of the service account (in the administrator profile):
+
+      ```
+      yc resource-manager folder add-access-binding my-folder \
+        --role viewer \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```
+
+   1. Retrieve the user ID and assign, to the user, the `iam.serviceAccounts.tokenCreator` role for the `test-sa`  service account (in the administrator profile):
+
+      ```
+      yc iam service-account add-access-binding test-sa \
+        --role iam.serviceAccounts.tokenCreator \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+      ```
+
+
+   1. The user can perform the command on behalf of the `test-sa` service account using the `--impersonate-service-account-id` flag.
+
+      For example, the user can get a list of VM instances in `my-folder`:
+
+      ```
+      yc compute instance list --folder-name my-folder \
+        --impersonate-service-account-id ajebqtreob2dpblin8pe
+      ```
+
+      The user can also obtain an [IAM token](../../concepts/authorization/iam-token.md) for your `test-sa` service account, for short-term access.
+
+      ```
+      yc iam create-token --impersonate-service-account-id ajebqtreob2dpblin8pe
+      ```
+
+      The token will expire automatically.
+
+   1. If the user no longer needs this permission, revoke the role from the service account (in the administrator's profile):
+
+      ```
+      yc resource-manager folder remove-access-binding my-folder \
+        --role viewer \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```
+   1. Revoke the `iam.serviceAccounts.tokenCreator` role from the user you assigned the service account's privileges to:
+
+      ```
+      yc iam service-account remove-access-binding test-sa \
+        --role iam.serviceAccounts.tokenCreator \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+      ```
+
+
+{% endlist %}
+
+### Setting up access from one service account to another service account {#access-to-sa}
 
 Allow the `test-sa` service account to manage the `my-robot` service account:
 
@@ -515,7 +592,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 {% endlist %}
 
-### Access to a resource for all users {#access-to-all}
+### Allowing all users to access the resource {#access-to-all}
 
 {% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
 

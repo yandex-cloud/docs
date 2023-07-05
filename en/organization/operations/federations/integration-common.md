@@ -8,6 +8,8 @@ To set up authentication:
 
 1. [Add certificates to a federation](#add-certificate).
 
+1. [Get a console login link](#get-link).
+
 1. [Configure authentication on your server](#configure-sso).
 
 1. [Configure user attribute mapping](#claims-mapping).
@@ -98,6 +100,7 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -236,7 +239,7 @@ To add a certificate to a federation:
 
    {% endnote %}
 
-   1. Go to [{{org-full-name}}]({{ link-org-main }}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
    1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
@@ -304,15 +307,32 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
+## Get a console login link {#get-link}
+
+When you set up federation authentication, users can log in to the management console from a link containing the federation ID. The same link must be provided when configuring the authentication server.
+
+Obtain and save this link:
+
+1. Get the federation ID:
+
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+
+   1. Copy the ID of the federation you are configuring access for.
+
+1. Generate a link using this ID:
+
+   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Configure authentication on your server {#configure-sso}
 
-After you create a federation, configure the Identity Provider (IdP) server. After each successful authentication, the server must send a relevant SAML message to the management console.
+Once you have created a federation, configure the Identity Provider (IdP) server. After each successful authentication, the server must send a relevant SAML message to the management console.
 
 Example of an SAML message:
 ```xml
 <samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+ Destination="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
   InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
@@ -344,12 +364,12 @@ Example of an SAML message:
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -370,13 +390,13 @@ Example of an SAML message:
 When setting up the message:
 
 * Use the `Response` and the `SubjectConfirmationData` properties of the `InResponseTo` attribute to specify the ID from the SAML authentication request sent by {{ yandex-cloud }}.
-* Enter the URL to redirect users to after authentication, `https://{{ auth-host }}/federations/<federation_ID>`, in the following elements:
-  
+* Specify the URL to redirect users to after successful authentication, such as `https://{{ auth-host }}/federations/<federation_ID>`, in the following elements:
+
    * In the `Destination` attribute of `Response`.
    * In the `Recipient` attribute of `SubjectConfirmationData`.
    * In `Audience`.
 
-   {% cut "How to get the federation ID" %}
+   {% cut "How to get a federation ID" %}
 
    {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
@@ -409,7 +429,7 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 | User data | Comment | SAML message elements |
 ------------------- | ----------- | ----------------------
 | Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>` |
-| Last name | Displayed in {{yandex-cloud}} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
+| Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
 | Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
 | Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
 | Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
@@ -497,7 +517,7 @@ To add federation users to an organization:
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -557,11 +577,23 @@ When you finish configuring the server, check the authentication process:
 
 1. Open the browser in guest or incognito mode to simulate being a new user.
 
-1. Follow the [management console login link](#get-link) you obtained earlier. The browser forwards you to the authentication page.
+1. Follow the URL to log in to the management console:
+
+   ```
+   https://{{ console-host }}/federations/<federation_ID>
+   ```
+
+   {% cut "How to get a federation ID" %}
+
+   {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
+
+   {% endcut %}
+
+   The browser forwards you to the authentication page.
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
+1. On successful authentication, the server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the server settings, and then to the management console home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

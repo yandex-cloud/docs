@@ -39,7 +39,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% list tabs %}
 
-- {{ org-name }} interface
+- Cloud {{ org-name }}
 
   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
@@ -184,7 +184,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 {% list tabs %}
 
-- {{ org-name }} interface
+- Cloud {{ org-name }}
 
    1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 

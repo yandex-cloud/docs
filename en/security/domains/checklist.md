@@ -2,7 +2,7 @@
 
 ## Network security {#network-security}
 
-* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. The traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../vpc/operations/security-group-create.md).
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW from {{ marketplace-short-name }}**: If more robust network protection is required, use [NGFW](/marketplace?tab=software&search=NGFW) from {{ marketplace-full-name }}.
@@ -90,7 +90,7 @@
 
 ## Backups {#backup}
 
-* **Regular backups**: Configure scheduled creation of disk snapshots using {{ sf-name }}.
+* **Regular backups**: Configure scheduled creation of disk snapshots using {{ sf-name }}).
 
 ## Managing budgets {#budget-management}
 

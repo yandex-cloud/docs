@@ -74,7 +74,6 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         * Имя пользователя — `chuser`.
         * Пароль — `chpassword`.
-        * Убедитесь, что опция **Публичный доступ** в настройках хостов отключена.
 
     1. [Подключитесь к БД {{ CH }}](../../managed-clickhouse/operations/connect#connection-string) с помощью утилиты `clickhouse-client`.
     1. Создайте тестовую таблицу и наполните ее данными:
@@ -92,7 +91,15 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=ru.yandex.clickhouse.ClickHouseDriver&DB_URL=jdbc:clickhouse://c-<идентификатор кластера>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<идентификатор кластера>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
+        FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
+        ```
+
+        Если для хостов {{ CH }} включен публичный доступ, при создании внешней таблицы необходимо использовать шифрованное соединение. Для этого укажите в запросе параметры SSL и порт `{{ port-mch-http }}`:
+
+        ```sql
+        CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&PASS=chpassword&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 

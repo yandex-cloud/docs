@@ -2,7 +2,7 @@
 
 By following these instructions, you'll create your first [Let's Encrypt certificate](../concepts/managed-certificate.md) and use it to [set up HTTPS access](../../storage/operations/hosting/certificate.md) to a static website hosted in {{ objstorage-full-name }}.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 To get started with {{ certificate-manager-name }}, you need:
 
