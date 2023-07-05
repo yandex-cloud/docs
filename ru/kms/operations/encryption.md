@@ -65,9 +65,9 @@
     
     * `--id` — идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
     * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
-    * `--ciphertext-file` — входной файл с открытым текстом.
+    * `--ciphertext-file` — входной файл с шифртекстом.
     * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/encryption.md#add-context).
-    * `--plaintext-file` — выходной файл с шифртекстом.
+    * `--plaintext-file` — выходной файл с открытым текстом.
     
     ```
     yc kms symmetric-crypto decrypt \
