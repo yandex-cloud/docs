@@ -3251,6 +3251,7 @@ default:
           emailFrom: Email From
           emailTo: Email To
           end-key-value: End Date
+          epic: Epic
           estimation-key-value: Estimate
           fields:
             agile: Agile
@@ -3419,6 +3420,7 @@ default:
               ready:
                 for:
                   test: Ready for Test
+              testing: Testing
         developmentPreset:
           board:
             column:
@@ -3563,6 +3565,7 @@ default:
       blocks-desktop_b-form-new-component:
         button-create: Create
         button-update: Save
+        desc: Description
         name: Name
         task-assignee: Assign to issues by default
       blocks-desktop_b-form-related-issues:
@@ -4477,6 +4480,7 @@ default:
         federation-task-action: Connect
         source-title: Yandex Cloud Organization
       ui_components_page-admin_OrgPanes_DirectoryOrgPane:
+        domain-task-action: Connect
         source-title: Yandex 360 for Business
       ui_components_page-admin_OrgUsersPane:
         access-level_full-access: Full
@@ -4805,6 +4809,8 @@ default:
         remove: Delete
         resource-acl:
           button_add-federation-user: Add federation user
+          button_assign-binding: Edit roles
+          label_access-bindings: Access bindings
         save: Save
         section-base: General information
         select: Select

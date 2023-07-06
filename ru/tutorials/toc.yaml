@@ -77,6 +77,8 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: archive/kubernetes-backup.md
+      - name: Развертывание параллельной файловой системы GlusterFS
+        href: archive/ha-regional-glusterfs.md
   - name: Для разработчиков
     items:
       - name: Все руководства

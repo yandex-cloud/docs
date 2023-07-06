@@ -303,6 +303,14 @@
 
 ### Источник Oracle {#source-oracle}
 
+{% note info %}
+
+В некоторых версиях Oracle для системных объектов вместо префикса `V$` используются `V_$`. Например, `V_$DATABASE` вместо `V$DATABASE`.
+
+Измените префиксы, если вы столкнулись с ошибкой вида `can only select from fixed tables/views` при выдаче прав на системные объекты.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Oracle
