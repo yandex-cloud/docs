@@ -3259,6 +3259,7 @@ default:
           emailFrom: От
           emailTo: Кому
           end-key-value: Дата завершения
+          epic: Epic
           estimation-key-value: Оценка
           fields:
             agile: Agile
@@ -3427,6 +3428,7 @@ default:
               ready:
                 for:
                   test: Можно тестировать
+              testing: Тестируется
         developmentPreset:
           board:
             column:
@@ -3571,6 +3573,7 @@ default:
       blocks-desktop_b-form-new-component:
         button-create: Создать
         button-update: Сохранить
+        desc: Описание
         name: Название
         task-assignee: Назначать исполнителем по умолчанию
       blocks-desktop_b-form-related-issues:
@@ -4485,6 +4488,7 @@ default:
         federation-task-action: Подключить
         source-title: Yandex Cloud Organization
       ui_components_page-admin_OrgPanes_DirectoryOrgPane:
+        domain-task-action: Подключить
         source-title: Яндекс 360 для бизнеса
       ui_components_page-admin_OrgUsersPane:
         access-level_full-access: Полный
@@ -4813,6 +4817,8 @@ default:
         remove: Удалить
         resource-acl:
           button_add-federation-user: Добавить федеративного пользователя
+          button_assign-binding: Изменить роли
+          label_access-bindings: Права доступа
         save: Сохранить
         section-base: Общая информация
         select: Выбрать
