@@ -48,12 +48,6 @@ Minimum configurations are specified for the 5% performance level, while maximum
 
 * Intel Ice Lake Compute-Optimized (`highfreq-v3`):
 
-    {% note info %}
-
-   To get access to the `highfreq-v3` platform, contact your account manager.
-
-    {% endnote %}
-
    | Configuration | vCPU | RAM, GB |
    --- | --- | ---
    | Min | 2 | 2 |

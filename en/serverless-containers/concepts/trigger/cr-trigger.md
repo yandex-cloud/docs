@@ -4,6 +4,8 @@ A {{ container-registry-name }} [trigger](../trigger/) invokes a {{ serverless-c
 
 A trigger for {{ container-registry-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the container.
 
+For more information about creating a trigger for {{ container-registry-name }}, see [{#T}](../../operations/cr-trigger-create.md).
+
 {% include [cr-event](../../../_includes/functions/cr-event.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}

@@ -217,11 +217,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
 
 
-
 ### {{ mos-full-name }} {#mos}
 
 {% include [limits.md](../../_includes/mdb/mos/limits.md) %}
-
 
 
 ### {{ mpg-full-name }} {#mpg}

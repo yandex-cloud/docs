@@ -1,5 +1,5 @@
 ---
-canonical: {{ link-docs }}/managed-mysql/tutorials/profiling-mmy
+canonical: "{{ link-docs }}/managed-mysql/tutorials/profiling-mmy"
 ---
 
 # Анализ производительности и оптимизация {{ mmy-name }}

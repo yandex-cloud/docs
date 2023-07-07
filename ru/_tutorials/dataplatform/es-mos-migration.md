@@ -53,15 +53,12 @@
 
 1. Настройте кластер-источник {{ ES }}:
 
+    
     {% list tabs %}
 
     - Сторонний кластер {{ ES }}
 
-        1. [Установите плагин]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html) `repository-s3` на все хосты кластера.
-
-        1. Чтобы плагин `repository-s3` заработал, перезапустите сервисы {{ ES }} и Kibana на всех хостах кластера.
-
-        1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
+      {% include [source-3p](es-mos-migration/source-3p.md) %}
 
     - {{ mes-name }}
 
@@ -73,6 +70,8 @@
 
     {% endlist %}
 
+
+
 1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
 1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
@@ -81,58 +80,12 @@
 
 1. Подключите бакет в качестве репозитория снапшотов на кластере-источнике:
 
+    
     {% list tabs %}
 
     - Сторонний кластер {{ ES }}
 
-        1. Добавьте сведения о ключе статического доступа в [хранилище ключей]({{ links.es.docs }}/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore) {{ ES }}.
-
-            {% note info %}
-
-            Выполните процедуру на всех хостах кластера-источника.
-
-            {% endnote %}
-
-            Добавьте:
-
-            * **Идентификатор ключа**:
-
-                ```bash
-                $ES_PATH/bin/elasticsearch-keystore add s3.client.default.access_key
-                ```
-
-            * **Секретный ключ**:
-
-                ```bash
-                $ES_PATH/bin/elasticsearch-keystore add s3.client.default.secret_key
-                ```
-
-            {% note info %}
-
-            Путь к {{ ES }} (`$ES_PATH`) зависит от выбранного способа установки. Найти путь к установленному {{ ES }} можно в [документации по установке]({{ links.es.docs }}/elasticsearch/reference/current/install-elasticsearch.html) (например, для [DEB]({{ links.es.docs }}/elasticsearch/reference/current/deb.html#deb-layout), [RPM]({{ links.es.docs }}/elasticsearch/reference/current/rpm.html#rpm-layout)).
-
-            {% endnote %}
-
-        1. Загрузите данные из хранилища ключей:
-
-            ```bash
-            curl --request POST "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_nodes/reload_secure_settings"
-            ```
-
-        1. Зарегистрируйте репозиторий:
-
-            ```bash
-            curl --request PUT \
-                 "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>" \
-                 --header 'Content-Type: application/json' \
-                 --data '{
-                   "type": "s3",
-                   "settings": {
-                     "bucket": "<имя бакета>",
-                     "endpoint": "{{ s3-storage-host }}"
-                   }
-                 }'
-            ```
+      {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
     - {{ mes-name }}
 
@@ -154,6 +107,8 @@
 
     {% endlist %}
 
+
+
     Подробнее о подключении репозитория см. в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
@@ -162,14 +117,12 @@
 
     Пример создания снапшота с именем `snapshot_1` для всего кластера:
 
+    
     {% list tabs %}
 
     - Сторонний кластер {{ ES }}
 
-        ```bash
-        curl --request PUT \
-             "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=false&pretty"
-        ```
+      {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
     - {{ mes-name }}
 
@@ -181,16 +134,16 @@
 
     {% endlist %}
 
+
+
     Процесс создания снапшота может занять длительное время. Отслеживайте ход выполнения операции [с помощью инструментов {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), например:
 
     {% list tabs %}
 
+    
     - Сторонний кластер {{ ES }}
 
-        ```bash
-        curl --request GET \
-             "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1/_status?pretty"
-        ```
+      {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
 
     - {{ mes-name }}
 
@@ -201,6 +154,8 @@
         ```
 
     {% endlist %}
+
+
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}
 

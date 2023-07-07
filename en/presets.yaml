@@ -782,7 +782,7 @@ default:
   cic-pbc-nat-subnet: 178.210.118.200/30
   cic-pbc-svc1-ip: 213.180.193.243/32
   tf-docs-link: https://terraform-provider.yandexcloud.net
-  tf-provider-link: https://terraform-provider.yandexcloud.net/Resources
+  tf-provider-link: https://terraform-provider.yandexcloud.net/
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
@@ -799,7 +799,7 @@ default:
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
   tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
-  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform-provider-yandex/
+  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
@@ -5184,6 +5184,9 @@ default:
       forms:
         label_form-list: List
         label_service-account-select: Service account
+      gitlab:
+        button_setup-omniauth: Configure
+        title_omniauth: OmniAuth
       greenplum:
         action_expand-open: Expand cluster
         action_expand-start: Save
@@ -5224,6 +5227,7 @@ default:
             label_lockbox: Lockbox
             label_logging: Cloud Logging
             label_managed-clickhouse: Managed Service for ClickHouse
+            label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-redis: Managed Service for Redis
