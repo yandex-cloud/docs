@@ -2,6 +2,8 @@ A {{ sf-name }} [trigger](../../functions/concepts/trigger/index.md) launches a 
 
 A trigger for {{ container-registry-name }} needs a [service account](../../iam/concepts/users/service-accounts.md) to call the function.
 
+For more information about creating a trigger for {{ container-registry-name }}, see [{#T}](../../functions/operations/trigger/cr-trigger-create.md).
+
 {% include [cr-event](cr-event.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
@@ -9,7 +11,7 @@ A trigger for {{ container-registry-name }} needs a [service account](../../iam/
 * To create a trigger, you need:
    * Permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../iam/concepts/access-control/roles.md#editor) roles and higher.
    * The `{{ roles-cr-puller }}` role for the registry whose events the trigger handles.
-* To run a trigger, the service account needs the `{{ roles-functions-ivoker }}` role for the folder with the function to be called by the trigger.
+* To run a trigger, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../functions/security/index.md).
 

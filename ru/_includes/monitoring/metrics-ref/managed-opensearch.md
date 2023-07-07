@@ -374,7 +374,7 @@ host | FQDN хоста
 ##### Прочие метрики {#managed-opensearch-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `opensearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](https://cloud.yandex.ru/docs/managed-opensearch/concepts/scalability-and-resilience) и общее количество активных шардов в кластере. | 
+| `opensearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-opensearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 
 | `opensearch_active_shards`<br/>`DGAUGE`, штуки | Количество активных шардов. | 
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, штуки | Процент активных шардов. | 
 | `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |
@@ -383,7 +383,7 @@ host | FQDN хоста
 | `opensearch_relocating_shards`<br/>`DGAUGE`, штуки | Количество перемещаемых шардов. | 
 | `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Уровень работоспособности и техническое состояние кластера:<br/>`0` — красный: неработоспособное или частично работоспособное состояние. Хотя бы один из первичных шардов недоступен. Если кластер отвечает на запросы, результаты поиска в ответах будут неполными.<br/>`1` — желтый: работоспособное состояние. Нет доступа хотя бы к одному из шардов-реплик. Результаты поиска в ответах кластера полные, но если появятся еще недоступные шарды, работоспособность кластера нарушится.<br/>`2` — зеленый: исправное состояние. Все шарды кластера доступны. |
 | `opensearch_unassigned_shards`<br/>`DGAUGE`, штуки | Количество неактивных шардов с неназначенным хостом. |
-| `dashboards_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](https://cloud.yandex.ru/docs/managed-opensearch/concepts/scalability-and-resilience) и общее количество активных шардов в кластере. | 
+| `dashboards_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-opensearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 
 | `dashboards_active_shards`<br/>`DGAUGE`, штуки | Количество активных шардов. | 
 | `dashboards_active_shards_percent_as_number`<br/>`DGAUGE`, штуки | Процент активных шардов. | 
 | `dashboards_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |

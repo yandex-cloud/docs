@@ -51,15 +51,12 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
 1. Set up the {{ ES }} source cluster:
 
+   
    {% list tabs %}
 
    - Third-party {{ ES }} cluster
 
-      1. [Install the plugin]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html) `repository-s3` on all cluster hosts.
-
-      1. For the `repository-s3` plugin to work, restart the {{ ES }} and Kibana services on all cluster hosts.
-
-      1. Make sure the {{ ES }} source cluster can access the internet.
+     {% include [source-3p](es-mos-migration/source-3p.md) %}
 
    - {{ mes-name }}
 
@@ -71,6 +68,8 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    {% endlist %}
 
+
+
 1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
 1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect.md) using the {{ OS }} API and Dashboards.
@@ -79,58 +78,12 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
 1. Connect the bucket as a snapshot repository on the source cluster:
 
+   
    {% list tabs %}
 
    - Third-party {{ ES }} cluster
 
-      1. Add the static access key information to the {{ ES }} [keystore]({{ links.es.docs }}/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore).
-
-         {% note info %}
-
-         Run the procedure on all hosts of the source cluster.
-
-         {% endnote %}
-
-         Add the following:
-
-         * **Key ID**:
-
-            ```bash
-            $ES_PATH/bin/elasticsearch-keystore add s3.client.default.access_key
-            ```
-
-         * **Secret key**:
-
-            ```bash
-            $ES_PATH/bin/elasticsearch-keystore add s3.client.default.secret_key
-            ```
-
-         {% note info %}
-
-         The path to {{ ES }} (`$ES_PATH`) depends on the selected installation method. To find a path to your {{ ES }} installation, see the [installation documentation]({{ links.es.docs }}/elasticsearch/reference/current/install-elasticsearch.html) (for example, for [DEB]({{ links.es.docs }}/elasticsearch/reference/current/deb.html#deb-layout), [RPM]({{ links.es.docs }}/elasticsearch/reference/current/rpm.html#rpm-layout)).
-
-         {% endnote %}
-
-      1. Upload the data from the keystore:
-
-         ```bash
-         curl --request POST "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_nodes/reload_secure_settings"
-         ```
-
-      1. Register the repository:
-
-         ```bash
-         curl --request PUT \
-              "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>" \
-              --header 'Content-Type: application/json' \
-              --data '{
-                "type": "s3",
-                "settings": {
-                  "bucket": "<bucket name>",
-                  "endpoint": "{{ s3-storage-host }}"
-                }
-              }'
-         ```
+     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
    - {{ mes-name }}
 
@@ -152,6 +105,8 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    {% endlist %}
 
+
+
    To learn more about adding the repository, see the [plugin documentation]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
    {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
@@ -160,14 +115,12 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    Example of creating a snapshot with the `snapshot_1` name for the entire cluster:
 
+   
    {% list tabs %}
 
    - Third-party {{ ES }} cluster
 
-      ```bash
-      curl --request PUT \
-           "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1?wait_for_completion=false&pretty"
-      ```
+     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
    - {{ mes-name }}
 
@@ -179,16 +132,16 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    {% endlist %}
 
+
+
    Creating a snapshot may take a long time. Track the operation progress [using the {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), for example:
 
+   
    {% list tabs %}
 
    - Third-party {{ ES }} cluster
 
-      ```bash
-      curl --request GET \
-           "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1/_status?pretty"
-      ```
+     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
 
    - {{ mes-name }}
 
@@ -199,6 +152,8 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
       ```
 
    {% endlist %}
+
+
 
 ### Restore a snapshot on the target cluster {#restore-snapshot}
 

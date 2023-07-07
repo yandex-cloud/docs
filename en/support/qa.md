@@ -51,10 +51,10 @@ Technical support includes troubleshooting third-party software that is used in 
 
 - [Operating systems](https://cloud.yandex.ru/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
-   - [{{ mkf-full-name }}](../managed-kafka)
-   - [{{ mch-full-name }}](../managed-clickhouse/)
-   - [{{ mes-full-name }}](../managed-elasticsearch)
-   - [{{ mgp-full-name }}](../managed-greenplum)
+   - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
+   - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
+   - [{{ mes-full-name }}](../managed-elasticsearch/index.yaml)
+   - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
    - [{{ managed-k8s-full-name }}](../managed-kubernetes)
    - [{{ mmg-full-name }}](../managed-mongodb)
    - [{{ mmy-full-name }}](../managed-mysql)

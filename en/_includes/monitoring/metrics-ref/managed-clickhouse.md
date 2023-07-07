@@ -411,7 +411,7 @@ For each metric, the increment per unit of time (second) is calculated.
 ##### System metrics {#managed-clickhouse-config-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, pcs | Threshold value of active data parts in a table. When exceeded, ClickHouse throws the `Too many parts ...` exception. Set in the [settings](https://cloud.yandex.ru/docs/managed-clickhouse/concepts/settings-list#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, pcs | Threshold value of active data parts in a table. When exceeded, ClickHouse throws the `Too many parts ...` exception. Set in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, bytes | Local disk partition size. |
 | `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, pcs | Maximum number of data chunks in a partition. |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay. |

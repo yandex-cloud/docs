@@ -2,7 +2,7 @@
 
 {% note alert %}
 
-Triggers for {{ cloud-logs-name }} are deprecated. Use [triggers for {{ cloud-logging-name }}](./cloud-logging-trigger.md).
+Trigger for {{ cloud-logs-name }} is outdated. Use [triggers for {{ cloud-logging-name }}](./cloud-logging-trigger.md).
 
 {% endnote %}
 
@@ -14,7 +14,9 @@ Triggers for {{ cloud-logs-name }} may skip messages under increased load. To ma
 
 {% endnote %}
 
-A trigger for {{ cloud-logs-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the function.
+A trigger for {{ cloud-logs-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to call the function.
+
+For more information about creating a trigger for {{ cloud-logs-name }}, see [{#T}](../../operations/trigger/cloudlogs-trigger-create.md).
 
 ## Batching {#batching}
 
@@ -22,7 +24,7 @@ Batching settings let you simultaneously send multiple messages to a function. T
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logs-name }} {#roles}
 
-- To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
+- To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles and higher.
 - To run a trigger, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../security/index.md).

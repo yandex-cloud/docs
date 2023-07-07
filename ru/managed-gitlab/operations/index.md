@@ -12,3 +12,7 @@
 ## Подключение к инстансу {{ GL }} {#instance-connect}
 
 * [{#T}](connect.md)
+
+## Аутентификация {#auth}
+
+* [{#T}](omniauth.md)

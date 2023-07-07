@@ -4,6 +4,8 @@
 
 A trigger for {{ objstorage-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the container.
 
+For more information about creating a trigger for {{ objstorage-name }}, see [{#T}](../../operations/os-trigger-create.md).
+
 {% include [os-event](../../../_includes/functions/os-event.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}

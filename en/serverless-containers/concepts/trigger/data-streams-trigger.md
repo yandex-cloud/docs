@@ -4,6 +4,8 @@
 
 A trigger for {{ yds-name }} needs [service accounts](../../../iam/concepts/users/service-accounts.md) to manage a stream and invoke a container. You can use the same service account for both operations.
 
+For more information about creating a trigger for {{ yds-name }}, see [{#T}](../../operations/data-streams-trigger-create.md).
+
 ## Roles required for the proper operation of a trigger for {{ yds-name }} {#roles}
 
 * To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.

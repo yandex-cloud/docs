@@ -20,10 +20,6 @@ Configuration types:
 * **m2**, **m3**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations can be useful for clusters with higher cache requirements.
 * **b3**: Configuration with a guaranteed vCPU share under 100%. This class of hosts is intended for test load, with the minimum recommended host configuration for production solutions being 2 vCPUs with a guaranteed share of 50%.
 
-
-
-
-
 | Host class name | Number of vCPUs | Guaranteed<br>vCPU performance | RAM, GB | Disk<br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
 | **Intel Cascade Lake** |
@@ -76,4 +72,6 @@ Configuration types:
 | m3-c56-m448 | 56 | 100% | 448 | 10 - 8184 |
 | m3-c64-m512 | 64 | 100% | 512 | 10 - 8184 |
 | m3-c80-m640 | 80 | 100% | 640 | 10 - 8184 |
+
+
 

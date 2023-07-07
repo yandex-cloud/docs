@@ -51,16 +51,16 @@
 
 - [Операционные системы](https://cloud.yandex.ru/marketplace?categories=os) на виртуальных машинах {{ yandex-cloud }}, которые были созданы из предоставленных {{ yandex-cloud }} публичных образов.
 - БД и системы управления кластерами, созданные в сервисах:
-    - [{{ mkf-full-name }}](../managed-kafka)
-    - [{{ mch-full-name }}](../managed-clickhouse/)
-    - [{{ mes-full-name }}](../managed-elasticsearch)
-    - [{{ mgp-full-name }}](../managed-greenplum)
-    - [{{ managed-k8s-full-name }}](../managed-kubernetes)
-    - [{{ mmg-full-name }}](../managed-mongodb)
-    - [{{ mmy-full-name }}](../managed-mysql)
-    - [{{ mos-full-name }}](../managed-opensearch)
-    - [{{ mrd-full-name }}](../managed-redis)
-    - [{{ mpg-full-name }}](../managed-postgresql/)
+    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
+    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
+    - [{{ mes-full-name }}](../managed-elasticsearch/index.yaml)
+    - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
+    - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
+    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
+    - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
+    - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
+    - [{{ mrd-full-name }}](../managed-redis/index.yaml)
+    - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 #### Что случится, если вы не сможете решить мою проблему с программным обеспечением стороннего производителя? {#unresolved-third-party-issues}
 

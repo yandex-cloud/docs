@@ -4,6 +4,8 @@
 
 A trigger for {{ objstorage-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to call the function.
 
+For more information about creating a trigger for {{ objstorage-name }}, see [{#T}](../../operations/trigger/os-trigger-create.md).
+
 ## Events for setting up a trigger {#event}
 
 Events with bucket objects that can be tracked using a trigger:

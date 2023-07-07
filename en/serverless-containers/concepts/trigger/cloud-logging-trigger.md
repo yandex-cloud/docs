@@ -4,6 +4,8 @@ A [trigger](../trigger/) for {{ cloud-logging-name }} invokes a {{ serverless-co
 
 A trigger for {{ cloud-logging-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to read messages from the log group and invoke a container.
 
+For more information about creating a trigger for {{ cloud-logging-name }}, see [{#T}](../../operations/cloud-logging-trigger-create.md).
+
 ## Roles required for the proper operation of a trigger for {{ cloud-logging-name }} {#roles}
 
 * To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.

@@ -234,7 +234,7 @@ Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/
 ##### Other metrics {#managed-elasticsearch-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `elasticsearch_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](https://cloud.yandex.ru/docs/managed-elasticsearch/concepts/scalability-and-resilience) and total number of active shards in the cluster. |
+| `elasticsearch_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-elasticsearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster. |
 | `elasticsearch_active_shards`<br/>`DGAUGE`, pcs | Number of active shards. |
 | `elasticsearch_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards. |
 | `elasticsearch_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards. |

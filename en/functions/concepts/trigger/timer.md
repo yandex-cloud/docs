@@ -4,6 +4,8 @@ _Timer_ is a [trigger](../trigger/) that calls a {{ sf-name }} [function](../fun
 
 A timer needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke a function.
 
+For more information about creating a timer, see [{#T}](../../operations/trigger/timer-create.md).
+
 {% include [cron-expression](../../../_includes/functions/cron-expression.md) %}
 
 ## Roles required for timers to run correctly {#roles}

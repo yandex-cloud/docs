@@ -4,6 +4,8 @@ An email [trigger](../trigger/) launches a {{ sf-name }} [function](../function.
 
 An email trigger requires a [service account](../../../iam/concepts/users/service-accounts.md) to call its function.
 
+For more information about creating an email trigger, see [{#T}](../../operations/trigger/mail-trigger-create.md).
+
 ## Roles required for email trigger to run properly {#roles}
 
 * To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.
