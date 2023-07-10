@@ -90,7 +90,7 @@
   1. Выполните команду для поиска дисков ВМ, которые не имеют ID вашего эталонного образа:
 
      ```bash
-     export ORG_ID=export ORG_ID=<ID организации>
+     export ORG_ID=<ID организации>
      export IMAGE_ID=<id вашего эталонного образа>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
