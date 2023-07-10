@@ -494,6 +494,7 @@ default:
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
+  h100-sapphire-rapids: Intel Sapphire Rapids with NVIDIA® Hopper® H100
   b3-c1-m4: b3-c1-m4 (2 × 50% vCPU, 4 GB)
   m3-c2-m16: m3-c2-m16 (2 vCPU, 16 GB)
   m3-c4-m32: m3-c4-m32 (4 vCPU, 32 GB)
@@ -5047,7 +5048,6 @@ default:
             field_instance-group-network: Network
             field_key: SSH key
             field_name: Name
-            field_password: Password
             field_serial-port-enable: Grant access to serial console
             field_service-account: Service account
             field_user: Login
@@ -6115,6 +6115,7 @@ default:
                         title: Consumer
                       topics:
                         array_item_label: Topic
+                        title: Topics
                     LogbrokerConnectionType:
                       cluster:
                         title: Cluster
@@ -6132,12 +6133,20 @@ default:
                       max_time_lag:
                         title: Maximum data consumption latency
                     LogbrokerSource:
+                      connection:
+                        title: Connection settings
                       parser:
                         title: Parser rules
                       read_options:
                         title: Read options
                       table_splitter:
                         title: Split into sub tables
+                    LogbrokerTargetConnectionSettings:
+                      topic_settings:
+                        title: Topic
+                    LogbrokerTargetTopicSettings:
+                      topic:
+                        title: Topic full name
                     LogfellerParser:
                       add_system_cols:
                         title: Adding Logbroker system columns
@@ -6149,6 +6158,8 @@ default:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 parser
                     ParserConfigLb:
+                      parser_config_blank:
+                        title: No parser
                       parser_config_lb_json:
                         title: json
                       parser_config_lb_tskv:

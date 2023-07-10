@@ -8,7 +8,6 @@
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
-
 {% list tabs %}
 
 - Консоль управления
@@ -58,25 +57,25 @@
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * `zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
-     * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
 
        
-       * `gpu-standard-v1` для платформы {{ v100-broadwell }}.
-       * `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
-       * `standard-v3-t4` для платформы {{ t4-ice-lake }}.
+       {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
+ 
 
-       * `gpu-standard-v3` для платформы {{ a100-epyc }}.
+     * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
+       
+       {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
+       
      * `cores` – [количество vCPU](../../concepts/gpus.md).
      * `memory` – размер RAM.
      * `gpus` – количество GPU.
      * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
 
        
-       * `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с драйверами CUDA.
+     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
 
-
+       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
      * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
 
@@ -114,8 +113,8 @@
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "vm-with-gpu"
-       platform_id = "gpu-standard-v3"
        zone        = "<зона доступности>"
+       platform_id = "gpu-standard-v3"
 
        resources {
          cores  = <количество ядер vCPU>
@@ -153,16 +152,18 @@
      Где:
      * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
+       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+
+             
+         {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+    
+    
+         
        * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
 
-         
-         * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
-         * `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.
-         * `standard-v3-t4` для платформы Intel Ice Lake with NVIDIA® Tesla® T4.
+         {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
 
-         * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
-       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md). Укажите идентификатор выбранного [образа](../../concepts/image.md). Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 

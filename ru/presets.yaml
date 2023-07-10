@@ -499,6 +499,7 @@ default:
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
+  h100-sapphire-rapids: Intel Sapphire Rapids with NVIDIA® Hopper® H100
   b3-c1-m4: b3-c1-m4 (2 × 50% vCPU, 4 ГБ)
   m3-c2-m16: m3-c2-m16 (2 vCPU, 16 ГБ)
   m3-c4-m32: m3-c4-m32 (4 vCPU, 32 ГБ)
@@ -5055,7 +5056,6 @@ default:
             field_instance-group-network: Сеть
             field_key: SSH-ключ
             field_name: Имя
-            field_password: Пароль
             field_serial-port-enable: Разрешить доступ к серийной консоли
             field_service-account: Сервисный аккаунт
             field_user: Логин
@@ -6123,6 +6123,7 @@ default:
                         title: Консьюмер
                       topics:
                         array_item_label: Топик
+                        title: Топики
                     LogbrokerConnectionType:
                       cluster:
                         title: Кластер
@@ -6138,12 +6139,20 @@ default:
                       max_time_lag:
                         title: Максимальная задержка потребления данных
                     LogbrokerSource:
+                      connection:
+                        title: Настройки подключения
                       parser:
                         title: Правила парсинга
                       read_options:
                         title: Настройки чтения
                       table_splitter:
                         title: Делить на подтаблицы
+                    LogbrokerTargetConnectionSettings:
+                      topic_settings:
+                        title: Топик
+                    LogbrokerTargetTopicSettings:
+                      topic:
+                        title: Полное имя топика
                     LogfellerParser:
                       add_system_cols:
                         title: Добавление системных столбцов Logbroker
@@ -6155,6 +6164,8 @@ default:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 парсер
                     ParserConfigLb:
+                      parser_config_blank:
+                        title: Без парсинга
                       parser_config_lb_json:
                         title: json
                       parser_config_lb_tskv:

@@ -1,52 +1,31 @@
 # Activating {{ tracker-full-name }}
 
-If you're not using {{ tracker-full-name }} yet, you can activate the service to manage your organization's issues. To getting started with {{ tracker-name }}, you need to create a [company{{ yandex-cloud }}](../organization/). If you already have one, connect it to {{ tracker-name }}. If you don't have a company yet, you can create one when you activate {{ tracker-name }}.
+If you aren't using {{ tracker-full-name }} to manage issues in your company, you can connect it. To work in {{ tracker-name }}, you'll need a [{{ yandex-cloud }} organization](../organization/). If you already have an organization, connect {{ tracker-name }} to it. If you have no organization, you can create it when connecting {{ tracker-name }}.
 
 {% note warning %}
 
-Only users who have a Yandex account can activate {{ tracker-name }}.
+Only the users that have an account on Yandex can connect {{ tracker-name }}.
 
-If your organization's admin has already activated {{ tracker-name }}, [log in](user/login.md) to the service to start managing issues.
+If the administrator of your organization already connected {{ tracker-name }}, to start working with issues, [log in to the service](user/login.md).
 
 {% endnote %}
 
-{% list tabs %}
+1. Log in to your [Yandex account]({{ link-passport }}). If you do not have an account, [create]({{ support-passport-create }}) one.
 
-- Web interface
+1. Go to the [page{{ tracker-name }}]({{ link-tracker-promo }}) and click **Try for free**.
 
-   1. Log in to your [Yandex account]({{ link-passport }}). If you don't have an account yet, [create]({{ support-passport-create }}) it.
+1. If you are an administrator in one or more {{ yandex-cloud }} organizations, select the organization for which you want to connect {{ tracker-name }}, then click **Log in**.
 
-   1. Go to the [{{ tracker-name }} main page]({{ link-tracker-promo }}) and click **Try for free**.
+   If you don't have a {{ yandex-cloud }} organization or want to create a new one, enter the name of the organization, add its description, then click **Create**.
 
-   1. If you're the admin for one or more companies in {{ yandex-cloud }}, select the company you wish to connect to {{ tracker-name }} and click **Log in**.
-
-      If you have no organization in {{ yandex-cloud }} or you want to create a new one, specify a name for your organization, add its description, and click **Create**.
-
-      {{ tracker-full-name }} is automatically activated for the organization you selected or created. For more information about managing organizations, see the  [{{ org-full-name }}](../organization/) documentation.
-
-- Mobile app
-
-   1. Open the [{{ tracker-name }} mobile app](mobile.md) and choose **Log in to Yandex account**.
-
-   1. Log in to your [Yandex account]({{ link-passport }}). If you don't have an account yet, [create]({{ support-passport-create }}) it.
-
-      * If you don't have an organization in {{ yandex-cloud }}, the {{ tracker-full-name }} activation window opens. Accept the {{ yandex-cloud }} terms of use and tap **Log in**. Your organization is automatically created and {{ tracker-full-name }} is activated.
-
-      * If {{ tracker-name }} is not enabled for your organization yet, it will be activated automatically the first time you log in to the mobile app.
-
-      For more information about managing organizations, see the [{{ org-full-name }}](../organization/) documentation.
-
-   1. To configure {{ tracker-full-name }}, go to the [web interface]({{ link-tracker }}). Some {{ tracker-name }} features aren't available in the [mobile app](mobile.md#restrictions).
-
-{% endlist %}
+   {{ tracker-full-name }} will be connected for the selected or created organization automatically. For more information about managing organizations, see the [{{ org-full-name }}](../organization/) documentation.
 
 ## Getting started with {{ tracker-name }} {#setup}
 
 To get started, configure {{ tracker-full-name }} via the web interface:
 
-1. [Add your organization's employees to {{ tracker-name }}](add-users.md).
+1. [Add your company's employees to {{ tracker-name }}](add-users.md).
 
-1. Your employees will need [full access to {{ tracker-name }}](access.md) in order to manage issues.
+1. Your employees will need [full access to{{ tracker-name }}](access.md) in order to manage issues.
 
 1. [Configure {{ tracker-name }} for your team](quick-start.md).
-

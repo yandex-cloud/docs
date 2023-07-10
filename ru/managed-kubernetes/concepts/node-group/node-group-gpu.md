@@ -4,12 +4,14 @@
 
 ## Требования {#requirements}
 
-* Ненулевая квота GPU.
+* В облаке должна быть ненулевая квота GPU.
 
-  По умолчанию в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) установлена нулевая [квота]({{ link-console-quotas }}) на использование ВМ с GPU. Чтобы изменить квоту, обратитесь в [техническую поддержку]({{ link-console-support }}).
-* Кластер {{ managed-k8s-name }} в [зонах доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b`, где доступны ВМ с GPU.
+  {% include [compute-gpu-zero-quota](../../../_includes/compute/gpu-zero-quota.md) %}
 
-  Запрашивая квоту GPU, учитывайте, в каких зонах доступности вы собираетесь запускать кластеры {{ managed-k8s-name }}.
+* Группа узлов должна находиться в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` или в обеих зонах. ВМ с GPU доступны только в этих зонах.
+
+  Запрашивая квоту GPU, учитывайте, в каких зонах вы собираетесь запускать кластеры {{ k8s }}.
+
 
 ## Тарификация {#pricing}
 

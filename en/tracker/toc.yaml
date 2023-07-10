@@ -29,8 +29,6 @@ items:
         href: import.md
       - name: Disabling paid services
         href: disable-tracker.md
-  - name: Yandex Tracker mobile app
-    href: mobile.md
   - name: Tutorials
     items:
       - name: Setting up Yandex Tracker for a development team
@@ -71,6 +69,8 @@ items:
             href: support-process-dashboards.md
           - name: Configuring integration with third-party platforms
             href: support-process-integration.md
+      - name: Visualizing data with {{ datalens-name }}
+        href: tutorials/visualisation-in-datalens.md
   - name: Concepts
     items:
       - name: Service overview
@@ -363,6 +363,38 @@ items:
         href: user/python.md
       - name: Connecting repositories
         href: manager/add-repository.md
+  - name: Yandex Tracker mobile app
+    items:
+      - name: Overview of features
+        href: mobile.md
+      - name: How to enable {{ tracker-name }}
+        href: mobile/enable-tracker.md
+      - name: How to log in to the mobile app
+        href: mobile/login.md
+      - name: My issues
+        href: mobile/my-tickets.md
+      - name: Creating an issue
+        href: mobile/create-ticket.md
+      - name: Editing an issue
+        href: mobile/edit-ticket.md
+      - name: Comments on an issue
+        href: mobile/comments.md
+      - name: Checklist
+        href: mobile/checklist.md
+      - name: Uploading images and files
+        href: mobile/attach-file.md
+      - name: Links in issues
+        href: mobile/ticket-links.md
+      - name: Time spent
+        href: mobile/time-spent.md
+      - name: Finding an issue
+        href: mobile/search-task.md
+      - name: System filters
+        href: mobile/default-filters.md
+      - name: Creating a filter
+        href: mobile/create-filter.md
+      - name: Sorting and grouping issues
+        href: mobile/sort-and-group.md
   - name: Pricing policy
     items:
       - name: Billing

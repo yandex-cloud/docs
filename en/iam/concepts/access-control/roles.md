@@ -16,19 +16,19 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ![image](../../../_assets/iam/security/primitive-roles-hierarchy.svg)
 
-### {{ roles-auditor }} {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 {% include [roles-auditor](../../../_includes/roles-auditor.md) %}
 
-### {{ roles-viewer }} {#viewer}
+#### {{ roles-viewer }} {#viewer}
 
 {% include [roles-viewer](../../../_includes/roles-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 {% include [roles-editor](../../../_includes/roles-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
@@ -55,6 +55,18 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
 
 {% include [roles-alb-admin](../../../_includes/roles-alb-admin.md) %}
+
+## {{ at-full-name }} {#at-roles}
+
+{% include [audit-trails-auditor](../../../_includes/iam/roles/audit-trails-auditor.md) %}
+
+{% include [audit-trails-viewer](../../../_includes/iam/roles/audit-trails-viewer.md) %}
+
+{% include [audit-trails-editor](../../../_includes/iam/roles/audit-trails-editor.md) %}
+
+{% include [audit-trails-admin](../../../_includes/iam/roles/audit-trails-admin.md) %}
+
+{% include [audit-trails-configviewer](../../../_includes/iam/roles/audit-trails-configviewer.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 

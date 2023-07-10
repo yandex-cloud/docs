@@ -10,7 +10,7 @@ To limit the period during which users can fill out the form:
 
 1. In the **Timeframe for accepting responses** block, enable the **Limited time** option.
 
-1. Set the date and time range for when you want the form to be active. The specified restrictions apply to Moscow time (UTC+3).
+1. Set the date and time range for when you want the form to be active. These restrictions will apply in the context of your time zone and current time.
 
 1. Click **Save**.
 

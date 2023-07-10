@@ -23,7 +23,7 @@
 ## Отредактировать комментарий {#edit-comment}
 
 1. Нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-edit }}**.
-    
+
 1. Внесите изменения и нажмите кнопку ![](../../_assets/tracker/send.png).
 
 Все изменения комментариев сохраняются в [Истории изменений](../user/history.md).
