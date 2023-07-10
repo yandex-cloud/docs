@@ -2,6 +2,8 @@
 
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of an existing one.
 
+
+
 ## Creating a preemptible VM {#create-preemptible}
 
 To create a [preemptible](../../concepts/preemptible-vm.md) VM:

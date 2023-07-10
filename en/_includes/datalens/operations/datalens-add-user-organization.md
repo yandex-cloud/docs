@@ -1,6 +1,6 @@
 1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link]({{ link-org-users }}).
 
-1. In the top right-hand corner, click **Add user**. In the resulting window, enter the email address of a Yandex user and click **Add**. The new user will appear in the list of organization users.
+1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**. In the resulting window, enter the email address of a Yandex user and click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The new user will appear in the organization's user list after accepting the invitation.
 
    {% note warning %}
 

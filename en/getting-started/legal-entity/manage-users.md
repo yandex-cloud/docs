@@ -11,9 +11,9 @@ To add employee accounts to the organization, follow these steps:
 1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
-1. In the top right-hand corner, click **Add user**.
+1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `login@yandex.ru`).
-1. Click **Add**. This will give the users access to the organization.
+1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The users will be added to the organization when they accept the invitation to join.
 
 To access the organization's enabled services, invited users simply need to log in to their Yandex account.
 
@@ -30,7 +30,7 @@ To add federation users to an organization:
    1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
    1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
-   1. In the top-right corner, click the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the top right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **Add federated users**.
    1. Select the identity federation to add users from.
    1. List the Name IDs of users, separating them with line breaks.
    1. Click **Add**. This will give the users access to the organization.

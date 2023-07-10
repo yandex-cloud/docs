@@ -1,66 +1,67 @@
 # General questions about {{ tracker-name }}
 
 
+## How to migrate data from {{ ya-360 }} to {{ org-full-name }}
 
-## How to migrate from {{ ya-360 }} to {{ org-full-name }}
+Since {{release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add, to the organization, an [identity federation](../organization/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. The usage of {{ tracker-name }} is rated via the [{{ yandex-cloud }} billing](../billing/).
 
-Starting from {{ release-date }} 2021, once you activate {{ tracker-full-name }}, an organization is automatically created in {{ org-full-name }}. Your organization's admin can connect [identity federation]({{ link-org-add-federation }}) to it so that your employees can log in to {{ tracker-name }} using their corporate accounts. You're charged for using {{ tracker-name }} through [{{ yandex-cloud }} billing](../billing/).
+If {{ tracker-name }} is connected to {{release-date }}, the service is linked to an organization in {{ ya-360 }}. We will gradually migrate all organizations from {{ ya-360 }} to {{ org-full-name }} with no effort needed from your organization administrator. We will notify your administrator about migrating to {{ org-full-name }} in advance.
 
-If you activated {{ tracker-name }} before {{release-date }}, the service is linked to your company in {{ ya-360 }}. We'll gradually move all companies from {{ ya-360 }} to {{ org-full-name }}. No action is required from the organization's admin. We'll notify an organization's admin in advance before carrying out migration to {{ org-full-name }}.
-
 
-## How to use {{ tracker-name }} on mobile devices {#mobile}
+## How to use {{ tracker-name }} on a mobile device {#mobile}
 
 The {{ tracker-name }} mobile app is available:
 
-- In [Google Play]({{ mobile-google-link }}) for mobile devices running Android version 8.0 and higher.
+- In the [Google Play]({{ mobile-google-link }}) for mobile devices running Android version 8.0 and higher.
 
 - In the [App Store]({{ mobile-apple-link }}) for mobile devices running iOS 11.0 and higher.
 
-[Learn more about the mobile app.](mobile.md)
+- In [Huawei AppGallery]({{ mobile-huawei-link }}), for mobile devices running HarmonyOS.
+
+- As an [APK file]({{ mobile-apk-link }}) for Android.
+
+[Learn more about the mobile app](mobile.md).
 
 
+## How to add colleagues to {{ tracker-name }} {#section_yvw_tyk_nbb}
 
-## Adding colleagues to {{ tracker-name }} {#section_yvw_tyk_nbb}
+You can [invite your colleagues who have Yandex accounts to {{ tracker-name }}](add-users.md#invite_user) directly from the service interface.
 
-You can [invite your colleagues to {{ tracker-name }}](add-users.md#invite_user) via the service interface provided that they have Yandex accounts.
+If your company has a corporate user management system (for example, Active Directory), you can [set up identity federation](add-users.md#federation) to authenticate via SSO so that your colleagues can use their work accounts to [log in to {{ tracker-name }}](user/login.md).
 
-If your company already uses a different account management system (such as Active Directory), you can [set up identity federation](add-users.md#federation) to enable SSO authentication. Then your colleagues will be able to [log in {{ tracker-name }}](user/login.md) with their accounts.
+To make sure that the added users can create and edit issues, you need to [set up full access for them](access.md#set).
 
-If you wish to grant issue creation and editing rights to the users you add, you need to [set up full access](access.md#set).
+## How to grant or revoke full access in {{ tracker-name }} {#full-access}
 
-## Granting and revoking full access to {{ tracker-name }} {#full-access}
+You can [manage user access](access.md#set) in the {{ tracker-name }} interface under <q>Manage users</q>.
 
-[You can manage user access](access.md#set) via the {{ tracker-name }} interface in the <q>Manage users</q> section.
+Note that your total payment for using the service depends on the maximum number of users that had full access to {{ tracker-name }} during a given month. That's why first we recommend to [revoke access](disable-tracker.md) from the uses that no longer need access and then grant access to [new users](add-users.md).
 
-Please note that the payment amount for using the service is determined by the maximum number of users granted full access to {{ tracker-name }} within a month. That is why we recommend that you first [disable access](disable-tracker.md) for users who don't need it and then grant access to [new users](add-users.md).
+## Can you help us with implementation or migration from another service? {#migration}
 
-## Do you help users with integration or migration from a different platform? {#migration}
+We will help you select a proper partner for {{ tracker-name }} implementation. If you want to [connect more than 100 users to {{ tracker-name }}](add-users.md), we will refund you part of the implementation cost.
 
-We will help you choose a suitable partner to integrate {{ tracker-name }}. If you want to [enable {{ tracker-name }}](add-users.md) for over 100 users, we will reimburse part of the integration costs.
-
 
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
 You can't delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the <q>Duplicate</q> resolution, while issues created by mistake can be closed with the <q>Canceled</q> resolution. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
 
-
 {% note tip %}
 
-You can [delete a queue](manager/delete-queue.md) and all issues in it. [Move](user/move-ticket.md) the issues you don't need to a special queue and then delete it.
+You can [delete a queue](manager/delete-queue.md) and all the issues in it: [Move](user/move-ticket.md) the issues you don't need to a special queue and then delete it.
 
 {% endnote %}
 
-## How to delete a queue {#section_hk4_r1l_nbb}
+## How to delete a queue {#section_z1d_r1l_nbb}
 
-Only a user with access to editing queue settings can delete a queue. Usually, this is the [admin](role-model.md) or queue owner.
+Only the user who has access to editing the queue parameters can delete the queue. Usually, this is the queue [administrator](role-model.md) or owner.
 
 To delete a queue:
 
 1. Open the [queue page](user/queue.md).
 
-1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Configure**.
+1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png)→ **Administration**.
 
 1. Go to the **Basic settings** tab.
 
@@ -69,80 +70,76 @@ To delete a queue:
 1. Confirm the deletion.
 
 For more information about deleting a queue, see [Deleting a queue](manager/delete-queue.md).
-
+
 
 ## Can an issue have multiple assignees? {#section_jlb_yyk_nbb}
 
 An issue can only have one assignee at a time. There are several ways to organize the work of multiple people:
 
-- If multiple people are working on the issue in turn, change the assignee at different points while the issue is in progress.
-- If multiple people are working on the issue simultaneously, divide it into sub-issues and assign each one to a different person.
+- If multiple users work on an issue one after another, change the assignee as the issue progresses.
+- If multiple users work on an issue at the same time, split the issue into sub-issues and specify an assignee for each sub-issue.
 
 For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
 ## I don't have access to an issue {#section_xgr_zng_4bb}
 
-Access permissions to issues are determined by the [queue settings](manager/queue-access.md).
+Access permissions for issues are determined by the [queue settings](manager/queue-access.md).
 
-If you do not have sufficient rights to access the queue page and its issues, contact the queue owner  or [admin](role-model.md). The queue owner's name is usually mentioned in the access restriction message.
+If you do not have sufficient rights to access the queue page and its issues, contact the  queue owner or [admin](role-model.md). The name of the queue owner is usually specified in the access restriction message.
 
-If you can access the queue page but some of the issues remain inaccessible, these issues may include [components with limited access](manager/queue-access.md#section_tbh_cs5_qbb). If this is the case, please contact the queue owner.
+If you can access the queue page but some of the issues remain inaccessible, these issues may include [components with limited access](manager/queue-access.md#access-components). Make sure also to contact the queue owner.
 
 ## How can I find the queue owner? {#section_hgc_xyk_nbb}
 
 The owner is specified on the **Description** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
 
-## Why can't widgets be grouped by the <q>Issue</q> field? {#section_del_widget}
+## Why can't I use widgets grouped by the <q>Issue</q> field? {#section_del_widget}
 
-The **Issue** field displays the issue name, which is a user-generated value. Issue names are usually unique. If you compose a table where rows or columns are grouped by unique values (like in the **Issue** field), it will be too large and not very informative.
+The **Issue** includes the issue name: this is an arbitrary value the user comes up with. The names are almost always unique. If you try to build a table where rows or columns are grouped by a set of unique values (in the **Issue** field), the result would be cumbersome and uninformative.
 
-When creating new widgets, don't use the **Issue** field when grouping data by rows or columns in [pivot tables](user/widgets.md#section_esm_vjp_pz) or as a key parameter when composing [issue statistics](user/widgets.md#statistika-po-zadacham). Grouping by the **Issue** field for widgets will soon be disabled. All widgets using this kind of grouping will be removed.
+Don't use the **Issue** field to group data in rows or columns of [pivot tables](user/widgets.md#section_esm_vjp_pz) or as a key parameter to build [issue statistics](user/widgets.md#statistika-po-zadacham). Soon we'll disable aggregation or grouping of data by the **Issue** field in widgets. All the widgets with such grouping will be deleted later.
 
-If you have widgets that utilize grouping by the **Issue** field and you wish to retain them, here is what you can do:
+If you have any widgets with grouping by the **Issue** field, and you want to preserve them, you can:
+* Replace your widget with a [new widget with an issue list](#replace_widget).
+* [Create an additional field](#create_new_field) in your issues and store there the data you need to build grouped widgets.
 
-* Replace your widget with a [new widget that displays an issue list](#replace_widget);
-* [Create an extra field](#create_new_field) for your issues and store your widget data there.
-
-### Creating a new widget {#replace_widget}
+### Create a new widget {#replace_widget}
 
 If you need a simple issue list, replace your widget with an [issue list widget](user/widgets#section_ll1_zdp_pz). To do this:
 
-1. Create a new [widget for <q>Issues</q>](user/widgets#section_ll1_zdp_pz).
+1. Create a new [<q>Issues</q> widget](user/widgets#section_ll1_zdp_pz).
 
-1. Fill in the **Filter** field in the same way you did for your previous widget.
+1. Fill out the **Filter** field in the same manner as in your previous widget.
 
-1. Use the **Columns** field to select issue parameters you want to display in the table.
+1. In the **Columns** field, select the issue parameters to be shown in the table.
 
-1. Fill out the remaining fields and save your new widget.
+1. Fill out the remaining fields and save the new widget.
 
-1. Remove the old widget.
+1. Delete the previous widget.
 
-### Creating and grouping by an additional field {#create_new_field}
+### Create an additional field and set up grouping for it {#create_new_field}
 
-If you add key phrases you use for grouping in widgets to the issue names, we recommend creating a separate field for them. Then you can set up grouping by the new field instead of the **Issue** field.
+If you add keywords to issue names to use them for grouping issues in widgets, we recommend creating a separate field for such keywords. Then instead of the **Issue** field, you can use this new field for grouping.
 
-1. [Create a new field](user/create-param.md) to store the information you usually put in the **Issue** field.
+1. [Create a new field](user/create-param.md) to store the data that you add to the **Issue** field.
 
-1. When creating a new issue, enter the data for widget creation directly into the new field.
+1. When creating issues, enter the data needed to build the widget into the new field immediately.
 
-1. For existing issues, transfer your information to the new field using [auto actions](user/create-autoaction):
+1. In your existing issues, move the data to the new field by an [automatic action](user/create-autoaction):
 
    1. Select **Issue update**.
 
-   1. Go to **Filter parameters**, click **Add condition**, select **Issue**, and enter the issue name (a key phrase used for grouping in the widget).
+   1. Under **Filter settings**, click **Add condition**, select **Issue**, and specify the issue name (the keyword used for grouping in the widget).
 
-   1. Click **Add new action** and choose **Update fields**. Then select a field you created and paste the issue name there.
+   1. Click **Add new action** and select **Update fields**. Then select the previously created field and copy the issue name to it.
 
-   1. Create similar auto actions for all possible key phrases.
+   1. Create similar automatic actions for every possible keyword.
 
-1. If you're creating issues using an external source (such as [{{ forms-full-name }}](../forms/create-task.md)), save the information required for widget creation into a new field when you set up [integration](manager/forms-integration.md).
+1. If you use an external source to create an issue (for example, [{{ forms-full-name }}](../forms/create-task.md)), when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
 
-1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: specify a new field to use instead of the **Issue** field in settings.
+1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: use the new field instead of the **Issue** field in the settings.
 
 
+## I still have questions. Who do I ask them to? {#other-questions}
 
-## I still have some questions. Who do I contact? {#other-questions}
-
-{{ tracker-name }} users can ask questions on the [technical support page]({{ link-tracker-support }}). You can also join the discussion in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).
-
-
+{{ tracker-name }} users can ask their questions on the [technical support page]({{ link-tracker-support }}). You can also discuss your topics of interest in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).

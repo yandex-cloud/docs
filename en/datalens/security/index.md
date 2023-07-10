@@ -62,9 +62,10 @@ To add a user and grant them access to {{ datalens-short-name }}:
 - To a cloud
 
    1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
-   1. On the **Users and roles** page, click **Add user** in the top-right corner.
+   1. Click the **Access bindings** tab.
+   1. In the top-right corner, click ![icon-users](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
    1. Enter the user's Yandex email address.
-   1. Click **Add**. When a new user is added to the cloud, they are automatically assigned the cloud member role: [`resource-manager.clouds.member`](../../iam/concepts/access-control/roles.md#member).
+   1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. When you add new users to the cloud, they are automatically assigned the cloud member [role](../../iam/concepts/access-control/roles.md#member), `resource-manager.clouds.member`.
 
       {% note info %}
 
@@ -98,7 +99,7 @@ To add federated users to an organization and grant them access to {{ datalens-s
    - Management console
 
       1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link]({{ link-org-users }}).
-      1. In the top-right corner, click the arrow next to the **Add user** button. Select **Add federated users**.
+      1. In the top right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **Add federated users**.
       1. Select the identity federation to add users from.
       1. List the Name IDs of users, separating them with line breaks.
       1. Click **Add**. This will give the users access to the organization.
@@ -158,7 +159,7 @@ To add federated users to an organization and grant them access to {{ datalens-s
 
 #### Add federated users to a cloud {#federated-user-cloud}
 
-To add federated users to a cloud and grant them access to {{ datalens-short-name }}:
+To add federated users to your cloud and grant them access to {{ datalens-short-name }}:
 
 1. Add federated users:
 

@@ -64,7 +64,7 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
 
 By default, a page with an invisible CAPTCHA renders a shield with a link to the document: [Notice on the terms of data processing by the service](https://yandex.com/legal/smartcaptcha_notice/).
 
-The shield is positioned in the bottom-right corner. To move the shield, use the parameter `shieldPosition` of the `render` [method](./widget-methods.md#render). For example:
+The shield is positioned in the bottom-right corner. To move the shield, use the parameter `shieldPosition` of the `render` [method](./widget-methods.md#render), e.g.:
 
 ```js
 window.smartCaptcha.render('captcha-container', {
@@ -81,6 +81,56 @@ You can hide the shield by the `hideShield` parameter of the `render` [method](.
 
 ## Specifics {#specifics}
 
-Invisible CAPTCHA requires less memory than normal CAPTCHA because it doesn't load the code that renders the **"I’m not a robot"** button.
+* Invisible CAPTCHA requires less memory than normal CAPTCHA because it doesn't load the code that renders the **"I’m not a robot"** button.
 
-However, widget loading times may vary for users. That's why we recommend warning users about the CAPTCHA to avoid any confusion while they wait.
+   However, the widget loading time may vary for users. This is why we recommend warning users about the CAPTCHA to avoid any confusion while they are waiting.
+
+* If a page has more than one widget, you need to provide a widget ID to the `execute` method.
+
+   {% cut "Example" %}
+
+   ```html
+   <script
+     src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+     defer
+   ></script>
+
+   <script>
+     let widgetId;
+
+     function onloadFunction() {
+       if (!window.smartCaptcha) {
+         return;
+       }
+
+       widgetId = window.smartCaptcha.render('captcha-container', {
+         sitekey: '<Key_for_the_client_part>',
+         invisible: true, // Make captcha invisible
+         callback: callback,
+       });
+     }
+
+     function callback(token) {
+       if (typeof token === "string" && token.length > 0) {
+           // Send the form to the backend
+           console.log(token);
+           document.querySelector('form').submit()
+       }
+     }
+
+     function handleSubmit(event) {
+       if (!window.smartCaptcha) {
+         return;
+       }
+
+       window.smartCaptcha.execute(widgetId);
+     }
+   </script>
+
+   <form id="form">
+     <div id="captcha-container"></div>
+     <button type="button" onclick="handleSubmit()">Submit</button>
+   </form>
+   ```
+
+   {% endcut %}

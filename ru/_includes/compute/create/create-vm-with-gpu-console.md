@@ -11,6 +11,11 @@
 
     * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
+      
+      {% include [gpu-zones](../gpu-zones.md) %}
+      
+
+
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите один из [GPU-ориентированных образов](/marketplace?search=gpu) и версию операционной системы.
 
     {% include [gpu-os](../gpu-os.md) %}
@@ -30,12 +35,18 @@
 
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
     * Выберите одну из [платформ](../../../compute/concepts/vm-platforms.md#gpu-platforms):
-        * {{ v100-broadwell }}.
-        * {{ v100-cascade-lake }}.
-        * {{ t4-ice-lake }}.
-        * {{ a100-epyc }}.
+
+      
+      * {{ v100-broadwell }}
+      * {{ v100-cascade-lake }}
+      * {{ a100-epyc }}
+      * {{ t4-ice-lake }}
+      
+      
+       
     * Выберите [конфигурацию](../../../compute/concepts/gpus.md#config) виртуальной машины, указав необходимое количество [GPU](../../../glossary/gpu.md).
     * При необходимости сделайте виртуальную машину [прерываемой](../../../compute/concepts/preemptible-vm.md).
+
 
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -54,11 +65,6 @@
           {% endnote %}
    
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-        Для ВМ с операционной системой на базе Windows:
-        * При создании виртуальной машины в операционной системе будет автоматически создан пользователь `Administrator`. В поле **{{ ui-key.yacloud.compute.instances.create.field_password }}** задайте пароль для этого пользователя, с которым можно будет войти на виртуальную машину по RDP.
-
-          {% include [password-requirements](../../compute/password-requirements.md) %}
 
         * (опционально) При необходимости разрешите доступ к [серийной консоли](../../../compute/operations/index.md#serial-console).
 

@@ -11,7 +11,7 @@
 ## Перенести данные из Jira {#jira}
 
 
-1. [Подключите {{ tracker-full-name }}.](enable-tracker.md)
+1. [Подключите {{ tracker-full-name }}](enable-tracker.md).
 
 1. [Добавьте в {{ tracker-name }}](add-users.md) сотрудников вашей компании.
 

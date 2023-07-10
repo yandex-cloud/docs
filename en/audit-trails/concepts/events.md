@@ -572,6 +572,7 @@ Service name: `storage`.
 | `BucketPolicyUpdate` | Updating the access policies for a bucket |
 | `BucketUpdate` | Updating a bucket |
 | `BucketWebsiteUpdate` | Updating a website configuration |
+| `ObjectAclUpdate` | Updating an object's ACL in a bucket ^*^ |
 | `ObjectCreate` | Creating an object in a bucket ^*^ |
 | `ObjectDelete` | Deleting an object from a bucket ^*^ |
 | `ObjectUpdate` | Updating an object in a bucket ^*^ |
@@ -609,15 +610,20 @@ The name of the service is `organizationmanager`.
 | `CreateInvitations` | Creating an invitation |
 | `CreateGroup` | Creating a user group |
 | `CreateMembership` | Adding a user to an organization |
+| `CreateOrganization` | Creating an organization |
 | `DeleteInvitation` | Deleting an invitation |
 | `DeleteGroup` | Deleting a user group |
 | `DeleteMembership` | Deleting a user from an organization |
+| `DeleteOrganization` | Deleting an organization |
 | `RejectInvitation` | Rejecting an invitation |
 | `ResendInvitation` | Resending an invitation |
 | `SetGroupAccessBindings` | Setting access bindings to a user group |
+| `SetOrganizationAccessBindings` | Setting access bindings to an organization |
 | `UpdateGroup` | Updating a user group |
 | `UpdateGroupAccessBindings` | Updating access bindings to a user group |
 | `UpdateGroupMembers` | Changing user group members |
+| `UpdateOrganization` | Changing an organization |
+| `UpdateOrganizationAccessBindings` | Updating access bindings to an organization |
 
 ## {{ resmgr-name }} {#resmgr}
 

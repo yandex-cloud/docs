@@ -20,7 +20,7 @@
 | Number of images per cloud | 8 |
 | Number of images optimized for deployment per cloud^1^ | 0 |
 | Number of instance groups per cloud | 10 |
-| Number of GPUs for all VMs per cloud^1^ | 0 |
+| Number of GPUs for all VMs per cloud | 0 |
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15 |
 | Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
 | Number of dedicated hosts per dedicated host group^1^ | 0 |
@@ -28,7 +28,7 @@
 
 
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for file storage, virtual machines with GPUs, deployment-optimized images, or dedicated hosts, contact [technical support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for file storage, deployment-optimized images, or dedicated hosts, contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 

@@ -89,3 +89,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
    ![image](../../_assets/datalens/solution-06/07-save-dashboard.png)
 
 You can edit any chart on the dashboard. For example, change the visualization type for the **Ad networks** chart from the **Attracting users** section.
+
+To share a dashboard or chart, use one of the following methods:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}

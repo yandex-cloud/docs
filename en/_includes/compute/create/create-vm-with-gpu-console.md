@@ -11,6 +11,11 @@ To create a VM:
 
    * Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
+     
+     {% include [gpu-zones](../gpu-zones.md) %}
+
+ 
+
 1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a [GPU-oriented image](/marketplace?search=gpu) and OS version.
 
    {% include [gpu-os](../gpu-os.md) %}
@@ -23,12 +28,18 @@ To create a VM:
 
 1. Under **Computing resources**:
    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
-      * {{ v100-broadwell }}.
-      * {{ v100-cascade-lake }}.
-      * {{ t4-ice-lake }}.
-      * {{ a100-epyc }}.
+
+     
+     * {{ v100-broadwell }}
+     * {{ v100-cascade-lake }}
+     * {{ a100-epyc }}
+     * {{ t4-ice-lake }}
+     
+     
+
    * Select a VM [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPU.
-   * Make your VM [preemptible](../../../compute/concepts/preemptible-vm.md), if required.
+   * Make your VM [preemptible](../../../compute/concepts/preemptible-vm.md), if required. 
+ 
 
 1. Under **Network settings**:
 
@@ -47,11 +58,6 @@ To create a VM:
          {% endnote %}
 
       * In the **SSH key** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-
-      For VMs with a Windows-based operating system:
-      * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
-
-         {% include [password-requirements](../../compute/password-requirements.md) %}
 
       * (optional) Enable access to the [serial console](../../../compute/operations/index.md#serial-console), if required.
 

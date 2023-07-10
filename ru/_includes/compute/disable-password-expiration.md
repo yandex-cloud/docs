@@ -1,1 +1,0 @@
-В образах Windows Server от {{ yandex-cloud }} у пароля пользователя `Administrator` по умолчанию не истекает срок действия.

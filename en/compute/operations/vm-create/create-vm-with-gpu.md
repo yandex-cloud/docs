@@ -8,7 +8,6 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
-
 {% list tabs %}
 
 - Management console
@@ -57,26 +56,26 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+
+        
+        {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+
+
+        
       * `platform`: ID of the [platform](../../concepts/vm-platforms.md):
 
-         
-         * `gpu-standard-v1` for {{ v100-broadwell }}.
-         * `gpu-standard-v2` for {{ v100-cascade-lake }}.
-         * `standard-v3-t4` for {{ t4-ice-lake }}.
-
-
-         * `gpu-standard-v3` for {{ a100-epyc }}.
+        {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
+        
       * `cores`: [The number of vCPUs](../../concepts/gpus.md).
       * `memory`: Amount of RAM.
       * `gpus`: Number of GPUs.
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
+        
+        
       * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
 
-         
-         * `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
-
-
+        {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
 
@@ -114,8 +113,8 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       resource "yandex_compute_instance" "vm-1" {
 
         name        = "vm-with-gpu"
-        platform_id = "gpu-standard-v3"
         zone        = "<availability zone>"
+        platform_id = "gpu-standard-v3"
 
         resources {
           cores  = <number of vCPU cores>
@@ -153,16 +152,18 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       Where:
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
+         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
+
+              
+           {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+   
+
+           
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
 
-            
-            * `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
-            * `gpu-standard-v2`for Intel Cascade Lake with NVIDIA® Tesla® V100.
-            * `standard-v3-t4` for Intel Ice Lake with NVIDIA® Tesla® T4.
+           {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
+ 
 
-
-            * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
-         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
