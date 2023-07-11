@@ -39,6 +39,8 @@ items:
         items:
           - name: Управление ролями и пользователями
             href: operations/roles-and-users.md
+          - name: Управление ресурсными группами
+            href: operations/resource-groups.md
           - name: Управление клиентскими процессами и сессиями пользователей
             href: operations/cluster-process.md
       - name: Расширения {{ GP }}
@@ -57,8 +59,8 @@ items:
             href: operations/performance-diagnostics.md
           - name: Мониторинг состояния кластера и хостов
             href: operations/monitoring.md
-      - name: Управление ресурсными группами
-        href: operations/resource-groups.md
+      - name: Вспомогательные утилиты
+        href: operations/greenplum-db.md
   - name: Практические руководства
     items:
       - name: Миграция базы данных в {{ mgp-name }}

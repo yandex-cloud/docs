@@ -16,9 +16,9 @@ In requests to the {{ api-short-name }} API, specify the following headers:
    `Authorization: Bearer <your IAM token>`: If an [IAM token](#iam-token) is used.
 
 * `ID: <organization ID>`
-   * `X-Org-Id`: ID of the main organization linked to {{ tracker-name }}.
-   * `X-Cloud-Org-Id`: ID of the cloud organization linked to {{ tracker-name }}.
-    You can copy the organization ID on the [{{ tracker-name }} organization source page]({{ link-tracker }}admin/orgs).
+   * `X-Org-Id`: ID of the {{ yandex-360 }} organization linked to {{ tracker-name }}.
+   * `X-Cloud-Org-Id`: ID of the {{ yandex-cloud }} organization linked to {{ tracker-name }}.
+      You can copy the organization ID on the [{{ tracker-name }} organization source page]({{ link-tracker }}admin/orgs).
 
 
 ## Getting access to the API via OAuth 2.0 {#section_about_OAuth}

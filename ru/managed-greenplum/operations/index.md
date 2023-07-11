@@ -20,6 +20,7 @@
 ## Пользователи и сессии
 
 * [{#T}](roles-and-users.md)
+* [{#T}](resource-groups.md)
 * [{#T}](cluster-process.md)
 
 ## Расширения {{ GP }}
@@ -34,8 +35,8 @@
 * [{#T}](performance-diagnostics.md)
 * [{#T}](monitoring.md)
 
-## Квоты и ресурсы
+## Вспомогательные утилиты
 
-* [{#T}](resource-groups.md)
+* [{#T}](greenplum-db.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

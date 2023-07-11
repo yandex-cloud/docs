@@ -28,7 +28,7 @@ Find your issues using preset system filters.
 
       * The deadline will be due within a month.
 
-1. On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file.
+1. On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file:
 
    * To search for issues in the list, use the **Search by issue name** bar or [add the search criteria](#add-condition).
 
@@ -40,15 +40,15 @@ Find your issues using preset system filters.
 
    * To collapse the panel with the filter list, in the upper-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**.
 
-## Quick filters {#quick-filters}
+## Filtering by parameters {#quick-filters}
 
 {% note info %}
 
-Quick filters are only available in the {{ tracker-name }} web interface.
+Filtering by parameters is only available in the {{ tracker-name }} web interface.
 
 {% endnote %}
 
-Use quick filters to filter your issue list and leave there only those issues that match the selected parameters. The quick filter buttons are above the issue list:
+Use filtering by parameters to narrow down your issue list and display only those issues that match the selected parameters. The filter by parameters buttons are above the issue list:
 
 * To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
@@ -69,7 +69,6 @@ To find issues by the parameters that can't be set using the system filters, add
 1. Select an issue parameter, then set its value and click **Save**.
 
    Any issues that don't meet your criteria are filtered out of the list.
-
 
 
 1. If you need to refine the search conditions, add more parameters.

@@ -8,7 +8,7 @@ In {{ tracker-name }}, projects are sets of issues that have a common goal. Proj
 
 To start working on a project in {{ tracker-name }}, [create](create-project.md) a new project and add issues. Projects may include issues from different queues.
 
-Plan your work and manage your timeframes using a [Gantt chart](gantt-project.md).
+Plan your work and manage your timeframes using a [Gantt chart](../gantt/project.md).
 
 ## The project page {#page}
 
@@ -20,7 +20,7 @@ The project page shows the details of the team, goals, and issues of the project
 
 * The **Issue lists** tab. The list shows both open issues and closed issues. You can filter the issue list. For more information, see [{#T}](project-list.md).
 
-* The **Gantt chart** tab. Your schedule of resolving project issues. The Gantt chart specifies the timeframes of the issues and relationships between them. For more information, see [{#T}](gantt-project.md).
+* The **Gantt chart** tab. Your schedule of resolving project issues. The Gantt chart specifies the timeframes of the issues and relationships between them. For more information, see [{#T}](../gantt/project.md).
 
 * **Issue boards** tab A virtual board with cards that makes it easy to track statuses of project issues. For more information, see [{#T}](./boards-project.md).
 

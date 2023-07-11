@@ -14,7 +14,7 @@
 
 {% list tabs %}
 
-- Cloud {{ org-name }}
+- {{ org-name }}
 
   {% include [users-info](../_includes/users-info.md) %}
 

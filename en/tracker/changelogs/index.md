@@ -8,7 +8,7 @@
 
 ### Choosing a color for issues on a project's Gantt chart {#issues-colors}
 
-A [Gantt chart for projects](../manager/gantt-project.md) now allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
+A [Gantt chart for projects](../gantt/project.md) now allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
 
 You can edit the list of values by adding and deleting values and choosing their color.
 
@@ -16,7 +16,7 @@ If an issue has two or more color components, the resulting color will be select
 
 ### Retaining settings for a Gantt chart created based on a filter {#save-the-columns}
 
-The settings of a [Gantt chart created based on a filter](../manager/gantt.md#section_pwy_tgx_tdb) and issue parameters in the list to the left of the chart persist and are not reset when you refresh a page.
+The settings of a [Gantt chart created based on a filter](../gantt/search.md) and issue parameters in the list to the left of the chart persist and are not reset when you refresh a page.
 
 ### Creating an issue from a comment {#task-from-comment}
 
@@ -44,7 +44,7 @@ The workflow editor allows you to use keyboard shortcuts to cancel and restore t
 
 ### Issue filter for a Gantt chart created based on a list of projects
 
-On a [Gantt chart for a list of projects](../manager/gantt-project.md), you can set up an additional filter by issue.
+On a [Gantt chart for a list of projects](../gantt/list-of-projects.md), you can set up an additional filter by issue.
 
 ![](../../_assets/tracker/changelogs/tasks-filter.png =690x112)
 
