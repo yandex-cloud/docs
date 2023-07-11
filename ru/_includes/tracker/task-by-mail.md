@@ -22,8 +22,8 @@
      
          {% cut "Дополнительные параметры" %}
    
-         * **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-incoming-folder }}** — создайте папку для писем от {{ tracker-name }} и укажите ее название;
-         * **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-archive-folder }}** — создайте папку для архивации писем от {{ tracker-name }} и укажите ее название;
+         * **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-incoming-folder }}** — создайте папку для писем от {{ tracker-name }} и укажите ее название. Из писем, поступающих в эту папку, будут автоматически создаваться задачи в очереди.
+         * **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-archive-folder }}** — создайте папку для архивации писем от {{ tracker-name }} и укажите ее название.
          * **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-process-messages-from }}** — укажите дату. Письма, пришедшие до указанной даты, не обрабатываются и автоматически попадают в **Папку для архива**.
 
          {% note alert %}

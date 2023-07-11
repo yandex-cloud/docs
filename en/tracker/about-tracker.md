@@ -47,7 +47,7 @@ Your workflow is linked to your issue queue. If you need to set up multiple work
 
 You can [create unique workflows](manager/add-workflow.md) tailored for specific issues. Try not to overload them with unnecessary statuses: the simpler the workflow, the more easier it is to handle it.
 
-Apart from workflows, you can configure the following in the queue: [access rights to issues](manager/queue-access.md), [automated issue processing](./automation.md), integration with  [{{ forms-full-name }}](manager/forms-integration.md), and so on. These features let you flexibly configure queues to suit your team's tasks.
+Apart from workflows, you can configure the following in the queue: [access rights to issues](manager/queue-access.md), [automated issue processing](./automation.md), integration with  [{{ forms-full-name }}](manager/forms-integration.md), etc. These features allow you to flexibly configure queues to suit your team's tasks.
 
 For some examples on how you can set up workflows in {{ tracker-name }}, see the following sections:
 
@@ -64,11 +64,11 @@ It's helpful to group issues, for example, to estimate the workload at different
 You can use {{ tracker-name }} to group issues by the following criteria:
 
 - [Components](manager/components.md) help you group issues in a queue that relate to the same topic. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#access-components).
-
    For example, using components, you can [classify requests to technical support](support-process-group.md).
 - [Versions](manager/versions.md) help you group issues within the same queue based on the product version they belong to.
    For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **Fix Version** field.
 - A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
+
 
 ## Planning your workload {#in-order}
 
@@ -99,7 +99,7 @@ To use this planning strategy, first [create a <q>Scrum</q> issue board](manager
 
 #### Planning deadlines using a Gantt chart {#in-order-gantt}
 
-You can use a [Gantt chart](manager/gantt.md) to plan and monitor deadlines for multiple issues on a single page. For example, when issues need to be handled in a certain sequence or when multiple issues are assigned to one employee.
+You can use a [Gantt chart](gantt/overview.md) to plan and monitor deadlines for multiple issues on a single page. For example, when issues need to be handled in a certain sequence or when multiple issues are assigned to one employee.
 
 You can create a Gannt chart for a project, a queue, or a list of issues found using a filter. The chart displays the work start and end dates as horizontal lines. You can set or change them right on the chart.
 

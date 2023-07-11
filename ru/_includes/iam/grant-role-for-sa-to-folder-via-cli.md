@@ -1,3 +1,5 @@
+1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+
 1. Узнайте идентификатор сервисного аккаунта по его имени:
 
     ```bash
@@ -7,8 +9,8 @@
     Результат:
 
     ```bash
-    id: aje6o61dvog2h6g9a33s
-    folder_id: b1gvmob95yysaplct532
+    id: aje6o61dvog2h6g9a...
+    folder_id: b1gvmob95yysaplct...
     created_at: "2018-10-15T18:01:25Z"
     name: my-robot
     ```
@@ -25,14 +27,14 @@
     +----------------------+------------------+-----------------+
     |          ID          |       NAME       |   DESCRIPTION   |
     +----------------------+------------------+-----------------+
-    | aje6o61dvog2h6g9a33s | my-robot         | my description  |
+    | aje6o61dvog2h6g9a... | my-robot         | my description  |
     +----------------------+------------------+-----------------+
     ```
 
-1. Назначьте роль сервисному аккаунту `my-robot`, используя его идентификатор:
+1. Назначьте роль `{{ roles-viewer }}` сервисному аккаунту `my-robot`, используя его идентификатор:
 
     ```bash
     yc resource-manager folder add-access-binding my-folder \
       --role viewer \
-      --subject serviceAccount:aje6o61dvog2h6g9a33s
+      --subject serviceAccount:aje6o61dvog2h6g9a...
     ```

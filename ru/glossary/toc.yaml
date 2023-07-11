@@ -11,6 +11,8 @@ items:
         href: relational-databases.md
       - name: OLTP
         href: oltp.md
+      - name: OLAP
+        href: olap.md
   - name: Аналитика
     items:
       - name: Аналитика данных

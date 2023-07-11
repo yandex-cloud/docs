@@ -7,7 +7,7 @@ A workflow template is a set of {{ tracker-name }} tools grouped and configured 
 This template is good for projects that are limited in time and number of issues. A project is aimed to achieve the same result by one or more teams. By using projects, you can easily group issues of several teams focused on the same goal, set the [issue hierarchy](project-list.md), and plan deadlines.
 
 When you select this template, the following items are created automatically:
-  * [Project](project-new.md) with a [Gantt chart](gantt.md) and an [issue board](boards-project.md).
+  * [Project](project-new.md) with a [Gantt chart](../gantt/overview.md) and an [issue board](boards-project.md).
   * [Queue](create-queue.md) with a basic set of issue [types and statuses](workflow.md).
 
 You can create additional queues separately.

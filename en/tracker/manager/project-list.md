@@ -10,10 +10,6 @@ To open the list of project issues
 
 1. Set up the issue display:
 
-   * To select the fields that you want to see in the issue list, click ![](../../_assets/tracker/svg/settings-old.svg). Select the relevant fields and click **Apply**.
+{% include [issues-table-queue-filter-project](../../_includes/tracker/issues-table-queue-filter-project.md) %}
 
-   {% include [task-list-settings](../../_includes/tracker/task-list-settings.md) %}
-
-   * To pin a column, click ![](../../_assets/tracker/svg/settings-old.svg). Next, click ![](../../_assets/tracker/svg/fix.svg) in the **Added** section to the right of the parameter. Click **Apply**.
-
-   * To sort the list in the descending or ascending order of values in the list columns, click the column header.
+{% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}

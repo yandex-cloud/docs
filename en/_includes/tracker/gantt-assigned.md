@@ -1,9 +1,11 @@
-On the Gantt chart, you can appoint or change the issue's assignee.
+On the Gantt chart, you can appoint or change the issue's assignee:
 
-For this, on the issue bar, click the user icon and select the name of the employee to set as assignee.
+1. Click ![](../../_assets/tracker/svg/pick-user.svg) on the issue bar.
+
+1. Enter the name of the employee to assign the issue to.
 
 {% note info %}
 
-If you do not see the user icon, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** and select the **assignee** item in **Show on the issue bar**.
+If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the issue bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** and select the **assignee** item in the **Issue bar** section.
 
 {% endnote %}

@@ -1,29 +1,28 @@
 # Roles and access rights in {{ tracker-name }}
 
-{{ tracker-full-name }} is one of the [services](../organization/manage-services.md) you can connect to your company {{ yandex-cloud }}. The organization's admin who enabled {{ tracker-name }} also becomes [the admin of {{ tracker-name }}](#admin).
+{{ tracker-full-name }} is a [service](../organization/manage-services.md) that can be enabled for your organization in {{ yandex-cloud }}. The organization's administrator who enabled {{ tracker-name }} also becomes an [administrator in {{ tracker-name }}](#admin).
 
 {% note info %}
 
-If a user creates a new company when [activating {{ tracker-name }}](enable-tracker.md), they become the organization's owner and admin in {{ tracker-name }}.
+If a user creates a new organization when [enabling {{ tracker-name }}](enable-tracker.md), they become the organization owner and {{ tracker-name }} administrator.
 
 {% endnote %}
 
-The admin can add other users to {{ tracker-name }} and configure their access rights. To learn more about adding users, see [{#T}](add-users.md).
+The administrator can add other users to {{ tracker-name }} or set up access rights for them. For more information about adding users, see [{#T}](add-users.md).
 
-## Managing access {#access-management}
+## Access management {#access-management}
 
-There are two types of user access rights to {{ tracker-name }}:
+User rights in {{ tracker-name }} are classified into two types:
 
-* Global access to {{ tracker-name }}:
-    * [Administrator](#admin).
-    * [Employee with full access](access.md#set).
-    * [Employee with <q>Read-only</q>](access.md#readonly) access.
+* Global level of access to {{ tracker-name }}:
+   * [Administrator](#admin).
+   * [Employee with full access](access.md#set).
+   * [Employee with the <q>Read</q> access](access.md#readonly).
 
-* Access to specific elements in {{ tracker-name }}:
+* Rights of access to individual elements of the {{ tracker-name }} structure:
+   * [Queue issues](manager/queue-access.md). The rights to create, view, and edit issues can be set up by the queue owner or another user permitted by the owner to edit the [queue settings](manager/edit-queue-general.md).
 
-    * [Queues](manager/queue-access.md). Access rights to create, view, and edit issues can be configured by the queue owner or another user who is granted access to [queue settings](manager/edit-queue-general.md).
-
-       You can grant access to issues within a queue to individual users or specific groups and roles:
+      You can set up access to issues in your queue for individual users, groups, and roles:
         * **Access**: Users listed in the **Access** field of an issue.
         * **Follower**: Users who subscribed to the issue.
         * **Reporter**: The person who created the issue.
@@ -31,76 +30,73 @@ There are two types of user access rights to {{ tracker-name }}:
         * **Queue owner**.
         * **Queue team members**: Users added to the [queue team](manager/queue-team.md).
 
-        You can use [components](manager/queue-access.md#section_tbh_cs5_qbb) to limit user access to specific issues within a queue.
+        To limit access of users to specific issues inside the queue, you can use [components](manager/queue-access.md#access-components).
 
-    * [Filters](user/create-filter.md#nastroit-dostup-k-filtru) and [dashboards](user/share-dashboard.md#section_k2z_1nk_pz). Access rights to filters and dashboards can be configured by the their owner or another user who received access rights from the owner.
+   * [Filters](user/create-filter.md#nastroit-dostup-k-filtru) and [dashboards](user/share-dashboard.md#section_k2z_1nk_pz). Rights to access filters and dashboards can be set up by their owner or another user permitted by the owner.
 
 {% note info %}
 
-When managing the [{{ tracker-full-name }} API](about-api.md), all app requests are carried out on behalf of the {{ tracker-name }} user. To perform actions via the API, the user on whose behalf the requests are made must have sufficient rights in {{ tracker-name }}.
+When using the [{{ tracker-full-name }} API](about-api.md), the application requests are run on behalf of the {{ tracker-name }} user. To run certain actions over the API, the user on whose behalf the request is executed should have relevant rights in {{ tracker-name }}.
 
-For more information about granting apps access to the {{ tracker-full-name }} API, see [{#T}](concepts/access.md).
+To learn more about granting applications the rights for the {{ tracker-full-name }} API, see [{#T}](concepts/access.md).
 
 {% endnote %}
 
-## Access levels {#roles}
+## Levels of access {#roles}
 
-A user's access level applies to all pages in {{ tracker-name }}. The access level determines the actions available to users, such as creating and editing issues, or changing the {{ tracker-name }} settings. Access levels are [configured by the admin](access.md).
+The user's access level applies throughout the {{ tracker-name }} organization structure. The access level determines which actions the user can execute: create or edit issues, change the {{ tracker-name }} settings. The access levels assigned to users are [set up by the administrator](access.md).
 
 #### Administrator {#admin}
 
-The administrator has access to all {{ tracker-name }} elements. By default, the {{ tracker-name }} admin is the user who created the [company {{ yandex-cloud}}](../organization/).
+The administrator has access to all the elements of the {{ tracker-name }} structure. By default, the {{ tracker-name }} administrator is the user who created the [{{ yandex-cloud }} organization](../organization/).
 
-If you wish to grant admin rights to other users, use [{{ ya-360 }}](https://yandex.ru/support/business/admin.html).
+To assign other employees as administrators, use [{{ yandex-360 }}](https://yandex.ru/support/business/admin.html).
 
-Actions available to admins:
+Actions available to the administrator:
 
-* Adding [users](add-users.md) to {{ tracker-name }} and configuring their [access levels](access.md).
-
-* Managing {{ tracker-name }} settings: creating new [statuses](manager/workflow-status-edit.md#create-status), [resolutions](manager/create-resolution.md#create-resolution) and [issue types](manager/add-ticket-type.md#create-ticket-type), configuring [global issue fields](user/create-param.md#section_global_field), and adding [repositories](manager/add-repository.md).
-
+* Adding [users](add-users.md) to {{ tracker-name }} and setting up the [access level](access.md) for them.
+* Managing {{ tracker-name }} settings: creating new [statuses](manager/workflow-status-edit.md#create-status), [resolutions](manager/create-resolution.md#create-resolution), and [issue types](manager/add-ticket-type.md#create-ticket-type), setting up [global fields](user/create-param.md#section_global_field) in issues, adding [repositories](manager/add-repository.md).
 * Managing [queue settings](manager/edit-queue-general.md).
+* Linking to {{ tracker-name }} a [billing account](billing-account.md) to pay for the services.
 
-* Linking {{ tracker-name }} [billing accounts](billing-account.md) used to pay for services.
+   {% note alert %}
 
-    {% note alert %}
+   Only the billing account owner has access to managing the billing account by default. For other users, [access](../billing/security/) to the billing account can be provided via the [Billing service](../billing/).
 
-    By default, a billing account can only be managed by its owner. To grant [access](../billing/security/) to a billing account to other users, use [Billing](../billing/).
+   {% endnote %}
 
-    {% endnote %}
 
-To create and edit issues, the admin also needs [full access](#full-access) to {{ tracker-name }}.
+To create and edit issues, the administrator also needs [full access](#full-access) to {{ tracker-name }}.
 
 #### Employees with full access {#full-access}
 
-Employees with full access rights can use all {{ tracker-full-name }} features.
+The employees with full access can enjoy all the features of {{ tracker-full-name }}.
 
 {% note info %}
 
-If you company has 6 or more employees with full access rights, you will need to make monthly [payments](pricing.md) for the service. Smaller teams can use {{ tracker-name }} for free provided that no more than 5 users are allowed to create and edit issues.
+If you have six or more users with full access in your organization, you'll need to [pay](pricing.md) for the service monthly. Small teams can use {{ tracker-name }} free-of-charge, if no more than five employees would create or edit issues.
 
 {% endnote %}
 
-Actions available to users:
+Actions available to employees:
 
-* [Creating](user/create-ticket.md) and [editing](user/edit-ticket.md) issues.
-* Searching for issues using the [filter builder](user/create-filter.md) and the [query language](user/query-filter.md).
+* [Create](user/create-ticket.md) and [edit](user/edit-ticket.md) issues.
+* Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).
 * Adding [comments](user/comments.md).
 * Creating and configuring [queues](queue-intro.md).
-This includes creating [auto actions](user/autoactions.md), [triggers](user/trigger.md), and [macros](manager/create-macroses.md) in queues.
-* Managing [issue boards](user/agile.md) and [dashboards](user/dashboard.md).
-* Configuring the [interface](user/personal.md) and [notifications](user/notifications.md).
+   Including creation of [automatic actions](user/autoactions.md), [triggers](user/trigger.md), and [macros](manager/create-macroses.md) in the queue.
+* Using [issue boards](user/agile.md) and [dashboards](user/dashboard.md).
+* Setting up the [interface](user/personal.md) and [notifications](user/notifications.md).
 
-#### Users with <q>Read-only access</q> {#read-only}
+#### Employees with the <q>Read</q> access {#read-only}
 
-Users with <q>Read-only</q> access rights can use features related to viewing issues in {{ tracker-name }}. These users don't have to pay for the service.
+The employees who work in the <q>Read</q> mode, can enjoy the features related to viewing issues in {{ tracker-name }}. You don't pay for the service use by such users.
 
-If the [admin](#admin) has access to {{ tracker-name }} in <q>Read-only mode</q>, they can change their account's access settings on their own.
+If the [administrator](#admin) has <q>Read</q> access to {{ tracker-name }}, they themselves can edit access rights for their account.
 
-Actions available in <q>Read-only mode</q>:
+Actions available in the <q>Read only</q> mode:
 
-* Viewing issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
-* Searching for issues using the [filter builder](user/create-filter.md) and the [query language](user/query-filter.md).
-* Viewing [queue pages](manager/quick-filters.md), [statistics](manager/statistics.md), and more.
-* Configuring the [interface](user/personal.md) and [notifications](user/notifications.md).
-
+* View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
+* Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).
+* View [queue pages](manager/quick-filters.md), [statistics](manager/statistics.md), and more.
+* Setting up the [interface](user/personal.md) and [notifications](user/notifications.md).

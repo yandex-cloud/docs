@@ -20,7 +20,7 @@ To view all issues in the queue, open its page:
 
 1. Click the name of the relevant queue.
 
-By default, the queue page only displays active issues (the **Resolution: Without value** option). You can customize which issues to display by using the [quick filter](../manager/quick-filters.md) buttons above the list of issues.
+By default, the queue page only displays active issues (the **Resolution: Without value** option). You can customize which issues to display by using the [filter by parameters](../manager/quick-filters.md) buttons above the issue list.
 
 ## Adding a queue to Favorites {#queue-fav}
 
@@ -57,32 +57,4 @@ To save your issue list to a file:
 
 ## Gantt chart for queue issues {gantt-queue}
 
-A Gantt chart in {{ tracker-name }} is a tool for planning work on issues on the calendar. Gantt charts show all issues and links between them.
-
-To open a Gantt chart for queue issues:
-
-1. Open the queue page.
-
-1. {% include [go-to-gantt](../../_includes/tracker/go-to-gantt.md) %}
-
-1. {% include [gantt-time-scale](../../_includes/tracker/gantt-time-scale.md) %}
-
-### Updating links between issues {#links}
-
-{% include [gantt-links](../../_includes/tracker/gantt-links.md) %}
-
-### Changing issue deadlines {#timing}
-
-{% include [gantt-timing](../../_includes/tracker/gantt-timing.md) %}
-
-### Assigning an issue {#assigned}
-
-{% include [gantt-assigned](../../_includes/tracker/gantt-assigned.md) %}
-
-### Setting up the chart {#settings}
-
-{% include [gantt-settings](../../_includes/tracker/gantt-settings.md) %}
-
-### Setting up the display of the issue list section {#tasks-view}
-
-{% include [gantt-tasks-view](../../_includes/tracker/tasks-view.md) %}
+A Gantt chart in {{ tracker-name }} is a tool for planning work on issues on the calendar. Gantt charts show all issues and links between them. You can learn more about Gantt charts for issue queues [here](../gantt/queue.md).

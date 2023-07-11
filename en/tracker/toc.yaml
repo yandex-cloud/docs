@@ -183,8 +183,6 @@ items:
         href: manager/create-project.md
       - name: List of project issues
         href: manager/project-list.md
-      - name: Gantt chart
-        href: manager/gantt-project.md
       - name: Issue board
         href: manager/boards-project.md
   - name: Agile development tools
@@ -231,8 +229,6 @@ items:
         href: user/create-filter.md
       - name: Query language
         href: user/query-filter.md
-      - name: Gantt chart for issue filters
-        href: manager/gantt-search.md
   - name: Notifications and subscriptions
     items:
       - name: Overview
@@ -271,8 +267,18 @@ items:
             href: user/startpage-dashboard.md
       - name: Queue statistics
         href: manager/statistics.md
-      - name: Gantt chart
-        href: manager/gantt.md
+  - name: Gantt chart
+    items:
+      - name: Overview
+        href: gantt/overview.md
+      - name: Gantt chart for filters
+        href: gantt/search.md
+      - name: Gantt chart for queues
+        href: gantt/queue.md
+      - name: Gantt chart for projects
+        href: gantt/project.md
+      - name: Gantt chart for a list of projects
+        href: gantt/list-of-projects.md
   - name: Automation and templates
     items:
       - name: Overview

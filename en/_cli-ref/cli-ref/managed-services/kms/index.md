@@ -35,6 +35,35 @@ Syntax:
 	- [yc kms symmetric-crypto decrypt](symmetric-crypto/decrypt.md) — Decrypt data with specified symmetric key
 	- [yc kms symmetric-crypto generate-data-key](symmetric-crypto/generate-data-key.md) — Generate data key and encrypt it with specified symmetric key
 	- [yc kms symmetric-crypto re-encrypt](symmetric-crypto/re-encrypt.md) — Re-encrypt a ciphertext with the specified symmetric key
+- [yc kms asymmetric-encryption-key](asymmetric-encryption-key/index.md) — Manage asymmetric encryption keys
+	- [yc kms asymmetric-encryption-key get](asymmetric-encryption-key/get.md) — Show information about the specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-key list](asymmetric-encryption-key/list.md) — List asymmetric encryption keys of the specified folder
+	- [yc kms asymmetric-encryption-key create](asymmetric-encryption-key/create.md) — Create asymmetric encryption key
+	- [yc kms asymmetric-encryption-key update](asymmetric-encryption-key/update.md) — Update the specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-key delete](asymmetric-encryption-key/delete.md) — Delete the specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-key list-operations](asymmetric-encryption-key/list-operations.md) — List operations for the specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-key list-access-bindings](asymmetric-encryption-key/list-access-bindings.md) — List access bindings for the specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-key set-access-bindings](asymmetric-encryption-key/set-access-bindings.md) — Set access bindings for the specified asymmetric encryption key and delete all existing access bindings if there were any
+	- [yc kms asymmetric-encryption-key add-access-binding](asymmetric-encryption-key/add-access-binding.md) — Add access binding for the specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-key remove-access-binding](asymmetric-encryption-key/remove-access-binding.md) — Remove access binding for the specified asymmetric encryption key
+- [yc kms asymmetric-encryption-crypto](asymmetric-encryption-crypto/index.md) — Perform asymmetric encryption crypto operations
+	- [yc kms asymmetric-encryption-crypto decrypt](asymmetric-encryption-crypto/decrypt.md) — Decrypt data with specified asymmetric encryption key
+	- [yc kms asymmetric-encryption-crypto get-public-key](asymmetric-encryption-crypto/get-public-key.md) — Get public key
+- [yc kms asymmetric-signature-key](asymmetric-signature-key/index.md) — Manage asymmetric signature keys
+	- [yc kms asymmetric-signature-key get](asymmetric-signature-key/get.md) — Show information about the specified asymmetric signature key
+	- [yc kms asymmetric-signature-key list](asymmetric-signature-key/list.md) — List asymmetric signature keys of the specified folder
+	- [yc kms asymmetric-signature-key create](asymmetric-signature-key/create.md) — Create asymmetric signature key
+	- [yc kms asymmetric-signature-key update](asymmetric-signature-key/update.md) — Update the specified asymmetric signature key
+	- [yc kms asymmetric-signature-key delete](asymmetric-signature-key/delete.md) — Delete the specified asymmetric signature key
+	- [yc kms asymmetric-signature-key list-operations](asymmetric-signature-key/list-operations.md) — List operations for the specified asymmetric signature key
+	- [yc kms asymmetric-signature-key list-access-bindings](asymmetric-signature-key/list-access-bindings.md) — List access bindings for the specified asymmetric signature key
+	- [yc kms asymmetric-signature-key set-access-bindings](asymmetric-signature-key/set-access-bindings.md) — Set access bindings for the specified asymmetric signature key and delete all existing access bindings if there were any
+	- [yc kms asymmetric-signature-key add-access-binding](asymmetric-signature-key/add-access-binding.md) — Add access binding for the specified asymmetric signature key
+	- [yc kms asymmetric-signature-key remove-access-binding](asymmetric-signature-key/remove-access-binding.md) — Remove access binding for the specified asymmetric signature key
+- [yc kms asymmetric-signature-crypto](asymmetric-signature-crypto/index.md) — Perform asymmetric signature crypto operations
+	- [yc kms asymmetric-signature-crypto sign](asymmetric-signature-crypto/sign.md) — Sign data with specified asymmetric signature key
+	- [yc kms asymmetric-signature-crypto sign-hash](asymmetric-signature-crypto/sign-hash.md) — Sign hash value with specified asymmetric signature key
+	- [yc kms asymmetric-signature-crypto get-public-key](asymmetric-signature-crypto/get-public-key.md) — Get public key
 
 #### Global Flags
 

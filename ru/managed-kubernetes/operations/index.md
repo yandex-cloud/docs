@@ -46,6 +46,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
+* [{#T}](create-load-balancer-with-ingress-nginx.md)
 
 ## Работа с постоянными томами {#persistent-volumes}
 
@@ -57,7 +58,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](volumes/mode-block.md)
 * [{#T}](volumes/s3-csi-integration.md)
 
-## Управление кластером {{ k8s }} {#kubernetes-cluster}
+## Управление кластером {{ managed-k8s-name }} {#kubernetes-cluster}
 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)

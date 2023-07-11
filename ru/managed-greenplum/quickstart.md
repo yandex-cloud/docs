@@ -62,5 +62,6 @@
 
 * Изучите [концепции сервиса](./concepts/index.md).
 * Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect.md).
+* Установите [вспомогательные утилиты](./operations/greenplum-db.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

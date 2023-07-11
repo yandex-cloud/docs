@@ -12,13 +12,13 @@ To find issues you're working on:
 
    * To open all the issues available to you in {{ tracker-name }}, at the bottom of the window, click **All issues** or follow the [direct link]({{ link-tracker }}).
 
-To search for issues in the list, use [quick filters](#q-filters) or [add search criteria](default-filters.md#add-condition).
+To search for issues in the list, use [filtering by parameters](#q-filters) or [add search criteria](default-filters.md#add-condition).
 
-## Quick filters {#q-filters}
+## Filter by parameters {#q-filters}
 
-Use quick filters to filter your issue list and leave there only those issues that match the selected parameters. The quick filter buttons are above the issue list:
+Use filters to narrow down your issue list and display only those issues that match the selected parameters. The filter by parameters buttons are above the issue list:
 
-* To use standard filters, click the filter name in the list located in the bottom-left corner of the page.
+* To use standard filters, click the filter name in the list located in the bottom-left corner of the page:
    * **Favorite issues**.
    * **All my issues**.
    * **Reported by me**.

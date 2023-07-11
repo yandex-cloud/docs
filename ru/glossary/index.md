@@ -7,6 +7,7 @@
 * [{#T}](datalake.md)
 * [{#T}](relational-databases.md)
 * [{#T}](oltp.md)
+* [{#T}](olap.md)
 
 ## Аналитика
 
