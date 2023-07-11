@@ -84,7 +84,7 @@
        spec:
          containers:
            - name: nginx
-             image: k8s.gcr.io/hpa-example
+             image: registry.k8s.io/hpa-example
              resources:
                requests:
                  memory: "256Mi"
