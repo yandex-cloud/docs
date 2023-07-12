@@ -1,3 +1,3 @@
-### storage.configViewer {#storage-config-viewer}
+#### storage.configViewer {#storage-config-viewer}
 
 Пользователь с ролью `storage.configViewer` может просматривать настройки безопасности бакетов и объектов в них, при этом не имеет доступа к данным внутри бакета.

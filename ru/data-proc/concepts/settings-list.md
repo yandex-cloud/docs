@@ -1,6 +1,6 @@
 # Свойства компонентов
 
-При [создании кластера {{ dataproc-name }}](../operations/cluster-create.md) вы можете задать свойства компонентов кластера, заданий и среды окружения в формате:
+Свойства компонентов кластера, заданий и среды окружения хранятся в формате:
 
 ```text
 <ключ>:<значение>
@@ -19,6 +19,15 @@ hdfs:dfs.replication : 2
 hdfs:dfs.blocksize : 1073741824
 spark:spark.driver.cores : 1
 ```
+
+## Изменение свойств компонентов {#change-properties}
+
+Изменить свойства компонентов можно:
+
+* На уровне кластера при его [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md). Переданные таким образом свойства применяются по умолчанию ко всем новым заданиям в кластере.
+* На уровне отдельного [задания](./jobs.md) при его [создании](../operations/jobs.md). Переданные таким образом свойства применяются только к данному заданию и переопределяют для него свойства, заданные на уровне кластера.
+
+## Доступные свойства компонентов {#available-properties}
 
 Доступные свойства перечислены в официальной документации компонентов:
 
@@ -40,12 +49,18 @@ spark:spark.driver.cores : 1
 | `tez`                | `/etc/tez/conf/tez-site.xml`            | [Tez 0.9.2](https://tez.apache.org/releases/0.9.2/tez-api-javadocs/configs/TezConfiguration.html) и [Tez 0.10.0](https://tez.apache.org/releases/0.10.0/tez-api-javadocs/configs/TezConfiguration.html) |
 | `zeppelin`           | `/etc/zeppelin/conf/zeppelin-site.xml`  | [Zeppelin](https://zeppelin.apache.org/docs/0.9.0/setup/operation/configuration.html)                                       |
 
-Настройки запуска заданий указываются в особых свойствах:
+Настройки запуска заданий указаны в особых свойствах:
 
 * `dataproc:version` — версия `dataproc-agent`, который выполняет задания, отсылает признак состояния кластера и проксирует UI. Используется для отладки. Значение по умолчанию — `latest`.
 * `dataproc:max-concurrent-jobs` — количество одновременно запускаемых заданий. Значение по умолчанию — `auto` (рассчитывается исходя из свойств `min-free-memory-to-enqueue-new-job` и `job-memory-footprint`).
 * `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
 * `dataproc:job-memory-footprint` — количество памяти для запуска задания на управляющем хосте кластера, используется для оценки максимального количества заданий в кластере. Значение по умолчанию — `536870912` (512 МБ).
+* `dataproc:spark_executors_per_vm` — максимальное количество контейнеров на одном вычислительном хосте при выполнении [заданий Spark](./spark-sql.md). Значения по умолчанию:
+
+    * `1` для [легковесных кластеров](./index.md#light-weight-clusters);
+    * `2` для кластеров с HDFS.
+
+* `dataproc:spark_driver_memory_fraction` — доля памяти вычислительного хоста, резервируемая для драйвера при выполнении [заданий Spark](./spark-sql.md). Значение по умолчанию — `0.25`.
 
 ## Настройки JVM для приложений Spark, выставляемые в {{ dataproc-name }} по умолчанию {#jvm-settings-for-spark}
 

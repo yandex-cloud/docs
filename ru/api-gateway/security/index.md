@@ -22,9 +22,11 @@ description: "Управление доступом в сервисе API-шлю
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Роли {#roles}
+## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ api-gw-name }}.
+
+### Сервисные роли {#service-roles}
 
 {% include [api-gateway-viewer](../../_includes/roles-api-gateway-viewer.md) %}
 
@@ -36,18 +38,6 @@ description: "Управление доступом в сервисе API-шлю
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### Примитивные роли {#primitive-roles}
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список API-шлюзов.
-
-### {{ roles-editor }} {#editor}
-
-Пользователь с ролью `{{ roles-editor }}` может управлять API-шлюзами, например создать или удалить API-шлюз.
-
-Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
-
-### {{ roles-admin }} {#admin}
-
-Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям редактировать API-шлюзы.
-
-Роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
