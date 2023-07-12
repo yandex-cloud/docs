@@ -42,7 +42,7 @@ You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
 
 - API
 
-   Use the [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) and [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) API methods and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster hosts, use the [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) and [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) REST API methods for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/ListMasterHosts](../../api-ref/grpc/cluster_service.md#ListMasterHosts) and [ClusterService/ListSegmentHosts](../../api-ref/grpc/cluster_service.md#ListSegmentHosts) gRPC API calls and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 

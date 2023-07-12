@@ -38,7 +38,7 @@ You can configure the environment to run your code using [Docker images](../conc
       RUN pip install tensorflow-gpu==2.4.1
       ```
 
-      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. For details, see [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
+      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. For details, see details in the [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.build }}**.
 
@@ -46,6 +46,8 @@ You can configure the environment to run your code using [Docker images](../conc
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+
+{% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 ## Applying a Docker image to a project {#set}
 

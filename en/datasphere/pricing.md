@@ -61,6 +61,12 @@ Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](conce
 
 ### Performing background operations {#async}
 
+{% note alert %}
+
+From July 10, 2023, the performing of background operations will be charged according to the rules of [use of computing resources](#paug).
+
+{% endnote %}
+
 Learn more about [background operations](../datasphere/concepts/async.md).
 
 

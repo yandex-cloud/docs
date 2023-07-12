@@ -14,19 +14,19 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %} 
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**. 
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**. 
 
-1. Перейдите на вкладку **SLA**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}**.
 
-1. Нажмите кнопку **Создать правило**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.create-sla }}**.
 
 1. Нажмите на значок ![](../../_assets/tracker/icon-edit.png) и введите название правила.
 
 1. Выберите [график работы](schedule.md). График работы устанавливает время, когда правило активно. В нерабочие часы отсчет времени идти не будет.
 
-1. С помощью фильтров можно выбрать задачи, к которым будет применено правило. По умолчанию включен фильтр <q>Все задачи очереди</q>.
+1. С помощью фильтров можно выбрать задачи, к которым будет применено правило. По умолчанию включен фильтр <q>{{ ui-key.startrek-backend.defaults.sla.default.filter.name }}</q>.
    
-   * Чтобы добавить фильтр, нажмите кнопку **Создать новый фильтр** и задайте критерии, по которым будут отбираться задачи.
+   * Чтобы добавить фильтр, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--new }}** и задайте критерии, по которым будут отбираться задачи.
 
    * Чтобы изменить существующий фильтр, нажмите на значок ![](../../_assets/tracker/icon-edit.png).
    
@@ -38,42 +38,42 @@
    
     * **Время до предупреждения** (необязательный параметр) — по истечении этого срока {{ tracker-name }} отправит предупреждение, что время обработки задачи на исходе.
 
-    * **Время на выполнение** — предельное время на обработку задачи. По истечении этого времени {{ tracker-name }} отправит уведомление о срыве срока.
+    * **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** — предельное время на обработку задачи. По истечении этого времени {{ tracker-name }} отправит уведомление о срыве срока.
 
 1. Задайте условия, при которых таймер будет запускаться, приостанавливаться или останавливаться:
 
-    * **Старт** — таймер запустится, если выполнено любое из перечисленных условий. Если таймер стоял на паузе, отсчет времени будет возобновлен.
+    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}** — таймер запустится, если выполнено любое из перечисленных условий. Если таймер стоял на паузе, отсчет времени будет возобновлен.
 
-    * **Пауза** — таймер приостановится, если выполнено любое из перечисленных условий. Таймер запустится, когда будет выполнено условие из списка **Старт**.
+    * **Пауза** — таймер приостановится, если выполнено любое из перечисленных условий. Таймер запустится, когда будет выполнено условие из списка **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}**.
 
         {% note alert %}
 
-        Если в качестве условия для паузы выбрано "Пока задача находится в статусе", таймер запустится, как только задача будет переведена в любой другой статус.
+        Если в качестве условия для паузы выбрано "{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}", таймер запустится, как только задача будет переведена в любой другой статус.
 
         {% endnote %}
 
-    * **Стоп** — таймер остановится, если выполнено любое из перечисленных условий.
+    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** — таймер остановится, если выполнено любое из перечисленных условий.
 
     Возможные условия:
     Условие | Режим таймера | Описание
     ----- | ----- | -----
-    Удалён исполнитель | **Старт**, **Стоп** | Условие считается выполненным, когда в задаче удаляют исполнителя.  
-    Назначен исполнитель | **Старт**, **Стоп** | Условие считается выполненным, когда задаче назначают нового исполнителя.
-    Получен ответ заказчика | **Старт**, **Стоп** | Условие считается выполненным, когда задачу прокомментировал пользователь, не входящий в [команду очереди](queue-team.md).
-    Создана задача | **Старт** | Таймер запустится сразу после создания задачи.
-    Задача переведена в статус | **Старт**, **Стоп** | Условие считается выполненным, когда задачу переводят в один из указанных в нем статусов.
-    Удалена резолюция | **Старт** | Условие считается выполненным, когда из задачи удаляют проставленную ранее резолюцию.
-    Пока задача находится в статусе | **Пауза** | Таймер будет приостановлен, пока задача находится в одном из указанных статусов. После изменения статуса таймер автоматически запустится.
-    Выбрана резолюция | **Стоп** | Условие считается выполненным, когда в задаче проставляют одну из указанных в нем резолюций.
-    Получен ответ от команды очереди | **Стоп** | Условие считается выполненным, когда задачу прокомментировал пользователь, входящий в [команду очереди](queue-team.md).
-    У задачи есть исполнитель | **Пауза** | Таймер будет приостановлен, пока в задаче указан исполнитель. После удаления исполнителя таймер автоматически запустится.
-    У задачи нет исполнителя | **Пауза** | Таймер будет приостановлен, пока в задаче не указан исполнитель. После назначения исполнителя таймер автоматически запустится.
+    {{ ui-key.startrek-backend.messages.sla.assignee.deleted.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** | Условие считается выполненным, когда в задаче удаляют исполнителя.  
+    {{ ui-key.startrek-backend.messages.sla.assignee.set.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** | Условие считается выполненным, когда задаче назначают нового исполнителя.
+    {{ ui-key.startrek-backend.messages.sla.client.commented.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** | Условие считается выполненным, когда задачу прокомментировал пользователь, не входящий в [команду очереди](queue-team.md).
+    {{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}** | Таймер запустится сразу после создания задачи.
+    {{ ui-key.startrek-backend.messages.sla.status.changed.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** | Условие считается выполненным, когда задачу переводят в один из указанных в нем статусов.
+    {{ ui-key.startrek-backend.messages.sla.resolution.deleted.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}** | Условие считается выполненным, когда из задачи удаляют проставленную ранее резолюцию.
+    {{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-pause }}** | Таймер будет приостановлен, пока задача находится в одном из указанных статусов. После изменения статуса таймер автоматически запустится.
+    {{ ui-key.startrek-backend.messages.sla.resolution.set.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** | Условие считается выполненным, когда в задаче проставляют одну из указанных в нем резолюций.
+    {{ ui-key.startrek-backend.messages.sla.team.commented.timer.trigger.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** | Условие считается выполненным, когда задачу прокомментировал пользователь, входящий в [команду очереди](queue-team.md).
+    {{ ui-key.startrek-backend.messages.sla.issue.has.assignee.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-pause }}** | Таймер будет приостановлен, пока в задаче указан исполнитель. После удаления исполнителя таймер автоматически запустится.
+    {{ ui-key.startrek-backend.messages.sla.issue.has.no.assignee.condition.type }} | **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-pause }}** | Таймер будет приостановлен, пока в задаче не указан исполнитель. После назначения исполнителя таймер автоматически запустится.
 
-1. Вы можете настроить обновление таймера при выполнении условий старта. Для этого в блоке **Повторный запуск** включите опцию **При повторении условий старта запускать таймер заново**. В этом случае после паузы он не продолжит отсчет, а запуститься заново.
+1. Вы можете настроить обновление таймера при выполнении условий старта. Для этого в блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.restart-header }}** включите опцию **{{ ui-key.startrek.blocks-desktop_sla-editor.restart-checkbox-text }}**. В этом случае после паузы он не продолжит отсчет, а запустится заново.
 
-1. В блоке **Оповещения** укажите как и кого оповещать о нарушении сроков.
+1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--title }}** укажите как и кого оповещать о нарушении сроков.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_sla-editor.actions--save }}**.
 
 ### Пример {#example}
 
@@ -81,22 +81,22 @@
 
 Чтобы создать правило:
 
-1. В блоке **Сроки выполнения задач** установите предельное время реакции на задачу:
+1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}** установите предельное время реакции на задачу:
    * Поле **Время до предупреждения** оставьте пустым.
 
-   * В поле **Время на выполнение** введите время реакции, например, `15m`.
+   * В поле **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** введите время реакции, например, `15m`.
 
 1. Настройте таймер:
-   * **Старт** — Назначен исполнитель.
+   * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}** — Назначен исполнитель.
 
-   * **Стоп** — Задача переведена в статус <q>В работе</q>.
+   * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** — Задача переведена в статус <q>{{ ui-key.startrek.blocks-desktop_sla-editor.example--state-in-progress }}</q>.
 
-   * Блок **Пауза** оставьте пустым.
+   * Блок **{{ ui-key.startrek.blocks-desktop_sla-status-card.pause-condition-title }}** оставьте пустым.
 
 1. Настройте оповещение о срыве срока:
-   * **Способ** — Письмо.
+   * **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--type }}** — Письмо.
 
-   * **Получатели** — ваш логин в Tracker.
+   * **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--recipients }}** — ваш логин в Tracker.
 
 ## Просмотреть правила {#section_nbs_r2g_vdb}
 
@@ -104,41 +104,41 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**. 
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**. 
 
-1. Перейдите на вкладку **SLA**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}**.
 
 Чтобы просмотреть параметры правила, нажмите на его название:
 
-* **График работы**
+* **{{ ui-key.startrek.blocks-desktop_sla-editor.calendar }}**
 
     График работы — это время, когда правило активно. В нерабочие часы отсчет времени идти не будет.
 
-* **Сроки выполнения задач**
+* **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}**
 
     Правило может применяться не только ко всем задачам очереди, но и к отдельным группам задач. Для каждой группы можно установить свои сроки выполнения:
 
     * **Время до предупреждения** (необязательный параметр) — по истечении этого срока {{ tracker-name }} отправит предупреждение, что время обработки задачи на исходе.
 
-    * **Время на выполнение** — предельное время на обработку задачи. По истечении этого времени {{ tracker-name }} отправит уведомление о срыве срока.
+    * **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** — предельное время на обработку задачи. По истечении этого времени {{ tracker-name }} отправит уведомление о срыве срока.
 
-* **Настройки таймера**
+* **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--title }}**
 
     События, при которых таймер будет запускаться, приостанавливаться или останавливаться:
 
-    * **Старт** — таймер запустится, если выполнено любое из перечисленных условий. Если таймер стоял на паузе, отсчет времени будет возобновлен.
+    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}** — таймер запустится, если выполнено любое из перечисленных условий. Если таймер стоял на паузе, отсчет времени будет возобновлен.
 
-    * **Пауза** — таймер приостановится, если выполнено любое из перечисленных условий. Таймер запустится, когда будет выполнено условие из списка **Старт**.
+    * **{{ ui-key.startrek.blocks-desktop_sla-status-card.pause-condition-title }}** — таймер приостановится, если выполнено любое из перечисленных условий. Таймер запустится, когда будет выполнено условие из списка **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-start }}**.
 
         {% note info %}
 
-        Если в качестве условия для паузы выбрано <q>Пока задача находится в статусе</q>, таймер запустится, как только задача будет переведена в любой другой статус.
+        Если в качестве условия для паузы выбрано <q>{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}</q>, таймер запустится, как только задача будет переведена в любой другой статус.
 
         {% endnote %}
 
-    * **Стоп** — таймер остановится, если выполнено любое из перечисленных условий.
+    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-end }}** — таймер остановится, если выполнено любое из перечисленных условий.
 
-* **Оповещения**
+* **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--title }}**
 
     Как и кому {{ tracker-name }} сообщает о нарушении сроков.
 
@@ -148,12 +148,12 @@
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**. 
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**. 
 
-1. Перейдите на вкладку **SLA**.
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}**.
 
 1. Выберите правило.
 
-1. Нажмите кнопку **Редактировать**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.edit-sla }}**.
 
-1. Внесите изменения и нажмите кнопку **Сохранить**.
+1. Внесите изменения и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_sla-editor.actions--save }}**.

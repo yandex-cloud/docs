@@ -100,8 +100,8 @@
 
      ```
      access_key:
-       id: aje6t3vsbj8lp9r4vk2u
-       service_account_id: ajepg0mjt06siuj65usm
+       id: aje6t3vsbj8l********
+       service_account_id: ajepg0mjt06s********
        created_at: "2022-07-18T14:37:51Z"
        key_id: 0n8X6WY6S24N7Oj*****
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****

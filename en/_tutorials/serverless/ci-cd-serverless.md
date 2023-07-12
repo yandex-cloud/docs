@@ -97,8 +97,6 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 
 {% endlist %}
 
-## Configure {{ GL }} {#configure-gitlab}
-
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
 ## Create a {{ GLR }} {#runner}

@@ -1,12 +1,10 @@
 # Создать группу виртуальных машин фиксированного размера с сетевым балансировщиком нагрузки
 
-Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера совместно с сетевым балансировщиком, который будет равномерно распределять нагрузку по облачным ресурсам. Подробнее читайте в разделе [Сетевой балансировщик нагрузки](../../../network-load-balancer/concepts/index.md) документации сервиса {{ network-load-balancer-full-name }}.
+Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml). Вместе с группой ВМ будет автоматически создана целевая группа {{ network-load-balancer-name }}, которую можно привязать к балансировщику и распределять нагрузку между ВМ в группе на сетевом уровне. Подробнее см. в разделе [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
-
-Чтобы создать группу ВМ с сетевым балансировщиком нагрузки:
 
 {% list tabs %}
 
@@ -24,6 +22,9 @@
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+
+        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
       * При необходимости включите опцию **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**. Пока опция включена, группу удалить невозможно.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите нужные. ВМ группы могут находиться в [разных зонах и регионах доступности](../../../overview/concepts/geo-scope.md).
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
@@ -56,14 +57,14 @@
       * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** укажите, сколько ВМ можно одновременно создавать.
       * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}** укажите срок, после которого ВМ начнет получать нагрузку.
       * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** укажите, сколько ВМ можно одновременно останавливать.
-      * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** укажите одну из [стратегий](../../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy):
+      * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** укажите одну из [стратегий](../../concepts/instance-groups/policies/deploy-policy.md#strategy):
         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}` — {{ ig-name }} самостоятельно выбирает, какие ВМ остановить при обновлении или уменьшении группы.
         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}` — {{ ig-name }} ожидает, когда ВМ остановятся самостоятельно или будут остановлены пользователем.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
       * Выберите `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}` [тип масштабирования](../../../compute/concepts/instance-groups/scale.md).
       * Укажите размер группы ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}** включите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
-  1. Введите имя и описание целевой группы.
+  1. Укажите настройки целевой группы. Подробнее см. в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
   1. При необходимости активируйте опцию **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
       * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите протокол проверок состояния: `{{ ui-key.yacloud.ylb.health-check.label_http }}` или `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
       * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** (для типа HTTP) укажите URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.
@@ -111,6 +112,9 @@
        Где:
        * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
        * `service_account_id` — идентификатор сервисного аккаунта.
+
+         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
        * `description` — произвольное описание группы ВМ.
      * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md), например:
 
@@ -180,8 +184,11 @@
        ```
 
        Где:
+
        * `target_group_spec` — cпецификация целевой группы {{ network-load-balancer-name }}, связанной с группой ВМ.
        * `name` — произвольное имя целевой группы {{ network-load-balancer-name }}. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
+ 
+       Подробнее о настройках целевой группы см. в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
 
   Полный код файла `specification.yaml`:
 
@@ -233,10 +240,6 @@
      * С целевой группой `first-target-group`.
 
   1. [Создайте сетевой балансировщик нагрузки](../../../network-load-balancer/operations/load-balancer-create.md) и добавьте к нему целевую группу `first-target-group`.
-
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 - {{ TF }}
 
@@ -341,6 +344,9 @@
 
      Где:
      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+
+       {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
      * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
      * `yandex_compute_instance_group` — описание группы ВМ:
        * Общая информация о группе ВМ:
@@ -362,6 +368,7 @@
        * [Целевая группа](../../../network-load-balancer/concepts/target-resources.md) {{ network-load-balancer-name }}:
          * `target_group_name` — имя целевой группы {{ network-load-balancer-name }}.
          * `target_group_description` — описание целевой группы {{ network-load-balancer-name }}.
+       Подробнее о настройках целевой группы см. в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена группа ВМ.
      * `yandex_lb_network_load_balancer` — описание [балансировщика {{ network-load-balancer-name }}](../../../network-load-balancer/concepts/index.md), к которому будет подключена целевая группа.
@@ -392,5 +399,9 @@
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 
 {% endlist %}

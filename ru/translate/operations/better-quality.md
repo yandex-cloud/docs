@@ -11,36 +11,53 @@
 
 {% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
+{% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
+
 ## Указать язык исходного текста {#with-source-language}
 
 Есть слова, которые пишутся одинаково в разных языках, но переводятся по-разному. Например, слово <q>angel</q> в английском языке означает духовное существо, а в немецком — удочку. Если переданный текст состоит из таких слов, то {{ translate-short-name }} может ошибиться при определении языка текста.
 
 Чтобы избежать ошибки, укажите в поле `sourceLanguageCode` язык, с которого необходимо перевести текст:
 
-```json
-{
-    "folderId": "b1gvmob95yysaplct532",
-    "texts": ["angel"],
-    "targetLanguageCode": "ru",
-    "sourceLanguageCode": "de"
-}
-```
+{% list tabs %}
 
-Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
+- Bash
 
-{% include [translate-file](../../_includes/translate/translate-file.md) %}
+    ```json
+    {
+        "folderId": "<идентификатор_каталога>",
+        "texts": ["angel"],
+        "targetLanguageCode": "ru",
+        "sourceLanguageCode": "de"
+    }
+    ```
 
-В ответе будет перевод с корректно распознанного языка:
+    Где:
 
-```json
-{
-    "translations": [
-        {
-            "text": "удочка"
-        }
-    ]
-}
-```
+    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `texts` — текст для перевода в виде списка из строк.
+    * `targetLanguageCode` — язык, на который переводится текст, в формате [ISO 639-1](https://ru.wikipedia.org/wiki/ISO_639-1). Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
+    * `sourceLanguageCode` — язык, с которого переводится текст.
+
+    Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
+
+    {% include [translate-file](../../_includes/translate/translate-file.md) %}
+
+    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+
+    В ответе будет перевод с корректно распознанного языка:
+
+    ```json
+    {
+        "translations": [
+            {
+                "text": "удочка"
+            }
+        ]
+    }
+    ```
+
+{% endlist %}
 
 ## Указать собственный глоссарий для перевода {#with-glossary}
 
@@ -50,51 +67,126 @@
 
 В поле `sourceLanguageCode` укажите язык, с которого необходимо перевести текст. Это поле обязательно при использовании глоссариев:
 
-```json
-{
-    "sourceLanguageCode": "tr",
-    "targetLanguageCode": "ru",
-    "texts": [
-        "cırtlı çocuk spor ayakkabı"
-    ],
-    "folderId": "b1gvmob95yysaplct532",
-    "glossaryConfig": {
-        "glossaryData": {
-            "glossaryPairs": [
-                {
-                    "sourceText": "spor ayakkabı",
-                    "translatedText": "кроссовки"
-                }
-            ]
+{% list tabs %}
+
+- Bash
+
+    ```json
+    {
+        "sourceLanguageCode": "tr",
+        "targetLanguageCode": "ru",
+        "texts": [
+            "cırtlı çocuk spor ayakkabı"
+        ],
+        "folderId": "<идентификатор_каталога>",
+        "glossaryConfig": {
+            "glossaryData": {
+                "glossaryPairs": [
+                    {
+                        "sourceText": "spor ayakkabı",
+                        "translatedText": "кроссовки"
+                    }
+                ]
+            }
         }
     }
-}
-```
+    ```
 
-Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
+    Где:
 
-{% include [translate-file](../../_includes/translate/translate-file.md) %}
+    * `sourceLanguageCode` — язык, с которого переводится текст, в формате [ISO 639-1](https://ru.wikipedia.org/wiki/ISO_639-1). Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
+    * `targetLanguageCode` — язык, на который переводится текст.
+    * `texts` — текст для перевода в виде списка из строк.
+    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
 
-В ответе будет перевод с использованием терминов из глоссария:
+    Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
-```json
-{
- "translations": [
-  {
-   "text": "Детские кроссовки с липучкой"
-  }
- ]
-}
-```
+    {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-Без использования глоссария перевод будет таким:
+    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
 
-```json
-{
- "translations": [
-  {
-   "text": "детская спортивная обувь с липучкой"
-  }
- ]
-}
-```
+    В ответе будет перевод с использованием терминов из глоссария:
+
+    ```json
+    {
+        "translations": [
+            {
+                "text": "Детские кроссовки с липучкой"
+            }
+        ]
+    }
+    ```
+
+    Без использования глоссария перевод будет таким:
+
+    ```json
+    {
+        "translations": [
+            {
+                "text": "детская спортивная обувь с липучкой"
+            }
+        ]
+    }
+    ```
+
+{% endlist %}
+
+## Проверить опечатки {#with-speller}
+
+Слова с опечатками могут быть переведены неправильно или транслитерированы. Например, слово <q>hellas</q> переводится как <q>эллада</q>. Это же слово, написанное с ошибкой — <q>helas</q>, будет переводиться как <q>хелас</q>. Чтобы проверить правильность написания слов, используйте параметр `speller`:
+
+{% list tabs %}
+
+- Bash
+
+    ```json
+    {
+      "sourceLanguageCode": "en"
+      "targetLanguageCode": "ru",
+      "texts": [
+        "helas"
+        ],
+      "folderId": "<идентификатор_каталога>",
+      "speller": true
+    }
+    ```
+
+    Где:
+
+    * `sourceLanguageCode` — язык оригинала в формате [ISO 639-1](https://ru.wikipedia.org/wiki/ISO_639-1). Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
+    * `targetLanguageCode` — целевой язык перевода.
+    * `texts` — текст для перевода в виде списка строк.
+    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `speller` — параметр, который включает проверку орфографии.
+
+    Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
+
+    {% include [translate-file](../../_includes/translate/translate-file.md) %}
+
+    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+
+    В ответе будет перевод слова, проверенного на наличие ошибок:
+    
+    ```json
+    {
+        "translations": [
+            {
+                "text": "эллада"
+            }
+        ]
+    }
+    ```
+
+    Без проверки ошибок в слове (`"speller": false`) перевод будет таким:
+
+    ```json
+    {
+        "translations": [
+            {
+                "text": "хелас"
+            }
+        ]
+    }
+    ```
+
+{% endlist %}

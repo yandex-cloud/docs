@@ -85,3 +85,4 @@ For more information about connecting to {{ dataproc-name }} cluster component i
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [creating clusters](operations/cluster-create.md) and [working with jobs](operations/jobs.md).
+* [Create a {{ metastore-full-name }} cluster](operations/metastore/cluster-create.md).

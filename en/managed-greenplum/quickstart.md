@@ -6,10 +6,10 @@ To get started with the service:
 1. [Connect to the DB](#connect).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. If you don't have a folder yet, create one:
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 

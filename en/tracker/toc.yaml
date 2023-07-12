@@ -29,8 +29,6 @@ items:
         href: import.md
       - name: Disabling paid services
         href: disable-tracker.md
-  - name: Yandex Tracker mobile app
-    href: mobile.md
   - name: Tutorials
     items:
       - name: Setting up Yandex Tracker for a development team
@@ -71,6 +69,8 @@ items:
             href: support-process-dashboards.md
           - name: Configuring integration with third-party platforms
             href: support-process-integration.md
+      - name: Visualizing data with {{ datalens-name }}
+        href: tutorials/visualisation-in-datalens.md
   - name: Concepts
     items:
       - name: Service overview
@@ -183,8 +183,6 @@ items:
         href: manager/create-project.md
       - name: List of project issues
         href: manager/project-list.md
-      - name: Gantt chart
-        href: manager/gantt-project.md
       - name: Issue board
         href: manager/boards-project.md
   - name: Agile development tools
@@ -231,8 +229,6 @@ items:
         href: user/create-filter.md
       - name: Query language
         href: user/query-filter.md
-      - name: Gantt chart for issue filters
-        href: manager/gantt-search.md
   - name: Notifications and subscriptions
     items:
       - name: Overview
@@ -271,8 +267,18 @@ items:
             href: user/startpage-dashboard.md
       - name: Queue statistics
         href: manager/statistics.md
-      - name: Gantt chart
-        href: manager/gantt.md
+  - name: Gantt chart
+    items:
+      - name: Overview
+        href: gantt/overview.md
+      - name: Gantt chart for filters
+        href: gantt/search.md
+      - name: Gantt chart for queues
+        href: gantt/queue.md
+      - name: Gantt chart for projects
+        href: gantt/project.md
+      - name: Gantt chart for a list of projects
+        href: gantt/list-of-projects.md
   - name: Automation and templates
     items:
       - name: Overview
@@ -363,6 +369,38 @@ items:
         href: user/python.md
       - name: Connecting repositories
         href: manager/add-repository.md
+  - name: Yandex Tracker mobile app
+    items:
+      - name: Overview of features
+        href: mobile.md
+      - name: How to enable {{ tracker-name }}
+        href: mobile/enable-tracker.md
+      - name: How to log in to the mobile app
+        href: mobile/login.md
+      - name: My issues
+        href: mobile/my-tickets.md
+      - name: Creating an issue
+        href: mobile/create-ticket.md
+      - name: Editing an issue
+        href: mobile/edit-ticket.md
+      - name: Comments on an issue
+        href: mobile/comments.md
+      - name: Checklist
+        href: mobile/checklist.md
+      - name: Uploading images and files
+        href: mobile/attach-file.md
+      - name: Links in issues
+        href: mobile/ticket-links.md
+      - name: Time spent
+        href: mobile/time-spent.md
+      - name: Finding an issue
+        href: mobile/search-task.md
+      - name: System filters
+        href: mobile/default-filters.md
+      - name: Creating a filter
+        href: mobile/create-filter.md
+      - name: Sorting and grouping issues
+        href: mobile/sort-and-group.md
   - name: Pricing policy
     items:
       - name: Billing
@@ -625,8 +663,10 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: March 2023
+      - name: April 2023
         href: changelogs/index.md
+      - name: March 2023
+        href: changelogs/2303.md
       - name: February 2023
         href: changelogs/2302.md
       - name: January 2023

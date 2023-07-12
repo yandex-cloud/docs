@@ -9,7 +9,7 @@ keywords:
 
 # Changing {{ OS }} cluster settings
 
-After creating a cluster, you can edit its service settings. To update the configuration of individual host groups, follow the instructions in [Managing host groups](host-groups.md#update-host-group).
+After creating a cluster, you can edit its service settings. You can also change the [host group configuration](host-groups.md#update-host-group) and update the [{{ OS }} version](cluster-version-update.md).
 
 ## Updating service settings {#change-service-settings}
 
@@ -30,9 +30,9 @@ After creating a cluster, you can edit its service settings. To update the confi
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New `admin` user password in the `configSpec.adminPassword` parameter.
    * List of plugins in the `configSpec.opensearchSpec.plugins` parameter. The plugins that are not included in the list will be disabled.
    * Settings for access from other services in the `configSpec.access` parameter.
@@ -45,7 +45,7 @@ After creating a cluster, you can edit its service settings. To update the confi
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

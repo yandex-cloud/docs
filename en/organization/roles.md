@@ -10,7 +10,7 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 ## Service roles {#service-roles}
 
-* `organization-manager.admin`: The organization administrator role.
+* `organization-manager.admin`: Organization administrator role.
 
    The role lets you edit organization settings, create identity federations, add and remove users, and appoint other administrators.
 
@@ -28,7 +28,7 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 To grant a user organization management access, [assign](#add-role) the user one of the following roles:
 
-* `organization-manager.admin`;
+* `organization-manager.admin`.
 * `organization-manager.organizations.owner`.
 
 ### Assigning a role to a user {#add-role}
@@ -39,7 +39,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% list tabs %}
 
-- {{ org-name }} interface
+- Cloud {{ org-name }}
 
   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
@@ -184,9 +184,9 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 {% list tabs %}
 
-- {{ org-name }} interface
+- Cloud {{ org-name }}
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 

@@ -76,7 +76,7 @@
 
 
     Name        : cloud
-    Id          : 12436533-a39e-4df6-81db-f8365eb4178d
+    Id          : 12436533-a39e-4df6-81db-f836********
     Provider    : compatible-with-s3
     ServiceHost : {{ s3-storage-host }}
     SslMode     : Disabled

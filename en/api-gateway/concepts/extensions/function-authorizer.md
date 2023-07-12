@@ -12,12 +12,13 @@ To authorize an HTTP request, {{ api-gw-short-name }} calls the function specifi
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description
+| Option | Type | Description |
 ----|----|----
-`function_id` | `string` | ID of the [function](../../../functions/concepts/function.md).
-`tag` | `string` | Optional. [Tag of the function version](../../../functions/concepts/function.md#tag). Default value: `$latest`.<br>Parameters are substituted in `tag`.
-`service_account_id` | `string` | ID of the service account. Used for authorization when invoking a function. If the parameter is omitted, the value of the `service_account_id` [top-level parameter](./index.md#top-level) is used. If there is no top-level parameter, the function is invoked without authorization
-`authorizer_result_ttl_in_seconds` | `int` | Optional. A time limit on keeping the function response stored in the local {{ api-gw-short-name }} cache. If the parameter is omitted, the response is not cached.
+| `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
+| `tag` | `string` | This is an optional parameter. [Tag of the function version](../../../functions/concepts/function.md#tag). Default value: `$latest`.<br>Parameters are substituted in `tag`. |
+| `service_account_id` | `string` | Service account ID. Used for authorization when invoking a function. If the parameter is omitted, the value of the top-level [`service_account_id`](./index.md#top-level) parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
+| `authorizer_result_ttl_in_seconds` | `int` | This is an optional parameter. A time limit on keeping the function response stored in the local {{ api-gw-short-name }} cache. If the parameter is omitted, the response is not cached. |
+| `authorizer_result_caching_mode` | `string` | This is an optional parameter. Authorization result caching mode To use it, make sure to specify the `authorizer_result_ttl_in_seconds` parameter. Possible values: `path` or `URI`. |
 
 ## Extension specification {#spec}
 
@@ -116,11 +117,55 @@ An example function that uses a response structure with an [authorization contex
 
 ## Caching {#caching}
 
-A function response is stored in the local cache {{ api-gw-short-name }} if the extension specifies the `authorizer_result_ttl_in_seconds` parameter. When generating a caching key for the scheme:
-* With the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) and the [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/) types, use `path`, `operation` (HTTP method), and the `Authorization` header.
-* With the [API Key](https://swagger.io/docs/specification/authentication/api-keys/) type, use `path`, `operation` (HTTP method) and the API key.
+A function response is stored in the local cache {{ api-gw-short-name }} if the extension specifies the `authorizer_result_ttl_in_seconds` parameter.
 
-If, during the time specified in `authorizer_result_ttl_in_seconds`, another HTTP request with similar `path`, `operation`, and authorization data is received again, {{ api-gw-short-name }} will use the cached response without invoking the function.
+The contents of a caching key depend on the authorization type and `authorizer_result_caching_mode` parameter value.
+
+| Authorization type | `Path` caching mode | `URI` caching mode | No caching mode specified |
+----------------|--------------------------|-------------------------|----------------------------
+| [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) | `Path`, `operation` (HTTP method) , and `Authorization` header | `URI`, `operation` (HTTP method), and `Authorization` header | `Path`, `operation` (HTTP method) , and `Authorization` header |
+| [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/) | `Path`, `operation` (HTTP method) , and `Authorization` header | `URI`, `operation` (HTTP method), and `Authorization` header | `Path`, `operation` (HTTP method) , and `Authorization` header |
+| [API Key](https://swagger.io/docs/specification/authentication/api-keys/) | `Path`, `operation` (HTTP method) , and API key | `URI`, `operation` (HTTP method), and API key | `Path`, `operation` (HTTP method) , and API key |
+
+For instance, for the following specification, when making a `/user/123` request, a caching key will be generated from the `/user/{id}`, `GET`, and `Authorization` header. If you change the `authorizer_result_caching_mode` parameter value to `URI`, a caching key will be generated from `/user/123`, `GET`, and the `Authorization` header value.
+
+```yaml
+paths:
+  /user/{id}:
+    get:
+      summary: Authorized operation with http basic security scheme
+      operationId: httpBasicAuthorize
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the user to get
+      security:
+        - httpBasicAuth: [ ]
+      x-yc-apigateway-integration:
+        type: dummy
+        content:
+          '*': "Authorized!"
+        http_code: 200
+        http_headers:
+          'Content-Type': "text/plain"
+components:
+  securitySchemes:
+    httpBasicAuth:
+      type: http
+      scheme: basic
+      x-yc-apigateway-authorizer:
+        type: function
+        function_id: b095c95icnvbuf4v755l
+        tag: "$latest"
+        service_account_id: ajehfe84hhlaq4n59q1
+        authorizer_result_ttl_in_seconds: 300
+        authorizer_result_caching_mode: path
+```
+
+If, during the time specified in `authorizer_result_ttl_in_seconds`, another HTTP request with similar caching key components is received again, {{ api-gw-short-name }} will use the cached response without invoking the function.
 
 ## Authorization context {#context}
 

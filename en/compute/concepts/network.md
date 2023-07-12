@@ -58,7 +58,7 @@ The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostna
 ### Examples {#examples}
 
 | Specified host name | VM FQDN |
-| :--- | :--- |
+:--- | :---
 | `<not specified>` | `<VM ID>.auto.internal` |
 | `breathtaking` | `breathtaking.{{ region-id }}.internal` |
 | `this-is-sparta` | `this-is-sparta.{{ region-id }}.internal` |

@@ -20,6 +20,8 @@ items:
         href: operations/face-detection/index.md
       - name: Base64 encoding
         href: operations/base64-encode.md
+      - name: Setting up access with API keys
+        href: operations/sa-api-key.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -76,10 +78,16 @@ items:
                 href: api-ref/errors-handling.md
               - name: Troubleshooting
                 href: api-ref/support-headers.md
-              - name: API overview
-                href: api-ref/Vision/index.md
-              - name: batchAnalyze
-                href: api-ref/Vision/batchAnalyze.md
+              - name: API reference
+                items:
+                  - name: Overview
+                    href: vision/api-ref/index.md
+                  - name: Vision
+                    items:
+                      - name: Overview
+                        href: vision/api-ref/Vision/index.md
+                      - name: batchAnalyze
+                        href: vision/api-ref/Vision/batchAnalyze.md
       - name: Classifier API
         items:
           - name: gRPC

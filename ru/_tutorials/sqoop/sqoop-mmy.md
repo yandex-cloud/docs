@@ -21,7 +21,7 @@
 
 1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
 
-    1. [Создайте бакет](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом.
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
     1. [Выдайте этому сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
 
@@ -139,7 +139,7 @@
             --username "user1" \
             --P \
             --table "persons" \
-            --target-dir "s3a://my-bucket/import-directory" \
+            --target-dir "s3a://<имя_бакета>/import-directory" \
             --split-by "age"
         ```
 

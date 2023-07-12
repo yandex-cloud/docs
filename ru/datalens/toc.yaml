@@ -1,125 +1,93 @@
 title: Yandex DataLens
 href: index.yaml
 items:
-  - name: Начало работы
-    href: quickstart.md
+  - name: Знакомство с сервисом
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Навигация и интерфейс
+        href: getting-started/navigation.md
+        hidden: true
+      - name: Начало работы
+        href: quickstart.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Обучающие курсы
+        href: training.md
+      - name: Пошаговые инструкции
+        href: operations/index.md
+        hidden: true
   - name: Практические руководства
     items:
-      - name: Все руководства
+      - name: Обзор
         href: tutorials/index.md
       - name: Визуализация данных из CSV-файла
         href: tutorials/data-from-csv-visualization.md
       - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
         href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Анализ продаж сети магазинов из БД {{ CH }}
-        href: tutorials/data-from-ch-visualization.md
       - name: Анализ открытых данных ДТП на дорогах России
         href: tutorials/data-from-csv-geo-visualization.md
+      - name: Анализ продаж сети магазинов из БД {{ CH }}
+        href: tutorials/data-from-ch-visualization.md
       - name: >-
           Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
           Marketplace
         href: tutorials/data-from-ch-to-geolayers-visualization.md
+      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
+        href: tutorials/data-from-podcasts.md
+      - name: Визуализация данных {{ monitoring-full-name }}
+        href: tutorials/data-from-monitoring-visualization.md
+      - name: Визуализация данных Битрикс24
+        href: tutorials/data-from-bitrix24-visualization.md
+      - name: Визуализация данных из {{ tracker-full-name }}
+        href: tutorials/data-from-tracker.md
+      - name: Визуализация данных {{ yq-full-name }}
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Веб-аналитика с подключением к Яндекс Метрике
         href: tutorials/data-from-metrica-visualization.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
-        href: tutorials/data-from-podcasts.md
-      - name: Визуализация данных с использованием инструмента "Тепловые карты"
-        hidden: true
-        href: tutorials/data-on-heat-map-dashboard.md
+      - name: Построение чартов customer journeys на данных AppMetrica
+        href: tutorials/data-from-appmetrica-yc-visualization.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
       - name: Визуализация данных с использованием параметров
         href: tutorials/data-from-ch-with-parameters.md
-      - name: Визуализация данных {{ monitoring-full-name }}
-        href: tutorials/data-from-monitoring-visualization.md
-      - name: Построение чартов customer journeys на данных AppMetrica
-        href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Визуализация данных Битрикс24
-        href: tutorials/data-from-bitrix24-visualization.md
-      - name: Визуализация данных из {{ tracker-full-name }}
-        href: tutorials/data-from-tracker.md
-  - name: Концепции
+      - name: Визуализация данных с использованием инструмента "Тепловые карты"
+        hidden: true
+        href: tutorials/data-on-heat-map-dashboard.md
+  - name: Подключение
     items:
-      - name: Обзор сервиса
-        href: concepts/index.md
-      - name: Организации в {{ datalens-name }}
-        href: concepts/organizations.md
-      - name: Подключение
+      - name: Обзор
         href: concepts/connection.md
-      - name: Типы данных
-        href: concepts/data-types.md
-      - name: Датасет
-        items:
-          - name: Обзор
-            href: concepts/dataset/index.md
-          - name: Модель данных
-            href: concepts/dataset/data-model.md
-          - name: Настройки датасета
-            href: concepts/dataset/settings.md
-      - name: Чарт
-        items:
-          - name: Обзор
-            href: concepts/chart/index.md
-          - name: Настройки чарта
-            href: concepts/chart/settings.md
-          - name: Measure Values и Measure Names
-            href: concepts/chart/measure-values.md
-      - name: Дашборд
-        href: concepts/dashboard.md
-      - name: Объединение данных
-        href: concepts/data-join.md
-      - name: Рекомендации по оптимизации
-        href: concepts/optimization_recommendations.md
-      - name: Использование Markdown в {{ datalens-name }}
-        href: concepts/markdown.md
-      - name: '{{ datalens-name }} Public'
-        href: concepts/datalens-public.md
-      - name: Вычисляемые поля
-        items:
-          - name: Обзор
-            href: concepts/calculations/index.md
-          - name: Синтаксис формул
-            href: concepts/calculations/formula-syntax.md
-      - name: Параметризация
-        href: concepts/parameters.md
-      - name: Marketplace
-        href: concepts/marketplace.md
-      - name: Резервное копирование
-        href: concepts/backup.md
       - name: Кеширование
         href: concepts/caching.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
-  - name: Пошаговые инструкции
-    items:
-      - name: Все инструкции
-        href: operations/index.md
-      - name: Работа с подключениями
+      - name: Объединение данных
+        href: concepts/data-join.md
+      - name: Пошаговые инструкции
         items:
           - name: Создание подключения к {{ CH }}
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к файлу
-            href: operations/connection/create-file.md
-          - name: Создание подключения к Google Sheets
-            href: operations/connection/create-google-sheets.md
           - name: Создание подключения к {{ MY }}
             href: operations/connection/create-mysql.md
           - name: Создание подключения к {{ PG }}
             href: operations/connection/create-postgresql.md
           - name: Создание подключения к {{ MS }}
             href: operations/connection/create-mssql-server.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
           - name: Создание подключения к {{ ydb-short-name }}
             href: operations/connection/create-ydb.md
           - name: Создание подключения к {{ GP }}
             href: operations/connection/create-greenplum.md
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
+          - name: Создание подключения к Google Sheets
+            href: operations/connection/create-google-sheets.md
+          - name: Создание подключения к BigQuery
+            href: operations/connection/create-big-query.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к {{ monitoring-full-name }}
@@ -134,9 +102,19 @@ items:
             href: operations/connection/create-appmetrica.md
           - name: Создание подключения к {{ yandex-cloud }} Billing
             href: operations/connection/create-cloud-billing.md
-          - name: Управление доступом к подключению
-            href: operations/connection/manage-access.md
-      - name: Работа с датасетами
+  - name: Датасет
+    items:
+      - name: Обзор
+        href: concepts/dataset/index.md
+      - name: Модель данных
+        href: concepts/dataset/data-model.md
+      - name: Типы данных
+        href: concepts/data-types.md
+      - name: Соответствие типов данных
+        href: dataset/types-lookup-table.md
+      - name: Настройки датасета
+        href: concepts/dataset/settings.md
+      - name: Пошаговые инструкции
         items:
           - name: Создание датасета
             href: operations/dataset/create.md
@@ -152,37 +130,543 @@ items:
             href: operations/dataset/update-field.md
           - name: Описание датасета через SQL-запрос к источнику
             href: operations/dataset/add-data.md
-          - name: Управление доступом к датасету
-            href: operations/dataset/manage-access.md
-          - name: Управление доступом к строкам данных
-            href: operations/dataset/manage-row-level-security.md
           - name: Добавление параметра в датасет
             href: operations/dataset/add-parameter-dataset.md
-      - name: Работа с чартами
+  - name: Вычисляемые поля
+    items:
+      - name: Обзор
+        href: concepts/calculations/index.md
+      - name: Синтаксис формул
+        href: concepts/calculations/formula-syntax.md
+      - name: Справочник функций
         items:
-          - name: Создание чарта
-            href: operations/chart/create-chart.md
+          - name: Все функции
+            href: function-ref/all.md
+          - name: Агрегатные функции
+            items:
+              - name: Обзор
+                href: function-ref/aggregation-functions.md
+              - name: ALL_CONCAT
+                href: function-ref/ALL_CONCAT.md
+              - name: ANY
+                href: function-ref/ANY.md
+              - name: ARG_MAX
+                href: function-ref/ARG_MAX.md
+              - name: ARG_MIN
+                href: function-ref/ARG_MIN.md
+              - name: AVG
+                href: function-ref/AVG.md
+              - name: AVG_IF
+                href: function-ref/AVG_IF.md
+              - name: COUNT
+                href: function-ref/COUNT.md
+              - name: COUNTD
+                href: function-ref/COUNTD.md
+              - name: COUNTD_APPROX
+                href: function-ref/COUNTD_APPROX.md
+              - name: COUNTD_IF
+                href: function-ref/COUNTD_IF.md
+              - name: COUNT_IF
+                href: function-ref/COUNT_IF.md
+              - name: MAX
+                href: function-ref/MAX.md
+              - name: MEDIAN
+                href: function-ref/MEDIAN.md
+              - name: MIN
+                href: function-ref/MIN.md
+              - name: QUANTILE
+                href: function-ref/QUANTILE.md
+              - name: QUANTILE_APPROX
+                href: function-ref/QUANTILE_APPROX.md
+              - name: STDEV
+                href: function-ref/STDEV.md
+              - name: STDEVP
+                href: function-ref/STDEVP.md
+              - name: SUM
+                href: function-ref/SUM.md
+              - name: SUM_IF
+                href: function-ref/SUM_IF.md
+              - name: TOP_CONCAT
+                href: function-ref/TOP_CONCAT.md
+              - name: VAR
+                href: function-ref/VAR.md
+              - name: VARP
+                href: function-ref/VARP.md
+          - name: Логические функции
+            items:
+              - name: Обзор
+                href: function-ref/logical-functions.md
+              - name: CASE
+                href: function-ref/CASE.md
+              - name: IF
+                href: function-ref/IF.md
+              - name: IFNULL
+                href: function-ref/IFNULL.md
+              - name: ISNULL
+                href: function-ref/ISNULL.md
+              - name: ZN
+                href: function-ref/ZN.md
+          - name: Математические функции
+            items:
+              - name: Обзор
+                href: function-ref/numeric-functions.md
+              - name: ABS
+                href: function-ref/ABS.md
+              - name: ACOS
+                href: function-ref/ACOS.md
+              - name: ASIN
+                href: function-ref/ASIN.md
+              - name: ATAN
+                href: function-ref/ATAN.md
+              - name: ATAN2
+                href: function-ref/ATAN2.md
+              - name: CEILING
+                href: function-ref/CEILING.md
+              - name: COMPARE
+                href: function-ref/COMPARE.md
+              - name: COS
+                href: function-ref/COS.md
+              - name: COT
+                href: function-ref/COT.md
+              - name: DEGREES
+                href: function-ref/DEGREES.md
+              - name: DIV
+                href: function-ref/DIV.md
+              - name: DIV_SAFE
+                href: function-ref/DIV_SAFE.md
+              - name: EXP
+                href: function-ref/EXP.md
+              - name: FDIV_SAFE
+                href: function-ref/FDIV_SAFE.md
+              - name: FLOOR
+                href: function-ref/FLOOR.md
+              - name: GREATEST
+                href: function-ref/GREATEST.md
+              - name: LEAST
+                href: function-ref/LEAST.md
+              - name: LN
+                href: function-ref/LN.md
+              - name: LOG
+                href: function-ref/LOG.md
+              - name: LOG10
+                href: function-ref/LOG10.md
+              - name: PI
+                href: function-ref/PI.md
+              - name: POWER
+                href: function-ref/POWER.md
+              - name: RADIANS
+                href: function-ref/RADIANS.md
+              - name: ROUND
+                href: function-ref/ROUND.md
+              - name: SIGN
+                href: function-ref/SIGN.md
+              - name: SIN
+                href: function-ref/SIN.md
+              - name: SQRT
+                href: function-ref/SQRT.md
+              - name: SQUARE
+                href: function-ref/SQUARE.md
+              - name: TAN
+                href: function-ref/TAN.md
+          - name: Оконные функции
+            items:
+              - name: Обзор
+                href: function-ref/window-functions.md
+              - name: AVG
+                href: function-ref/AVG_WINDOW.md
+              - name: AVG_IF
+                href: function-ref/AVG_IF_WINDOW.md
+              - name: COUNT
+                href: function-ref/COUNT_WINDOW.md
+              - name: COUNT_IF
+                href: function-ref/COUNT_IF_WINDOW.md
+              - name: FIRST
+                href: function-ref/FIRST.md
+              - name: LAG
+                href: function-ref/LAG.md
+              - name: LAST
+                href: function-ref/LAST.md
+              - name: MAVG
+                href: function-ref/MAVG.md
+              - name: MAX
+                href: function-ref/MAX_WINDOW.md
+              - name: MCOUNT
+                href: function-ref/MCOUNT.md
+              - name: MIN
+                href: function-ref/MIN_WINDOW.md
+              - name: MMAX
+                href: function-ref/MMAX.md
+              - name: MMIN
+                href: function-ref/MMIN.md
+              - name: MSUM
+                href: function-ref/MSUM.md
+              - name: RANK
+                href: function-ref/RANK.md
+              - name: RANK_DENSE
+                href: function-ref/RANK_DENSE.md
+              - name: RANK_PERCENTILE
+                href: function-ref/RANK_PERCENTILE.md
+              - name: RANK_UNIQUE
+                href: function-ref/RANK_UNIQUE.md
+              - name: RAVG
+                href: function-ref/RAVG.md
+              - name: RCOUNT
+                href: function-ref/RCOUNT.md
+              - name: RMAX
+                href: function-ref/RMAX.md
+              - name: RMIN
+                href: function-ref/RMIN.md
+              - name: RSUM
+                href: function-ref/RSUM.md
+              - name: SUM
+                href: function-ref/SUM_WINDOW.md
+              - name: SUM_IF
+                href: function-ref/SUM_IF_WINDOW.md
+          - name: Операторы
+            items:
+              - name: Обзор
+                href: function-ref/operator-functions.md
+              - name: AND
+                href: function-ref/AND.md
+              - name: BETWEEN
+                href: function-ref/BETWEEN.md
+              - name: IN
+                href: function-ref/IN.md
+              - name: IS FALSE
+                href: function-ref/ISFALSE.md
+              - name: IS TRUE
+                href: function-ref/ISTRUE.md
+              - name: LIKE
+                href: function-ref/LIKE.md
+              - name: NOT
+                href: function-ref/OP_NOT.md
+              - name: OR
+                href: function-ref/OR.md
+              - name: Вычитание (-)
+                href: function-ref/OP_MINUS.md
+              - name: Деление (/)
+                href: function-ref/OP_DIV.md
+              - name: Остаток (%)
+                href: function-ref/OP_MOD.md
+              - name: Отрицание (-)
+                href: function-ref/OP_NEGATION.md
+              - name: Сложение и конкатенация (+)
+                href: function-ref/OP_PLUS.md
+              - name: Сравнение
+                href: function-ref/OP_COMPARISON.md
+              - name: Степень (^)
+                href: function-ref/OP_POWER.md
+              - name: Умножение (*)
+                href: function-ref/OP_MULT.md
+          - name: Строковые функции
+            items:
+              - name: Обзор
+                href: function-ref/string-functions.md
+              - name: ASCII
+                href: function-ref/ASCII.md
+              - name: CHAR
+                href: function-ref/CHAR.md
+              - name: CONCAT
+                href: function-ref/CONCAT.md
+              - name: CONTAINS
+                href: function-ref/CONTAINS.md
+              - name: ENDSWITH
+                href: function-ref/ENDSWITH.md
+              - name: FIND
+                href: function-ref/FIND.md
+              - name: ICONTAINS
+                href: function-ref/ICONTAINS.md
+              - name: IENDSWITH
+                href: function-ref/IENDSWITH.md
+              - name: ISTARTSWITH
+                href: function-ref/ISTARTSWITH.md
+              - name: LEFT
+                href: function-ref/LEFT.md
+              - name: LEN
+                href: function-ref/LEN.md
+              - name: LOWER
+                href: function-ref/LOWER.md
+              - name: LTRIM
+                href: function-ref/LTRIM.md
+              - name: REGEXP_EXTRACT
+                href: function-ref/REGEXP_EXTRACT.md
+              - name: REGEXP_EXTRACT_NTH
+                href: function-ref/REGEXP_EXTRACT_NTH.md
+              - name: REGEXP_MATCH
+                href: function-ref/REGEXP_MATCH.md
+              - name: REGEXP_REPLACE
+                href: function-ref/REGEXP_REPLACE.md
+              - name: REPLACE
+                href: function-ref/REPLACE.md
+              - name: RIGHT
+                href: function-ref/RIGHT.md
+              - name: RTRIM
+                href: function-ref/RTRIM.md
+              - name: SPACE
+                href: function-ref/SPACE.md
+              - name: SPLIT
+                href: function-ref/SPLIT.md
+              - name: STARTSWITH
+                href: function-ref/STARTSWITH.md
+              - name: SUBSTR
+                href: function-ref/SUBSTR.md
+              - name: TRIM
+                href: function-ref/TRIM.md
+              - name: UPPER
+                href: function-ref/UPPER.md
+              - name: UTF8
+                href: function-ref/UTF8.md
+          - name: Функции даты и времени
+            items:
+              - name: Обзор
+                href: function-ref/date-functions.md
+              - name: DATEADD
+                href: function-ref/DATEADD.md
+              - name: DATEPART
+                href: function-ref/DATEPART.md
+              - name: DATETRUNC
+                href: function-ref/DATETRUNC.md
+              - name: DAY
+                href: function-ref/DAY.md
+              - name: DAYOFWEEK
+                href: function-ref/DAYOFWEEK.md
+              - name: HOUR
+                href: function-ref/HOUR.md
+              - name: MINUTE
+                href: function-ref/MINUTE.md
+              - name: MONTH
+                href: function-ref/MONTH.md
+              - name: NOW
+                href: function-ref/NOW.md
+              - name: QUARTER
+                href: function-ref/QUARTER.md
+              - name: SECOND
+                href: function-ref/SECOND.md
+              - name: TODAY
+                href: function-ref/TODAY.md
+              - name: WEEK
+                href: function-ref/WEEK.md
+              - name: YEAR
+                href: function-ref/YEAR.md
+          - name: Функции для работы с временными рядами
+            items:
+              - name: Обзор
+                href: function-ref/time-series-functions.md
+              - name: AGO
+                href: function-ref/AGO.md
+              - name: AT_DATE
+                href: function-ref/AT_DATE.md
+          - name: Функции для работы с массивами
+            items:
+              - name: Обзор
+                href: function-ref/array-functions.md
+              - name: ARRAY
+                href: function-ref/ARRAY.md
+              - name: ARR_AVG
+                href: function-ref/ARR_AVG.md
+              - name: ARR_MAX
+                href: function-ref/ARR_MAX.md
+              - name: ARR_MIN
+                href: function-ref/ARR_MIN.md
+              - name: ARR_PRODUCT
+                href: function-ref/ARR_PRODUCT.md
+              - name: ARR_REMOVE
+                href: function-ref/ARR_REMOVE.md
+              - name: ARR_STR
+                href: function-ref/ARR_STR.md
+              - name: ARR_SUM
+                href: function-ref/ARR_SUM.md
+              - name: CAST_ARR_FLOAT
+                href: function-ref/CAST_ARR_FLOAT.md
+              - name: CAST_ARR_INT
+                href: function-ref/CAST_ARR_INT.md
+              - name: CAST_ARR_STR
+                href: function-ref/CAST_ARR_STR.md
+              - name: CONTAINS
+                href: function-ref/CONTAINS_ARRAY.md
+              - name: CONTAINS_ALL
+                href: function-ref/CONTAINS_ALL.md
+              - name: CONTAINS_ANY
+                href: function-ref/CONTAINS_ANY.md
+              - name: CONTAINS_SUBSEQUENCE
+                href: function-ref/CONTAINS_SUBSEQUENCE.md
+              - name: COUNT_ITEM
+                href: function-ref/COUNT_ITEM.md
+              - name: GET_ITEM
+                href: function-ref/GET_ITEM.md
+              - name: REPLACE
+                href: function-ref/REPLACE_ARRAY.md
+              - name: SLICE
+                href: function-ref/SLICE.md
+              - name: STARTSWITH
+                href: function-ref/STARTSWITH_ARRAY.md
+              - name: UNNEST
+                href: function-ref/UNNEST.md
+          - name: Функции преобразования типов
+            items:
+              - name: Обзор
+                href: function-ref/type-conversion-functions.md
+              - name: BOOL
+                href: function-ref/BOOL.md
+              - name: DATE
+                href: function-ref/DATE.md
+              - name: DATETIME
+                href: function-ref/DATETIME.md
+              - name: DATETIME_PARSE
+                href: function-ref/DATETIME_PARSE.md
+              - name: DATE_PARSE
+                href: function-ref/DATE_PARSE.md
+              - name: DB_CAST
+                href: function-ref/DB_CAST.md
+              - name: FLOAT
+                href: function-ref/FLOAT.md
+              - name: GEOPOINT
+                href: function-ref/GEOPOINT.md
+              - name: GEOPOLYGON
+                href: function-ref/GEOPOLYGON.md
+              - name: INT
+                href: function-ref/INT.md
+              - name: STR
+                href: function-ref/STR.md
+          - name: Функции разметки
+            items:
+              - name: Обзор
+                href: function-ref/markup-functions.md
+              - name: BOLD
+                href: function-ref/BOLD.md
+              - name: ITALIC
+                href: function-ref/ITALIC.md
+              - name: MARKUP
+                href: function-ref/MARKUP.md
+              - name: URL
+                href: function-ref/URL.md
+          - name: Поддержка функций
+            href: function-ref/availability.md
+      - name: Туториалы по функциям
+        items:
+          - name: Агрегатные функции
+            href: concepts/aggregation-tutorial.md
+          - name: Оконные функции
+            href: concepts/window-function-tutorial.md
+          - name: LOD-выражения и управление фильтрацией в агрегатных функциях
+            href: concepts/lod-aggregation.md
+          - name: Функции для работы с временными рядами
+            href: concepts/time-series-functions.md
+      - name: Параметры
+        href: concepts/parameters.md
+  - name: Чарты
+    items:
+      - name: Обзор
+        href: concepts/chart/index.md
+      - name: Чарты в визарде
+        items:
+          - name: Обзор
+            href: concepts/chart/dataset-based-charts.md
+          - name: Настройки чарта
+            href: concepts/chart/settings.md
+          - name: Measure Values и Measure Names
+            href: concepts/chart/measure-values.md
+          - name: Мультидатасетные чарты
+            href: concepts/chart/multidataset-chart.md
+          - name: Пошаговые инструкции
+            items:
+              - name: Создание чарта
+                href: operations/chart/create-chart.md
+              - name: Создание мультидатасетного чарта
+                href: operations/chart/create-multidataset-chart.md
+              - name: Добавление иерархии
+                href: operations/chart/add-hierarchy.md
+              - name: Настройка навигатора
+                href: operations/chart/config-chart-navigator.md
+              - name: Настройка отображения пустых (null) значений
+                href: operations/chart/chart-null-settings.md
+              - name: Создание цветовой палитры
+                href: operations/chart/create-palette.md
+      - name: QL-чарты
+        items:
+          - name: Обзор
+            href: concepts/chart/ql-charts.md
           - name: Создание QL-чарта
             href: operations/chart/create-sql-chart.md
-          - name: Создание мультидатасетного чарта
-            href: operations/chart/create-multidataset-chart.md
-          - name: Добавление иерархии
-            href: operations/chart/add-hierarchy.md
-          - name: Настройка навигатора
-            href: operations/chart/config-chart-navigator.md
-          - name: Публикация чарта
-            href: operations/chart/publish.md
-          - name: Управление доступом к чарту
-            href: operations/chart/manage-access.md
+      - name: Справочник визуализаций
+        items:
+          - name: Все визуализации
+            href: visualization-ref/index.md
+          - name: Линейная диаграмма
+            href: visualization-ref/line-chart.md
+          - name: Накопительная диаграмма с областями
+            href: visualization-ref/area-chart.md
+          - name: Нормированная диаграмма с областями
+            href: visualization-ref/normalized-area-chart.md
+          - name: Столбчатая диаграмма
+            href: visualization-ref/column-chart.md
+          - name: Нормированная столбчатая диаграмма
+            href: visualization-ref/normalized-column-chart.md
+          - name: Линейчатая диаграмма
+            href: visualization-ref/bar-chart.md
+          - name: Нормированная линейчатая диаграмма
+            href: visualization-ref/normalized-bar-chart.md
+          - name: Точечная диаграмма
+            href: visualization-ref/scatter-chart.md
+          - name: Круговая диаграмма
+            href: visualization-ref/pie-chart.md
+          - name: Комбинированная диаграмма
+            href: visualization-ref/combined-chart.md
+          - name: Древовидная диаграмма
+            href: visualization-ref/tree-chart.md
+          - name: Кольцевая диаграмма
+            href: visualization-ref/ring-chart.md
+          - name: Таблица
+            href: visualization-ref/table-chart.md
+          - name: Сводная таблица
+            href: visualization-ref/pivot-table-chart.md
+          - name: Индикатор
+            href: visualization-ref/indicator-chart.md
+          - name: Карта
+            items:
+              - name: Обзор
+                href: visualization-ref/map-chart.md
+              - name: Точечная карта
+                href: visualization-ref/point-map-chart.md
+              - name: Точечная карта с кластеризацией
+                href: visualization-ref/cluster-point-map-chart.md
+              - name: Полилинейная карта
+                href: visualization-ref/polyline-map-chart.md
+              - name: Фоновая карта
+                href: visualization-ref/choropleth-map-chart.md
+              - name: Тепловая карта
+                href: visualization-ref/heat-map-chart.md
+      - name: Параметры в чартах
+        items:
           - name: Добавление ID в качестве параметра
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md
-          - name: Настройка отображения пустых (null) значений
-            href: operations/chart/chart-null-settings.md
-          - name: Создание цветовой палитры
-            href: operations/chart/create-palette.md
-      - name: Работа с дашбордами
+      - name: Версионирование
+        href: concepts/chart/versioning.md
+      - name: Инспектор чартов
+        href: concepts/chart/inspector.md
+      - name: Управление доступом
+        href: concepts/chart/access-management.md
+  - name: Дашборд
+    items:
+      - name: Обзор
+        href: concepts/dashboard.md
+      - name: Виджеты
+        href: dashboard/widget.md
+      - name: Связь
+        href: dashboard/link.md
+      - name: Селекторы
+        href: dashboard/selector.md
+      - name: Настройки дашборда
+        href: dashboard/settings.md
+      - name: Версионирование
+        href: dashboard/versioning.md
+      - name: Параметры
+        href: dashboard/dashboard_parameters.md
+      - name: Markdown
+        href: dashboard/markdown.md
+      - name: Пошаговые инструкции
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
@@ -200,8 +684,6 @@ items:
             href: operations/dashboard/create-alias.md
           - name: Удаление поля алиаса
             href: operations/dashboard/edit-alias.md
-          - name: Публикация дашборда
-            href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
           - name: Добавление параметров на дашборд
@@ -210,505 +692,71 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
-      - name: Работа с правами доступа
+  - name: Настройка доступа
+    items:
+      - name: Обзор
+        href: security/index.md
+      - name: Добавление пользователей
+        href: security/add-new-user.md
+      - name: Роли в {{ datalens-short-name }}
+        href: security/roles.md
+      - name: Организации в {{ datalens-name }}
         items:
+          - name: Обзор
+            href: concepts/organizations.md
+          - name: Переключение между экземплярами {{ datalens-name }}
+            href: operations/organizations/change-organization.md
+      - name: Доступ к объектам
+        items:
+          - name: Права доступа
+            href: security/manage-access.md
           - name: Назначение прав доступа
             href: operations/permission/grant.md
           - name: Удаление прав доступа
             href: operations/permission/revoke.md
           - name: Запрос прав доступа
             href: operations/permission/request.md
-      - name: Работа с {{ datalens-name }} Marketplace
-        items:
-          - name: Добавление продукта из Marketplace
-            href: operations/marketplace/add-marketplace-product.md
-          - name: Удаление продукта из Marketplace
-            href: operations/marketplace/delete-marketplace-product.md
-          - name: Создание и подключение коннектора (для партнеров)
-            href: operations/marketplace/create-connector-for-partners.md
-      - name: Работа с организациями
-        items:
-          - name: Переключение между экземплярами {{ datalens-name }}
-            href: operations/organizations/change-organization.md
-  - name: Управление доступом
-    items:
-      - name: Управление доступом к {{ datalens-name }}
-        href: security/index.md
-      - name: Управление доступом на уровне строк данных
+      - name: Доступ к строкам данных
         href: security/row-level-security.md
+      - name: Публичный доступ
+        href: concepts/datalens-public.md
+  - name: Marketplace
+    items:
+      - name: Обзор
+        href: concepts/marketplace.md
+      - name: Добавление продукта из Marketplace
+        href: operations/marketplace/add-marketplace-product.md
+      - name: Создание партнерского коннектора
+        href: operations/marketplace/create-connector-for-partners.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник визуализаций
-    items:
-      - name: Все визуализации
-        href: visualization-ref/index.md
-      - name: Линейная диаграмма
-        href: visualization-ref/line-chart.md
-      - name: Накопительная диаграмма с областями
-        href: visualization-ref/area-chart.md
-      - name: Нормированная диаграмма с областями
-        href: visualization-ref/normalized-area-chart.md
-      - name: Столбчатая диаграмма
-        href: visualization-ref/column-chart.md
-      - name: Нормированная столбчатая диаграмма
-        href: visualization-ref/normalized-column-chart.md
-      - name: Линейчатая диаграмма
-        href: visualization-ref/bar-chart.md
-      - name: Нормированная линейчатая диаграмма
-        href: visualization-ref/normalized-bar-chart.md
-      - name: Точечная диаграмма
-        href: visualization-ref/scatter-chart.md
-      - name: Круговая диаграмма
-        href: visualization-ref/pie-chart.md
-      - name: Индикатор
-        href: visualization-ref/indicator-chart.md
-      - name: Древовидная диаграмма
-        href: visualization-ref/tree-chart.md
-      - name: Кольцевая диаграмма
-        href: visualization-ref/ring-chart.md
-      - name: Таблица
-        href: visualization-ref/table-chart.md
-      - name: Сводная таблица
-        href: visualization-ref/pivot-table-chart.md
-      - name: Карта
-        items:
-          - name: Обзор
-            href: visualization-ref/map-chart.md
-          - name: Точечная карта
-            href: visualization-ref/point-map-chart.md
-          - name: Точечная карта с кластеризацией
-            href: visualization-ref/cluster-point-map-chart.md
-          - name: Полилинейная карта
-            href: visualization-ref/polyline-map-chart.md
-          - name: Фоновая карта
-            href: visualization-ref/choropleth-map-chart.md
-          - name: Тепловая карта
-            href: visualization-ref/heat-map-chart.md
-      - name: Комбинированная диаграмма
-        href: visualization-ref/combined-chart.md
-  - name: Справочник функций
-    items:
-      - name: Все функции
-        href: function-ref/all.md
-      - name: Агрегатные функции
-        items:
-          - name: Обзор
-            href: function-ref/aggregation-functions.md
-          - name: ALL_CONCAT
-            href: function-ref/ALL_CONCAT.md
-          - name: ANY
-            href: function-ref/ANY.md
-          - name: ARG_MAX
-            href: function-ref/ARG_MAX.md
-          - name: ARG_MIN
-            href: function-ref/ARG_MIN.md
-          - name: AVG
-            href: function-ref/AVG.md
-          - name: AVG_IF
-            href: function-ref/AVG_IF.md
-          - name: COUNT
-            href: function-ref/COUNT.md
-          - name: COUNTD
-            href: function-ref/COUNTD.md
-          - name: COUNTD_APPROX
-            href: function-ref/COUNTD_APPROX.md
-          - name: COUNTD_IF
-            href: function-ref/COUNTD_IF.md
-          - name: COUNT_IF
-            href: function-ref/COUNT_IF.md
-          - name: MAX
-            href: function-ref/MAX.md
-          - name: MEDIAN
-            href: function-ref/MEDIAN.md
-          - name: MIN
-            href: function-ref/MIN.md
-          - name: QUANTILE
-            href: function-ref/QUANTILE.md
-          - name: QUANTILE_APPROX
-            href: function-ref/QUANTILE_APPROX.md
-          - name: STDEV
-            href: function-ref/STDEV.md
-          - name: STDEVP
-            href: function-ref/STDEVP.md
-          - name: SUM
-            href: function-ref/SUM.md
-          - name: SUM_IF
-            href: function-ref/SUM_IF.md
-          - name: TOP_CONCAT
-            href: function-ref/TOP_CONCAT.md
-          - name: VAR
-            href: function-ref/VAR.md
-          - name: VARP
-            href: function-ref/VARP.md
-      - name: Логические функции
-        items:
-          - name: Обзор
-            href: function-ref/logical-functions.md
-          - name: CASE
-            href: function-ref/CASE.md
-          - name: IF
-            href: function-ref/IF.md
-          - name: IFNULL
-            href: function-ref/IFNULL.md
-          - name: ISNULL
-            href: function-ref/ISNULL.md
-          - name: ZN
-            href: function-ref/ZN.md
-      - name: Математические функции
-        items:
-          - name: Обзор
-            href: function-ref/numeric-functions.md
-          - name: ABS
-            href: function-ref/ABS.md
-          - name: ACOS
-            href: function-ref/ACOS.md
-          - name: ASIN
-            href: function-ref/ASIN.md
-          - name: ATAN
-            href: function-ref/ATAN.md
-          - name: ATAN2
-            href: function-ref/ATAN2.md
-          - name: CEILING
-            href: function-ref/CEILING.md
-          - name: COMPARE
-            href: function-ref/COMPARE.md
-          - name: COS
-            href: function-ref/COS.md
-          - name: COT
-            href: function-ref/COT.md
-          - name: DEGREES
-            href: function-ref/DEGREES.md
-          - name: DIV
-            href: function-ref/DIV.md
-          - name: DIV_SAFE
-            href: function-ref/DIV_SAFE.md
-          - name: EXP
-            href: function-ref/EXP.md
-          - name: FDIV_SAFE
-            href: function-ref/FDIV_SAFE.md
-          - name: FLOOR
-            href: function-ref/FLOOR.md
-          - name: GREATEST
-            href: function-ref/GREATEST.md
-          - name: LEAST
-            href: function-ref/LEAST.md
-          - name: LN
-            href: function-ref/LN.md
-          - name: LOG
-            href: function-ref/LOG.md
-          - name: LOG10
-            href: function-ref/LOG10.md
-          - name: PI
-            href: function-ref/PI.md
-          - name: POWER
-            href: function-ref/POWER.md
-          - name: RADIANS
-            href: function-ref/RADIANS.md
-          - name: ROUND
-            href: function-ref/ROUND.md
-          - name: SIGN
-            href: function-ref/SIGN.md
-          - name: SIN
-            href: function-ref/SIN.md
-          - name: SQRT
-            href: function-ref/SQRT.md
-          - name: SQUARE
-            href: function-ref/SQUARE.md
-          - name: TAN
-            href: function-ref/TAN.md
-      - name: Оконные функции
-        items:
-          - name: Обзор
-            href: function-ref/window-functions.md
-          - name: AVG
-            href: function-ref/AVG_WINDOW.md
-          - name: AVG_IF
-            href: function-ref/AVG_IF_WINDOW.md
-          - name: COUNT
-            href: function-ref/COUNT_WINDOW.md
-          - name: COUNT_IF
-            href: function-ref/COUNT_IF_WINDOW.md
-          - name: FIRST
-            href: function-ref/FIRST.md
-          - name: LAG
-            href: function-ref/LAG.md
-          - name: LAST
-            href: function-ref/LAST.md
-          - name: MAVG
-            href: function-ref/MAVG.md
-          - name: MAX
-            href: function-ref/MAX_WINDOW.md
-          - name: MCOUNT
-            href: function-ref/MCOUNT.md
-          - name: MIN
-            href: function-ref/MIN_WINDOW.md
-          - name: MMAX
-            href: function-ref/MMAX.md
-          - name: MMIN
-            href: function-ref/MMIN.md
-          - name: MSUM
-            href: function-ref/MSUM.md
-          - name: RANK
-            href: function-ref/RANK.md
-          - name: RANK_DENSE
-            href: function-ref/RANK_DENSE.md
-          - name: RANK_PERCENTILE
-            href: function-ref/RANK_PERCENTILE.md
-          - name: RANK_UNIQUE
-            href: function-ref/RANK_UNIQUE.md
-          - name: RAVG
-            href: function-ref/RAVG.md
-          - name: RCOUNT
-            href: function-ref/RCOUNT.md
-          - name: RMAX
-            href: function-ref/RMAX.md
-          - name: RMIN
-            href: function-ref/RMIN.md
-          - name: RSUM
-            href: function-ref/RSUM.md
-          - name: SUM
-            href: function-ref/SUM_WINDOW.md
-          - name: SUM_IF
-            href: function-ref/SUM_IF_WINDOW.md
-      - name: Операторы
-        items:
-          - name: Обзор
-            href: function-ref/operator-functions.md
-          - name: AND
-            href: function-ref/AND.md
-          - name: BETWEEN
-            href: function-ref/BETWEEN.md
-          - name: IN
-            href: function-ref/IN.md
-          - name: IS FALSE
-            href: function-ref/ISFALSE.md
-          - name: IS TRUE
-            href: function-ref/ISTRUE.md
-          - name: LIKE
-            href: function-ref/LIKE.md
-          - name: NOT
-            href: function-ref/OP_NOT.md
-          - name: OR
-            href: function-ref/OR.md
-          - name: Вычитание (-)
-            href: function-ref/OP_MINUS.md
-          - name: Деление (/)
-            href: function-ref/OP_DIV.md
-          - name: Остаток (%)
-            href: function-ref/OP_MOD.md
-          - name: Отрицание (-)
-            href: function-ref/OP_NEGATION.md
-          - name: Сложение и конкатенация (+)
-            href: function-ref/OP_PLUS.md
-          - name: Сравнение
-            href: function-ref/OP_COMPARISON.md
-          - name: Степень (^)
-            href: function-ref/OP_POWER.md
-          - name: Умножение (*)
-            href: function-ref/OP_MULT.md
-      - name: Строковые функции
-        items:
-          - name: Обзор
-            href: function-ref/string-functions.md
-          - name: ASCII
-            href: function-ref/ASCII.md
-          - name: CHAR
-            href: function-ref/CHAR.md
-          - name: CONCAT
-            href: function-ref/CONCAT.md
-          - name: CONTAINS
-            href: function-ref/CONTAINS.md
-          - name: ENDSWITH
-            href: function-ref/ENDSWITH.md
-          - name: FIND
-            href: function-ref/FIND.md
-          - name: ICONTAINS
-            href: function-ref/ICONTAINS.md
-          - name: IENDSWITH
-            href: function-ref/IENDSWITH.md
-          - name: ISTARTSWITH
-            href: function-ref/ISTARTSWITH.md
-          - name: LEFT
-            href: function-ref/LEFT.md
-          - name: LEN
-            href: function-ref/LEN.md
-          - name: LOWER
-            href: function-ref/LOWER.md
-          - name: LTRIM
-            href: function-ref/LTRIM.md
-          - name: REGEXP_EXTRACT
-            href: function-ref/REGEXP_EXTRACT.md
-          - name: REGEXP_EXTRACT_NTH
-            href: function-ref/REGEXP_EXTRACT_NTH.md
-          - name: REGEXP_MATCH
-            href: function-ref/REGEXP_MATCH.md
-          - name: REGEXP_REPLACE
-            href: function-ref/REGEXP_REPLACE.md
-          - name: REPLACE
-            href: function-ref/REPLACE.md
-          - name: RIGHT
-            href: function-ref/RIGHT.md
-          - name: RTRIM
-            href: function-ref/RTRIM.md
-          - name: SPACE
-            href: function-ref/SPACE.md
-          - name: SPLIT
-            href: function-ref/SPLIT.md
-          - name: STARTSWITH
-            href: function-ref/STARTSWITH.md
-          - name: SUBSTR
-            href: function-ref/SUBSTR.md
-          - name: TRIM
-            href: function-ref/TRIM.md
-          - name: UPPER
-            href: function-ref/UPPER.md
-          - name: UTF8
-            href: function-ref/UTF8.md
-      - name: Функции даты и времени
-        items:
-          - name: Обзор
-            href: function-ref/date-functions.md
-          - name: DATEADD
-            href: function-ref/DATEADD.md
-          - name: DATEPART
-            href: function-ref/DATEPART.md
-          - name: DATETRUNC
-            href: function-ref/DATETRUNC.md
-          - name: DAY
-            href: function-ref/DAY.md
-          - name: DAYOFWEEK
-            href: function-ref/DAYOFWEEK.md
-          - name: HOUR
-            href: function-ref/HOUR.md
-          - name: MINUTE
-            href: function-ref/MINUTE.md
-          - name: MONTH
-            href: function-ref/MONTH.md
-          - name: NOW
-            href: function-ref/NOW.md
-          - name: QUARTER
-            href: function-ref/QUARTER.md
-          - name: SECOND
-            href: function-ref/SECOND.md
-          - name: TODAY
-            href: function-ref/TODAY.md
-          - name: WEEK
-            href: function-ref/WEEK.md
-          - name: YEAR
-            href: function-ref/YEAR.md
-      - name: Функции для работы с временными рядами
-        items:
-          - name: Обзор
-            href: function-ref/time-series-functions.md
-          - name: AGO
-            href: function-ref/AGO.md
-          - name: AT_DATE
-            href: function-ref/AT_DATE.md
-      - name: Функции для работы с массивами
-        items:
-          - name: Обзор
-            href: function-ref/array-functions.md
-          - name: ARRAY
-            href: function-ref/ARRAY.md
-          - name: ARR_AVG
-            href: function-ref/ARR_AVG.md
-          - name: ARR_MAX
-            href: function-ref/ARR_MAX.md
-          - name: ARR_MIN
-            href: function-ref/ARR_MIN.md
-          - name: ARR_PRODUCT
-            href: function-ref/ARR_PRODUCT.md
-          - name: ARR_REMOVE
-            href: function-ref/ARR_REMOVE.md
-          - name: ARR_STR
-            href: function-ref/ARR_STR.md
-          - name: ARR_SUM
-            href: function-ref/ARR_SUM.md
-          - name: CAST_ARR_FLOAT
-            href: function-ref/CAST_ARR_FLOAT.md
-          - name: CAST_ARR_INT
-            href: function-ref/CAST_ARR_INT.md
-          - name: CAST_ARR_STR
-            href: function-ref/CAST_ARR_STR.md
-          - name: CONTAINS
-            href: function-ref/CONTAINS_ARRAY.md
-          - name: CONTAINS_ALL
-            href: function-ref/CONTAINS_ALL.md
-          - name: CONTAINS_ANY
-            href: function-ref/CONTAINS_ANY.md
-          - name: CONTAINS_SUBSEQUENCE
-            href: function-ref/CONTAINS_SUBSEQUENCE.md
-          - name: COUNT_ITEM
-            href: function-ref/COUNT_ITEM.md
-          - name: GET_ITEM
-            href: function-ref/GET_ITEM.md
-          - name: REPLACE
-            href: function-ref/REPLACE_ARRAY.md
-          - name: SLICE
-            href: function-ref/SLICE.md
-          - name: STARTSWITH
-            href: function-ref/STARTSWITH_ARRAY.md
-          - name: UNNEST
-            href: function-ref/UNNEST.md
-      - name: Функции преобразования типов
-        items:
-          - name: Обзор
-            href: function-ref/type-conversion-functions.md
-          - name: BOOL
-            href: function-ref/BOOL.md
-          - name: DATE
-            href: function-ref/DATE.md
-          - name: DATETIME
-            href: function-ref/DATETIME.md
-          - name: DATETIME_PARSE
-            href: function-ref/DATETIME_PARSE.md
-          - name: DATE_PARSE
-            href: function-ref/DATE_PARSE.md
-          - name: DB_CAST
-            href: function-ref/DB_CAST.md
-          - name: FLOAT
-            href: function-ref/FLOAT.md
-          - name: GEOPOINT
-            href: function-ref/GEOPOINT.md
-          - name: GEOPOLYGON
-            href: function-ref/GEOPOLYGON.md
-          - name: INT
-            href: function-ref/INT.md
-          - name: STR
-            href: function-ref/STR.md
-      - name: Функции разметки
-        items:
-          - name: Обзор
-            href: function-ref/markup-functions.md
-          - name: BOLD
-            href: function-ref/BOLD.md
-          - name: ITALIC
-            href: function-ref/ITALIC.md
-          - name: MARKUP
-            href: function-ref/MARKUP.md
-          - name: URL
-            href: function-ref/URL.md
-      - name: Поддержка функций
-        href: function-ref/availability.md
-  - name: Туториалы по функциям
-    items:
-      - name: Агрегатные функции
-        href: concepts/aggregation-tutorial.md
-      - name: Оконные функции
-        href: concepts/window-function-tutorial.md
-      - name: LOD-выражения и управление фильтрацией в агрегатных функциях
-        href: concepts/lod-aggregation.md
-      - name: Функции для работы с временными рядами
-        href: concepts/time-series-functions.md
-  - name: Обучающие курсы
-    href: training.md
   - name: Решение проблем
     expanded: true
     items:
-      - name: Вопросы и ответы
-        href: qa/index.md
+      - name: Рекомендации по оптимизации
+        href: concepts/optimization_recommendations.md
       - name: Ошибки {{ datalens-name }}
         href: troubleshooting/errors/all.md
+      - name: Вопросы и ответы
+        items:
+          - name: Все вопросы
+            href: qa/index.md
+          - name: Права доступа
+            href: qa/permissions.md
+          - name: Подключения
+            href: qa/connections.md
+          - name: Датасеты
+            href: qa/datasets.md
+          - name: Чарты
+            href: qa/charts.md
+          - name: Вычисляемые поля
+            href: qa/calculation-fields.md
+          - name: Дашборды
+            href: qa/dashboards.md
+          - name: Другое
+            href: qa/other.md
+      - name: Резервное копирование
+        href: concepts/backup.md
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md

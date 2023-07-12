@@ -1,5 +1,7 @@
 # Как начать работать с {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
+
 Чтобы начать работу с сервисом:
 
 1. [{#T}](#cluster-create).

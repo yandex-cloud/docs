@@ -95,23 +95,7 @@ keywords:
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
-
-  Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
-  ```
-
-  Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
 ## Автоматический выбор хоста для подключения {#automatic-host-selection}
 

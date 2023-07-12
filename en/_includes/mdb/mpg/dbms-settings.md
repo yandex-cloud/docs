@@ -260,7 +260,7 @@
 
 - **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts lengthy queries if it detects that the connection has been terminated. The functionality has been supported by {{ PG }} starting from version 14.
+   Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts lengthy queries if it detects that the connection has been terminated. This feature has been supported by {{ PG }} starting from version 14.
 
    The minimum value is `0` (no check is run), while the maximum one is `2147483647`. By default, the minimum value is used.
 
@@ -418,7 +418,7 @@
 
 - **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
 
-   Allows the query planner to use incremental sorting. This type of sorting can reduce query execution time and RAM requirements if rows need to be sorted by multiple columns, and one or more of them have already been sorted. The functionality has been supported by {{ PG }} starting from version 13.
+   Allows the query planner to use incremental sorting. This type of sorting can reduce query execution time and RAM requirements if rows need to be sorted by multiple columns, and one or more of them have already been sorted. This feature has been supported by {{ PG }} starting from version 13.
 
    This setting is enabled by default.
 
@@ -802,7 +802,7 @@
 
 - **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. The functionality has been supported by {{ PG }} starting from version 14.
+   Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. This feature has been supported by {{ PG }} starting from version 14.
 
    This setting is disabled by default.
 
@@ -881,7 +881,7 @@
    200 × <number of vCPUs per host>
    ```
 
-   Hosts with a guaranteed vCPU share under 100% (`burstable`) use the fixed maximum value — `200`.
+   Hosts with guaranteed vCPU performance under 100% (`burstable`) use the fixed maximum value: `200`.
 
    By default, the maximum value is used.
 
@@ -955,7 +955,7 @@
 
    The maximum [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) file size in bytes allowed for replication.
 
-   The minimum value is `-1` (unlimited), while the maximum one is `2251799812636672` (2 TB). The default value is `1073741824`.
+   The minimum and default value is `-1` (unlimited), while the maximum value is `2251799812636672` (2 PB).
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
@@ -1152,9 +1152,9 @@
 
 - **Shared buffers**{#setting-shared-buffers} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The amount of memory (in bytes) that {{ PG }} can use for shared memory buffers.
+   The amount of memory (in blocks of 8KB each) that {{ PG }} can use for shared memory buffers.
 
-   The minimum value is `16`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to 80% of the total RAM size of the {{ mpg-name }} cluster host. By default, the value is 25% of the total RAM size, with a maximum of 8 GB.
+   The minimum value is `16` (128 KB). The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to 80% of the total RAM size of the {{ mpg-name }} cluster host. By default, the value is 25% of the total RAM size, with a maximum of 8 GB.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 
@@ -1326,7 +1326,7 @@
 
 - **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   The maximum age of a <q>frozen</q> (already ended) transaction measured as the number of transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid transaction counter overflow. The functionality has been supported by {{ PG }} starting from version 14.
+   The maximum age of a <q>frozen</q> (already ended) transaction measured as the number of transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid transaction counter overflow. This feature has been supported by {{ PG }} starting from version 14.
 
    The minimum value is `0`, while the maximum one is `2100000000`. The default value is `1600000000`.
 
@@ -1334,7 +1334,7 @@
 
 - **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   The maximum age of a frozen (already ended) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid multi-transaction counter overflow. The functionality has been supported by {{ PG }} starting from version 14.
+   The maximum age of a frozen (already ended) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid multi-transaction counter overflow. This feature has been supported by {{ PG }} starting from version 14.
 
    The minimum value is `0`, while the maximum one is `2100000000`. The default value is `1600000000`.
 

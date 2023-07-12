@@ -2,6 +2,12 @@
 
 ## Conferences and webinars {#conf-and-webinars}
 
+### 2023: Webinar {#webinar-2023}
+
+* {{ ml-platform-full-name }}: Dedicated mode.
+
+   * [Recorded broadcast](https://www.youtube.com/watch?v=U4rxkHKqm2U).
+
 ### 2022: Webinar {#webinar-2022}
 
 * A webinar about {{ ml-platform-short-name }} features for distributed ML teams

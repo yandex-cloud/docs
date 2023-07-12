@@ -11,7 +11,7 @@
 ## Перенести данные из Jira {#jira}
 
 
-1. [Подключите {{ tracker-full-name }}.](enable-tracker.md)
+1. [Подключите {{ tracker-full-name }}](enable-tracker.md).
 
 1. [Добавьте в {{ tracker-name }}](add-users.md) сотрудников вашей компании.
 
@@ -107,7 +107,7 @@
       from yandex_tracker_client import TrackerClient
       client = TrackerClient(token='<token>', org_id='<org_id>')
       ```
-      Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации. Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
+      Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации. Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}**.
 
    1. Подключите библиотеки.
 
@@ -174,7 +174,7 @@
 
 Чтобы импортировать данные:
 
-1. [Подключите {{ tracker-full-name }}.](enable-tracker.md)
+1. [Подключите {{ tracker-full-name }}](enable-tracker.md).
 
 1. [Добавьте в {{ tracker-name }}](add-users.md) сотрудников вашей компании.
 

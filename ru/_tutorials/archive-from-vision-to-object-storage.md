@@ -37,7 +37,7 @@
 
   1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
   1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
-  1. В поле **Имя** введите имя бакета в соответствии с [правилами именования](../storage/concepts/bucket.md#naming), например `vision-bucket`.
+  1. В поле **Имя** введите имя бакета в соответствии с [правилами именования](../storage/concepts/bucket.md#naming).
   1. В поле **Доступ к бакету** выберите **Ограниченный**.
   1. В поле **Класс хранилища** выберите **Холодное**.
   1. Нажмите кнопку **Создать бакет**.
@@ -51,7 +51,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ, например `vision-vm`. Требования к имени:
+  1. В поле **Имя** введите имя ВМ. Требования к имени:
 
      {% include [name-format](../_includes/name-format.md) %}
 
@@ -105,8 +105,8 @@
 
      ```text
      token: AQ...gs
-     cloud-id: b1gdtdqb1900f5rqqvli
-     folder-id: b1gveg9vude9g3uioa50
+     cloud-id: b1gdtdqb1900********
+     folder-id: b1gveg9vude9********
      ```
 
      Сохраните идентификатор каталога — параметр `folder-id`, он понадобится для настройки сервисного аккаунта.
@@ -134,8 +134,8 @@
      Результат:
 
      ```text
-     id: aje6aoc8hccuh5tp55bg
-     folder_id: b1gv87ssvu497lpgjh5o
+     id: aje6aoc8hccu********
+     folder_id: b1gv87ssvu49********
      created_at: "2022-10-12T14:04:43.198559512Z"
      name: vision-sa
      description: this is vision service account
@@ -170,8 +170,8 @@
 
      ```yaml
      access_key:
-       id: ajen8d7fur27bt8losom
-       service_account_id: aje6aoc8hccuh5tp55bg
+       id: ajen8d7fur27********
+       service_account_id: aje6aoc8hccu********
        created_at: "2022-10-12T15:08:08.045280520Z"
        description: this key is for vision
        key_id: YC...li
@@ -196,8 +196,8 @@
      Результат:
 
      ```yaml
-     id: aje3qc9pagb9kedkhdn5
-     service_account_id: aje6aoc8hccuh5tp55bg
+     id: aje3qc9pagb9********
+     service_account_id: aje6aoc8hccu********
      created_at: "2022-10-13T12:53:04.810240976Z"
      key_algorithm: RSA_2048
      ```

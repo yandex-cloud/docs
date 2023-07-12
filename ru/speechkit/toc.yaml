@@ -4,7 +4,17 @@ items:
   - name: Обзор технологий {{ speechkit-name }}
     href: overview.md
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Как распознать короткие аудиофайлы в API v2
+        href: quickstart/stt-quickstart-v2.md
+      - name: Как распознать потоковое аудио в API v3
+        href: quickstart/stt-quickstart-v3.md
+      - name: Как синтезировать речь в API v1
+        href: quickstart/tts-quickstart-v1.md
+      - name: Как синтезировать речь в API v3
+        href: quickstart/tts-quickstart-v3.md
   - name: Распознавание речи
     items:
       - name: О технологии
@@ -85,6 +95,8 @@ items:
                 href: tts-v3/api-ref/grpc/tts_service.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Потоковое распознавание API v3
         href: stt/api/streaming-examples-v3.md
       - name: Автоматическое определение языка — API v3
@@ -97,15 +109,17 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Асинхронное распознавание формата OggOpus — API v2
         href: stt/api/transcribation-ogg.md
-      - name: Синтез API v3
+      - name: Синтез речи в API v3
         href: tts/api/tts-examples-v3.md
-      - name: Синтез по шаблонам
+      - name: Синтез речи по шаблонам
         href: tts/api/tts-templates.md
+      - name: Синтез речи по шаблонам Brand Voice Call Center
+        href: tts/api/tts-templates-bvcc.md
       - name: Синтез речи в формате WAV — API v1
         href: tts/api/tts-wav.md
       - name: Синтез речи в формате OggOpus — API v1
         href: tts/api/tts-ogg.md
-      - name: Синтез из текста SSML — API v1
+      - name: Синтез речи из текста SSML — API v1
         href: tts/api/tts-ssml.md
   - name: Поддерживаемые форматы аудио
     href: formats.md

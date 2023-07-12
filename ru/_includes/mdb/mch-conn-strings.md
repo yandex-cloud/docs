@@ -481,6 +481,10 @@ node app.js
 
 ### ODBC {#odbc}
 
+Способ настройки различается для [Linux](#odbc-linux) и [Windows](#odbc-windows).
+
+#### Linux {#odbc-linux}
+
 **Перед подключением:**
 
 1. Установите зависимости:
@@ -564,6 +568,7 @@ node app.js
     Proto = https
     SSLMode = allow
     CertificateFile = {{ crt-local-dir }}{{ crt-local-file }}
+    CALocation = /etc/ssl/certs/ca-certificates.crt
     ```
 
 {% endlist %}
@@ -575,6 +580,40 @@ isql -v ClickHouse
 ```
 
 После подключения к СУБД выполните команду `SELECT version();`.
+
+#### Windows {#odbc-windows}
+
+1. [Установите драйвер clickhouse-odbc](https://github.com/ClickHouse/clickhouse-odbc#installation) подходящей разрядности. Например, если вы используете 32-разрядное приложение для подключения через ODBC, установите драйвер такой же разрядности.
+1. [Запустите приложение <q>Администратор источника данных ODBC</q>](https://learn.microsoft.com/ru-ru/sql/database-engine/configure-windows/open-the-odbc-data-source-administrator).
+1. На вкладке **Пользовательские DSN** нажмите кнопку **Добавить...**
+1. Выберите драйвер {{ CH }} с подходящей кодировкой и нажмите кнопку **Готово**.
+1. Укажите параметры подключения к кластеру {{ CH }}:
+
+    {% list tabs %}
+
+    * Подключение без SSL
+
+        * **Name** — имя подключения.
+        * **Host** — FQDN любого хоста {{ CH }}.
+        * **Port** — `{{ port-mch-http }}`.
+        * **Database** — имя БД.
+        * **User** — имя пользователя БД.
+        * **Password** — пароль пользователя БД.
+
+    * Подключение с SSL
+
+        * **Name** — имя подключения.
+        * **Host** — FQDN любого хоста {{ CH }}.
+        * **Port** — `{{ port-mch-http }}`.
+        * **Database** — имя БД.
+        * **SSLMode** — `allow`.
+        * **User** — имя пользователя БД.
+        * **Password** — пароль пользователя БД.
+
+    {% endlist %}
+
+1. Нажмите кнопку **Ok**.
+1. Подключитесь к кластеру {{ CH }} с помощью ODBC, например через приложение Microsoft Excel.
 
 ### PHP {#php}
 

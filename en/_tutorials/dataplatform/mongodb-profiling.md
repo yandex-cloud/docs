@@ -1,6 +1,6 @@
-# Performance analysis and tuning of {{ MG }}
+# {{ MG }} performance analysis and tuning
 
-In this tutorial, you'll learn how to:
+In this tutorial, you will learn how to:
 
 * Use [performance diagnostic tools](../../managed-mongodb/operations/tools.md) and [monitoring tools](../../managed-mongodb/operations/monitoring.md) to diagnose {{ mmg-name }} cluster performance.
 * Troubleshoot identified issues.
@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to:
 
 Here are some tips for diagnosing and fixing these issues.
 
-## Before you begin {#before-start}
+## Getting started {#before-start}
 
 1. On an external host that has network access to a {{ MG }} host (see [{#T}](../../managed-mongodb/operations/connect/index.md)), install the `mongostat` and `mongotop` [utilities](../../managed-mongodb/operations/tools.md#monitoring-tools), which provide {{ MG }} performance data.
 1. Determine which databases need to be checked for issues.
@@ -28,25 +28,48 @@ In most cases, high CPU utilization and high Disk IO are due to suboptimal index
 
 Start diagnostics by identifying the load pattern and problematic collections. Use the built-in [{{ MG }} monitoring tools](../../managed-mongodb/operations/tools.md#monitoring-tools). Next, analyze the performance of specific queries using [logs](../../managed-mongodb/operations/tools.md#explore-logs) or [profiler data](../../managed-mongodb/operations/tools.md#explore-profiler).
 
-Pay attention to the following operations:
+Pay attention to queries:
 
-* Queries that don't use indexes (`planSummary: COLLSCAN`). Such queries may affect both I/O consumption (more reads from the disk) and CPU consumption (data is compressed by default and decompression is required for it). If the required index is present, but the database doesn't use it, you can force its usage with [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
-* Queries with large `docsExamined` parameter values (number of scanned documents). This may mean that the currently running indexes are inefficient or additional ones are required.
+* That do not use indexes (`planSummary: COLLSCAN`). Such queries may affect both I/O consumption (more reads from the disk) and CPU consumption (data is compressed by default and decompression is required for it). If the required index is present, but the database doesn't use it, you can force its usage with [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
+* With large `docsExamined` parameter values (number of scanned documents). This may mean that the currently running indexes are inefficient or additional ones are required.
 
 As soon as performance drops, you can diagnose the problem in real time using a [list of currently running queries](../../managed-mongodb/operations/tools.md#list-running-queries):
-* Long operations taking, for example, more than one second to perform:
 
-   ```javascript
-   db.currentOp({"active": true, "secs_running": {"$gt": 1}})
-   ```
+{% list tabs %}
 
-* Operations to create indexes:
+- Queries from all users
 
-   ```javascript
-   db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
-   ```
+   To run these queries, users must be granted the [`mdbMonitor` role](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
 
-See the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
+   * Long queries, such as those taking more than one second to execute:
+
+      ```javascript
+      db.currentOp({"active": true, "secs_running": {"$gt": 1}})
+      ```
+
+   * Queries to create indexes:
+
+      ```javascript
+      db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
+      ```
+
+- Queries from the current user
+
+   * Long queries, such as those taking more than one second to execute:
+
+      ```javascript
+      db.currentOp({"$ownOps": true, "active": true, "secs_running": {"$gt": 1}})
+      ```
+
+   * Queries to create indexes:
+
+      ```javascript
+      db.currentOp({ "$ownOps": true, $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
+      ```
+
+{% endlist %}
+
+For details, see the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
 
 ## Troubleshooting resource shortage issues {#solving-deficit}
 
@@ -57,8 +80,9 @@ See the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual
 To identify problematic queries in {{ MG }}:
 
 * Review the [logs](../../managed-mongodb/operations/tools.md#explore-logs). Pay special attention to:
-   * For read operations: the `responseLength` field (written as `reslen` in the logs).
-   * For write operations: the number of affected documents.
+
+   * For read queries: the `responseLength` field (written as `reslen` in the logs).
+   * For write queries: the number of affected documents.
       In the cluster logs, they are displayed in the `nModified`, `keysInserted`, and `keysDeleted` fields. On the [cluster monitoring](../../managed-mongodb/operations/monitoring.md#cluster) page, analyze the **Documents affected on primary**, **Documents affected on secondaries**, and **Documents affected per host** graphs.
 * Review the [profiler](../../managed-mongodb/operations/tools.md#explore-profiler) data. Output long-running queries (adjustable with the [`slowOpThreshold` DBMS setting](../../managed-mongodb/concepts/settings-list.md#setting-slow-op-threshold)).
 
@@ -83,7 +107,7 @@ Each new index slows down writes. Too many indexes may negatively affect write p
 
 {% endnote %}
 
-You may be able to optimize read operations by limiting the fields to return ([projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/)). You usually don't need to return the whole document, only a few fields.
+You may be able to optimize read queries by limiting the fields to return ([projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/)). In many cases, you need to return only a few fields rather than the entire document.
 
 If you cannot optimize the identified queries or manage without them, you can [raise the host class](../../managed-mongodb/operations/update.md#change-resource-preset).
 
@@ -91,31 +115,55 @@ If you cannot optimize the identified queries or manage without them, you can [r
 
 Poor query performance can be caused by locks.
 
-{{ MG }} doesn't provide detailed information on locks. So, there are only indirect ways to find out what's locking a specific query:
+{{ MG }} does not provide detailed information on locks. There are only indirect ways to find out what is locking a specific query:
 
 * Large or growing `db.serverStatus().metrics.operation.writeConflicts` values may indicate high write contention on some documents.
 
 * Large or growing values on the **Write conflicts per hosts** graph on the [cluster monitoring](../../managed-mongodb/operations/monitoring.md#cluster) page.
 
 * As soon as performance drops, carefully review the [list of currently running queries](../../managed-mongodb/operations/tools.md#list-running-queries):
-   * Find operations that hold exclusive locks, for example:
 
-      ```javascript
-      db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'}]}).inprog
-      ```
+   {% list tabs %}
 
-   * Find operations waiting for locks (the `timeAcquiringMicros` field shows the waiting time):
+   - Queries from all users
 
-      ```javascript
-      db.currentOp({'waitingForLock': true}).inprog
-      db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
-      ```
+      To run these queries, users need the [`mdbMonitor` role](../../managed-mongodb/concepts/users-and-roles.md#mdbMonitor).
+
+      * Find queries that hold exclusive locks, such as:
+
+         ```javascript
+         db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
+         ```
+
+      * Find queries waiting for locks (the `timeAcquiringMicros` field shows the waiting time):
+
+         ```javascript
+         db.currentOp({'waitingForLock': true}).inprog
+         db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
+         ```
+
+   - Queries from the current user
+
+      * Find queries that hold exclusive locks, such as:
+
+         ```javascript
+         db.currentOp({"$ownOps": true, '$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
+         ```
+
+      * Find queries waiting for locks (the `timeAcquiringMicros` field shows the waiting time):
+
+         ```javascript
+         db.currentOp({"$ownOps": true, 'waitingForLock': true}).inprog
+         db.currentOp({"$ownOps": true, 'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
+         ```
+
+   {% endlist %}
 
 * Pay attention to the following in the [logs](../../managed-mongodb/operations/tools.md#explore-logs) and [profiler](../../managed-mongodb/operations/tools.md#explore-profiler):
-   * Operations that waited a long time for locks will have large `timeAcquiringMicros` values.
-   * Operations that competed for the same documents will have large `writeConflicts` values.
+   * Queries that waited a long time for locks will have large `timeAcquiringMicros` values.
+   * Queries that competed for the same documents will have large `writeConflicts` values.
 
-Learn more about which locks are used by standard [client](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations-) and [administrative](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-a-database-) commands in the official {{ MG }} documentation.
+Learn more about which locks are used by standard [client](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations-) and [administrative](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-a-database-) queries in the official {{ MG }} documentation.
 
 ## Troubleshooting locking issues {#solve-locks}
 

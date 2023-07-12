@@ -296,6 +296,6 @@ items:
             href: api-ref/grpc/subnet_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/vpc

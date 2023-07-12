@@ -46,30 +46,30 @@ description: "Для визуализация данных из {{ tracker-short
 ## Создайте БД для хранения данных {{ tracker-short-name }} {#database-create}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **Все сервисы**.
-1. Выберите **Платформа данных** → **{{ mch-name }}**.
-1. Нажмите кнопку **Создать кластер {{ CH }}**.
+1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Выберите **Платформа данных** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите параметры кластера:
-    * Базовые параметры:
-        * **Окружение** — `PRODUCTION`;
-        * **Версия** — `22.8 LTS`; 
-    * Ресурсы:
-        * **Платформа** — `Intel Ice Lake`;
-        * **Тип** — `standart`;
-        * **Класс хоста** — `{{ s3-c2-m8 }}`;
-    * Размер хранилища — `30 ГБ`;
-    * Хосты:
-        * **Публичный доступ** — `Включено`;
-    * Настройки СУБД:
-        * **Управление пользователями через SQL** — `Выключено`;
-        * **Управление базами данных через SQL** — `Выключено`;
-        * **Имя пользователя** — `tracker_data`;
-        * **Имя БД** — `db1`;
-    * Сервисные настройки:
-        * **Доступ из {{ datalens-short-name }}** — `Включено`;
-        * **Доступ из Serverless** — `Включено`.
+    * {{ ui-key.yacloud.mdb.forms.section_base }}:
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`;
+        * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `22.8 LTS`; 
+    * {{ ui-key.yacloud.mdb.forms.new_section_resource }}:
+        * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`;
+        * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** — `standart`;
+        * **{{ ui-key.yacloud.mdb.forms.section_resource }}** — `{{ s3-c2-m8 }}`;
+    * {{ ui-key.yacloud.mdb.forms.section_disk }} — `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`;
+    * {{ ui-key.yacloud.mdb.forms.section_host }}:
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — `{{ ui-key.yacloud.common.enabled }}`;
+    * {{ ui-key.yacloud.mdb.forms.section_settings }}:
+        * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** — `{{ ui-key.yacloud.common.disabled }}`;
+        * **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** — `{{ ui-key.yacloud.common.disabled }}`;
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `tracker_data`;
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`;
+    * {{ ui-key.yacloud.mdb.forms.section_service-settings }}:
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — `{{ ui-key.yacloud.common.enabled }}`;
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** — `{{ ui-key.yacloud.common.enabled }}`.
     Полный список настроек см. в разделе [Настройки {{ mch-name }}](../../managed-clickhouse/concepts/settings-list.md).
-1. Нажмите кнопку **Создать кластер**. Дождитесь, когда статус созданного кластера сменится на `Alive`. 
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**. Дождитесь, когда статус созданного кластера сменится на `Alive`. 
 1. Скопируйте и сохраните имя хоста для дальнейшей настройки {{ sf-name }}.
 ![Вкладка Хосты](../../_assets/dl-tracker-host-name.png =680x372)
 
@@ -98,19 +98,19 @@ description: "Для визуализация данных из {{ tracker-short
 ## Создайте функцию {{ sf-name }} для импорта данных {#function-import}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **Все сервисы**.
-1. Выберите **Бессерверные вычисления** → **{{ sf-name }}**.
-1. Нажмите кнопку **Создать функцию**.
-1. Укажите название функции и нажмите кнопку **Создать**.
-1. В открывшемся окне **Редактор** выберите среду выполнения `Python / 3.9`.
-1. Нажмите кнопку **Продолжить**.
-1. В поле **Способ** нажмите кнопку **ZIP-Архив**.
+1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Выберите **Бессерверные вычисления** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python / 3.9`.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Прикрепите [тестовый архив](https://github.com/yandex-cloud/yc-architect-solution-library/raw/main/yc-tracker/tracker-data-import/build/tracker-data-import.zip).
-1. В поле **Точка входа** укажите `tracker-import.handler`.
-1. В разделе **Параметры** укажите:
-    * **Таймаут, с** — `60`;
-    * **Память** — `1024`;
-    * **Переменные окружения**:
+1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `tracker_import.handler`.
+1. В разделе **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `60`;
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `1024`;
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
         * `TRACKER_ORG_ID` — [ID организации](https://tracker.yandex.ru/admin/orgs).
         * `TRACKER_OAUTH_TOKEN` — [OAuth токен](#oauth-token) учетной записи {{ tracker-short-name }}.
         * `CH_HOST` — имя [хоста](#database-create).
@@ -121,8 +121,8 @@ description: "Для визуализация данных из {{ tracker-short
         * `CH_CHANGELOG_TABLE` — `tracker_changelog`.
         * `TRACKER_INITIAL_HISTORY_DEPTH` — `1d`.
         * `CH_STATUSES_VIEW` — `v_tracker_statuses`.
-1. Нажмите кнопку **Создать версию**.
-1. На вкладке **Тестирование** нажмите кнопку **Запустить тест**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+1. На вкладке **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 1. Результат теста — лог импорта данных:
     ```json
     {
@@ -135,71 +135,71 @@ description: "Для визуализация данных из {{ tracker-short
     }
     ```
 1. Создайте [триггер](../../functions/concepts/trigger/index.md) для регулярного экспорта новых данных в БД:
-    1. Откройте раздел **{{ sf-name }}**.
-    1. Нажмите ![trigger](../../_assets/functions/triggers.svg) → **Создать триггер**.
-    1. Укажите тип триггера — **Таймер**.
-    1. В поле **Cron-выражение** выберите `Каждый день`.
-    1. В разделе **Настройки функции** нажмите кнопку **Создать новый**.
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Нажмите ![trigger](../../_assets/functions/triggers.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Укажите тип триггера — **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** выберите `{{ ui-key.yacloud.common.button_cron-day }}`.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** нажмите кнопку **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**.
     1. Укажите имя аккаунта. По умолчанию аккаунту присвоена роль `serverless.functions.invoker` для работы с триггером.
-    1. Нажмите кнопку **Создать**.
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 ## Создайте подключение в {{ datalens-short-name }} {#connection-create}
 
 1. Откройте [кластер](#database-create) **{{ mch-name}}**.
-1. Откройте вкладку **{{ datalens-short-name }}**.
-1. Нажмите **Создать подключение**.
+1. Откройте вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+1. Нажмите **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 1. Укажите настройки подключения:
-    * **Подключение** — `Выбрать в каталоге`;
-    * **Кластер** — кластер, указанный при [создании базы данных](#database-create);
-    * **Имя хоста** — хост, указанный при [создании базы данных](#database-create);
-    * **Порт HTTP-интерфейса** — `8443`;
-    * **Имя пользователя** — имя пользователя, указанное при [создании базы данных](#database-create);
-    * **Пароль** — пароль, указанный при [создании базы данных](#database-create);
-    * **Время жизни кеша в секундах** — `По умолчанию`;
-    * **Уровень доступа SQL-запросов** — `Запретить`;
-    * **HTTPS** — `Включено`.
+    * **{{ ui-key.datalens.connections.form.field_fill-mode }}** — `Выбрать в каталоге`;
+    * **{{ ui-key.datalens.connections.form.field_cluster }}** — кластер, указанный при [создании базы данных](#database-create);
+    * **{{ ui-key.datalens.connections.form.field_host-name }}** — хост, указанный при [создании базы данных](#database-create);
+    * **{{ ui-key.datalens.connections.form.field_click-house-port }}** — `8443`;
+    * **{{ ui-key.datalens.connections.form.field_username }}** — имя пользователя, указанное при [создании базы данных](#database-create);
+    * **{{ ui-key.datalens.connections.form.field_password }}** — пароль, указанный при [создании базы данных](#database-create);
+    * **{{ ui-key.datalens.connections.form.field_cache-ttl-sec }}** — `{{ ui-key.datalens.connections.form.value_default }}`;
+    * **{{ ui-key.datalens.connections.form.field_raw-sql-level }}** — `{{ ui-key.datalens.connections.form.value_raw-sql-level-off }}`;
+    * **{{ ui-key.yacloud.common.label_https }}** — `{{ ui-key.yacloud.common.enabled }}`.
     ![Настройки подключения](../../_assets/datalens/connection-settings.png =680x665)
-1. Нажмите кнопку **Создать подключение**.
+1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_create-connection }}**.
 
 ## Создайте датасет {#dataset-create}
 
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Выберите [подключение](#connection-create).
-1. В правом верхнем углу нажмите кнопку **Создать датасет**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
 1. Перенесите на рабочую область одну или несколько таблиц:
     * `db1.v_tracker_issues` — текущий (последний) срез задач; 
     * `db1.v_tracker_changelog` — история изменения параметров задач;
     * `Db1.v_tracker_statuses` – время переходов между статусами на основе истории изменения задач.
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
 
 ## Создайте чарт {#chart-create}
 
 
 1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Нажмите кнопку **Создать чарт**.
-1. В левом верхнем углу нажмите ![image](../../_assets/datalens/datasets.svg) **Выберите датасет**.
-1. В выпадающем списке **Датасеты** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
+1. Нажмите кнопку **{{ ui-key.datalens.main.landing.view.button_create-widget }}**.
+1. В левом верхнем углу нажмите ![image](../../_assets/datalens/datasets.svg) **{{ ui-key.datalens.wizard.button_choose-dataset }}**.
+1. В выпадающем списке **{{ ui-key.datalens.wizard.label_datasets }}** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
 
 
-1. На верхней панели выберите [тип визуализации](../../datalens/visualization-ref/index.md). По умолчанию выбран тип **Столбчатая диаграмма**.
+1. На верхней панели выберите [тип визуализации](../../datalens/visualization-ref/index.md). По умолчанию выбран тип **{{ ui-key.datalens.wizard.label_visualization-column }}**.
 
 ## Создайте дашборд {#dashboard-create}
 
-1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **Создать дашборд**.
+1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **{{ ui-key.datalens.main.landing.view.button_create-dashboards }}**.
 1. В открывшемся окне введите название дашборда. Дашборд появится в списке на странице навигации.
 
 Подробнее о настройке дашбордов см. в разделе [Дашборд {{ datalens-full-name }}](../../datalens/concepts/dashboard.md).
 
 ## Добавьте чарты на дашборд {#add-charts}
 
-1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **Добавить** → **Чарт**.
+1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **{{ ui-key.datalens.dash.action-panel.view.button_add }}** → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
 1. Заполните параметры виджета. Обратите внимание на следующие поля:
-    * **Название**. Задает имя виджета. Отображается на верхней части виджета.
-    * **Чарт**. Задает добавляемый виджет.
-    * **Описание**. Задает описание виджета. Отображается на нижней части виджета.
-    * **Автовысота**. Задает автоматическую высоту для виджетов типа **Таблица** и **Markdown**. Если параметр отключен, то высоту виджета на странице можно установить с помощью мыши.
-1. Нажмите кнопку **Добавить**. Виджет отобразится на дашборде.
+    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}**. Задает имя виджета. Отображается на верхней части виджета.
+    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}**. Задает добавляемый виджет.
+    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_description }}**. Задает описание виджета. Отображается на нижней части виджета.
+    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_autoheight }}**. Задает автоматическую высоту для виджетов типа **{{ ui-key.datalens.wizard.label_visualization-flat-table }}** и **{{ ui-key.datalens.chartkit.menu.export.format_markdown }}**. Если параметр отключен, то высоту виджета на странице можно установить с помощью мыши.
+1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**. Виджет отобразится на дашборде.
 
 {% cut "Пример дашборда на основе данных из таблицы `v_tracker_issues`" %}
 

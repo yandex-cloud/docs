@@ -2,67 +2,66 @@
 
 {{ tracker-name }} supports organizations from {{ ya-360 }} and {{ yandex-cloud }}. Users and groups from {{ ya-360 }} are added to and displayed in {{ tracker-name }}. For {{ yandex-cloud }} organizations, a special organization is created in {{ ya-360 }} for syncing users and enabling group creation.
 
-
-- [Inviting users](#invite_user) who already have Yandex accounts to {{ tracker-name }}.
+To collaborate on issues with your colleagues, add them to {{ tracker-name }}. There are several ways to do this:
+- [Inviting users with Yandex accounts to {{ tracker-name }}](#invite_user).
 - [Adding users](../organization/add-account.md) to {{ org-full-name }}.
-- [Creating new accounts](#create_users) on the organization's domain.
-- [Setting up an identity federation](#federation). With identity federation, your employees can log in to {{ tracker-name }} using their corporate accounts in Active Directory, Google Workspace, or other user account management systems.
-
+- [Creating new accounts](#create_users) on your organization's domain.
+- [Configuring an identity federation](#federation). With an identity federation, your employees can log in to {{ tracker-name }} using their corporate accounts in Active Directory, Google Workspace, or other user account management systems.
 
 
 {% note warning %}
 
-If you enable [automatic full access to new users](access.md#access-new-users) in {{ tracker-name }} settings, the [service cost](https://cloud.yandex.ru/docs/tracker/pricing#sec_price) may increase when you add users to your company.
+If [full access for new users](access.md#access-new-users) is enabled automatically in the {{ tracker-name }} settings, the [cost of using the service](https://cloud.yandex.ru/docs/tracker/pricing#sec_price) may increase when adding new users to your organization.
 
 {% endnote %}
 
-## Inviting users {#invite_user}
+## Inviting users to your organization {#invite_user}
 
-You can invite users who have an account on Yandex (such as `{{ example-account }}`) or the organization's domain connected to [{{ ya-360 }}]({{ link-ya-360 }}).
+You can invite users who have a Yandex account (such as `{{ example-account }}`) to your organization. So far, this add user method doesn't work for users with accounts of a different type.
 
-1. Open [{{ tracker-name }} main page]({{ link-tracker }}) and [log in as an administrator](user/login.md).
+1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage users**.
+1. In the panel on the left, click **Add user**.
 
-1. Click **Invite users**.
+1. In the window that opens, specify employees' email addresses separated by commas (such as `{{ example-account }}`) and click **Add**. Each user will receive an email prompting to join your organization.
 
-1. Add a comma-separated list of your employees' email addresses (such as `{{ example-account }}`) and click **Add**. Each user will receive an email with an offer to join your company.
-
-To log in to {{ tracker-name }}, the invited employees will need to click the [{{ link-tracker }}]({{ link-tracker }}) link and [log in to their Yandex account](user/login.md).
+To log in to {{ tracker-name }}, an invited user should follow the link [{{ link-tracker }}]({{ link-tracker }}) and [log in to their Yandex account](user/login.md).
 
 ## Setting up an identity federation {#federation}
 
-An identity federation is a technology that lets you implement a Single Sign-On (SSO) authentication scheme so that your employees can log in to {{tracker-full-name}} using their corporate accounts in Active Directory, Google Workspace, or other SAML-compatible user account management systems.
+An identity federation is a technology that lets you implement a Single Sign-On (SSO) authentication scheme so that your employees can log in to {{ tracker-full-name }} using their corporate accounts in Active Directory, Google Workspace, or other SAML-compatible user account management systems.
 
 To create an identity federation:
 
-1. Open [{{ tracker-name }} main page]({{ link-tracker }}) and [log in as an administrator](user/login.md).
+1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage users**.
+1. In the panel on the left, click **Administration** → **Organization**.
 
-1. Click **Enable federation**. The {{ org-full-name }} page opens.
+1. Under **{{ org-full-name }}**, click **Connect**. The {{ org-full-name }} page opens.
 
 1. Specify the federation settings and click **Create federation**.
 
 Users with corporate accounts can [log in to {{ tracker-name }}](user/login.md) by clicking **Log in via SSO**.
 
-To learn more about creating an identity federation, see the [{{ org-full-name }}]({{ link-org-add-federation }}) documentation.
+To learn more about creating an identity federation, see the [{{ org-full-name }}](../organization/add-federation.md) documentation.
 
 ## Creating user accounts {#create_users}
 
-1. Open [{{ tracker-name }} main page]({{ link-tracker }}) and [log in as an administrator](user/login.md).
+To create user accounts, connect your company's email domain in [{{ ya-360 }}]({{ link-ya-360 }}):
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage users**.
+1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. To the right of the **Invite users** button, click(../_assets/tracker/add_user.png) and select **Create account on mail domain**.
+1. In the panel on the left, click **Administration** → **Organization**.
+
+1. Under **{{ ya-360 }}**, click **Connect**. A window with your organizations opens. You can create a new organization or go to an existing one.
 
    {% note info %}
 
-   If your company doesn't have a corporate email domain, click **Connect domain** and add your domain in [{{ ya-360 }}]({{ link-ya-360 }}). For more information, see [Documentation]({{ support-business-domain }}).
+   If your organization has no email domain connected, in [{{ ya-360 }}]({{ link-ya-360 }}), click **Configure mail** and add a domain. To learn more, see [Help for the service]({{ support-business-domain }}).
 
    {% endnote %}
 
-1. In {{ ya-360 }}, [create accounts for users]({{ support-business-users }}).
+1. In {{ ya-360 }}, [create user accounts]({{ support-business-users }}).
 
 To [log in to {{ tracker-name }}](user/login.md), an employee with an account on the domain will need to enter their full email address (such as `login@example.com`) and password.
 

@@ -21,3 +21,11 @@ When deleting a table row, the statistics will include the deletion of records f
 This error means a limit has been reached.
 
 Check the throughput in the {{ ydb-short-name }} cluster settings and increase it, if required. If the issue persists after you increase the throughput limit or the quota is exceeded, contact [support]({{ link-console-support }}).
+
+### What does the ThrottlingException error mean? {#throttling-exception}
+
+The error is related to the exceeding of the [quota](concepts/limits.md#ydb-quotas) for [RU (Request Unit)](concepts/serverless-and-dedicated.md#capacity) consumption per second.
+
+You can change quotas for individual databases in their settings (see [{#T}](operations/manage-databases.md#update-db-serverless)). If you find your cloud quota insufficient, [contact the support service]({{ link-console-support }}).
+
+To prevent users from unscheduled RU consumption, we recommend setting a [limit on maximum consumption](concepts/serverless-and-dedicated.md#capacity).

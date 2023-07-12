@@ -1,4 +1,4 @@
-### audit-trails.admin {#at-admin}
+#### audit-trails.admin {#at-admin}
 
 Роль `audit-trails.admin` назначается на облако или каталог.
 Дает право управлять трейлами и доступом к ним.

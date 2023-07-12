@@ -2,6 +2,8 @@
 
 Вы можете [создать прерываемую](#create-preemptible) [ВМ](../../concepts/vm.md) или [изменить тип](#preemptible-to-regular) существующей ВМ.
 
+
+
 ## Создать прерываемую ВМ {#create-preemptible}
 
 Чтобы создать [прерываемую](../../concepts/preemptible-vm.md) ВМ:

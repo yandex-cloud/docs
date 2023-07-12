@@ -29,9 +29,6 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [data-proc-roles](../../_includes/iam/roles/data-proc-roles.md) %}
 
-### {{ roles-mdb-auditor }} {#mdb-auditor}
-
-The `{{ roles-mdb-auditor }}` role grants the minimum rights required to view information about {{ dataproc-name }} clusters (without access to data or runtime logs).
 
 ### {{ roles-mdb-viewer }} {#mdb-viewer}
 

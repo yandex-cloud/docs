@@ -36,6 +36,7 @@ Field | Description
 --- | ---
 recognition_model | **[RecognitionModelOptions](#RecognitionModelOptions)**<br>Configuration for speech recognition model. 
 eou_classifier | **[EouClassifierOptions](#EouClassifierOptions)**<br>Configuration for end of utterance detection model. 
+recognition_classifier | **[RecognitionClassifierOptions](#RecognitionClassifierOptions)**<br>Configuration for classifiers over speech recognition. 
 
 
 ### RecognitionModelOptions {#RecognitionModelOptions}
@@ -111,7 +112,22 @@ max_pause_between_words_hint_ms | **int64**<br>Hint for max pause between words.
 
 ### ExternalEouClassifier {#ExternalEouClassifier}
 
-Empty
+Empty.
+
+### RecognitionClassifierOptions {#RecognitionClassifierOptions}
+
+Field | Description
+--- | ---
+classifiers[] | **[RecognitionClassifier](#RecognitionClassifier)**<br>List of classifiers to use 
+
+
+### RecognitionClassifier {#RecognitionClassifier}
+
+Field | Description
+--- | ---
+classifier | **string**<br>Classifier name 
+triggers[] | enum **TriggerType**<br>Describes the types of responses to which the classification results will come 
+
 
 ### AudioChunk {#AudioChunk}
 
@@ -129,7 +145,7 @@ duration_ms | **int64**<br>Duration of silence chunk in ms.
 
 ### Eou {#Eou}
 
-Empty
+Empty.
 
 ### StreamingResponse {#StreamingResponse}
 
@@ -138,12 +154,14 @@ Field | Description
 session_uuid | **[SessionUuid](#SessionUuid)**<br>Session identifier 
 audio_cursors | **[AudioCursors](#AudioCursors)**<br>Progress bar for stream session recognition: how many data we obtained; final and partial times; etc. 
 response_wall_time_ms | **int64**<br>Wall clock on server side. This is time when server wrote results to stream 
-Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement` or `status_code`<br>
+Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement`, `status_code` or `classifier_update`<br>
 &nbsp;&nbsp;partial | **[AlternativeUpdate](#AlternativeUpdate)**<br>Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation from final_time_ms to partial_time_ms. Could change after new data will arrive. 
 &nbsp;&nbsp;final | **[AlternativeUpdate](#AlternativeUpdate)**<br>Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases. 
 &nbsp;&nbsp;eou_update | **[EouUpdate](#EouUpdate)**<br>After EOU classifier, send the message with final, send the EouUpdate with time of EOU before eou_update we send final with the same time. there could be several finals before eou update. 
 &nbsp;&nbsp;final_refinement | **[FinalRefinement](#FinalRefinement)**<br>For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing). Final normalization will introduce additional latency. 
 &nbsp;&nbsp;status_code | **[StatusCode](#StatusCode)**<br>Status messages, send by server with fixed interval (keep-alive). 
+&nbsp;&nbsp;classifier_update | **[RecognitionClassifierUpdate](#RecognitionClassifierUpdate)**<br>Result of the triggered classifier 
+channel_tag | **string**<br>Tag for distinguish audio channels. 
 
 
 ### SessionUuid {#SessionUuid}
@@ -171,7 +189,7 @@ eou_time_ms | **int64**<br>Estimated time of EOU. Cursor is updated after each n
 Field | Description
 --- | ---
 alternatives[] | **[Alternative](#Alternative)**<br>List of hypothesis for timeframes. 
-channel_tag | **string**<br>Tag for distinguish audio channels. 
+channel_tag | **string**<br> 
 
 
 ### Alternative {#Alternative}
@@ -225,5 +243,41 @@ Field | Description
 --- | ---
 code_type | enum **CodeType**<br>Code type. 
 message | **string**<br>Human readable message. 
+
+
+### RecognitionClassifierUpdate {#RecognitionClassifierUpdate}
+
+Field | Description
+--- | ---
+window_type | enum **WindowType**<br>Response window type 
+start_time_ms | **int64**<br>Start time of the audio segment used for classification 
+end_time_ms | **int64**<br>End time of the audio segment used for classification 
+classifier_result | **[RecognitionClassifierResult](#RecognitionClassifierResult)**<br>Result for dictionary-based classifier 
+
+
+### RecognitionClassifierResult {#RecognitionClassifierResult}
+
+Field | Description
+--- | ---
+classifier | **string**<br>Name of the triggered classifier 
+highlights[] | **[PhraseHighlight](#PhraseHighlight)**<br>List of highlights, i.e. parts of phrase that determine the result of the classification 
+labels[] | **[RecognitionClassifierLabel](#RecognitionClassifierLabel)**<br>Classifier predictions 
+
+
+### PhraseHighlight {#PhraseHighlight}
+
+Field | Description
+--- | ---
+text | **string**<br>Text transcription of the highlighted audio segment 
+start_time_ms | **int64**<br>Start time of the highlighted audio segment 
+end_time_ms | **int64**<br>End time of the highlighted audio segment 
+
+
+### RecognitionClassifierLabel {#RecognitionClassifierLabel}
+
+Field | Description
+--- | ---
+label | **string**<br>The label of the class predicted by the classifier 
+confidence | **double**<br>The prediction confidence 
 
 

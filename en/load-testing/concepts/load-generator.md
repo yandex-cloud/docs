@@ -10,7 +10,7 @@ Pandora is the main load generator in {{ load-testing-name }}. Pandora is writte
 * HTTP/2
 * HTTP(S)
 
-You can use Pandora as a framework for developing custom versions. This lets you generate a scenario-based load and load most protocols that have client libraries written in Go. For example, WebSocket, PostgreSQL, or DNS.
+You can use Pandora as a framework for developing custom versions. This allows you to generate a scenario-based load and to load most protocols that have client libraries written in Go (such as WebSocket, PostgreSQL, or DNS).
 
 ## Phantom {#phantom}
 

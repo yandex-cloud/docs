@@ -1,19 +1,15 @@
 # Список задач проекта
 
-На вкладке **Список задач** отображаются все задачи, которые [добавлены](create-project.md#add-tickets) в проект. Список отображает структуру проекта: вы можете выстроить иерархию работ в виде дерева подзадач, ранжировать задачи вручную или отсортировать их по одному из полей.
+На вкладке **{{ ui-key.startrek.ui_components_projects_HeaderTabs.issues-tab }}** отображаются все задачи, которые [добавлены](create-project.md#add-tickets) в проект. Список отображает структуру проекта: вы можете выстроить иерархию работ в виде дерева подзадач, ранжировать задачи вручную или отсортировать их по одному из полей.
 
 Чтобы открыть список задач проекта:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**Проекты** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и откройте страницу проекта.
+1. На панели слева выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и откройте страницу проекта.
 
-1. Перейдите на вкладку **Список задач**. 
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_projects_HeaderTabs.issues-tab }}**. 
 
 1. Настройте отображение списка:
 
-    * Чтобы выбрать поля, которые вы хотите видеть в списке задач, нажмите на значок ![](../../_assets/tracker/svg/settings-old.svg). Отметьте нужные поля и нажмите **Применить**.
+  {% include [issues-table-queue-filter-project](../../_includes/tracker/issues-table-queue-filter-project.md) %}
 
-    {% include [task-list-settings](../../_includes/tracker/task-list-settings.md) %}
-
-    * Чтобы закрепить столбец, нажмите на значок ![](../../_assets/tracker/svg/settings-old.svg). Затем в блоке **Добавленные** справа от параметра нажмите ![](../../_assets/tracker/svg/fix.svg). Нажмите **Применить**.   
-
-    * Чтобы отсортировать список в порядке убывания или возрастания значений, указанных в столбцах списка, нажмите на заголовок столбца.
+  {% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}

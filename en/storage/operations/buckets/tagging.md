@@ -2,6 +2,8 @@
 
 A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bucket labeling.
 
+{% include [labels-tags](../../../_includes/storage/labels-tags.md) %}
+
 ## Adding or updating labels {#add-edit-tag}
 
 {% list tabs %}
@@ -22,8 +24,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    Where:
    * `--bucket`: Bucket name.
    * `--tagging`: Array of bucket labels, where:
-      * `Key`: Label key of the string type.
-      * `Value`: Label value of the string type.
+      * `Key`: Label key of the `string` type.
+      * `Value`: Label value of the `string` type.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
 - API
@@ -101,7 +103,6 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
            }
        ]
    }
-   (END)
    ```
 
 - API

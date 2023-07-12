@@ -11,7 +11,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 {% endnote %}
 
 
-To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.encrypterDecrypter` role that allows reading the encryption key (see the [role description](../../../kms/security/index.md#service)).
+To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.decrypter` role that allows reading the encryption key (see the [role description](../../../kms/security/index.md#service)).
 
 
 ## Adding encryption to a bucket {#add}
@@ -100,7 +100,7 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

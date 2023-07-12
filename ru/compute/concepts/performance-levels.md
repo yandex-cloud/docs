@@ -48,12 +48,6 @@
 
 * Платформа Intel Ice Lake Compute-Optimized (`highfreq-v3`):
 
-    {% note info %}
-
-    Чтобы получить доступ к платформе `highfreq-v3`, обратитесь к вашему аккаунт-менеджеру.
-
-    {% endnote %}
-
     Конфигурация | vCPU | RAM, ГБ
     --- | --- | --- 
     Мин. | 2 | 2

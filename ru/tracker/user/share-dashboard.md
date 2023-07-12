@@ -10,7 +10,7 @@
 
 {% note tip %}
 
-Если с вами поделились дашбордом, добавьте его в избранное, чтобы всегда иметь его под рукой. Для этого справа от названия дашборда нажмите ![](../../_assets/tracker/svg/favourites.svg). Избранные дашборды доступны в меню **Дашборды** в верхней панели {{ tracker-name }}.
+Если с вами поделились дашбордом, добавьте его в избранное, чтобы всегда иметь его под рукой. Для этого справа от названия дашборда нажмите ![](../../_assets/tracker/svg/favourites.svg). Избранные дашборды доступны в меню **{{ ui-key.startrek.blocks-desktop_m-head.menu-dashboards }}** в верхней панели {{ tracker-name }}.
 
 {% endnote %}
 
@@ -29,8 +29,8 @@
 
 1. Откройте страницу дашборда.
 
-1. Слева от названия дашборда выберите ![](../../_assets/tracker/icon-settings.png) → **Настроить права доступа**.
+1. Слева от названия дашборда выберите ![](../../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.access-control }}**.
 
-1. В блоке **Сменить владельца** укажите имя нового владельца. 
+1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.change-owner }}** укажите имя нового владельца. 
 
-1. Нажмите кнопку **Применить**.
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_roles-table.apply }}**.

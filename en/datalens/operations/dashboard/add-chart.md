@@ -7,7 +7,7 @@ To add a chart to a dashboard:
 1. Click **Add** and select **Chart**.
 1. Fill in the widget parameters. Pay close attention to the following fields:
 
-   * **Title**. Sets the name of the widget. It's displayed on top of the widget.
+   * **Name**. Sets the name of the widget. It's displayed on top of the widget.
    * **Chart**. Sets the widget to add. Select a chart:
 
       {% list tabs %}
@@ -19,6 +19,7 @@ To add a chart to a dashboard:
       - Via a link
 
          Click **Specify link**. Enter the chart URL in the input field. Click **OK** on the right.
+
 
       {% endlist %}
 

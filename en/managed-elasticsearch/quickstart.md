@@ -23,8 +23,7 @@ To get started with the service:
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based virtual machine, which must be in the same network as the cluster.
-   
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine, which must be in the same network as the cluster.
 
    * To connect to a cluster from the internet, when creating a cluster, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node).
 
@@ -47,7 +46,7 @@ These instructions assume that you're connecting to the cluster from the interne
    1. Select **Public access**.
    1. Click **Save**.
 
-   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. To connect to the cluster, you may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) (this feature is in the [Preview](../overview/concepts/launch-stages.md) stage).
+   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster. 
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -57,9 +56,13 @@ These instructions assume that you're connecting to the cluster from the interne
 
 ## Configure security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../_includes/preview-pp.md) %}
+{% note info %}
 
-If you are using security groups for a cloud network, [configure them](operations/cluster-connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
+
+[Configure security groups](operations/cluster-connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 
 ## Connect to the cluster {#connect}

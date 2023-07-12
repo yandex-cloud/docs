@@ -64,45 +64,69 @@
 
 ## Создайте бакет {#create-service-account}
 
-[Создайте бакет](../../storage/operations/buckets/create.md) с любым именем, например `terraform-object-storage-tutorial`. В нем будет храниться файл состояния {{ TF }}.
+[Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
 
 ## Настройте бэкенд {#set-up-backend}
 
-Чтобы сохранить состояние {{ TF }} в {{ objstorage-name }}, укажите настройки провайдера и бэкенда:
+1. Добавьте в переменные окружения идентификатор ключа и секретный ключ, [полученные ранее](#create-service-account):
 
+    {% list tabs %}
 
-```hcl
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
+    - Bash
+
+      ```bash
+      export ACCESS_KEY="<идентификатор_ключа>"
+      export SECRET_KEY="<секретный_ключ>"
+      ```
+    
+    - PowerShell
+
+      ```powershell
+      $Env:ACCESS_KEY="<идентификатор_ключа>"
+      $Env:SECRET_KEY="<секретный_ключ>"
+      ```
+
+    {% endlist %}
+
+1. Добавьте настройки провайдера и бэкенда в конфигурационный файл:
+
+    
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+
+      backend "s3" {
+        endpoint   = "{{ s3-storage-host }}"
+        bucket     = "<имя_бакета>"
+        region     = "{{ region-id }}"
+        key        = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
+
+        skip_region_validation      = true
+        skip_credentials_validation = true
+      }
     }
-  }
 
-  backend "s3" {
-    endpoint   = "{{ s3-storage-host }}"
-    bucket     = "<имя бакета>"
-    region     = "{{ region-id }}"
-    key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
-    access_key = "<идентификатор статического ключа>"
-    secret_key = "<секретный ключ>"
-
-    skip_region_validation      = true
-    skip_credentials_validation = true
-  }
-}
-
-provider "yandex" {
-  token     = "<OAuth или статический ключ сервисного аккаунта>"
-  cloud_id  = "<идентификатор облака>"
-  folder_id = "<идентификатор каталога>"
-  zone      = "<зона доступности по умолчанию>"
-}
-```
+    provider "yandex" {
+      token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
+      cloud_id  = "<идентификатор_облака>"
+      folder_id = "<идентификатор_каталога>"
+      zone      = "<зона_доступности_по_умолчанию>"
+    }
+    ```
 
 
 
-Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
+    Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
+
+1. В папке с конфигурационным файлом выполните команду:
+
+    ```bash
+    terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
+    ```
 
 {% include [deploy-infrastructure-step](../_tutorials_includes/deploy-infrastructure-step.md) %}
 
@@ -127,9 +151,9 @@ provider "yandex" {
    }
 
    provider "yandex" {
-     token     = "<OAuth или статический ключ сервисного аккаунта>"
-     cloud_id  = "cloud-id"
-     folder_id = "folder-id"
+     token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
+     cloud_id  = "<идентификатор_облака>"
+     folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -137,11 +161,9 @@ provider "yandex" {
      backend = "s3"
      config = {
        endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<имя бакета>"
+       bucket     = "<имя_бакета>"
        region     = "{{ region-id }}"
-       key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
+       key        = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
@@ -178,7 +200,7 @@ provider "yandex" {
 1. Выполните команду `terraform init`.
 1. Выполните команду `terraform plan`. В терминале должен отобразиться план создания одной ВМ.
 1. Выполните команду `terraform apply`.
-1. Перейдите в консоль управления и убедитесь, что в разделе {{ compute-name }} появилась ВМ `vm-3`.
+1. Перейдите в консоль управления и убедитесь, что в разделе {{ compute-name }} появилась ВМ `terraform3`.
 
 ## Удалите созданные ресурсы {#clear-out}
 

@@ -101,6 +101,10 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 {% endlist %}
 
 
+## {{ metastore-full-name }} cluster pricing
+
+This functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
+
 ## Pricing {#prices}
 
 ### Host computing resources {#prices-hosts}

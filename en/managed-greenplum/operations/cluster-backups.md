@@ -43,9 +43,9 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mgp-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mgp-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -67,7 +67,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    To find out the ID, [retrieve a list of backups](#list-backups).
 
@@ -136,11 +136,11 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `--backup-id`: [backup](../concepts/backup.md) ID.
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ GP }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ GP }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -159,7 +159,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.

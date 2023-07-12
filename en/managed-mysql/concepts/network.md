@@ -44,7 +44,7 @@ In addition to host names, to connect to a cluster, you can use [special FQDNs](
 
 {% note info %}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ In addition to host names, to connect to a cluster, you can use [special FQDNs](
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configure-security-groups) security groups both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect.md#configure-security-groups) security groups both for the cluster and for the connecting host.
 
 {% endnote %}
 

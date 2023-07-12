@@ -17,18 +17,18 @@
 * Глобальный уровень доступа к {{ tracker-name }}:
     * [Администратор](#admin). 
     * [Сотрудник с полным доступом](access.md#set).
-    * [Сотрудник с правом <q>Чтение</q>](access.md#readonly).
+    * [Сотрудник с правом <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q>](access.md#readonly).
 
 * Права доступа к отдельным элементам структуры {{ tracker-name }}:
     * [Задачи очереди](manager/queue-access.md). Права на создание, просмотр и редактирование задач  может настроить владелец очереди или другой пользователь, которому владелец разрешил изменять [настройки очереди](manager/edit-queue-general.md).
     
        Доступ к задачам очереди можно настроить для отдельных пользователей, групп и ролей:
-        * **Доступ** — пользователи, перечисленные в поле **Доступ** задачи;
-        * **Наблюдатель** — пользователи, подписавшиеся на задачу;
-        * **Автор** — автор задачи;
-        * **Исполнитель** — исполнитель задачи;
-        * **Владелец очереди**;
-        * **Участник команды очереди** — пользователи, добавленные в [команду очереди](manager/queue-team.md).
+        * **{{ ui-key.startrek-backend.roles.role.name.access }}** — пользователи, перечисленные в поле **{{ ui-key.startrek-backend.fields.issue.access }}** задачи;
+        * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}** — пользователи, подписавшиеся на задачу;
+        * **{{ ui-key.startrek-backend.roles.role.name.author }}** — автор задачи;
+        * **{{ ui-key.startrek-backend.roles.role.name.assignee }}** — исполнитель задачи;
+        * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**;
+        * **{{ ui-key.startrek-backend.roles.role.name.team-member }}** — пользователи, добавленные в [команду очереди](manager/queue-team.md).
     
         Чтобы ограничить доступ пользователей к определенным задачам внутри очереди, можно использовать [компоненты](manager/queue-access.md#access-components).
 
@@ -88,13 +88,13 @@
 * Работа с [досками задач](user/agile.md) и [дашбордами](user/dashboard.md).
 * Настройка [интерфейса](user/personal.md) и [уведомлений](user/notifications.md).
 
-#### Сотрудники с правом <q>Чтение</q> {#read-only}
+#### Сотрудники с правом <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> {#read-only}
 
-Сотрудники, которые работают в режиме <q>Чтение</q>, могут использовать возможности {{ tracker-name }}, связанные с просмотром задач. Для таких сотрудников плата за использование сервиса не взимается.
+Сотрудники, которые работают в режиме <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q>, могут использовать возможности {{ tracker-name }}, связанные с просмотром задач. Для таких сотрудников плата за использование сервиса не взимается.
 
-Если [администратор](#admin) имеет доступ к {{ tracker-name }} в режиме <q>Чтение</q>, он может изменить параметры доступа для своей учетной записи самостоятельно.
+Если [администратор](#admin) имеет доступ к {{ tracker-name }} в режиме <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q>, он может изменить параметры доступа для своей учетной записи самостоятельно.
 
-Действия, доступные в режиме <q>Только чтение</q>:
+Действия, доступные в режиме <q>{{ ui-key.startrek.components_Licenses.department-access-title--readOnly }}</q>:
 
 * Просмотр задач, [дашбордов](user/dashboard.md) и [досок задач](manager/agile.md#sec_boards).
 * Поиск задач с помощью [конструктора фильтров](user/create-filter.md) и [языка запросов](user/query-filter.md).

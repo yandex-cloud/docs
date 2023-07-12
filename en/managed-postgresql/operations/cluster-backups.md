@@ -26,6 +26,8 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
+   {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
+
    **To restore an existing cluster from a backup:**
 
    1. Go to the folder page and select **{{ mpg-name }}**.
@@ -105,12 +107,12 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       Where:
 
-      * `--backup-id`: [backup](../concepts/backup.md) ID
+      * `--backup-id`: [Backup](../concepts/backup.md) ID
       * `--time`: Point in time to which you need to restore a {{ PG }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ PG }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ PG }} service itself. The Prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).

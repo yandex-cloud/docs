@@ -25,12 +25,6 @@ To increase the quotas, contact [support]({{ link-console-support }}).
 
 {% include [group-add-member.md](../_includes/organization/group-add-member.md) %}
 
-{% note info %}
-
-You can't add [service accounts](../iam/concepts/users/service-accounts.md) to a group.
-
-{% endnote %}
-
 ## Editing a group {#edit-group}
 
 {% include [group-edit](../_includes/organization/group-edit.md) %}

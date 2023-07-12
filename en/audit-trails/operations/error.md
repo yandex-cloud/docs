@@ -20,7 +20,7 @@ Destination objects:
 ### ACCESS_DENIED {#bucket-access-denied}
 
 * Make sure the service account used by the trail to upload audit logs to the bucket is assigned the `storage.uploader` or a higher [role](../../iam/concepts/access-control/roles.md#storage-uploader).
-* If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, make sure the service account used by the trail to upload audit logs to the bucket has the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) for the key.
+* If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, make sure the service account used by the trail to upload audit logs to the bucket has the `kms.keys.decrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-decrypter) for the key.
 * If the trail delivers events to the encrypted bucket, check that the {{ kms-name }} key for this bucket exists.
 * Check the bucket [access control list (ACL)](../../storage/concepts/acl.md) and [bucket policy](../../storage/concepts/policy.md) and make sure they contain no rules that disable the service account to write data to the bucket.
 
@@ -38,7 +38,7 @@ Check the bucket specified in the [trail settings](../concepts/trail.md#trail-se
 1. [Create](../../storage/operations/buckets/create.md) a new bucket with the same name as that specified in the trail settings.
 
    You can also change the trail settings by specifying a different bucket under **Destination**.
-1. If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, grant the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-encrypterdecrypter) for the key to the service account used by the trail to upload audit logs to the bucket.
+1. If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, grant the `kms.keys.decrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-decrypter) for the key to the service account used by the trail to upload audit logs to the bucket.
 
 
 ### BUCKET_INVALID_ENCRYPTION {#bucket-invalid-encryption}

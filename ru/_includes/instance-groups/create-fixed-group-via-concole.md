@@ -10,6 +10,9 @@
      {% include [name-fqdn](../compute/name-fqdn.md) %}
 
    * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+
+     {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
+
    * При необходимости включите опцию **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**. Пока опция включена, группу удалить невозможно.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите нужные. ВМ группы могут находиться в [разных зонах и регионах доступности](../../overview/concepts/geo-scope.md).
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:

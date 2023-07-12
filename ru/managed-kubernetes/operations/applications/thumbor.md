@@ -12,7 +12,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте бакет в {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 1. [Загрузите изображения в бакет](../../../storage/operations/objects/upload.md#simple).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Thumbor.
 1. Создайте для него [статический ключ](../../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:

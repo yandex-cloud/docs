@@ -37,4 +37,4 @@ STARTSWITH(ARRAY(1, 2, 3), ARRAY(2, 3)) = FALSE
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `PostgreSQL 9.3`.

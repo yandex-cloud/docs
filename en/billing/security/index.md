@@ -87,7 +87,7 @@ A billing account owner can add any {{ yandex-cloud }} user to the **Users** lis
 1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
 1. Click **Add user**.
-1. Enter the Yandex ID or {{ yandex-360 }} account username. The drop-down list will display the users who meet the search conditions. Select the one you need.
+1. Select a user from the drop-down list. The list shows users from your organization.
 1. Click **Add**.
 
 The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign the user the desired role.

@@ -14,7 +14,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
 
-   In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
 
 - CLI
 
@@ -37,7 +37,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - API
 
-   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of DB clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/cluster_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -48,8 +48,8 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the desired cluster.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
+   1. Click the name of the cluster you need.
 
 - CLI
 
@@ -67,7 +67,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
@@ -81,8 +81,8 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the desired cluster.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
+   1. Click the name of the cluster you need.
    1. Go to the **Operations** tab.
 
 - CLI
@@ -101,6 +101,8 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - API
 
-   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) method.
+   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}

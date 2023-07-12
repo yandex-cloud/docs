@@ -11,7 +11,7 @@ For more information about selecting a different primary replica, see the [{{ MG
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Click ![options](../../_assets/horizontal-ellipsis.svg) in the row of the `PRIMARY` host and select **Change master**.
 
 - CLI
@@ -31,7 +31,7 @@ For more information about selecting a different primary replica, see the [{{ MG
 
 - API
 
-   Use the API [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) method and pass the following in the request:
+   To switch to a different primary replica, use the [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StepdownHosts](../api-ref/grpc/cluster_service.md#StepdownHosts) gRPC API call and provide the following in the request:
 
    * In the `clusterId` parameter, the ID of the cluster where you want to change the primary replica. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * In the `hostNames` parameter, the name of the current primary replica. To find out the name, request a [list of hosts in the cluster](hosts.md#list).

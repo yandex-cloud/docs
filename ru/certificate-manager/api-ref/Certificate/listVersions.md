@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listVersions.m
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}/versions
+GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}/versions
 ```
  
 ## Path parameters {#path_params}

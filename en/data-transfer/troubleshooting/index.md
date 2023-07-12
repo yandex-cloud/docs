@@ -17,6 +17,8 @@ Key features about preparing sources and targets for a transfer are described in
 
 Limitations on sources and targets while a transfer is running are described in [{#T}](../operations/db-actions.md).
 
+You can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
+
 ## General {#common}
 
 {% include [long-time](../../_includes/data-transfer/troubles/long-time.md) %}
@@ -77,6 +79,8 @@ Error example:
 
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
 
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
 ## {{ PG }} {#postgresql}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
@@ -110,6 +114,8 @@ Error example:
 {% include [external-replication](../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

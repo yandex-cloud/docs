@@ -16,7 +16,7 @@ In this section, you will learn:
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or secret. These roles also apply to nested resources. The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
-![image](../../_assets/lockbox/service-roles-hierarchy.png)
+![image](../../_assets/lockbox/service-roles-hierarchy.svg)
 
 ## Which roles exist in the service {#roles-list}
 
@@ -41,13 +41,13 @@ The table below lists the roles needed to perform a particular action. You can a
 
 | Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter` |
 ----- | ----- | ----- | ----- | ----- | -----
-| Create and delete secrets | ✔ | ✔ | - | - | - |
-| Change the metadata of the secret | ✔ | ✔ | - | - | - |
-| Read the metadata of the secret | ✔ | ✔ | ✔ | - | - |
-| Change the content of the secret version | ✔ | ✔ | - | - | - |
-| Read the content of the secret version | ✔ | - | - | ✔ | - |
-| Control access to the secret | ✔ | - | - | - | - |
-| Secret encryption and decryption operations | - | - | - | - | ✔ |
+| Create and delete secrets | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
+| Change the metadata of the secret | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
+| Read the metadata of the secret | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - |
+| Change the content of the secret version | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
+| Read the content of the secret version | ![image](../../_assets/common/yes.svg) | - | - | ![image](../../_assets/common/yes.svg) | - |
+| Control access to the secret | ![image](../../_assets/common/yes.svg) | - | - | - | - |
+| Secret encryption and decryption operations | - | - | - | - | ![image](../../_assets/common/yes.svg) |
 
 #### What's next {#what-is-next}
 

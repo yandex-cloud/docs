@@ -1,4 +1,4 @@
-# Delivering data from {{ mkf-full-name }} to {{ mmg-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from a {{ KF }} queue to {{ MG }} using {{ data-transfer-full-name }}
 
 A {{ mmg-name }} cluster can get data from {{ KF }} topics in real time.
 
@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
+      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the topic created.
 
       1. [Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md) in any suitable configuration with the following settings:
 
@@ -289,7 +289,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Check that the `sensors` collection in the {{ mmg-name }} cluster contains the sent data:
 
-   1. [Connect to the cluster {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md)
+   1. [Connect to the cluster {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md).
 
    1. Get the contents of the `sensors` collection using the query below:
 

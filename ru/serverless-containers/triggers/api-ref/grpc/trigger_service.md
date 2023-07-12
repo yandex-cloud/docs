@@ -157,6 +157,7 @@ Field | Description
 log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
@@ -435,6 +436,7 @@ Field | Description
 log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings1)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
@@ -733,6 +735,7 @@ Field | Description
 log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings2)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
@@ -1031,6 +1034,7 @@ Field | Description
 log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings3)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
@@ -1365,6 +1369,7 @@ Field | Description
 log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings4)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
@@ -1659,6 +1664,7 @@ Field | Description
 log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+stream_name[] | **string**<br> Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
 batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings5)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>

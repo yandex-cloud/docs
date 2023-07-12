@@ -28,7 +28,7 @@ You can use the FQDN to access the host within a single cloud network. Read more
 
 Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to this kind of host, use its FQDN.
 
-It is not possible to request a public address after creating a host, but you can replace one of the existing hosts with a new host that has a public address.
+You cannot request a public address after creating a host; however, you can replace one of the existing hosts with a new one that has a public address.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
@@ -36,7 +36,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% note info %}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% endnote %}
 
@@ -44,7 +44,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
 
 {% endnote %}
 

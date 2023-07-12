@@ -299,6 +299,8 @@ hadoop distcp \
   Получив доступ, вы можете читать файл напрямую из {{ objstorage-name }}:
 
   ```python
+  from pyspark.sql import SQLContext
+
   sql = SQLContext(sc)
   df = sql.read.parquet("s3a://<имя бакета>/<путь к объекту>")
   ```

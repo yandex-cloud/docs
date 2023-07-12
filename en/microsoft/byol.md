@@ -47,7 +47,7 @@ You can import the image using the [{{ compute-name }} REST API](../compute/api-
    - Bash
 
       ```bash
-      curl -H "Authorization: Bearer `yc iam create-token`" -H "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
+      curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
       ```
 
    - PowerShell
@@ -118,7 +118,7 @@ Create a group of dedicated hosts [according to the instructions](../compute/ope
 
 ### Create a VM from your image on the dedicated host {#create-vm}
 
-On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can create a VM only using the CLI, API, or Terraform. Run the following command:
+On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can only create a VM using the CLI, API, or Terraform. Run this command:
 
 {% list tabs %}
 
@@ -143,13 +143,13 @@ On the dedicated host, create a VM with the boot disk from the imported image. S
 
 {% note warning %}
 
-If you don't have a password reset agent, [install](../compute/operations/vm-guest-agent/install.md) it.
+If you do not have a password reset agent, [install](../compute/operations/vm-guest-agent/install.md) it.
 
 {% endnote %}
 
 To access the VM, reset the default administrator password and generate a new one.
 
-1. Open the [management console]({{ link-console-main }}).
+1. Open the [management console]({{link-console-main}}).
 1. Select **{{ compute-name }}**.
 1. Find the `win-test` VM in the list and wait until its status changes to `RUNNING`. Select the VM.
 1. Click **Reset password**.

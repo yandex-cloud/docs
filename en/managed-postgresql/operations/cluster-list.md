@@ -3,7 +3,7 @@ title: "Information about clusters in {{ mpg-short-name }}"
 description: "You can request detailed information about each {{ mpg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mpg-name }}."
 ---
 
-# Information about existing {{ PG }} clusters
+# Getting information about existing {{ PG }} clusters
 
 You can request detailed information about each {{ mpg-short-name }} cluster you created.
 
@@ -94,7 +94,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    To get a list of operations, run the following command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster list-operations <cluster name and ID>
+   {{ yc-mdb-pg }} cluster list-operations <cluster name or ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).

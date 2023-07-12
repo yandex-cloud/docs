@@ -6,7 +6,7 @@ The difference is that when calculating window functions, the rows are not combi
 
 
 
-These examples will use [Selling.csv](https://disk.yandex.com/d/pT2f56G7bNaFvg) containing sales data by city as the data source to process.
+These examples will use [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) containing sales data by city as the data source to process.
 
 ## Applying window functions {#usage-window-function}
 

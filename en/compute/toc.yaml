@@ -291,7 +291,7 @@ items:
             href: concepts/performance-levels.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
-          - name: Network on a VM
+          - name: VM networking
             href: concepts/network.md
           - name: Software-accelerated network
             href: concepts/software-accelerated-network.md
@@ -461,6 +461,8 @@ items:
                 href: api-ref/Disk/listOperations.md
               - name: move
                 href: api-ref/Disk/move.md
+              - name: relocate
+                href: api-ref/Disk/relocate.md
               - name: update
                 href: api-ref/Disk/update.md
           - name: DiskType
@@ -579,6 +581,8 @@ items:
                 href: api-ref/Instance/listOperations.md
               - name: move
                 href: api-ref/Instance/move.md
+              - name: relocate
+                href: api-ref/Instance/relocate.md
               - name: removeOneToOneNat
                 href: api-ref/Instance/removeOneToOneNat.md
               - name: restart

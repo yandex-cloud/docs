@@ -1,4 +1,4 @@
-### kms.editor {#kms-editor}
+#### kms.editor {#kms-editor}
 
 В роль `kms.editor` входят следующие разрешения:
 

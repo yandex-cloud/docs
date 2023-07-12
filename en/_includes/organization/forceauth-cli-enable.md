@@ -1,0 +1,1 @@
+`force-authn`: Flag that requires user re-authentication once a session expires in {{ yandex-cloud }}.

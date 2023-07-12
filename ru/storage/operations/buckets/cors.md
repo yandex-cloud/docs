@@ -35,7 +35,7 @@
       +------------------+----------------------+-------------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
    
@@ -65,7 +65,7 @@
 
         ```yaml
         name: first-bucket
-        folder_id: b1gmit33ngp6cv2mhjmo
+        folder_id: b1gmit33ngp6********
         default_storage_class: STANDARD
         versioning: VERSIONING_DISABLED
         max_size: "53687091200"

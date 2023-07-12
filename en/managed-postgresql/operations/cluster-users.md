@@ -47,6 +47,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 ## Adding a user {#adduser}
 
+{% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
+
 {% list tabs %}
 
 - Management console

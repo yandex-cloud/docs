@@ -34,7 +34,6 @@ description: "Управление доступом в сервисе созда
 
 {% include [mkf-admin](../../_includes/iam/roles/mkf-admin.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
 {% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 

@@ -34,7 +34,7 @@ message | **bytes**<br>Required. Message to sign. Should be encoded with base64.
 Field | Description
 --- | ---
 key_id | **string**<br>ID of the asymmetric KMS key that was used for signature. 
-signature | **bytes**<br>Value of signature. 
+signature | **bytes**<br>Value of signature. Signature value is produced in accordance with RFC 8017 for RSA and is a DER-encoded object as defined by ANSI X9.62-2005 and RFC 3279 Section 2.2.3 for ECDSA. 
 
 
 ## SignHash {#SignHash}
@@ -56,7 +56,7 @@ hash | **bytes**<br>Required. Hash value to be signed. Should be encoded with ba
 Field | Description
 --- | ---
 key_id | **string**<br>ID of the asymmetric KMS key that was used for signature. 
-signature | **bytes**<br>Value of signature. 
+signature | **bytes**<br>Value of signature. Signature value is produced in accordance with RFC 8017 for RSA and is a DER-encoded object as defined by ANSI X9.62-2005 and RFC 3279 Section 2.2.3 for ECDSA. 
 
 
 ## GetPublicKey {#GetPublicKey}

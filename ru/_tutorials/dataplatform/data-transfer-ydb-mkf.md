@@ -113,7 +113,7 @@
 
    Добавьте в таблицу колонки вручную:
 
-    | {{ ui-key.yacloud.ydb.browse.info.column_name }}                 | {{ ui-key.yacloud.ydb.browse.info.column_type }}      | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
+    | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
     |:--------------------|:---------|:---------------|
     | `device_id`         | `String` | Да             |
     | `datetime`          | `String` |                |

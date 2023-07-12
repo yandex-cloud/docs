@@ -11,8 +11,6 @@ To establish a quorum, at least 50% of the cluster replicas must be part of it. 
 
 The quorum is established over again when the cluster topology changes, i.e., after [adding](../operations/hosts.md#add) and [deleting](../operations/hosts.md#remove) hosts, their failure, during their maintenance, return to service, etc. The host added to the cluster is first synchronized with the master host and only then can become part of the quorum.
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
-
 For more information about how replication works in {{ PG }}, read the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
 ## Managing replication {#replication}
@@ -30,7 +28,7 @@ Specifics of automatic replication in {{ mpg-name }}:
 * If the master host fails, its replica becomes a new master.
 * When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
-For more information, see [{#T}](#selecting-the-master).
+You can disable autofailover [by changing additional cluster settings](../operations/update.md#change-additional-settings). If the current master host fails, you will have to run the selection of a new master or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
 
 ### Manual management of replication streams {#replication-manual}
 
@@ -45,23 +43,10 @@ For example, this way, you can configure cascading replication when some of the 
 
 Replicas, for which the replication source is specified manually, cannot:
 
-* Become a master host when the previous one is changed automatically or [manually](../operations/update.md#start-manual-failover) (regardless of the [priority](#selecting-the-master) value).
+* Become a master host when the previous one is changed automatically or [manually](../operations/update.md#start-manual-failover).
 * Automatically switch to a new replication source when the current replication source fails.
 * Be part of quorum replication.
 * Be selected as [least lagging](../operations/connect.md#fqdn-replica) replicas when using a special FQDN.
-
-## Selecting a master host {#selecting-the-master}
-
-To modify the process of selecting a master host in a {{ PG }} cluster, [set the appropriate priority values](../operations/hosts.md#update) for hosts in a cluster. The host with the highest priority is selected as a master host. If there are multiple replicas with the same priority, the master host will be selected among them.
-
-You can set the priority for a host:
-
-* When [creating a cluster](../operations/cluster-create.md) with the YC CLI, API, or {{ TF }}.
-* When [changing the host settings](../operations/hosts.md#update).
-
-The lowest priority is `0` (default), while the highest one is `100`.
-
-You can disable autofailover [by changing additional cluster settings](../operations/update.md#change-additional-settings). If the current master host fails, you will have to run the selection of a new master or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 

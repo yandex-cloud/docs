@@ -88,12 +88,6 @@ editable: false
 
 ### Подготовленные экземпляры {#provisioned-instances}
 
-{% note info %}
-
-Цены действуют с 17 октября 2022 года.
-
-{% endnote %}
-
 
 {% include [rub.md](../_pricing/functions/rub-compute-provisioned-instances.md) %}
 

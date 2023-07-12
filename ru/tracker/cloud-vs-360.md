@@ -54,7 +54,7 @@
 
 Администратор организации {{ ya-360 }} может сменить организацию для {{ tracker-name }} и перейти на {{ org-full-name }}.
 
-* Если у вас уже подключена организация {{ org-full-name }}, переход на нее будет выполнен автоматически, никаких дополнительных действий не требуется. Проверить подключение можно на странице ![](../_assets/tracker/svg/admin.svg) **Администрирование** → ![](../_assets/tracker/svg/organizations.svg) [**Организации**]({{ link-tracker }}admin/orgs).
+* Если у вас уже подключена организация {{ org-full-name }}, переход на нее будет выполнен автоматически, никаких дополнительных действий не требуется. Проверить подключение можно на странице ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs).
 
 * Если у вас есть организация {{ org-full-name }}, на которую вы хотите перейти, но которая подключена к другому {{ tracker-name }}, {{ wiki-name }} или {{ forms-name }}, обратитесь в [службу поддержки](troubleshooting.md). Это связано с тем, что все данные при переключении будут удалены.
 
@@ -62,9 +62,9 @@
 
 1. Если у вас еще нет организации в {{ org-full-name }}, создайте ее по [инструкции](../organization/enable-org.md). Если организация у вас уже есть, пропустите этот шаг.
 
-1. В {{ tracker-name }}, на панели слева, нажмите ![](../_assets/tracker/svg/admin.svg) **Администрирование** → ![](../_assets/tracker/svg/organizations.svg) [**Организации**]({{ link-tracker }}admin/orgs). В блоке организаций {{ org-full-name }} нажмите **Подключить** и выберите организацию. Дождитесь синхронизации пользователей и групп из {{ org-full-name }} в {{ tracker-name }} — она занимает до 30 минут.
+1. В {{ tracker-name }}, на панели слева, нажмите ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs). В блоке организаций {{ org-full-name }} нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.domain-task-action }}** и выберите организацию. Дождитесь синхронизации пользователей и групп из {{ org-full-name }} в {{ tracker-name }} — она занимает до 30 минут.
 
-1. В сервисе {{ org-full-name }} добавьте [пользователей](../organization/manage-users.md) и [группы](../organization/manage-groups.md) — как в {{ ya-360 }}. Название группы в {{ tracker-name }} формируется из поля **Описание**, а если оно не задано, то из поля **Название**.
+1. В сервисе {{ org-full-name }} добавьте [пользователей](../organization/manage-users.md) и [группы](../organization/manage-groups.md) — как в {{ ya-360 }}. Название группы в {{ tracker-name }} формируется из поля **{{ ui-key.startrek.blocks-desktop_b-form-new-component.desc }}**, а если оно не задано, то из поля **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}**.
 
    {% note info %}
 
@@ -78,7 +78,7 @@
 
    {% note info %}
 
-   В настройках доступа для групп ![](../_assets/tracker/svg/admin.svg) **Администрирование** → [**Группы**]({{ link-tracker }}admin/groups) вы увидите 2 группы **Все сотрудники**: одна из них с сотрудниками из организации {{ ya-360 }}, а другая — с сотрудниками из обеих организаций.
+   В настройках доступа для групп ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}**]({{ link-tracker }}admin/groups) вы увидите 2 группы **Все сотрудники**: одна из них с сотрудниками из организации {{ ya-360 }}, а другая — с сотрудниками из обеих организаций.
 
    {% endnote %}
 

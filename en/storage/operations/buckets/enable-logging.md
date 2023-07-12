@@ -24,34 +24,34 @@ To log requests to the bucket:
 
       To enable logging via the [AWS CLI](../../tools/aws-cli.md):
 
-      1. Create a file with logging settings in JSON format. For example:
+      1. Create a file with logging settings in JSON format, e.g.:
 
          ```json
          {
             "LoggingEnabled": {
-               "TargetBucket": "<bucket_name>",
-               "TargetPrefix": "<key_prefix>"
+               "TargetBucket": "<target bucket name>",
+               "TargetPrefix": "<key prefix>"
             }
          }
          ```
 
          Where:
 
-         * `TargetBucket`: Target bucket name.
+         * `TargetBucket`: Name of the target bucket to write logs to.
          * `TargetPrefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
       1. Enable logging in the bucket:
 
          ```bash
          aws s3api put-bucket-logging \
-           --bucket <bucket_name> \
+           --bucket <source bucket name> \
            --endpoint-url https://{{ s3-storage-host }} \
-           --bucket-logging-status file://<path_to_settings_file>
+           --bucket-logging-status file://<path to settings file>
          ```
 
          Where:
 
-         * `bucket`: Name of the bucket to upload audit logs to.
+         * `bucket`: Name of the source bucket to enable action logging for.
          * `bucket-logging-status`: Path to the logging settings file.
 
    - {{ TF }}
@@ -90,7 +90,7 @@ To log requests to the bucket:
          * `access_key`: ID of the static access key.
          * `secret_key`: Value of the secret access key.
          * `target_bucket`: Target bucket.
-         * `target_prefix`: [Key prefix](../../concepts/server-logs.md#key-prefix) for objects with logs. For example, `logs/`.
+         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
          For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#enable-logging).
 
@@ -98,7 +98,7 @@ To log requests to the bucket:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    - API
 
@@ -118,7 +118,7 @@ To log requests to the bucket:
       Where:
 
       * `<TargetBucket>`: Target bucket name.
-      * `<TargetPrefix>`: [Key prefix](../../concepts/server-logs.md#key-prefix) for objects with logs. For example, `logs/`. This is an optional parameter.
+      * `<TargetPrefix>`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`. This is an optional parameter.
 
    {% endlist %}
 
@@ -130,7 +130,7 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
 - AWS CLI
 
-   To get logging settings via the [AWS CLI](../../tools/aws-cli.md):
+   To retrieve the logging settings via the [AWS CLI](../../tools/aws-cli.md):
 
    1. Run this command:
 
@@ -198,7 +198,7 @@ To disable logging, follow these steps:
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about the {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To disable the logging mechanism:
@@ -237,7 +237,7 @@ To disable logging, follow these steps:
 
 - API
 
-   Use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method. In the request body, provide the `<BucketLoggingStatus>` parameter with an empty value.
+   Use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method. In the request body, send the `<BucketLoggingStatus>` parameter with an empty value.
 
    Example of the HTTP request body:
 

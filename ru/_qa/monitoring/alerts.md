@@ -17,14 +17,10 @@
 * SMS;
 * push-уведомления в [мобильном приложении](../../overview/mobile-app/index.md) {{ yandex-cloud }}.
 
-В качестве получателя почтовых уведомлений нужно указать аккаунт в {{ yandex-cloud }}. Это может быть аккаунт владельца или специально добавленный для этих целей [дополнительный аккаунт](https://yandex.ru/support/id/authorization/lite.html).
-
-
-Если выбран метод SMS, телефонный номер должен быть привязан к аккаунту.
-
+{% include [account-info](../../_includes/monitoring/account-info.md) %}
 
 #### Почему пользователю не приходят алерты? {#alert-receive-failed}
 
 Проверьте настройки почтового ящика и номера телефона в аккаунте пользователя в [канале уведомлений](../../monitoring/concepts/alerting.md#channel-parameters).
 
-Проверьте [настройки]({{ link-console-main }}/settings) консоли управления. В разделах **Настройки номера телефона** и **Настройки почтового ящика** должна быть включена опция `Мониторинг`.
+{% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}

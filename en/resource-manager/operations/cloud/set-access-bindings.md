@@ -105,7 +105,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       }
       ```
 
-   1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
+   1. Find out the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -150,7 +150,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
    1. Describe the properties of the cloud access rights in a configuration file:
       * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
       * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
-      * `members` section: List of users to assign the role to. Each entry may have one of the following values:
+      * `member`: User to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/users-get.md).
@@ -171,7 +171,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 
 
-      For more information about the parameters of the `yandex_resourcemanager_cloud_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
+      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
@@ -179,7 +179,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
@@ -325,7 +325,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
@@ -459,7 +459,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.

@@ -1,4 +1,4 @@
-title: '{{ yandex-cloud }} Documentation'
+title: '{{ yandex-cloud }} documentation'
 href: index.yaml
 items:
   - name: '{{ yandex-cloud }} API'
@@ -11,6 +11,8 @@ items:
     href: audit-trails/index.yaml
   - name: Billing
     href: billing/index.yaml
+  - name: Cloud CDN
+    href: cdn/index.yaml
   - name: Certificate Manager
     href: certificate-manager/index.yaml
   - name: '{{ yandex-cloud }} CLI'
@@ -33,6 +35,8 @@ items:
     href: data-proc/index.yaml
   - name: Data Transfer
     href: data-transfer/index.yaml
+  - name: Data Streams
+    href: data-streams/index.yaml
   - name: DataLens
     href: datalens/index.yaml
   - name: DataSphere
@@ -61,8 +65,6 @@ items:
     href: managed-clickhouse/index.yaml
   - name: Managed Service for Elasticsearch
     href: managed-elasticsearch/index.yaml
-  - name: Managed Service for GitLab
-    href: managed-gitlab/index.yaml
   - name: Managed Service for Greenplum®
     href: managed-greenplum/index.yaml
   - name: Managed Service for Kubernetes®
@@ -89,13 +91,13 @@ items:
     href: network-load-balancer/index.yaml
   - name: Cloud Organization
     href: organization/index.yaml
-  - name: '{{ yandex-cloud }} Overview'
+  - name: '{{ yandex-cloud }} overview'
     href: overview/index.yaml
   - name: '{{ yandex-cloud }} partner program'
     href: partner/index.yaml
   - name: Resource Manager
     href: resource-manager/index.yaml
-  - name: '{{ yandex-cloud }} practical guidelines'
+  - name: '{{ yandex-cloud }} tutorials'
     href: tutorials/index.yaml
   - name: Security in {{ yandex-cloud }}
     href: security/index.yaml
@@ -121,4 +123,8 @@ items:
     href: wiki/index.yaml
   - name: '{{ ydb-name }}'
     href: ydb/index.yaml
+  - name: Query
+    href: query/index.yaml
+  - name: YandexGPT
+    href: yandexgpt/index.yaml
 base: en

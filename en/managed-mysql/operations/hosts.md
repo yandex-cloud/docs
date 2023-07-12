@@ -179,7 +179,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -282,7 +282,7 @@ For each host in a {{ mmy-name }} cluster, you can:
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 

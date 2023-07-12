@@ -1,4 +1,4 @@
-### container-registry.editor {#cr-editor}
+#### container-registry.editor {#cr-editor}
 
 Роль `{{ roles-cr-editor }}` назначается на облако или каталог.
 Дает право создавать, редактировать и удалять реестры, Docker-образы и репозитории.

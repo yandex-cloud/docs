@@ -146,10 +146,10 @@
         * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
         * `--master-resource-preset` — [класс хостов-мастеров](../concepts/instance-types.md#available-flavors).
         * `--master-disk-size` — размер хранилища хостов-мастеров в гигабайтах.
-        * `--master-disk-type` — [тип диска ](../concepts/storage.md) хостов-мастеров.
+        * `--master-disk-type` — [тип диска](../concepts/storage.md) хостов-мастеров.
         * `--segment-resource-preset` — [класс хостов-сегментов](../concepts/instance-types.md#available-flavors).
         * `--segment-disk-size` — размер хранилища хостов-сегментов в гигабайтах.
-        * `--segment-disk-type` — [тип диска ](../concepts/storage.md) хостов-сегментов.
+        * `--segment-disk-type` — [тип диска](../concepts/storage.md) хостов-сегментов.
         * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
         

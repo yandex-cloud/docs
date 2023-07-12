@@ -1,49 +1,73 @@
 # {{ data-transfer-name }} tutorials
 
-## Data migration
+Using {{ data-transfer-name }}, you can implement a variety of scenarios for migrating data, capturing data changes, delivering data from queues, uploading data to data marts, and mirroring and uploading data to scalable storage.
 
-* [{#T}](mkf-to-mkf.md)
-* [{#T}](managed-clickhouse.md)
-* [{#T}](managed-greenplum.md)
-* [{#T}](managed-mongodb.md)
-* [{#T}](managed-mysql.md)
-* [{#T}](managed-mysql-to-mysql.md)
-* [{#T}](managed-postgresql.md)
+## Data migration {#migration}
+Migration is a task that involves transferring data from one data storage to another. In {{ data-transfer-name }}, migration often means migrating a database from obsolete local databases to managed cloud ones.
 
-## Data delivery
+* [Migrating {{ PG }} clusters](managed-postgresql.md)
+* [Migrating {{ MY }} clusters](managed-mysql-to-mysql.md)
+* [Migrating {{ CH }} clusters](managed-clickhouse.md)
+* [Migrating {{ GP }} clusters](managed-greenplum.md)
+* [Migrating {{ MG }} clusters](managed-mongodb.md)
 
-* [{#T}](mkf-to-mch.md)
-* [{#T}](mkf-to-mes.md)
-* [{#T}](managed-kafka-to-greenplum.md)
-* [{#T}](mkf-to-mmg.md)
-* [{#T}](mkf-to-mmy.md)
-* [{#T}](mkf-to-mos.md)
-* [{#T}](mkf-to-mpg.md)
-* [{#T}](mkf-to-ydb.md)
-* [{#T}](mkf-to-yds.md)
-* [{#T}](greenplum-to-clickhouse.md)
-* [{#T}](greenplum-to-postgresql.md)
-* [{#T}](cdc-mmy.md)
-* [{#T}](mmy-objs-migration.md)
-* [{#T}](cdc-mpg.md)
-* [{#T}](cdc-ydb.md)
-* [{#T}](mpg-to-objstorage.md)
-* [{#T}](trails-to-os.md)
-* [{#T}](ydb-to-yds.md)
+Mirroring data across queues is a separate migration task.
 
-## Asynchronous replication of data
+* [{{ KF }} mirroring](mkf-to-mkf.md)
 
-* [{#T}](mysql-to-clickhouse.md)
-* [{#T}](managed-mysql-to-ydb.md)
-* [{#T}](rdbms-to-clickhouse.md)
-* [{#T}](mpg-to-ydb.md)
-* [{#T}](mpg-to-yds.md)
-* [{#T}](mmy-to-yds.md)
+Migration with data storage type changed.
 
-## Saving data streams
-* [{#T}](yds-to-clickhouse.md)
-* [{#T}](yds-to-objstorage.md)
+* [{{ MY }} to {{ ydb-short-name }}](managed-mysql-to-ydb.md)
+* [{{ PG }} to {{ ydb-short-name }}](mpg-to-ydb.md)
+
+## Change data capture {#cdc}
+
+[Change Data Capture](../concepts/cdc.md) (CDC) is a process of tracking changes in a database and delivering them to consumers with public serialization format supported when writing data to a Debezium queue.
+СDC is used for creating apps that are sensitive to real-time data changes, exchanging data between different services, including those with different levels of availability, and collecting and delivering data from the production environment to internal data storage for processing and analysis.
+
+* {{ MY }} change data capture and delivery to
+   * [{{ KF }}](cdc-mmy.md)
+   * [{{ DS }}](mmy-to-yds.md)
+* {{ PG }} change data capture and delivery to
+   * [{{ KF }}](cdc-mpg.md)
+   * [{{ DS }}](mpg-to-yds.md)
+* {{ ydb-short-name }} change data capture and delivery to
+   * [{{ KF }}](cdc-ydb.md)
+   * [{{ DS }}](ydb-to-yds.md)
+
+## Delivering data from queues {#delivery-to-queue}
+
+Data delivery is a process of delivering arbitrary data to target storage. It includes data retrieval from a queue and its deserialization with subsequent transformation to target storage format.
+
+* [{{ KF }} to {{ CH }}](mkf-to-mch.md)
+* [{{ KF }} to {{ PG }}](mkf-to-mpg.md)
+* [{{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
+* [{{ KF }} to {{ ES }}](mkf-to-mes.md)
+* [{{ KF }} to {{ MG }}](mkf-to-mmg.md)
+* [{{ KF }} to {{ MY }}](mkf-to-mmy.md)
+* [{{ KF }} to {{ OS }}](mkf-to-mos.md)
+* [{{ KF }} to {{ ydb-short-name }}](mkf-to-ydb.md)
+* [{{ KF }} to {{ DS }}](mkf-to-yds.md)
+* [{{ DS }} to {{ CH }}](yds-to-clickhouse.md)
+* [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
+
+## Uploading data to data marts {#upload-to-data-mart}
+
+Uploading data to data marts is a transfer of preset data to storage for its subsequent visualization. Sources are data stores used for massively parallel processing of data. Targets are data stores that can quickly deliver data.
+
+* [{{ GP }} to {{ CH }}](greenplum-to-clickhouse.md)
+* [{{ MY }} to {{ CH }}](mysql-to-clickhouse.md)
+* [{{ metrika }} to {{ CH }}](metrika-to-clickhouse.md)
+* [{{ PG }} to {{ CH }}](rdbms-to-clickhouse.md)
+* [{{ GP }} to {{ PG }}](greenplum-to-postgresql.md)
+
+## Importing data to {{ objstorage-name }} {#upload-to-storage}
+
+Uploading data to scalable {{ objstorage-name }} storage allows you to save on data storage and simplifies the exchange with contractors.
+
+* [{{ MY }} to {{ objstorage-name }}](mmy-objs-migration.md)
+* [{{ at-name }} to {{ objstorage-name }}](trails-to-os.md)
+* [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-

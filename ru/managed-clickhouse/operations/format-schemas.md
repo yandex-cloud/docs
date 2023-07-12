@@ -13,15 +13,11 @@
 
 1. [Загрузите](../../storage/operations/objects/upload.md) файл со схемой формата данных в {{ objstorage-full-name }}.
 
-1. Настройте доступ к файлу схемы одним из способов:
+1. Настройте доступ к файлу схемы, используя [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
 
-    * Используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) (рекомендуется). Этот способ позволяет получить доступ к файлу без ввода учетных данных.
-
-        1\. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
-        2\. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
-        3\. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
-
-    * [Включите публичный доступ](../../storage/operations/objects/edit-acl.md) к бакету с файлом.
+    1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
+    1. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
+    1. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
 
 1. [Получите ссылку](s3-access.md#get-link-to-object) на файл схемы.
 

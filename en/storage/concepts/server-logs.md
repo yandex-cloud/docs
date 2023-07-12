@@ -41,33 +41,9 @@ The key prefix allows you to distinguish:
 
 ## Log object format {#object-format}
 
-Logs are saved to a JSON file. For every action with the bucket, a record is written to the file in the following format:
+Logs are saved to a JSON file. Every action with a bucket is logged to the file by adding the respective record to it.
 
-| Field | Type | Description |
---- | --- | ---
-| `bucket` | String | Bucket name. |
-| `bytes_received` | Int64 | Size of the request in bytes. |
-| `bytes_send` | Int64 | Response size in bytes. |
-| `handler` | String | Request method in `REST.<HTTP method>.<subject>` format. |
-| `http_referer` | String | URL of the request source. |
-| `ip` | String | User IP address. |
-| `method` | String | HTTP request method. |
-| `object_key` | String | [Object key](#key-format) in [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding) format. |
-| `protocol` | String | Data transfer protocol version. |
-| `range` | String | HTTP header that defines the range of bytes to load from the object. |
-| `requester` | String | User ID. |
-| `request_args` | String | Arguments of the URL request. |
-| `request_id` | String | Query ID. |
-| `request_path` | String | Full path of the request. |
-| `request_time` | Int64 | Request processing time in milliseconds. |
-| `scheme` | String | Type of data transfer protocol. <br>Possible values:<br>- `http`: Application layer protocol.<br>- `https`: Application layer protocol with encryption support. |
-| `ssl_protocol` | String | Security protocol. |
-| `status` | Int64 | HTTP [response](../s3/api-ref/response-codes.md) code. |
-| `storage_class` | String | [Storage class](../concepts/storage-class.md) of the object. |
-| `timestamp` | String | Date and time of the operation with the bucket in the `YYYY-MM-DDTHH:MM:MMZ` format. |
-| `user_agent` | String | Client application (User Agent) that executed the request. |
-| `version_id` | String | Object version. |
-| `vhost` | String | Virtual host of the request. <br>Possible values:<br>– `{{ s3-storage-host }}`.<br>– `<bucket name>{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket name>.{{ s3-web-host }}`. |
+A full list of logged parameters is provided in the [log reference](../logs-ref.md).
 
 Example of a record in the log file:
 

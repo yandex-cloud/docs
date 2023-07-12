@@ -183,42 +183,50 @@ items:
         href: manager/create-project.md
       - name: Список задач проекта
         href: manager/project-list.md
-      - name: Диаграмма Ганта
-        href: manager/gantt-project.md
       - name: Доска задач
         href: manager/boards-project.md
-  - name: Инструменты гибкой разработки
-    items:
-      - name: Обзор
-        href: manager/agile.md
-      - name: Создать доску
-        href: manager/create-agile-board.md
-      - name: Работать с доской
-        href: user/agile.md
-      - name: Изменить и удалить доску
-        href: manager/edit-agile-board.md
-      - name: Бэклог
-        href: manager/backlog.md
-      - name: Спринты
-        href: manager/create-agile-sprint.md
-      - name: Эпики
-        href: manager/epic.md
-      - name: Командная оценка задач
-        href: manager/planning-poker.md
-      - name: Диаграмма сгорания задач
-        href: manager/burndown.md
-      - name: Миграция на новые технологии
-        href: manager/boards-convertor.md
-  - name: Доски задач (бета)
+  - name: Доски задач
     items:
       - name: Обзор
         href: manager/agile-new.md
-      - name: Создать доску
+      - name: Как создать доску
         href: manager/agile-new-create.md
-      - name: Работать с доской
-        href: manager/agile-new-use.md
-      - name: Настроить доску
-        href: manager/agile-new-set.md
+      - name: Как настроить доску
+        href: manager/agile-new-set-board.md
+      - name: Как работать с задачами на доске
+        href: manager/agile-new-issues.md
+      - name: Как настроить колонки
+        href: manager/agile-new-columns.md
+      - name: Инструменты на досках с бэклогом и спринтами
+        items:
+          - name: Обзор
+            href: manager/boards-instruments.md
+          - name: Бэклог
+            href: manager/backlog.md
+          - name: Спринты
+            href: manager/create-agile-sprint.md
+          - name: Покер планирования
+            href: manager/poker.md
+          - name: Диаграмма сгорания задач
+            href: manager/burndown-diagram.md
+      - name: Старые доски
+        items:
+          - name: Обзор
+            href: manager/agile.md
+          - name: Миграция на новые технологии
+            href: manager/boards-convertor.md
+          - name: Создать доску
+            href: manager/create-agile-board.md
+          - name: Работать с доской
+            href: user/agile.md
+          - name: Изменить и удалить доску
+            href: manager/edit-agile-board.md
+          - name: Эпики
+            href: manager/epic.md
+          - name: Командная оценка задач
+            href: manager/planning-poker.md
+          - name: Диаграмма сгорания задач
+            href: manager/burndown.md
   - name: Найти задачи
     items:
       - name: Найти задачу по ключу или названию
@@ -231,8 +239,6 @@ items:
         href: user/create-filter.md
       - name: Язык запросов
         href: user/query-filter.md
-      - name: Диаграмма Ганта для фильтра задач
-        href: manager/gantt-search.md
   - name: Уведомления и подписки
     items:
       - name: Обзор
@@ -271,8 +277,18 @@ items:
             href: user/startpage-dashboard.md
       - name: Статистика очереди
         href: manager/statistics.md
-      - name: Диаграмма Ганта
-        href: manager/gantt.md
+  - name: Диаграмма Ганта
+    items:
+      - name: Обзор
+        href: gantt/overview.md
+      - name: Диаграмма Ганта для фильтра
+        href: gantt/search.md
+      - name: Диаграмма Ганта для очереди
+        href: gantt/queue.md
+      - name: Диаграмма Ганта для проекта
+        href: gantt/project.md
+      - name: Диаграмма Ганта для списка проектов
+        href: gantt/list-of-projects.md
   - name: Автоматизация и шаблоны
     items:
       - name: Обзор
@@ -661,8 +677,10 @@ items:
         href: organizations.md
   - name: История изменений
     items:
-      - name: Апрель 2023
+      - name: Май 2023
         href: changelogs/index.md
+      - name: Апрель 2023
+        href: changelogs/2304.md
       - name: Март 2023
         href: changelogs/2303.md
       - name: Февраль 2023

@@ -10,7 +10,7 @@ Returns the list of certificates in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates
+GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
 ```
  
 ## Query parameters {#query_params}

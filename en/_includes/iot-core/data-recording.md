@@ -2,22 +2,22 @@ In this scenario, you'll learn how to store information received from a device i
 
 To start writing information from your device to the database:
 
-1. [Create the necessary {{ iot-full-name }} resources](#resources).
-    1. [Create a registry](#registry).
-    1. [Create a device](#device).
+1. [Create the required resources {{ iot-full-name }}](#resources).
+   1. [Create a registry](#registry).
+   1. [Create a device](#device).
 1. [Connect your device to the MQTT broker](#connect).
 1. [Prepare the database](#db).
-    1. [Create a cluster](#cluster).
-    1. [Connect to the cluster](#connect-to-cluster).
-    1. [Create a table](#table).
+   1. [Create a cluster](#cluster).
+   1. [Connect to the cluster](#connect-to-cluster).
+   1. [Create a table](#table).
 1. [Create a function for processing data](#func).
 1. [Create a trigger for {{ iot-full-name }}](#trigger).
 
-## Create the necessary {{ iot-full-name }} resources {#resources}
+## Create the required {{ iot-full-name }} resources {#resources}
 
 {% note info %}
 
-The scenario is based on [authorization using a username and password](../../iot-core/concepts/authorization.md#log-pass), so you don't need to add a certificate to your registry or device. In your projects, you can use [authorization using certificates](../../iot-core/concepts/authorization.md#certs).
+The scenario assumes [username and password-based authorization](../../iot-core/concepts/authorization.md#log-pass), which is why you don't need to add a certificate to the registry and device. In your projects, you can use [authorization using certificates](../../iot-core/concepts/authorization.md#certs).
 
 {% endnote %}
 
@@ -51,14 +51,14 @@ After creating the registry, you'll be automatically redirected to the **Registr
 1. In the **Name** field, enter `my-device`.
 1. Enter the password.
 
-    * Minimum password length is 14 characters.
-    * The password must contain uppercase and lowercase letters and numbers.
+   * Minimum password length is 14 characters.
+   * The password must contain uppercase and lowercase letters and numbers.
 
-    {% note warning %}
+   {% note warning %}
 
-    Save your password as you won't be able to read it from {{ iot-full-name }}.
+   Save your password as you won't be able to read it from {{ iot-full-name }}.
 
-    {% endnote %}
+   {% endnote %}
 
 1. Skip the **Aliases** and **Certificates** sections.
 1. Click **Add**.
@@ -71,7 +71,7 @@ After creating the registry, you'll be automatically redirected to the **Registr
 
 ### Create a cluster {#cluster}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 1. In the list of services, select **{{ mpg-name }}**.
 1. Click **Create cluster**.
 1. In the **Cluster name** field, enter `my-pg-database`.
@@ -79,15 +79,15 @@ After creating the registry, you'll be automatically redirected to the **Registr
 1. In the **Version** field, select `12`.
 1. Under **Host class**:
 
-    * Specify the `Intel Cascade Lake` platform.
-    * Select the `burstable` type.
-    * Specify the `b2.medium` class.
+   * Specify the `Intel Cascade Lake` platform.
+   * Select the `burstable` type.
+   * Specify the `b2.medium` class.
 
-    {% note warning %}
+   {% note warning %}
 
-    The `b2.medium` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
+   The `b2.medium` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
 
-    {% endnote %}
+   {% endnote %}
 
 1. Under **Storage size**:
 
@@ -106,7 +106,7 @@ After creating the registry, you'll be automatically redirected to the **Registr
     * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
     * User password. From 8 to 128 characters.
 
-    For a database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
+    For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
 1. Under **Hosts**, add a host to be accessible from outside of {{ yandex-cloud }}. To do this, enable **Public access**.
 1. Leave the default values in the other fields.
@@ -132,11 +132,11 @@ After creating the cluster, you'll be automatically redirected to the **Clusters
 As a sample data source, the scenario uses an air sensor that measures the following parameters:
 
 * Humidity.
-* The level of carbon dioxide (CO2).
+* The level of carbon dioxide (COvv2vv).
 * Pressure.
 * Temperature.
 
-The sensor outputs the result in JSON format. For example:
+The sensor outputs the result in JSON format, e.g.:
 
 ```json
 {
@@ -157,23 +157,23 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
 
 1. In the edit window, enter the following query:
 
-    {% note warning %}
+   {% note warning %}
 
-    The query below is given as an example. If your device sends different information, change the columns in the table you're creating.
+   The query below is given as an example. If your device sends different information, change the columns in the table you're creating.
 
-    {% endnote %}
+   {% endnote %}
 
-    ```sql
-    CREATE TABLE iot_events (
-        event_id varchar(24) not null,
-        device_id varchar(50) not null,
-        event_datetime timestamptz not null,
-        humidity float8 null,
-        carbon_dioxide float8 null,
-        pressure float8 null,
-        temperature float8 null
-    )
-    ```
+   ```sql
+   CREATE TABLE iot_events (
+       event_id varchar(24) not null,
+       device_id varchar(50) not null,
+       event_datetime timestamptz not null,
+       humidity float8 null,
+       carbon_dioxide float8 null,
+       pressure float8 null,
+       temperature float8 null
+   )
+   ```
 
 1. Click **Run**.
 1. Wait until a message that the query is executed appears.
@@ -194,32 +194,32 @@ After creating the function, you'll be automatically redirected to the **Editor*
 
 1. Under **Code**:
 
-    * In the **Runtime environment** field, choose `python37`.
-    * In the **Method** field, leave the default value: Code editor.
+   * In the **Runtime environment** field, choose `python37`.
+   * In the **Method** field, leave the default value: Code editor.
 
 1. Create a file named `myfunction.py`.
 1. In the file editing area, insert the function code from [Github](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/PostgreSQL).
 
-    {% note info %}
+   {% note info %}
 
-    The query used to write data to the DB is generated in the `makeInsertStatement` method. If you need to remove or add parameters, make changes to this method.
+   The query used to write data to the DB is generated in the `makeInsertStatement` method. If you need to remove or add parameters, make changes to this method.
 
-    {% endnote %}
+   {% endnote %}
 
 1. In the **Entry point** field, specify `myfunction.msgHandler`.
 1. Specify the following version parameters:
 
-    * **Timeout, sec:** 10.
-    * **RAM:** 128 MB.
+   * **Timeout, sec:** 10.
+   * **RAM:** 128 MB.
 
 1. Create a service account:
 
-    1. Click **Create account** (or **Create new**). An additional window opens.
-    1. In the **Name** field, enter `my-db-function-service-account`.
-    1. Add roles: `serverless.functions.invoker` and `editor`.
-    1. Click **Create**.
+   1. Click **Create account** (or **Create new**). An additional window opens.
+   1. In the **Name** field, enter `my-db-function-service-account`.
+   1. Add roles: `serverless.functions.invoker` and `editor`.
+   1. Click **Create**.
 
-    The created account is automatically added to the **Service account** field. On behalf of this account, the function will write data to the DB.
+   The created account is automatically added to the **Service account** field. On behalf of this account, the function will write data to the DB.
 
 1. Add environment variables:
 
@@ -246,36 +246,35 @@ After creating the function, you'll be automatically redirected to the **Editor*
 
 The trigger will accept copies of messages from the device topic and pass them to the function for processing.
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
 1. In the list of services, select **{{ sf-name }}**.
 1. Go to the **Triggers** tab.
 1. Click **Create trigger**.
 1. Under **Basic parameters**:
 
-    * In the **Name** field, enter a name for the trigger.
-    * In the **Description** field, enter a description for the trigger.
-    * In the **Type** field, select **{{ iot-full-name }}**.
+   * In the **Name** field, enter a name for the trigger.
+   * In the **Description** field, enter a description for the trigger.
+   * In the **Type** field, select **{{ iot-full-name }}**.
 
 1. Under **{{ iot-full-name }} message settings**:
 
-    * In the **Registry** field, enter `my-registry`.
-    * In the **Device** field, enter `my-device`.
-    * In the **Topic** field, specify the topic that the device sends data to:
+   * In the **Registry** field, enter `my-registry`.
+   * In the **Device** field, enter `my-device`.
+   * In the **Topic** field, specify the topic that the device sends data to:
 
-        ```
-        $devices/<device id>/events
-        ```
+      ```
+      $devices/<device id>/events
+      ```
 
-        Where `<device id>` is the ID of your device.
+      Where `<device id>` is the ID of your device.
 
-        The trigger works when new data appears in the specified topic.
+      The trigger works when new data appears in the specified topic.
 
 1. Under **Function settings**:
 
-    * Select the data processing function that you created earlier.
-    * In the **Tag version** field, specify `$latest`.
-    * In the **Service account** field, specify `my-db-function-service-account`.
+   * Select the data processing function that you created earlier.
+   * In the **Tag version** field, specify `$latest`.
+   * In the **Service account** field, specify `my-db-function-service-account`.
 
 1. Leave the other fields empty or fill them in at your discretion.
 1. Click **Create trigger**.
-

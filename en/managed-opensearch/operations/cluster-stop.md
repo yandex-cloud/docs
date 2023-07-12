@@ -29,9 +29,9 @@ You are not charged for the time when your cluster is stopped; however, you stil
 
 - API
 
-   Use the [stop](../api-ref/Cluster/stop.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To stop a cluster, use the [stop](../api-ref/Cluster/stop.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Stop](../api-ref/grpc/cluster_service.md#Stop) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -49,8 +49,8 @@ You can restart **STOPPED** clusters.
 
 - API
 
-   Use the [start](../api-ref/Cluster/start.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To start a cluster, use the [start](../api-ref/Cluster/start.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Start](../api-ref/grpc/cluster_service.md#Start) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}

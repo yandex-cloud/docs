@@ -49,7 +49,7 @@ description: "Для управления доступом к бакету {{ ob
 
     ```bash
     name: my-bucket
-    folder_id: csgeoelk7fl15s6chmjd
+    folder_id: csgeoelk7fl1********
     default_storage_class: STANDARD
     versioning: VERSIONING_DISABLED
     max_size: "1073741824"
@@ -86,7 +86,7 @@ description: "Для управления доступом к бакету {{ ob
 
        ```bash
        name: my-bucket
-       folder_id: csgeoelk7fl15s6chmjd
+       folder_id: csgeoelk7fl1********
        default_storage_class: STANDARD
        versioning: VERSIONING_SUSPENDED
        max_size: "10737418240"
@@ -94,7 +94,7 @@ description: "Для управления доступом к бакету {{ ob
          grants:
            - permission: PERMISSION_READ
              grant_type: GRANT_TYPE_ACCOUNT
-             grantee_id: ajej2th5699nld4j7fok
+             grantee_id: ajej2th5699n********
        created_at: "2022-12-14T08:42:16.273717Z"
        ```
 

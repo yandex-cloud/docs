@@ -31,7 +31,7 @@
       {{ yc-mdb-gp }} cluster list-logs --help
       ```
 
-   1. Run the command to get cluster logs (the example does not contain a complete list of available parameters):
+   1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
 
       ```bash
       {{ yc-mdb-gp }} cluster list-logs <cluster name or ID> \
@@ -70,9 +70,17 @@
 
 - API
 
-   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a cluster log, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call, and provide in the request:
 
-   To find out the cluster ID, [get a list of clusters in the folder](../api-ref/Cluster/list.md).
+   * Cluster ID in the `clusterId` parameter.
+
+      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+   * Type of service to output records for, in the `serviceType` parameter.
+
+      * `GREENPLUM`: {{ GP }} operations log.
+      * `GREENPLUM_POOLER`: Connection pooler operations log.
+      * `GREENPLUM_PXF`: [PXF](external-tables.md) protocol log.
 
 {% endlist %}
 
@@ -98,9 +106,17 @@ This method allows you to get cluster logs in real time.
 
 - API
 
-   To get a cluster's log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a cluster log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) gRPC API call, and provide in the request:
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+   * Type of service to output records for, in the `serviceType` parameter.
+
+      * `GREENPLUM`: {{ GP }} operations log.
+      * `GREENPLUM_POOLER`: Connection pooler operations log.
+      * `GREENPLUM_PXF`: [PXF](external-tables.md) protocol log.
 
 {% endlist %}
 

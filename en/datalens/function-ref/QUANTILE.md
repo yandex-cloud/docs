@@ -44,4 +44,4 @@ Returns the precise `quant`-level quantile (`quant` should be in range from 0 to
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.4`, `YDB`.
+`ClickHouse 21.8`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.4`, `YDB`.

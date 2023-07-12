@@ -30,16 +30,16 @@
    Result:
 
    ```yaml
-   id: a5d88ep483cmbfm63g9t
+   id: a5d88ep483cmbfm.....
    name: test-balancer2
-   folder_id: aoe197919j8elpeg1lkp
+   folder_id: aoe197919j8elpe.....
    status: ACTIVE
    region_id: {{ region-id }}
-   network_id: c64l1c06d15178sa87k0
+   network_id: c64l1c06d15178s.....
    allocation_policy:
      locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: buc4gsmpj8hvramg61g8
+         subnet_id: buc4gsmpj8hvram.....
    created_at: "2022-06-02T12:12:13.624832586Z"
    auto_scale_policy:
      min_zone_size: 3

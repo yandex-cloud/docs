@@ -1,4 +1,6 @@
-You can set up asynchronous replication of data from {{ mpg-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}. To do this:
+You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+
+To set up CDC using {{ data-transfer-name }}:
 
 1. [Set up the transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
@@ -17,7 +19,6 @@ Prepare the infrastructure:
    1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user password>`.
 
    
    1. Set up [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) and make sure they allow cluster connections.
@@ -34,7 +35,7 @@ Prepare the infrastructure:
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [postgresql-yds.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/postgresql-yds.tf) configuration file to the same working directory.
 
       This file describes:
@@ -50,7 +51,7 @@ Prepare the infrastructure:
 
    1. In the `postgresql-yds.tf` file, specify the {{ PG }} user password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -109,9 +110,9 @@ Prepare the infrastructure:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }} source cluster name>` from the drop-down list.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user password>`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `pg-user` password.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 
    * Using {{ TF }}
 
@@ -154,38 +155,40 @@ Prepare the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
+{% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
+
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-STOPPED }}_**.
-* [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Delete the {{ yds-name }} stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
-* Delete the transfer, the source endpoint, the {{ mpg-name }} cluster, and the {{ ydb-name }} database:
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the {{ yds-name }} stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-   {% list tabs %}
+Delete the other resources, depending on the method used to create them:
 
-   * Manually
+{% list tabs %}
 
-      * [Transfer](../../data-transfer/operations/transfer.md#delete).
-      * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-      * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
-      * [{{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+* Manually
 
-   * Using {{ TF }}
+   * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+   * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+   * [{{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
-      1. Delete the `postgresql-yds.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+* Using {{ TF }}
 
-         ```bash
-         terraform validate
-         ```
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete the `postgresql-yds.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+      ```bash
+      terraform validate
+      ```
 
-      1. Confirm the resources have been updated:
+      If there are any errors in the configuration files, {{ TF }} will point to them.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. Confirm the resources have been updated.
 
-         All the resources described in the `postgresql-yds.tf` configuration file will be deleted.
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   {% endlist %}
+      All the resources described in the `postgresql-yds.tf` configuration file will be deleted.
+
+{% endlist %}

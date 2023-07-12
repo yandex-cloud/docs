@@ -1,4 +1,4 @@
-# Migrating data to {{ mmg-full-name }}
+# Migrating {{ mmg-full-name }} clusters
 
 To migrate your database to {{ mmg-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
 
@@ -12,7 +12,7 @@ For more information, see [{#T}](../concepts/use-cases.md).
 
 To use this migration method, allow connecting to the source cluster from the internet.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 [Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
 

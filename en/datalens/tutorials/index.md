@@ -3,7 +3,7 @@ title: "{{ datalens-full-name }} use cases"
 description: "This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a store chain's sales based on data from a ClickHouse DB, and analyzing public data on road accidents in Russia"
 ---
 
-# {{ datalens-name }} practical guidelines
+# {{ datalens-name }} tutorials
 
 Below is a description of guidelines for working with {{ datalens-full-name }}:
 
@@ -20,5 +20,6 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 * [Visualizing data using parameters](data-from-ch-with-parameters.md)
 * [Visualizing data with a QL chart](data-from-ch-to-sql-chart.md)
 * [Building customer journey charts based on AppMetrica data](data-from-appmetrica-yc-visualization.md)
+* [Visualizing data from {{ tracker-full-name }}](data-from-tracker.md)
 
 

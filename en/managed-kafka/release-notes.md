@@ -1,8 +1,12 @@
 # {{ mkf-full-name }} releases
 
-This section presents the revision history for {{ mkf-name }}.
+This section covers the revision history for {{ mkf-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## Q1 2023 {#q1-2023}
+
+* New {{ KF }} version 3.3 available in `PRODUCTION` environment. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q4 2022 {#q4-2022}
 

@@ -9,7 +9,7 @@
    To create a subnet:
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a subnet.
    1. In the list of services, select **{{ vpc-name }}**.
-   1. Click on the name of the cloud network.
+   1. Click the name of the cloud network.
    1. Click **Add subnet**.
    1. Enter the subnet name.
 
@@ -141,7 +141,7 @@
 
    1. In the configuration file, describe the subnet parameters:
 
-      * `name`: Name of the subnet. Name format:
+      * `name`: Name of the subnet. Use this name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -187,7 +187,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc subnet list
@@ -269,7 +269,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc subnet list

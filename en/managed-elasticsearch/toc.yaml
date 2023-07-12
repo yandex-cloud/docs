@@ -51,6 +51,10 @@ items:
         href: tutorials/migration-via-reindex-api.md
       - name: Migrating data to {{ mos-full-name }}
         href: tutorials/migration-to-opensearch.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/migration-from-kafka.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -221,7 +225,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     items:

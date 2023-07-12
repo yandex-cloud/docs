@@ -171,15 +171,17 @@ settings | **[EndpointSettings](#EndpointSettings)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource)**<br> 
+&nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource)**<br> 
 &nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget)**<br> 
+&nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget)**<br> 
 
@@ -312,6 +314,19 @@ policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>
 cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
+### YdbSource {#YdbSource}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+paths[] | **string**<br> 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>Authorization Key 
+
+
 ### KafkaSource {#KafkaSource}
 
 Field | Description
@@ -362,7 +377,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth}
 
-Empty
+Empty.
 
 ### DataTransformationOptions {#DataTransformationOptions}
 
@@ -425,11 +440,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser}
 
-Empty
+Empty.
 
 ### CloudLoggingParser {#CloudLoggingParser}
 
-Empty
+Empty.
 
 ### MongoSource {#MongoSource}
 
@@ -620,6 +635,20 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### YdbTarget {#YdbTarget}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+path | **string**<br>Path extension for database, each table will be layouted into this path 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>SA content 
+cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+
+
 ### KafkaTarget {#KafkaTarget}
 
 Field | Description
@@ -628,6 +657,7 @@ connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connectio
 auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
 topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings)**<br>Target topic settings 
+serializer | **[Serializer](#Serializer)**<br>Data serialization format settings 
 
 
 ### KafkaTargetTopicSettings {#KafkaTargetTopicSettings}
@@ -645,6 +675,39 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Topic name 
 save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
+### Serializer {#Serializer}
+
+Field | Description
+--- | ---
+serializer | **oneof:** `serializer_auto`, `serializer_json` or `serializer_debezium`<br>
+&nbsp;&nbsp;serializer_auto | **[SerializerAuto](#SerializerAuto)**<br>Select the serialization format automatically 
+&nbsp;&nbsp;serializer_json | **[SerializerJSON](#SerializerJSON)**<br>Serialize data in json format 
+&nbsp;&nbsp;serializer_debezium | **[SerializerDebezium](#SerializerDebezium)**<br>Serialize data in debezium format 
+
+
+### SerializerAuto {#SerializerAuto}
+
+Empty.
+
+### SerializerJSON {#SerializerJSON}
+
+Empty.
+
+### SerializerDebezium {#SerializerDebezium}
+
+Field | Description
+--- | ---
+serializer_parameters[] | **[DebeziumSerializerParameter](#DebeziumSerializerParameter)**<br>Settings of sterilization parameters as key-value pairs 
+
+
+### DebeziumSerializerParameter {#DebeziumSerializerParameter}
+
+Field | Description
+--- | ---
+key | **string**<br>Name of the serializer parameter 
+value | **string**<br>Value of the serializer parameter 
 
 
 ### MongoTarget {#MongoTarget}
@@ -703,15 +766,17 @@ settings | **[EndpointSettings](#EndpointSettings1)**<br>
 
 Field | Description
 --- | ---
-settings | **oneof:** `mysql_source`, `postgres_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `kafka_target` or `mongo_target`<br>
+settings | **oneof:** `mysql_source`, `postgres_source`, `ydb_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target` or `mongo_target`<br>
 &nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource1)**<br> 
 &nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource1)**<br> 
+&nbsp;&nbsp;ydb_source | **[endpoint.YdbSource](#YdbSource1)**<br> 
 &nbsp;&nbsp;kafka_source | **[endpoint.KafkaSource](#KafkaSource1)**<br> 
 &nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource1)**<br> 
 &nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource1)**<br> 
 &nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget1)**<br> 
 &nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget1)**<br> 
 &nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget1)**<br> 
+&nbsp;&nbsp;ydb_target | **[endpoint.YdbTarget](#YdbTarget1)**<br> 
 &nbsp;&nbsp;kafka_target | **[endpoint.KafkaTarget](#KafkaTarget1)**<br> 
 &nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget1)**<br> 
 
@@ -844,6 +909,19 @@ policy | enum **ObjectTransferStage**<br>Policies <br>CREATE POLICY ... <ul><li>
 cast | enum **ObjectTransferStage**<br>Casts <br>CREATE CAST ... <ul><li>`BEFORE_DATA`: Before data transfer</li><li>`AFTER_DATA`: After data transfer</li><li>`NEVER`: Don't copy</li></ul>
 
 
+### YdbSource {#YdbSource1}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+paths[] | **string**<br> 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>Authorization Key 
+
+
 ### KafkaSource {#KafkaSource1}
 
 Field | Description
@@ -894,7 +972,7 @@ mechanism | enum **KafkaMechanism**<br>SASL mechanism for authentication
 
 ### NoAuth {#NoAuth1}
 
-Empty
+Empty.
 
 ### DataTransformationOptions {#DataTransformationOptions1}
 
@@ -957,11 +1035,11 @@ path | **string**<br>
 
 ### AuditTrailsV1Parser {#AuditTrailsV1Parser1}
 
-Empty
+Empty.
 
 ### CloudLoggingParser {#CloudLoggingParser1}
 
-Empty
+Empty.
 
 ### MongoSource {#MongoSource1}
 
@@ -1152,6 +1230,20 @@ value | **oneof:** `string_value`<br>
 &nbsp;&nbsp;string_value | **string**<br> 
 
 
+### YdbTarget {#YdbTarget1}
+
+Field | Description
+--- | ---
+database | **string**<br>Path in YDB where to store tables 
+instance | **string**<br>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 
+service_account_id | **string**<br> 
+path | **string**<br>Path extension for database, each table will be layouted into this path 
+subnet_id | **string**<br>Network interface for endpoint. If none will assume public ipv4 
+security_groups[] | **string**<br>Security groups 
+sa_key_content | **string**<br>SA content 
+cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+
+
 ### KafkaTarget {#KafkaTarget1}
 
 Field | Description
@@ -1160,6 +1252,7 @@ connection | **[KafkaConnectionOptions](#KafkaConnectionOptions2)**<br>Connectio
 auth | **[KafkaAuth](#KafkaAuth2)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
 topic_settings | **[KafkaTargetTopicSettings](#KafkaTargetTopicSettings1)**<br>Target topic settings 
+serializer | **[Serializer](#Serializer1)**<br>Data serialization format settings 
 
 
 ### KafkaTargetTopicSettings {#KafkaTargetTopicSettings1}
@@ -1177,6 +1270,39 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Topic name 
 save_tx_order | **bool**<br>Save transactions order Not to split events queue into separate per-table queues. 
+
+
+### Serializer {#Serializer1}
+
+Field | Description
+--- | ---
+serializer | **oneof:** `serializer_auto`, `serializer_json` or `serializer_debezium`<br>
+&nbsp;&nbsp;serializer_auto | **[SerializerAuto](#SerializerAuto1)**<br>Select the serialization format automatically 
+&nbsp;&nbsp;serializer_json | **[SerializerJSON](#SerializerJSON1)**<br>Serialize data in json format 
+&nbsp;&nbsp;serializer_debezium | **[SerializerDebezium](#SerializerDebezium1)**<br>Serialize data in debezium format 
+
+
+### SerializerAuto {#SerializerAuto1}
+
+Empty.
+
+### SerializerJSON {#SerializerJSON1}
+
+Empty.
+
+### SerializerDebezium {#SerializerDebezium1}
+
+Field | Description
+--- | ---
+serializer_parameters[] | **[DebeziumSerializerParameter](#DebeziumSerializerParameter1)**<br>Settings of sterilization parameters as key-value pairs 
+
+
+### DebeziumSerializerParameter {#DebeziumSerializerParameter1}
+
+Field | Description
+--- | ---
+key | **string**<br>Name of the serializer parameter 
+value | **string**<br>Value of the serializer parameter 
 
 
 ### MongoTarget {#MongoTarget1}

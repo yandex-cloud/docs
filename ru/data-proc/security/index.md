@@ -29,9 +29,8 @@ description: "Управление доступом в сервисе по со�
 
 {% include [data-proc-roles](../../_includes/iam/roles/data-proc-roles.md) %}
 
-### {{ roles-mdb-auditor }} {#mdb-auditor}
+{% include [managed-metastore-roles](../../_includes/iam/roles/managed-metastore-roles.md) %}
 
-Роль `{{ roles-mdb-auditor }}` предоставляет минимально необходимые права для просмотра информации о кластерах {{ dataproc-name }} (без доступа к данным и логам работы).
 
 ### {{ roles-mdb-viewer }} {#mdb-viewer}
 

@@ -13,7 +13,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time between when the oldest backup was created and when the most recent oplog was archived. For more information, see [{#T}](../concepts/backup.md).
 
-For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest oplog was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
+For example, if the backup operation ended on August 10, 2020, 12:00 p.m. UTC, the current date is August 15, 2020, 7:00 p.m. UTC, and the latest `oplog` was saved on August 15, 2020, 6:50 p.m. UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 p.m. UTC and August 15, 2020, 6:50:00 p.m. UTC, inclusive.
 
 {% note warning %}
 
@@ -121,7 +121,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
+   To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
@@ -166,7 +166,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -232,9 +232,11 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mmg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   To get a list of backups for all the {{ mmg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -268,7 +270,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    To find out the ID, [retrieve a list of backups](#list-backups).
 

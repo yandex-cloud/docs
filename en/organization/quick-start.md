@@ -4,7 +4,7 @@ To get started, create an organization and add users to it.
 
 ## Create an organization {#create}
 
-1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account, [create]({{ support-passport-create }}) one.
+1. [Log in]({{link-passport}}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
@@ -26,16 +26,16 @@ If your employees have Yandex accounts (for example, `{{login-example}}`), they 
 
 To connect employees with Yandex accounts:
 
-1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
-1. In the top right-hand corner, click **Add user**.
+1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 
 1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `{{login-example}}`).
 
 
-1. Click **Add**.
+1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
-Users will be connected to the organization.
+Users will be added to the organization when they accept the invitation.
 
 ### Configure an identity federation {#add-federation}
 
@@ -43,7 +43,7 @@ Identity federation is a technology with which you can implement a single sign-o
 
 To configure your identity federation, follow these steps:
 
-1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
+1. In the left-hand panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
 
 1. Click **Create federation**.
 
@@ -67,7 +67,7 @@ To configure your identity federation, follow these steps:
 
 1. Enable **Automatically create users** to add authenticated users to your organization automatically.
 
-   If you don't enable this option, you will need to [manually add](add-account.md#add-user-sso) your federated users.
+   If you do not enable this option, you will need to [manually add](add-account.md#add-user-sso) your federated users.
 
 1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{yandex-cloud}}.
 

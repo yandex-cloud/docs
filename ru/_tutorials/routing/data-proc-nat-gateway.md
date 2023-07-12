@@ -49,7 +49,7 @@
         * [storage.uploader](../../iam/concepts/access-control/roles.md#storage-uploader);
         * [storage.viewer](../../iam/concepts/access-control/roles.md#storage-viewer).
 
-    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом.
 
     1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 

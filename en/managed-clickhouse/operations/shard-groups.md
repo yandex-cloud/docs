@@ -8,7 +8,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Shard groups** tab.
 
 - CLI
@@ -28,7 +28,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - API
 
-   Use the [listShardGroups](../api-ref/Cluster/listShardGroups.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To get a list of shard groups in a cluster, use the [listShardGroups](../api-ref/Cluster/listShardGroups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShardGroups](../api-ref/grpc/cluster_service.md#ListShardGroups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -40,7 +40,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Shard groups** tab.
    1. Select a shard group to view detailed information.
 
@@ -62,7 +62,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - API
 
-   Use the [getShardGroup](../api-ref/Cluster/getShardGroup.md) API method and pass the following in the request:
+   To get detailed information about a shard group, use the [getShardGroup](../api-ref/Cluster/getShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShardGroup](../api-ref/grpc/cluster_service.md#GetShardGroup) gRPC API call and provide the following in the request:
    * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
 
@@ -74,7 +74,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Shard groups** tab.
    1. Click **Create shard group**.
    1. Fill in the form fields and click **Apply**.
@@ -136,7 +136,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - API
 
-   Use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) API method and pass the following in the request:
+   To create a shard group, use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateShardGroup](../api-ref/grpc/cluster_service.md#CreateShardGroup) gRPC API call and provide the following in the request:
    * The ID of the cluster where you want to create a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter.
    * A list of shard names to include in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster.
@@ -150,7 +150,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Shard groups** tab.
    1. Click ![image](../../_assets/options.svg) for the desired shard group and select **Edit**.
 
@@ -215,7 +215,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - API
 
-   Use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) API method and pass the following in the request:
+   To update a shard group, use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShardGroup](../api-ref/grpc/cluster_service.md#UpdateShardGroup) gRPC API call and provide the following in the request:
    * The ID of the cluster where you want to change a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
    * If necessary, a new description of the shard group, in the `description` parameter.
@@ -236,7 +236,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Shard groups** tab.
    1. Click ![image](../../_assets/options.svg) for the desired shard group and select **Delete**.
 
@@ -278,7 +278,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
 - API
 
-   Use the [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) API method and pass the following in the request:
+   To delete a shard group, use the [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShardGroup](../api-ref/grpc/cluster_service.md#DeleteShardGroup) gRPC API call and provide the following in the request:
    * The ID of the cluster where you want to delete a group from, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
 

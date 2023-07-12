@@ -21,7 +21,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--password`|<b>`string`</b><br/>Password of the MySQL user.|
 |`--permissions`|<b>`value[,value]`</b><br/>Names of the databases that the permission grants access to.|
-|`--global-permissions`|<b>`value[,value]`</b><br/>User global access roles, possible values: PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE|
+|`--global-permissions`|<b>`value[,value]`</b><br/>User global access roles, possible values: FLUSH_OPTIMIZER_COSTS,PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE,SHOW_ROUTINE|
 |`--authentication-plugin`|<b>`string`</b><br/>Authentication plugin of the MySQL user.|
 |`--max-questions-per-hour`|<b>`int`</b><br/>The maximum permitted number of user questions per hour.|
 |`--max-updates-per-hour`|<b>`int`</b><br/>The maximum permitted number of user updates per hour.|

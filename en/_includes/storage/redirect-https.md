@@ -1,0 +1,1 @@
+Request redirects from HTTP to HTTPS are enabled automatically once you set up HTTPS access to a bucket. No other settings are required.

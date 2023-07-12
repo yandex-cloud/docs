@@ -8,24 +8,9 @@ If you are using a bucket to [host a static website](../../concepts/hosting.md),
 
 Access to the bucket over HTTPS is granted within thirty minutes of uploading the certificate.
 
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
 {% endnote %}
-
-## Upload your own security certificate {#own}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the name of the bucket you need.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
-   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
-   1. Add the certificate and secret key.
-   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
-
-{% endlist %}
 
 ## Select a certificate from {{ certificate-manager-name }} {#cert-manager}
 

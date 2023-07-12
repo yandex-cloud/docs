@@ -7,10 +7,10 @@ After creating a cluster, you can:
 * [Change the host class](#change-resource-preset).
 
 
-* [Increasing storage size](#change-disk-size).
+* [Increase storage size](#change-disk-size).
 
 
-* Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* Configure [{{ RD }} servers](#change-redis-config) as described in the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -33,11 +33,11 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **Basic parameters**, enter a new name and description for the cluster.
-   1. Click **Save changes**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -99,7 +99,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New cluster name in the `name` parameter.
@@ -117,18 +117,18 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **Host class**:
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 
-      * Choose a **Platform**.
-      * Select the **Type** of virtual machine that hosts will be deployed on:
+      * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
+      * Select the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of virtual machine that hosts will be deployed on:
          * `high-memory`: More RAM per 1 vCPU.
          * `burstable`: Only a guaranteed share of vCPU performance. VMs with a guaranteed share of less than 100% ensure the specified level of performance with a possible temporary performance increase up to 100%. Clusters with such hosts are good for tasks that don't require guaranteed permanent performance (for example, testing).
       * Modify the host configuration.
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -213,12 +213,12 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New host class in the `configSpec.resources.resourcePresetId` parameter.
 
-      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+      To get a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) REST API method for the [ResourcePreset](../api-ref/ResourcePreset/index.md) resource or the [ResourcePresetService/List](../api-ref/grpc/resource_preset_service.md#List) gRPC API call.
 
    * List of fields to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
@@ -237,11 +237,11 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    To increase the cluster storage size:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Edit the settings in the **Storage** section.
-   1. Click **Save changes**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_disk }}** section.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -300,9 +300,9 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
@@ -321,12 +321,12 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **DBMS settings**, click **Settings**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Configure the available parameters according to the [{{ RD }} documentation](https://redis.io/documentation).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
 - {{ TF }}
 
@@ -366,9 +366,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   To change the {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
+   To change {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }} version>` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -383,14 +383,14 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Change additional cluster settings:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -421,7 +421,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -433,9 +433,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -452,11 +452,11 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   1. Go to the folder page and select **{{ mrd-name }}**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
-   1. Click **Move**.
+   1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
    1. Select the folder you want to move the cluster to.
-   1. Click **Move**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -483,9 +483,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [move](../api-ref/Cluster/move.md) API method and provide the following in the query:
+   To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
@@ -493,17 +493,21 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 ## Changing security groups {#change-sg-set}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mrd-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Under **Network settings**, select security groups for cluster network traffic.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI
 
@@ -555,9 +559,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To update security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 
@@ -567,7 +571,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

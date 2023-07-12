@@ -10,7 +10,7 @@ Encrypts given plaintext with the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:encrypt
+POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:encrypt
 ```
  
 ## Path parameters {#path_params}

@@ -1,8 +1,8 @@
 # Managing shards {{ MG }}
 
-You can enable [sharding](../concepts/sharding.md) for a cluster as well as add and configure individual shards.
+You can [create a sharded](cluster-create.md#creating-a-sharded-cluster) cluster or [enable sharding](#enable) later. After that, you can [add and configure shards](#add-shard).
 
-Make sure that your shards consist of at least 3 `MONGOD` hosts to ensure higher availability. We don't recommend sharding small collections: query processing is faster with a standard replica cluster.
+Make sure that your shards consist of at least three `MONGOD` hosts to ensure higher availability. We do not recommend sharding small collections: query processing is faster with a standard replica cluster.
 
 {% note alert %}
 
@@ -24,7 +24,7 @@ To enable sharding, you need:
 
 {% note info %}
 
-Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts with the classes **b1.medium** and **b2.medium**. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
+Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts of **b1.medium** and **b2.medium** classes. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
 
 {% endnote %}
 
@@ -88,7 +88,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       * `--mongoinfra`: `MONGOINFRA` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: [Disk type](../concepts/storage.md).
+         * `disk-type`: The [type of disk](../concepts/storage.md).
 
    * To enable advanced cluster sharding using `MONGOS` and `MONGOCFG` hosts, run the command (the list of supported parameters in the example is not exhaustive):
 
@@ -121,21 +121,122 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       Where:
       * `--cluster-name`: Cluster name that you can request with a [list of clusters in the folder](cluster-list.md#list).
       * `--host`: Host parameters:
-         * `type`: Host type (`MONGOS` or `MONGOCFG`).
+         * `type`: The type (`MONGOS` or `MONGOCFG`).
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
       * `--mongos`: `MONGOS` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: [Disk type](../concepts/storage.md).
+         * `disk-type`: The [type of disk](../concepts/storage.md).
       * `--mongocfg`: `MONGOCFG` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: [Disk type](../concepts/storage.md).
+         * `disk-type`: The [type of disk](../concepts/storage.md).
+
+- {{ TF }}
+
+   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
+   1. Add additional resources to the configuration file.
+
+      {% cut "For standard sharding of the cluster using `MONGOINFRA` hosts" %}
+
+      ```hcl
+      resources_mongoinfra {
+        resource_preset_id = "<host class>"
+        disk_type_id       = "<disk type>"
+        disk_size          = <storage size in GB>
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongoinfra"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongoinfra"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongoinfra"
+      }
+      ```
+
+      {% endcut %}
+
+      {% cut "For advanced sharding of the cluster using `MONGOS` and `MONGOCFG` hosts" %}
+
+
+      ```hcl
+      resources_mongos {
+        resource_preset_id = "<host class>"
+        disk_type_id       = "<disk type>"
+        disk_size          = <storage size in GB>
+      }
+
+      resources_mongocfg {
+        resource_preset_id = "<host class>"
+        disk_type_id       = "<disk type>"
+        disk_size          = <storage size in GB>
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongos"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongos"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongocfg"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongocfg"
+      }
+
+      host {
+        zone_id   = "<availability zone>"
+        subnet_id = "<subnet ID>"
+        type      = "mongocfg"
+      }
+      ```
+
+      {% endcut %}
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the resources have been updated:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 
-   You can enable sharding for the cluster using the [enableSharding](../api-ref/Cluster/enableSharding.md) method.
+   To enable cluster sharding, use the [enableSharding](../api-ref/Cluster/enableSharding.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/EnableSharding](../api-ref/grpc/cluster_service.md#EnableSharding) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -175,7 +276,9 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - API
 
-   To list the shards in a cluster, use the [listShards](../api-ref/Cluster/listShards.md) method.
+   To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -216,17 +319,21 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - {{ TF }}
 
+   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add the required number of `host` blocks to the {{ mmg-name }} cluster description and specify the shard name in the `shard_name` parameter:
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
+   1. Add to the {{ mmg-name }} cluster description the required number of `host` blocks of the `MONGOD` type set in the `type` parameter and the shard name specified in the `shard_name` parameter:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         ...
         host {
-          zone       = "<availability zone>"
+          zone_id    = "<availability zone>"
           subnet_id  = "<subnet ID>"
+          type       = "mongod"
           shard_name = "<shard name>"
         }
       }
@@ -236,7 +343,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -244,7 +351,13 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - API
 
-   To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
+   To add a shard to a cluster, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter.
+   * Name of the shard in the `shardName` parameter.
+   * In the array of `hostSpecs` parameters, the shard host configuration.
+
+   You can get the shard name with a [list of cluster shards](#list-shards) and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -286,13 +399,14 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [{#T}](cluster-create.md).
+
    1. Delete all shard-related `host` blocks from the {{ mmg-name }} cluster description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -300,6 +414,9 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
 - API
 
-   Use the [deleteShard](../api-ref/Cluster/deleteShard.md) method to delete a shard.
+   To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Name of the shard to delete in the `shardName` parameter.
 
 {% endlist %}

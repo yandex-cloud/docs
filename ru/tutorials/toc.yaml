@@ -77,6 +77,8 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: archive/kubernetes-backup.md
+      - name: Развертывание параллельной файловой системы GlusterFS
+        href: archive/ha-regional-glusterfs.md
   - name: Для разработчиков
     items:
       - name: Все руководства
@@ -388,6 +390,8 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
+      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+        href: routing/multi-folder-vpc.md
       - name: Архитектура и защита базового интернет-сервиса
         href: routing/web-service.md
       - name: Настройки DHCP для работы с корпоративным DNS-сервером

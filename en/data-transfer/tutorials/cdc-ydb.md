@@ -1,3 +1,3 @@
-# Delivering data from {{ ydb-full-name }} to {{ mkf-full-name }}
+# {{ ydb-short-name }} change data capture and delivery to {{ KF }}
 
 {% include notitle [Stream from YDB to MKF with Data Transfer](../../_tutorials/dataplatform/data-transfer-ydb-mkf.md) %}

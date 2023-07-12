@@ -10,7 +10,7 @@ Lists operations for the specified symmetric KMS key.
  
 ## HTTP request {#https-request}
 ```
-GET https://kms.{{ api-host }}/kms/v1/keys/{keyId}/operations
+GET https://{{ api-host-kms }}/kms/v1/keys/{keyId}/operations
 ```
  
 ## Path parameters {#path_params}

@@ -234,7 +234,7 @@ host | FQDN хоста
 ##### Прочие метрики {#managed-elasticsearch-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `elasticsearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](https://cloud.yandex.ru/docs/managed-elasticsearch/concepts/scalability-and-resilience) и общее количество активных шардов в кластере. | 
+| `elasticsearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-elasticsearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 
 | `elasticsearch_active_shards`<br/>`DGAUGE`, штуки | Количество активных шардов. | 
 | `elasticsearch_active_shards_percent_as_number`<br/>`DGAUGE`, штуки | Процент активных шардов. | 
 | `elasticsearch_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |

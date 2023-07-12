@@ -89,7 +89,6 @@ When you edit VM resources, the PCI topology might change. Keep this in mind whe
 
 ## Adding a GPU to an existing VM {#add-gpu}
 
-
 To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform and specify the number of GPUs.
 
 {% list tabs %}
@@ -104,7 +103,9 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. In the window that opens, click **Stop**.
    1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
    1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
-      * Choose the [platform](../../concepts/vm-platforms.md) Intel Broadwell with NVIDIA® Tesla® V100.
+      * Choose the [platform](../../concepts/vm-platforms.md#gpu-platforms).
+
+
       * Specify the required number of GPUs.
    1. Click **Save changes**.
    1. Click **Run** in the upper-right corner of the page.
@@ -143,16 +144,18 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       ```bash
       yc compute instance update first-instance \
-        --platform=gpu-standard-v3 \
+        --platform=standard-v3-t4 \
         --cores=8 \
-        --memory=96 \
+        --memory=32 \
         --gpus=1
       ```
 
       This command changes the following VM characteristics:
-      * **Platform** to Intel Broadwell with NVIDIA® Tesla® V100.
+      * **Platform** to {{ t4-ice-lake }}.
+
+        
       * **Number of vCPUs** to 8.
-      * **RAM** to 96 GB.
+      * **RAM** to 32 GB.
       * **GPU** to 1.
 
    1. Run the VM:
@@ -219,11 +222,14 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
       ```bash
       yc compute instance update first-instance \
         --gpus=2 \
-        --cores=16 \
-        --memory=192
+        --cores=56 \
+        --memory=238
       ```
 
       This command changes the number of GPUs to 2.
+      
+      Values of `--cores` (number of vCPUs) and `--memory` (RAM in GB) depend on the GPU platform and the number of GPUs. See the [list of available configurations](../../concepts/gpus.md#config).
+
    1. Run the VM:
 
       ```bash

@@ -6,17 +6,13 @@ To find the issues you're working on, use the _system filters_ preset. The filte
 
 Find your issues using preset system filters.
 
-{% list tabs %}
+1. Go to the page with the issue list. To do this, in the left panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or click the [link]({{ link-tracker }}issues).
 
-- Web interface
-
-   1. Go to the page with the issue list. To do this, in the left panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or click the [link]({{ link-tracker }}issues).
-
-   1. In the drop-down list, select one of the options:
-
-   * **All my issues**: Issues that list you as the reporter, assignee, or follower.
+1. In the drop-down list, select one of the options:
 
    * **Favorite issues**: Issues that you [added to Favorites](favourites.md#task-fav).
+
+   * **All my issues**: Issues that list you as the reporter, assignee, or follower.
 
    * **Reported by me**: Issues that you created.
 
@@ -28,11 +24,11 @@ Find your issues using preset system filters.
 
    * **Deadline approaching**: Issues that list you as the reporter, assignee, or follower and where:
 
-      * Deadlines have passed in the last two weeks ![](../../_assets/tracker/deadline-red.png).
+      * Issues that have exceeded their deadlines in the past two weeks.
 
-      * The deadline will be due within a month ![](../../_assets/tracker/deadline-grey.png).
+      * The deadline will be due within a month.
 
-      On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file.
+1. On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file:
 
    * To search for issues in the list, use the **Search by issue name** bar or [add the search criteria](#add-condition).
 
@@ -44,43 +40,15 @@ Find your issues using preset system filters.
 
    * To collapse the panel with the filter list, in the upper-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**.
 
-- Mobile app
-
-   In the upper-left corner, tap the name of the filter and choose one of the options:
-
-   * **All my issues**: Issues that list you as the reporter, assignee, or follower.
-
-   * **Reported by me**: Issues that you created.
-
-   * **Assigned to me**: Issues that list you as the assignee.
-
-   * **Followed by me**: Issues that you [subscribed to](subscribe.md#section_xt5_xrv_jz) for updates.
-
-   * **Favorite issues**: Issues that you [added to Favorites](favourites.md#task-fav).
-
-   * **Waiting for my response**: Issues you were [invited to comment on](comments.md#call-comment).
-
-   * **Deadline approaching**: Issues that list you as the reporter, assignee, or follower and where:
-
-      * Deadlines have passed in the last two weeks ![](../../_assets/tracker/deadline-red.png).
-
-      * The deadline will be due within three months ![](../../_assets/tracker/deadline-grey.png).
-
-   To display both open and completed issues in the list, enable **Show completed issues** in the filter panel.
-
-   After selecting the filter, you'll see the selected issue list.
-
-{% endlist %}
-
-## Quick filters {#quick-filters}
+## Filtering by parameters {#quick-filters}
 
 {% note info %}
 
-Quick filters are only available in the {{ tracker-name }} web interface.
+Filtering by parameters is only available in the {{ tracker-name }} web interface.
 
 {% endnote %}
 
-Use quick filters to filter your issue list and leave there only those issues that match the selected parameters. The quick filter buttons are above the issue list:
+Use filtering by parameters to narrow down your issue list and display only those issues that match the selected parameters. The filter by parameters buttons are above the issue list:
 
 * To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
@@ -90,12 +58,6 @@ As a result, only the issues that meet the selected filter criteria are shown in
 
 ## Adding search parameters {#add-condition}
 
-{% note info %}
-
-You can only set the search criteria in the {{ tracker-name }} web interface.
-
-{% endnote %}
-
 #### Searching by parameters
 
 To find issues by the parameters that can't be set using the system filters, add search conditions.
@@ -104,10 +66,9 @@ To find issues by the parameters that can't be set using the system filters, add
 
 1. Click the icon ![](../../_assets/tracker/svg/add-filter.svg) **Add a field for filtering**.
 
-1. Select an issue parameter, set its value, and click **Save**.
+1. Select an issue parameter, then set its value and click **Save**.
 
    Any issues that don't meet your criteria are filtered out of the list.
-
 
 
 1. If you need to refine the search conditions, add more parameters.
@@ -148,4 +109,4 @@ To save the issue search conditions as a filter:
 
 1. Set the name and category for the filter.
 
-The saved filter will be added to the filter list.
+Your saved filters will be available in the **All issues** checkbox in the **My** section.

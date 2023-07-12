@@ -24,8 +24,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and then select the **Users** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
+   1. Click the name of the cluster you need and then select the **Users** tab.
 
 - CLI
 
@@ -35,12 +35,18 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To get a list of cluster users, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user list
       --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
 - SQL
 
@@ -51,12 +57,6 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       SHOW USERS;
       ```
 
-- API
-
-   Use the [list](../api-ref/User/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
-
-   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
-
 {% endlist %}
 
 ## Adding a user {#adduser}
@@ -65,7 +65,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
    1. Click **Add**.
    1. Enter the database username and password.
@@ -84,7 +84,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
    1. Click **Add**.
 
-   For details, see the [example of creating a user with read-only access](#example-create-readonly-user).
+   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
 - CLI
 
@@ -94,7 +94,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To create a user in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user create <username> \
       --cluster-name=<cluster name> \
       --password=<user password> \
@@ -109,7 +109,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user create <username> \
       ...
       --quota="<quota 0 settings>" \
@@ -119,7 +119,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   For details, see the [example of creating a user with read-only access](#example-create-readonly-user).
+   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
 - {{ TF }}
 
@@ -154,6 +154,17 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+   To add a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * New username, in the `userSpec.name` parameter.
+   * New user password, in the `userSpec.password` parameter.
+   * (Optional) List of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
+   * (Optional) List of {{ CH }} user settings, in the `userSpec.settings` parameter.
+   * (Optional) List of quota user settings, in the `userSpec.quotas[]` parameter.
+
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
@@ -167,26 +178,17 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    For more information about creating users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
 
-- API
-
-   Use the [create](../api-ref/User/create.md) API method and include the following information in the request:
-
-   * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * New username, in the `userSpec.name` parameter.
-   * New user password, in the `userSpec.password` parameter.
-   * (Optional) List of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
-   * (Optional) A list of {{ CH }} user settings, in the `userSpec.settings` parameter.
-   * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
-
 {% endlist %}
 
 ## Changing a password {#updateuser}
+
+We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may revert to the previous one after [maintenance](../concepts/maintenance.md).
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
    1. Click ![image](../../_assets/options.svg) and select **Change password**.
    1. Set a new password and click **Edit**.
@@ -201,7 +203,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To change the user's password, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user update <username>\
      --cluster-name=<cluster name>\
      --password=<new password>
@@ -246,25 +248,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- SQL
-
-   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
-   1. Change the user's password:
-
-      ```sql
-      ALTER USER <username> IDENTIFIED BY '<new password>';
-      ```
-
-      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
-
-   For more information about changing users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+   To update a password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * New password in the `password` parameter.
+   * New password, in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
@@ -275,6 +264,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 {% endlist %}
 
 ## Changing the admin password {#admin-password-change}
+
+We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not use SQL to change your password; otherwise, the password may revert to the previous one after [maintenance](../concepts/maintenance.md).
 
 {% list tabs %}
 
@@ -332,25 +323,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- SQL
-
-   1. [Connect](./connect.md) to a cluster [as `admin`](#sql-user-management).
-   1. Execute the SQL query below:
-
-      ```sql
-      ALTER USER admin IDENTIFIED BY '<new password>';
-      ```
-
-      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
-
-   To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new password in the `configSpec.adminPassword` parameter.
+   * New password in the `configSpec.adminPassword` parameter.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
@@ -366,7 +344,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
    1. Click ![image](../../_assets/options.svg) and select **Configure**.
    1. Set up user permissions to access certain databases:
@@ -390,7 +368,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    You can change the user settings from the command line interface:
    1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} user update <username> \
          --cluster-name=<cluster name> \
          --permissions=<list of databases to grant a user access to>
@@ -400,11 +378,11 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       This command grants the user access rights to the databases listed.
 
-      To revoke access to a specific database, remove its name from the list and pass the updated list to the command.
+      To revoke access to a specific database, remove its name from the list and send the updated list to the command.
 
    1. To change the user's [quota settings](../concepts/settings-list.md#quota-settings), run the command with a list of all quotas, using `--quota` parameters (one parameter per quota):
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} user update <username> \
          --cluster-name=<cluster name> \
          --quota=<quota 0 settings (no change)> \
@@ -421,13 +399,13 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       This command overwrites all existing user quota settings with the new settings that you passed to the command.
       Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that haven't changed.
 
-      To delete one or more user quotas, exclude their settings from the list and pass the updated list of `--quota` parameters to the command.
+      To delete one or more user quotas, exclude their settings from the list and send the updated list of `--quota` parameters to the command.
 
       When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is incorrect).
 
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} user update <username> \
          --cluster-name=<cluster name> \
          --settings=<list of {{ CH }} settings>
@@ -513,6 +491,19 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+   To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
+   * (Optional) List of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
+   * (Optional) List of {{ CH }} user settings, in the `userSpec.settings` parameter.
+   * (Optional) List of quota user settings, in the `userSpec.quotas[]` parameter.
+   * List of user configuration fields to update in the `updateMask` parameter.
+
+   {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
@@ -528,24 +519,11 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change a user account, use the [ALTER USER](https://{{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change a user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
       ```
-
-- API
-
-   Use the [update](../api-ref/User/update.md) API method and provide the following in the request:
-
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
-   * (Optional) List of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
-   * (Optional) List of {{ CH }} user settings, in the `userSpec.settings` parameter.
-   * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
-   * List of user configuration fields to update in the `updateMask` parameter.
-
-   {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -555,7 +533,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
    1. Click ![image](../../_assets/options.svg) and select **Delete**.
 
@@ -567,7 +545,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    To remove a user, run:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user delete <username>\
       --cluster-name <cluster name>
    ```
@@ -594,6 +572,13 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+- API
+
+   To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
+
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
@@ -604,13 +589,6 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       ```
 
    For more information about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
-
-- API
-
-   Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
-
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
 
 {% endlist %}
 
@@ -626,7 +604,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click on the cluster named `mych` and select the **Users** tab.
    1. Click **Add**.
    1. Enter `ro-user` as the DB username and `Passw0rd` as the password.
@@ -639,7 +617,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
    Run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} user create "ro-user" \
       --cluster-name="mych" \
       --password="Passw0rd" \

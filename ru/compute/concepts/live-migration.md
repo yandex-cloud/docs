@@ -20,4 +20,10 @@
 * ВМ управляемых СУБД с локальными SSD-дисками.
 * ВМ с запретом миграции.
 
-[^1]: Будут динамически перемещены после [остановки вручную](../operations/vm-control/vm-stop-and-start.md#stop).
+\* Будут динамически перемещены после [остановки вручную](../operations/vm-control/vm-stop-and-start.md#stop).
+
+## Смотрите также {#see-also}
+
+* [Как перенести виртуальную машину в другую зону доступности](../operations/vm-control/vm-change-zone.md).
+* [Как перенести виртуальную машину в другой каталог](../operations/vm-control/vm-change-folder.md).
+* [Как перенести виртуальную машину в другое облако](../operations/vm-control/vm-change-cloud.md).

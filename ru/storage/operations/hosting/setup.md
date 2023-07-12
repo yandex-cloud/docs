@@ -42,8 +42,9 @@
      ```
 
      Где:
+
      * `index` — абсолютный путь к файлу главной страницы сайта. 
-     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.  
+     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.
   
   1. Выполните следующую команду:
 
@@ -60,7 +61,7 @@
 
      ```text
      name: my-bucket
-     folder_id: b1gjs8dck8bvb10chmjf
+     folder_id: b1gjs8dck8bv********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"
@@ -211,7 +212,7 @@
 
      ```text
      name: my-bucket
-     folder_id: b1gjs8dck8bvb10chmjf
+     folder_id: b1gjs8dck8bv********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"
@@ -381,7 +382,7 @@
 
      ```text
      name: my-bucket
-     folder_id: b1gjs8dck8bvb10chmjf
+     folder_id: b1gjs8dck8bv********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"
@@ -412,7 +413,7 @@
        website {
          index_document = "<абсолютный_путь_к_файлу_главной_страницы_сайта>"
          error_document = "<абсолютный_путь_к_файлу_ошибок>"
-		 routing_rules            = <<EOF
+         routing_rules  = <<EOF
          [
 	       {
              "Condition": {

@@ -11,6 +11,8 @@ items:
         href: relational-databases.md
       - name: OLTP
         href: oltp.md
+      - name: OLAP
+        href: olap.md
   - name: Аналитика
     items:
       - name: Аналитика данных
@@ -67,10 +69,14 @@ items:
         href: vpn.md
       - name: DNS
         href: dns.md
+      - name: CDN
+        href: cdn.md
       - name: Протокол SSH
         href: ssh-keygen.md
       - name: REST API
         href: rest-api.md
       - name: CORS
         href: cors.md
+      - name: CLI
+        href: cli.md
 base: ru/glossary

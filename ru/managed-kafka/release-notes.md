@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## II квартал 2023 {#q2-2023}
+
+* Новая версия {{ KF }} 3.4 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## I квартал 2023 {#q1-2023}
 
 * Новая версия {{ KF }} 3.3 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}

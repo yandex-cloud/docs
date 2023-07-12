@@ -86,6 +86,10 @@ items:
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
       - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-mmy-data-transfer.md
+      - name: >-
           Delivering data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
@@ -97,9 +101,7 @@ items:
         href: tutorials/mmy-ydb-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
-      - name: >-
-          Asynchronously replicating data from {{ mmy-name }} to {{
-          yds-full-name }}
+      - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
   - name: Access management
     href: security/index.md
@@ -231,7 +233,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     items:

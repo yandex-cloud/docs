@@ -102,6 +102,10 @@ items:
         href: tutorials/usergate-proxy.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
+      - name: Сеть между каталогами
+        href: tutorials/multi-folder-vpc.md
+      - name: Настройка PT Application Firewall
+        href: tutorials/pt-application-firewall.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

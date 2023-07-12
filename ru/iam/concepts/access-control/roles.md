@@ -140,7 +140,6 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
 
-{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
 
 
 ## {{ dataproc-full-name }} {#dataproc-roles}
@@ -148,6 +147,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [mdb.dataproc.agent](../../../_includes/iam/roles/dataproc-agent.md) %}
 
 {% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
+
+{% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
 
 
 ## {{ yds-full-name }} {#yds-roles}
@@ -160,6 +161,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [yds-admin](../../../_includes/iam/roles/yds-admin.md) %}
 
+
+
 ## {{ data-transfer-full-name }} {#data-transfer-roles}
 
 {% include [data-transfer-viewer](../../../_includes/iam/roles/data-transfer-viewer.md) %}
@@ -169,12 +172,12 @@ _Роль_ — это набор разрешений, который опред
 {% include [data-transfer-admin](../../../_includes/iam/roles/data-transfer-admin.md) %}
 
 
+
 ## {{ datalens-full-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
-
 
 
 ## {{ ml-platform-name }} {#datasphere-roles}
@@ -252,6 +255,16 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
 
+## {{ lockbox-full-name }} {#lockbox-roles}
+
+{% include [lockbox-admin](../../../_includes/roles-lockbox-admin.md) %}
+
+{% include [lockbox-editor](../../../_includes/roles-lockbox-editor.md) %}
+
+{% include [lockbox-viewer](../../../_includes/roles-lockbox-viewer.md) %}
+
+{% include [lockbox-payloadViewer](../../../_includes/roles-lockbox-payloadViewer.md) %}
+
 ## {{ mkf-full-name }} {#mkf-roles}
 
 {% include [mkf-auditor](../../../_includes/iam/roles/mkf-auditor.md) %}
@@ -271,6 +284,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [mch-editor](../../../_includes/iam/roles/mch-editor.md) %}
 
 {% include [mch-admin](../../../_includes/iam/roles/mch-admin.md) %}
+
+
 
 ## {{ mes-full-name }} {#mes-roles}
 
@@ -300,6 +315,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mgp-admin](../../../_includes/iam/roles/mgp-admin.md) %}
 
+
+
 ## {{ managed-k8s-full-name }} {#kubernetes-roles}
 
 {% include [k8s-cluster-api-viewer](../../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
@@ -320,6 +337,8 @@ _Роль_ — это набор разрешений, который опред
 
 Подробнее см. в разделе [{#T}](../../../managed-kubernetes/security/index.md).
 
+
+
 ## {{ mmg-full-name }} {#mmg-roles}
 
 {% include [mmg-auditor](../../../_includes/iam/roles/mmg-auditor.md) %}
@@ -329,6 +348,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [mmg-editor](../../../_includes/iam/roles/mmg-editor.md) %}
 
 {% include [mmg-admin](../../../_includes/iam/roles/mmg-admin.md) %}
+
+
 
 ## {{ mmy-full-name }} {#mmy-roles}
 
@@ -370,6 +391,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mrd-admin](../../../_includes/iam/roles/mrd-admin.md) %}
 
+
+
 ## {{ mms-full-name }} {#mms-roles}
 
 {% include [mms-auditor](../../../_includes/iam/roles/mms-auditor.md) %}
@@ -387,7 +410,6 @@ _Роль_ — это набор разрешений, который опред
 {% include [ydb-editor](../../../_includes/iam/roles/ydb-editor.md) %}
 
 {% include [ydb-admin](../../../_includes/iam/roles/ydb-admin.md) %}
-
 
 ## {{ message-queue-full-name }} {#ymq-roles}
 
@@ -460,6 +482,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
+
+
 ## {{ translate-full-name }} {#translate-roles}
 
 {% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
@@ -467,6 +491,8 @@ _Роль_ — это набор разрешений, который опред
 ## {{ vision-full-name }} {#vision-roles}
 
 {% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
+
+
 
 ## {{ vpc-full-name }} {#vpc-roles}
 

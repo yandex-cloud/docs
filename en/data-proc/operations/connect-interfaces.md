@@ -10,10 +10,6 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 {% endnote %}
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
-
 ### Enabling component interfaces {#ui-proxy-enable}
 
 {% list tabs %}
@@ -42,11 +38,11 @@ To enable security groups, request access to this feature from the [support team
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
    * `True` as the value for the `uiProxy` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`uiProxy` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `uiProxy`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -78,7 +74,7 @@ To enable security groups, request access to this feature from the [support team
 
 - API
 
-   Use the [listUILinks](../api-ref/Cluster/listUILinks.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listUILinks](../api-ref/Cluster/listUILinks.md) API method and include the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list).
 

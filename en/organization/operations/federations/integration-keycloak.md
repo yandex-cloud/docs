@@ -198,7 +198,8 @@ To follow the steps in this section, you will need:​
              --cookie-max-age 12h \
              --issuer "http://<host>:8080/realms/master" \
              --sso-binding POST \
-             --sso-url "http://<host>:8080/realms/master/protocol/saml"       
+             --sso-url "http://<host>:8080/realms/master/protocol/saml" \
+             --force-authn
          ```
 
       - Keycloak 16 or lower
@@ -211,7 +212,8 @@ To follow the steps in this section, you will need:​
              --cookie-max-age 12h \
              --issuer "http://<host>:8080/auth/realms/master" \
              --sso-binding POST \
-             --sso-url "http://<host>:8080/auth/realms/master/protocol/saml"       
+             --sso-url "http://<host>:8080/auth/realms/master/protocol/saml" \
+             --force-authn
          ```
 
          Where:
@@ -221,10 +223,10 @@ To follow the steps in this section, you will need:​
          * `organization-id`: Your organization ID.
 
          * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-       
-          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
          * `encrypted-assertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -286,9 +288,9 @@ To follow the steps in this section, you will need:​
 
          * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
-- API
+         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-   1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create a federation in.
+- API
 
    1. Create a file with the request body, e.g., `body.json`:
 
@@ -296,7 +298,6 @@ To follow the steps in this section, you will need:​
 
          ```json
          {
-           "folderId": "<folder ID>",
            "name": "my-federation",
            "organizationId": "<organization ID>",
            "autoCreateAccountOnLogin": true,
@@ -304,17 +305,17 @@ To follow the steps in this section, you will need:​
            "issuer": "http://<host>:8080/realms/master",
            "ssoUrl": "http://<host>:8080/realms/master/protocol/saml",
            "securitySettings": {
-               "encryptedAssertions": true
-               },
+               "encryptedAssertions": true,
+               "forceAuthn": true
+           },
            "ssoBinding": "POST"
-         }       
+         }
          ```
 
       - Keycloak 16 or lower
 
          ```json
          {
-           "folderId": "<folder ID>",
            "name": "my-federation",
            "organizationId": "<organization ID>",
            "autoCreateAccountOnLogin": true,
@@ -322,25 +323,23 @@ To follow the steps in this section, you will need:​
            "issuer": "http://<host>:8080/auth/realms/master",
            "ssoUrl": "http://<host>:8080/auth/realms/master/protocol/saml",
            "securitySettings": {
-               "encryptedAssertions": true
-               },
+             "encryptedAssertions": true,
+             "forceAuthn": true
+           },
            "ssoBinding": "POST"
-         }       
+         }
          ```
 
          Where:
-
-         * `folderId`: ID of the folder.
 
          * `name`: Federation name. It must be unique within the folder.
 
          * `organizationId`: Organization ID.
 
          * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-           
-           This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
+            This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-           If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
          * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -401,6 +400,8 @@ To follow the steps in this section, you will need:​
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
          * `encryptedAssertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
+
+         * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
          * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
@@ -477,7 +478,6 @@ To follow the steps in this section, you will need:​
 
       * `cookie_max_age`: Time, in seconds, before the browser asks the user to re-authenticate. The default value is `8 hours`.
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
-        
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -528,9 +528,9 @@ To follow the steps in this section, you will need:​
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-         ```
-         terraform plan
-         ```
+        ```
+        terraform plan
+        ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
@@ -538,13 +538,13 @@ To follow the steps in this section, you will need:​
 
       1. If the configuration does not contain any errors, run this command:
 
-         ```
-         terraform apply
-         ```
+        ```
+        terraform apply
+        ```
 
       1. Confirm you want to create a federation.
 
-   This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
+   This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
 {% endlist %}
 
@@ -625,6 +625,21 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
+### Get a console login link {#get-link}
+
+When you set up federation authentication, users can log in to the management console from a link containing the federation ID.
+
+Get the link:
+
+1. Copy the Federation ID:
+
+   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+
+   1. Copy the ID of the federation you are configuring access for.
+
+1. Generate a link using this ID:
+
+   `{{ link-console-main }}/federations/<federation ID>`
 
 ## Creating and setting up a SAML application in Keycloak {#keycloak-settings}
 
@@ -656,16 +671,16 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the left-hand panel, select **Clients**. Click **Create client**.
 
-      1. In the **Client ID** field, enter the URL to redirect users to after authentication:
+      1. In the **Client ID** field, enter the URL to redirect users to after successful authentication:
 
          ```
          https://{{ auth-host }}/federations/<federation_ID>
          ```
-      
-         {% cut "How to get the federation ID" %}
-      
+
+         {% cut "How to get a federation ID" %}
+
          {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
-      
+
          {% endcut %}
 
       1. In the **Client type** field, select **saml**.
@@ -676,13 +691,13 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the left-hand panel, select **Clients**. Click **Create**.
 
-      1. In the **Client ID** field, enter the URL to redirect users to after authentication:
+      1. In the **Client ID** field, enter the URL to redirect users to after successful authentication:
 
          ```
          https://{{ auth-host }}/federations/<federation_ID>
          ```
 
-         {% cut "How to get the federation ID" %}
+         {% cut "How to get a federation ID" %}
 
          {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
@@ -696,7 +711,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 1. Set up the SAML application parameters in the **Settings** tab:
 
-   1. Enter the redirection URL, `https://{{ auth-host }}/federations/<federation_ID>`, in the following fields:
+   1. Specify the `https://{{ auth-host }}/federations/<federation_ID>` redirect URL in the following fields:
 
       {% list tabs %}
 
@@ -798,7 +813,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click the arrow next to the **Add user** button and select **Add federated users**.
+   1. In the top right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -870,7 +885,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 
-   1. In the left-hand panel, select **Client Scopes**  →  **role_list**.
+   1. In the left-hand panel, select **Client Scopes** → **role_list**.
 
    1. Go to the **Mappers** tab and select **role list**.
 
@@ -938,7 +953,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 | Name | Used for search in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `firstName` |
 | Full name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-display-name }}. | `name` |
 | Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `email` |
-| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
+| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
 | Profile image | Displayed in {{ yandex-cloud }} services. The image must be provided in Base64 format.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto` |
 
 {% note warning %}
@@ -957,13 +972,13 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the management console login URL:
-   
+1. Follow the URL to log in to the management console:
+
    ```
    https://{{ console-host }}/federations/<federation_ID>
    ```
 
-   {% cut "How to get the federation ID" %}
+   {% cut "How to get a federation ID" %}
 
    {% include [get-federation-id](../../../_includes/organization/get-federation-id.md) %}
 
@@ -973,4 +988,4 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-If the authentication is successful, the IdP server will redirect you to `https://{{ auth-host }}/federations/<federation_ID>`, the URL that you specified in Keycloak settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the `https://{{ auth-host }}/federations/<federation_ID>` URL that you specified in the Keycloak settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will be able to see you are logged in to the console as a federated user.

@@ -30,8 +30,8 @@
             type: string
       x-yc-apigateway-integration:
         type: object_storage
-        bucket: my-example-bucket
+        bucket: <имя_бакета>
         object: '{file}'
         error_object: error.html
-        service_account_id: ajehfe65fhliq4n28q1
+        service_account_id: ajehfe65fhl********
 ```

@@ -68,8 +68,8 @@
       Результат:
 
       ```yaml
-      name: first-bucket
-      folder_id: b1gmit33ngp6cv2mhjmo
+      name: <имя_бакета>
+      folder_id: b1gmit33ngp6********
       anonymous_access_flags:
         read: false
         list: false

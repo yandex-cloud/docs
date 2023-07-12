@@ -17,7 +17,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Click **Create cluster**.
    1. Enter a name for the cluster. It must be unique within the folder.
    1. (optional) Enter a cluster description.
-   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mgp-full-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ GP }} version.
@@ -31,7 +31,7 @@ For more information, see [{#T}](../concepts/index.md).
       * Select the cloud network for the cluster.
       * In the **Security groups** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) that contains the rules allowing all incoming and outgoing traffic over any protocol from any IP address.
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
          {% note alert %}
 
@@ -159,7 +159,7 @@ For more information, see [{#T}](../concepts/index.md).
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ GP }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
-      * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
+      * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It can be up to 32 characters long.
       * `--user-password`: Password, which must be from 8 to 128 characters long.
       * `--master-config` and `--segment-config`: Master and segment host configurations:
          * `resource-id`: [Host class](../concepts/instance-types.md).
@@ -235,7 +235,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
-   1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    2. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
@@ -316,7 +316,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.

@@ -125,7 +125,7 @@
 * Количество vCPU: 64.
 * Объем RAM: 704 ГБ.
 * Количество локальных дисков: 1.
-* Размер локального диска: 3200 × 10^9^ Б (~ 2,91 ТБ).
+* Размер локального диска: 3198924357632 Б (~ 2,91 ТБ).
 * Операционная система: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
 Для этого выполните следующие действия:
@@ -151,7 +151,7 @@
     --memory 704 \
     --host-id <идентификатор_выделенного_хоста> \
     --network-interface subnet-id=<идентификатор_подсети> \
-    --attach-local-disk "size=3200000000000" \
+    --attach-local-disk "size=3198924357632" \
     --ssh-key <путь_к_файлу_открытого_ключа_SSH> \
     --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
   ```

@@ -22,13 +22,19 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [list](../api-ref/Extension/list) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of installed user extensions, use the [list](../api-ref/Extension/list.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/List](../api-ref/grpc/extension_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   You can get the cluster ID [with a list of clusters in a folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
 ## Adding user extensions {#add}
+
+{% note info %}
+
+All extensions must be in TXT format and added to a ZIP archive.
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -54,9 +60,11 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [create](../api-ref/Extension/create) API method and include the following information in the request:
+   To add a user extension, use the [create](../api-ref/Extension/create.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Create](../api-ref/grpc/extension_service.md#Create) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * Extension name in the `name` parameter.
 
    
@@ -91,9 +99,12 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [update](../api-ref/Extension/update) API method and include the following in the request:
+   To enable or disable a user extension, use the [update](../api-ref/Extension/update.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Update](../api-ref/grpc/extension_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
    * Status of the user extension in the `active` parameter: `true` for enabled and `false` for disabled.
    * List of extension configuration fields to update in the `updateMask` parameter.
@@ -123,9 +134,12 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 - API
 
-   Use the [delete](../api-ref/Extension/delete) API method and provide the following in the request:
+   To delete a user extension, use the [delete](../api-ref/Extension/delete.md) REST API method for the [Extension](../api-ref/Extension/index.md) resource or the [ExtensionService/Delete](../api-ref/grpc/extension_service.md#Delete) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
 
 {% endlist %}

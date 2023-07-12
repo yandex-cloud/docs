@@ -6,13 +6,13 @@ The `x-yc-apigateway-integration:cloud-functions` extension invokes the specifie
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+| Option | Type | Description |
 ----|----|----
 | `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
-| `tag` | `string` | Optional. [Tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`.<br>Parameters are substituted in `tag`. |
+| `tag` | `string` | This is an optional parameter. [Tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`.<br>Parameters are substituted in `tag`. |
 | `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If the parameter is omitted, the value of the [top-level](./index.md#top-level) `service_account_id` parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
 | `payload_format_version` | `string` | Function call format version. Possible values: [`0.1`](#request_v0) and [`1.0`](#request_v1). Default version is [`0.1`](#request_v0). |
-| `context` | `object` | Optional. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext`. `Context` is where parameter substitution takes place. |
+| `context` | `object` | This is an optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext`. `Context` is where parameter substitution takes place. |
 
 ## Extension specification {#spec}
 
@@ -98,4 +98,35 @@ Request JSON structure for version `1.0` is compatible with the request format f
     "multiValueParameters": <dictionary with lists of values of the request parameters described in the OpenAPI specification>,
     "operationId": <The operationId that corresponds to the request in the OpenAPI specification>
 }
+```
+
+`requestContext` element structure:
+
+```json
+    {
+        "identity": <collection of key:value pairs for user authentication>,
+        "httpMethod": <DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>,
+        "requestId": <request ID, router-generated>,
+        "requestTime": <request time in CLF format>,
+        "requestTimeEpoch": <request time in Unix format>,
+        "authorizer": <dictionary with authorization context>,
+        "apiGateway": <dictionary of custom data transmitted by API gateway for function call>,
+        "connectionId": <web socket connection ID>",
+        "connectedAt": <web socket connection time>,
+        "eventType": <web socket event or operation type: CONNECT, MESSAGE, or DISCONNECT>,
+        "messageId": <ID of message received from web socket>,
+        "disconnectStatusCode": <web socket closure status code>,
+        "disconnectReason": <web socket disconnection cause description in text format>
+    }
+```
+
+`authorizer` element structure:
+```json
+    {
+        "jwt": { // Field that is filled in by the API Gateway JWT authorizer. Contains data about the user and their permissions'
+          "claims": <dictionary of JWT body fields>,
+          "scopes": <list of JWT owner permissions>
+        }
+        // Other authorization context fields returned from the authorizer function
+    }
 ```

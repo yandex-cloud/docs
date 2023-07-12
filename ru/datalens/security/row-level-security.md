@@ -123,4 +123,3 @@ where измерение in (значение_1, значение_2 ... знач
 Чтобы настроить права доступа к значению строки данных:
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}
-

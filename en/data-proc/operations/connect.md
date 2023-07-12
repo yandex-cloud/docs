@@ -7,9 +7,9 @@ After creating a {{ dataproc-name }} cluster, you can connect to hosts of subclu
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-[Security groups](../../vpc/concepts/security-groups.md) might block cluster connections. If this happens, edit the group rules.
+Security groups might block cluster connections. If this happens, edit the group rules.
 
 {% note alert %}
 
@@ -45,7 +45,7 @@ Settings of rules depend on the connection method you select:
 
             * Port range: `{{ port-ssh }}`.
             * Protocol: `TCP`.
-            * Source type: `CIDR`.
+            * Destination type: `CIDR`.
             * CIDR blocks: Address range of the subnet where the hosts of the cluster are located. If subclusters are in different subnets, create this rule for each subnet.
 
       1. [Configure security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
@@ -77,7 +77,7 @@ Settings of rules depend on the connection method you select:
 
       * Port range: `{{ port-https }}`.
       * Protocol: `TCP`.
-      * Source type: `CIDR`.
+      * Destination type: `CIDR`.
       * CIDR blocks: Address range of the subnet where the host of the subcluster is located.
 
 - Connecting with port forwarding

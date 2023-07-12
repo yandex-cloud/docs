@@ -138,6 +138,12 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+   {% note warning %}
+
+   After you create a DB, do not change its owner in the `owner` parameter, as this will recreate the DB and its data will be lost.
+
+   {% endnote %}
+
 - API
 
    To create a database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:

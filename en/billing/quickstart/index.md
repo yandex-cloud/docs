@@ -50,8 +50,7 @@ New customers are entitled to a trial period. The [trial period](../concepts/tri
 
    1. If this is your first billing account in {{ yandex-cloud }}, a trial period is available to you.
 
-       
-      {% note info %}
+            {% note info %}
 
       Sometimes, additional verification may be required when you create a billing account with a trial period. If this is the case, you will find a message with detailed instructions on the billing account page in the management console.
 

@@ -9,7 +9,7 @@
 1. В правом верхнем углу экрана нажмите ![](../../_assets/tracker/add-task-mobile.png).
 
 1. Выберите очередь, в которой вы хотите создать задачу. 
-    
+
 	
     {% note info %}
 
@@ -19,17 +19,17 @@
 		
 	
 
-1. Введите название задачи и нажмите кнопку **Создать задачу**.
+1. Введите название задачи и нажмите кнопку **{{ ui-key.startrek.components_QueueAdminAutoactions_CreateTicketForm.actions-create }}**.
 
-1. Откроется окно с новой задачей. Параметры **Тип**, **Приоритет**, **Статус** и **Автор** заполняются автоматически. У каждой очереди может быть свой [набор типов и статусов](../manager/add-ticket-type.md).
+1. Откроется окно с новой задачей. Параметры **{{ ui-key.startrek.components_FormCreateIssue.field--type }}**, **{{ ui-key.startrek.components_FormCreateIssue.field--priority }}**, **{{ ui-key.startrek.blocks-desktop_b-ticket-fields.status }}** и **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** заполняются автоматически. У каждой очереди может быть свой [набор типов и статусов](../manager/add-ticket-type.md).
 
 1. [Отредактируйте](edit-ticket.md) информацию о задаче:
         
-    * На вкладке **Описание** укажите основные параметры: добавьте описание, выберите тип и приоритет задачи, укажите исполнителя и установите дедлайн. Для форматирования текста используйте [разметку YFM](../user/markup.md).
+    * На вкладке **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** укажите основные параметры: добавьте описание, выберите тип и приоритет задачи, укажите исполнителя и установите дедлайн. Для форматирования текста используйте [разметку YFM](../user/markup.md).
         
-    * На вкладке **Параметры** укажите [дополнительные параметры](../user/create-param.md#default-fields) задачи.
+    * На вкладке **{{ ui-key.startrek.ui_components_IssueTabs.fields-tab }}** укажите [дополнительные параметры](../user/create-param.md#default-fields) задачи.
 
-    * Если ваша задача будет связана с другими задачами, на вкладке **Связи** [создайте подзадачи](#subtask). Чтобы изменить [тип связи](../user/links.md), нажмите ![](../../_assets/tracker/dots.png) напротив названия позадачи и выберите новый тип.
+    * Если ваша задача будет связана с другими задачами, на вкладке **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** [создайте подзадачи](#subtask). Чтобы изменить [тип связи](../user/links.md), нажмите ![](../../_assets/tracker/dots.png) напротив названия позадачи и выберите новый тип.
     
 1. Чтобы [прикрепить к задаче файлы или изображения](attach-file.md), перейдите к редактированию описания задачи ![](../../_assets/tracker/icon-edit.png). Затем нажмите кнопку ![](../../_assets/tracker/pin.png) и выберите приложения.
 
@@ -51,11 +51,11 @@
 
 1. Откройте задачу, к которой вы хотите создать подзадачу.
 
-1. В правом верхнем углу экрана нажмите ![](../../_assets/tracker/dots.png) и выберите **Создать подзадачу**.
+1. В правом верхнем углу экрана нажмите ![](../../_assets/tracker/dots.png) и выберите **{{ ui-key.startrek.ui_components_IssueActionsButton.menu-item-create-subticket }}**.
 
 1. Заполните поля так же, как при [создании новой задачи](#create-task).
 
-1. Нажмите кнопку **Создать задачу**.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_IssueActionsButton.menu-item-create-subticket }}**.
 
 
 

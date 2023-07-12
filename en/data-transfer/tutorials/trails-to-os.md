@@ -1,4 +1,4 @@
-# Delivering logs from {{ at-full-name }} to {{ mos-full-name }}
+# Delivering logs from {{ at-full-name }} to {{ OS }}
 
 [{{ at-name }}](../../audit-trails) is a service for collecting and exporting audit logs that allows you to use analytical tools and rapidly respond to events occurring to {{ yandex-cloud }} resources. [OpenSearch](../../managed-opensearch/) is used as a SIEM system for analyzing logs and responding to security events.
 

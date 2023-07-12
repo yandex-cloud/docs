@@ -98,7 +98,7 @@
 
    ```bash
    kubectl run jessie-dnsutils \
-     --image=k8s.gcr.io/jessie-dnsutils \
+     --image=registry.k8s.io/jessie-dnsutils \
      --restart=Never \
      --command sleep infinity
    ```

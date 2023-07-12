@@ -46,4 +46,4 @@ REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

@@ -116,3 +116,5 @@ Data Mart или витрина данных — база данных, пред
 
 * [Пример Data Warehouse как аналитического инструмента, использующий создание витрин](/blog/posts/2022/06/data-warehouse)
 
+* [Пример загрузки данных из {{ metrika }} в витрину](../data-transfer/tutorials/metrika-to-clickhouse.md)
+

@@ -397,6 +397,12 @@ items:
           Automatically copying objects from one {{ objstorage-name }} bucket to
           another
         href: tutorials/bucket-to-bucket.md
+      - name: Running computations on a schedule in {{ ml-platform-name }}
+        href: tutorials/regular-launch-datasphere.md
+      - name: Interactive debugging of functions
+        href: tutorials/serverless-live-debug.md
+      - name: Authorization using functions in Ory Kratos
+        href: tutorials/ory-kratos-authorization.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

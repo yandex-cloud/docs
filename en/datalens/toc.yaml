@@ -29,6 +29,9 @@ items:
         href: tutorials/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcasters)
         href: tutorials/data-from-podcasts.md
+      - name: Visualizing data using Heat Maps
+        hidden: true
+        href: tutorials/data-on-heat-map-dashboard.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
       - name: Visualizing data using parameters
@@ -37,8 +40,10 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Creating a Bitrix24 connection
+      - name: Visualizing Bitrix24 data
         href: tutorials/data-from-bitrix24-visualization.md
+      - name: Visualizing data from {{ tracker-full-name }}
+        href: tutorials/data-from-tracker.md
   - name: Concepts
     items:
       - name: Service overview
@@ -695,6 +700,8 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD expressions and filtering in aggregate functions
         href: concepts/lod-aggregation.md
+      - name: Functions for time series
+        href: concepts/time-series-functions.md
   - name: Courses
     href: training.md
   - name: Troubleshooting

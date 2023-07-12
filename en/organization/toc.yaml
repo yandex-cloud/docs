@@ -49,6 +49,8 @@ items:
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
+  - name: Quotas and limits
+    href: limits.md
   - name: API reference
     items:
       - name: Authentication

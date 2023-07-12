@@ -110,7 +110,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -143,6 +143,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure}
+
+Field | Description
+--- | ---
+id | **[Id](#Id)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources}
 
 Field | Description
@@ -163,7 +447,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
@@ -256,7 +540,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet1)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -289,6 +573,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet1}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig1)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig1)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig1)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig1}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree1)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression1)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary1)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup1)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka1)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic1)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq1)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree1}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka1}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka1)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq1}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression1}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure1)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout1)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range1)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource1)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource1)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource1)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource1)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource1)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource1}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource1}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica1)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica1}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource1}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource1}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource1}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure1}
+
+Field | Description
+--- | ---
+id | **[Id](#Id1)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key1)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute1)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute1)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute1)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key1}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute1)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout1}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range1}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern1)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern1}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention1)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention1}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources1}
 
 Field | Description
@@ -309,7 +877,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
@@ -378,7 +946,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
+config | **[config.ClickhouseConfig](#ClickhouseConfig2)**<br>Configuration for a ClickHouse server. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -409,6 +977,281 @@ enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data.
 move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
 data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### ClickhouseConfig {#ClickhouseConfig2}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree2)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression2)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary2)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup2)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka2)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic2)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq2)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree2}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka2}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka2)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq2}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression2}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure2)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout2)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range2)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource2)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource2)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource2)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource2)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource2)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource2}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource2}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica2)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica2}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource2}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource2}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource2}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure2}
+
+Field | Description
+--- | ---
+id | **[Id](#Id2)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key2)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute2)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute2)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute2)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key2}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute2)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout2}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range2}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern2)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern2}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention2)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention2}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### Resources {#Resources2}
@@ -608,7 +1451,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
@@ -692,7 +1535,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet2)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -701,6 +1544,290 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to ClickHouse ho
 Field | Description
 --- | ---
 resources | **[Resources](#Resources3)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet2}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig3)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig3)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig3)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig3}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree3)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression3)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary3)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup3)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka3)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic3)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq3)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree3}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka3}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka3)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq3}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression3}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure3)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout3)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range3)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource3)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource3)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource3)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource3)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource3)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource3}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource3}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica3)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica3}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource3}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource3}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource3}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure3}
+
+Field | Description
+--- | ---
+id | **[Id](#Id3)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key3)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute3)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute3)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute3)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key3}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute3)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout3}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range3}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern3)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern3}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention3)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention3}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -757,7 +1884,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
+config | **[config.ClickhouseConfig](#ClickhouseConfig4)**<br>Configuration for a ClickHouse server. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -790,6 +1917,281 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfig {#ClickhouseConfig4}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree4)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression4)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary4)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup4)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka4)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic4)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq4)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree4}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka4}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka4)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq4}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression4}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure4)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout4)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range4)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource4)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource4)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource4)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource4)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource4)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource4}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource4}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica4)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica4}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource4}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource4}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource4}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure4}
+
+Field | Description
+--- | ---
+id | **[Id](#Id4)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key4)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute4)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute4)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute4)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key4}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute4)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout4}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range4}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern4)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern4}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention4)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention4}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources3}
 
 Field | Description
@@ -810,7 +2212,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
@@ -894,7 +2296,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet3)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -903,6 +2305,290 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to ClickHouse ho
 Field | Description
 --- | ---
 resources | **[Resources](#Resources4)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet3}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig5)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig5)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig5)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig5}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree5)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression5)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary5)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup5)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka5)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic5)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq5)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree5}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka5}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka5)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq5}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression5}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure5)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout5)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range5)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource5)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource5)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource5)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource5)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource5)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource5}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource5}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica5)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica5}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource5}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource5}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource5}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure5}
+
+Field | Description
+--- | ---
+id | **[Id](#Id5)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key5)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute5)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute5)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute5)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key5}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute5)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout5}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range5}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern5)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern5}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention5)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention5}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -1044,7 +2730,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet4)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1077,6 +2763,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet4}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig6)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig6)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig6)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig6}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree6)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression6)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary6)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup6)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka6)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic6)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq6)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree6}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka6}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka6)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq6}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression6}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure6)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout6)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range6)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource6)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource6)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource6)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource6)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource6)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource6}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource6}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica6)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica6}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource6}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource6}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource6}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure6}
+
+Field | Description
+--- | ---
+id | **[Id](#Id6)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key6)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute6)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute6)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute6)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key6}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute6)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout6}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range6}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern6)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern6}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention6)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention6}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources4}
 
 Field | Description
@@ -1097,7 +3067,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
@@ -1206,7 +3176,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet5)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources5)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1239,6 +3209,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet5}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig7)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig7)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig7)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig7}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree7)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression7)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary7)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup7)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka7)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic7)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq7)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree7}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka7}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka7)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq7}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression7}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure7)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout7)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range7)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource7)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource7)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource7)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource7)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource7)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource7}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource7}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica7)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica7}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource7}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource7}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource7}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure7}
+
+Field | Description
+--- | ---
+id | **[Id](#Id7)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key7)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute7)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute7)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute7)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key7}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute7)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout7}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range7}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern7)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern7}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention7)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention7}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources5}
 
 Field | Description
@@ -1259,7 +3513,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
@@ -1371,7 +3625,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet6)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources6)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1404,6 +3658,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet6}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig8)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig8)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig8)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig8}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree8)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression8)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary8)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup8)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka8)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic8)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq8)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree8}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka8}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka8)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq8}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression8}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure8)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout8)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range8)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource8)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource8)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource8)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource8)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource8)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource8}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource8}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica8)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica8}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource8}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource8}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource8}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure8}
+
+Field | Description
+--- | ---
+id | **[Id](#Id8)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key8)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute8)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute8)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute8)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key8}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute8)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout8}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range8}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern8)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern8}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention8)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention8}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources6}
 
 Field | Description
@@ -1424,7 +3962,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
@@ -1555,7 +4093,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet7)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1588,6 +4126,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet7}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig9)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig9)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig9)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig9}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree9)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression9)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary9)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup9)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka9)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic9)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq9)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree9}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka9}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka9)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq9}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression9}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure9)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout9)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range9)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource9)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource9)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource9)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource9)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource9)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource9}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource9}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica9)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica9}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource9}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource9}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource9}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure9}
+
+Field | Description
+--- | ---
+id | **[Id](#Id9)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key9)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute9)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute9)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute9)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key9}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute9)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout9}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range9}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern9)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern9}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention9)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention9}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
@@ -1599,7 +4421,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
@@ -1708,7 +4530,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet8)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1741,6 +4563,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet8}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig10)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig10)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig10)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig10}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree10)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression10)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary10)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup10)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka10)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic10)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq10)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree10}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka10}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka10)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq10}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression10}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure10)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout10)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range10)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource10)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource10)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource10)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource10)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource10)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource10}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource10}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica10)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica10}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource10}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource10}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource10}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure10}
+
+Field | Description
+--- | ---
+id | **[Id](#Id10)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key10)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute10)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute10)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute10)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key10}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute10)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout10}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range10}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern10)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern10}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention10)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention10}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources8}
 
 Field | Description
@@ -1761,7 +4867,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
@@ -1827,7 +4933,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
+config | **[config.ClickhouseConfig](#ClickhouseConfig11)**<br>Configuration for a ClickHouse server. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1858,6 +4964,281 @@ enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data.
 move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
 data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### ClickhouseConfig {#ClickhouseConfig11}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree11)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression11)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary11)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup11)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka11)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic11)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq11)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree11}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka11}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic11}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka11)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq11}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression11}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary11}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure11)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout11)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range11)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource11)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource11)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource11)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource11)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource11)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource11}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource11}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica11)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica11}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource11}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource11}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource11}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure11}
+
+Field | Description
+--- | ---
+id | **[Id](#Id11)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key11)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute11)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute11)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute11)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute11}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id11}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key11}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute11)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout11}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range11}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup11}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern11)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern11}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention11)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention11}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### Resources {#Resources9}
@@ -1955,7 +5336,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet9)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -1964,6 +5345,290 @@ resources | **[Resources](#Resources10)**<br>Resources allocated to ClickHouse h
 Field | Description
 --- | ---
 resources | **[Resources](#Resources10)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet9}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig12)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig12)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig12)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig12}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree12)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression12)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary12)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup12)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka12)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic12)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq12)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree12}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka12}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic12}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka12)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq12}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression12}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary12}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure12)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout12)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range12)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource12)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource12)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource12)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource12)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource12)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource12}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource12}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica12)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica12}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource12}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource12}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource12}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure12}
+
+Field | Description
+--- | ---
+id | **[Id](#Id12)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key12)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute12)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute12)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute12)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute12}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id12}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key12}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute12)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout12}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range12}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup12}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern12)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern12}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention12)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention12}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1977,7 +5642,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
@@ -2089,7 +5754,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet10)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -2122,6 +5787,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet10}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig13)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig13)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig13)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig13}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree13)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression13)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary13)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup13)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka13)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic13)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq13)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree13}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka13}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic13}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka13)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq13}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression13}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary13}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure13)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout13)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range13)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource13)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource13)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource13)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource13)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource13)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource13}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource13}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica13)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica13}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource13}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource13}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource13}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure13}
+
+Field | Description
+--- | ---
+id | **[Id](#Id13)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key13)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute13)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute13)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute13)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute13}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id13}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key13}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute13)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout13}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range13}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup13}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern13)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern13}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention13)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention13}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources10}
 
 Field | Description
@@ -2142,7 +6091,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 
@@ -2172,7 +6121,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster to request logs for. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to request. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li></ul>
+service_type | enum **ServiceType**<br>Required. Type of the service to request logs about. <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
@@ -2207,7 +6156,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
-service_type | enum **ServiceType**<br> <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li></ul>
+service_type | enum **ServiceType**<br>Required.  <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has `tail -f` semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
@@ -2541,9 +6490,293 @@ clickhouse | **[Clickhouse](#Clickhouse14)**<br>ClickHouse configuration for a s
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet11)**<br>ClickHouse settings for a shard. 
 resources | **[Resources](#Resources12)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet11}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig14)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig14)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig14)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig14}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree14)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression14)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary14)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup14)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka14)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic14)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq14)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree14}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka14}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic14}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka14)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq14}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression14}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary14}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure14)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout14)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range14)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource14)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource14)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource14)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource14)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource14)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource14}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource14}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica14)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica14}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource14}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource14}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource14}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure14}
+
+Field | Description
+--- | ---
+id | **[Id](#Id14)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key14)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute14)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute14)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute14)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute14}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id14}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key14}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute14)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout14}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range14}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup14}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern14)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern14}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention14)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention14}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### Resources {#Resources12}
@@ -2598,9 +6831,293 @@ clickhouse | **[Clickhouse](#Clickhouse15)**<br>ClickHouse configuration for a s
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet12)**<br>ClickHouse settings for a shard. 
 resources | **[Resources](#Resources13)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet12}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig15)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig15)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig15)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig15}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree15)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression15)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary15)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup15)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka15)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic15)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq15)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree15}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka15}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic15}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka15)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq15}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression15}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary15}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure15)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout15)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range15)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource15)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource15)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource15)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource15)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource15)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource15}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource15}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica15)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica15}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource15}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource15}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource15}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure15}
+
+Field | Description
+--- | ---
+id | **[Id](#Id15)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key15)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute15)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute15)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute15)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute15}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id15}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key15}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute15)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout15}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range15}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup15}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern15)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern15}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention15)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention15}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### Resources {#Resources13}
@@ -2644,9 +7161,284 @@ clickhouse | **[Clickhouse](#Clickhouse16)**<br>ClickHouse configuration for a s
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>ClickHouse settings for the shard. 
+config | **[config.ClickhouseConfig](#ClickhouseConfig16)**<br>ClickHouse settings for the shard. 
 resources | **[Resources](#Resources14)**<br>Computational resources for the shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### ClickhouseConfig {#ClickhouseConfig16}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree16)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression16)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary16)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup16)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka16)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic16)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq16)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree16}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka16}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic16}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka16)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq16}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression16}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary16}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure16)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout16)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range16)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource16)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource16)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource16)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource16)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource16)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource16}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource16}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica16)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica16}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource16}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource16}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource16}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure16}
+
+Field | Description
+--- | ---
+id | **[Id](#Id16)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key16)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute16)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute16)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute16)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute16}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id16}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key16}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute16)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout16}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range16}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup16}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern16)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern16}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention16)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention16}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### Resources {#Resources14}
@@ -2713,9 +7505,293 @@ clickhouse | **[Clickhouse](#Clickhouse17)**<br>ClickHouse configuration for a s
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet13)**<br>ClickHouse settings for a shard. 
 resources | **[Resources](#Resources15)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet13}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig17)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig17)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig17)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig17}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree17)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression17)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary17)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup17)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka17)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic17)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq17)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree17}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka17}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic17}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka17)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq17}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression17}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary17}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure17)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout17)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range17)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource17)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource17)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource17)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource17)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource17)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource17}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource17}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica17)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica17}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource17}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource17}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource17}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure17}
+
+Field | Description
+--- | ---
+id | **[Id](#Id17)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key17)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute17)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute17)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute17)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute17}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id17}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key17}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute17)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout17}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range17}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup17}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern17)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern17}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention17)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention17}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ## UpdateShard {#UpdateShard}
@@ -2749,9 +7825,284 @@ clickhouse | **[Clickhouse](#Clickhouse18)**<br>ClickHouse configuration for a s
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfig`**<br>ClickHouse settings for the shard. 
+config | **[config.ClickhouseConfig](#ClickhouseConfig18)**<br>ClickHouse settings for the shard. 
 resources | **[Resources](#Resources15)**<br>Computational resources for the shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### ClickhouseConfig {#ClickhouseConfig18}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree18)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression18)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary18)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup18)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka18)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic18)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq18)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree18}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka18}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic18}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka18)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq18}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression18}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary18}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure18)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout18)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range18)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource18)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource18)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource18)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource18)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource18)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource18}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource18}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica18)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica18}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource18}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource18}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource18}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure18}
+
+Field | Description
+--- | ---
+id | **[Id](#Id18)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key18)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute18)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute18)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute18)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute18}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id18}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key18}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute18)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout18}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range18}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup18}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern18)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern18}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention18)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention18}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ### Resources {#Resources15}
@@ -2807,9 +8158,293 @@ clickhouse | **[Clickhouse](#Clickhouse19)**<br>ClickHouse configuration for a s
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet14)**<br>ClickHouse settings for a shard. 
 resources | **[Resources](#Resources16)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### ClickhouseConfigSet {#ClickhouseConfigSet14}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig19)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig19)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig19)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig19}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree19)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression19)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary19)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup19)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka19)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic19)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq19)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree19}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka19}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic19}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka19)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq19}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression19}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary19}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure19)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout19)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range19)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource19)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource19)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource19)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource19)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource19)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource19}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource19}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica19)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica19}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource19}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource19}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource19}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure19}
+
+Field | Description
+--- | ---
+id | **[Id](#Id19)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key19)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute19)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute19)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute19)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute19}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id19}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key19}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute19)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout19}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range19}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup19}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern19)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern19}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention19)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention19}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
 
 
 ## DeleteShard {#DeleteShard}
@@ -3081,7 +8716,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-external_dictionaries[] | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>List of ClickHouse Cluster external dictionaries. 
+external_dictionaries[] | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig20)**<br>List of ClickHouse Cluster external dictionaries. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterExternalDictionaryRequest.page_size], use the `next_page_token` as the value for the [ListClusterExternalDictionaryRequest.page_token] parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -3100,7 +8735,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Configuration of the external dictionary. 
+external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig20)**<br>Configuration of the external dictionary. 
 
 
 ### Operation {#Operation20}
@@ -3177,7 +8812,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet15)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources16)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -3210,6 +8845,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet15}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig20)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig20)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig20)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig20}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree20)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression20)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary20)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup20)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka20)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic20)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq20)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree20}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka20}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic20}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka20)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq20}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression20}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary20}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure20)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout20)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range20)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource20)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource20)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource20)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource20)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource20)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource20}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource20}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica20)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica20}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource20}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource20}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource20}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure20}
+
+Field | Description
+--- | ---
+id | **[Id](#Id20)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key20)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute20)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute20)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute20)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute20}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id20}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key20}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute20)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout20}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range20}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup20}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern20)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern20}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention20)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention20}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources16}
 
 Field | Description
@@ -3230,7 +9149,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
 
@@ -3263,7 +9182,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster to update the external dictionary for. To get the cluster ID, use a [List](#List) request. The maximum string length in characters is 50.
-external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Configuration of the external dictionary. 
+external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig21)**<br>Configuration of the external dictionary. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the External Dictionary should be updated. 
 
 
@@ -3342,7 +9261,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet16)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources17)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -3375,6 +9294,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet16}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig21)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig21)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig21)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig21}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree21)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression21)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary21)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup21)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka21)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic21)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq21)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree21}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka21}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic21}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka21)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq21}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression21}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary21}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure21)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout21)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range21)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource21)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource21)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource21)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource21)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource21)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource21}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource21}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica21)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica21}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource21}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource21}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource21}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure21}
+
+Field | Description
+--- | ---
+id | **[Id](#Id21)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key21)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute21)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute21)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute21)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute21}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id21}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key21}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute21)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout21}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range21}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup21}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern21)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern21}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention21)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention21}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources17}
 
 Field | Description
@@ -3395,7 +9598,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
 
@@ -3505,7 +9708,7 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 
 Field | Description
 --- | ---
-config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+config | **[config.ClickhouseConfigSet](#ClickhouseConfigSet17)**<br>Configuration settings of a ClickHouse server. 
 resources | **[Resources](#Resources18)**<br>Resources allocated to ClickHouse hosts. 
 
 
@@ -3538,6 +9741,290 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### ClickhouseConfigSet {#ClickhouseConfigSet17}
+
+Field | Description
+--- | ---
+effective_config | **[ClickhouseConfig](#ClickhouseConfig22)**<br>Required. Effective settings for a ClickHouse cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ClickhouseConfig](#ClickhouseConfig22)**<br>User-defined settings for a ClickHouse cluster. 
+default_config | **[ClickhouseConfig](#ClickhouseConfig22)**<br>Default configuration for a ClickHouse cluster. 
+
+
+### ClickhouseConfig {#ClickhouseConfig22}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+merge_tree | **[MergeTree](#MergeTree22)**<br>Settings for the MergeTree engine. See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree). 
+compression[] | **[Compression](#Compression22)**<br>Compression settings for the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression). 
+dictionaries[] | **[ExternalDictionary](#ExternalDictionary22)**<br>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/). 
+graphite_rollup[] | **[GraphiteRollup](#GraphiteRollup22)**<br>Settings for thinning Graphite data. See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup). 
+kafka | **[Kafka](#Kafka22)**<br> 
+kafka_topics[] | **[KafkaTopic](#KafkaTopic22)**<br> 
+rabbitmq | **[Rabbitmq](#Rabbitmq22)**<br> 
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. The minimum value is 10.
+max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of simultaneously processed requests. The minimum value is 10.
+keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection. 
+uncompressed_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Cache size (in bytes) for uncompressed data used by MergeTree tables. 
+mark_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Approximate size (in bytes) of the cache of "marks" used by MergeTree tables. Value must be greater than 0.
+max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the table that can be deleted using a DROP query. 
+max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of the partition that can be deleted using a DROP query. 
+builtin_dictionaries_reload_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The setting is deprecated and has no effect. 
+timezone | **string**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+geobase_uri | **string**<br>Address of the archive with the user geobase in Object Storage. 
+query_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled. 
+query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled. 
+query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether query_thread_log system table is enabled. 
+query_thread_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of query_thread_log data based on size is disabled. 
+query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of query_thread_log data based on time is disabled. 
+part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of part_log data based on size is disabled. 
+part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of part_log data based on time is disabled. 
+metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether metric_log system table is enabled. 
+metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of metric_log data based on size is disabled. 
+metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of metric_log data based on time is disabled. 
+trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether trace_log system table is enabled. 
+trace_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of trace_log data based on size is disabled. 
+trace_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of trace_log data based on time is disabled. 
+text_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether text_log system table is enabled. 
+text_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled. 
+text_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled. 
+text_log_level | enum **LogLevel**<br>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. 
+opentelemetry_span_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size). Value must be greater than 0.
+background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Value must be greater than 0.
+default_database | **google.protobuf.StringValue**<br>The default database. <br>To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db). 
+total_memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step). 
+total_memory_tracker_sample_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> 
+
+
+### MergeTree {#MergeTree22}
+
+Field | Description
+--- | ---
+replicated_deduplication_window | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of blocks of hashes to keep in ZooKeeper. 
+replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Period of time to keep blocks of hashes for. 
+parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If table contains at least that many active parts in single partition, artificially slow down insert into table. 
+parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If more than this number active parts in single partition, throw 'Too many parts ...' exception. 
+inactive_parts_to_delay_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+max_replicated_merges_in_queue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue. 
+number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process. 
+max_bytes_to_merge_at_min_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue). 
+max_bytes_to_merge_at_max_space_in_pool | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of bytes in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+min_rows_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Minimum number of rows in a data part that can be stored in **Wide** format. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part). 
+ttl_only_drop_parts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables. <br>More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts). 
+allow_remote_fs_zero_copy_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+### Kafka {#Kafka22}
+
+Field | Description
+--- | ---
+security_protocol | enum **SecurityProtocol**<br> 
+sasl_mechanism | enum **SaslMechanism**<br> 
+sasl_username | **string**<br> 
+sasl_password | **string**<br> 
+
+
+### KafkaTopic {#KafkaTopic22}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+settings | **[Kafka](#Kafka22)**<br>Required.  
+
+
+### Rabbitmq {#Rabbitmq22}
+
+Field | Description
+--- | ---
+username | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username 
+password | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password 
+vhost | **string**<br>[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host 
+
+
+### Compression {#Compression22}
+
+Field | Description
+--- | ---
+method | enum **Method**<br>Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`. <ul><li>`LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4/).</li><li>`ZSTD`: [Zstandard compression algorithm](https://facebook.github.io/zstd/).</li></ul>
+min_part_size | **int64**<br>Minimum size of a part of a table. The minimum value is 1.
+min_part_size_ratio | **double**<br>Minimum ratio of a part relative to the size of all the data in the table. 
+
+
+### ExternalDictionary {#ExternalDictionary22}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the external dictionary. 
+structure | **[Structure](#Structure22)**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). 
+layout | **[Layout](#Layout22)**<br>Required. Layout for storing the dictionary in memory. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). 
+lifetime | **oneof:** `fixed_lifetime` or `lifetime_range`<br>Setting for the period of time between dictionary updates. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+&nbsp;&nbsp;fixed_lifetime | **int64**<br>Fixed interval between dictionary updates. 
+&nbsp;&nbsp;lifetime_range | **[Range](#Range22)**<br>Range of intervals between dictionary updates for ClickHouse to choose from. 
+source | **oneof:** `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source` or `postgresql_source`<br>Description of the source for the external dictionary.
+&nbsp;&nbsp;http_source | **[HttpSource](#HttpSource22)**<br>HTTP source for the dictionary. 
+&nbsp;&nbsp;mysql_source | **[MysqlSource](#MysqlSource22)**<br>MySQL source for the dictionary. 
+&nbsp;&nbsp;clickhouse_source | **[ClickhouseSource](#ClickhouseSource22)**<br>ClickHouse source for the dictionary. 
+&nbsp;&nbsp;mongodb_source | **[MongodbSource](#MongodbSource22)**<br>MongoDB source for the dictionary. 
+&nbsp;&nbsp;postgresql_source | **[PostgresqlSource](#PostgresqlSource22)**<br>PostgreSQL source for the dictionary. 
+
+
+### HttpSource {#HttpSource22}
+
+Field | Description
+--- | ---
+url | **string**<br>Required. URL of the source dictionary available over HTTP. 
+format | **string**<br>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect. 
+
+
+### MysqlSource {#MysqlSource22}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MySQL database to connect to. 
+table | **string**<br>Required. Name of the database table to use as a ClickHouse dictionary. 
+port | **int64**<br>Default port to use when connecting to a replica of the dictionary source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the default user for replicas of the dictionary source. 
+password | **string**<br>Password of the default user for replicas of the dictionary source. 
+replicas[] | **[Replica](#Replica22)**<br>List of MySQL replicas of the database used as dictionary source. The number of elements must be greater than 0.
+where | **string**<br>Selection criteria for the data in the specified MySQL table. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+
+
+### Replica {#Replica22}
+
+Field | Description
+--- | ---
+host | **string**<br>Required. MySQL host of the replica. The maximum string length in characters is 253.
+priority | **int64**<br>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number. Value must be greater than 0.
+port | **int64**<br>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Name of the MySQL database user. 
+password | **string**<br>Password of the MySQL database user. 
+
+
+### ClickhouseSource {#ClickhouseSource22}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the ClickHouse database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. ClickHouse host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the ClickHouse database user. 
+password | **string**<br>Password of the ClickHouse database user. 
+where | **string**<br>Selection criteria for the data in the specified ClickHouse table. 
+
+
+### MongodbSource {#MongodbSource22}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the MongoDB database. 
+collection | **string**<br>Required. Name of the collection in the specified database to be used as the dictionary source. 
+host | **string**<br>Required. MongoDB host of the specified database. The maximum string length in characters is 253.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the MongoDB database user. 
+password | **string**<br>Password of the MongoDB database user. 
+
+
+### PostgresqlSource {#PostgresqlSource22}
+
+Field | Description
+--- | ---
+db | **string**<br>Required. Name of the PostrgreSQL database. 
+table | **string**<br>Required. Name of the table in the specified database to be used as the dictionary source. 
+hosts[] | **string**<br>Name of the PostrgreSQL host The number of elements must be greater than 0.
+port | **int64**<br>Port to use when connecting to the host. Acceptable values are 0 to 65535, inclusive.
+user | **string**<br>Required. Name of the PostrgreSQL database user. 
+password | **string**<br>Password of the PostrgreSQL database user. 
+invalidate_query | **string**<br>Query for checking the dictionary status, to pull only updated data. For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). 
+ssl_mode | enum **SslMode**<br>Mode of SSL TCP/IP connection to the PostgreSQL host. For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html). <ul><li>`DISABLE`: Only try a non-SSL connection.</li><li>`ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.</li><li>`PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.</li><li>`VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).</li><li>`VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.</li></ul>
+
+
+### Structure {#Structure22}
+
+Field | Description
+--- | ---
+id | **[Id](#Id22)**<br>Single numeric key column for the dictionary. 
+key | **[Key](#Key22)**<br>Composite key for the dictionary, containing of one or more key columns. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). 
+range_min | **[Attribute](#Attribute22)**<br>Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+range_max | **[Attribute](#Attribute22)**<br>Field holding the end of the range for dictionaries with `RANGE_HASHED` layout. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). 
+attributes[] | **[Attribute](#Attribute22)**<br>Description of the fields available for database queries. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). The number of elements must be greater than 0.
+
+
+### Attribute {#Attribute22}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the column. 
+type | **string**<br>Required. Type of the column. 
+null_value | **string**<br>Default value for an element without data (for example, an empty string). 
+expression | **string**<br>Expression, describing the attribute, if applicable. 
+hierarchical | **bool**<br>Indication of hierarchy support. Default value: `false`. 
+injective | **bool**<br>Indication of injective mapping "id -> attribute". Default value: `false`. 
+
+
+### Id {#Id22}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the numeric key. 
+
+
+### Key {#Key22}
+
+Field | Description
+--- | ---
+attributes[] | **[Attribute](#Attribute22)**<br>Attributes of a complex key. The number of elements must be greater than 0.
+
+
+### Layout {#Layout22}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required. Layout type for an external dictionary. <ul><li>`FLAT`: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li><li>`HASHED`: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li><li>`COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li><li>`RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li><li>`CACHE`: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li><li>`COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li></ul>
+size_in_cells | **int64**<br>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. 
+
+
+### Range {#Range22}
+
+Field | Description
+--- | ---
+min | **int64**<br>Minimum dictionary lifetime. 
+max | **int64**<br>Maximum dictionary lifetime. 
+
+
+### GraphiteRollup {#GraphiteRollup22}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name for the specified combination of settings for Graphite rollup. 
+patterns[] | **[Pattern](#Pattern22)**<br>Pattern to use for the rollup. The number of elements must be greater than 0.
+
+
+### Pattern {#Pattern22}
+
+Field | Description
+--- | ---
+regexp | **string**<br>Pattern for metric names. 
+function | **string**<br>Required. Name of the aggregating function to apply to data of the age specified in `retention`. 
+retention[] | **[Retention](#Retention22)**<br>Age of data to use for thinning. The number of elements must be greater than 0.
+
+
+### Retention {#Retention22}
+
+Field | Description
+--- | ---
+age | **int64**<br>Minimum age of the data in seconds. Value must be greater than 0.
+precision | **int64**<br>Precision of determining the age of the data, in seconds. Value must be greater than 0.
+
+
 ### Resources {#Resources18}
 
 Field | Description
@@ -3558,7 +10045,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow13}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow13}
 

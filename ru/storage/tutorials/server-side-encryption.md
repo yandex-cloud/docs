@@ -40,7 +40,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите `example-bucket`.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
 
      Имя должно удовлетворять требованиям:
 
@@ -68,7 +68,7 @@
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
-        bucket_name = "example-bucket" # Имя создаваемого бакета. Если не задавать имя бакета для ресурса `yandex_storage_bucket`, имя будет сгенерировано автоматически.
+        bucket_name = "Имя бакета" # Имя создаваемого бакета. Если не задавать имя бакета для ресурса `yandex_storage_bucket`, имя будет сгенерировано автоматически.
       }
 
       terraform {
@@ -140,7 +140,7 @@
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Бакет с названием `example-bucket`.
+          * Бакет.
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
@@ -151,13 +151,13 @@
   1. Выполните команду:
 
       ```bash
-      aws s3 mb s3://example-bucket --endpoint-url=https://{{ s3-storage-host }}
+      aws s3 mb s3://<имя_бакета> --endpoint-url=https://{{ s3-storage-host }}
       ```
 
       Результат:
 
       ```bash
-      make_bucket: example-bucket
+      make_bucket: <имя_бакета>
       ```
 
 {% endlist %}
@@ -220,7 +220,7 @@
         key_name    = "key-1" # Имя ключа KMS.
         key_desc    = "Ключ для шифрования бакетов"
 
-        bucket_name = "example-bucket"
+        bucket_name = "Имя бакета"
       }
 
       terraform {
@@ -298,7 +298,7 @@
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
           * Ключ {{ kms-short-name }} с названием `key-1`.
-          * Бакет `example-bucket`.
+          * Бакет.
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
@@ -318,7 +318,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет `example-bucket`.
+  1. Выберите бакет, созданный ранее.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `key-1`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
@@ -342,7 +342,7 @@
         key_name    = "key-1" # Имя ключа KMS.
         key_desc    = "Ключ для шифрования бакетов"
 
-        bucket_name = "example-bucket" # Имя бакета.
+        bucket_name = "Имя бакета" # Имя бакета.
       }
 
       terraform {
@@ -428,11 +428,11 @@
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
           * Ключ {{ kms-short-name }} с названием `key-1`.
-          * Бакет `example-bucket` с шифрованием.
+          * Бакет с шифрованием.
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-          В результате успешного выполнения команды все новые объекты в бакете `example-bucket` будут шифроваться ключом `key-1`.
+          В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
 
 - AWS CLI
 
@@ -440,7 +440,7 @@
 
   ```
   aws s3api put-bucket-encryption \
-    --bucket example-bucket \
+    --bucket <имя_бакета> \
     --endpoint-url=https://{{ s3-storage-host }} \
     --server-side-encryption-configuration '{
 	  "Rules": [
@@ -455,7 +455,7 @@
 	}'
   ```
 
-  В результате успешного выполнения команды все новые объекты в бакете `example-bucket` будут шифроваться ключом `key-1`.
+  В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
 
 {% endlist %}
 
@@ -475,7 +475,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет `example-bucket`.
+  1. Выберите бакет, созданный ранее.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
@@ -499,7 +499,7 @@
         key_name    = "key-1"
         key_desc    = "Ключ для шифрования бакетов"
 
-        bucket_name = "example-bucket"
+        bucket_name = "Имя бакета"
       }
 
       terraform {
@@ -586,9 +586,9 @@
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
           * Ключ {{ kms-short-name }} с названием `key-1`.
-          * Бакет `example-bucket`.
+          * Бакет.
 
-          В указанном каталоге шифрование для бакета `example-bucket` будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+          В указанном каталоге шифрование для бакета будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - AWS CLI
 
@@ -596,10 +596,10 @@
 
   ```bash
   aws s3api delete-bucket-encryption \
-    --bucket example-bucket \
+    --bucket <имя_бакета> \
     --endpoint-url=https://{{ s3-storage-host }}
   ```
 
-  В результате успешного выполнения шифрование в бакете `example-bucket` будет отключено.
+  В результате успешного выполнения шифрование в бакете будет отключено.
 
 {% endlist %}

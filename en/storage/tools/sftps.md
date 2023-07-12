@@ -1,90 +1,85 @@
 # Docker container for mounting an {{ objstorage-name }} bucket to an (S)FTP(S) server
 
-To access a bucket over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), you can deploy the server using a public Docker container provided by {{ objstorage-name }}.
+To access a [bucket](../concepts/bucket.md) over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), you can deploy the server using a public Docker container provided by {{ objstorage-name }}.
 
-A container implements links between the {{ objstorage-name }} [GeeseFS](geesefs.md) FUSE client and servers: [vsftpd](https://security.appspot.com/vsftpd.html) for FTP and FTPS, and sftp-server (part of [OpenSSH](https://www.openssh.com/)) for SFTP.
+A Docker container implements links between the {{ objstorage-name }} [GeeseFS](geesefs.md) FUSE client and servers: [vsftpd](https://security.appspot.com/vsftpd.html) for FTP and FTPS and sftp-server (part of [OpenSSH](https://www.openssh.com/)) for SFTP.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-## Installation {#install}
+## Installing {#install}
 
 1. [Install Docker](https://docs.docker.com/get-docker/).
-1. [Get authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
-1. Download a container:
+1. [Get authenticated in {{ container-registry-full-name }}](../../container-registry/operations/authentication.md).
+1. Pull a Docker container:
 
    ```bash
    docker pull {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
    ```
 
-1. Create a folder named `secrets` to store FTP server user data and bucket mounting settings:
+1. Create a [directory](../concepts/object.md#folder) named `secrets` to store FTP server user data and bucket mounting settings:
 
    ```bash
    mkdir secrets
    ```
 
-1. In the `secrets` folder:
-
+1. In the `secrets` directory:
    * Create a `credentials` file:
 
-      ```
-      [default]
-          aws_access_key_id = <key ID>
-          aws_secret_access_key = <key contents>
-      ```
+     ```text
+     [default]
+       aws_access_key_id = <key ID>
+       aws_secret_access_key = <key contents>
+     ```
 
-      Where:
+     Where:
+     * `aws_access_key_id`: ID of the static access key obtained [before starting](#before-you-begin).
+     * `aws_secret_access_key`: Contents of the static access key.
+   * If you are going to use SFTP, create a file named `authorized_keys` with a public SSH key:
 
-      * `aws_access_key_id`: ID of the static access key obtained [before starting](#before-you-begin).
-      * `aws_secret_access_key`: Contents of the static access key.
-
-   * If you're going to use SFTP, create a file named `authorized_keys` with a public SSH key:
-
-      ```
+      ```text
       ssh-ed25519 AAAAB3Nz.....BdZoeQ==
       ```
 
-      For instructions on how to create an SSH key pair, see the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     
+     To learn how to create an SSH key pair, see the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-   * If you're going to use FTPS, add the `ftp.pem` TLS certificate and its `ftp.key` to the folder. For example, for testing purposes, you can issue a self-signed certificate:
+
+   * If you are going to use FTPS, add the `ftp.pem` TLS certificate and its `ftp.key` to the folder. For example, for testing purposes, you can issue a self-signed certificate:
 
       ```bash
       openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout secrets/ftp.key -out secrets/ftp.pem
       ```
 
-1. Create an `env.list` file with environment variables for the container:
+1. Create an `env.list` file with environment variables for the Docker container:
 
-   ```
+   ```text
    <variable name>=<variable value>
    ...
    ```
 
    Supported variables:
-
-   * `S3_BUCKET` is the bucket name or path to its [folder](../concepts/object.md#folder) to be mounted to the FTP server, in `<bucket name>/<folder path>` format. Required variable.
-   * `SFTP`: Enables the use of SFTP. By default, `YES`.
-   * `FTP`: Enables the use of FTP. By default, `NO`.
-   * `FTP_USER`: Username for establishing a server connection. By default, `s3`.
-   * `FTP_PASS`: User password for establishing a server connection. By default, a random password is generated, which is displayed in container logs.
-   * `FTP_PASV_ENABLE`: Enables passive FTP connection mode. By default, `YES`.
+   * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket name>/<folder path>` format. This is a required variable.
+   * `SFTP`: Enables the use of SFTP. By default, it is set to `YES`.
+   * `FTP`: Enables the use of FTP. By default, it is set to `NO`.
+   * `FTP_USER`: Username for establishing a server connection. By default, it is set to `s3`.
+   * `FTP_PASS`: User password for establishing a server connection. By default, a random password is generated and displayed in Docker container logs.
+   * `FTP_PASV_ENABLE`: Enables passive FTP connection mode. By default, it is set to `YES`.
    * `FTP_PASV_MIN_PORT`: Start of the port range for passive mode. The default value is `21100`.
    * `FTP_PASV_MAX_PORT`: End of the port range for passive mode. The default value is `21100`.
-   * `FTP_PASV_ADDRESS`: Server IP address or its domain name (if the `FTP_PASV_ADDR_RESOLVE` option is selected) for passive mode. By default, the IP address specified in the container's route table (the `ip route show` command) is used as the default route target address (a string like `default via <IP address> ...` corresponds to it).
-   * `FTP_PASV_ADDR_RESOLVE`: Allows specifying the server domain name instead of its IP address in the `FTP_PASV_ADDRESS` variable. By default, `YES`.
-   * `FTP_PASV_PROMISCUOUS`: Disables client IP address mapping for passive mode: a control connection can be opened from one client address and a connection for data exchange from another. By default, `NO`. It's not recommended to disable the check.
-   * `FTP_PORT_PROMISCUOUS`: Disables client IP address mapping for active mode: when a control connection is established, a client can specify another client's address in the `PORT` command. By default, `NO`. It's not recommended to disable the check.
+   * `FTP_PASV_ADDRESS`: Server IP address or its domain name (if the `FTP_PASV_ADDR_RESOLVE` option is selected) for passive mode. By default, the IP address specified in the Docker container's route table (the `ip route show` command) is used as the default route target IP address (specified in a `default via <IP address> ...` string).
+   * `FTP_PASV_ADDR_RESOLVE`: Allows specifying the server domain name instead of its IP address in the `FTP_PASV_ADDRESS` variable. By default, it is set to `YES`.
+   * `FTP_PASV_PROMISCUOUS`: Disables client IP address mapping for passive mode: a managing connection may be opened from one client address, while a connection for data exchange, from another. By default, it is set to `NO`. We do not recommend disabling this check.
+   * `FTP_PORT_PROMISCUOUS`: Disables client IP address mapping for active mode: when a managing connection is established, a client can specify another client's address in the `PORT` command. By default, it is set to `NO`. We do not recommend disabling this check.
    * `FTP_SSL_ENABLE`: Enables the use of FTPS (over TLS 1.x) instead of FTP:
-
       * `YES` (default): FTPS is enabled but optional. Clients can establish non-secure FTP connections to the server.
       * `FORCE`: FTPS is enabled and required. Clients can only establish secure FTPS connections to the server.
       * `NO`: FTPS is disabled.
-
-   * `FTP_RSA_CERT_FILE`: Path to the TLS certificate inside the container. By default, `/secrets/ftp.pem`.
-   * `FTP_RSA_PRIVATE_KEY_FILE`: Path to the private key of the TLS certificate inside the container. By default, `/secrets/ftp.key`.
-
-1. Run the container:
+   * `FTP_RSA_CERT_FILE`: Path to the TLS certificate inside the Docker container. By default, it is set to `/secrets/ftp.pem`.
+   * `FTP_RSA_PRIVATE_KEY_FILE`: Path to the private key of the TLS certificate inside the Docker container. By default, it is set to `/secrets/ftp.key`.
+1. Run the Docker container:
 
    {% list tabs %}
 

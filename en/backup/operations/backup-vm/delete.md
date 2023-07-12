@@ -11,3 +11,10 @@
    1. Confirm the deletion.
 
 {% endlist %}
+
+{% note info %}
+
+To delete backups, make sure the folder contains at least one VM connected to {{ backup-name }}. If there are no such VMs, [create](../create-vm.md) a new one with a connection to {{ backup-name }} and delete the backups.
+
+{% endnote %}
+

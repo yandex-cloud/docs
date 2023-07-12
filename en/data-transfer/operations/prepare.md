@@ -754,6 +754,24 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% endlist %}
 
+### {{ ES }} target {#target-es}
+
+{% list tabs %}
+
+
+- {{ mes-name }}
+
+   {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
+
+
+- {{ ES }}
+
+   * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+   {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
+
+{% endlist %}
+
 ### {{ GP }} target {#target-gp}
 
 {% list tabs %}
@@ -1010,6 +1028,24 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 1. [Create a bucket](../../storage/operations/buckets/create.md) in the desired configuration.
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role.
 
+
+### {{ OS }} target {#target-os}
+
+{% list tabs %}
+
+
+- {{ mos-name }}
+
+   {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+
+- {{ OS }}
+
+   * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+   {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+{% endlist %}
 
 ### {{ PG }} target {#target-pg}
 

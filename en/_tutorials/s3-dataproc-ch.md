@@ -21,7 +21,7 @@ Prepare the infrastructure:
    1. [Set up a NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet you created.
    1. In `dataproc-network`, [create a security group](../vpc/operations/security-group-create.md) named `dataproc-sg` and add the following rules to it:
 
-      * One rule for inbound and **another one for** outbound service traffic:
+      * One rule for inbound and another one for outbound service traffic:
 
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
@@ -63,7 +63,7 @@ Prepare the infrastructure:
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/s3-dataproc-ch.tf) configuration file to the same working directory.
 
       This file describes:
@@ -86,7 +86,7 @@ Prepare the infrastructure:
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../data-proc/operations/connect.md#data-proc-ssh).
       * `ch_password`: {{ CH }} user password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -155,7 +155,7 @@ Join the data from the two tables into one and upload it in Parquet format to th
       # Reading the table from the coords.csv file
       coords_df = spark.read.csv("s3a://<input bucket name>/csv/coords.csv", header=True)
 
-      #  Reading the table from the sensors.csv file
+      # Reading the table from the sensors.csv file
       sensors_df = spark.read.csv("s3a://<input bucket name>/csv/sensors.csv", header=True)
 
       # Joining the tables by the vehicle_id column
@@ -224,7 +224,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/parquet-to-ch.py`) in the **Main python file** field.
 1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
 
-   1. [Connect to the](../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster on behalf of `user1`.
+   1. [Connect to the](../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster as `user1`.
    1. Run the following query:
 
       ```sql
@@ -235,7 +235,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 

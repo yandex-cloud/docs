@@ -30,7 +30,7 @@ keywords:
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
 Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
-1. Если у вас еще нет [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его.
+1. Если у вас еще нет [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его с ограниченным доступом.
 1. Загрузите образ в ваш бакет, например, [через консоль управления](../../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../../storage/tools/aws-cli.md) или [WinSCP](../../../storage/tools/winscp.md). В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ compute-name }}.
 

@@ -1,4 +1,4 @@
-title: Yandex Managed Service for OpenSearch
+title: '{{ mos-full-name }}'
 href: index.yaml
 items:
   - name: Начало работы
@@ -7,36 +7,44 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к кластеру
-        href: operations/connect.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Изменение настроек кластера
-        href: operations/update.md
-      - name: Изменение версии {{ OS }}
-        href: operations/cluster-version-update.md
-      - name: Настройка SAML-аутентификации
-        href: operations/saml-authentication.md
-      - name: Настройка доступа к {{ objstorage-name }}
-        href: operations/s3-access.md
-      - name: Управление группами хостов
-        href: operations/host-groups.md
-      - name: Управление плагинами {{ OS }}
-        href: operations/plugins.md
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Подключение
+            items:
+              - name: Подключение к кластеру
+                href: operations/connect.md
+              - name: Настройка SAML-аутентификации
+                href: operations/saml-authentication.md
+          - name: Изменение параметров
+            items:
+              - name: Изменение настроек кластера
+                href: operations/update.md
+              - name: Изменение версии и редакции {{ OS }}
+                href: operations/cluster-version-update.md
+              - name: Управление плагинами {{ OS }}
+                href: operations/plugins.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами {{ OS }}
+            href: operations/host-groups.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Настройка доступа к Object Storage
+            href: operations/s3-access.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
       - name: Управление пользователями {{ OS }}
         href: operations/cluster-users.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Миграция данных из {{ ES }}
@@ -73,6 +81,8 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: Плагины {{ OS }}
         href: concepts/plugins.md
+      - name: Политика работы с версиями {{ OS }}
+        href: concepts/update-policy.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
   - name: Управление доступом

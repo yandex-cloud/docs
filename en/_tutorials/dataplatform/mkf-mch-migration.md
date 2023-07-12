@@ -1,4 +1,4 @@
-# Delivering data from {{ mkf-full-name }} to {{ mch-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from a {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
 A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. Managed Service for ClickHouse automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-transfer-mkf-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mch.tf) to the same working directory.
 
       This file describes:
@@ -64,10 +64,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * The {{ mch-name }} target cluster parameters that will also be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
-         * `target_db_name`: Database name{{ mch-name }}.
+         * `target_db_name`: Database name {{ mch-name }}.
          * `target_user` and `target_password`: Database owner username and password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -210,9 +210,9 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `Yandex Managed Service for Kafka cluster`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-         * **Managed Service for Kafka cluster**: Select the source cluster from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username.

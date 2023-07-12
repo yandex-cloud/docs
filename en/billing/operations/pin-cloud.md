@@ -22,7 +22,7 @@ To link a cloud or transfer an existing one:
 
   1. Select an account from the list.
 
-  1. Go to the **Overview** page.
+  1. Go to the **Account data** page.
 
   1. Under **Clouds**, click **Link cloud**.
 

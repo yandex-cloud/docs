@@ -74,7 +74,6 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         * Имя пользователя — `chuser`.
         * Пароль — `chpassword`.
-        * Убедитесь, что опция **Публичный доступ** в настройках хостов отключена.
 
     1. [Подключитесь к БД {{ CH }}](../../managed-clickhouse/operations/connect#connection-string) с помощью утилиты `clickhouse-client`.
     1. Создайте тестовую таблицу и наполните ее данными:
@@ -92,7 +91,15 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=ru.yandex.clickhouse.ClickHouseDriver&DB_URL=jdbc:clickhouse://c-<идентификатор кластера>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<идентификатор кластера>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
+        FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
+        ```
+
+        Если для хостов {{ CH }} включен публичный доступ, при создании внешней таблицы необходимо использовать шифрованное соединение. Для этого укажите в запросе параметры SSL и порт `{{ port-mch-http }}`:
+
+        ```sql
+        CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&PASS=chpassword&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 
@@ -210,7 +217,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
 - {{ objstorage-name }}
 
-    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с именем `test-bucket`.
+    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом.
 
     1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md).
 
@@ -227,11 +234,11 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
     1. Чтобы считать данные из бакета {{ objstorage-name }}:
 
-        1. Создайте внешнюю таблицу `pxf_s3_read`, которая будет ссылаться на бакет `test-bucket`:
+        1. Создайте внешнюю таблицу `pxf_s3_read`, которая будет ссылаться на бакет:
 
             ```sql
             CREATE READABLE EXTERNAL TABLE pxf_s3_read(a int, b int)
-            LOCATION ('pxf://test-bucket/test.csv?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
+            LOCATION ('pxf://<имя бакета>/test.csv?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
             FORMAT 'CSV';
             ```
 
@@ -258,7 +265,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
             ```sql
             CREATE WRITABLE EXTERNAL TABLE pxf_s3_write(a int, b int)
-            LOCATION ('pxf://test-bucket/?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
+            LOCATION ('pxf://<имя бакета>/?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
             FORMAT 'CSV';
             ```
 
@@ -289,7 +296,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 GPFDIST может работать с любыми текстовыми файлами, которые содержат разделители, а также со сжатыми файлами gzip и bzip2.
 
 Для чтения или записи файлов на внешнем сервере:
-1. [Установите и запустите GPFDIST](#run-gpfdist) в составе пакета Greenplum Loader на удаленном сервере, где находятся нужные файлы.
+1. [Установите и запустите GPFDIST](#run-gpfdist) в составе пакета Greenplum Loader или Greenplum Database на удаленном сервере, где находятся нужные файлы.
 1. [Создайте внешнюю таблицу](#create-gpfdist-table), которая будет ссылаться на эти файлы, в базе данных {{ GP }}.
 
 ### Запуск GPFDIST {#run-gpfdist}
@@ -302,7 +309,7 @@ GPFDIST может работать с любыми текстовыми фай�
 {% endnote %}
 
 
-1. [Скачайте и установите](https://greenplum.docs.pivotal.io/6-19/client_tool_guides/installing.html) пакет Greenplum Loader.
+1. Скачайте и установите пакет Greenplum Loader [с сайта VMware](https://greenplum.docs.pivotal.io/6-19/client_tool_guides/installing.html) или пакет Greenplum Database из бакета {{ objstorage-full-name }} [по инструкции](./greenplum-db.md).
 
 1. Запустите утилиту GPFDIST:
 

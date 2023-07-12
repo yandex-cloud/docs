@@ -16,7 +16,14 @@ A set of methods for managing DiskPlacementGroup resources.
   "labels": "object",
   "zoneId": "string",
   "status": "string",
-  "spreadPlacementStrategy": {}
+
+  //  includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
+  "spreadPlacementStrategy": {},
+  "partitionPlacementStrategy": {
+    "partitions": "string"
+  },
+  // end of the list of possible fields
+
 }
 ```
  
@@ -30,7 +37,9 @@ description | **string**<br><p>Description of the placement group.</p>
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
 status | **string**<br>Current status of the placement group
-spreadPlacementStrategy | **object**
+spreadPlacementStrategy | **object** <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy | **object** <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy.<br>partitions | **string** (int64)
 
 ## Methods {#methods}
 Method | Description

@@ -7,6 +7,7 @@
 * [{#T}](datalake.md)
 * [{#T}](relational-databases.md)
 * [{#T}](oltp.md)
+* [{#T}](olap.md)
 
 ## Аналитика
 
@@ -49,6 +50,8 @@
 
 * [{#T}](vpn.md)
 * [{#T}](dns.md)
+* [{#T}](cdn.md)
 * [{#T}](ssh-keygen.md)
 * [{#T}](rest-api.md)
 * [{#T}](cors.md)
+* [{#T}](cli.md)

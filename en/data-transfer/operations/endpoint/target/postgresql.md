@@ -5,8 +5,6 @@ description: "In this tutorial, you will learn how to set up a {{ PG }} target e
 
 # Configuring {{ PG }} target endpoints
 
-{% include [Версия PostgreSQL](../../../../_includes/data-transfer/notes/postresql-version-limitation.md) %}
-
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.

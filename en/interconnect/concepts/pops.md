@@ -7,7 +7,7 @@ The client equipment can connect to the {{ yandex-cloud }} equipment directly vi
 The client equipment can connect to the telecom provider equipment which, in its turn, will connect to the {{ yandex-cloud }} equipment directly via a cross connection.
 
 
-To ensure fault tolerance when providing the service, set up communication channels at two points of presence.
+To ensure fault tolerance when providing the service, you may want to set up connections at two points of presence.
 
 
 {{ yandex-cloud }} equipment is located at the following points of presence:
@@ -18,7 +18,7 @@ To ensure fault tolerance when providing the service, set up communication chann
 
 ## Agreement letter {#letter}
 
-To have a cross connection enabled at a point of presence, write an agreement letter. A separate agreement letter should be written for each cross connection.
+To have a cross connection enabled at a point of presence, write an agreement letter. You need a separate agreement letter for each cross connection.
 
 You can find agreement letter forms for each point of presence below:
 
@@ -28,10 +28,12 @@ You can find agreement letter forms for each point of presence below:
 * `OST`: [Agreement letter form for OST](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-OST.docx).
 * `TEHNO`: [Agreement letter form for TEHNO](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-TEHNO.docx).
 
+{% note alert %}
 
-{% note info "Important" %}
+A cross-connect to a port of the {{ yandex-cloud }} equipment is enabled **only by the technical staff at the point of presence**, without engaging the {{ yandex-cloud }} technical specialists.
 
-You can connect {{ interconnect-name }} at the **TEHNO** point of presence starting April 15, 2023.
+If required, the technical staff at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client's equipment to the {{ yandex-cloud }} equipment port.
 
 {% endnote %}
+
 

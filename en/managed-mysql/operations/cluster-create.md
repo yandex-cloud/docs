@@ -17,16 +17,15 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ mmy-name }}**.
    1. Click **Create cluster**.
-   1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
-   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
+   1. Name the {{ mmy-name }} cluster in the **Cluster name** field. It must be unique within the folder.
+   1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing, including the {{ mmy-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the DBMS version.
-   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
    1. Under **Storage size**:
 
       * Select the [disk type](../concepts/storage.md).
@@ -37,32 +36,32 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% note info %}
 
-         If database storage is 95% full, the cluster switches to <q>read-only</q> mode. Increase the storage size in advance.
+         If DB storage is 95% full, the {{ mmy-name }} cluster switches to read-only mode. Increase the storage size in advance.
 
          {% endnote %}
 
    1. Under **Database**, specify the DB attributes:
-
-      * Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * The DB owner username and password.
+      * DB name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * DB owner username and password.
 
          {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
    
    1. Under **Network settings**, select:
-      * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+      * [Cloud network](../../vpc/concepts/network.md#network) for the {{ mmy-name }} cluster.
+      * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+         {% note info %}
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+         {% endnote %}
 
 
-   1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+   1. Under **Hosts**, select the parameters for the DB hosts created with the {{ mmy-name }} cluster. If you open **Advanced settings**, you can choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 
-      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least three hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
-
-   1. Configure additional cluster settings, if required:
+      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
+   1. Configure additional {{ mmy-name }} cluster settings, if required:
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
@@ -78,26 +77,25 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+   To create a {{ mmy-name }} cluster:
 
    
-   1. Check whether the folder has any subnets for the cluster hosts:
+   1. Check whether the folder has any [subnets](../../vpc/concepts/network.md#subnet) for the {{ mmy-name }} cluster hosts:
 
       ```bash
       yc vpc subnet list
       ```
 
-      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-
-   1. View a description of the create cluster CLI command:
+   1. View a description of the create {{ mmy-name }} cluster CLI command:
 
       ```bash
       {{ yc-mdb-my }} cluster create --help
       ```
 
-   1. Specify the cluster parameters in the create command:
+   1. Specify the {{ mmy-name }} cluster parameters in the create command:
 
       
       
@@ -110,18 +108,18 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --mysql-version <{{ MY }} version: {{ versions.cli.str }}> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
-        --database name=<database name> \
+        --database name=<DB name> \
         --disk-size <storage size in GB> \
         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --security-group-ids <list of security group IDs>
       ```
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
 
 
 
 
-      Configure additional cluster settings, if required:
+      Configure additional {{ mmy-name }} cluster settings, if required:
 
       
       ```bash
@@ -151,14 +149,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
-   To create a cluster:
-
+   To create a {{ mmy-name }} cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
-
-      * Database cluster: Description of the cluster and its hosts.
-
-      * Database: Description of the cluster's database.
-
+      * DB cluster: Description of the cluster and its hosts.
+      * Database: Description of the cluster's DB.
       * User: Description of the cluster user.
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
@@ -181,7 +175,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
-          disk_size          = "<storage size, GB>"
+          disk_size          = "<storage size in GB>"
         }
 
         host {
@@ -190,9 +184,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         }
       }
 
-      resource "yandex_mdb_mysql_database" "<database name>" {
+      resource "yandex_mdb_mysql_database" "<DB name>" {
         cluster_id = "<cluster ID>"
-        name       = "<database name>"
+        name       = "<DB name>"
       }
 
       resource "yandex_mdb_mysql_user" "<username>" {
@@ -200,7 +194,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         name       = "<username>"
         password   = "<user password>"
         permission {
-          database_name = "<database name>"
+          database_name = "<DB name>"
           roles         = ["ALL"]
         }
       }
@@ -224,7 +218,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
-      * To set the backup start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
+      * To set the [backup](../concepts/backup.md) start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
          ```hcl
          resource "yandex_mdb_mysql_cluster" "<cluster name>" {
@@ -237,7 +231,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          }
          ```
 
-      * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the cluster description:
+      * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the {{ mmy-name }} cluster description:
 
          ```hcl
            resource "yandex_mdb_mysql_cluster" "<cluster name>" {
@@ -251,12 +245,11 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          Acceptable values are from `7` to `60`. The default value is `7`.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
-
    1. Make sure the configuration files are valid.
 
       {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-   1. Create a cluster.
+   1. Create a {{ mmy-name }} cluster.
 
       {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
@@ -265,18 +258,20 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - API
 
    To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
-
-   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
-   * Cluster name in the `name` parameter. It must be unique within the folder.
-   * Cluster environment in the `environment` parameter.
-   * Cluster configuration in the `configSpec` parameter.
-   * Database configuration in one or more `databaseSpecs` parameters.
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mmy-name }} cluster should be placed, in the `folderId` parameter.
+   * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
+   * {{ mmy-name }} cluster environment in the `environment` parameter.
+   * {{ mmy-name }} cluster configuration in the `configSpec` parameter.
+   * DB configuration in one or more `databaseSpecs` parameters.
    * User settings in one or more `userSpecs` parameters.
-   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
-   * Network ID in the `networkId` parameter.
+   * Configuration of the {{ mmy-name }} cluster's hosts in one or more `hostSpecs` parameters.
+   * [Network](../../vpc/concepts/network.md#network) ID in the `networkId` parameter.
+
+   
    * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
 
-   If required, provide the backup start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
+
+   If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -287,7 +282,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configure-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a {{ mmy-name }} cluster, you may also need to [configure security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -300,7 +295,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   To create a cluster with a single host, provide a single `--host` parameter.
+   To create a {{ mmy-name }} cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mmy-name }} cluster with test characteristics:
 
@@ -317,7 +312,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With protection against accidental cluster deletion.
 
 
-   1. Run this command to create a cluster:
+   1. Run this command to create a {{ mmy-name }} cluster:
 
       
       ```bash
@@ -356,14 +351,14 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the `{{ tf-cloud-id }}` ID.
    * In the folder with the `{{ tf-folder-id }}` ID.
    * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-      * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+      * In a new security group called `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-   * With protection against accidental cluster deletion.
+   * With protection against accidental {{ mmy-name }} cluster deletion.
 
-   The configuration file for the cluster looks like this:
+   The configuration file for the {{ mmy-name }} cluster looks like this:
 
    
    

@@ -51,4 +51,4 @@ ARG_MIN([Sales], [Profit])
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `YDB`.
+`ClickHouse 21.8`, `YDB`.

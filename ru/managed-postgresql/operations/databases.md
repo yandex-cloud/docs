@@ -138,6 +138,12 @@
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+  {% note warning %}
+
+  После создания БД не меняйте ее владельца в параметре `owner` — это приведет к пересозданию БД и потере данных.
+
+  {% endnote %}
+
 - API
 
   Чтобы создать базу данных в кластере, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:

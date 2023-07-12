@@ -274,7 +274,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-   1. In the {{ mpg-short-name }} cluster description, change the values of the parameters under `config.postgresql_config`. If there is no such block, create one:
+   1. In the {{ mpg-short-name }} cluster description, change the values of the parameters under `config.postgresql_config`. If there is no such section, create one:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
@@ -364,9 +364,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -378,6 +378,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
 
 
+   * `--autofailover` manages automatic master change setup. For more information, see [{#T}](../concepts/replication.md#replication-auto). The default value is `true`.
+
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -386,7 +388,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
-      * `enabled`: `true` value enables statistics collection. Default value: `false`.
+      * `enabled`: `true` value enables statistics collection. The default value is `false`.
       * `sessions-sampling-interval`: Session sampling interval, seconds. Acceptable values are between `1` and `86400`.
       * `statements-sampling-interval`: Statement sampling interval, seconds. Acceptable values are between `60` and `86400`.
 
@@ -481,7 +483,7 @@ You can change the DBMS settings of the hosts in your cluster.
    * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -617,7 +619,7 @@ To switch the master:
    To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/cluster_service.md#Move) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * ID of the destination folder in the `destinationFolderId parameter`.
+   * ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -702,7 +704,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

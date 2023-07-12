@@ -10,35 +10,55 @@ General value format:
 
 Below are events for services:
 
+* [{{ api-gw-name }}](#api-gateway)
 * [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
 * [{{ dns-name }}](#dns)
-* [{{ cloud-logging-name }}](#cloud-logging-name)
+* [{{ sf-name }}](#functions)
+* [{{ cdn-name }}](#cdn)
+* [{{ cloud-logging-name }}](#cloud-logging)
 * [{{ compute-name }}](#compute)
+* [{{ container-registry-name }}](#container-registry)
+* [{{ dataproc-name }}](#dataproc)
 * [{{ iam-name }}](#iam)
+* [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
+* [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ serverless-containers-name }}](#serverless-containers)
 * [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
+* [{{ captcha-name }}](#smartcaptcha)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
 * [{{ yq-short-name }}](#yq)
+
+## {{ api-gw-name }} {#api-gateway}
+
+Service name: `serverless.apigateway`.
+
+| Event name | Description |
+| --- | --- |
+| `CreateApiGateway` | Creating a gateway |
+| `DeleteApiGateway` | Deleting a gateway |
+| `UpdateApiGateway` | Updating a gateway |
+
 
 ## {{ alb-name }} {#alb}
 
 Service name: `apploadbalancer`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddBackendGroupBackend` | Adding a backend to a backend group |
 | `AddLoadBalancerListener` | Adding a listener to a load balancer |
 | `AddLoadBalancerSniMatch` | Adding an SNI match to a load balancer |
@@ -75,24 +95,65 @@ Service name: `apploadbalancer`.
 Service name: `audittrails`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `CreateTrail` | Creating a trail |
 | `DeleteTrail` | Deleting a trail |
 | `SetTrailAccessBindings` | Setting access bindings for a trail |
 | `UpdateTrail` | Editing a trail |
 | `UpdateTrailAccessBindings` | Updating access bindings for a trail |
 
+## {{ sf-name }} {#functions}
+
+Service name: `serverless`.
+
+| Event name | Description |
+| --- | --- |
+| `functions.CreateFunction` | Creating a function |
+| `functions.CreateFunctionVersion` | Creating a function version |
+| `functions.DeleteFunction` | Deleting a function |
+| `functions.RemoveFunctionTag` | Removing a function tag |
+| `functions.SetFunctionTag` | Assigning a function tag |
+| `functions.UpdateFunction` | Updating a function |
+| `mdbproxy.CreateProxy` | Creating a proxy |
+| `mdbproxy.DeleteProxy` | Deleting a proxy |
+| `mdbproxy.UpdateProxy` | Updating a proxy |
+| `triggers.CreateTrigger` | Creating a trigger |
+| `triggers.DeleteTrigger` | Deleting a trigger |
+| `triggers.UpdateTrigger` | Updating a trigger |
+
+## {{ cdn-name }} {#cdn}
+
+Service name: `cdn`.
+
+| Event name | Description |
+| --- | --- |
+| `gcore.CachePrefetch` | Preloading cache |
+| `gcore.CachePurge` | Purging cache |
+| `gcore.OriginCreate` | Creating an origin |
+| `gcore.OriginDelete` | Deleting an origin |
+| `gcore.OriginGroupCreate` | Creating an origin group |
+| `gcore.OriginGroupDelete` | Deleting origin groups |
+| `gcore.OriginGroupUpdate` | Editing origin groups |
+| `gcore.OriginUpdate` | Changing an origin |
+| `gcore.ProviderActivate` | Activating a provider |
+| `gcore.ResourceCreate` | Creating a resource |
+| `gcore.ResourceUpdate` | Changing a resource |
+
 ## {{ certificate-manager-name }} {#certificate-manager}
 
 Service name: `certificatemanager`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `CreateCertificate` | Create a certificate |
+| `CreateDomain` | Create a domain |
 | `UpdateCertificate` | Edit a certificate |
+| `UpdateDomain` | Update a domain |
 | `DeleteCertificate` | Delete a certificate |
+| `DeleteDomain` | Delete a domain |
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
+| `SetDomainPrimaryCertificate` | Assigning a primary certificate to a domain |
 
 ## {{ dns-name }} {#dns}
 
@@ -112,7 +173,7 @@ Service name: `dns`.
 Service name: `logging`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `CreateLogGroup` | Creating a log group |
 | `UpdateLogGroup` | Editing a log group |
 | `DeleteLogGroup` | Deleting a log group |
@@ -124,7 +185,7 @@ Service name: `logging`.
 Service name: `compute`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
 | `AttachInstanceDisk` | Attaching a disk to a VM instance |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
@@ -135,13 +196,17 @@ Service name: `compute`.
 | `CreateImage` | Creating a disk image |
 | `CreateInstance` | Creating a VM instance |
 | `CreateSnapshot` | Creating a disk snapshot |
+| `CreateSnapshotSchedule` | Creating a disk snapshot schedule |
 | `DeleteDisk` | Deleting a disk |
 | `DeleteFilesystem` | Deleting a file system |
 | `DeleteImage` | Deleting a disk image |
 | `DeleteInstance` | Deleting a VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
+| `DeleteSnapshotSchedule` | Deleting a disk snapshot schedule |
 | `DetachInstanceDisk` | Detaching a disk from a VM instance |
 | `DetachInstanceFilesystem` | Detaching a file system from a VM instance |
+| `DisableSnapshotSchedule` | Disabling a disk snapshot schedule |
+| `EnableSnapshotSchedule` | Enabling a disk snapshot schedule |
 | `GuestStopInstance` | Stopping a VM on command from this VM |
 | `PreemptInstance` | Interrupting a VM |
 | `RemoveInstanceOneToOneNat` | Removing a VM's public IP address |
@@ -155,6 +220,8 @@ Service name: `compute`.
 | `UpdateInstanceMetadata` | Updating VM instance metadata |
 | `UpdateInstanceNetworkInterface` | Updating VM network settings |
 | `UpdateSnapshot` | Updating a disk snapshot |
+| `UpdateSnapshotSchedule` | Updating disk snapshot schedule parameters |
+| `UpdateSnapshotScheduleDisks` | Updating disk snapshot schedule parameters |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
 | `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
 | `instancegroup.DeleteInstanceGroupInstances` | Deleting an instance from a group |
@@ -167,43 +234,94 @@ Service name: `compute`.
 | `instancegroup.UpdateInstanceGroup` | Updating an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
 
+## {{ container-registry-name }} {#container-registry}
+
+Service name: `containerregistry`.
+
+| Event name | Description |
+| --- | --- |
+| `CreateImage` | Creating an image |
+| `CreateImageTag` | Creating an image tag |
+| `CreateRegistry` | Creating a registry |
+| `CreateRepository` | Creating a repository |
+| `DeleteImage` | Deleting an image |
+| `DeleteImageTag` | Deleting an image tag |
+| `DeleteRegistry` | Deleting a registry |
+| `DeleteRepository` | Deleting a repository |
+| `ScanImage` | Scanning an image |
+| `UpdateIpPermission` | Updating policies for accessing a registry from IP addresses |
+| `UpdateRegistry` | Updating a registry |
+| `UpdateRegistryAccessBindings` | Updating access bindings for a registry |
+| `UpdateRepositoryAccessBindings` | Updating access bindings for a repository |
+| `SetRegistryAccessBindings` | Setting access bindings for a registry |
+| `SetRepositoryAccessBindings` | Setting access bindings for a repository |
+
+## {{ dataproc-name }} {#dataproc}
+
+Service name: `dataproc`.
+
+| Event name | Description |
+| --- | --- |
+| `CreateCluster` | Creating clusters |
+| `CreateSubcluster` | Creating a subcluster |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteSubcluster` | Deleting a subcluster |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
+| `UpdateCluster` | Updating clusters |
+| `UpdateSubcluster` | Updating subclusters |
+
 ## {{ iam-name }} {#iam}
 
 Service name: `iam`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddFederatedUserAccounts` | Adding a user to a federation |
-| `CreateAccessKey` | Creating an access key |
+| `CreateAccessKey` | Creating a static key |
 | `CreateApiKey` | Creating API keys |
 | `CreateCertificate` | Adding a certificate for a federation |
 | `CreateFederation` | Creating a federation |
 | `CreateIamCookieForSubject` | Federated user login ^*^ |
 | `CreateKey` | Creating a key pair for a service account |
 | `CreateServiceAccount` | Creating a service account |
-| `DeleteAccessKey` | Deleting an access key |
+| `DeleteAccessKey` | Deleting a static key |
 | `DeleteApiKey` | Deleting API keys |
 | `DeleteCertificate` | Deleting a certificate for a federation |
 | `DeleteFederation` | Deleting a federation |
 | `DeleteKey` | Deleting a key pair for a service account |
 | `DeleteServiceAccount` | Deleting a service account |
 | `DetectLeakedCredential` | Detecting a secret in a public source |
-| `UpdateAccessKey` | Updating an access key |
+| `UpdateAccessKey` | Updating a static key |
 | `UpdateApiKey` | Updating an API key |
 | `UpdateCertificate` | Renewing a certificate |
 | `UpdateFederation` | Updating a federation |
 | `UpdateKey` | Updating a key pair |
 | `UpdateServiceAccount` | Updating a service account |
-| `UpdateServiceAccountAccessBindings` | Updating access bindings |
+| `UpdateServiceAccountAccessBindings` | Updating access bindings for a service account |
+| `SetServiceAccountAccessBindings` | Setting access bindings for a service account |
 
 \* The event is not logged in the audit log unless a trail's [audit logs](./trail.md#collecting-area) have `Enterprise` scope.
+
+## {{ iot-name }} {#iot}
+
+Service name: `iot`.
+
+| Event name | Description |
+| --- | --- |
+| `devices.CreateDevice` | Creating a device |
+| `devices.CreateRegistry` | Creating a registry |
+| `devices.DeleteDevice` | Deleting a device |
+| `devices.DeleteRegistry` | Deleting a registry |
+| `devices.UpdateDevice` | Updating a device |
+| `devices.UpdateRegistry` | Updating a registry |
 
 ## {{ kms-name }} {#kms}
 
 Service name: `kms`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
 | `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
 | `CreateSymmetricKey` | Creating a symmetric key |
@@ -220,7 +338,7 @@ Service name: `kms`.
 Service Name: `lockbox`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddVersion` | Adding a version of a secret |
 | `ActivateSecret` | Activating a secret |
 | `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version |
@@ -241,7 +359,7 @@ Service Name: `lockbox`.
 Service name: `mdb.clickhouse`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `AddClusterZookeeper` | Adding a ZooKeeper subcluster to a cluster |
@@ -260,6 +378,7 @@ Service name: `mdb.clickhouse`.
 | `DeleteDatabase` | Deleting a database |
 | `DeleteFormatSchema` | Deleting a data format schema |
 | `DeleteMlModel` | Deleting a machine learning model |
+| `DeleteShardGroup` | Deleting a shard group |
 | `DeleteUser` | Deleting a database user |
 | `GrantUserPermission` | Assigning privileges to a database user |
 | `MoveCluster` | Moving a cluster |
@@ -271,6 +390,7 @@ Service name: `mdb.clickhouse`.
 | `UpdateClusterShard` | Editing a cluster shard |
 | `UpdateFormatSchema` | Editing a data schema format |
 | `UpdateMlModel` | Editing a machine learning model |
+| `UpdateShardGroup` | Editing a shard group |
 | `UpdateUser` | Editing a database user |
 
 
@@ -279,7 +399,7 @@ Service name: `mdb.clickhouse`.
 Service name: `gitlab`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `BackupInstance` | Creating backups |
 | `CreateInstance` | Creating an instance |
 | `DeleteInstance` | Deleting an instance |
@@ -288,13 +408,14 @@ Service name: `gitlab`.
 | `UpdateInstance` | Updating an instance |
 | `UpdateOmniauthInstance` | Updating OmniAuth settings |
 | `UpgradeInstance` | Updating the GitLab version |
+| `CleanupRegistryInstance` | Docker Registry cleanup |
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Service name: `mdb.mongodb`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
@@ -316,12 +437,34 @@ Service name: `mdb.mongodb`.
 | `UpdateCluster` | Updating clusters |
 | `UpdateUser` | Editing a database user |
 
+
+## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
+
+Service name: `k8s`.
+
+| Event name | Description |
+| --- | --- |
+| `AutoUpgradeCluster` | Performing cluster auto-updates |
+| `AutoUpgradeNodeGroup` | Performing node group auto-updates |
+| `CreateCluster` | Creating clusters |
+| `CreateNodeGroup` | Creating a node group |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteNodeGroup` | Deleting a node group |
+| `DeleteStoppedCluster` | Deleting a stopped cluster |
+| `InstallHelmRelease` | Installing a Helm version |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
+| `UninstallHelmRelease` | Destroying a Helm version |
+| `UpdateCluster` | Updating clusters |
+| `UpdateHelmRelease` | Updating a Helm version |
+| `UpdateNodeGroup` | Changing a node group |
+
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Service name: `mdb.mysql`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating clusters |
@@ -348,7 +491,7 @@ Service name: `mdb.mysql`.
 Service name: `mdb.postgresql`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating clusters |
@@ -374,7 +517,7 @@ Service name: `mdb.postgresql`.
 Service name: `mdb.redis`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
@@ -389,13 +532,14 @@ Service name: `mdb.redis`.
 | `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
+| `UpdateClusterHosts` | Updating cluster hosts |
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Service name: `loadbalancer`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `AddNetworkLoadBalancerListener` | Adding listener to network load balancer |
 | `AddTargetGroupTargets` | Adding a VM to a target group |
 | `AttachNetworkLoadBalancerTargetGroup` | Connecting a target group to a network load balancer |
@@ -416,16 +560,19 @@ Service name: `loadbalancer`.
 Service name: `storage`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `BucketAclUpdate` | Updating the ACL for a bucket |
 | `BucketCorsUpdate` | Updating the CORS configuration for a bucket |
 | `BucketCreate` | Creating a bucket |
 | `BucketDelete` | Deleting a bucket |
+| `BucketEncryptionUpdate` | Updating bucket encryption settings |
+| `BucketVersioningUpdate` | Updating bucket versioning settings |
 | `BucketHttpsUpdate` | Updating the HTTPS configuration for a bucket |
 | `BucketLifecycleUpdate` | Changing the lifecycle of an object in a bucket |
 | `BucketPolicyUpdate` | Updating the access policies for a bucket |
 | `BucketUpdate` | Updating a bucket |
 | `BucketWebsiteUpdate` | Updating a website configuration |
+| `ObjectAclUpdate` | Updating an object's ACL in a bucket ^*^ |
 | `ObjectCreate` | Creating an object in a bucket ^*^ |
 | `ObjectDelete` | Deleting an object from a bucket ^*^ |
 | `ObjectUpdate` | Updating an object in a bucket ^*^ |
@@ -433,27 +580,58 @@ Service name: `storage`.
 \* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
 "Please enable the recording of data plane object storage events in audit trail `<trail id>`."
 
+## {{ serverless-containers-name }} {#serverless-containers}
+
+Service name: `serverless.containers`.
+
+| Event name | Description |
+| --- | --- |
+| `CreateContainer` | Creating a container |
+| `DeleteContainer` | Deleting a container |
+| `DeployContainerRevision` | Creating a container revision |
+| `RollbackContainer` | Rolling back to a target container revision |
+| `SetContainerAccessBindings` | Setting access bindings to a container |
+| `UpdateContainer` | Updating a container |
+| `UpdateContainerAccessBindings` | Updating access bindings to a container |
+| `mdbproxy.CreateProxy` | Creating a proxy |
+| `mdbproxy.DeleteProxy` | Deleting a proxy |
+| `mdbproxy.UpdateProxy` | Updating a proxy |
+| `triggers.CreateTrigger` | Creating a trigger |
+| `triggers.DeleteTrigger` | Deleting a trigger |
+| `triggers.UpdateTrigger` | Updating a trigger |
+
 ## {{ org-name }} {#organization}
 
 The name of the service is `organizationmanager`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
+| `AcceptInvitation` | Accepting an invitation |
+| `CreateInvitations` | Creating an invitation |
 | `CreateGroup` | Creating a user group |
 | `CreateMembership` | Adding a user to an organization |
+| `CreateOrganization` | Creating an organization |
+| `DeleteInvitation` | Deleting an invitation |
 | `DeleteGroup` | Deleting a user group |
 | `DeleteMembership` | Deleting a user from an organization |
+| `DeleteOrganization` | Deleting an organization |
+| `RejectInvitation` | Rejecting an invitation |
+| `ResendInvitation` | Resending an invitation |
 | `SetGroupAccessBindings` | Setting access bindings to a user group |
+| `SetOrganizationAccessBindings` | Setting access bindings to an organization |
 | `UpdateGroup` | Updating a user group |
 | `UpdateGroupAccessBindings` | Updating access bindings to a user group |
 | `UpdateGroupMembers` | Changing user group members |
+| `UpdateOrganization` | Changing an organization |
+| `UpdateOrganizationAccessBindings` | Updating access bindings to an organization |
 
 ## {{ resmgr-name }} {#resmgr}
 
 Service name: `resourcemanager`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
+| `AddCloudToOrganization` | Adding a cloud to an organization |
 | `CreateCloud` | Creating a cloud |
 | `CreateFolder` | Creating a folder |
 | `DeleteCloud` | Deleting a cloud |
@@ -462,13 +640,25 @@ Service name: `resourcemanager`.
 | `UpdateCloudAccessBindings` | Updating access bindings for a cloud |
 | `UpdateFolder` | Updating a folder |
 | `UpdateFolderAccessBindings` | Updating access bindings for a folder |
+| `SetCloudAccessBindings` | Setting access bindings for a cloud |
+| `SetFolderAccessBindings` | Setting access bindings for a folder |
+
+## {{ captcha-name }} {#smartcaptcha}
+
+Service name: `smartcaptcha`.
+
+| Event name | Description |
+| --- | --- |
+| `CreateCaptcha` | Creating a CAPTCHA |
+| `DeleteCaptcha` | Deleting a CAPTCHA |
+| `UpdateCaptcha` | Updating a CAPTCHA |
 
 ## {{ vpc-name }} {#vpc}
 
 Service name: `network`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `CreateAddress` | Creating a cloud resource address |
 | `CreateGateway` | Creating a gateway |
 | `CreateNetwork` | Creating a cloud network |
@@ -503,7 +693,7 @@ Service name: `network`.
 Service name: `ydb`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `BackupDatabase` | Creating a database backup |
 | `CreateDatabase` | Creating a database |
 | `DeleteBackup` | Deleting a database backup |
@@ -519,7 +709,7 @@ Service name: `ydb`.
 Service name: `yq`.
 
 | Event name | Description |
---- | ---
+| --- | --- |
 | `ControlQuery` | Managing queries |
 | `CreateBinding` | Creating a data binding |
 | `CreateConnection` | Creating a connection |
