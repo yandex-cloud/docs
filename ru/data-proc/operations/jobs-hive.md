@@ -13,7 +13,7 @@
     1. Нажмите кнопку **Создать задание**.
     1. (опционально) Укажите имя задания.
     1. В поле **Тип задания** выберите `Hive`.
-    1. Укажите **Настройки** в виде пары `ключ-значение`.
+    1. (опционально) В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства компонентов](../concepts/settings-list.md) в виде пары `ключ-значение`.
 
        {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 

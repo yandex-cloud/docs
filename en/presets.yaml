@@ -5171,6 +5171,7 @@ default:
       dataproc:
         jobs:
           field_main-python-file: Main python file
+          field_properties: Properties
       dns:
         button_add-record: Add record
         button_record-set-create: Create record
