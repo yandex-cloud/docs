@@ -1,6 +1,6 @@
-Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) {{ yandex-cloud }} (например, с помощью [сервиса {{ interconnect-full-name }}](../../interconnect/)), можно интегрировать сервис {{ dns-name }} с корпоративным DNS. Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
+Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/)), то можно интегрировать корпоративный DNS с [{{ dns-name }}](../../dns). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
 
-Делегировать управление DNS-записями во [внутренних зонах](../../dns/concepts/dns-zone.md#private-zones) {{ yandex-cloud }} вашим DNS-серверам в корпоративной сети не получится, так как NS-записи для внутренней зоны игнорируются. Чтобы распознавание имен сервисов и ресурсов в облачных сетях выполнялось при использовании внутренних зон, настройте отдельные DNS-форвардеры в облачных подсетях. _DNS-форвардеры_ — серверы DNS, которые по-разному перенаправляют запросы в зависимости от имени, указанного в запросе.
+Делегировать управление DNS-записями во [внутренних зонах](../../dns/concepts/dns-zone.md#private-zones) {{ yandex-cloud }} вашим DNS-серверам в корпоративной сети не получится, так как NS-записи для внутренней DNS-зоны игнорируются. Чтобы распознавание имен сервисов и ресурсов в облачных сетях выполнялось при использовании внутренних зон, настройте отдельные DNS-форвардеры в облачных подсетях. _DNS-форвардеры_ — серверы DNS, которые по-разному перенаправляют запросы в зависимости от имени, указанного в запросе.
 
 {% note info %}
 
@@ -9,10 +9,11 @@
 {% endnote %}
 
 Чтобы настроить распознавание имен корпоративных сервисов и ресурсов в облачных сетях {{ yandex-cloud }}:
-* [Ознакомьтесь с описанием примера интеграции](#network-desc).
-* [Настройте DNS в облаке](#setup-cloud-dns).
-* [Настройте корпоративные серверы DNS](#setup-on-prem-dns).
-* [Проверьте работу сервиса](#check-dns-service).
+
+1. [Ознакомьтесь с описанием примера интеграции](#network-desc).
+1. [Настройте DNS в облаке](#setup-cloud-dns).
+1. [Настройте корпоративные серверы DNS](#setup-on-prem-dns).
+1. [Проверьте работу сервиса](#check-dns-service).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -21,47 +22,65 @@
 ![DNS integration example](../../_assets/dns/dns-integration.svg "DNS integration example")
 
 1. Корпоративная сеть состоит из двух [подсетей](../../vpc/concepts/network.md#subnet): `172.16.1.0/24` и `172.16.2.0/24`.
-1. В этих подсетях размещено по одному DNS-серверу:
-   * `172.16.1.5`: ns1.corp.example.net.
-   * `172.16.2.5`: ns2.corp.example.net.
 
-   Эти серверы обслуживают зону corp.example.net.
+1. В этих подсетях размещено по одному DNS-серверу:
+
+    * `172.16.1.5`: ns1.corp.example.net
+    * `172.16.2.5`: ns2.corp.example.net
+   
+    Эти серверы обслуживают DNS-зону `corp.example.net`.
+
 1. Облачная сеть {{ yandex-cloud }} также состоит из двух подсетей:
+
    * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
    * `172.16.4.0/24`: subnet4, зона доступности `{{ region-id }}-b`.
 
-   В этих подсетях размещены DNS-серверы {{ yandex-cloud }}: `172.16.3.2` и `172.16.4.2`.
+    В этих подсетях размещены DNS-серверы {{ yandex-cloud }}: `172.16.3.2` и `172.16.4.2`.
 
-   Эти серверы обслуживают [внутренние зоны DNS в облачной сети](../../dns/concepts/dns-zone.md).
+    Эти серверы обслуживают [внутренние DNS-зоны](../../dns/concepts/dns-zone.md#private-zones) в облачной сети.
+
 1. Корпоративная и облачная сети связаны между собой так, что все подсети одной сети доступны из подсетей другой сети и наоборот.
 
 Далее будут настроены два DNS-форвардера в облачной сети:
-* `172.16.3.5`: forwarder1.internal.
-* `172.16.4.5`: forwarder2.internal.
+
+* `172.16.3.5`: forwarder1.internal
+* `172.16.4.5`: forwarder2.internal
 
 Они будут перенаправлять DNS-запросы следующим образом:
+
 * Запросы к зоне `corp.example.net` — через корпоративные DNS-серверы `172.16.1.5` и `172.16.2.5`.
 * Все прочие запросы (к зоне `.`) — через внутренние DNS-серверы {{ yandex-cloud }}, соответствующим подсетям: `172.16.3.2` и `172.16.4.2`.
 
-Для обеспечения отказоустойчивости работы DNS-форвардеров, они будут размещены за [внутренним сетевым балансировщиком](../../network-load-balancer/concepts/internal-load-balancer.md) [{{ network-load-balancer-full-name }}](../../network-load-balancer/). Все запросы к DNS-форвардерам (из облачной и корпоративной сетей) будут выполняться через этот балансировщик.
+Для обеспечения отказоустойчивости работы DNS-форвардеров, они будут размещены за [внутренним сетевым балансировщиком](../../network-load-balancer/concepts/internal-load-balancer.md) {{ network-load-balancer-full-name }}. Все запросы к DNS-форвардерам (как из облачной сети, так и из корпоративной сети) будут выполняться через этот балансировщик.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Для установки DNS-форвардеров в каждой из облачных подсетей `subnet3` и `subnet4` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа Ubuntu 20.04 с параметрами:
-   * **Имя**:
-     * `forwarder1` — для ВМ в подсети `subnet3`.
-     * `forwarder2` — для ВМ в подсети `subnet4`.
-   * В блоке **Сетевые настройки**:
-     * **Публичный адрес**: без адреса.
-     * **Внутренний адрес**: выберите **Вручную** и укажите:
-       * 172.16.3.5 — для ВМ `forwarder1`.
-       * 172.16.4.5 — для ВМ `forwarder2`.
+1. Для установки DNS-форвардеров в каждой из облачных подсетей `subnet3` и `subnet4` [создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
+
+    * **Имя**:
+        * `forwarder1` — для ВМ в подсети `subnet3`;
+        * `forwarder2` — для ВМ в подсети `subnet4`.
+    * В блоке **Сетевые настройки**:
+      * **Публичный адрес**: без адреса.
+      * **Внутренний адрес**: выберите **Вручную** и укажите:
+        * 172.16.3.5 — для ВМ `forwarder1`;
+        * 172.16.4.5 — для ВМ `forwarder2`.
+
 1. Для подключения из интернета и проверки сервиса в подсети `subnet4` создайте еще одну ВМ из публичного образа Ubuntu 20.04 с параметрами:
-   * **Имя**: `test1`.
-   * В блоке **Сетевые настройки**:
-     * **Публичный адрес**: Автоматически.
-     * **Внутренний адрес**: Автоматически.
+
+    * **Имя**: `test1`.
+    * В блоке **Сетевые настройки**:
+      * **Публичный адрес**: Автоматически.
+      * **Внутренний адрес**: Автоматически.
+
 1. Для установки ПО из интернета в подсетях `subnet3` и `subnet4` [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входят:
+* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 
 ## Настройте DNS в облаке {#setup-cloud-dns}
 
@@ -75,161 +94,160 @@
 
 - CoreDNS
 
-  1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md) для установки DNS-форвардера через промежуточную ВМ `test1`.
+  1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh) для установки DNS-форвардера через промежуточную ВМ `test1`.
+
   1. Скачайте актуальную версию `CoreDNS` со [страницы производителя](https://github.com/coredns/coredns/releases/latest) и установите ее:
 
-     ```bash
+      ```bash
       cd /var/tmp && wget <URL пакета> -O - | tar -zxvf
       sudo mv coredns /usr/local/sbin
       ```
 
-  1. Создайте файл конфигурации `CoreDNS`:
+  1. Создайте файл конфигурации `CoreDNS`: 
+     
+     * `forwarder1`:
 
-     ```bash
-     sudo mkdir /etc/coredns
-     sudo tee /etc/coredns/Corefile
-     <скопируйте блок Corefile>
-     ```
+         ```bash
+         sudo mkdir /etc/coredns
+         sudo tee >> /etc/coredns/Corefile <<EOF
+         corp.example.net {
+           forward . 172.16.1.5 172.16.2.5
+         }
+         . {
+           forward . 172.16.3.2
+           health
+         }
+         EOF
+         ```
 
-     `Corefile для forwarder1`
+     * `forwarder2`:
 
-     ```text
-     corp.example.net {
-       forward . 172.16.1.5 172.16.2.5
-     }
-     . {
-       forward . 172.16.3.2
-       health
-     }
-     ```
-
-     `Corefile для forwarder2`
-
-     ```text
-     corp.example.net {
-       forward . 172.16.1.5 172.16.2.5
-     }
-     . {
-       forward . 172.16.4.2
-       health
-     }
-     ```
+         ```bash
+         sudo mkdir /etc/coredns
+         sudo tee >> /etc/coredns/Corefile <<EOF
+         corp.example.net {
+           forward . 172.16.1.5 172.16.2.5
+         }
+         . {
+           forward . 172.16.4.2
+           health
+         }
+         EOF
+         ```
 
   1. Настройте автоматический запуск `CoreDNS`:
 
-     ```bash
-     sudo tee /etc/systemd/system/coredns.service
-     <скопируйте блок coredns.service>
-     sudo systemctl enable --now coredns
-     ```
+      ```bash
+      sudo tee >> /etc/systemd/system/coredns.service <<EOF
+      [Unit]
+      Description=CoreDNS
+      After=network.target
 
-     {% cut "coredns.service" %}
+      [Service]
+      User=root
+      ExecStart=/usr/local/sbin/coredns -conf /etc/coredns/Corefile
+      StandardOutput=append:/var/log/coredns.log
+      StandardError=append:/var/log/coredns.log
+      RestartSec=5
+      Restart=always
 
-     ```text
-     [Unit]
-     Description=CoreDNS
-     After=network.target
-
-     [Service]
-     User=root
-     ExecStart=/usr/local/sbin/coredns -conf /etc/coredns/Corefile
-     StandardOutput=append:/var/log/coredns.log
-     StandardError=append:/var/log/coredns.log
-     RestartSec=5
-     Restart=always
-
-     [Install]
-     WantedBy=multi-user.target
-     ```
-
-     {% endcut %}
+      [Install]
+      WantedBy=multi-user.target
+      EOF
+      sudo systemctl enable --now coredns
+      ```
 
   1. Отключите системную службу распознавания имен DNS, чтобы ее функции выполнял локальный DNS-форвардер. В Ubuntu 20.04 это можно сделать командами:
 
-     ```bash
-     sudo systemctl disable --now systemd-resolved
-     rm /etc/resolv.conf
-     echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
-     ```
+      ```bash
+      sudo systemctl disable --now systemd-resolved
+      rm /etc/resolv.conf
+      echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
+      ```
 
 - Unbound
 
   1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md) DNS-форвардера через промежуточную ВМ `test1`.
   1. Установите пакет `unbound`:
 
-     ```bash
-     sudo apt update && sudo apt install --yes unbound
-     ```
+      ```bash
+      sudo apt update && sudo apt install --yes unbound
+      ```
 
   1. Настройте и перезапустите DNS-форвардер:
 
-     ```bash
-     sudo tee --append /etc/unbound/unbound.conf
-     <скопируйте блок unbound.conf>
-     sudo systemctl restart unbound
-     ```
+      {% cut "unbound.conf для forwarder1" %}
+    
+      ```bash
+      sudo tee -a /etc/unbound/unbound.conf <<EOF
+      server:
+        module-config: "iterator"
+        interface: 0.0.0.0
+        access-control: 127.0.0.0/8   allow
+        access-control: 172.16.0.0/21 allow
 
-     {% cut "unbound.conf для forwarder1" %}
+      forward-zone:
+        name: "corp.example.net"
+        forward-addr: 172.16.1.5
+        forward-addr: 172.16.2.5
 
-     ```text
-     server:
-       module-config: "iterator"
-       interface: 0.0.0.0
-       access-control: 127.0.0.0/8   allow
-       access-control: 172.16.0.0/21 allow
+      forward-zone:
+        name: "."
+        forward-addr: 172.16.3.2
+      EOF
+      ``` 
+      {% endcut %}
 
-     forward-zone:
-       name: "corp.example.net"
-       forward-addr: 172.16.1.5
-       forward-addr: 172.16.2.5
+      {% cut "unbound.conf для forwarder2" %}
 
-     forward-zone:
-       name: "."
-       forward-addr: 172.16.3.2
-     ```
+      ```bash
+      sudo tee -a /etc/unbound/unbound.conf <<EOF
+      server:
+        module-config: "iterator"
+        interface: 0.0.0.0
+        access-control: 127.0.0.0/8   allow
+        access-control: 172.16.0.0/21 allow
 
-     {% endcut %}
+      forward-zone:
+        name: "corp.example.net"
+        forward-addr: 172.16.1.5
+        forward-addr: 172.16.2.5
 
-     {% cut "unbound.conf для forwarder2" %}
+      forward-zone:
+        name: "."
+        forward-addr: 172.16.4.2
+      EOF
+      ```
+      {% endcut %}
 
-     ```text
-     server:
-       module-config: "iterator"
-       interface: 0.0.0.0
-       access-control: 127.0.0.0/8   allow
-       access-control: 172.16.0.0/21 allow
+  1. Перезапустите Unbound:
 
-     forward-zone:
-       name: "corp.example.net"
-       forward-addr: 172.16.1.5
-       forward-addr: 172.16.2.5
-
-     forward-zone:
-       name: "."
-       forward-addr: 172.16.4.2
-     ```
-
-     {% endcut %}
+      ```bash
+      sudo systemctl restart unbound
+      ```
 
   1. Отключите системную службу распознавания имен DNS, чтобы ее функции выполнял локальный DNS-форвардер. В Ubuntu 20.04 это можно сделать командами:
 
-     ```bash
-     sudo systemctl disable --now systemd-resolved
-     rm /etc/resolv.conf
-     echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
-     ```
+      ```bash
+      sudo systemctl disable --now systemd-resolved
+      rm /etc/resolv.conf
+      echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
+      ```
 
 {% endlist %}
 
-### Настройте сетевой балансировщик {#setup-cloud-balancer}
+### Настройте сетевой балансировщик {{ network-load-balancer-name }} {#setup-cloud-balancer}
 
 Создайте [внутренний сетевой балансировщик](../../network-load-balancer/operations/internal-lb-create.md) с параметрами:
+
 * **Тип**: **Внутренний**.
+
 * В блоке **Обработчики**:
   * **Подсеть**: выберите `subnet3` из списка.
   * **Протокол**: **UDP**.
   * **Порт**: `53`.
   * **Целевой порт**: `53`.
+
 * В блоке **Целевые группы**:
   * Создайте группу, состоящую из хостов `forwarder1` и `forwarder2`.
   * В блоке **Проверка состояния** укажите параметры:
@@ -240,6 +258,7 @@
       * Тип: `HTTP`.
       * Путь: `/health`.
       * Порт: `8080`.
+
     * Unbound
       * Тип: `TCP`.
       * Порт: `53`.
@@ -257,6 +276,7 @@
 ### Настройте сервис DHCP {#setup-cloud-dhcp}
 
 Чтобы хосты в облачной сети автоматически использовали корпоративный сервис DNS, в [настройках DHCP](../../vpc/concepts/dhcp-options.md) для подсетей `subnet3` и `subnet4` укажите:
+
 1. **Адрес DNS-сервера**: IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
 1. (Опционально) **Доменное имя**: `corp.example.net`.
 
@@ -276,29 +296,35 @@ sudo netplan apply
 
 1. Проверьте, что на облачных хостах `forwarder1`, `forwarder2` и `test1` выполняется распознавание имен во внутренней зоне `corp.example.net`:
 
-   ```bash
-   host ns1.corp.example.net
-   ns1.corp.example.net has address 172.16.1.5
-   ```
+    ```bash
+    host ns1.corp.example.net
+    ns1.corp.example.net has address 172.16.1.5
+    ```
 
 1. Проверьте, что на облачных хостах `forwarder1`, `forwarder2` и `test1` выполняется распознавание имен в публичных зонах, например:
 
-   ```bash
-   host cisco.com
-   cisco.com has address 72.163.4.185
-   ...
-   ```
-
+    ```bash
+    host cisco.com
+    cisco.com has address 72.163.4.185
+    ...
+    ```
 1. Проверьте, что на корпоративных DNS-серверах `ns1` и `ns2` выполняется распознавание внутренних имен {{ yandex-cloud }}, например:
 
-   ```bash
-   host ns.internal
-   ns.internal has address 10.130.0.2
-   ```
+    ```bash
+    host ns.internal
+    ns.internal has address 10.130.0.2
+    ```
 
 1. Чтобы убедиться, что сервисы запускаются автоматически, перезапустите ВМ `forwarder1`, `forwarder2` и `test1` и повторите проверки.
 
-## Удалите неиспользуемые ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-* Если какие-либо из созданных ВМ вам больше не нужны, [удалите их](../../compute/operations/vm-control/vm-delete.md). 
-* Удалите [целевые группы](../../network-load-balancer/operations/target-group-delete.md), [обработчики](../../network-load-balancer/operations/listener-remove.md) и [сетевой балансировщик](../../network-load-balancer/operations/load-balancer-delete.md).
+Чтобы перестать платить за ресурсы:
+
+* [удалите](../../compute/operations/vm-control/vm-delete) ВМ;
+* [удалите](../../vpc/operations/address-delete) статические публичные IP-адреса, если вы зарезервировали его специально для своих ВМ;
+* [удалите](../../network-load-balancer/operations/target-group-delete.md) целевые группы;
+* [удалите](../../network-load-balancer/operations/listener-remove.md) обработчики;
+* [удалите](../../network-load-balancer/operations/load-balancer-delete.md) сетевой балансировщик;
+* [удалите](../../vpc/operations/subnet-delete.md) подсети;
+* [удалите](../../vpc/operations/network-delete.md) сети.

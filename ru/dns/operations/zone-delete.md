@@ -95,4 +95,8 @@
      yc dns zone list
      ```
 
+- API
+
+  Чтобы удалить зону DNS, воспользуйтесь методом REST API [delete](../api-ref/DnsZone/delete.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Delete](../api-ref/grpc/dns_zone_service.md#Delete).
+
 {% endlist %}

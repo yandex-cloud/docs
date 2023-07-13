@@ -1,5 +1,7 @@
 # Создать расписание, по которому будут создаваться снимки дисков
 
+## Настроить автоматическое создание снимков дисков по расписанию {#set-schedule}
+
 Чтобы настроить автоматическое создание [снимков дисков](../../concepts/snapshot.md) по [расписанию](../../concepts/snapshot-schedule.md):
 
 {% list tabs %}
@@ -128,6 +130,55 @@
       snapshot_count: "3"
       snapshot_spec: {}
       ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
+
+      ```hcl
+      resource "yandex_compute_snapshot_schedule" "default" {
+        name = "<название_расписания>"
+
+        schedule_policy {
+          expression = "<cron-выражение>"
+        }
+
+        snapshot_count = <количество_снимков_для_каждого_диска>
+
+        snapshot_spec {
+            description = "<описание_снимка>"
+            labels = {
+              <ключ_метки_снимка> = "<_значение_метки_снимка>"
+            }
+        }
+
+        disk_ids = ["<идентификатор_диска_1>", "<идентификатор_диска_2>"]
+      }
+      ```
+
+      Где:
+
+      * `name` — название расписания. Обязательный параметр.
+      * `schedule_policy` — блок с параметрами расписания. Содержит поле `expression` с [cron-выражением](../../concepts/snapshot-schedule.md#cron). Обязательный параметр.
+      * `snapshot_count` — максимальное количество снимков для каждого диска. Необязательный параметр.
+      * `snapshot_spec` — блок с дополнительными параметрами снимка. Необязательный параметр. Может содержать поля:
+        * `description` — описание снимка.
+        * `labels` — [метка](../../../overview/concepts/services.md#labels) снимка в формате `<ключ> = "<значение>"`.
+      * `disk_ids`— идентификаторы дисков, для которых будут создаваться снимки. Обязательный параметр.
+      
+      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/compute_snapshot_schedule).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будет создано расписание. Проверить появление расписания и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc compute snapshot-schedule get <имя_расписания>
+    ```
 
 - API
 

@@ -102,4 +102,8 @@
      yc dns zone get <имя зоны DNS>
      ```
 
+- API
+
+  Чтобы изменить зону DNS, воспользуйтесь методом REST API [update](../api-ref/DnsZone/update.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Update](../api-ref/grpc/dns_zone_service.md#Update).
+
 {% endlist %}

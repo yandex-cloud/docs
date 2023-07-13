@@ -126,6 +126,47 @@
       snapshot_spec: {}
       ```
 
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием расписания:
+
+      {% cut "Пример описания расписания в конфигурации {{ TF }}" %}
+
+      ```hcl
+      resource "yandex_compute_snapshot_schedule" "default" {
+        name = "my-name"
+
+        schedule_policy {
+          expression = "0 0 * * *"
+        }
+
+        snapshot_count = 1
+
+        snapshot_spec {
+            description = "snapshot-description"
+            labels = {
+              snapshot-label = "my-snapshot-label-value"
+            }
+        }
+
+        disk_ids = ["test_disk_id", "another_test_disk_id"]
+      }
+      ```
+
+      {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   Проверить изменение расписания и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc compute snapshot-schedule get <имя_расписания>
+    ```
+
 - API
 
   1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).

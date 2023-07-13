@@ -94,4 +94,8 @@
      yc dns zone list-records <имя зоны DNS>
      ```
 
+- API
+
+  Чтобы удалить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+
 {% endlist %}

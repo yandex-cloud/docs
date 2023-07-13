@@ -34,7 +34,7 @@ Current type: Intel<sup>®</sup> Ice Lake platform
 
 | Type and processor<br>(Ice Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
 |  --- | --- | --- | --- | --- | --- | --- |
-| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3200 × 10^9^ B <br>(~ 2.91 TB) |
+| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~ 2.91 TB) |
 
   
   You can only create hosts of this type in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
@@ -52,8 +52,8 @@ Do not use archived types to create dedicated hosts. Select a current type inste
 | --- | --- | --- | --- | --- | --- | --- |
 | `intel-6230-c66-m454`<br>[Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1,46 TB) |
 | `intel-6230-c66-m704-n1600x4`<br>Intel Xeon Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1,46 TB) |
-| `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3200 × 10^9^ B <br>(~ 2.91 TB) |
-| `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3200 × 10^9^ B <br>(~ 2.91 TB) |
+| `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 B <br>(~ 2.91 TB) |
+| `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3198924357632 B <br>(~ 2.91 TB) |
 
 {% endcut %}
 
@@ -87,7 +87,7 @@ You can attach network and local disks to VMs on dedicated hosts. Make sure the 
 
 * VM boot disk must be a network disk. Local disks can only be used as secondary ones.
 * All network disks must be in the same availability zone as the group of dedicated hosts.
-* You can only attach an entire local disk to a VM. For example, when attaching a disk to a VM on an `intel-6338-c108-m704-n3200x6` host, specify the exact disk size: `3200000000000`.
+* You can only attach an entire local disk to a VM. For example, when attaching a disk to a VM on an `intel-6338-c108-m704-n3200x6` host, specify the exact disk size: `3198924357632`.
 * You cannot attach a single disk to two or more different VMs at the same time.
 
 You can only attach local disks to a VM while creating it. For more information about attaching disks, see [our guides](../operations/index.md#dedicated-host). To change the disks attached to an existing VM, you will have to recreate it.

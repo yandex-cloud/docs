@@ -32,4 +32,38 @@
       --new-name updated-gpu-cluster
       ```
 
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием GPU кластера:
+
+     {% cut "Пример описания GPU кластера в конфигурации {{ TF }}" %}
+
+     ```
+     ...
+     resource "yandex_compute_gpu_cluster" "default" {
+       name               = "gpu-cluster-name"
+       interconnect_type  = "infiniband"
+       zone               = "{{ region-id }}-a"
+
+       labels = {
+         environment = "test"
+       }
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение кластера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc compute gpu-cluster get <имя_кластера>
+    ```
+
 {% endlist %}
