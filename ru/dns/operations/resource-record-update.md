@@ -89,6 +89,10 @@
      yc dns zone list-records <имя зоны DNS>
      ```
 
+- API
+
+  Чтобы изменить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+
 {% endlist %}
 
 Значение ресурсных [TXT-записей](../concepts/resource-record.md#txt) не может содержать больше 255 знаков в одной строке и 1024 знака всего. Если новое значение записи содержит больше знаков, разделите его на несколько значений.

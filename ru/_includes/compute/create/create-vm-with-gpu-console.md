@@ -57,16 +57,18 @@
 
         Для ВМ с операционной системой на базе Linux:
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-   
+
           {% note alert %}
-   
+
           Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
 
           {% endnote %}
-   
+
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
         * (опционально) При необходимости разрешите доступ к [серийной консоли](../../../compute/operations/index.md#serial-console).
+
+        {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
 1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

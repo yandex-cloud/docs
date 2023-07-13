@@ -21,7 +21,9 @@
 
 - Windows 10
 
-  1. Запустите `cmd.exe` или `powershell.exe`.
+  Если у вас еще не установлен [OpenSSH](https://ru.wikipedia.org/wiki/OpenSSH), установите его по [инструкции](https://learn.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_install_firstuse).
+
+  1. Запустите `cmd.exe` или `powershell.exe` (предварительно обновите PowerShell).
   1. Создайте новый ключ с помощью команды `ssh-keygen`. Выполните команду:
 
      ```shell

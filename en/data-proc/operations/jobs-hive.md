@@ -15,13 +15,13 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
     1. In the **Job type** field, select `Hive`.
     1. Specify **Settings** as `key:value` pairs.
 
-      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
     1. (optional) Enable the **Continue on failure** setting.
     1. Specify **Script variables** as `key-value` pairs
     1. (optional) Specify the paths to JAR files, if any.
 
-      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+       {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
     1. Select one of the driver types and specify which to use to start the job:
         * List of queries to be executed.

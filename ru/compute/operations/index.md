@@ -163,7 +163,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 
-# Кластеры GPU {#gpu-cluster}
+## Кластеры GPU {#gpu-cluster}
 
 * [{#T}](gpu-cluster/gpu-cluster-create.md)
 * [{#T}](gpu-cluster/gpu-add-to-cluster.md)

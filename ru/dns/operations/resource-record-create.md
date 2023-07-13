@@ -119,6 +119,10 @@
      yc dns zone list-records <имя зоны DNS>
      ```
 
+- API
+
+  Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
+
 {% endlist %}
 
 При создании ресурсных AAAA-записей сервис автоматически производит нормализацию адресов IPv6, заменяя пропуски между `:` нулями, например: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.

@@ -125,7 +125,7 @@ Create a VM with the following characteristics:
 * VCPU cores: 64.
 * RAM: 704 GB
 * Number of local disks: 1.
-* Local disk size: 3200 × 10^9^ B (~ 2.91 TB).
+* Local disk size: 3198924357632 B (~ 2.91 TB).
 * Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
 To do this, follow these steps:
@@ -151,7 +151,7 @@ To do this, follow these steps:
      --memory 704 \
      --host-id <dedicated_host_ID> \
      --network-interface subnet-id=<subnet_ID> \
-     --attach-local-disk "size=3200000000000" \
+     --attach-local-disk "size=3198924357632" \
      --ssh-key <public_SSH_key_file_path> \
      --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
    ```

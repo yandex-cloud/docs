@@ -81,7 +81,9 @@
 
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
      * Если требуется, разрешите доступ к [серийной консоли](../../operations/serial-console/index.md).
-  
+
+     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).

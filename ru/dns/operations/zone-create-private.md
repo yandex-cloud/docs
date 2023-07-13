@@ -51,7 +51,6 @@
        - <идентификатор сети>
      ```
 
-
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -131,5 +130,9 @@
      ```
      yc dns zone get <имя зоны DNS>
      ```
+
+- API
+
+  Чтобы создать внутреннюю зону DNS, воспользуйтесь методом REST API [create](../api-ref/DnsZone/create.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create).
 
 {% endlist %}
