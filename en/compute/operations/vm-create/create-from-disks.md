@@ -12,9 +12,9 @@ To create a VM from a set of disks:
 
   To create a VM:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-  1. In the list of services, select **{{ compute-name }}**.
-  1. Click **Create VM**.
-  1. Under **Basic parameters**:
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** at the top right.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name and description for the VM. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
@@ -22,31 +22,31 @@ To create a VM from a set of disks:
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * Select the availability zone to place the VM in.
-  1. Under **Image/boot disk selection**, select one of the [images](../../concepts/image.md).
-  1. Under **Disks and file storage**, [add a disk](create-from-disks.md):
-      * Click **Add disk**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select one of the [images](../../concepts/image.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
+      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the desired block size.
       * Specify the required disk size.
-      * (optional) Enable the **Delete with the VM** option if you need to automatically delete the disk when deleting the VM it will be attached to.
-      * Select `Disk` as content.
-      * Click **Add**.
+      * (optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
+      * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
   
-  1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
-      * Click **Connect file storage**.
+  1. (optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../../concepts/filesystem.md):
+      * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select a file store.
-      * Enter a device name.
-      * Click **Connect file storage**.
+      * Enter the device name.
+      * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
 
-  1. Under **Computing resources**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
       * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
       * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
-  1. Under **Network settings**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
@@ -54,9 +54,9 @@ To create a VM from a set of disks:
   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
 
-  1. Under **Access**, specify the information required to access the instance:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-      * Enter the username in the **Login** field.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 
@@ -64,9 +64,9 @@ To create a VM from a set of disks:
 
          {% endnote %}
 
-      * In the **SSH key** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
-  1. Click **Create VM**.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
 
@@ -132,7 +132,7 @@ To create a VM from a set of disks:
   To create a VM from a set of disks:
   1. In the configuration file, describe the parameters of the resources you want to create:
 
-     ```yaml
+     ```hcl
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "vm-from-disks"
@@ -168,21 +168,20 @@ To create a VM from a set of disks:
        name = "network1"
      }
 
-     resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<availability zone>"
-       network_id = "${yandex_vpc_network.network-1.id}"
-     }
-     ```
+      resource "yandex_vpc_subnet" "subnet-1" {
+        name       = "subnet1"
+        zone       = "<availability zone>"
+        network_id = "${yandex_vpc_network.network-1.id}"
+      }
+      ```
 
-     Where:
-
-     * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
-       * `name`: VM name.
-       * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-       * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-       * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-       * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the ID of a public image using the `image_id` parameter.
+      Where:
+      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+         * `name`: VM name.
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
+         * `zone`: ID of the availability zone that will host your VM.
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the ID of a public image using the `image_id` parameter.
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
@@ -217,6 +216,6 @@ To create a VM from a set of disks:
 
      1. Confirm that you want to create the resources.
 
-     Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}

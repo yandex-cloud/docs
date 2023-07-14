@@ -6,7 +6,7 @@ A _label_ is a key-value pair in `<label name>=<label value>` format. You can us
 
 Labels are subject to the following restrictions:
 
-* Maximum number of labels per resource is 64.
+* Maximum number of labels per resource: 64.
 * The key:
    * It may be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
@@ -27,6 +27,7 @@ List of services whose resources support labels:
 * [{{ compute-full-name }}](../../compute/index.yaml)
 * [{{ container-registry-full-name }}](../../container-registry/index.yaml)
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
+* [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
 * [{{ iot-full-name }}](../../iot-core/index.yaml)
 * [{{ kms-full-name }}](../../kms/index.yaml)
 * [{{ lockbox-full-name }}](../../lockbox/index.yaml)
@@ -52,3 +53,4 @@ List of services whose resources support labels:
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+

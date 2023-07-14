@@ -26,7 +26,7 @@ You can have public IPs assigned to cloud resources automatically or select IPs 
 
 #### How do I make a public IP address static? {#make-ip-static}
 
-You can make a public IP address [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **IP addresses** tab in the [management console]({{ link-console-main }}).
+You can make a public IP address [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **{{ ui-key.yacloud.vpc.switch_addresses }}** tab in the [management console]({{ link-console-main }}).
 
 #### What limitations apply when creating subnets? {#create-subnet-limits}
 

@@ -84,23 +84,23 @@ Create a [private bucket](../../storage/operations/buckets/create.md) named `ter
 
       ```bash
       aws dynamodb create-table \
-        --table-name <table name> \
+        --table-name <table_name> \
         --attribute-definitions \
           AttributeName=LockID,AttributeType=S \
         --key-schema \
           AttributeName=LockID,KeyType=HASH \
-        --endpoint <document-api-endpoint of the database>
+        --endpoint <document-api-endpoint_of_the_database>
       ```
 
       Where:
-      * `table-name`: [Table](../../ydb/concepts/dynamodb-tables.md) name.
-      * `attribute-definitions`: Column parameters.
+      * `--table-name`: [Table](../../ydb/concepts/dynamodb-tables.md) name.
+      * `--attribute-definitions`: Column parameters:
          * `AttributeName`: Column name.
          * `AttributeType`: Data type. In our example, we use string data (`S`).
-      * `key-schema`: Key schema for the column.
+      * `--key-schema`: Key schema for the column:
          * `AttributeName`: Column name.
          * `KeyType`: Key type. In our example, we use a partitioning key (`HASH`).
-      * `endpoint`: Document API DB endpoint. You can find it on the database main page under **Document API endpoint**.
+      * `--endpoint`: Document API DB endpoint. You can find it on the database main page under **Document API endpoint**.
 
 {% endlist %}
 
@@ -118,40 +118,67 @@ Create a [private bucket](../../storage/operations/buckets/create.md) named `ter
 
 ## Configure the backend {#set-up-backend}
 
-To save the {{ TF }} state in {{ objstorage-name }} and activate state locking, specify the settings for the provider and backend:
+To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
+
+1. Add the [previously obtained](#create-service-account) key ID and secret key to environment variables:
+
+   {% list tabs %}
+
+   - Bash
+
+      ```bash
+      export ACCESS_KEY="<key_ID>"
+      export SECRET_KEY="<secret_key>"
+      ```
+
+   - PowerShell
+
+      ```powershell
+      $Env:ACCESS_KEY="<key_ID>"
+      $Env:SECRET_KEY="<secret_key>"
+      ```
+
+   {% endlist %}
+
+1. Add provider and backend settings to the configuration file:
+
+   
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+     required_version = ">= 0.13"
+
+     backend "s3" {
+       endpoint          = "{{ s3-storage-host }}"
+       bucket            = "<bucket_name>"
+       region            = "{{ region-id }}"
+       key               = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
+       dynamodb_endpoint = "<Document_API_DB_endpoint>"
+       dynamodb_table    = "<table_name>"
+
+       skip_region_validation      = true
+       skip_credentials_validation = true
+     }
+   }
+
+   provider "yandex" {
+     zone = "<default_availability_zone>"
+   }
+   ```
 
 
-```hcl
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-  required_version = ">= 0.13"
 
-  backend "s3" {
-    endpoint          = "{{ s3-storage-host }}"
-    bucket            = "<bucket name>"
-    region            = "{{ region-id }}"
-    key               = "<path to state file in the bucket>/<state file name>.tfstate"
-    access_key        = "<static key ID>"
-    secret_key        = "<secret key>"
-    dynamodb_endpoint = "<Document API DB endpoint>"
-    dynamodb_table    = "<table name>"
-    skip_region_validation      = true
-    skip_credentials_validation = true
-  }
-}
+   To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
 
-provider "yandex" {
-  zone = "<default availability zone>"
-}
-```
+1. Run the following command in the folder with the configuration file:
 
-
-
-To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
+   ```bash
+   terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
+   ```
 
 ## Deploy the configuration {#deploy}
 

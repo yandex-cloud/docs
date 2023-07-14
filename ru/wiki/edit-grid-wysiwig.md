@@ -2,7 +2,7 @@
 
 ## Общие настройки {#general-settings}
 
-Чтобы изменить [таблицу](pages-types.md#grid), откройте ее и в правом верхнем углу нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Настройки таблицы**. Выберите действие:
+Чтобы изменить [таблицу](pages-types.md#grid), откройте ее и в правом верхнем углу нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**. Выберите действие:
 
   * [Настроить столбцы](#column-transfer);
   * [Сортировка по умолчанию](#sort-line);
@@ -24,25 +24,25 @@
 
 ## Настроить параметры столбцов таблицы {#column-params}
 
-1. В верхней ячейке столбца нажмите значок ![](../_assets/wiki/svg/actions-icon.svg) и выберите ![](../_assets/wiki/svg/grid-settings.svg) **Настройки**. 
+1. В верхней ячейке столбца нажмите значок ![](../_assets/wiki/svg/actions-icon.svg) и выберите ![](../_assets/wiki/svg/grid-settings.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.settings }}**. 
 
 1. Во всплывающем окне измените параметры столбца:
 
-   * В поле сверху введите **Название** столбца.
+   * В поле сверху введите **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.name }}** столбца.
     
     * Поле **Уникальный идентификатор** заполнится автоматически. При необходимости вы можете изменить его вручную.
 
     * В раскрывающемся списке выберите допустимый [тип данных](#data-types) для ячеек столбца. После сохранения тип данных изменить нельзя.
 
-    * В поле **Ширина** укажите ширину столбца или оставьте значение по умолчанию — `Авто`.
+    * В поле **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.width }}** укажите ширину столбца или оставьте значение по умолчанию — `{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-width-controll.auto }}`.
 
     * Чтобы добавить описание столбца, нажмите **Добавить описание**. Чтобы увидеть описание столбца, наведите указатель на значок ![](../_assets/wiki/svg/column-description.svg). Текст появится во всплывающем окне.
     
     * Чтобы сделать ячейки столбца обязательными к заполнению, включите опцию **Обязательный для заполнения**.
 
-    * Для столбцов с типом данных **Чекбокс** включите опцию **Помечать сделанным**. В этом случае строки, отмеченные чекбоксом, отображаются серыми.
+    * Для столбцов с типом данных **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}** включите опцию **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}**. В этом случае строки, отмеченные чекбоксом, отображаются серыми.
     
-1. Нажмите кнопку **Сохранить**, чтобы сохранить изменения.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**, чтобы сохранить изменения.
 
 Чтобы изменить ширину столбца, зажмите боковую границу и переместите влево или вправо. Изменение ширины отобразится сразу у всех пользователей, которые просматривают таблицу в данный момент.
 
@@ -70,27 +70,27 @@
 
 1. Настройте параметры столбца:
     
-    * В поле сверху введите **Название** столбца.
+    * В поле сверху введите **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.name }}** столбца.
     
     * Поле **Уникальный идентификатор** заполнится автоматически. При необходимости вы можете изменить его вручную.
 
     * В раскрывающемся списке выберите допустимый [тип данных](#data-types) для ячеек столбца. После сохранения тип данных изменить нельзя.
 
-    * В поле **Ширина** укажите ширину столбца или оставьте значение по умолчанию — `Авто`.
+    * В поле **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.width }}** укажите ширину столбца или оставьте значение по умолчанию — `{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-width-controll.auto }}`.
 
     * Чтобы добавить описание столбца, нажмите **Добавить описание**. Чтобы увидеть описание столбца, наведите указатель на значок ![](../_assets/wiki/svg/column-description.svg). Текст появится во всплывающем окне.
     
     * Чтобы сделать ячейки столбца обязательными к заполнению, включите опцию **Обязательный для заполнения**.
 
-    * Для столбцов с типом данных **Чекбокс** включите опцию **Помечать сделанным**. В этом случае строки, отмеченные чекбоксом, отображаются серыми.
+    * Для столбцов с типом данных **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}** включите опцию **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}**. В этом случае строки, отмеченные чекбоксом, отображаются серыми.
 
-1. Выберите **Добавить**.
+1. Выберите **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.add }}**.
 
 Чтобы удалить столбец:
 
 1. В верхней ячейке столбца нажмите значок ![](../_assets/wiki/svg/actions-icon.svg).
 
-1. Нажмите кнопку **Удалить**.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.delete }}**.
 
 ### Типы данных {#data-types}
 
@@ -98,17 +98,17 @@
 
 * ![](../_assets/wiki/svg/type-text.svg) **Текст с форматированием**. Любой текст, оформленный с помощью [разметки Markdown](basic-markup.md).
 
-* ![](../_assets/wiki/svg/type-number.svg) **Число**. 
+* ![](../_assets/wiki/svg/type-number.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }}**. 
 
-* ![](../_assets/wiki/svg/type-checkbox.svg) **Чекбокс**. Поле, в котором можно поставить отметку. Чтобы отметить всю строку, включите опцию **Помечать сделанным**. В этом случае строки, отмеченные чекбоксом, отображаются серыми.
+* ![](../_assets/wiki/svg/type-checkbox.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}**. Поле, в котором можно поставить отметку. Чтобы отметить всю строку, включите опцию **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}**. В этом случае строки, отмеченные чекбоксом, отображаются серыми.
 
-* ![](../_assets/wiki/svg/type-date.svg) **Дата**.
+* ![](../_assets/wiki/svg/type-date.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date }}**.
 
-* ![](../_assets/wiki/svg/type-list.svg) **Список**. Поле для выбора одного значения из предложенных вариантов.
+* ![](../_assets/wiki/svg/type-list.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.list }}**. Поле для выбора одного значения из предложенных вариантов.
 
     Чтобы выбрать множественный список, включите опцию **Разрешить выбор нескольких вариантов**.
 
-* ![](../_assets/wiki/svg/type-employee.svg) **Сотрудник**. Имя и фамилия сотрудника.
+* ![](../_assets/wiki/svg/type-employee.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.employee }}**. Имя и фамилия сотрудника.
     
     Чтобы выбрать несколько сотрудников, включите опцию **Разрешить добавление нескольких пользователей**.
 
@@ -124,7 +124,7 @@
 
 ## Добавить и удалить строки {#edit-line}
 
-* Чтобы создать новую строку, внизу таблицы нажмите ![](../_assets/wiki/svg/add.svg) **Добавить строку**.
+* Чтобы создать новую строку, внизу таблицы нажмите ![](../_assets/wiki/svg/add.svg) **{{ ui-key.yacloud.component.table-input.popup_title }}**.
 
 * Чтобы удалить строку, наведите на нее курсор и нажмите значок ![](../_assets/wiki/svg/delete-line.svg) **Удалить строку**.
 
@@ -142,17 +142,17 @@
 
 Чтобы добавить несколько фильтров:
 
-1. В правом верхнем углу таблицы нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Настройки таблицы**.
+1. В правом верхнем углу таблицы нажмите кнопку ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**.
 
 1. Нажмите кнопку **Сортировка по умолчанию**.
 
-1. Нажмите кнопку **Добавить**:
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.add }}**:
 
 1. В выпадающем списке выберите столбец и тип сортировки: **Сортировать по убыванию** или **Сортировать по возрастанию**.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**.
 
-1. Добавьте остальные фильтры и нажмите кнопку **Применить**. В правом верхнем углу над таблицей появится кнопка **Настроена сортировка**.
+1. Добавьте остальные фильтры и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**. В правом верхнем углу над таблицей появится кнопка **Настроена сортировка**.
 
 Чтобы задать порядок сортировки, в списке фильтров нажмите значок ![](../_assets/wiki/svg/moving.svg) и перетащите. Выбрать несколько фильтров для переноса нельзя.
 

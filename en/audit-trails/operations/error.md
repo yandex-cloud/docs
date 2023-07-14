@@ -63,6 +63,16 @@ Check the stream specified in the [trail settings](../concepts/trail.md#trail-se
 1. [Create](../../data-streams/operations/manage-streams.md#create-data-stream) a new stream.
 1. Change the trail settings by specifying the new stream under **Destination**.
 
+### DATABASE_INACTIVE {#database-inactive}
+
+[Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running`. Start the database, if required. You can do this via the [management console]({{ link-console-main }}):
+1. In the list of services, select **{{ ydb-short-name }}**.
+1. Click ![image](../../_assets/options.svg) to the right of the database name and select **Start**.
+
+### DATABASE_NOT_FOUND {#database-not-found}
+
+[Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running` and the linked [stream](../../data-streams/operations/manage-streams.md#list-data-streams) status is `Active`. If the stream or its {{ ydb-short-name }} database were deleted, create a new [stream](../../data-streams/operations/manage-streams.md#create-data-stream) or [database](../../ydb/operations/manage-databases.md#serverless).
+
 ## {{ cloud-logging-name }} log group {#cloud-logging}
 
 ### ACCESS_DENIED {#logging-access-denied}

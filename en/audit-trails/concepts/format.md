@@ -20,7 +20,10 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
         "authenticated":true,
         "subject_type":"FEDERATED_USER_ACCOUNT",
         "subject_id":"<user_ID>",
-        "subject_name":"<username>"
+        "subject_name":"<username>",
+        "federation_id":"<federation_ID>",
+        "federation_name":"<federation_name>",
+        "federation_type":"<federation_type>"
     },
     "authorization":{
         "authorized":true
@@ -114,7 +117,11 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
     "authenticated": boolean,
     "subject_type": string,
     "subject_id": string,
-    "subject_name": string
+    "subject_name": string,
+    "federation_id": string,
+    "federation_name": string,
+    "federation_type": string
+
   },
   "authorization": {
     "authorized": boolean
@@ -156,6 +163,9 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
 | `authentication.subject_type` | **string**<br>Subject type. Possible values:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`: A Yandex account.</li><li>`SERVICE_ACCOUNT`: A service account.</li><li>`FEDERATED_USER_ACCOUNT`: A federated account.</li> |
 | `authentication.subject_id` | **string**<br>Subject ID. |
 | `authentication.subject_name` | **string**<br>Subject name. |
+| `authentication.federation_id`* | **string**<br>ID of the federation the federated user belongs to. |
+| `authentication.federation_name`* | **string**<br>Name of the federation the federated user belongs to. |
+| `authentication.federation_type`* | **string**<br>Federation type. Acceptable value:<ul><li>`PRIVATE_FEDERATION`: Federation managed by {{ yandex-cloud }} clients</li></ul> |
 | `authorization` | **object**<br>Authorization data of the event subject. |
 | `authorization.authorized` | **boolean**<br>Authorization result. Possible values:<ul><li>`true`: Authorization is successful.</li><li>`false`: Authorization failed.</li> |
 | `resource_metadata` | **object**<br>Metadata of the event object. |
@@ -170,6 +180,8 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
 | `event_status` | **string**<br>Event status. Determined by the source service and the event type. Possible values:<ul><li>`STARTED`: The operation started.</li><li>`ERROR`: The operation failed.</li><li>`DONE`: The operation completed successfully.</li><li>`CANCELLED`: The operation is canceled.</li></ul> |
 | `error` | **object**<br>Status error. [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) object:<ul><li>`code`: [Error code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).</li><li>`message`: Error description.</li><li>`details`: [Error details](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto).</li></ul> |
 | `details` | **object**<br>Event details. Determined by the source service and the event type. |
+
+<small>* The field is available when `subject_type` = `FEDERATED_USER_ACCOUNT`</small>
 
 {% note info %}
 

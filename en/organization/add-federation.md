@@ -49,3 +49,9 @@ The authentication process is shown in the diagram:
 1. If authentication is successful, the IdP server sends the user's browser back to the management console login page.
 
 1. The management console asks IAM whether this user is added to the cloud. If the user is added, the management console authenticates the user and redirects them to the home page.
+
+{% note info %}
+
+In the identity federation, the user interacts both with the IdP and the {{ yandex-cloud }} management console. This does not require network access between the IdP and {{ yandex-cloud }}.
+
+{% endnote %}

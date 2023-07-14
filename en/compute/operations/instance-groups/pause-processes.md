@@ -8,11 +8,11 @@ To pause an instance group:
 
 - Management console
 
-   1. Open the folder page in the [management console]({{ link-console-main }}).
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Select an instance group, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Pause**.
-   1. In the window that opens, click **Stop**.
+   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. In the line with the appropriate instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-pause }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
 - API
 

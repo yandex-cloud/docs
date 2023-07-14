@@ -61,7 +61,7 @@ The infrastructure support cost includes:
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
+      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
 

@@ -39,7 +39,7 @@
 
 * Нажмите на значок ![](../../_assets/wiki/svg/actions-icon.svg) в заголовке нужного столбца.
 
-* Выберите ![](../../_assets/wiki/table-settings-footer.png) **Настройки**.
+* Выберите ![](../../_assets/wiki/table-settings-footer.png) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_sidebar.grid-settings-label }}**.
 
 Чтобы вывести строки, для которых выполнено хотя бы одно из указанных условий, используйте оператор `OR`.
 
@@ -49,13 +49,13 @@
 
 Тип данных | Пример | Описание
 --- | --- | ---
-Текст | `'велосипед'` | Текст в одинарных кавычках.
-Число | `-7` | Число без кавычек.
-Чекбокс | `true` | Поддерживаются различные форматы записи.<br><br>Для логического нуля: `no, off, false, unchecked`.<br><br>Для логической единицы: `yes, on, true, checked, done`.
-Дата | `2012-12-12` | Дата в формате `ГОД-МЕСЯЦ-ДЕНЬ`.
-Список | `'велосипед'` | Текст в одинарных кавычках.
-Множественный список | `'велосипед'` | Текст в одинарных кавычках.
-Сотрудник | `login@` | Логин сотрудника без кавычек.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.text }} | `'велосипед'` | Текст в одинарных кавычках.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }} | `-7` | Число без кавычек.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }} | `true` | Поддерживаются различные форматы записи.<br><br>Для логического нуля: `no, off, false, unchecked`.<br><br>Для логической единицы: `yes, on, true, checked, done`.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date }} | `2012-12-12` | Дата в формате `ГОД-МЕСЯЦ-ДЕНЬ`.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.list }} | `'велосипед'` | Текст в одинарных кавычках.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.multiple_list }} | `'велосипед'` | Текст в одинарных кавычках.
+{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.employee }} | `login@` | Логин сотрудника без кавычек.
 Задача в {{ tracker-name }} | `KEY-1234` | Ключ задачи в {{ tracker-name }} без кавычек.
 
 {% endcut %}
@@ -92,4 +92,4 @@
 
 * Нажмите на значок ![](../../_assets/wiki/svg/actions-icon.svg) в заголовке нужного столбца.
 
-* Выберите ![](../../_assets/wiki/table-settings-footer.png) **Настройки**.
+* Выберите ![](../../_assets/wiki/table-settings-footer.png) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_sidebar.grid-settings-label }}**.

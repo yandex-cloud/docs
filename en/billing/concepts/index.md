@@ -17,4 +17,5 @@ description: "The {{ yandex-cloud }} billing uses the following key terms: a gra
 * [{#T}](serverless-free-tier.md)
 * [{#T}](budget.md)
 * [{#T}](contract.md)
+* [{#T}](limits.md)
 * [{#T}](glossary.md)

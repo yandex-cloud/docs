@@ -36,7 +36,7 @@
 
     Созданная таблица станет подразделом текущей страницы.
 
-1. Нажмите **Сохранить**.
+1. Нажмите **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**.
 
 1. [Заполните таблицу](edit-grid.md).
 
@@ -44,7 +44,7 @@
 
 Чтобы встроить динамическую таблицу в страницу:
 
-1. Откройте таблицу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/new-settings.svg) **Настройки таблицы**.
+1. Откройте таблицу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/new-settings.svg) **{{ ui-key.yacloud.common.table-config }}**.
 
 1. Выберите **</> Копировать код вставки**.
 
@@ -70,7 +70,7 @@
 1. Внизу таблицы нажмите значок ![](../_assets/wiki/table-settings-footer.png).
 
 
-1. Выберите **Родительская таблица**.
+1. Выберите **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.parent_table }}**.
 
 #### См. также
 

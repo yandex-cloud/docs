@@ -14,8 +14,8 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
-## DSVM {#dsvm}
 
+## DSVM {#dsvm}
 
 * [{#T}](dsvm/index.md)
 * [{#T}](dsvm/quickstart.md)
@@ -60,6 +60,8 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 ## Working on VMs {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+* [{#T}](vm-connect/rdp.md)
+* [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)

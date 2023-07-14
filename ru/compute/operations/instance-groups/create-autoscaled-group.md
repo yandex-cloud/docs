@@ -66,11 +66,11 @@
          boot_disk_spec:
            mode: READ_WRITE
            disk_spec:
-             image_id: fdvk34al8k5nltb58shr
+             image_id: fdvk34al8k5n********
              type_id: network-hdd
              size: 32g
          network_interface_specs:
-           - network_id: c64mknqgnd8avp6edhbt
+           - network_id: c64mknqgnd8a********
              primary_v4_address_spec: {}
          scheduling_policy:
            preemptible: false
@@ -125,7 +125,7 @@
 
   ```yaml
   name: first-autoscaled-group
-  service_account_id: ajed6ilf11qg839dcl1e
+  service_account_id: ajed6ilf11qg********
   description: "This instance group was created from YAML config."
   instance_template:
     platform_id: standard-v3
@@ -135,11 +135,11 @@
     boot_disk_spec:
       mode: READ_WRITE
       disk_spec:
-        image_id: fdvk34al8k5nltb58shr
+        image_id: fdvk34al8k5n********
         type_id: network-hdd
         size: 32g
     network_interface_specs:
-      - network_id: c64mknqgnd8avp6edhbt
+      - network_id: c64mknqgnd8a********
         primary_v4_address_spec: {}
   deploy_policy:
     max_unavailable: 1
@@ -189,26 +189,27 @@
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
        role      = "editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
        name               = "autoscaled-ig"
-       folder_id          = "<идентификатор каталога>"
+       folder_id          = "<идентификатор_каталога>"
        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
+       deletion_protection = "<защита_от_удаления:_true_или_false>"
        instance_template {
          platform_id = "standard-v3"
          resources {
-           memory = <объем RAM в ГБ>
-           cores  = <количество ядер vCPU>
+           memory = <объем_RAM_в_ГБ>
+           cores  = <количество_ядер_vCPU>
          }
 
          boot_disk {
            mode = "READ_WRITE"
            initialize_params {
-             image_id = "<идентификатор образа>"
+             image_id = "<идентификатор_образа>"
            }
          }
 
@@ -218,7 +219,7 @@
          }
 
          metadata = {
-           ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>"
+           ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
          }
        }
 
@@ -264,6 +265,7 @@
          * `name` — имя группы ВМ.
          * `folder_id` — идентификатор каталога.
          * `service_account_id` — идентификатор сервисного аккаунта.
+         * `deletion_protection` — защита группы ВМ от удаления. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
        * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md):
          * `platform_id` — [платформа](../../concepts/vm-platforms.md).
          * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
@@ -286,24 +288,10 @@
        {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+  1. Создайте ресурсы:
 
-        ```bash
-        terraform plan
-        ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}

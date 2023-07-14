@@ -1,4 +1,4 @@
-The minimum role required to create a bucket is `storage.editor`. See the [role description](../../storage/security/#storage-editor) for details.
+The minimum role required to create a bucket is `storage.editor`. For details, see the [role description](../../storage/security/#storage-editor) for details.
 
 {% list tabs %}
 
@@ -159,7 +159,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

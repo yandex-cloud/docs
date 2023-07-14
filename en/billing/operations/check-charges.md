@@ -3,7 +3,7 @@
 You can view charts and tables with information about {{ yandex-cloud }} service usage. To do this:
 
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
+1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
 1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
 1. Click on the name of the appropriate account and select ![image](../../_assets/billing/detalization.svg) **Usage details**.
 1. Select the detail depth:
@@ -40,7 +40,7 @@ By default, data is uploaded for the last 30 days. To change the period to view 
 
 You can select the following to display on charts:
 
-* `Consumption cost`: The amount for resources consumed before applying discounts.
+* `Consumption`: Amount for resources consumed before applying discounts.
 * `Due and payable`: The total amount for resources consumed after applying discounts.
 
 {% include [currency](../_includes/currency.md) %}

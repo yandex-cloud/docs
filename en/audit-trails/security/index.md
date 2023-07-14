@@ -11,13 +11,13 @@ In this section, you will learn:
 
 In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for clouds or folders also apply to the trails in them.
 
-## Which roles exist in the service {#roles}
+## Which roles exist in the service {#roles-list}
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, `audit-trails.editor` includes all `audit-trails.viewer` role permissions. You can find the description of each role under the chart.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/audit-trails/at-role-diagram.svg)
 
-### Service roles
+### Service roles {#service-roles}
 
 | Role | Permissions |
 ----- | -----
@@ -29,11 +29,11 @@ The chart below shows which roles are available in the service and how they inhe
 | `audit-trails.admin` | Lets you manage your trails and user access to them. Includes all access rights of the `audit-trails.editor` role |
 | `audit-trails.configViewer` (deprecated) | Lets you view information about trails. Use `audit-trails.auditor` instead of this role. |
 
-### Primitive roles
+### Primitive roles {#primitive-roles}
 
-{% include notitle [roles-primitive](../../_includes/roles-primitive.md) %}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
-## What roles do I need
+## What roles do I need {#choosing-roles}
 
 The table shows actions and minimum roles required to perform them. You can always assign a role granting broader access rights than the role from the table. For example, instead of `audit-trails.configViewer`, you can assign the `audit-trails.editor` role.
 

@@ -10,4 +10,4 @@
 
 1. Поле **Адрес страницы** заполнится автоматически.
 
-1. Нажмите кнопку **Копировать**.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.copy }}**.

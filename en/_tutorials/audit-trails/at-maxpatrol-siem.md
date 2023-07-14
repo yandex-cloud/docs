@@ -295,9 +295,9 @@ Create and run a data collection job with the {{ yds-full-name }} profile:
       * **Access upgrade account**: `static-key-private`.
    1. **Script runtime parameters**:
       * **database**: <maxpatrol-db_DB_ID>.
-      * **folder**: <example-folder_folder_ID>.
+      * **folder**: <cloud_ID_in_example-folder>.
       * **region_name**: {{ region-id }}.
-      * **stream_name**: <maxpatrol-stream_stream_ID>.
+      * **stream_name**: <maxpatrol-stream_name>.
    1. On the **Data collection objectives** panel:
       1. Select the **Enable** tab.
       1. In the **Network addresses** field, enter `yandex-cloud`.

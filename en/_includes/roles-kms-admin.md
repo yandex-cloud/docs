@@ -1,4 +1,4 @@
-### kms.admin {#kms-admin}
+#### kms.admin {#kms-admin}
 
 The key administrator role `kms.admin` includes the following permissions:
 

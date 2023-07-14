@@ -43,7 +43,7 @@
 
 1. Добавьте необходимое количество строк и перечислите в них ключи задач.
 
-1. Создайте дополнительные столбцы. В качестве типа данных выберите ![](../../_assets/wiki/svg/type-task-parameters.svg) **Параметры задачи**: например, **Заголовок**, **Автор** или **Тип** задачи.
+1. Создайте дополнительные столбцы. В качестве типа данных выберите ![](../../_assets/wiki/svg/type-task-parameters.svg) **Параметры задачи**: например, **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.title }}**, **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.author }}** или **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.type }}** задачи.
 
 1. Сохраните таблицу.
 

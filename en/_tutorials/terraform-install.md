@@ -1,10 +1,10 @@
 
-### From a mirror {#from-yc-mirror}
+### From mirror {#from-yc-mirror}
 
 
 {% note alert %}
 
-The mirror is temporarily unavailable.
+The mirror may be unavailable.
 
 {% endnote %}
 
@@ -35,7 +35,7 @@ export PATH=$PATH:/path/to/terraform
 
    [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
-- macOS
+- MacOS
 
    Use one of the following methods:
 

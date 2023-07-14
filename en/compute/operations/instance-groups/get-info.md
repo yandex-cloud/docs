@@ -10,9 +10,9 @@ To get information about an instance group:
 
 - Management console
 
-   1. Open the folder page in the [management console]({{ link-console-main }}).
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
+   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
    1. Click on the name of the group you need.
 
 - CLI

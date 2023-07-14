@@ -37,12 +37,11 @@ Read more:
 * [Setting up a VPN with the AWS cloud](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 
 
-#### Use {{ interconnect-name }} {#cic}
+#### Use {{ interconnect-full-name }} {#cic}
 
 Connect your local network and cloud infrastructures using [{{ interconnect-name }}](../../interconnect/). This allows you to avoid using public IPs both in your network and in {{ yandex-cloud }}. Instead, you can use [internal IP addresses](../concepts/address.md#internal-addresses) from a custom range of [subnets](../../vpc/concepts/network.md#subnet).
 
 Read more:
-
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
 
 

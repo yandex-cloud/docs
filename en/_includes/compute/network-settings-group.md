@@ -1,20 +1,23 @@
 * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
-   If you do not have a network, click **Create network** to create one:
+   If you do not have a network, click **{{ ui-key.yacloud.compute.instances.create.button_net_empty-create }}** to create one:
 
-   * In the window that will show up, enter the network name and specify the folder to host the network.
-   * (optional) To automatically create subnets, select the **Create subnets** option.
-   * Click **Create**.
-   Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Create subnet**.
+   * In the window that opens, enter a name for your network.
+   * (Optional) To automatically create subnets, select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+   * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-* In the **Public IP** field, choose a method for assigning an IP address:
+  Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
 
-   * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-   * **No address**: Don't assign a public IP address.
+* In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, choose a method for assigning an IP address:
 
-* Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
+   * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
+   * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Do not assign a public IP address.
 
-* (optional) Create records for the VM in the [DNS zone](../../dns/concepts/dns-zone.md):
+* Select the [appropriate security groups](../../vpc/concepts/security-groups.md).
 
-   * Expand **DNS settings for internal addresses** and click **Add record**.
-   * Specify the zone, FQDN, and TTL for the record. When setting the FQDN, you can select **Detect automatically** for the zone.
+   {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}
+
+* (Optional) Create records for the VM in the [DNS zone](../../dns/concepts/dns-zone.md):
+
+   * Expand the **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** section and click **{{ ui-key.yacloud.dns.button_add-record }}**.
+   * Specify the zone, FQDN, and TTL for the record. When setting the FQDN, you can select `{{ ui-key.yacloud.dns.label_auto-select-zone }}` for the zone.
       You can add multiple records to [internal DNS zones](../../dns/concepts/dns-zone.md). For more information, see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).

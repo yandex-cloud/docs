@@ -4,7 +4,7 @@ You can reserve a static public IP address to use later for accessing cloud reso
 
 {% note info %}
 
-Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inactive static public IPs.
+Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for inactive static public IPs.
 
 {% endnote %}
 
@@ -12,21 +12,20 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
 - Management console
 
-   To reserve a static public IP address:
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click **Reserve address**.
-   1. In the window that opens, select the availability zone where you want to reserve the address.
-   1. Click **Reserve address**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. In the window that opens:
+      * In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field, select the availability zone where you want to reserve the address.
+      * (Optional) Under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+   1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To reserve a static public IP address:
 
    1. See the description of the CLI reserve address command:
 
@@ -67,7 +66,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Static public IP address name. Name format:
+      * `name`: Static public IP address name. Use this name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -108,7 +107,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc address list

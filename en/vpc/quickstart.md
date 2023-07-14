@@ -19,21 +19,21 @@ You can automatically create a cloud network and subnets in all availability zon
 To create a cloud network:
 
 1. In the [management console]({{ link-console-main }}) select a folder to create your cloud network in.
-1. In the list of services, select **{{ vpc-name }}**.
-1. Click **Create network**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 1. Enter a network name, like `test-network`.
-1. Click **Create network**.
+1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 ## Create a subnet {#create-subnet}
 
 Create a subnet where cloud resources will be assigned [internal IP addresses](concepts/address.md#internal-addresses):
 
 1. Click the name of the created cloud network.
-1. Click **Add subnet**.
+1. Click ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
 1. Enter a subnet name, like `test-subnet-1`.
 1. Select an availability zone from the drop-down list. Any zone from the list will be fine for the first subnet.
 1. Enter the subnet CIDR: its IP address and mask (for example, `10.10.0.0/24`). For more information about subnet IP address ranges, see [Cloud networks and subnets](concepts/network.md).
-1. Click **Create subnet**.
+1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 ## Reserve a static public IP address {#reserve-address}
 
@@ -41,18 +41,18 @@ Reserve a static public IP address for your VM. You can assign this address to a
 
 {% note warning %}
 
-You're charged for the reserved static public IP address even if it's not assigned to any VM. For more information, see the [Pricing policy for {{ vpc-name }}](pricing.md).
+You're charged for the reserved static public IP address even if it's not assigned to any VM. For more information, see the [{{ vpc-name }} pricing policy](pricing.md).
 
 {% endnote %}
 
 To reserve an IP address:
 
-1. In the list of services, select **{{ vpc-name }}**.
-1. Go to **IP addresses**.
-1. Click **Reserve address**.
-1. Select the availability zone where you created the subnet in the previous step.
-1. Select the option **DDoS protection**, if you want to [protect your cloud resources from DDoS attacks](ddos-protection/index.md).
-1. In the window that opens, click **Reserve**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. Go to **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+1. In the window that opens, select the availability zone where you created the subnet in the previous step.
+1. Select the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** option if you want to [protect your cloud resources from DDoS attacks](ddos-protection/index.md).
+1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 ## Delete a subnet and static public IP address {#delete-resources}
 

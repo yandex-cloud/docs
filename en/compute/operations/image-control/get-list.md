@@ -7,8 +7,8 @@ To get a list of disk images:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where disk images are stored.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **Images**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
 
 - CLI
 

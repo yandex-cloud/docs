@@ -116,7 +116,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+         All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

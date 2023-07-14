@@ -36,11 +36,11 @@
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file store is located.
-      1. Select **{{ compute-name }}**.
-      1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
       1. Select the desired storage.
-      1. Go to the **Virtual machines** tab.
-      1. In the row with the desired VM, click ![image](../../../_assets/options-grey.svg) and select **Detach file storage**.
+      1. Click the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
+      1. In the line of the appropriate VM, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
       1. In the window that opens, confirm the detach operation.
 
    - API

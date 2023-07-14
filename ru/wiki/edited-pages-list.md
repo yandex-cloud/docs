@@ -4,4 +4,4 @@
 
 1. На левой панели {{ wiki-name }} нажмите ![](../_assets/wiki/svg/edited-icon.svg) **Создано и изменено**.
 
-1. Справа от поля **Поиск по названию** выберите **Я редактор**.
+1. Справа от поля **{{ ui-key.beta-wiki.blocks_common_favorites.blocks_b-favs-links.name_search }}** выберите **Я редактор**.

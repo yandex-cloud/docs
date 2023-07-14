@@ -292,12 +292,12 @@ Data loads with different security contexts (such as different severities of dat
 Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
 
 * {{ k8s }} API events ({{ k8s }} Audit logging).
-* {{ k8s }} node events.
-* {{ k8s }} pod events.
-* {{ k8s }} metrics.
-* {{ k8s }} Flow logs.
+* {{ k8s }} node events
+* {{ k8s }} pod events
+* {{ k8s }} metrics
+* {{ k8s }} flow logs
 
-### {{ k8s }} API level ({{ k8s }} Audit logging). {#kubernetes-api-level}
+### {{ k8s }} API level ({{ k8s }} Audit logging) {#kubernetes-api-level}
 
 Audit events are collected from the {{ k8s }} API level by {{ cloud-logging-name }}.
 

@@ -111,20 +111,20 @@
 
      ```hcl
      resource "yandex_compute_instance" "vm-1" {
-
-       name        = "vm-with-gpu"
-       zone        = "<зона доступности>"
-       platform_id = "gpu-standard-v3"
+       name                      = "vm-with-gpu"
+       allow_stopping_for_update = true
+       platform_id               = "standard-v3"
+       zone                      = "<зона_доступности>"
 
        resources {
-         cores  = <количество ядер vCPU>
-         memory = <объем RAM в ГБ>
-         gpus   = <количество GPU>
+         cores  = <количество_ядер_vCPU>
+         memory = <объем_RAM_в_ГБ>
+         gpus   = <количество_GPU>
        }
 
        boot_disk {
          initialize_params {
-           image_id = "<идентификатор образа>"
+           image_id = "<идентификатор_образа>"
          }
        }
 
@@ -134,7 +134,7 @@
        }
 
        metadata = {
-         ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>"
+         ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
        }
      }
 
@@ -144,7 +144,7 @@
 
      resource "yandex_vpc_subnet" "subnet-1" {
        name       = "subnet1"
-       zone       = "<зона доступности>"
+       zone       = "<зона_доступности>"
        network_id = "${yandex_vpc_network.network-1.id}"
      }
      ```
@@ -152,6 +152,8 @@
      Где:
      * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
+       * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
+       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
        * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 
              
@@ -181,23 +183,10 @@
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
 
-        ```bash
-        terraform plan
-        ```
+  1. Создайте ресурсы:
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

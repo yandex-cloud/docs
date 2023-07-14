@@ -44,7 +44,7 @@ To edit the parameters of your VM, follow these steps:
 1. Take a [snapshot](../../compute/concepts/snapshot.md) of the disk: see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
 1. Shut down the VM normally: see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md).
 1. Edit the VM parameters: see [{#T}](../../compute/operations/vm-control/vm-update-resources.md).
-1. Wait until the operation is completed (the **Operations** section in the {{ compute-name }} service).
+1. Wait until the operation is completed (the **{{ ui-key.yacloud.compute.switch_operations }}** section in the {{ compute-name }} service).
 1. Start the VM.
 1. Make sure that the new parameters were applied.
 

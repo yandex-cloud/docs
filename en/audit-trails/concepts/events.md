@@ -27,6 +27,7 @@ Below are events for services:
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
+* [{{ mgp-short-name }}](#managed-service-for-greenplum)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
@@ -47,7 +48,7 @@ Below are events for services:
 Service name: `serverless.apigateway`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateApiGateway` | Creating a gateway |
 | `DeleteApiGateway` | Deleting a gateway |
 | `UpdateApiGateway` | Updating a gateway |
@@ -58,7 +59,7 @@ Service name: `serverless.apigateway`.
 Service name: `apploadbalancer`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddBackendGroupBackend` | Adding a backend to a backend group |
 | `AddLoadBalancerListener` | Adding a listener to a load balancer |
 | `AddLoadBalancerSniMatch` | Adding an SNI match to a load balancer |
@@ -95,7 +96,7 @@ Service name: `apploadbalancer`.
 Service name: `audittrails`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateTrail` | Creating a trail |
 | `DeleteTrail` | Deleting a trail |
 | `SetTrailAccessBindings` | Setting access bindings for a trail |
@@ -126,7 +127,7 @@ Service name: `serverless`.
 Service name: `cdn`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `gcore.CachePrefetch` | Preloading cache |
 | `gcore.CachePurge` | Purging cache |
 | `gcore.OriginCreate` | Creating an origin |
@@ -144,7 +145,7 @@ Service name: `cdn`.
 Service name: `certificatemanager`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateCertificate` | Create a certificate |
 | `CreateDomain` | Create a domain |
 | `UpdateCertificate` | Edit a certificate |
@@ -173,7 +174,7 @@ Service name: `dns`.
 Service name: `logging`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateLogGroup` | Creating a log group |
 | `UpdateLogGroup` | Editing a log group |
 | `DeleteLogGroup` | Deleting a log group |
@@ -185,7 +186,7 @@ Service name: `logging`.
 Service name: `compute`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
 | `AttachInstanceDisk` | Attaching a disk to a VM instance |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
@@ -239,7 +240,7 @@ Service name: `compute`.
 Service name: `containerregistry`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateImage` | Creating an image |
 | `CreateImageTag` | Creating an image tag |
 | `CreateRegistry` | Creating a registry |
@@ -261,7 +262,7 @@ Service name: `containerregistry`.
 Service name: `dataproc`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateCluster` | Creating clusters |
 | `CreateSubcluster` | Creating a subcluster |
 | `DeleteCluster` | Deleting clusters |
@@ -276,7 +277,7 @@ Service name: `dataproc`.
 Service name: `iam`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddFederatedUserAccounts` | Adding a user to a federation |
 | `CreateAccessKey` | Creating a static key |
 | `CreateApiKey` | Creating API keys |
@@ -308,7 +309,7 @@ Service name: `iam`.
 Service name: `iot`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `devices.CreateDevice` | Creating a device |
 | `devices.CreateRegistry` | Creating a registry |
 | `devices.DeleteDevice` | Deleting a device |
@@ -321,7 +322,7 @@ Service name: `iot`.
 Service name: `kms`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
 | `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
 | `CreateSymmetricKey` | Creating a symmetric key |
@@ -338,7 +339,7 @@ Service name: `kms`.
 Service Name: `lockbox`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddVersion` | Adding a version of a secret |
 | `ActivateSecret` | Activating a secret |
 | `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version |
@@ -359,7 +360,7 @@ Service Name: `lockbox`.
 Service name: `mdb.clickhouse`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `AddClusterZookeeper` | Adding a ZooKeeper subcluster to a cluster |
@@ -399,7 +400,7 @@ Service name: `mdb.clickhouse`.
 Service name: `gitlab`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `BackupInstance` | Creating backups |
 | `CreateInstance` | Creating an instance |
 | `DeleteInstance` | Deleting an instance |
@@ -410,12 +411,28 @@ Service name: `gitlab`.
 | `UpgradeInstance` | Updating the GitLab version |
 | `CleanupRegistryInstance` | Docker Registry cleanup |
 
+
+## {{ mgp-short-name }} {#managed-service-for-greenplum}
+
+Service name: `mdb.greenplum`.
+
+| Event name | Description |
+--- | ---
+| `CreateCluster` | Creating clusters |
+| `DeleteCluster` | Deleting clusters |
+| `ExpandCluster` | Expanding a cluster |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
+| `UpdateCluster` | Updating clusters |
+
+
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Service name: `mdb.mongodb`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
@@ -443,7 +460,7 @@ Service name: `mdb.mongodb`.
 Service name: `k8s`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AutoUpgradeCluster` | Performing cluster auto-updates |
 | `AutoUpgradeNodeGroup` | Performing node group auto-updates |
 | `CreateCluster` | Creating clusters |
@@ -464,7 +481,7 @@ Service name: `k8s`.
 Service name: `mdb.mysql`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating clusters |
@@ -491,7 +508,7 @@ Service name: `mdb.mysql`.
 Service name: `mdb.postgresql`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
 | `CreateCluster` | Creating clusters |
@@ -517,7 +534,7 @@ Service name: `mdb.postgresql`.
 Service name: `mdb.redis`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
@@ -539,7 +556,7 @@ Service name: `mdb.redis`.
 Service name: `loadbalancer`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddNetworkLoadBalancerListener` | Adding listener to network load balancer |
 | `AddTargetGroupTargets` | Adding a VM to a target group |
 | `AttachNetworkLoadBalancerTargetGroup` | Connecting a target group to a network load balancer |
@@ -560,7 +577,7 @@ Service name: `loadbalancer`.
 Service name: `storage`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `BucketAclUpdate` | Updating the ACL for a bucket |
 | `BucketCorsUpdate` | Updating the CORS configuration for a bucket |
 | `BucketCreate` | Creating a bucket |
@@ -585,7 +602,7 @@ Service name: `storage`.
 Service name: `serverless.containers`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateContainer` | Creating a container |
 | `DeleteContainer` | Deleting a container |
 | `DeployContainerRevision` | Creating a container revision |
@@ -605,7 +622,7 @@ Service name: `serverless.containers`.
 The name of the service is `organizationmanager`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AcceptInvitation` | Accepting an invitation |
 | `CreateInvitations` | Creating an invitation |
 | `CreateGroup` | Creating a user group |
@@ -630,7 +647,7 @@ The name of the service is `organizationmanager`.
 Service name: `resourcemanager`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddCloudToOrganization` | Adding a cloud to an organization |
 | `CreateCloud` | Creating a cloud |
 | `CreateFolder` | Creating a folder |
@@ -648,7 +665,7 @@ Service name: `resourcemanager`.
 Service name: `smartcaptcha`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateCaptcha` | Creating a CAPTCHA |
 | `DeleteCaptcha` | Deleting a CAPTCHA |
 | `UpdateCaptcha` | Updating a CAPTCHA |
@@ -658,7 +675,7 @@ Service name: `smartcaptcha`.
 Service name: `network`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateAddress` | Creating a cloud resource address |
 | `CreateGateway` | Creating a gateway |
 | `CreateNetwork` | Creating a cloud network |
@@ -693,7 +710,7 @@ Service name: `network`.
 Service name: `ydb`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `BackupDatabase` | Creating a database backup |
 | `CreateDatabase` | Creating a database |
 | `DeleteBackup` | Deleting a database backup |
@@ -709,7 +726,7 @@ Service name: `ydb`.
 Service name: `yq`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `ControlQuery` | Managing queries |
 | `CreateBinding` | Creating a data binding |
 | `CreateConnection` | Creating a connection |

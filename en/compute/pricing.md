@@ -199,6 +199,11 @@ The price with a CVoS is only available for regular VMs.
 
 
 
+{% note info %}
+
+[Intel Ice Lake (Compute Optimized)](concepts/vm-platforms.md#compute-optimized-platforms) will be available and you will be charged for it starting July 1, 2023.
+
+{% endnote %}
 
 ### Operating systems {#prices-os}
 

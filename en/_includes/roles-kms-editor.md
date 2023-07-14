@@ -1,4 +1,4 @@
-### kms.editor {#kms-editor}
+#### kms.editor {#kms-editor}
 
 The `kms.editor` role includes the following permissions:
 

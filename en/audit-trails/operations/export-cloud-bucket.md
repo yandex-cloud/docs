@@ -9,7 +9,7 @@ Follow these instructions to create a new trail that will upload audit logs of c
 
 To collect audit logs of an individual cloud:
 
-1. [Create a new bucket](../../storage/operations/buckets/create.md) to use for uploading audit logs.
+1. [Create a new bucket](../../storage/operations/buckets/create.md) with restricted access to upload audit logs to.
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to a service account:
 
@@ -46,7 +46,7 @@ To collect audit logs of an individual cloud:
 
          Where:
          * `role`: Role being assigned.
-         * `id`: The ID of the folder to host the trail.
+         * `id`: ID of the folder to host the trail.
          * `service-account-id`: ID of your service account.
 
    {% endlist %}
@@ -72,8 +72,8 @@ To create the first trail in {{ at-name }} and start the audit log management pr
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to host the trail.
    1. Select **{{ at-name }}**.
    1. Click **Create trail** and specify:
-      * **Name**: The name of the trail being created.
-      * **Description**: A description of the trail (optional).
+      * **Name**: Name of the trail being created.
+      * **Description**: Description of the trail (optional).
    1. Under **Filter**, set up the audit log scope:
       * **Resource**: Select `Cloud`.
       * **Cloud**: An automatically populated field showing the name of the cloud to host the trail.

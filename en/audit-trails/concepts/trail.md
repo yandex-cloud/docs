@@ -50,7 +50,7 @@ The trail contains all the audit log settings:
       * **Log group**: Log group name.
    * For the `{{ yds-name }}` value:
       * **Data stream**: Data stream name.
-* **Service account** section: Service account to use to upload audit logs to a bucket , a log group, or a data stream. If the account needs more roles, a warning with a list of the roles will show up.
+* **Service account** section: Service account to use for uploading audit logs to a bucket, a log group, or a data stream. If the account needs more roles, a warning with a list of roles will show up.
 
 ## Trail status {#status}
 
@@ -58,6 +58,12 @@ A trail can have two statuses: `active` or `error`.
 Statuses indicate the state of the trail itself and have nothing to do with events occurring to resources for which the trail collects audit logs:
 * `active`: The trail is running and collecting audit logs from the resources in scope.
 * `error`: There might be issues with the trail's destination objects or the trail itself. See [our recommendations](../operations/error.md) on how to recover the trail.
+
+{% note info %}
+
+{% include [error-note](../../_includes/audit-trails/error-note.md) %}
+
+{% endnote %}
 
 ## What's next {#whats-next}
 

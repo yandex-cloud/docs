@@ -89,7 +89,7 @@ You do not have your own equipment at the point of presence and you use services
 ## Cloud subnet announcements and communication with {{ vpc-short-name }} {#prc-announce}
 
 To connect one or more cloud subnets to a private connection, you need to have the following:
-* ID of the virtual network (`vpc_net_id`) to connect to a trunk.
+* The ID of the virtual network (`vpc_net_id`) to connect to a trunk connection.
 * List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes correspond to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
 
 New subnets that will be created in the virtual network later will not be announced to a {{ interconnect-name }} private connection automatically.

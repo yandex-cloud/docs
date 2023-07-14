@@ -1,4 +1,4 @@
-### kms.keys.encrypterDecrypter {#kms-keys-encrypterdecrypter}
+#### kms.keys.encrypterDecrypter {#kms-keys-encrypterdecrypter}
 
 The key user role `kms.keys.encrypterDecrypter` includes the following permissions:
 

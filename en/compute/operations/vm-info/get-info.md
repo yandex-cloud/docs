@@ -10,21 +10,22 @@ You can also get basic information and metadata from [inside a VM](#inside-insta
 
 - Management console
 
-   On the **Virtual machines** page in the **{{ compute-name }}** section, you can find a list of VMs in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and brief information for each of them.
+   On the **{{ ui-key.yacloud.compute.instances.label_title }}** page in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** service, you can find a list of VMs in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and brief information for each of them.
 
    For more information about a certain VM, click the line with its name.
 
    Tabs:
-   * **Overview** shows general information about the VM, including the [IP addresses](../../../vpc/concepts/address.md) assigned to it.
-   * **Disks** provides information about the [disks](../../concepts/disk.md) attached to the VM.
+   * **{{ ui-key.yacloud.compute.instance.switch_overview }}** shows general information about the VM, including the [IP addresses](../../../vpc/concepts/address.md) assigned to it.
+   * **{{ ui-key.yacloud.compute.instance.switch_disks }}** provides information about the [disks](../../concepts/disk.md) attached to the VM.
 
    
-   * **File storage** provides information about the [file storage](../../concepts/filesystem.md) attached.
+   * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** provides information about the [file storage](../../concepts/filesystem.md) attached.
 
-   * **Operations** lists operations on the VM and resources attached to it, such as disks.
-   * **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
-   * **Serial console** provides access to the [serial console](../../operations/serial-console/index.md) if enabled when [creating](../../operations/index.md#vm-create) the VM.
-   * **Serial port** provides information that the VM outputs to the serial port. To get this information via the API or CLI, follow the [{#T}](get-serial-port-output.md) guide.
+
+   * **{{ ui-key.yacloud.compute.instance.switch_operations }}** lists operations on the VM and resources attached to it, such as disks.
+   * **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
+   * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../operations/serial-console/index.md) if enabled when [creating](../../operations/index.md#vm-create) the VM.
+   * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** provides information that the VM outputs to the serial port. To get this information via the API or CLI, follow the [{#T}](get-serial-port-output.md) guide.
 
 - CLI
 
@@ -107,6 +108,12 @@ Get metadata in an easy-to-read format. Use the [jq](https://stedolan.github.io/
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
+Getting an [identity document](../../concepts/vm-metadata.md#identity-document):
+
+```
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+```
+
 #### List of returned elements {#list-of-returned-items}
 
 List of elements available for this request:
@@ -166,11 +173,17 @@ Getting an internal IP address from inside a VM:
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
 
+Getting an [identity document](../../concepts/vm-metadata.md#identity-document):
+
+```
+curl http://169.254.169.254/latest/vendor/instance-identity/document
+```
+
 ## Setting up metadata service parameters for a VM instance {#metadata-options}
 
 You can set up metadata service parameters when creating or updating VMs.
 
-You can use the following settings:
+You can use the following settings at the cluster level:
 * `aws-v1-http-endpoint` provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 * `aws-v1-http-endpoint` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 

@@ -88,6 +88,8 @@ items:
         href: concepts/budget.md
       - name: Agreement
         href: concepts/contract.md
+      - name: Quotas and limits
+        href: concepts/limits.md
       - name: Glossary
         href: concepts/glossary.md
   - name: Paying for resources

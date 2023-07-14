@@ -91,6 +91,11 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
 {% endlist %}
 
+You can create a label with multiple values. For example, create a label named `my-cloud` with the following values:
+
+* `my-vm`: For your VM instance.
+* `my-disk`: For your disk.
+
 ## Editing a label {#update-label}
 
 You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.

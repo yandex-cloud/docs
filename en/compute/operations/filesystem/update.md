@@ -7,10 +7,10 @@ After creating file storage, you can change its name, description, and size.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
-   1. In the row with the desired file storage, select ![image](../../../_assets/options-grey.svg) and the **Edit** option.
-   1. Change the file storage parameters, for example, rename it by editing the **Name** field.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+   1. In the row of the desired file storage, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Change the file storage parameters, for example, rename it by editing the **{{ ui-key.yacloud.common.name }}** field.
 
       {% note info %}
 
@@ -18,7 +18,7 @@ After creating file storage, you can change its name, description, and size.
 
       {% endnote %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

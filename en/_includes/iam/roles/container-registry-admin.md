@@ -1,4 +1,4 @@
-### container-registry.admin {#cr-admin}
+#### container-registry.admin {#cr-admin}
 
 The `{{ roles-cr-admin }}` role is assigned for a cloud or folder.
 It grants permission to manage access to registries, Docker images, and repositories.

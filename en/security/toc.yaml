@@ -66,6 +66,8 @@ items:
     items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
+      - name: Setting up and testing PT Application Firewall
+        href: tutorials/pt-application-firewall.md
   - name: Guides
     items:
       - name: Deleting a passport account from {{ org-full-name }}
@@ -74,7 +76,7 @@ items:
         href: operations/outgoing-ddos.md
       - name: Detecting {{ yandex-cloud }} secrets in public sources
         href: operations/search-secrets.md
-  - name: Rules for performing external security scans
+  - name: User support policy during vulnerability scanning
     href: compliance/pentest.md
   - name: Security bulletins
     href: security-bulletins/index.md

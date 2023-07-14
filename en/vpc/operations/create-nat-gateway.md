@@ -7,31 +7,31 @@ To create and set up a NAT gateway:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a gateway.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select **Gateways**.
-   1. Click **Create**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Enter a name for the gateway:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. (optional) Add a gateway description.
-   1. The default gateway type is **NAT gateway**.
-   1. Click **Create**.
-   1. On the left-hand panel, select **Route tables**.
-   1. Click **Create** to add a new table, or select an existing one.
-   1. Click **Add route**.
-   1. In the window that opens, select **Gateway** in the **Next hop** field.
-   1. In the **Gateway** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
-   1. Click **Add**.
-   1. Click **Save**.
+   1. The default gateway type is `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}** to add a new table, or select an existing one.
+   1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+   1. In the window that opens, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}` in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
+   1. In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+   1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+   1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**.
 
    Next, link the route table to a subnet to route traffic from it via the NAT gateway:
 
-   1. On the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
-   1. In the menu that opens, select **Link route table**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
-   1. Click **Link**.
+   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI
 

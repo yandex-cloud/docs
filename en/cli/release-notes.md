@@ -2,30 +2,54 @@
 
 ## Current version {#latest-release}
 
-## Version 0.106.0 (19/05/23) {#version0.106.00}
+## Version 0.107.0 (15/06/23) {#version0.107.0}
 
-### Changes to the CLI {#cli}
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ compute-name }} {#compute}
+
+* Added the `--partitions` parameter to the `yc compute placement-group create` command to specify the number of partitions in `partitionPlacementStrategy`.
+
+#### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Unified the configuration parameters of {{ mrd-name }} clusters for different {{ RD }} versions.
+
+**{{ mgp-name }}**
+
+* Added the following parameters to the `yc managed-greenplum cluster restore` command:
+   * `--segment-host-count` to specify the number of segment hosts in a restored cluster.
+   * `--segment-in-host` to specify the number of segments per host in a restored cluster.
+
+**{{ mmy-name }}**
+
+* Added the `--global-permissions` parameter to the `yc managed-mysql user update` command to grant users `FLUSH_OPTIMIZER_COSTS` and `SHOW_ROUTINE` privileges.
+
+## Previous releases {#previous-releases}
+
+### Version 0.106.0 (19/05/23) {#version0.106.00}
+
+#### Changes to the CLI {#cli}
 
 * Added the `--force-authn` flag to the `yc organization-manager federation saml` command.
 * Added the `fed-auth-browser-skip` configuration option to skip a confirmation that a browser is opened (by pressing **Enter**) when authenticating as a federated user. The option value can be `true` or `false`.
 
-#### Changes to the CLI {#cli}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 * Added the `audit-enabled` flag to the `--master-logging` parameter to enable or disable uploading {{ k8s }} cluster audit logs to {{ cloud-logging-full-name }}.
 
-#### {{ backup-name }} {#backup}
+##### {{ backup-name }} {#backup}
 
 * Added groups of `yc backup` commands to manage VM connections to {{ backup-full-name }}, VM backups, and backup policies.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.105.0 (15/05/23) {#version0.105.00}
 
 #### Changes to the CLI {#cli}
 
-* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. The parameter is used to provide the service account ID. The value data type is string.
+* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. This parameter is used to provide the service account ID. The value data type is string.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -41,7 +65,7 @@ Added the `--container-network-settings` parameter to the `yc k8s node-group cre
 
 **{{ mkf-name }}**
 
-* Added support for {{ KF }} 3.x, starting from version 3.3.
+* Added support for {{ KF }} 3.x, starting from 3.3.
 
 ### Version 0.104.0 (19/04/23) {#version0.104.00}
 

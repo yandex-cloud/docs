@@ -15,6 +15,13 @@ value_1 + value_2
 ```
 
 #### Description {#description}
+
+{% note warning %}
+
+`Yandex Metrica` does not support string concatenation.
+
+{% endnote %}
+
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
 | Type of `value_1`                                                                         | Type of `value_2`                                                                         | Return value                                                                                                                                                                     |

@@ -58,7 +58,7 @@ In the rules, you can allow receiving and sending traffic to individual IPs or a
 
 You can specify a particular IP address in the rules using CIDR with the `/32` mask.
 
-To allow traffic to be sent to any IP addresses over any protocols, specify CIDR `0.0.0.0` with the `/0` mask and set `Any` in the protocol selection field.
+To allow traffic to be sent to any IP addresses over any protocols, specify CIDR `0.0.0.0` with the `/0` mask and set `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` in the protocol selection field.
 
 Security groups do not block the sending of traffic to IP addresses of services required for the operation of the VM and [virtual network](network.md#network):
 * Metadata server address: `169.254.169.254`.
