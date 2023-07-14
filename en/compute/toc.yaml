@@ -347,7 +347,7 @@ items:
                 href: concepts/instance-groups/policies/scale-policy.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
-          - name: Auto-healing
+          - name: Instance health checks and autohealing
             href: concepts/instance-groups/autohealing.md
           - name: Updating
             items:
@@ -361,6 +361,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
               - name: Changing secondary disks in an instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
+          - name: Integration with network and L7 load balancers
+            href: concepts/instance-groups/balancers.md
           - name: Stopping and pausing an instance group
             href: concepts/instance-groups/stopping-pausing.md
           - name: Statuses

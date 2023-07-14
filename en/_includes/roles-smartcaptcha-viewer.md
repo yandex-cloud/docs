@@ -1,4 +1,4 @@
-### smart-captcha.viewer {#smart-captcha-viewer}
+#### smart-captcha.viewer {#smart-captcha-viewer}
 
 The `smart-captcha.viewer` role includes the following permissions:
 * Viewing CAPTCHA settings.

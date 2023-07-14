@@ -60,9 +60,11 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
    1. Payment for used resources is verified:
 
-      * If you top up your personal account before the deadline specified in the contract or the funds are debited from a linked card within one day, go back to step 2.
+      * If you top up your personal account before the deadline stipulated in the agreement or the funds are debited from the linked bank card within one day, go back to step 2.
       * If your bank card balance is insufficient on the day when funds are to be debited and you fail to [top up](../operations/pay-the-bill.md) your personal account manually, another attempt to charge your card will be made later.
       * If you didn't top up your personal account, you don't have a linked bank card, or the funds could not be debited from any of your bank cards, {{ yandex-cloud }} reserves the right to change the status of your billing account to [SUSPENDED](../concepts/billing-account-statuses.md). Go to step 11.
+
+         {% include [suspended](../_includes/billing-suspended.md) %}
 
 1. If your account is in arrears, the use of {{ yandex-cloud }} resources may be suspended:
 

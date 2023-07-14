@@ -1071,17 +1071,28 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. In the target database, [enable the same extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) that are enabled in the source database.
 
+   1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
+
    1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the target database.
 
-      Once started, the transfer will connect to the target on behalf of this user.
+   1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
+      ```sql
+      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      ```
+
+      If the database is not empty, the user must be its owner:
+
+      ```sql
+      ALTER DATABASE <database name> OWNER TO <username>;
+      ```
+
+      Once started, the transfer will connect to the target on behalf of this user.
    1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it's `public`) on the target:
 
       ```sql
       GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
       ```
-
-   1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
 
 - {{ PG }}
 

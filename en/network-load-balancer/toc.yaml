@@ -11,17 +11,19 @@ items:
         items:
           - name: Information about existing network load balancers
             href: operations/load-balancer-list.md
-          - name: Create a load balancer
+          - name: Creating a load balancer
             href: operations/load-balancer-create.md
-          - name: Create an internal load balancer
+          - name: Creating an internal load balancer
             href: operations/internal-lb-create.md
           - name: Stopping and starting a load balancer
             href: operations/load-balancer-stop.md
-          - name: Delete a load balancer
+          - name: Changing load balancer settings
+            href: operations/load-balancer-update.md
+          - name: Deleting a load balancer
             href: operations/load-balancer-delete.md
-          - name: Check target health statuses
+          - name: Checking target health statuses
             href: operations/check-resource-health.md
-          - name: Add a listener
+          - name: Adding a listener
             href: operations/listener-add.md
           - name: Deleting a listener
             href: operations/listener-remove.md
@@ -31,9 +33,9 @@ items:
             href: operations/target-group-list.md
           - name: Creating target group
             href: operations/target-group-create.md
-          - name: Attach a target group to a load balancer
+          - name: Attaching target group to a load balancer
             href: operations/target-group-attach.md
-          - name: Detach a target group from a load balancer
+          - name: Detaching target group from a load balancer
             href: operations/target-group-detach.md
           - name: Deleting target group
             href: operations/target-group-delete.md

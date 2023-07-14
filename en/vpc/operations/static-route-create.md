@@ -17,28 +17,28 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    To create a route table and add [static routes](../concepts/static-routes.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
-   1. Click **Create**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Enter a name for the route table.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. (optional) Add a description of a route table.
    1. Select the network to create the route table in.
-   1. Click **Add route**.
+   1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
    1. In the window that opens, enter the prefix of the destination subnet in CIDR notation.
-   1. Specify the **next hop**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet).
-   1. Click **Add**.
-   1. Click **Create route table**.
+   1. Specify the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet).
+   1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+   1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
    To use static routes, link the route table to a subnet:
 
-   1. On the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
-   1. In the menu that opens, select **Link route table**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
-   1. Click **Link**.
+   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI
 

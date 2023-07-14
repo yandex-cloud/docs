@@ -1,4 +1,4 @@
-### kms.viewer {#kms-viewer}
+#### kms.viewer {#kms-viewer}
 
 The `kms.viewer` role grants permission to view a list of keys and information about them.
 

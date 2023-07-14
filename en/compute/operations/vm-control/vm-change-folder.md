@@ -2,9 +2,9 @@
 
 When a VM is being created, it's placed in the current folder.
 
-In {{ yandex-cloud }}, you can move a VM to another folder within one cloud.
+In {{ yandex-cloud }}, you can move a VM to another folder within one cloud. You do not have to stop the VM when moving it.
 
-[Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
+You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Limitations {#limits}
 

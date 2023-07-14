@@ -6,11 +6,11 @@ Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 
 Follow these instructions to create a new trail that will upload audit logs of your organization resources to an {{ objstorage-name }} bucket.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. Make sure that your cloud has a bucket where you can store your audit log. [Create a new bucket](../storage/quickstart.md#the-first-bucket) if necessary.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Make sure your cloud has a bucket where you can store audit logs. [Create a new bucket](../storage/quickstart.md#the-first-bucket) with restricted access, if required.
 1. [Create](../iam/operations/sa/create.md) a service account and assign the following roles to it:
 
    {% list tabs %}
@@ -32,9 +32,9 @@ Follow these instructions to create a new trail that will upload audit logs of y
 
          Where:
 
-         * `role`: The role assigned.
+         * `role`: Role being assigned.
          * `id`: The ID of the folder to host the trail.
-         * `service-account-id`: The ID of your service account.
+         * `service-account-id`: ID of your service account.
 
       * Assign the role [`audit-trails.viewer`](./security/index.md#roles) for the organization whose audit logs will be collected:
 
@@ -47,9 +47,9 @@ Follow these instructions to create a new trail that will upload audit logs of y
 
          Where:
 
-         * `role`: The role assigned.
-         * `id`: The ID of the cloud from which audit logs will be collected.
-         * `service-account-id`: The ID of your service account.
+         * `role`: Role being assigned.
+         * `id`: ID of the cloud from which audit logs will be collected.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 

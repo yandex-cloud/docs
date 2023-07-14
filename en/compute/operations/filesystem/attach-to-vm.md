@@ -8,15 +8,15 @@
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file store.
-      1. Select **{{ compute-name }}**.
-      1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
       1. Select the desired storage.
-      1. Go to the **Virtual machines** tab.
-      1. Click **Attach to VM**.
+      1. Click the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
+      1. Click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
       1. In the window that opens:
-         1. Select the **VM**.
-         1. Specify the **Device name** for accessing file storage in the VM.
-         1. Click **Attach to VM**.
+         1. Select the VM.
+         1. Specify the device name for accessing file storage in the VM.
+         1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
    - API
 

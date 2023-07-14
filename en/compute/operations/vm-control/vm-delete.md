@@ -15,12 +15,12 @@ If you have disks attached to your VM, the disks will be detached when you delet
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-   1. Select **{{ compute-name }}**.
-   1. Select the VM → click ![image](../../../_assets/options.svg) → select **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the line with the appropriate VM, click ![image](../../../_assets/options.svg), and then click **{{ ui-key.yacloud.common.delete }}**.
 
-      To do this with multiple VMs, select the VMs you need to delete from the list → click **Delete** at the bottom of the screen.
+      To delete multiple VMs, select the VMs you need to delete in the list and click **{{ ui-key.yacloud.compute.instances.button_gr-action-delete }}** at the bottom of the screen.
 
-   1. In the window that opens, click **Delete**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -51,7 +51,7 @@ If you have disks attached to your VM, the disks will be detached when you delet
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created an instance using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.

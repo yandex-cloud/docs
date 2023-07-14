@@ -6,7 +6,7 @@
 
 1. Откройте страницу.
 
-1. В правом верхнем углу страницы нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../_assets/wiki/svg/delete.svg) **Удалить**.
+1. В правом верхнем углу страницы нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../_assets/wiki/svg/delete.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-access-button.delete }}**.
 
 1. Подождите несколько секунд, пока данные загрузятся.
 

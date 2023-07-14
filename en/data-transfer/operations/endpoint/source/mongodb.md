@@ -163,6 +163,7 @@ If a source is experiencing high workload (over 10000 write transactions per sec
 
 {% note info %}
 
-If you use several endpoints, you need to create a separate transfer for each one.
+1. If you use several endpoints, you need to create a separate transfer for each one.
+1. As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude these collections.
 
 {% endnote %}

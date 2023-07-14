@@ -40,7 +40,8 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      * Enter the **Name**: `bucket-yq`.
+      * Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      * In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
       * For the other parameters, leave the default settings.
    1. Click **Create bucket**.
 
@@ -138,14 +139,14 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ at-name }}**.
    1. Click **Create trail** and specify:
       * **Name**: `logsyq`.
       * **Resource**: Select `Organization`.
       * **Organization**: An automatically populated field containing the name of the current organization.
       * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: `bucket-yq`.
+      * **Bucket**: Select the [previously created bucket](#create-backet).
       * **Service account**: `trail-sa`.
       * For the other parameters, leave the default settings.
    1. Click **Create**.
@@ -161,7 +162,7 @@ A connection must be created only the first time a trail is connected to {{ yq-s
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. Select **{{ at-name }}**.
    1. Select the `logsyq` trail.
    1. Click **Process in {{ yq-short-name }}**.

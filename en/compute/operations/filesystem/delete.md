@@ -8,10 +8,10 @@
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
-      1. Select **{{ compute-name }}**.
-      1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
-      1. In the row of the desired file storage, click ![image](../../../_assets/options-grey.svg) and select **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+      1. In the line of the appropriate file storage, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - API
 

@@ -14,7 +14,7 @@
 
 1. Перейдите на страницу.
 
-1. В правом верхнем углу страницы нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../_assets/wiki/svg/delete.svg) **Удалить**.
+1. В правом верхнем углу страницы нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../_assets/wiki/svg/delete.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.delete }}**.
 
 1. Посмотрите, какие страницы ссылаются на удаляемую страницу, и при необходимости удалите или замените ссылки.
 

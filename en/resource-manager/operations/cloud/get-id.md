@@ -1,18 +1,17 @@
+---
+title: "How to get cloud IDs in {{ yandex-cloud }}"
+description: "In this tutorial, you will learn how to get a cloud ID in {{ yandex-cloud }}."
+---
+
 # Retrieving a cloud ID
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), click the desired cloud in the list on the left.
+   1. Go to the [management console]({{ link-console-main }}) and [select](switch-cloud.md) the appropriate cloud. On the page that opens, the cloud ID is shown on top, next to the cloud name, and in the **{{ ui-key.yacloud.common.id }}** line of the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab.
 
-      If you are on the service page, expand the cloud and folder list in the top left-hand corner.
-
-      ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
-
-   1. This will display the selected cloud's info page. Copy the **ID** on the **Overview** tab.
-
-      ![image](../../../_assets/resource-manager/get-cloud-id.png)
+   1. To copy the ID, hover over it and click ![image](../../../_assets/copy.svg).
 
 - CLI
 
@@ -28,7 +27,7 @@
    ...
    ```
 
-   If you don't know the cloud ID, retrieve a list of clouds with their IDs:
+   If you do not know the cloud ID, retrieve a list of clouds with their IDs:
 
    ```
    yc resource-manager cloud list

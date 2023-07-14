@@ -7,9 +7,9 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
-   1. On the **Snapshot schedules** tab, click **Create**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.common.create }}**.
    1. Configure schedule parameters:
       * Enter a name for the schedule:
 
@@ -20,11 +20,11 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
          {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-      * In the **Create snapshots** field, select frequency of snapshot creation: **By hour**, **By day**, **By week**, or [**By cron expression**](../../concepts/snapshot-schedule.md#cron). The time of snapshot creation is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
-      * In the **Starting on** field, set the start date for your schedule.
+      * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** field, select how often the snapshots will be created: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}`, [or `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). The time of snapshot creation is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
+      * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** field, set the start date for your schedule.
       * Select the policy for snapshot retention:
-         * **Store all snapshots**: All created scheduled snapshots are kept.
-         * **Only the last**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created by this schedule are deleted automatically.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: All created scheduled snapshots are kept.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created by this schedule are deleted automatically.
 
          {% note info %}
 
@@ -32,7 +32,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
          {% endnote %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

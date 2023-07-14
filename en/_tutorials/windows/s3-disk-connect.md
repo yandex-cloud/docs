@@ -44,11 +44,11 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter the service account name: `sa-win-disk-connect`.
-   1. Click ![](../../_assets/plus-sign.svg) **Add role** and select the `storage.editor` role.
-   1. Click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
+   1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**and select the `storage.editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
 - CLI
 
@@ -62,7 +62,7 @@ The cost for bucket support includes:
    yc iam service-account create --name sa-win-disk-connect
    ```
 
-   Name format requirements:
+   The name format requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -81,11 +81,11 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Choose `sa-win-disk-connect` and click the line with its name.
-   1. Click ![](../../_assets/plus-sign.svg) **Create new key** in the top panel.
-   1. Select **Create static access key**.
-   1. Specify the key description and click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Select the `sa-win-disk-connect` service account.
+   1. In the top panel, click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
 - CLI
@@ -124,11 +124,11 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-   1. In the list of services, select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
-   1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
-   1. In the **Object read access**, **Object listing access** and **Read access to settings** fields, select **Limited**.
-   1. Click **Create bucket**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket following the [naming conventions](../../storage/concepts/bucket.md#naming).
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI
 

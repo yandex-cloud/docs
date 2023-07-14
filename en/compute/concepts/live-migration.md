@@ -20,4 +20,10 @@ The following types of VMs cannot be moved:
 * Managed DBMS VMs with local SSDs.
 * VMs with disabled migration.
 
-[^1]: These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
+\* These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
+
+## See also {#see-also}
+
+* [How to move a VM to a different availability zone](../operations/vm-control/vm-change-zone.md)
+* [How to move a VM to another folder](../operations/vm-control/vm-change-folder.md)
+* [How to move a VM to another cloud](../operations/vm-control/vm-change-cloud.md)

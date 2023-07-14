@@ -6,7 +6,7 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 ## Setup {#prepare}
 
-A disk snapshot only contains the data that was already written to the disk when the snapshot was created. If the disk is attached to a running VM, the cache of the apps and OS will not be included in the snapshot.
+A disk snapshot only contains the data that had already been written to the disk when the snapshot was created. If the disk is attached to a running VM, the OS and app cache will not be included in the snapshot.
 
 To ensure the integrity of the snapshot data:
 
@@ -50,15 +50,15 @@ To create a disk snapshot:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
-   1. In the row with the desired disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Create snapshot**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. In the line of the disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
    1. Enter a name for the snapshot:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. If necessary, enter a description of the snapshot.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -132,7 +132,7 @@ To create a disk snapshot:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

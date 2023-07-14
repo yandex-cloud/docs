@@ -1,79 +1,76 @@
 # Creating a fixed-size instance group with an L7 network load balancer
 
-You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) along with an L7 load balancer that will distribute incoming HTTP or gRPC traffic across VM instances. For more information, see [{#T}](../../../application-load-balancer/concepts/index.md).
+You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ alb-full-name }}](../../../application-load-balancer/index.yaml). A {{ alb-name }} target group will be automatically created along with the instance group. You can link it to your load balancer and distribute the load across the instances in the group at the application level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [alb-warning.md](../../../_includes/instance-groups/alb-warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
-
-To create an instance group with an L7 load balancer:
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your instance group in.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click **Create group**.
-   1. Under **Basic parameters**:
-      * Enter the **Name** and **Description** of the instance group. The naming requirements are as follows:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
+      * Enter a name and description of the instance group. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
-      * Enable **Deletion protection** if needed. You cannot delete an instance group with this option enabled.
-   1. In the **Allocation** section, select the desired **availability zones**. Instances of a group may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
-   1. Under **Instance template**, click **Define** to set up the configuration for a basic instance:
-      * Under **Basic parameters**, enter the [template](../../concepts/instance-groups/instance-template.md) **Description**:
-      * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
-      * In the **Disks** section:
-         * Select the [disk type](../../concepts/disk.md#disks_types).
-         * Specify the **Size** of the disk.
-         * Specify the disk **Contents**.
-         * (optional) To add more disks, click **Add disk**.
-      * Under **Computing resources**:
-         * Choose a [platform](../../concepts/vm-platforms.md).
-         * Enter the required number of **vCPUs**, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of **RAM**.
+      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.  In {{ ig-name }}, all operations are performed on behalf of a service account.
+      * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option if needed. You cannot delete a group with this option enabled.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones and regions](../../../overview/concepts/geo-scope.md).
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set up the configuration for a basic instance:
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+         * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
+         * Specify the disk size.
+         * To add more disks, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+         * Choose a [platform](../../../compute/concepts/vm-platforms.md).
+         * Enter the required number of vCPUs, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of RAM.
 
          * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
 
-      * Under **Network settings**:
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
          {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
 
-      * Under **Access**, specify the information required to access the instance:
-         * Specify a **Service account** to be linked to the instance.
-         * If you selected a Linux [image](../../concepts/image.md), fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
-         * If you selected a Windows image, enter the **Password** for your `Administrator` user.
-         * **Enable access to the serial console**, if required.
-      * Click **Save**.
-   1. Under **Allow when creating and updating**:
-      * In the **Add above target value** field, specify the number of instances you can exceed the group size by.
-      * In the field **Reduce below target value**, specify the number of instances you can decrease the group size by.
-      * In the **Create simultaneously** field, specify how many instances can be created at the same time.
-      * In **Start time**, specify the period after which the VM instance will start receiving the load.
-      * In the **Stop simultaneously** field, specify how many instances can be stopped at the same time.
-      * In the **Stop VMs by strategy** field, specify one of the [strategies](../../concepts/instance-groups/policies/deploy-policy.md#strategy):
-         * **Proactive**: {{ ig-name }} selects which instances to stop when updating or reducing the group on its own.
-         * **Opportunistic**: {{ ig-name }} waits for the instances to stop on their own or by the user.
-   1. In the **Scalability** section:
-      * Select the **Fixed** [scaling type](../../concepts/instance-groups/scale.md).
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
+         * Select a service account to link to the instance.
+         * If you selected a Linux [image](../../concepts/image.md), fill out **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. As the key, use the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
+         * If you selected a Windows image, enter the `Administrator` user password.
+         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` if needed.
+      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
+      * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** field, specify the number of instances you can exceed the group size by.
+      * In the field **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}**, specify the number of instances you can decrease the group size by.
+      * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** field, specify how many instances can be created at the same time.
+      * In **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}**, specify the period after which the VM instance will start receiving the load.
+      * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** field, specify how many instances can be stopped at the same time.
+      * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** field, specify one of the [strategies](../../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy):
+         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}`: {{ ig-name }} selects which instances to stop when updating or reducing the group on its own.
+         * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`: {{ ig-name }} waits for the instances to stop on their own or by the user.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
+      * Select the `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}`[scaling type](../../../compute/concepts/instance-groups/scale.md).
       * Specify the instance group size.
-   1. Under **Integration with {{ alb-name }}**, enable **Create target group**.
-   1. Enter the **Name of the target group** and **Description of the target group**.
-   1. If needed, enable the **Health check** to get information about the state of instances and their automatic recovery on failure.
-      * In the **Type** field, select the protocol for the health checks: **HTTP** or **TCP**.
-      * In the **Path** field (for the HTTP type), specify the URL path for the HTTP check requests sent from {{ ig-name }}.
-      * In the **Port** field, specify the port number from 1 to 32767 for {{ ig-name }} to send the health check requests to.
-      * In the **Waiting time, s** field, specify the response wait time from 1 to 60 seconds.
-      * In the **Interval in sec** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the timeout.
-      * In the **Performance threshold** field, specify the number of successful health checks required for the instance to be considered healthy.
-      * In the **Failure threshold** field, specify the number of failed health checks for the instance to be considered unhealthy.
-   1. Under **Custom variables**, enter the **Key**-**Value** pairs if needed.
-   1. Click **Create**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, enable the **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** option.
+   1. Specify the target group settings. For more information, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
+   1. If needed, enable the **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** to get information about the state of instances and their automatic recovery on failure.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** field, select the protocol for the health checks: `{{ ui-key.yacloud.ylb.health-check.label_http }}` or `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field (for the HTTP type), specify the URL path for the HTTP check requests sent from {{ ig-name }}.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** field, specify the port number from 1 to 32767 for {{ ig-name }} to send the health check requests to.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** field, specify the response wait time from 1 to 60 seconds.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the timeout.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** field, specify the number of successful health checks required for the instance to be considered healthy.
+      * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** field, specify the number of failed health checks for the instance to be considered unhealthy.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_variables }}**, enter the `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}` pairs if needed.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -114,23 +111,23 @@ To create an instance group with an L7 load balancer:
          * `description`: Description of the instance group.
       * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
-         ```
-         instance_template:
-             platform_id: standard-v3
-             resources_spec:
-                 memory: 2g
-                 cores: 2
-             boot_disk_spec:
-                 mode: READ_WRITE
-                 disk_spec:
-                     image_id: fdvk34al8k5nltb58shr
-                     type_id: network-hdd
-                     size: 32g
-             network_interface_specs:
-                 - network_id: c64mknqgnd8avp6edhbt
-                   primary_v4_address_spec: {}
-             scheduling_policy:
-                 preemptible: false
+       ```yaml
+       instance_template:
+         platform_id: standard-v3
+         resources_spec:
+           memory: 2g
+           cores: 2
+         boot_disk_spec:
+           mode: READ_WRITE
+           disk_spec:
+             image_id: fdvk34al8k5nltb58shr
+             type_id: network-hdd
+             size: 32g
+         network_interface_specs:
+           - network_id: c64mknqgnd8avp6edhbt
+             primary_v4_address_spec: {}
+         scheduling_policy:
+           preemptible: false
          ```
 
          {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
@@ -148,7 +145,7 @@ To create an instance group with an L7 load balancer:
          * `network_id`: ID of `default-net`.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
          * `scheduling_policy`: Scheduling policy configuration.
-         * `preemptible`: Flag indicating that [preemptible VMs](../../concepts/preemptible-vm.md) are created.
+         * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
@@ -182,6 +179,8 @@ To create an instance group with an L7 load balancer:
          Where:
          * `target_group_spec`: Specification of the {{ alb-name }} target group associated with the instance group.
          * `name`: Any name of the {{ alb-name }} target group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
+
+         For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
    Full code for the `specification.yaml` file:
 
@@ -223,7 +222,7 @@ To create an instance group with an L7 load balancer:
       {{ yc-compute-ig }} create --file specification.yaml
       ```
 
-      This command creates a group of three similar instances with the following characteristics:
+      This command creates a group of three similar instances with the following configuration:
       * Named `first-fixed-group-with-l7-balancer`.
       * Running CentOS 7.
       * In the `default-net` network.
@@ -239,7 +238,7 @@ To create an instance group with an L7 load balancer:
    If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      ```yaml
+      ```hcl
       resource "yandex_iam_service_account" "ig-sa" {
         name        = "ig-sa"
         description = "service account to manage IG"
@@ -335,6 +334,7 @@ To create an instance group with an L7 load balancer:
          * {{ alb-full-name }} [target group](../../../application-load-balancer/concepts/target-group.md):
             * `target_group_name`: Name of the target group.
             * `target_group_description`: Description of the target group.
+               For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.
 
@@ -363,7 +363,7 @@ To create an instance group with an L7 load balancer:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

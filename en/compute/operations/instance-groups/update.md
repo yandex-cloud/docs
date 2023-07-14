@@ -14,13 +14,13 @@ To change the name and description of an instance group:
 
 - Management console
 
-   1. Open the folder page in the [management console]({{ link-console-main }}).
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click the name of the group you want to update.
-   1. Click **Change** in the upper-right corner of the page.
-   1. Enter the appropriate name and description for the group.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. Select the group to update.
+   1. In the upper-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. Fill in the **{{ ui-key.yacloud.compute.groups.create.field_name }}** and **{{ ui-key.yacloud.compute.groups.create.field_description }}** fields.
+   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
 - CLI
 
@@ -38,7 +38,7 @@ To change the name and description of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
+   1. Select the `ID` of the instance group.
    1. Specify the name and description in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
    1. Update the instance group in the default folder:
 
@@ -71,14 +71,16 @@ To change the computing resources of an instance group:
 
 - Management console
 
-   1. Open the folder page in the [management console]({{ link-console-main }}).
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click the name of the group you want to update.
-   1. Click **Change** in the upper-right corner of the page.
-   1. Delete the current instance template and create a new one with the appropriate instance parameters.
-   1. Click **Save**.
-   1. Click **Save** on the **Changing an instance group page**.
+   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. Select the group to update.
+   1. In the upper-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**:
+      * Click ![image](../../../_assets/horizontal-ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}** to delete the current instance template.
+      * Click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to create a new template with required instance parameters.
+      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
 
 - CLI
 
@@ -96,7 +98,7 @@ To change the computing resources of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
+   1. Select the `ID` of the instance group.
    1. Specify the required instance parameters in the `resources_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
    1. Update the instance group in the default folder:
 
@@ -124,15 +126,15 @@ To increase the disk size of an instance group:
 
 - Management console
 
-   1. Open the folder page in the [management console]({{ link-console-main }}).
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
-   1. Click the name of the group you want to update.
-   1. Click **Change** in the upper-right corner of the page.
-   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) in the top right-hand corner of the **Virtual machine template** section and select **Edit**.
-   1. Under **Disks**, specify the disk size:
-   1. Click **Save**.
-   1. Click **Save** on the **Changing an instance group page**.
+   1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+   1. Select the group to update.
+   1. In the upper-right corner of the page, click **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
+   1. In the top-right corner of the **{{ ui-key.yacloud.compute.groups.create.section_instance }}** section, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify the disk size.
+   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
 
 - CLI
 
@@ -150,7 +152,7 @@ To increase the disk size of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-   1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
+   1. Select the `ID` of the instance group.
    1. Specify the required storage size in the `boot_disk_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file was not saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
    1. Update the instance group in the default folder:
 

@@ -14,7 +14,7 @@
 
   1. Откройте страницу.
 
-  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **Настройки**.
+  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}**.
 
   1. Нажмите строку **Авторы** и укажите логин автора страницы.
 
@@ -26,11 +26,11 @@
 
   1. Откройте страницу.
 
-  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **Настройки**.
+  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}**.
 
   1. Нажмите строку **Авторы**.
 
-  1. Рядом с именем пользователя, которого хотите удалить из списка авторов, нажмите ![](../../_assets/wiki/svg/actions-icon.svg) и выберите **Удалить**.
+  1. Рядом с именем пользователя, которого хотите удалить из списка авторов, нажмите ![](../../_assets/wiki/svg/actions-icon.svg) и выберите **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.delete }}**.
 
   1. Закройте окно редактирования авторов, изменения сохранятся автоматически.
 
@@ -42,7 +42,7 @@
 
 ## Стать автором чужой страницы {#addme}
 
-  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **Настройки**.
+  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}**.
 
   1. На вкладке **Авторы** нажмите кнопку **Стать автором**.
 
@@ -55,7 +55,7 @@
 
   1. Откройте страницу.
 
-  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **Настройки**.
+  1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}**.
 
   1. Нажмите строку **Авторы**.
 

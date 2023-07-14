@@ -12,21 +12,17 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
 - Management console
 
-   To convert a dynamic public IP address to static:
    1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click ![image](../../_assets/options.svg) in the row of the address that you want to make static.
-   1. In the menu that opens, select **Make static**.
-   1. In the window that opens, click **Change**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To convert a dynamic public IP address to static:
 
    1. See the description of the CLI's update address attribute command:
 

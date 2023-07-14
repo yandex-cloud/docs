@@ -2,7 +2,7 @@
 
 {% note alert %}
 
-Before deleting an address, you should release it by deleting the resource it's attached to.
+Before deleting a [static IP](../concepts/address.md), you should release it by deleting the resource it is attached to.
 You cannot restore an address after it is deleted.
 
 {% endnote %}
@@ -11,21 +11,17 @@ You cannot restore an address after it is deleted.
 
 - Management console
 
-   To delete a [static address](../concepts/address.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the static address.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click ![image](../../_assets/options.svg) in the line of the address to delete.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To delete a static IP address:
 
    1. See the description of the CLI delete address command:
 
@@ -63,7 +59,7 @@ You cannot restore an address after it is deleted.
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a static public IP address created with {{ TF }}:
 
@@ -84,19 +80,19 @@ You cannot restore an address after it is deleted.
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan

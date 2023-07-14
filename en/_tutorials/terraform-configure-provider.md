@@ -4,6 +4,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
 
 {% endnote %}
 
+
 1. If you previously had a provider from the Hashicorp registry configured, save its settings:
 
    {% list tabs %}
@@ -38,7 +39,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
 
       Open the {{ TF }} CLI configuration file:
 
-      ```
+      ```bash
       nano ~/.terraformrc
       ```
 
@@ -50,8 +51,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
 
    Add the following section to the file:
 
-
-   ```
+   ```hcl
    provider_installation {
      network_mirror {
        url = "https://terraform-mirror.yandexcloud.net/"
@@ -64,6 +64,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
    ```
 
    For more information about setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+
 
 1. Add the following sections at the top of the `.tf` configuration file:
 
@@ -86,13 +87,13 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
 
 
    Where:
-
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `required_version`: The minimum version of {{ TF }} the provider is compatible with.
    * `provider`: The provider name.
-   * `zone`: The [availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
-1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+
+   * `zone`: The [availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
+1. Run the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
 
 If the provider installation failed, create a [support]({{ link-console-support }}?section=contact) request indicating the provider name and version.
 
@@ -104,4 +105,3 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 If you used modules, first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
-

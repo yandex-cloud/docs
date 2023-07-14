@@ -6,20 +6,20 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk placement group.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **Placement groups**.
-   1. Open the **Non-replicated disk placement groups** tab.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to remove the disk from the placement group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+   1. Click the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
    1. Select the placement group to remove a disk from.
-   1. Go to the **List of disks** panel.
-   1. To the right of the name of the disk to be deleted, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Remove from group**.
-   1. In the resulting window, click **Delete from group**.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** panel.
+   1. To the right of the name of the disk to remove, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.disks.popup-confirm_button_delete }}**.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To remove a non-replicated disk created with {{ TF }} from a placement group:
 
@@ -35,12 +35,12 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
         block_size = 4096
         type       = "network-ssd-nonreplicated"
         zone       = "{{ region-id }}-b"
-      
+
         disk_placement_policy {
           disk_placement_group_id = yandex_compute_disk_placement_group.this.id
         }
       }
-      
+
       resource "yandex_compute_disk_placement_group" "this" {
         zone = "{{ region-id }}-b"
       }
@@ -51,25 +51,25 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```text
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

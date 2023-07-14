@@ -21,40 +21,36 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
 
-   1. In the list of services, select **{{ vpc-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
 
-   1. Select the group to update.
+   1. Click ![image](../../_assets/options.svg) next to the security group you need to add a rule to and select **{{ ui-key.yacloud.common.edit }}**.
 
-   1. Click ![image](../../_assets/options.svg) in the row of the group.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules:
 
-   1. In the menu that opens, click **Edit**.
+     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
 
-   1. Under **Rules**, create traffic management rules:
+     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
 
-      1. Select the **Outgoing traffic** or **Incoming traffic** tab.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
 
-      1. Click **Add rule**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the desired protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
 
-      1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
 
-      1. In the **Purpose** or **Source** field, select the purpose of the rule:
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`. Select one of the following:
 
-         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`: The rule will apply to the VMs from the current group.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`: The rule will apply to the VMs from the selected group. Make sure that source and destination IPs used for traffic exchange are from [private ranges](../concepts/network.md#subnet). For more information, see [Concepts](../concepts/security-groups.md#groups).
 
-         * **Security group**. Select one of the following:
+         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: A rule that allows checking the health of resources from [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) or [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
-            * **Current** (`Self`): The rule will apply to the VMs from the current group.
-            * **From list**: The rule will apply to the VMs from the selected group. Make sure that source and destination IPs used for traffic exchange are from [private ranges](../concepts/network.md#subnet). For more information, see [Concepts](../concepts/security-groups.md#groups).
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-         * **Load balancer healthchecks**: A rule that allows checking the health of resources from [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) or [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
-
-   1. Click **Save**.
-
-   1. Click **Save** once again.
+   1. Click **{{ ui-key.yacloud.common.save }}** once again.
 
 - CLI
 

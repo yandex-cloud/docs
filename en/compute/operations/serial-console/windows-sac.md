@@ -3,10 +3,10 @@
 To connect to the serial console and start the terminal:
 
 1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-1. Select **{{ compute-name }}**.
-1. Click on the line with the VM you need.
-1. Go to the **Serial console** tab.
-1. Under **Serial console**, select `COM2` and click **Connect**. The command line prompts you to enter commands:
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Select the VM you need.
+1. Click the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. The command line prompts you to enter commands:
 
    ```bash
    SAC>
@@ -17,9 +17,9 @@ To connect to the serial console and start the terminal:
    ```bash
    SAC>ch
    Channel List
-   
+
    (Use "ch -?" for information on using channels)
-   
+
    # Status  Channel Name
    0 (AV)    SAC
    1 (AV)    Cmd0001
@@ -44,7 +44,7 @@ To connect to the serial console and start the terminal:
    Type:                  VT-UTF8
    Channel GUID:          e203fb79-d80d-11ea-87e3-c2679e14957d
    Application Type GUID: 63d02271-8aa4-11d5-bccf-00b0d014a2d0
-   
+
    Press <esc><tab> for next channel.
    Press <esc><tab>0 to return to the SAC channel.
    Use any other key to view this channel.
@@ -74,7 +74,7 @@ To connect to the serial console and start the terminal:
    C:\Windows\system32>powershell
    Windows PowerShell
    Copyright (C) Microsoft Corporation. All rights reserved.
-   
+
    PS C:\Windows\system32>
    ```
 

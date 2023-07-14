@@ -13,11 +13,11 @@ To change the name and description of a disk:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you will be editing a disk.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
-   1. Click ![image](../../../_assets/dots.svg) next to the desired disk and select **Edit**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the desired disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
    1. Change the name and description of the disk.
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
    {{ compute-name }} will start the operation to update the disk.
 
@@ -71,16 +71,16 @@ You can only increase the size of a disk that is not attached to a running VM. T
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. On the **Virtual machines** page, stop the VM (see [{#T}](../vm-control/vm-stop-and-start.md#stop)).
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. On the **{{ ui-key.yacloud.compute.switch_instances }}** page, stop the VM (see [{#T}](../vm-control/vm-stop-and-start.md#stop)).
    1. Wait until the VM status changes to `STOPPED`.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
-   1. Click ![image](../../../_assets/dots.svg) next to the desired disk and select **Edit**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the desired disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
    1. Increase the disk size.
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
       {{ compute-name }} will launch the operation to change the disk size.
-   1. When the operation finishes, go back to the **Virtual machines** page and restart the VM.
+   1. When the operation finishes, go back to the **{{ ui-key.yacloud.compute.switch_instances }}** page and restart the VM.
 
 - CLI
 

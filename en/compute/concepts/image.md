@@ -53,6 +53,6 @@ An image can be optimized for deploying a large number of VMs. You can create VM
 
 Fast deployment is achieved by using multiple layers for storing data in a storage. The first layer stores the image source data, while the second one stores user data. When creating VM disks from optimized images, the first layer is reused rather than copied to a new storage location every time. Disks created from optimized images run on VMs in the same way as disks created from regular images: they can be used as boot disks and are fully available for data storage. The performance of these disks does not differ from that of regular ones.
 
-Regular images from {{ marketplace-name }} are already optimized for deployment. To optimize your image, select the **Optimize for deployment** option when uploading the image.
+Regular images from {{ marketplace-name }} are already optimized for deployment. To optimize your image, select the **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}** option when uploading the image.
 
 By default, optimized images have a zero [quota](../concepts/limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).

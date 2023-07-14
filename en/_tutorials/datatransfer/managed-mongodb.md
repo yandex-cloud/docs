@@ -9,6 +9,12 @@
 
       Specify the parameters for connecting to the source cluster.
 
+   {% note info %}
+
+   The service does not support transferring [Time Series collections]({{ mg.docs.comd }}/core/timeseries-collections/), so you should [exclude](../../data-transfer/operations/endpoint/source/mongodb.md#additional-settings) these collections in the endpoint settings.
+
+   {% endnote %}
+
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MONGO_V2 }}`.
@@ -37,4 +43,4 @@
    For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.

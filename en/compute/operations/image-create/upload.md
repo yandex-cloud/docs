@@ -43,17 +43,17 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 - Management console
 
    1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **Images**.
-   1. Click **Upload image**.
-   1. Enter the image name:
-      * Its length can be from 2 to 63 characters.
-      * It may contain lowercase Latin letters, numbers, and hyphens.
-      * It must start with a letter. The last character cannot be a hyphen.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**.
+   1. Enter the image name.
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
    1. If necessary, add a description of the image.
    1. Insert the link to the image you received in {{ objstorage-name }}.
-   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **Optimize for deployment**.
-   1. Click **Upload**.
+   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
+   1. Click **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
 
 - CLI
 
@@ -129,7 +129,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

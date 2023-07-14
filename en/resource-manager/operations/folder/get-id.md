@@ -1,17 +1,23 @@
+---
+title: "How to get folder IDs in {{ yandex-cloud }}"
+description: "In this tutorial, you will learn how to get a folder ID in {{ yandex-cloud }}."
+---
+
 # Getting the folder ID
 
 {% list tabs %}
 
 - Management console
 
-   1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays information about all the folders in the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+   1. Go to the [management console]({{ link-console-cloud }}) and select the appropriate folder from the list on the left. On the page that opens, the folder ID is shown on top, next to the folder name.
 
-   1. You can retrieve the folder ID from the folder page URL in the management console:
-      ```
-      {{ link-console-main }}/folders/b1gd129pp9ha0vnvf5g7
-      ```
+   1. To copy the ID, hover over it and click ![image](../../../_assets/copy.svg).
 
-      Where `b1gd129pp9ha0vnvf5g7` is the folder ID.
+   You can also get the folder ID from the folder page URL in the management console:
+
+   ```
+   {{ link-console-main }}/folders/<folder_ID>
+   ```
 
 - CLI
 

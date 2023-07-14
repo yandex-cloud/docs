@@ -513,6 +513,12 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
 
 
+## {{ wiki-full-name }} {#wiki-roles}
+
+{% include [wiki-viewer](../../../_includes/iam/roles/wiki-viewer.md) %}
+
+{% include [wiki-admin](../../../_includes/iam/roles/wiki-admin.md) %}
+
 ## {{ yq-full-name }} {#yq-roles}
 
 {% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
@@ -522,3 +528,4 @@ _Роль_ — это набор разрешений, который опред
 {% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
+

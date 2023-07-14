@@ -14,10 +14,9 @@ You cannot restore a network after it is deleted.
 
    To delete a [cloud network](../concepts/network.md#network):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a cloud network.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click ![image](../../_assets/options.svg) in the line of the network to delete.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Click ![image](../../_assets/options.svg) next to the network you need and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -60,7 +59,7 @@ You cannot restore a network after it is deleted.
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

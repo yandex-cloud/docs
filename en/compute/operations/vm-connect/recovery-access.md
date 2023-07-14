@@ -10,7 +10,7 @@ You may need to restore access to a [VM](../../concepts/vm.md) in the following 
 
 If you lost your private SSH key for Linux or your Windows user password:
 1. [Create a snapshot](../disk-control/create-snapshot.md) of the [disk](../../concepts/disk.md) of the VM that you want to restore access to.
-1. [Create a VM with the disk from the snapshot](../vm-create/create-from-snapshots.md) specifying it as the boot disk. When creating a VM, enter your new credentials under **Access**.
+1. [Create a VM with the disk from the snapshot](../vm-create/create-from-snapshots.md) specifying it as the boot disk. When creating a VM, enter your new credentials under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
 1. Connect to the VM via SSH or RDP using the new credentials.
 
 If the 'cloud-init' or [network](../../../vpc/concepts/network.md#network) configuration was changed for the VM, the described method may not work. In this case, see [{#T}](#os-recovery).
@@ -24,7 +24,7 @@ You can restore access to a Linux-based VM over SSH using the [serial console](#
 If you can't access the serial console, do the following to recover the public part of your SSH key:
 1. [Stop](../vm-control/vm-stop-and-start.md) the VM.
 1. [Take a snaphost](../disk-control/create-snapshot.md) of the VM's boot disk.
-1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Under **Image/boot disk selection**, choose the OS for the boot disk. To attach a data disk to an auxiliary VM, select the previously created snapshot in the **Disk and file storage** section.
+1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose the OS for the boot disk. To attach a data disk to an auxiliary VM, select the previously created snapshot in the **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** section.
 1. [Connect over SSH](../vm-connect/ssh.md) to the auxiliary VM and [mount the disk](../vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) you created from the snapshot.
 1. Replace the SSH key that is stored on this disk with a valid key:
    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) that stores the public part of the SSH key in the mounted partition. For example:
@@ -49,7 +49,7 @@ If you can't access the serial console, do the following to recover the public p
    ```
 
 1. [Stop](../vm-control/vm-stop-and-start.md) the auxiliary VM and [detach](../vm-control/vm-detach-disk.md) the disk with the fixed SSH key from it.
-1. [Create](../vm-create/create-from-disks.md) a new VM. Under **Image/boot disk selection**, go to the **Custom** tab and select the disk with the fixed SSH key as the boot disk.
+1. [Create](../vm-create/create-from-disks.md) a new VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and select the disk with the fixed SSH key as the boot disk.
 
    {% note info %}
 
@@ -88,8 +88,8 @@ The problem may occur due to an error in the SSH, [security group](../../../vpc/
 
 If you can't start a VM, gain access to data on the disk as follows:
 1. [Create a snapshot](../disk-control/create-snapshot.md) of the disk of the VM that you want to restore access to.
-1. [Create a disk](../disk-create/empty.md) from the snapshot. When creating a disk, choose `Snapshot` in the **Content** field and specify the created snapshot.
+1. [Create a disk](../disk-create/empty.md) from the snapshot. When creating a disk, choose `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` in the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field and specify the created snapshot.
 1. [Attach the disk](../vm-control/vm-attach-disk.md) as secondary to the auxiliary VM.
 1. Change the configuration files that affect the VM startup or copy important data.
 1. [Detach the disk](../vm-control/vm-detach-disk.md) from the auxiliary VM.
-1. If you found and fixed the startup issue, create a new VM. When creating a VM, specify `Custom` under **Image/boot disk selection** and select the fixed disk as the boot disk.
+1. If you found and fixed the startup issue, create a new VM. When creating a VM, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab under **{{ ui-key.yacloud.compute.instances.create.section_image }}** and select the fixed disk as the boot disk.

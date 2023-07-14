@@ -1,4 +1,4 @@
-### smart-captcha.admin {#smart-captcha-admin}
+#### smart-captcha.admin {#smart-captcha-admin}
 
 The `smart-captcha.admin` role includes the following permissions:
 * Viewing CAPTCHA settings.

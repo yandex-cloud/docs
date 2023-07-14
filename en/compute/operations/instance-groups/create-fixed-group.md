@@ -161,7 +161,7 @@ To create a fixed-size instance group:
    If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      ```yaml
+      ```hcl
       resource "yandex_iam_service_account" "ig-sa" {
         name        = "ig-sa"
         description = "service account to manage IG"
@@ -281,7 +281,7 @@ To create a fixed-size instance group:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

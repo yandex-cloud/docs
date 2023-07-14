@@ -7,10 +7,10 @@ You can get the information that the VM outputs to the serial port. This can be 
 - Management console
 
    1. Select the folder the VM belongs to.
-   1. Select **{{ compute-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Click on the line with the VM you need.
-   1. Go to the **Serial port** tab.
-   1. To use the **CTRL**+**F **keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
+   1. Click the **{{ ui-key.yacloud.compute.instance.switch_service-console }}** tab.
+   1. To use the **CTRL**+**F** keyboard shortcut to search, enable **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** in the upper-right corner.
 
 - CLI
 

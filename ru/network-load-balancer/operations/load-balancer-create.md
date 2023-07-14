@@ -72,21 +72,21 @@
   1. Чтобы создать балансировщик с [обработчиком](../concepts/listener.md) и [целевой группой](../concepts/target-resources.md), выполните команду:
   
      ```bash
-     yc load-balancer network-load-balancer create <имя балансировщика> \
-        --listener name=<имя обработчика>,`
+     yc load-balancer network-load-balancer create <имя_балансировщика> \
+        --listener name=<имя_обработчика>,`
                   `port=<порт>,`
-                  `target-port=<целевой порт>,`
-                  `protocol=<протокол: tcp или udp>,`
-                  `external-ip-version=<версия IP-адреса: ipv4 или ipv6> \
-        --target-group target-group-id=<идентификатор целевой группы>,`
-                      `healthcheck-name=<имя проверки состояния>,`
-                      `healthcheck-interval=<интервал между проверками>s,`
-                      `healthcheck-timeout=<таймаут проверки состояния>s,`
-                      `healthcheck-unhealthythreshold=<количество проваленных проверок для статуса Unhealthy>,`
-                      `healthcheck-healthythreshold=<количество успешных проверок для статуса Healthy>,`
+                  `target-port=<целевой_порт>,`
+                  `protocol=<протокол:_tcp_или_udp>,`
+                  `external-ip-version=<версия_IP-адреса:_ipv4_или_ipv6> \
+        --target-group target-group-id=<идентификатор_целевой_группы>,`
+                      `healthcheck-name=<имя_проверки_состояния>,`
+                      `healthcheck-interval=<интервал_между_проверками>s,`
+                      `healthcheck-timeout=<таймаут_проверки_состояния>s,`
+                      `healthcheck-unhealthythreshold=<количество_проваленных_проверок_для_статуса_Unhealthy>,`
+                      `healthcheck-healthythreshold=<количество_успешных_проверок_для_статуса_Healthy>,`
                       `healthcheck-tcp-port=<TCP-порт>,`
                       `healthcheck-http-port=<HTTP-порт>,`
-                      `healthcheck-http-path=<адрес URL, по которому будут выполняться проверки>
+                      `healthcheck-http-path=<адрес_URL,_по_которому_будут_выполняться_проверки>
      ```
 
      Где:
@@ -107,21 +107,22 @@
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
-       name = "<имя сетевого балансировщика>"
+       name = "<имя_сетевого_балансировщика>"
+       deletion_protection = "<защита_от_удаления:_true_или_false>"
        listener {
-         name = "<имя обработчика>"
-         port = <номер порта>
+         name = "<имя_обработчика>"
+         port = <номер_порта>
          external_address_spec {
-           ip_version = "<версия IP-адреса: ipv4 или ipv6>"
+           ip_version = "<версия_IP-адреса:_ipv4_или_ipv6>"
          }
        }
        attached_target_group {
-         target_group_id = "<идентификатор целевой группы>"
+         target_group_id = "<идентификатор_целевой_группы>"
          healthcheck {
-           name = "<имя проверки состояния>"
+           name = "<имя_проверки_состояния>"
            http_options {
-             port = <номер порта>
-             path = "<адрес URL, по которому будут выполняться проверки>"
+             port = <номер_порта>
+             path = "<адрес_URL,_по_которому_будут_выполняться_проверки>"
            }
          }
        }
@@ -131,6 +132,7 @@
      Где:
 
      * `name` — имя сетевого балансировщика.
+     * `deletion_protection` — защита сетевого балансировщика от удаления. Пока опция включена, балансировщик удалить невозможно. Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. Значение по умолчанию `false`.
      * `listener` — параметры обработчика:
        * `name` — имя обработчика.
        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
@@ -186,6 +188,7 @@
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "test-load-balancer-1"
+       deletion_protection = "true"
      }
      ```
 
@@ -205,7 +208,7 @@
 
   ```api
   {
-    "folderId": "<идентификатор каталога>",
+    "folderId": "<идентификатор_каталога>",
     "name": "test-load-balancer-1",
     "type": "EXTERNAL"
   }
@@ -224,7 +227,7 @@
     * Целевой порт `81`.
     * Протокол `TCP`.
     * Версия IP-адреса `ipv4`.
-* Идентификатор целевой группы `enpu2l7q9kth8906spjn`.
+* Идентификатор целевой группы `enpu2l7q9kth********`.
 * Параметры проверки состояния ресурсов целевой группы:
     * Имя `http`.
     * Интервал выполнения проверок состояния `2` секунды.
@@ -247,7 +250,7 @@
                `target-port=81,`
                `protocol=tcp,`
                `external-ip-version=ipv4 \
-     --target-group target-group-id=enpu2l7q9kth8906spjn,`
+     --target-group target-group-id=enpu2l7q9kth********,`
                    `healthcheck-name=http,`
                    `healthcheck-interval=2s,`
                    `healthcheck-timeout=1s,`
@@ -264,6 +267,7 @@
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "test-load-balancer-2"
+       deletion_protection = "true"
        listener {
          name        = "test-listener"
          port        = 80
@@ -274,7 +278,7 @@
          }
        }
        attached_target_group {
-         target_group_id = "enpu2l7q9kth8906spjn"
+         target_group_id = "enpu2l7q9kth********"
          healthcheck {
            name                = "http"
            interval            = 2
@@ -306,7 +310,7 @@
 
   ```api
   {
-    "folderId": "<идентификатор каталога>",
+    "folderId": "<идентификатор_каталога>",
     "name": "test-load-balancer-2",
     "type": "EXTERNAL",
     "listenerSpecs": [
@@ -322,7 +326,7 @@
     ],
     "attachedTargetGroups": [
       {
-        "targetGroupId": "b7rjtf12qdeehrj31hri",
+        "targetGroupId": "b7rjtf12qdee********",
         "healthChecks": [
           {
             "name": "http",

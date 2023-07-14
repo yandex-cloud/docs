@@ -625,21 +625,6 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
-### Get a console login link {#get-link}
-
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID.
-
-Get the link:
-
-1. Copy the Federation ID:
-
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
-
-   1. Copy the ID of the federation you are configuring access for.
-
-1. Generate a link using this ID:
-
-   `{{ link-console-main }}/federations/<federation ID>`
 
 ## Creating and setting up a SAML application in Keycloak {#keycloak-settings}
 
@@ -875,7 +860,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
 ### Setting up user attribute mappings {#claims-mapping}
 
-Following user authentication, the IdP server will send an SAML message to {{ yandex-cloud }} containing:
+Following user authentication, the IdP server will send the user a SAML message via the browser containing:
 
 * Information about successful authentication.
 

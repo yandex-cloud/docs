@@ -24,9 +24,9 @@ For non-bootable disks, the partition size won't expand automatically. Use stand
 
 #### How do I upload a custom image? {#load-image}
 
-Follow the instructions: [{#T}](../../compute/operations/image-create/upload.md).
+Follow this guide: [{#T}](../../compute/operations/image-create/upload.md).
 
-To ensure that the VM created from your image functions properly, follow all of the instructions.
+To ensure that the VM created from your image functions properly, follow the steps specified in the guide.
 
 If you have followed all recommendations and the image still fails to start up, or in case you have other questions, contact support.
 
@@ -49,7 +49,7 @@ This happens if occupied sectors remain on a disk after you delete files from it
 The solution is to write a file consisting of zeros to the entire unoccupied disk space, then flush the cache to the disk, and delete the record about this file.
 
 * For Windows: stop disk operations and use the `SDelete` utility. You can learn more about the utility and download it in the [Microsoft documentation]({{ ms.docs }}/sysinternals/downloads/sdelete).
-* For Linux: stop disk operations and enter the following commands one by one:
+* For Linux: stop disk operations and enter the following commands one-by-one:
 
    ```bash
    dd if=/dev/zero | pv > full.disk
@@ -73,9 +73,7 @@ No, only a single snapshot can be created for one disk at a time. All other sche
 
 #### How are snapshot quotas counted? {#how-shapshot-qoutas-taken}
 
-Snapshots count against [quotas]({{ link-console-quotas }}) by their parent disk sizes. For example, if a snapshot was created from a 250 GB disk, the quota for the size of snapshots allows for 250 GB, even if the actual size of the snapshot is 20 GB. This is done so that both developers and customers can realistically understand possible loads on the disk snapshot service.
-
-This approach to quotas doesn't affect pricing: snapshots are charged according to their real size.
+Snapshots are billable and count towards [quotas]({{ link-console-quotas }}) with their actual sizes.
 
 #### How do I move a VM to another folder/cloud? {#move-vm-folder-cloud}
 
@@ -84,8 +82,8 @@ This approach to quotas doesn't affect pricing: snapshots are charged according 
    * Role for the folder: `viewer` or `compute.images.user`.
 
 
-   See the instructions [{#T}](../../iam/operations/roles/grant.md).
-1. Create an image from your snapshot under **Disk snapshots** or from the disk itself under **Disks**.
+   For details, see the instructions [{#T}](../../iam/operations/roles/grant.md).
+1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.switch_snapshots }}** or from the disk itself under **{{ ui-key.yacloud.compute.switch_disks }}**.
 
 A user in another cloud must:
 1. Run the [CLI](../../cli/) command below:
@@ -99,7 +97,7 @@ A user in another cloud must:
 
 #### How do I attach a new disk to a VM? {#attach-disk-to-vm}
 
-After creating and connecting a new disk to the VM, you need to mount it or assign it a letter, depending on the operating system. Follow the instructions: [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
+After creating and connecting a new disk to the VM, you need to mount it or assign it a letter, depending on the operating system. Follow this guide: [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
 
 
 #### How do I set up automatic backups? {#set-up-automatic-snapshot-creation}
@@ -121,7 +119,7 @@ Yes, you can add a disk to several schedules. There are fixed [limits](../../com
 
 #### In what time zone is the time written in disk snapshot schedule settings? {#snapshot-schedule-tz}
 
-The time is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
+The time is provided for the [UTC](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
 
 
 #### Can I choose a folder for scheduled disk snapshots? {#snapshot-schedule-catalog}
@@ -136,7 +134,7 @@ See section [{#T}](../../compute/concepts/snapshot-schedule.md#cron).
 
 #### If the schedule is configured to keep several of the last disk snapshots, are old snapshots deleted before or after new ones are created? {#snapshot-schedule-retention-order}
 
-After. A new snapshot is created first, then the old one is deleted. For example, if you want to keep only the last five snapshots, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on.
+After. A new snapshot is created first, then the old one is deleted. For example, if you want to keep only the last five snapshots, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, etc.
 
 
 #### What happens to operations and created snapshots when disk snapshot schedules are changed, interrupted, or deleted? {#snapshot-schedule-stop-delete}
@@ -146,9 +144,9 @@ All snapshot creation or deletion operations that started prior to changing, int
 
 #### What happens to my data when I delete a virtual machine? {#delete-vm}
 
-When selecting a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, reconfiguring it, or attaching a new disk.
+When selecting a disk to attach to a VM, you can specify that the disk should be deleted once you delete the VM. This option is also available when you create a VM, reconfigure it, or attach a new disk to it.
 
-If a VM had previously created disks attached, they will be detached when you delete the VM. The disk data is preserved, and this disk can be attached to another VM later.
+If a VM had any previously created disks attached, they will be detached when you delete the VM. The disk data is preserved, and this disk can be attached to another VM later.
 
 If you would like to delete a disk with a VM, specify this option when creating the VM, reconfiguring it, or attaching the disk. Such disks will be deleted along with the VM.
 

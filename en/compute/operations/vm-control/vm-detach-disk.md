@@ -19,11 +19,10 @@ To detach a disk from a VM:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-   1. Select **{{ compute-name }}**.
-   1. Select the VM to detach a disk from.
-   1. Go to ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
-   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the disk in question and select **Detach**.
-   1. Click **Detach**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+   1. Next to the disk you need to detach, click ![image](../../../_assets/horizontal-ellipsis.svg), and then click **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
+   1. Click **{{ ui-key.yacloud.compute.disks.popup_detach-disk_button_detach }}**.
 
 - CLI
 

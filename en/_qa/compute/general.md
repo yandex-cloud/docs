@@ -46,7 +46,7 @@ You can connect to a VM from another VM on the same [cloud network](../../vpc/co
 
 If you assigned a VM a [public IP](../../vpc/concepts/address.md#public-addresses) during creation, you can use that IP to connect to the VM from the internet.
 
-You can get the IP addresses, FQDNs, and other information in the management console in to the **Network** section on the VM's page.
+You can get the IP addresses, FQDNs, and other information in the management console in to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM's page.
 
 For more information, see [{#T}](../../compute/concepts/network.md).
 

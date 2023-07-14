@@ -79,13 +79,15 @@ The list, structure, and descriptions of specification fields are provided:
 
 API references are generated from specifications published on GitHub.
 
-Some first-level fields and their nested fields are also described  in the following documentation sections:
+Some first-level fields and their nested fields are also described in the following documentation sections:
 
 * [{#T}](instance-template.md) (the `instance_template` field).
 * [{#T}](variables-in-the-template.md) (the `instance_template` and `variables` fields).
 * [{#T}](policies/allocation-policy.md) (the `allocation_policy` field).
 * [{#T}](policies/deploy-policy.md) (the `deploy_policy` field).
 * [{#T}](policies/scale-policy.md) (the `scale_policy` field).
+* [{#T}](autohealing.md) (the `health_checks_spec` field).
+* [{#T}](balancers.md) (the `load_balancer_spec` and `application_load_balancer_spec` fields).
 
 These sections are updated manually. They may be not as up-to-date as the API references and our specification on GitHub.
 
@@ -205,7 +207,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 In YAML format, all values in dictionary objects are implicitly strings, so you do not need to use quotation marks for them. The string contents must match the types specified in the API reference or in the Protobuf specification: `string`, `int64`, `bool`, etc.
 
-## Suffixes for the `int64` type {#int64}
+### Suffixes for the `int64` {#int64} type
 
 Values of the `int64` type support the following suffixes:
 

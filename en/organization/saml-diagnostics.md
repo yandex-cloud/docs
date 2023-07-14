@@ -16,6 +16,10 @@ The response received from the IdP server is a correct XML but not a correct `SA
 
 XML recognition error occurred. `SAMLResponse` data is incomplete or corrupt.
 
+## SAMLResponse contains no assertions {#assertions-not-found}
+
+The received `SAMLResponse` contains no `assertions`. A valid status code must be specified in the error message, such as: `No assertions found in response. The status code is 'Responder'`.
+
 ## Error handling the response {#invalid-response}
 
 Failed to decode a `SAMLResponse` string.
@@ -36,7 +40,7 @@ The `SAMLResponse` sender address does not match the URL address of the `SamlReq
 
 There is no `subject` in the `SAMLResponse`.
 
-## Assertions contain an incorrect `subject` element {#username-not-found}
+## Assertion contains an incorrect `subject` element {#username-not-found}
 
 There is a `subject` in the `SAMLResponse` but the `NameID` or `EncryptedID` field is missing in it.
 

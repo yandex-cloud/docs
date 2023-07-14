@@ -7,11 +7,3 @@ A _NAT gateway_ allows you to grant internet access permissions to cloud resourc
 To route traffic through a gateway, specify it as the next hop in a [route table](static-routes.md). Currently, you can only use a NAT gateway for a route with the `0.0.0.0/0` destination prefix; any traffic to route outside the network will pass through this gateway.
 
 If a VM's network interface is assigned a [public IP](address.md#public-addresses) and the subnet that this interface is connected to has a route table with a set up gateway, the VM will access the internet from that public IP rather than through the gateway. Currently, you cannot use reserved public IP addresses for gateways.
-
-{% note warning %}
-
-Please note that a NAT gateway will replace the [Egress NAT](../operations/enable-nat.md) function for subnets. If you disable egress NAT on a subnet, you cannot enable it again and will have to use a NAT gateway instead.
-
-{% endnote %}
-
-

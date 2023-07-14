@@ -67,3 +67,9 @@ The service has [quotas and limits](limits.md).
 If you upload audit logs to a log group or a data stream, make sure their size is both within the {{ at-name }} limits and the [{{ cloud-logging-full-name }}](../../logging/concepts/limits.md) and [{{ yds-full-name }}](../../data-streams/concepts/limits.md) limits. If the limits are exceeded, information in event audit logs that are large in size will be incomplete.
 
 We also recommend uploading audit logs to the {{ objstorage-name }} bucket.
+
+{% note info %}
+
+{% include [error-note](../../_includes/audit-trails/error-note.md) %}
+
+{% endnote %}

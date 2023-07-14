@@ -10,7 +10,7 @@ Advantages of using dedicated hosts:
 * Security and compliance.
   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards, such as medical or financial ones.
 * Using your own licenses.
-  If your company has Microsoft licenses or those from other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} based on the _Bring your own license_ (BYOL) model.
+  If your company has Microsoft licenses or those from other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} based on the <q>Bring your own license</q> (BYOL) model.
 * Managing your VM allocation.
   You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
 
@@ -50,8 +50,8 @@ Do not use archived types to create dedicated hosts. Select a current type inste
 
 | Type and processor<br>(Cascade Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
 | --- | --- | --- | --- | --- | --- | --- |
-| `intel-6230-c66-m454`<br>[Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1,46 TB) |
-| `intel-6230-c66-m704-n1600x4`<br>Intel Xeon Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1,46 TB) |
+| `intel-6230-c66-m454`<br>[Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
+| `intel-6230-c66-m704-n1600x4`<br>Intel Xeon Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
 | `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 B <br>(~ 2.91 TB) |
 | `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3198924357632 B <br>(~ 2.91 TB) |
 
@@ -95,7 +95,7 @@ You can only attach local disks to a VM while creating it. For more information 
 
 ## Scaling policy {#scale-policy}
 
-When creating a host group, specify the number of dedicated hosts. When updating the group, you can reduce or increase the number of hosts in it. The scaling policy is defined by the `ScalePolicy` parameter:
+When creating a host group, you need to specify the number of dedicated hosts. When updating the group, you can reduce or increase the number of hosts in it. The scaling policy is defined by the `ScalePolicy` parameter:
 
 ```
 yc compute host-group create \

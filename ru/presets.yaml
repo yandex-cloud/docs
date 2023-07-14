@@ -3074,6 +3074,100 @@ default:
             1|string: "0,390080\_$"
         requests|string: Не тарифицируется
   ui-key:
+    beta-wiki:
+      blocks_common_desktop:
+        blocks_b-access-button:
+          delete: удалить
+        blocks_b-action-delete:
+          table_address: Адрес
+        blocks_b-editor-struct:
+          page_save: Сохранить
+        blocks_b-events-log:
+          edit_version: Редактировать эту версию
+          return_this_version: Вернуться к этой версии
+        blocks_b-file2:
+          icon_upload: Загрузить файл
+        blocks_b-foot:
+          feedback: Обратная связь
+        blocks_b-head:
+          create: Создать
+          favorite: Избранное
+          my_page: Моя страница
+          options: Настройки
+          search: Поиск
+          wiki: Вики
+        blocks_b-notification:
+          actual: Страница актуальна
+        blocks_b-page-more-panel:
+          create_page: Создать подстраницу
+          delete: Удалить
+          settings: Настройки
+          subscribe_users: Подписать пользователей
+          tree: Структура раздела
+        blocks_b-page:
+          page: Страница
+        blocks_b-sidebar:
+          icon-files: Файлы
+        blocks_b-subscribe-button:
+          subscribe: Подписаться на страницу
+          unsubscribe: Отписаться
+        blocks_b-widget:
+          access_to_parent: Как у родительской страницы
+          confirm: Подтвердить
+          grid: Таблица
+          load: Загрузить
+          name: Название
+          page-settings: Настройки страницы
+        blocks_page-editor:
+          page_view: Просмотр
+        blocks_sidebar:
+          files-label: Файлы
+          grid-settings-label: Настройки
+        blocks_w-attachments:
+          upload-btn-text: Выберите файл
+        blocks_w-comment:
+          edit: Редактировать
+        blocks_w-page-setting:
+          add: Добавить
+      blocks_common_favorites:
+        blocks_b-favs-links:
+          name_search: Поиск по названию
+        blocks_b-favs:
+          i_am_observer: Подписки
+      blocks_common_newgrid:
+        blocks_b-grid-table-code-form:
+          can_sort: Возможность сортировки
+          read_only: Только для чтения
+          show_line_nums: Показывать номера строк
+          width: Ширина
+        blocks_b-grid-table-head:
+          add: Добавить
+          author: Автор
+          checkbox: Чекбокс
+          date: Дата
+          date_created: Дата создания
+          employee: Сотрудник
+          list: Список
+          mark_made: Помечать сделанным
+          multiple_list: Множественный список
+          number: Число
+          text: Текст
+          title: Заголовок
+          type: Тип
+        blocks_b-grid-table-options:
+          copy: Копировать
+          delete: Удалить
+          parent_table: Родительская таблица
+          settings: Настройки
+          tree: Структура раздела
+        blocks_b-grid-table-settings:
+          save: Сохранить
+        blocks_b-grid-table-width-controll:
+          auto: Авто
+        blocks_b-grid-table:
+          edit: Редактировать
+        blocks_w-grid-preview:
+          data_type: Тип данных
     datalens:
       chartkit:
         menu:
@@ -4649,6 +4743,9 @@ default:
         payment-type_label_card: Банковская карта
         payment-type_label_invoice: Банковский перевод
         section_persons: Плательщики
+    yacloud_components:
+      settings:
+        field_theme-contrast: Контрастность
     yacloud_monitoring:
       actions:
         common:
@@ -4796,6 +4893,7 @@ default:
         availability: Доступность
         button_cron-day: Каждый день
         clone: Клонировать
+        continue: Продолжить
         create: Создать
         delete: Удалить
         description: Описание
@@ -4811,6 +4909,7 @@ default:
         label_value: Значение
         logs: Логи
         monitoring: Мониторинг
+        move: Переместить
         name: Имя
         operations-key-value: Операции
         overview: Обзор
@@ -4825,12 +4924,14 @@ default:
         select: Выбрать
         start: Запустить
         stop: Остановить
+        table-config: Настройки таблицы
         type: Тип
         units:
           label_gigabyte: ГБ
           label_time-min_many: минут
           label_time-min_zero: минут
           label_time-sec_many: секунд
+        user: Пользователь
       component:
         compute:
           network-select:
@@ -4862,12 +4963,15 @@ default:
           button_action-create-folder: Создать каталог
         dns-integration:
           button_add-domain: Создать запись
+        docs:
+          label_title: Документация
         image-field:
           button_custom-image: Укажите ссылку
         mdb:
           settings:
             popup_settings-submit: Сохранить
         navigation-menu:
+          label_account: Учетная запись
           label_notifications: Уведомления
         service-account-select:
           button_create-account-new: Создать новый
@@ -4876,7 +4980,10 @@ default:
           button_create-key: Создать ключ
           button_create-key-new: Создать новый
           label_no-symmetric-key: Не выбрано
+        table-input:
+          popup_title: Добавить строку
         user-account:
+          label_link-login: Войти
           label_logout: Выйти
         vpc-security-group-select:
           label_add-security-group: Добавить группу безопасности
@@ -5056,6 +5163,7 @@ default:
             field_instance-group-network: Сеть
             field_key: SSH-ключ
             field_name: Имя
+            field_password: Пароль
             field_serial-port-enable: Разрешить доступ к серийной консоли
             field_service-account: Сервисный аккаунт
             field_user: Логин
@@ -5268,6 +5376,7 @@ default:
             button_action-delete: Удалить
             button_add: Создать сервисный аккаунт
             popup-confirm_button_delete: Удалить
+          switch_incident-notifications: Уведомления
           switch_service-accounts: Сервисные аккаунты
       k8s:
         cluster:
@@ -5539,7 +5648,13 @@ default:
           list:
             button_create: Создать триггер
       settings:
+        appearance:
+          field_theme: Тема интерфейса
+        experiments:
+          label_title: Эксперименты
         label_settings: Настройки
+        lang:
+          label_title: Язык и регион
         switch_appearance: Оформление
         switch_experiments: Эксперименты
         switch_lang: Язык и регион

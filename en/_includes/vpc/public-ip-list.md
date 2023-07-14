@@ -33,7 +33,6 @@ For example, the resources assigned such IP address ranges are:
 * DB hosts
 * NAT instances
 * {{ network-load-balancer-name }} and {{ alb-name }} load balancers
-* {{ objstorage-name }} buckets
 
 ## IP addresses used by {{ yandex-cloud }}
 

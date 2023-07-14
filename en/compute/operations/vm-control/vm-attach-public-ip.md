@@ -7,14 +7,14 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-   1. Select **{{ compute-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Select the VM.
-   1. Under **Network interface**, in the top right-hand corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Add public IP**.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, in the top-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
    1. In the window that opens:
-      * In the **Public IP** field, choose **Auto** assignment of IP addresses or choose a reserved address from a **List**
-         * (option) If you selected **Auto** under **Public IP**, enable the **DDoS protection** option. For more information, see [{#T}](../../../vpc/ddos-protection/index.md).
-      * If you selected **List** in the **Public IP** field, select the address that you would like to bind to your VM.
-      * Click **Add**.
+      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved one from the list.
+         (option) If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` under **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}**, enable the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}** option. For more information, see [{#T}](../../../vpc/ddos-protection/index.md).
+      * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select the address that you would like to bind to your VM.
+      * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
 - CLI
 
@@ -26,8 +26,8 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    ```bash
    yc compute instance add-one-to-one-nat
-     --id=<instance_ID> 
-     --network-interface-index=<instance_network_interface_index> 
+     --id=<instance_ID>
+     --network-interface-index=<instance_network_interface_index>
      --nat-address=<IP address>
    ```
 
@@ -41,7 +41,7 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    ```bash
    yc compute instance add-one-to-one-nat
-     --id=fhmsbag62tafcus1a12c 
+     --id=fhmsbag62tafcus1a12c
      --network-interface-index=0
      --nat-address=51.250.9.203
    ```

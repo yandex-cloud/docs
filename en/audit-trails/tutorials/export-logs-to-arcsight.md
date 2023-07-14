@@ -60,7 +60,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name following the [naming guidelines](../../storage/concepts/bucket.md#naming), such as `arcsight-bucket`.
+      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -93,7 +93,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to `arcsight-bucket`.
+   1. In the [management console]({{ link-console-main }}), go to the previously created bucket.
    1. On the left-hand panel, select **Encryption**.
    1. In the **{{ kms-short-name }} key** field, select the `arcsight-kms` key.
    1. Click **Save**.
@@ -286,7 +286,7 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
    5. Under **Destination**, set up the destination object:
 
       * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: `arcsight-bucket`.
+      * **Bucket**: The name of the bucket.
       * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
       {% note info %}
@@ -333,7 +333,7 @@ To mount the bucket, create a file with the `sa-arcsight-bucket` service account
 1. Mount the bucket:
 
    ```bash
-   s3fs arcsight-bucket ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
+   s3fs <bucket_name> ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
    ```
 
 1. Check that the bucket was mounted:

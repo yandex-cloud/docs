@@ -14,11 +14,11 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. Select **{{ compute-name }}**.
-   1. Open the ![image](../../../_assets/compute/disks-pic.svg) tab **Disks** and choose the disk.
-   1. Under **Snapshot schedules**, click ![image](../../../_assets/plus.svg) **Add schedule**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Open the ![image](../../../_assets/compute/disks-pic.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
+   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
    1. Choose a schedule or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -78,7 +78,7 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       ```bash
       yc compute snapshot-schedule list-disks <name_or_ID_of_the_schedule>
       ```
-      See [more info](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
+      For details, see [more info](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
 
    1. Get the name or ID of the schedule:
 
@@ -121,7 +121,7 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         snapshot_spec: {}
       ```
 
-      If you don't have a schedule, [create](../snapshot-control/create-schedule.md) one.
+      If you do not have a schedule, [create](../snapshot-control/create-schedule.md) one.
 
    1. Add one or several disks to the schedule:
 
@@ -148,9 +148,9 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. Select **{{ compute-name }}**.
-   1. Open the ![image](../../../_assets/compute/disks-pic.svg) tab **Disks** and choose the disk.
-   1. Under **Snapshot schedules**, in the line with the schedule, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Detach from disk**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Open the ![image](../../../_assets/compute/disks-pic.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
+   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, in the line with the schedule, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI
 

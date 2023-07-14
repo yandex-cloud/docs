@@ -1,4 +1,4 @@
-### audit-trails.admin {#at-admin}
+#### audit-trails.admin {#at-admin}
 
 The `audit-trails.admin` role is assigned for a cloud or folder.
 It grants permission to manage trails and user access to them.

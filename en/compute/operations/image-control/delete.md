@@ -15,10 +15,10 @@ To delete an image:
 - Management console
 
    1. In the management console, select the folder the image belongs to.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **Images**.
-   1. In the row with the desired image, click ![image](../../../_assets/horizontal-ellipsis.svg) and select the **Delete** command from the menu.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+   1. In the line of the appropriate image, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.images.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -50,7 +50,7 @@ To delete an image:
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    Images created using {{ TF }} can be deleted:
    1. In the command line, go to the directory with the {{ TF }} configuration file.

@@ -1,4 +1,4 @@
-### audit-trails.configViewer {#at-configviewer}
+#### audit-trails.configViewer {#at-configviewer}
 
 This is an obsolete role. Use `audit-trails.auditor` instead of `audit-trails.configViewer`.
 

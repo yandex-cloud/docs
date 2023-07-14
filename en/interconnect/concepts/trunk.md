@@ -54,11 +54,11 @@ One may outline this connection as follows:
 
 The client equipment is located at a [point of presence](./pops.md) and connected to the {{ yandex-cloud }} equipment directly through an optical cross-connection routed within the point of presence.
 
-The transceiver transmitting side (Tx) on the {{ yandex-cloud }} equipment is connected to the transceiver receiving side (Rx) on the client equipment using an optical fiber. The transceiver transmitting side (Tx) on the client equipment is connected to the transceiver receiving side (Rx) on the {{ yandex-cloud }} equipment with an optical fiber. A pair of these optical fibers makes up an optical cross-connect.
+The transceiver transmitting side (Tx) on the {{ yandex-cloud }} equipment is connected to the transceiver receiving side (Rx) on the client equipment using an optical fiber. The transceiver transmitting side (Tx) on the client equipment is connected to the transceiver receiving side (Rx) on the {{ yandex-cloud }} equipment with optical fiber. A pair of these optical fibers makes up an optical cross-connect.
 
 ### Connecting using telecom provider services{#sp-link}
 
-If a client does not have their own equipment at the [point of presence](./pops.md), then, to connect to the {{ yandex-cloud }} equipment, the client will need to use the services of a telecom provider that has equipment at the point of presence.
+If a client does not have their own equipment at the appropriate [point of presence](./pops.md), to connect to the {{ yandex-cloud }} equipment, the client uses the services of a telecom provider that has equipment at the appropriate point of presence.
 
 One may outline this connection as follows:
 

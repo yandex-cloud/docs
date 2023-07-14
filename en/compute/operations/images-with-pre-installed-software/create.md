@@ -7,21 +7,25 @@ To create a [VM](../../concepts/vm.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), open the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-   1. Click **Create resource**.
-   1. Select **Virtual machine**.
-   1. In the **Name** field, enter the VM name.
+   1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+   1. In the list that opens, select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 
-   1. Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
-   1. Select a public [image](../../concepts/image.md) with the software you want to use.
-   1. (Optional) If you want to add more [disks](../../concepts/disk.md) to the VM, [select them](../vm-create/create-from-disks.md) under **Disks and file storage** by clicking the **Disks** tab.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+      * Enter the VM name. The naming requirements are as follows:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
+   1. (Optional) If you want to add more [disks](../../concepts/disk.md) to the VM, [select them](../vm-create/create-from-disks.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** by clicking the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab.
 
    
-   1. (Optional) If you want to connect more [file stores](../../concepts/filesystem.md) to the VM, attach them under **Disks and file storage** by clicking the **File stores** tab. [Create](../filesystem/create.md) the storages first.
+   1. (Optional) If you want to add more [file stores](../../concepts/filesystem.md) to the VM, add them under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** by clicking the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab. [Create](../filesystem/create.md) the storages first.
 
 
-   1. Under **Computing resources**:
+
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../concepts/performance-levels.md) and the required number of vCPUs as well as the amount of RAM.
 
@@ -31,28 +35,28 @@ To create a [VM](../../concepts/vm.md):
 
       {% endnote %}
 
-   1. Under **Network settings**:
-      * Enter a [subnet](../../../vpc/concepts/network.md#subnet) ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click **Create network**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * Enter a [subnet](../../../vpc/concepts/network.md#subnet) ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you do not have a network, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
          * In the window that opens, enter the folder to host the new network, as well as the network name.
-         * Enable the option **Create subnets**: each network must have at least one subnet.
-         * Click **Create**.
-      * In the **Public IP** field, choose a method for assigning an IP address:
-         * **Auto**: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
-         * **List**: Select a [public IP address](../../../vpc/concepts/address.md#public-addresses) from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-         * **No address**: Do not assign a public IP address.
+         * In the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_advanced }}** field, enable **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** (each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet)).
+
+         * Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
+         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
+         * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a [public IP address](../../../vpc/concepts/address.md#public-addresses) from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
+         * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
 
       
-      * (optional) Enable [DDoS protection](../../../vpc/ddos-protection/index.md), if required.
+      * (Optional) Enable [DDoS protection](../../../vpc/ddos-protection/index.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** field, if required.
 
 
-      * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the VM will be enabled for all incoming and outgoing traffic).
-   1. Under **Access**, specify the information required to access the instance:
+      * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field (if there is no such field, the VM will be enabled for all incoming and outgoing traffic).
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (optional) Select or create a [service account](../../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
-      * (optional) Enable access to the [serial console](../index.md#serial-console), if required.
-   1. Specify data required for accessing the VM.
-   1. Click **Create VM**.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
+      * (Optional) Enable access to the [serial console](../index.md#serial-console) in the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, if required.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configuring software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
 

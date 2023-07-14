@@ -9,10 +9,10 @@ To interrupt automatic [scheduled](../../concepts/snapshot.md) creation of [disk
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
-   1. Go to the **Snapshot schedules** tab.
-   1. Next to the schedule you wish to interrupt, click ![image](../../../_assets/options.svg) and select **Stop**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. Click the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+   1. Next to the schedule you wish to interrupt, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
    1. Confirm the schedule stop.
 
 - CLI
@@ -109,10 +109,10 @@ To start automatic scheduled creation of disk snapshots:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
-   1. Go to the **Snapshot schedules** tab.
-   1. Next to the schedule you wish to start, click ![image](../../../_assets/options.svg) and select **Start**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. Click the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+   1. Next to the schedule you wish to start, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.start }}**.
 
 - CLI
 

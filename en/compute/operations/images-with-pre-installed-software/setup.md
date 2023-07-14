@@ -7,7 +7,7 @@ For VMs with content management systems to deploy, such as Drupal, {{ GL }}, Joo
 ## Configuring software via a web setup wizard {#web-setup}
 
 To run the web setup wizard:
-1. Get the VM's [public IP address](../../../vpc/concepts/address.md#public-addresses). You can find out the IP address in the management console under the **Network** section on the VM page.
+1. Get the VM's [public IP address](../../../vpc/concepts/address.md#public-addresses). You can find out the IP address in the [management console]({{ link-console-main }}) by going to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM's page.
 1. Type `http://<IP address>` in the browser address bar. The authorization window opens.
 
    {% note info %}

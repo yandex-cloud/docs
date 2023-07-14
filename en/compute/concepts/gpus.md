@@ -106,6 +106,7 @@ For more information about organizational and technical limitations for VMs, see
 
 {% include [gpu-os](../../_includes/compute/gpu-os.md) %}
 
+
 ## GPU clusters {#gpu-clusters}
 
 {% note info %}
@@ -117,6 +118,7 @@ To use GPU clusters, contact your account manager.
 You can group multiple VMs running on 8 NVIDIA A100 GPUs into a cluster. This will allow you to accelerate distributed training tasks that require higher computing capacity than individual VMs can provide. Make sure the cluster is created in the same availability zone as its VMs. The cluster VMs are interconnected through InfiniBand, a secure high-speed network.
 
 You can add VMs from different folders, networks, and subnets to your cluster. For the cluster VMs to interact properly, we recommend using a [security group](../../vpc/concepts/security-groups.md) that allows unlimited traffic within the group. The default security group meets this requirement. If you edited the default security group, add a group with unlimited internal traffic.
+
 
 ## See also {#see-also}
 

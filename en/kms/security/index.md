@@ -18,17 +18,20 @@ Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hi
 
 ## Which roles exist in the service {#roles-list}
 
-You can manage access to {{ kms-short-name }} keys using both service and primitive roles. The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
+You can manage access to {{ kms-short-name }} keys using both service and primitive roles.
+
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/kms/service-roles-hierarchy.svg)
 
-### Service roles {#service}
+### Service roles {#service-roles}
 
 Service roles provide more granular control over {{ kms-short-name }} keys, taking into account the service specifics: a strict division of subjects into key administrators (the `kms.admin` role) and users (the `kms.keys.encrypterDecrypter` role).
 
 Users without the `resource-manager.clouds.owner` or `admin` role can't assign roles via the management console.
 
 List of service roles:
+
 * `kms.keys.encrypterDecrypter`: Enables you to encrypt and decrypt data and view information about keys. Includes all access rights of the `kms.keys.encrypter` and `kms.keys.decrypter` roles.
 * `kms.keys.encrypter`: Enables you to [encrypt](../operations/encryption.md#encryption) data and view information about keys.
 * `kms.keys.decrypter`: Enables you to [decrypt](../operations/encryption.md#decryption) data and view information about keys.
@@ -36,14 +39,9 @@ List of service roles:
 * `kms.editor`: Enables you to manage keys (view, create, update, rotate keys, and encrypt and decrypt data). Includes all access rights of the `kms.viewer` and `kms.keys.encrypterDecrypter` roles.
 * `kms.viewer`: Enables you to read information about keys.
 
-### Primitive roles {#primitive}
+### Primitive roles {#primitive-roles}
 
-Primitive roles are common to all resources {{ yandex-cloud }}. Assigning any of them grants certain permissions in {{ kms-short-name }} and other cloud services. For example, the `admin` role assigned for a folder can enable you to remove any {{ kms-short-name }} keys in a folder and modify the folder itself or the resources it contains. You can manage primitive roles using the management console.
-
-List of primitive roles:
-* `viewer`: Provides viewing access only to resource information.
-* `editor`: Lets you manage (create and edit) resources.
-* `admin`: Lets you manage access to resources as well as the resources themselves (create, modify, and delete).
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#choosing-roles}
 

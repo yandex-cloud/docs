@@ -9,21 +9,21 @@ To change basic settings of a snapshot schedule:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
-   1. Go to the **Snapshot schedules** tab.
-   1. Next to the schedule you wish to change, click ![image](../../../_assets/options.svg) and select **Edit**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. Click the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+   1. Next to the schedule you wish to change, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Configure snapshot schedule parameters:
-      * **Name**:
+      * **{{ ui-key.yacloud.common.name }}**:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-      * **Description**.
-      * In the **Create snapshots** field, select frequency of snapshot creation: **By hour**, **By day**, **By week**, or [**By cron expression**](../../concepts/snapshot-schedule.md#cron). The time of snapshot creation is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
-      * In the **Starting on** field, set the start date for your schedule.
+      * **{{ ui-key.yacloud.common.description }}**.
+      * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** field, select how often the snapshots will be created: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}`, [or `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). The time of snapshot creation is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
+      * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** field, set the start date for your schedule.
       * Select the policy for snapshot retention:
-         * **Store all snapshots**: All created scheduled snapshots are kept.
-         * **Only the last**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created by this schedule are deleted automatically.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: All created scheduled snapshots are kept.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created by this schedule are deleted automatically.
 
          {% note info %}
 
@@ -31,7 +31,7 @@ To change basic settings of a snapshot schedule:
 
          {% endnote %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -145,15 +145,15 @@ To change a list of disks for which snapshots are scheduled:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
-   1. On the **Snapshot schedules** tab, choose a schedule for which you want to change a disk list.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+   1. On the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, choose a schedule for which you want to change a disk list.
    1. Change a disk list:
-      * To add a new disk, under **Disks**, click ![image](../../../_assets/plus-sign.svg) **Add disk**. In the window that opens, choose a disk to add to the schedule and click **Save**.
+      * To add a new disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. In the window that opens, choose a disk to add to the schedule and click **{{ ui-key.yacloud.common.save }}**.
 
          {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-      * To delete a disk, under **Disks**, next to the disk you wish to delete from the schedule, click ![image](../../../_assets/options.svg) and select **Delete from schedule**.
+      * To delete a disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, next to the disk you wish to delete from the schedule, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
 
 - CLI
 

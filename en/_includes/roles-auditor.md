@@ -8,7 +8,6 @@ For example, the `{{ roles-auditor }}` role allows you to perform the following 
 {% note info %}
 
 The `{{ roles-auditor }}` role is currently not supported in the following services:
-* {{ container-registry-full-name }}.
 * {{ yds-full-name }}.
 * {{ data-transfer-full-name }}.
 * {{ ydb-full-name }}.
