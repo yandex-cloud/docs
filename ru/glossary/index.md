@@ -30,6 +30,7 @@
 * [{#T}](snapshot.md)
 * [{#T}](datavault.md)
 * [{#T}](bigdata.md)
+* [{#T}](sharding.md)
 
 ## Речевые технологии
 

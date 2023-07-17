@@ -1,6 +1,6 @@
 # Example use of streaming recognition with API v3
 
-The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/).
+The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/index.md).
 
 The example uses the following parameters:
 

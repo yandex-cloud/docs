@@ -2,7 +2,7 @@
 
 ## Available voices {#voices}
 
-{{ sk-hybrid-name }} offers [premium voices](../../speechkit/tts/voices.md#premium) and [Brand Voice](../../speechkit/tts/brand-voice/).
+{{ sk-hybrid-name }} offers [premium voices](../../{{ speechkit-slug }}/tts/voices.md#premium) and [Brand Voice](../../{{ speechkit-slug }}/tts/brand-voice/).
 
 ## Before you begin {#before-you-begin}
 

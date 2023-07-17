@@ -117,6 +117,7 @@
        --environment <окружение: prestable или production> \
        --version <версия {{ KF }}: {{ versions.cli.str }}> \
        --network-name <имя сети> \
+       --subnet-ids <идентификаторы подсетей> \
        --brokers-count <количество брокеров в зоне> \
        --resource-preset <класс хоста> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
@@ -202,6 +203,7 @@
        environment         = "<окружение: PRESTABLE или PRODUCTION>"
        name                = "<имя кластера>"
        network_id          = "<идентификатор сети>"
+       subnet_ids          = ["<список идентификаторов подсетей>"]
        security_group_ids  = ["<список идентификаторов групп безопасности кластера>"]
        deletion_protection = <защита от удаления кластера: true или false>
 
@@ -216,6 +218,7 @@
              disk_type_id       = "<тип диска>"
              resource_preset_id = "<класс хоста>"
            }
+           kafka_config {}
          }
 
          zones = [
@@ -311,6 +314,7 @@
   * В окружении `production`.
   * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
+  * В подсети с идентификатором `{{ subnet-id }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С одним брокером.
@@ -328,6 +332,7 @@
     --environment production \
     --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
+    --subnet-ids {{ subnet-id }} \
     --zone-ids {{ region-id }}-a \
     --brokers-count 1 \
     --resource-preset {{ host-class }} \
@@ -368,6 +373,7 @@
     environment         = "PRODUCTION"
     name                = "mykf"
     network_id          = yandex_vpc_network.mynet.id
+    subnet_ids          = yandex_vpc_subnet.mysubnet.id
     security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
     deletion_protection = true
 
@@ -381,6 +387,7 @@
           disk_type_id       = "{{ disk-type-example }}"
           resource_preset_id = "{{ host-class }}"
         }
+        kafka_config {}
       }
 
       zones = [

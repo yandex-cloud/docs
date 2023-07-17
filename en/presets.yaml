@@ -77,6 +77,7 @@ default:
   yandex-360: Yandex 360
   storage-aws-cli-alias: ycs3
   yagpt-full-name: YandexGPT
+  billing-name: Billing
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -215,6 +216,7 @@ default:
   backup-short-name: Cloud Backup
   yq-short-name: YQ
   datalens-public: DataLens Public
+  speechkit-slug: speechkit
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor

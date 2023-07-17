@@ -56,5 +56,5 @@
 {% endlist %}
 
 
-Подробную информацию о [платежном аккаунте](../billing/concepts/billing-account.md) и [условиях для нерезидентов РФ](../billing/qa/non-resident.md) читайте в документации сервиса Биллинг.
+Подробную информацию о [платежном аккаунте](../billing/concepts/billing-account.md) и [условиях для нерезидентов РФ](../billing/qa/non-resident.md) читайте в документации сервиса {{ billing-name }}.
 

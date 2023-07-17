@@ -5,7 +5,7 @@ description: "В биллинге {{ yandex-cloud }} используются с
 
 # Все понятия
 
-В Биллинге {{ yandex-cloud }} используются следующие основные понятия:
+В сервисе {{ billing-name }} {{ yandex-cloud }} используются следующие основные понятия:
 * [{#T}](promo-code.md)
 * [{#T}](billing-threshold.md)
 * [{#T}](billing-account.md)

@@ -64,7 +64,7 @@ By default, the speed of generated speech corresponds to the average speed of hu
 
 ### Volume normalization {#volume}
 
-In [API v3](../tts-v3/api-ref/grpc/) requests, you can set the type and level of volume normalization. This can be useful if you are using {{ speechkit-name }} synthesis along with other sound sources. For example, so that the volume of the voice assistant does not differ from the phone notifications.
+In [API v3](../tts-v3/api-ref/grpc/index.md) requests, you can set the type and level of volume normalization. This can be useful if you are using {{ speechkit-name }} synthesis along with other sound sources. For example, so that the volume of the voice assistant does not differ from the phone notifications.
 
 {{ speechkit-name }} supports two normalization types:
 * [Peak normalization](https://en.wikipedia.org/wiki/Audio_normalization#Peak_normalization) `MAX_PEAK`, at which the audio signal level rises to the maximum possible digital audio value without distortion.

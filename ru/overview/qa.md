@@ -89,7 +89,7 @@
 ### Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ speechkit-full-name }}](../speechkit/qa/all.md)
+* [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
 

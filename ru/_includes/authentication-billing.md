@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Для доступа к API Биллинга нельзя использовать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
+Для доступа к API сервиса {{ billing-name }} нельзя использовать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
 
 {% endnote %}
 

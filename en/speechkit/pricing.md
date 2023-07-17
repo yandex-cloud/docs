@@ -12,7 +12,7 @@ editable: false
 
 ### Using speech synthesis {#rules-tts}
 
-The cost of using SpeechKit for speech synthesis depends on the version of the API used. For [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
+The cost of using {{ speechkit-name }} for speech synthesis depends on the version of the API used. For [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 

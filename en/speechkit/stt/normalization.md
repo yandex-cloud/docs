@@ -52,10 +52,10 @@ Rules for the presentation of normalized text may change. Please consider this d
 | Converting numbers from dictionary to numeric format | Enabled by default. To disable it, set `config.specification.rawResults=true`. |
 | Capitalizing words at the beginning of a sentence and proper nouns. Adding punctuation marks | `config.specification.literature_text=true` |
 
-
 ### API v3 {#api-v3}
 
-To enable normalization, set `text_normalization=TEXT_NORMALIZATION_ENABLED`. Some options are activated by additional parameters if you set `text_normalization=TEXT_NORMALIZATION_ENABLED`.
+
+To enable normalization, set `text_normalization=TEXT_NORMALIZATION_ENABLED` in the [API](../stt-v3/api-ref/grpc/stt_service.md). Some options are activated by additional parameters if you set `text_normalization=TEXT_NORMALIZATION_ENABLED`.
 
 | Normalization level | API parameter |
 | :----- | :------|

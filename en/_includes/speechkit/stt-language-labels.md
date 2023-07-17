@@ -18,6 +18,8 @@ Language labels contain the language code and specify the probability of its cor
 ```
     language_code: "ru-RU" probability: 0.91582357883453369
 ```
+
+
 {% note info %}
 
 Language detection and setting language labels are only available in gRPC API v3.

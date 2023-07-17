@@ -10,7 +10,12 @@
 [Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) without a WAV header.
 
 Audio features in this format:
-* Sampling rate: 8, 16, or 48 kHz for the [synthesis](tts/index.md) API v1 and [recognition](stt/index.md) API v2 and values in the range of 8–48 kHz for the synthesis and recognition API v3.
+
+* Sampling rate: 
+  
+  * 8, 16, or 48 kHz for the [synthesis](tts/index.md) API v1 and [recognition](stt/index.md) API v2.
+  * 8–48 kHz for the [synthesis](tts-v3/api-ref/grpc/index.md) and [recognition](stt-v3/api-ref/grpc/index.md) APIs v3.
+ 
 * Bit depth: 16-bit.
 * Byte order: Reversed (little-endian).
 * Audio data is stored as signed integers.

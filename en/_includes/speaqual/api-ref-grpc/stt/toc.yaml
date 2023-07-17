@@ -1,0 +1,6 @@
+items:
+  - name: Overview
+    href: stt-v3/api-ref/grpc/index.md
+  - name: Recognizer
+    href: stt-v3/api-ref/grpc/stt_service.md
+base: en/_includes/speaqual/api-ref-grpc/stt

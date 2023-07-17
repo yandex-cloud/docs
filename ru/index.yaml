@@ -155,7 +155,7 @@ links:
   - title: SmartCaptcha
     description: Инструмент для верификации запросов
     href: smartcaptcha/
-  - title: SpeechKit
+  - title: '{{ speechkit-name }}'
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/
   - title: Object Storage

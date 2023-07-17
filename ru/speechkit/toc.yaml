@@ -1,4 +1,4 @@
-title: Yandex SpeechKit
+title: '{{ speechkit-full-name }}'
 href: index.yaml
 items:
   - name: Обзор технологий {{ speechkit-name }}
@@ -57,7 +57,7 @@ items:
         href: tts/brand-voice/index.md
       - name: Синтез по шаблонам
         href: tts/templates.md
-  - name: SpeechKit Hybrid
+  - name: '{{ sk-hybrid-name }}'
     items:
       - name: О технологии
         href: hybrid-speechkit/index.md
@@ -97,8 +97,10 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Потоковое распознавание API v3
+      - name: Потоковое распознавание аудиофайла API v3
         href: stt/api/streaming-examples-v3.md
+      - name: Потоковое распознавание речи с микрофона API v3
+        href: stt/api/microphone-streaming.md
       - name: Автоматическое определение языка — API v3
         href: stt/api/stt-language-labels-example.md
       - name: Потоковое распознавание API v2

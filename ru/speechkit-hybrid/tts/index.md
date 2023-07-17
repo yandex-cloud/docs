@@ -2,7 +2,7 @@
 
 ## Список доступных голосов {#voices}
 
-В {{ sk-hybrid-name }} доступны [премиум-голоса](../../speechkit/tts/voices.md#premium) и [Brand Voice](../../speechkit/tts/brand-voice/).
+В {{ sk-hybrid-name }} доступны [премиум-голоса](../../{{ speechkit-slug }}/tts/voices.md#premium) и [Brand Voice](../../{{ speechkit-slug }}/tts/brand-voice/).
 
 ## Перед началом работы {#before-you-begin}
 
