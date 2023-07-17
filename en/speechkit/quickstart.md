@@ -71,7 +71,7 @@ curl -X POST \
 The service responds with the recognized text:
 
 ```
-{"result":"I'm Yandex SpeechKit. I can turn any text into speech. Now you can, too!"}
+{"result":"I'm {{ speechkit-full-name }}. I can turn any text into speech. Now you can, too!"}
 ```
 
 #### What's next {#what-is-next}

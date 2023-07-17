@@ -84,16 +84,14 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} добавьте блок `user`:
+  1. Добавьте ресурс `yandex_mdb_kafka_user`:
 
      ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        user {
-          name     = "<имя пользователя>"
-          password = "<пароль>"
-          ...
-        }
-        ...
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль>"
+       ...
      }
      ```
 
@@ -168,16 +166,14 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Найдите в описании кластера {{ mkf-name }} блок `user` для нужного пользователя.
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Измените значение поля `password`:
 
      ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        user {
-          ...
-          password = "<пароль>"
-        }
-        ...
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       ...
+       password = "<пароль>"
+       ...
      }
      ```
 
@@ -237,7 +233,18 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} внесите изменения в блок `permission` в блоке `user`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам.
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
+  1. Внесите изменения в блок `permission`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам:
+
+     ```hcl
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль>"
+       ...
+     }
+     ```
+
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -340,19 +347,16 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} добавьте блок `permission` в блок `user`:
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_cluster` для нужного пользователя.
+  1. Добавьте блок `permission`:
 
      ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        user {
-          name     = "<имя пользователя>"
-          password = "<пароль>"
-          permission {
-            topic_name = "<имя топика>"
-            role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
-          }
-        }
-        ...
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       ...
+       permission {
+         topic_name = "<топик>"
+         role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
+       }
      }
      ```
 
@@ -419,7 +423,8 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} измените или удалите блок `permission` в блоке `user`.
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
+  1. Измените или удалите блок `permission`.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -474,7 +479,7 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Удалите из описания кластера {{ mkf-name }} блок `user` с описанием нужного пользователя.
+  1. Удалите ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

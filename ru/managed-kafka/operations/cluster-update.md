@@ -341,6 +341,7 @@
               disk_size = <размер хранилища в гигабайтах>
               ...
             }
+            ...
           }
           zookeeper {
             resources {

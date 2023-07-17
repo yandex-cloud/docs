@@ -19,7 +19,7 @@
 | Cloud Pub/Sub | [{{ message-queue-full-name }}](../../message-queue/) |
 | Cloud Run | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
-| Cloud Speech-to-Text, Cloud Text-to-Speech | [{{ speechkit-full-name }}](../../speechkit/) |
+| Cloud Speech-to-Text, Cloud Text-to-Speech | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
 | Cloud SQL: MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Cloud SQL: PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |

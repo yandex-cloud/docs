@@ -20,7 +20,7 @@
 ## Машинное обучение {#machine-learning}
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
-* {{ speechkit-full-name }}: [распознавание](../speechkit/release-notes-stt.md) и [синтез](../speechkit/release-notes-tts.md)
+* {{ speechkit-full-name }}: [распознавание](../{{ speechkit-slug }}/release-notes-stt.md) и [синтез](../{{ speechkit-slug }}/release-notes-tts.md)
 * [{{ vision-full-name }}](../vision/release-notes.md)
 
 ## Бизнес-инструменты {#business-tools}

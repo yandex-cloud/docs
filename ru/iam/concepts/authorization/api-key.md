@@ -24,7 +24,7 @@ Authorization: Api-Key <API-ключ>
 
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
-* [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
+* [{{ speechkit-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
 

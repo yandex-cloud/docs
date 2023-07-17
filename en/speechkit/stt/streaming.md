@@ -21,7 +21,7 @@ Streaming mode is designed for real-time audio recognition. To recognize a recor
 | **Use cases** | Telephone assistants and robots </br> Virtual assistants |
 | **Input data** | Real-time voice |
 | **How it works** | Exchanging messages with the server over a single connection |
-| **Supported APIs** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/) |
+| **Supported APIs** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/index.md) |
 | **Maximum duration of audio data** | {{ stt-streaming-audioLength }} |
 | **Maximum amount of transmitted data** | {{ stt-streaming-fileSize }} |
 | **Number of recognition channels** | 1 |
@@ -48,9 +48,13 @@ It is easier to use a service account to authorize the application. When authori
 
 ### Recognition request {#requests}
 
+
 To recognize speech, the application must first send a message with recognition settings:
+
 * For API v3: The [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) message with the `session_options` type.
 * For API v2: The `StreamingRecognitionRequest` message with the [RecognitionConfig](api/streaming-api#specification-msg) type.
+
+
 
 When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message with the [session_options](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) type or the `StreamingRecognitionRequest` message with the [audio_content](api/streaming-api#audio-msg) type in API v2. Take the following recommendations into account when sending messages:
 

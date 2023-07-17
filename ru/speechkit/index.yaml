@@ -1,12 +1,12 @@
-title: Yandex SpeechKit
+title: '{{ speechkit-full-name }}'
 description:
   - >-
-    Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
-    речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
-    речи (Text-to-Speech).
-  - Для доступа к SpeechKit используйте API.
+    Сервис {{ speechkit-full-name }} позволяет разработчикам приложений
+    использовать речевые технологии Яндекса: распознавание речи (Speech-to-Text)
+    и синтез речи (Text-to-Speech).
+  - Для доступа к {{ speechkit-name }} используйте API.
   - >-
-    Инфраструктура Yandex Cloud <a
+    Инфраструктура {{ yandex-cloud }} <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
@@ -14,9 +14,9 @@ description:
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_speechkit">Уровень
-    обслуживания Yandex SpeechKit</a>.
+    обслуживания {{ speechkit-full-name }}</a>.
 meta:
-  title: Yandex SpeechKit
+  title: '{{ speechkit-full-name }}'
 links:
   - title: Начало работы
     description: Преобразуйте текст в речь и речь в текст
@@ -33,10 +33,10 @@ links:
   - title: API синтеза
     description: Описание методов API v3 для синтеза
     href: tts-v3/api-ref/grpc/
-  - title: SpeechKit Brand Voice
+  - title: '{{ brand-voice-name }}'
     description: Технология синтеза речи с уникальным голосом
     href: tts/brand-voice/
-  - title: SpeechKit Hybrid
+  - title: '{{ sk-hybrid-name }}'
     description: Голосовые технологии {{ speechkit-name }} на собственной инфраструктуре
     href: hybrid-speechkit/
   - title: Аутентификация в API

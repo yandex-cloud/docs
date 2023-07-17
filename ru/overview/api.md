@@ -12,7 +12,7 @@
 | ---------------- | --------------- |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |
 | {{ alb-full-name }}                     | [gRPC](../application-load-balancer/api-ref/grpc/)<br>[REST](../application-load-balancer/api-ref/) |
-| Биллинг                                 | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
+| {{ billing-name }}                                 | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
 | {{ certificate-manager-full-name }}     | [gRPC](../certificate-manager/api-ref/grpc/)<br>[REST](../certificate-manager/api-ref/) |
 | {{ cdn-full-name }}                     | [gRPC](../cdn/api-ref/grpc/)<br>[REST](../cdn/api-ref/) |
 | {{ dns-full-name }}                     | [gRPC](../dns/api-ref/grpc/)<br>[REST](../dns/api-ref/) |
@@ -47,7 +47,7 @@
 | {{ yq-full-name }}                      | [REST](../query/api/) |
 | {{ resmgr-full-name }}                  | [gRPC](../resource-manager/api-ref/grpc/)<br>[REST](../resource-manager/api-ref/) |
 | {{ serverless-containers-full-name }}   | [Containers gRPC](../serverless-containers/containers/api-ref/grpc/)<br>[Containers REST](../serverless-containers/containers/api-ref/)<br>[Triggers gRPC](../serverless-containers/triggers/api-ref/grpc/)<br>[Triggers REST](../serverless-containers/triggers/api-ref/) |
-| {{ speechkit-full-name }}               | [Синхронное распознавание v2 REST](../speechkit/stt/api/request-api.md)<br>[Асинхронное распознавание v2 REST](../speechkit/stt/api/transcribation-api.md)<br>[Потоковое распознавание v2 gRPC](../speechkit/stt/api/streaming-api.md)<br>[Потоковое распознавание v3 gRPC](../speechkit/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST](../speechkit/tts/request.md)<br>[Синтез v3 gRPC](../speechkit/tts-v3/api-ref/grpc/) |
+| {{ speechkit-full-name }}               | [Синхронное распознавание v2 REST](../{{ speechkit-slug }}/stt/api/request-api.md)<br>[Асинхронное распознавание v2 REST](../{{ speechkit-slug }}/stt/api/transcribation-api.md)<br>[Потоковое распознавание v2 gRPC](../{{ speechkit-slug }}/stt/api/streaming-api.md)<br>[Потоковое распознавание v3 gRPC](../{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST](../{{ speechkit-slug }}/tts/request.md)<br>[Синтез v3 gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
 | {{ tracker-full-name }}                 | [REST](../tracker/about-api.md) |
 | {{ translate-full-name }}               | [gRPC](../translate/api-ref/grpc/)<br>[REST](../translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC](../vision/api-ref/grpc/)<br>[REST](../vision/api-ref/Vision)<br>[Classifier gRPC](../vision/classifier/api-ref/grpc/) |

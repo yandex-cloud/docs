@@ -45,6 +45,8 @@ items:
         href: datavault.md
       - name: Big Data
         href: bigdata.md
+      - name: Шардирование
+        href: sharding.md
   - name: Речевые технологии
     items:
       - name: Транскрибация

@@ -27,7 +27,7 @@
 | Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cognitive Services: Language | [{{ translate-full-name }}](../../translate/) |
-| Cognitive Services: Speech | [{{ speechkit-full-name }}](../../speechkit/) |
+| Cognitive Services: Speech | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
 | Cognitive Services: Vision | [{{ vision-full-name }}](../../vision/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Elastic on Azure | [{{ mes-full-name }}](../../managed-elasticsearch/) |

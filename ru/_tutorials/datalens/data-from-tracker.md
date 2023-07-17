@@ -111,7 +111,14 @@ description: "Для визуализация данных из {{ tracker-short
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `60`;
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `1024`;
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-        * `TRACKER_ORG_ID` — [ID организации](https://tracker.yandex.ru/admin/orgs).
+        * `TRACKER_ORG_ID` — ID организации {{ ya-360 }}.
+          
+          {% note info "Примечание" %}
+
+          Если у вас используется организация {{ org-full-name }} (проверить можно на [странице администрирования](https://tracker.yandex.ru/admin/orgs)), в коде функции `tracker_import.py` замените заголовок `X-Org-ID` на `X-Cloud-Org-Id`.
+
+          {% endnote %}
+
         * `TRACKER_OAUTH_TOKEN` — [OAuth токен](#oauth-token) учетной записи {{ tracker-short-name }}.
         * `CH_HOST` — имя [хоста](#database-create).
         * `CH_DB` — название [базы данных](#database-create).
@@ -120,7 +127,7 @@ description: "Для визуализация данных из {{ tracker-short
         * `CH_ISSUES_TABLE` — `tracker_issues`.
         * `CH_CHANGELOG_TABLE` — `tracker_changelog`.
         * `TRACKER_INITIAL_HISTORY_DEPTH` — `1d`.
-        * `CH_STATUSES_VIEW` — `v_tracker_statuses`.
+        * `CH_STATUSES_VIEW` — `v_tracker_statuses`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 1. На вкладке **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 1. Результат теста — лог импорта данных:

@@ -10,7 +10,7 @@ As you use resources, the balance automatically decreases. Learn more about [pay
 
 #### How do I increase quotas? / What should I do if the "429 Too Many Requests" error occurs? {#quotas}
 
-The `429 Too Many Requests` error indicates that the quotas set for your folder have been exceeded. The default quota values are specified in the [table](../../speechkit/concepts/limits.md#speechkit-quotas).
+The `429 Too Many Requests` error indicates that the quotas set for your folder have been exceeded. The default quota values are specified in the [table](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-quotas).
 
 To increase the quotas, contact support. In your request, specify the **folder ID** and the desired quotas in "Name — Value" format.
 
@@ -37,11 +37,11 @@ Follow the recommendations and examples given in the **API** tab for [Getting an
 
 #### What should I do if the "401 Unauthorized" error is returned? {#auth-err}
 
-Assign the service account the `editor` [role](../../speechkit/security/) or a higher role for the folder where it was created.
+Assign the service account the `editor` [role](../../{{ speechkit-slug }}/security/) or a higher role for the folder where it was created.
 
 When using service accounts, don't specify the folder ID in your requests: the service uses the folder where the service account was created.
 
-Follow the instructions: [Before you start](../../speechkit/quickstart.md#before-you-begin).
+Follow the instructions: [Before you start](../../{{ speechkit-slug }}/quickstart.md#before-you-begin).
 
 #### What should I do if HTTP/1.1 "426 Upgrade Required" is returned? {#http-err}
 

@@ -1,4 +1,4 @@
-title: Yandex SpeechKit
+title: '{{ speechkit-full-name }}'
 href: index.yaml
 items:
   - name: '{{ speechkit-name }} technology overview'
@@ -47,7 +47,7 @@ items:
         href: tts/brand-voice/index.md
       - name: Pattern-based synthesis
         href: tts/templates.md
-  - name: SpeechKit Hybrid
+  - name: '{{ sk-hybrid-name }}'
     items:
       - name: About the technology
         href: hybrid-speechkit/index.md

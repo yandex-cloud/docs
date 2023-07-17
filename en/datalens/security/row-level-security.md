@@ -18,7 +18,7 @@ Restrictions are set in the access configuration and look like this:
 'value_3': user_1, user_2, user_3
 ```
 
-For example, to configure user access to the `first-company` value in the `Company name` field, specify the following configuration:
+For example, to configure user access to the `first-company` value in the `Company name` field, specify the following [configuration](#how-to-manage-rls):
 
 
 ```yaml

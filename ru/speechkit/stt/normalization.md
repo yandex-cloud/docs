@@ -52,10 +52,10 @@
 | Преобразование чисел из словарного в цифровой формат | По умолчанию включено. Чтобы отключить, укажите `config.specification.rawResults=true` |
 | Добавление прописной буквы в начале предложения и в именах собственных. Добавление знаков пунктуации | `config.specification.literature_text=true` |
 
-
 ### API v3 {#api-v3}
 
-Для включения нормализации задайте параметр `text_normalization=TEXT_NORMALIZATION_ENABLED`. Некоторые опции включаются дополнительными параметрами, когда задан `text_normalization=TEXT_NORMALIZATION_ENABLED`.
+
+Для включения нормализации задайте в [API](../stt-v3/api-ref/grpc/stt_service.md) параметр `text_normalization=TEXT_NORMALIZATION_ENABLED`. Некоторые опции включаются дополнительными параметрами, когда задан `text_normalization=TEXT_NORMALIZATION_ENABLED`.
 
 | Уровень нормализации | Параметр API |
 | :----- | :------|

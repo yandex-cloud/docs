@@ -17,7 +17,7 @@
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
-| Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}](../../speechkit/) |
+| Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
 | Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |

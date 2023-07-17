@@ -163,8 +163,10 @@ items:
     href: pricing.md
   - name: История изменений
     items:
-      - name: Май 2023
+      - name: Июнь 2023
         href: changelogs/index.md
+      - name: Май 2023
+        href: changelogs/2305.md
       - name: Апрель 2023
         href: changelogs/2304.md
       - name: Март 2023

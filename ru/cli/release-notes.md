@@ -1098,7 +1098,7 @@
 
 ##### {{ sf-name }} {#serverless-functions}
 
-* Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
+* Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от сервиса {{ billing-name }}.
 * Добавлены команды для управления подключениями к управляемым БД:
   * `yc serverless mdbproxy update clickhouse`
   * `yc serverless mdbproxy create clickhouse`
