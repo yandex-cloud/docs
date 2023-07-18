@@ -140,7 +140,7 @@ yc iam create-token
   encoded_token = jwt.encode(
       payload,
       private_key,
-      algorithm='PS256',
+      algorithm='HS256',
       headers={'kid': key_id})
   ```
 
