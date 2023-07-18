@@ -56,8 +56,8 @@ Where:
    * Name of the cluster created through the notebook interface.
    * HTTP link to the internal IP address of the `masternode` host, such as `http://10.0.0.8:8998/`.
 * `<session>`: Computing session ID. If this parameter is not specified, the default {{ dataproc-name }} cluster session is used.
-* `<input variable>`: Variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
-* `<returned variable>`: Variable to export from the core to the cell. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
+* `<input variable>`: Variable imported to the {{ dataproc-name }} cluster from {{ ml-platform-name }}. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
+* `<returned variable>`: Variable to export from the {{ dataproc-name }} cluster to {{ ml-platform-name }}. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
 
 #### Example of using computing sessions with user-defined parameters {#example-custom-sessions}
 

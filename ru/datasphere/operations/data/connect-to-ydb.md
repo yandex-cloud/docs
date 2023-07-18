@@ -75,7 +75,7 @@
         )
 
     def handler():
-         # Execute query with the retry_operation helper.
+        # Execute query with the retry_operation helper.
         result = pool.retry_operation_sync(execute_query)
         return {
             'statusCode': 200,

@@ -3314,6 +3314,27 @@ default:
         section_sort: Сортировка
         section_x: X
         section_y: 'Y'
+    forms:
+      common:
+        blocks_correct-answers:
+          title: Ответы
+        blocks_error-message:
+          login-passport: Войти в аккаунт на Яндексе
+          login-sso: Войти через SSO
+        blocks_f-slider:
+          button-2: Создать форму
+        blocks_integration-group:
+          title-email: Почта
+          title-wiki: Вики
+        blocks_quiz-result:
+          correct-answers: Посмотреть правильные ответы
+        blocks_share:
+          button-share: Поделиться
+        blocks_survey:
+          feedback: Форма обратной связи
+          next-button-text: Далее
+          prev-button-text: Назад
+          simple_form-button-text: Отправить
     startrek-backend:
       applinks:
         samsara:
@@ -3783,6 +3804,7 @@ default:
         edit-button: Редактировать
       blocks-desktop_b-page-queue-admin-tab_type_events:
         field--allow-external-mailing: Разрешить отправку писем наружу
+        field--allow-externals: Разрешить доступ внешним сотрудникам
         field--default-priority: Приоритет задач по умолчанию
       blocks-desktop_b-page-queue-admin-tab_type_form-editor:
         create-btn: Создать
@@ -4469,6 +4491,8 @@ default:
         timeline-config: Настройки диаграммы
       ui_components_issue-comments-templates:
         create-template-item: Создать шаблон
+      ui_components_issue-links_ExternalLinksCollapse:
+        external-relations: Связи с внешними приложениями
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Создать подзадачу
       ui_components_IssueBulkActionPanel:
@@ -5598,6 +5622,7 @@ default:
         item:
           editor:
             button_action-continue: Продолжить
+            button_create: Создать версию
             button_deploy-version: Создать версию
             create-file: Создать файл
             field_entry: Точка входа
@@ -5610,6 +5635,7 @@ default:
             label_lockbox-secret: Секреты Yandex Lockbox
             label_title: Редактор
             label_title-params: Параметры
+            label_title-source: Код функции
             label_with-template: Добавить файлы с примерами кода
             value_method-editor: Редактор кода
             value_method-zip-file: ZIP-архив
@@ -5637,6 +5663,7 @@ default:
             field_function-tag: Тег версии функции
             field_invoke: Запускаемый ресурс
             field_name: Имя
+            field_service-account: Сервисный аккаунт
             field_type: Тип
             label_function: Функция
             label_storage: Object Storage
@@ -5707,6 +5734,7 @@ default:
             field_user: Пользователь
             field_value: Значение
             label_if-exists: Применить, если поле существует
+          popup-create-folder_field_name: Имя папки
           settings:
             access_value_private: Ограниченный
             access_value_public: Публичный
@@ -6281,6 +6309,8 @@ default:
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 парсер
+                      parser_config_common_cloud_logging:
+                        title: CloudLogging парсер
                     ParserConfigLb:
                       parser_config_blank:
                         title: Без парсинга
@@ -6782,8 +6812,17 @@ default:
                     YDSSourceAdvancedSettings:
                       converter:
                         title: Правила конвертации
+                      supported_codecs:
+                        title: Кодеки сжатия
                       transformer:
                         title: Правила трансформации
+                    YdsSupportedCodecs:
+                      gzip:
+                        title: GZIP
+                      raw:
+                        title: Без сжатия
+                      zstd:
+                        title: ZSTD
                     YDSTarget:
                       connection:
                         title: Настройки подключения

@@ -4,13 +4,12 @@ editable: false
 
 # Правила тарификации для {{ speechkit-name }}
 
-
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
 
 ### Использование синтеза речи {#rules-tts}
+
 
 Стоимость использования {{ speechkit-name }} для синтеза речи зависит от версии используемого API. Для [API v1](tts/request.md) стоимость рассчитывается исходя из суммарного количества символов, которые были отправлены для генерации речи из текста за календарный месяц ([Отчетный период](../billing/concepts/glossary#period)).
 
@@ -18,7 +17,12 @@ editable: false
 
 Стоимость использования [API v3](tts-v3/api-ref/grpc/index.md) зависит от количества отправленных запросов на синтез. Запросы на синтез речи имеют ограничения — {{ tts-v3-count }} и {{ tts-v3-time }}. 
 
+
+
+
 ### Использование распознавания речи {#rules-stt}
+
+
 
 Стоимость использования {{ speechkit-name }} для распознавания речи зависит от типа распознавания и длительности распознанного аудио. Стоимость рассчитывается за календарный месяц ([Отчетный период](https://cloud.yandex.ru/docs/billing/concepts/glossary)).
 
@@ -66,12 +70,18 @@ editable: false
 15.5 секунд | 2 | 16
 15.5 секунд | 4 | 32
 
+
 ## Цены {#prices}
 
 ### Синтез речи {#prices-tts}
 
 
+
 {% include [rub.md](../_pricing/speechkit/rub-tts.md) %}
+
+
+
+
 
 
 
@@ -84,10 +94,14 @@ editable: false
 
 
 
+
+
 ### Распознавание речи {#prices-stt}
 
 
+
 {% include [rub.md](../_pricing/speechkit/rub-stt.md) %}
+
 
 
 

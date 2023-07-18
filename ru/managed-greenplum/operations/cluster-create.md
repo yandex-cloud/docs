@@ -377,7 +377,7 @@
     ```bash
     {{ yc-mdb-gp }} cluster create \
        --name=gp-cluster \
-       --sqlserver-version={{ versions.cli.latest }} \
+       --greenplum-version={{ versions.cli.latest }} \
        --environment=PRODUCTION \
        --network-name=default \
        --user-name=user1 \

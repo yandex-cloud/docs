@@ -4,15 +4,17 @@
 
 {% include [ai-before-beginning](../translate/ai-before-beginning.md) %}
 
+{% include [bash-windows-note-single](bash-windows-note-single.md) %}
+
 ## Translate text from any language {#any-language}
 
 To translate a text, pass it using the [translate](../../translate/api-ref/Translation/translate) method:
 
 {% list tabs %}
 
-- CLI
+- Bash
 
-   This example shows how to translate the following two lines of text into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
+   We will translate two text strings into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
 
    1. Create a file with the request body (for example, `body.json`).
 

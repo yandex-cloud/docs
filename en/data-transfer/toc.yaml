@@ -139,10 +139,10 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: Delivering data from {{ KF }} to {{ DS }}
             href: tutorials/mkf-to-yds.md
-          - name: Delivering data from {{ KF }} to {{ CH }}](yds-to-clickhouse.md)
-            href: tutorials/mkf-to-mch.md
-          - name: Delivering data from {{ KF }} to {{ objstorage-name }}
-            href: tutorials/yds-to-objstorage.md
+          - name: Delivering data from {{ DS }} to {{ CH }}]
+            href: tutorials/yds-to-clickhouse.md
+          - name: Uploading {{ at-name }} logs from {{ DS }} to {{ OS }}
+            href: tutorials/trails-to-os.md
       - name: Uploading data to data marts
         items:
           - name: Uploading data from {{ KF }} to {{ CH }}
@@ -167,8 +167,6 @@ items:
             href: tutorials/mpg-to-objstorage.md
           - name: Uploading data from {{ DS }} to {{ objstorage-name }}
             href: tutorials/yds-to-objstorage.md
-          - name: Uploading data from {{ at-name }} to {{ objstorage-name }}
-            href: tutorials/trails-to-os.md
   - name: Concepts
     items:
       - name: Relationships between service resources

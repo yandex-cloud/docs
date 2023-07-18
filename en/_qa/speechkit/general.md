@@ -27,7 +27,7 @@ Please note that it is only possible to recognize long audio files under a servi
 #### How are IAM tokens generated? {#iam-token}
 
 To generate an [IAM token](../../iam/operations/iam-token/create.md), send a request with your OAuth token in
-`"yandexPassportOauthToken":"<OAuth token>"` format. If you're using cURL, run the command:
+`"yandexPassportOauthToken":"<OAuth token>"` format. If you are using cURL, run this command:
 
 ```bash
 curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
@@ -41,7 +41,7 @@ Assign the service account the `editor` [role](../../{{ speechkit-slug }}/securi
 
 When using service accounts, don't specify the folder ID in your requests: the service uses the folder where the service account was created.
 
-Follow the instructions: [Before you start](../../{{ speechkit-slug }}/quickstart.md#before-you-begin).
+Follow the instructions: [Before you start](../../{{ speechkit-slug }}/quickstart/index.md#before-you-begin).
 
 #### What should I do if HTTP/1.1 "426 Upgrade Required" is returned? {#http-err}
 

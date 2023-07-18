@@ -6,6 +6,12 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on 13/06/23 {#130623}
+
+Fixed switching to English during Russian speech recognition in `general:rc`.
+
+## Previous versions {#previous}
+
 ### Release 07/06/23 {#070623}
 
 New changes to `general:rc`:
@@ -13,8 +19,6 @@ New changes to `general:rc`:
 * Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, Polish, and Hebrew.
 * Added number [normalization](stt/normalization.md) for Uzbek.
 * Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) in FullData mode.
-
-## Previous versions {#previous}
 
 ### Release on 25/05/23 {#250523}
 
@@ -96,7 +100,7 @@ Changes to the `general:rc` model:
 ### Release 19.04.22 {#190422}
 
 1. Added Turkish language to the multi-language speech recognition model.
-1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }}streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
+1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }} streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
 
 ### Release 14.03.22 {#140322}
 

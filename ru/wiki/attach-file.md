@@ -18,6 +18,12 @@
 
 1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-attachments.upload-btn-text }}** и откройте нужный файл или файлы.
 
+{% note info %}
+
+Максимальный размер одного загружаемого файла - 200 МБ. 
+
+{% endnote %}
+
 ## Вставить ссылку на файл {#paste-link}
 
 1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.

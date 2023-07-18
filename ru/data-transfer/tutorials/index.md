@@ -56,6 +56,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ KF }} в {{ DS }}](mkf-to-yds.md)
 * [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
+* [{{ DS }} в {{ OS }}](trails-to-os.md)
 
 ## Загрузка данных в витрины {#upload-to-data-mart}
 
@@ -76,7 +77,6 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 ![storage](../../_assets/data-transfer/tutorials/storage.svg)
 
 * [{{ MY }} в {{ objstorage-name }}](mmy-objs-migration.md)
-* [{{ at-name }} в {{ objstorage-name }}](trails-to-os.md)
 * [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
 
 

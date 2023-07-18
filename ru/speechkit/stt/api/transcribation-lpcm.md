@@ -124,4 +124,5 @@
 
 * [{#T}](transcribation-api.md)
 * [{#T}](transcribation-ogg.md)
+* [{#T}](batch-transcribation.md)
 * [{#T}](../../concepts/auth.md)

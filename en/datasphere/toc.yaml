@@ -13,6 +13,8 @@ items:
             href: operations/community/create.md
           - name: Adding user to a community
             href: operations/community/add-user.md
+          - name: Community label management
+            href: operations/community/manage-community-labels.md
           - name: Adding a communication channel
             href: operations/community/link-channel.md
           - name: Linking a billing account
@@ -27,6 +29,8 @@ items:
             href: operations/projects/create.md
           - name: Adding a user to a project
             href: operations/projects/add-user.md
+          - name: Project label management
+            href: operations/projects/manage-project-labels.md
           - name: Selecting a Python version
             href: operations/projects/python-version.md
           - name: Resizing project storage
@@ -79,6 +83,8 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Connecting to Google Drive
             href: operations/data/connect-to-google-drive.md
+          - name: Connecting to a {{ ydb-name }} database
+            href: operations/data/connect-to-ydb.md
       - name: Deploying models
         items:
           - name: Creating a node with Python code

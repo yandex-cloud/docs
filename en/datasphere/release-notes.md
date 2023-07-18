@@ -9,6 +9,13 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 20/06/2023 {#200623}
+
+1. Added a page with a [list of all the projects]({{ link-datasphere-main }}) of a user.
+1. Updated initial notebooks.
+1. Fixed bugs and added minor improvements in platform performance.
+
+
 ## Release on 23/05/2023 {#230523}
 
 1. {{ ml-platform-name }} now supports a new [{{ dd }}](concepts/project.md#dedicated) operation mode.
