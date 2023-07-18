@@ -14,55 +14,83 @@ The [detectLanguage](../api-ref/Translation/detectLanguage) method returns the l
 
 {% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
+{% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
+
 ## Detect the language of a phrase {#simple-example}
 
 In this example, we will detect the language that the phrase <q>Hello, world</q> is written in.
 
 To detect the language of the text, pass it in the [detectLanguage](../api-ref/Translation/detectLanguage) request body:
-```bash
-export FOLDER_ID=b1gvmob95yysaplct532
-export IAM_TOKEN=CggaATEVAgA...
-export TEXT="Hello, world"
-curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
-    "https://translate.{{ api-host }}/translate/v2/detect"
-```
 
-The service responds with the language code of the source text. The language code is specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format:
+{% list tabs %}
 
-```json
-{
-    "languageCode": "en"
-}
-```
+- Bash
+
+    ```bash
+    export FOLDER_ID=<folder_ID>
+    export IAM_TOKEN=<IAM token>
+    export TEXT="Hello, world"
+    curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
+       "https://translate.{{ api-host }}/translate/v2/detect"
+    ```
+
+    Where:
+
+    * `FOLDER_ID`: Folder ID received [before starting](#before-begin).
+    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+
+    The service responds with the language code of the source text. The language code is specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format:
+
+    ```json
+    {
+        "languageCode": "en"
+    }
+    ```
+
+{% endlist %}
 
 ## Specify the most likely languages {#specify-language}
 
-Some words are spelled the same in different languages. For example, the English word <q>hand</q> is also written as <q>hand</q> in German, Swedish, and Dutch. If the text you pass contains such words, {{ translate-short-name }} may detect the wrong source language.
+Some words are spelled the same in different languages. For example, the English word <q>hand</q> is also written as <q>hand</q> in German, Swedish, and Dutch. If the text you provide contains such words, {{ translate-short-name }} may detect the wrong source language.
 
 To avoid mistakes, you can use the `languageCodeHints` field to specify which languages should be given priority when determining the language of the text:
 
-```json
-{
-    "folderId": "b1gvmob95yysaplct532",
-    "languageCodeHints":["ru", "de"],
-    "text": "hand"
-}
-```
+{% list tabs %}
 
-Save the request body in a file (for example, `body.json`) and pass the file using the [detectLanguage](../api-ref/Translation/detectLanguage) method:
+- Bash
 
-```bash
-export IAM_TOKEN=CggaATEVAgA...
-curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d '@body.json' \
-    "https://translate.{{ api-host }}/translate/v2/detect"
+    ```json
+    {
+        "folderId": "<folder_ID>",
+        "languageCodeHints":["ru", "de"],
+        "text": "hand"
+    }
+    ```
 
-{
-    "languageCode": "de"
-}
-```
+    Where:
+
+    * `folderId`: Folder ID received [before starting](#before-begin).
+    * `languageCodeHints`: Languages to give priority to when determining the language of the text.
+    * `text`: Text to translate as a string.
+
+    Save the request body in a file (for example, `body.json`) and pass the file using the [detectLanguage](../api-ref/Translation/detectLanguage) method:
+
+    ```bash
+    export IAM_TOKEN=<IAM token>
+    curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -d '@body.json' \
+       "https://translate.{{ api-host }}/translate/v2/detect"
+
+    {
+        "languageCode": "de"
+    }
+    ```
+
+    Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+
+{% endlist %}

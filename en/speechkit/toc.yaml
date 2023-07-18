@@ -4,7 +4,17 @@ items:
   - name: '{{ speechkit-name }} technology overview'
     href: overview.md
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: How to recognize short audio files in API v2
+        href: quickstart/stt-quickstart-v2.md
+      - name: How to recognize streaming audio in API v3
+        href: quickstart/stt-quickstart-v3.md
+      - name: How to synthesize speech in API v1
+        href: quickstart/tts-quickstart-v1.md
+      - name: How to synthesize speech in API v3
+        href: quickstart/tts-quickstart-v3.md
   - name: Speech recognition
     items:
       - name: About the technology
@@ -67,7 +77,7 @@ items:
                 href: stt/api/request-api.md
               - name: Asynchronous Recognition API
                 href: stt/api/transcribation-api.md
-          - name: gRPC API v3 (eng)
+          - name: gRPC API v3
             items:
               - name: Overview
                 href: stt-v3/api-ref/grpc/index.md
@@ -77,7 +87,7 @@ items:
         items:
           - name: API v1
             href: tts/request.md
-          - name: gRPC API v3 (eng)
+          - name: gRPC API v3
             items:
               - name: Overview
                 href: tts-v3/api-ref/grpc/index.md
@@ -85,6 +95,8 @@ items:
                 href: tts-v3/api-ref/grpc/tts_service.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Streaming recognition, API v3
         href: stt/api/streaming-examples-v3.md
       - name: Automatic language detection, API v3
@@ -105,7 +117,7 @@ items:
         href: tts/api/tts-wav.md
       - name: "Speech synthesis in OggOpus format using API\_v1"
         href: tts/api/tts-ogg.md
-      - name: "Synthesis from SSML text using API\_v3"
+      - name: "Speech synthesis from SSML text using API\_v1"
         href: tts/api/tts-ssml.md
   - name: Supported audio formats
     href: formats.md

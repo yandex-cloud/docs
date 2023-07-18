@@ -101,6 +101,8 @@ items:
         href: tutorials/yds-obj-migration.md
       - name: Автоматическое копирование объектов из бакета в бакет
         href: tutorials/bucket-to-bucket.md
+      - name: Регулярное распознавание аудиофайлов в бакете
+        href: tutorials/batch-recognition-stt.md
   - name: Концепции
     items:
       - name: Обзор

@@ -56,6 +56,7 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ KF }} to {{ DS }}](mkf-to-yds.md)
 * [{{ DS }} to {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
+* [{{ at-name }} log from {{ DS }} to {{ OS }}](trails-to-os.md)
 
 ## Uploading data to data marts {#upload-to-data-mart}
 
@@ -76,7 +77,6 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 ![storage](../../_assets/data-transfer/tutorials/storage.svg)
 
 * [{{ MY }} to {{ objstorage-name }}](mmy-objs-migration.md)
-* [{{ at-name }} to {{ objstorage-name }}](trails-to-os.md)
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
 
 

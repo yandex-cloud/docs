@@ -13,6 +13,7 @@ You can get your usage data in {{ ml-platform-name }} itemized down to a project
    * **Label key**: You can specify several values at the same time.
       * `project_id`: Statistics on projects.
       * `resource_id`: Statistics on communities.
+      * `label.user_labels`: Statistics on user [labels](../../../resource-manager/concepts/labels.md).
 
 {% note warning %}
 

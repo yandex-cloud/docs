@@ -8,6 +8,8 @@
 * [Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}](../infrastructure-management/gitlab-containers.md)
 * [Тестирование приложений с помощью {{ GL }}](../testing/gitlab.md)
 * [Создание тестовых виртуальных машин через {{ GL }} CI](../testing/ci-for-snapshots.md)
+
+
 * [Высокопроизводительные вычисления (HPC) на прерываемых ВМ](../testing/hpc-on-preemptible.md)
 
 

@@ -3306,6 +3306,27 @@ default:
         section_sort: Sorting
         section_x: X
         section_y: 'Y'
+    forms:
+      common:
+        blocks_correct-answers:
+          title: Responses
+        blocks_error-message:
+          login-passport: Log in to your Yandex account
+          login-sso: Log in via SSO
+        blocks_f-slider:
+          button-2: Create a form
+        blocks_integration-group:
+          title-email: Mail
+          title-wiki: Wiki
+        blocks_quiz-result:
+          correct-answers: See correct answers
+        blocks_share:
+          button-share: Share
+        blocks_survey:
+          feedback: Feedback
+          next-button-text: Next
+          prev-button-text: Back
+          simple_form-button-text: Submit
     startrek-backend:
       applinks:
         samsara:
@@ -3355,7 +3376,7 @@ default:
             email: Email
             sla: SLA
             system: System
-            timetracking: Time Tracking
+            timetracking: Time spent
           fixVersions-key-value: Fix Version
           followers: Followers
           followingMaillists: Maillists
@@ -3365,17 +3386,17 @@ default:
           links:
             relationship:
               has:
-                epic: Has epic
+                epic: Sub-epic
               is:
                 dependent:
-                  by: Is dependent by
+                  by: Blocks
           meta:
             comment: Comment
           modifier: Modifier
           originalEstimation-key-value: Original Estimate
           paletteColor: Color
-          pendingReplyFrom: Pending reply from
-          possibleSpam: Possible spam
+          pendingReplyFrom: Needs response from
+          possibleSpam: May be spam
           priority-key-value: Priority
           project-key-value: Project
           queue: Queue
@@ -3387,7 +3408,7 @@ default:
           sprint: Sprint
           start-key-value: Start Date
           status-key-value: Status
-          statusStartTime: Last status change
+          statusStartTime: Status changed
           storyPoints: Story Points
           summary-key-value: Summary
           tags-key-value: Tags
@@ -3400,7 +3421,7 @@ default:
               comment: Comment text
             property:
               ignoreCase: Ignore case
-              noMatchBefore: Did not match before
+              noMatchBefore: Didn't match before
               removeMarkup: Ignore markup
             type:
               links:
@@ -3408,7 +3429,7 @@ default:
               text:
                 field:
                   equals:
-                    string: Equals string
+                    string: Is equal to the line
       messages:
         boards:
           poker:
@@ -3486,27 +3507,27 @@ default:
         trigger:
           condition:
             type:
-              and: And
+              and: AND
               calculate:
                 formula:
                   watch: Formula fields changed
               CommentMessage:
-                External: E-mail comment
-                Internal: Common comment
+                External: Email
+                Internal: Comment in Tracker
               eventType:
                 create: Issue created
                 update: Issue changed
-              fieldBecameEqual: Field value became equal to
-              fieldBecameNotEmpty: Field value became not empty.
-              fieldEquals: Field equals
+              fieldBecameEqual: became equal to
+              fieldBecameNotEmpty: Field value set.
+              fieldEquals: is equal to
               fieldIsEmpty: Field value is empty
               or: Or
         user:
           named:
             request:
               folder:
-                my: My
-                shared: Shared
+                my: My filters
+                shared: Common
         workflow:
           field:
             maillists: Mailing lists
@@ -3522,12 +3543,12 @@ default:
           board:
             column:
               need:
-                info: Need Info
+                info: Need info
               ready:
                 for:
-                  test: Ready for Test
+                  test: Ready for test
               release:
-                candidate: Ready for release
+                candidate: Release candidate
               review: Review
               tested: Tested
               testing: Testing
@@ -3542,15 +3563,15 @@ default:
           board:
             column:
               in:
-                progress: In Progress
+                progress: In progress
               need:
-                info: Need Info
+                info: Need info
               open: Backlog
               ready:
                 for:
-                  test: Ready for Test
+                  test: Ready for test
               release:
-                candidate: Ready for release
+                candidate: Release candidate
               review: Review
               tested: Tested
               testing: Testing
@@ -3558,18 +3579,18 @@ default:
           board:
             column:
               in:
-                progress: In Progress
+                progress: In progress
               need:
-                info: Need Info
+                info: Need info
               ready:
                 for:
-                  test: Ready for Test
+                  test: Ready for test
               release:
-                candidate: Ready for release
+                candidate: Release candidate
               review: Review
               tested: Tested
               testing: Testing
-          name: Development with Scrum
+          name: Scrum
         supportPreset:
           board:
             column:
@@ -3587,7 +3608,7 @@ default:
             follower-key-value: Follower
             modifier: Modifier
             queue-follower-key-value: Queue Follower
-            queue-lead: Queue Owner
+            queue-lead: Queue owner
             team-member: Team Member
             voted-by-follower: Voted
         templateRole:
@@ -3601,11 +3622,11 @@ default:
           trigger:
             action:
               calc:
-                formula: Calculate formula
+                formula: Calculate value
               create:
-                comment: Write comment
+                comment: Add comment
                 issue: Create issue
-              duty: Get a duty
+              duty: Get duty
     startrek:
       blocks_touch_b-related-issues:
         delete: Delete link
@@ -3775,6 +3796,7 @@ default:
         edit-button: Edit
       blocks-desktop_b-page-queue-admin-tab_type_events:
         field--allow-external-mailing: Allow to send emails outside of the intranet
+        field--allow-externals: Allow access for externals
         field--default-priority: Default priority of issues
       blocks-desktop_b-page-queue-admin-tab_type_form-editor:
         create-btn: Create
@@ -4461,6 +4483,8 @@ default:
         timeline-config: Chart settings
       ui_components_issue-comments-templates:
         create-template-item: Create template
+      ui_components_issue-links_ExternalLinksCollapse:
+        external-relations: Links to external applications
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Create sub-issue
       ui_components_IssueBulkActionPanel:
@@ -5590,6 +5614,7 @@ default:
         item:
           editor:
             button_action-continue: Continue
+            button_create: Create version
             button_deploy-version: Create version
             create-file: Create file
             field_entry: Entrypoint
@@ -5602,6 +5627,7 @@ default:
             label_lockbox-secret: Yandex Lockbox secrets
             label_title: Editor
             label_title-params: Parameters
+            label_title-source: Function code
             label_with-template: Add files with code examples
             value_method-editor: Code editor
             value_method-zip-file: ZIP archive
@@ -5629,6 +5655,7 @@ default:
             field_function-tag: Function version tag
             field_invoke: Launched resource
             field_name: Name
+            field_service-account: Service account
             field_type: Type
             label_function: Function
             label_storage: Object Storage
@@ -5699,6 +5726,7 @@ default:
             field_user: User
             field_value: Value
             label_if-exists: Apply if the field exists
+          popup-create-folder_field_name: Folder name
           settings:
             access_value_private: Restricted
             access_value_public: Public
@@ -6275,6 +6303,8 @@ default:
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 parser
+                      parser_config_common_cloud_logging:
+                        title: CloudLogging parser
                     ParserConfigLb:
                       parser_config_blank:
                         title: No parser
@@ -6776,8 +6806,17 @@ default:
                     YDSSourceAdvancedSettings:
                       converter:
                         title: Conversion rules
+                      supported_codecs:
+                        title: Compresion codecs
                       transformer:
                         title: Transformation rules
+                    YdsSupportedCodecs:
+                      gzip:
+                        title: GZIP
+                      raw:
+                        title: Raw
+                      zstd:
+                        title: ZSTD
                     YDSTarget:
                       connection:
                         title: Connection settings

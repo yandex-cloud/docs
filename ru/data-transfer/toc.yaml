@@ -143,6 +143,8 @@ items:
             href: tutorials/yds-to-clickhouse.md
           - name: Поставка из {{ DS }} в {{ objstorage-name }}
             href: tutorials/yds-to-objstorage.md
+          - name: Поставка логов {{ at-name }} из {{ DS }} в {{ OS }}
+            href: tutorials/trails-to-os.md
       - name: Загрузка данных в витрины
         items:
           - name: Загрузка {{ GP }} в {{ CH }}
@@ -161,8 +163,6 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: Загрузка {{ PG }} в {{ objstorage-name }}
             href: tutorials/mpg-to-objstorage.md
-          - name: Загрузка {{ at-name }} в {{ objstorage-name }}
-            href: tutorials/trails-to-os.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

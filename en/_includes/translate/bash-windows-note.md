@@ -1,0 +1,1 @@
+The examples below are intended to be run in MacOS and Linux. To run them in Windows, [see how to work with Bash in Microsoft Windows](../../overview/concepts/console-syntax-guide.md).

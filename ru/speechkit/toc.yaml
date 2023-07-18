@@ -111,6 +111,8 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Асинхронное распознавание формата OggOpus — API v2
         href: stt/api/transcribation-ogg.md
+      - name: "Регулярное асинхронное распознавание аудиофайлов —\_API v2"
+        href: stt/api/batch-transcribation.md
       - name: Синтез речи в API v3
         href: tts/api/tts-examples-v3.md
       - name: Синтез речи по шаблонам

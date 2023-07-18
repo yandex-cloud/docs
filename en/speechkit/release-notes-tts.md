@@ -6,12 +6,16 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+### Release on 19/06/23 {#190623}
+
+Improved the quality of pronunciation of car brands for Uzbek.
+
+## Previous versions {#previous}
+
 ### Release 08/06/23 {#080623}
 
 1. Added normalization for cardinal numbers written in Arabic numerals for Uzbek.
 1. Improved the quality of speech synthesis for Uzbek. The changes primarily enhance the synthesis of short texts.
-
-## Previous versions {#previous}
 
 ### Release on 18/04/23 {#180423}
 
