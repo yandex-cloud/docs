@@ -39,11 +39,11 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать сервисный аккаунт.
-    1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-    1. Нажмите кнопку **Создать сервисный аккаунт**.
+    1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя сервисного аккаунта `service-account-for-budget`.
-    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `serverless.functions.invoker`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `serverless.functions.invoker`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -140,23 +140,23 @@ zip src.zip index.go go.mod
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт.
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Создайте функцию:
-        1. Нажмите кнопку **Создать функцию**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Введите имя функции `function-for-budget`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
     1. Создайте версию функции:
-        1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
-        1. Укажите способ загрузки **ZIP-архив** и выберите архив, который создали на предыдущем шаге.
+        1. Выберите среду выполнения `golang119`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+        1. Укажите способ загрузки **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** и выберите архив, который создали на предыдущем шаге.
         1. Укажите точку входа `index.StopComputeInstances`.
-        1. В блоке **Параметры** укажите:
-            * **Таймаут** — 5 секунд;
-            * **Память** — 512 МБ;
-            * **Сервисный аккаунт** — `service-account-for-budget`;
-            * **Переменные окружения**:
+        1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
+            * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-timeout }}** — `5 {{ ui-key.yacloud.common.label_seconds_many }}`;
+            * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-memory }}** — `512 {{ ui-key.yacloud.common.units.label_megabyte }}`;
+            * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** — `service-account-for-budget`;
+            * **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-environment-vars }}**:
                 * `FOLDER_ID` — идентификатор каталога, в котором вы хотите останавливать виртуальные машины.
                 * `TAG` — `target-for-stop`.
-        1. Нажмите кнопку **Создать версию**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_create }}**.
 
 - CLI
 
@@ -242,24 +242,24 @@ zip src.zip index.go go.mod
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт и функцию.
-    1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **Все сервисы**.
-    1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
-    1. На странице **Список аккаунтов** выберите платежный аккаунт.
-    1. Перейдите на вкладку **Бюджеты** и нажмите **Создать бюджет**.
-    1. В блоке **Общая информация** укажите:
+    1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+    1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. На странице **{{ ui-key.yacloud.billing.account.label_accounts }}** выберите платежный аккаунт.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_budgets }}** и нажмите **Создать бюджет**.
+    1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
         * Имя бюджета — `vm-budget`.
-        * Тип бюджета — **К оплате**.
+        * Тип бюджета — `{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}`.
         * Сумму расходов на потребление.
-        * Период расчета — **Месячный**.
+        * Период расчета — `{{ ui-key.yacloud.billing.account.budgets.reset-period_value_monthly }}`.
         * Дату окончания действия бюджета. Дата окончания устанавливает, когда бюджет перестанет считать потребление и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
         * Пользователей, которых нужно уведомить, что достигнуты пороговые значения.
-    1. В блоке **Область действия** выберите каталог, в котором ведете работу, и сервис **{{ compute-name }}**.
-    1. В блоке **Пороги** укажите пороговые значения в процентах, при достижении которых:
+    1. В блоке **{{ ui-key.yacloud.billing.account.budgets.section_scope }}** выберите каталог, в котором ведете работу, и сервис **{{ compute-name }}**.
+    1. В блоке **{{ ui-key.yacloud.billing.account.budgets.label_limits }}** укажите пороговые значения в процентах, при достижении которых:
         * указанным пользователям будут приходить уведомления.
         * будет срабатывать триггер для бюджетов.
 
-        Например, можно указать два порога — 50% и 100%.
-    1. Нажмите кнопку **Создать**.
+        Например, можно указать два порога — `50%` и `100%`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
 - API
 
@@ -275,26 +275,26 @@ zip src.zip index.go go.mod
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт, функцию и бюджет.
 
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя триггера `vm-stop-trigger`.
-        * В поле **Тип** выберите **Бюджет**.
-        * В поле **Запускаемый ресурс** выберите **Функция**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. В блоке **Настройки бюджета** выберите платежный аккаунт и бюджет `vm-budget`, который создали на предыдущем шаге.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}** выберите платежный аккаунт и бюджет `vm-budget`, который создали на предыдущем шаге.
 
-    1. В блоке **Настройки функции** выберите функцию `function-for-budget` и укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию `function-for-budget` и укажите:
 
         * [тег версии функции](../../functions/concepts/function.md#tag). По умолчанию указан тег `$latest`.
         * сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 

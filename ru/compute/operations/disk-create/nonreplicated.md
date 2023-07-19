@@ -99,7 +99,7 @@
         
          {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}  
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -235,7 +235,7 @@
 
      * `disk_placement_group_id` — идентификатор группы размещения дисков.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
 
   1. Проверьте корректность конфигурационных файлов.
 

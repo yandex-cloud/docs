@@ -171,7 +171,7 @@
 
 
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
       

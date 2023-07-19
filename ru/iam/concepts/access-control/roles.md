@@ -68,6 +68,20 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [audit-trails-configviewer](../../../_includes/iam/roles/audit-trails-configviewer.md) %}
 
+## {{ billing-name }} {#billing-roles}
+
+{% include [billing-accounts-member](../../../_includes/iam/roles/billing-accounts-member.md) %}
+
+{% include [billing-accounts-owner](../../../_includes/iam/roles/billing-accounts-owner.md) %}
+
+{% include [billing-accounts-viewer](../../../_includes/iam/roles/billing-accounts-viewer.md) %}
+
+{% include [billing-accounts-editor](../../../_includes/iam/roles/billing-accounts-editor.md) %}
+
+{% include [billing-accounts-admin](../../../_includes/iam/roles/billing-accounts-admin.md) %}
+
+{% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}

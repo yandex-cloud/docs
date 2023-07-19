@@ -8,6 +8,17 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите бакет в списке.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+  1. Введите метку в формате `ключ: значение`. Чтобы изменить существующую метку, введите ее ключ и новое значение.
+  1. Нажмите **Enter**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+
 - AWS CLI
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -32,7 +43,7 @@
 
   Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
 
-  ### Пример вызова gRPC API {#api-edit-example}
+  **Пример вызова gRPC API**
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -72,6 +83,13 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите бакет в списке.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+
 - AWS CLI
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -109,7 +127,7 @@
 
   Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
 
-  ### Пример вызова gRPC API {#api-get-example}
+  **Пример вызова gRPC API**
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -163,6 +181,15 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите бакет в списке.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. Напротив нужной метки нажмите значок ![image](../../../_assets/cross.svg).
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+
 - AWS CLI
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -183,7 +210,7 @@
 
   Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
 
-  ### Пример вызова gRPC API {#api-delete-example}
+  **Пример вызова gRPC API**
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"

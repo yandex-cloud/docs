@@ -80,7 +80,7 @@
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием секрета:
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием секрета:
 
      {% cut "Пример описания секрета в конфигурации {{ TF }}" %}
 
@@ -106,12 +106,10 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
   Проверить удаление секрета можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
     ```bash
-    yc lockbox secret list <имя_секрета>
+    yc lockbox secret list
     ```
 
 - API

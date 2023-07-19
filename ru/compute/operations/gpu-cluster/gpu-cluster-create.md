@@ -63,7 +63,7 @@
       * `interconnect_type` — тип соединения. Сейчас создаются только кластеры с типом соединения `infiniband`. Обязательный параметр.
       * `labels` — [метка](../../../resource-manager/concepts/labels.md) ресурса в формате `<ключ> = "<значение>"`. Необязательный параметр.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_gpu_cluster` см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/compute_gpu_cluster).
+      Подробную информацию о параметрах ресурса `yandex_compute_gpu_cluster` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_gpu_cluster).
 
   1. Создайте ресурсы:
 

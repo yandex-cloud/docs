@@ -248,7 +248,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
   1. Проверьте конфигурацию командой:
 
      ```bash

@@ -43,6 +43,10 @@
        --version-id abj8cvn99nam26f0f4a3
      ```
 
+- API
+
+  Воспользуйтесь методом REST API [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/symmetric_key_service.md#SetPrimaryVersion).
+
 {% endlist %}
 
 При следующем запросе на шифрование или расшифровку, в котором не указана конкретная версия ключа, будет использована новая основная версия.
@@ -102,6 +106,10 @@
 
      Версия перейдет в статус `SCHEDULED_FOR_DESTRUCTION`, а в поле `destroy_at` будет указано время, на которое запланировано удаление.
 
+- API
+
+  Воспользуйтесь методом REST API [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#ScheduleVersionDestruction).
+
 {% endlist %}
 
 ## Отменить удаление версии {#cancel-delete}
@@ -148,6 +156,10 @@
      ```
 
      Версия вернется в статус `ACTIVE`.
+
+- API
+
+  Воспользуйтесь методом REST API [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#CancelVersionDestruction).
 
 {% endlist %}
 

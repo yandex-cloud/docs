@@ -77,7 +77,7 @@ default:
   yandex-360: Яндекс 360
   storage-aws-cli-alias: ycs3
   yagpt-full-name: YandexGPT
-  billing-name: Биллинг
+  billing-name: Yandex Cloud Billing
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -798,6 +798,7 @@ default:
   cic-pbc-svc1-ip: 213.180.193.243/32
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-provider-link: https://terraform-provider.yandexcloud.net/
+  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
@@ -3189,15 +3190,24 @@ default:
         dialog-rename-entry:
           view:
             button_apply: Готово
+        dl-dialog-filter:
+          view:
+            button_apply: Применить фильтр
+            label_operation: Операция
+            label_select-column-left-title: Доступны
         dl-field-editor:
           view:
             button_create: Создать
         navigation:
           view:
             button_create: Создать
+            button_create-connection: Создать подключение
             button_create-dashboard: Создать дашборд
             button_create-dataset: Создать датасет
             switch_dashboards: Дашборды
+            switch_root: Все объекты
+        operations:
+          label_operation-in: Принадлежит множеству
       connections:
         connectors-list:
           view:
@@ -3230,6 +3240,9 @@ default:
             button_tabs: Вкладки
             value_rename: Переименовать
             value_widget: Чарт
+        chartkit-menu:
+          view:
+            button_edit: Редактировать
         connections-dialog:
           edit:
             button_add: Добавить
@@ -3273,6 +3286,12 @@ default:
           modify:
             button_add-connection: Добавить
             label_sources: Подключения
+      dc:
+        billing:
+          column_cost: Cost
+          column_credit: Credit
+        mdb:
+          section_resource: Resources
       main:
         landing:
           view:
@@ -4766,8 +4785,10 @@ default:
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: Новый плательщик
+        label_card-add: Добавить карту
         payment-type_label_card: Банковская карта
         payment-type_label_invoice: Банковский перевод
+        section_person-type: Тип плательщика
         section_persons: Плательщики
     yacloud_components:
       settings:
@@ -4814,6 +4835,10 @@ default:
         users:
           action:
             invite-users: Пригласить пользователей
+    yacloud_portal:
+      subAccount:
+        detail:
+          column_cost: Общая стоимость
     yacloud:
       alb:
         button_add-listener: Добавить обработчик
@@ -4846,31 +4871,120 @@ default:
         section_external-address-specs: Публичный IP-адрес
       billing:
         account:
+          bind-cloud:
+            button_bind: Привязать
+          budgets:
+            button_create: Создать бюджет
+            label_budgets: Бюджеты
+            label_limits: Пороги
+            label_type: Тип бюджета
+            label_type-balance: Остаток средств
+            label_type-cost: Стоимость потребления
+            label_type-expense: К оплате
+            reset-period_value_custom: Настраиваемый
+            reset-period_value_monthly: Месячный
+            section_scope: Область действия
           button_billing-payment-action: Перейти на платную версию
+          button_download-action: Скачать
           create-new:
+            account_label_new: Новый плательщик
+            account-type_label_company: Бизнес-аккаунт
+            account-type_label_individual: Личный аккаунт
+            payment-type_label_card: Банковская карта
+            payment-type_label_invoice: Банковский перевод
             section_persons: Плательщики
+          dashboard-grants:
+            button_activate-grant: Активировать промокод
+            section_grants: Гранты
+          dashboard-info:
+            company_label_edit_ru: Редактировать данные в Яндекс Балансе
+          dashboard-overview:
+            button_refill: Пополнить баланс
+            popup-refill_button_company-action: Выписать счет
+          dashboard-resources:
+            button_action-rename-account: Переименовать
+            button_bind-cloud: Привязать облако
+            section_resources: Облака
           dashboard:
+            button_refill: Пополнить счет
             popup-go-pay_label_confirmation: Я перехожу на платную версию
+            popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
             button_export: Экспорт детализации
+            button_move-to-datalens: Подробная детализация в DataLens
+            column_cloud-name: Облако
+            column_cost: Стоимость потребления
+            column_credit: Скидка
+            column_expense: К оплате
+            column_product: Продукт
+            column_service: Сервис
+            column_unit: Ед. потребления
+            filter_label_all-filters: Фильтры
+            filter_label-folders-unfill: Каталоги
+            label_from: От
+            label_product: Продукты
+            label_service: Сервисы
+            label_to: До
+            label_total: Итого
+            value_cost: Потребление
           exports:
+            button_open-yandex-query: Обработать в YQ
             field_bucket: Бакет
             field_detail-type: Детализация
             field_locale: Язык
             field_prefix: Папка
+            label_create-export-title: Создание регулярного экспорта
             label_include-resources: Поресурсная
+            label_not-include-resources: Общая
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
+          history:
+            column_date: Дата платежа
+            column_description: Описание
+            column_money: Сумма платежа
+            column_status: Статус
+          label_accounts: Список аккаунтов
+          label_consumption: Потребление
           overview:
+            button_bind-card-apply: Применить
             card_label_edit: Изменить банковскую карту
+            section_account-data: Общие сведения
             section_card: Банковская карта
+            usage-type_label_paid: Платная версия
+          reconciliation-reports:
+            action_download-with-facsimile: Скачать подписанный акт
+            action_request-report: Заказать акт сверки
+            action_request-report-short: Заказать
+            value_completed: Готово
+          switch_acts: Отчётные документы
+          switch_budgets: Бюджеты
           switch_dashboard: Обзор
           switch_detail: Детализация
+          switch_expences: История расходов
+          switch_exports: Экспорт детализации
           switch_history: История платежей
           switch_offers: Резервы
+          switch_overview: Данные аккаунта
+          switch_users: Управление доступом
+          tab_acts-title: Закрывающие документы
+          tab_reconciliation-reports-title: Акты сверки
+          user-dialog:
+            button_submit: Добавить
+          users:
+            button_add: Добавить пользователя
+            button_remove-user: Удалить пользователя
+            button_tune-role: Настроить роли
+            popup-tune-role_add-button: Назначить роль
         accounts:
+          button_create: Создать аккаунт
+          button_empty-billing-create: Создать
+          column_cloud: Облака
           label_title: Список аккаунтов
+        cud:
+          purchase:
+            button_purchase: Зарезервировать потребление
+        label_accounts: Аккаунты
         switch_accounts: Список аккаунтов
       cdn:
         button_add-domain: Добавить доменное имя
@@ -4932,11 +5046,14 @@ default:
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
+        label_seconds_many: секунд
         label_value: Значение
+        labels: Метки
         logs: Логи
         monitoring: Мониторинг
         move: Переместить
         name: Имя
+        open: Открыть
         operations-key-value: Операции
         overview: Обзор
         password: Пароль
@@ -4954,6 +5071,7 @@ default:
         type: Тип
         units:
           label_gigabyte: ГБ
+          label_megabyte: МБ
           label_time-min_many: минут
           label_time-min_zero: минут
           label_time-sec_many: секунд
@@ -4993,11 +5111,14 @@ default:
           label_title: Документация
         image-field:
           button_custom-image: Укажите ссылку
+        label-set:
+          button_add-label: Добавить метку
         mdb:
           settings:
             popup_settings-submit: Сохранить
         navigation-menu:
           label_account: Учетная запись
+          label_billing: Биллинг
           label_notifications: Уведомления
         service-account-select:
           button_create-account-new: Создать новый
@@ -5345,6 +5466,8 @@ default:
             field_default-net: Создать сеть по умолчанию
           folders:
             section_folders: Каталоги
+          incident-notifications:
+            label_users: Пользователи
           overview:
             label_id: Идентификатор
           quotas:
@@ -5642,6 +5765,9 @@ default:
           logs:
             button_editor-create: Создать в редакторе
           overview:
+            label_latest-memory: Память
+            label_latest-timeout: Таймаут
+            label_title-environment-vars: Переменные окружения
             label_title-latest-version: Последняя версия
           switch_editor: Редактор
           switch_testing: Тестирование
@@ -5665,10 +5791,12 @@ default:
             field_name: Имя
             field_service-account: Сервисный аккаунт
             field_type: Тип
+            label_billing-budget: Бюджет
             label_function: Функция
             label_storage: Object Storage
             label_timer: Таймер
             section_base: Базовые параметры
+            section_billing-budget: Настройки бюджета
             section_dlq: Настройки Dead Letter Queue
             section_function: Настройки функции
             section_storage: Настройки Object Storage
@@ -5790,6 +5918,10 @@ default:
         permissions-dialog:
           button_save: Сохранить
           label_title: Редактирование ACL
+      support:
+        contact:
+          label_title: Запросы
+        label_service: Поддержка
       vpc:
         add-static-route:
           button_add: Добавить

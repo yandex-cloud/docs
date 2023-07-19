@@ -38,7 +38,7 @@
 
 - API
 
-  Воспользуйтесь методом [create](../api-ref/SymmetricKey/create) для ресурса `SymmetricKey`.
+  Воспользуйтесь методом REST API [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create).
 
 - {{ TF }}
 
@@ -83,7 +83,7 @@
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/SymmetricKey/update) для ресурса `SymmetricKey`.
+  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update).
 
 - {{ TF }}
 
@@ -103,7 +103,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/kms_symmetric_key).
+     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
   1. Проверьте конфигурацию командой:
 
      ```bash
@@ -164,7 +164,7 @@
 
 - API
 
-  Воспользуйтесь методом [rotate](../api-ref/SymmetricKey/rotate) для ресурса `SymmetricKey`.
+  Воспользуйтесь методом REST API [rotate](../../kms/api-ref/SymmetricKey/rotate.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Rotate](../../kms/api-ref/grpc/symmetric_key_service.md#Rotate).
 
 {% endlist %}
 
@@ -199,7 +199,7 @@
 
 - API
 
-  Воспользуйтесь методом [delete](../api-ref/SymmetricKey/delete) для ресурса `SymmetricKey`.
+  Воспользуйтесь методом REST API [delete](../../kms/api-ref/SymmetricKey/delete.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete).
 
 - {{ TF }}
 

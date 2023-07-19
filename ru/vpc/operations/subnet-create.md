@@ -14,13 +14,13 @@
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (опционально) В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** добавьте описание.
+  1. (Опционально) В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** добавьте описание.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности из выпадающего списка.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** укажите облачную сеть. Она должна быть создана заранее.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** введите IP-адрес и маску подсети. 
      Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md). 
      Если нужно указать еще один или несколько CIDR, нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-  1. (опционально) Задайте **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. Для этого:
+  1. (Опционально) Задайте **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. Для этого:
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** укажите домен DNS для поиска неквалифицированных имен.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** и укажите адрес вашего [DNS-сервера](../../glossary/dns.md#dns-server). Можно указать несколько DNS-серверов.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** и укажите адрес вашего NTP-сервера. Можно указать несколько NTP-серверов.
@@ -165,7 +165,7 @@
 
      Чтобы добавить, изменить или удалить подсеть, используйте ресурс `yandex_vpc_subnet` с указанием на сеть в поле `network_id` (см. [пример](#examples)).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_subnet).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -247,7 +247,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_subnet).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
   1. Проверьте корректность конфигурационных файлов.
 

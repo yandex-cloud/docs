@@ -110,7 +110,7 @@
      * `description` — описание группы размещения дисков.
      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md). Рекомендуется создавать группы размещения дисков в зонах доступности `{{ region-id }}-a` или `{{ region-id }}-b`.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_disk_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_disk_placement_group).
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk_placement_group).
 
   1. Проверьте корректность конфигурационных файлов.
 

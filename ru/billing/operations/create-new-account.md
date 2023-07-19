@@ -35,7 +35,7 @@
     - Юридическое лицо или ИП
 
       7.1. Выберите способ оплаты (банковская карта или банковский перевод):
-      - **Банковская карта**.
+      - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**.
       <br/>Привяжите корпоративную банковскую карту:
       
         {% include [pin-card-data](../_includes/pin-card-data.md) %}
@@ -45,7 +45,7 @@
         {% include [pin-card-note](../_includes/pin-card-note.md) %}
 
         {% include [yandex-account](../_includes/payment-card-validation.md) %}
-      - **Банковский перевод**.
+      - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**.
       
       7.1. Укажите юридическую информацию о вашей организации.
 

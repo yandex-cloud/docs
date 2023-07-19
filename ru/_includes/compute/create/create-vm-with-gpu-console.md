@@ -20,12 +20,12 @@
 
     {% include [gpu-os](../gpu-os.md) %}
 
-1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный диск:
+1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный диск:
     * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
     * Укажите нужный размер диска.
 
 
-1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../../compute/concepts/filesystem.md):
+1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../../compute/concepts/filesystem.md):
 
      * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
      * В открывшемся окне выберите файловое хранилище.

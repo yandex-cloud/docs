@@ -48,8 +48,8 @@
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
-      | aje6o61dvog2h6g9a33s | my-robot         |                               |
-      | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+      | aje6o61dvog2******** | my-robot         |                               |
+      | aje9sda1ufvq******** | blabla           | bla bla bla is my description |
       +----------------------+------------------+-------------------------------+
       ```
   1. Создайте ключ доступа для сервисного аккаунта `my-robot`:
@@ -62,11 +62,11 @@
 
       ```text
       access_key:
-        id: aje6t3vsbj8lp9r4vk2u
-        service_account_id: ajepg0mjt06siuj65usm
+        id: aje6t3vsbj8l********
+        service_account_id: ajepg0mjt06s********
         created_at: "2018-11-22T14:37:51Z"
-        key_id: 0n8X6WY6S24N7OjXQ0YQ
-      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hxtzMP1
+        key_id: 0n8X6WY6S24N********
+      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
       ```
 
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
@@ -95,7 +95,7 @@
      * `description` — описание ключа. Необязательный параметр.
      * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Необязательный параметр. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_static_access_key).
+     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Проверьте корректность конфигурационных файлов.
 
@@ -151,7 +151,7 @@
     -H 'Content-Type: application/json' \
     -H "Authorization: Bearer <IAM-TOKEN>" \
     -d '{
-        "serviceAccountId": "aje6o61dvog2h6g9a33s",
+        "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "description": "this key is for my bucket"
     }' \
     https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
@@ -161,7 +161,7 @@
 
   ```hcl
   resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-  service_account_id = "aje6o61dvog2h6g9a33s"
+  service_account_id = "<идентификатор_сервисного_аккаунта>"
   description        = "this key is for my bucket"
   pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
   }

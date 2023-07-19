@@ -29,7 +29,7 @@
 
 - API
 
-  Воспользуйтесь методом API [stop](../api-ref/NetworkLoadBalancer/stop.md) и передайте значение идентификатора нужного балансировщика в параметре `networkLoadBalancerId` запроса.
+  Чтобы остановить сетевой балансировщик, воспользуйтесь методом REST API [stop](../api-ref/NetworkLoadBalancer/stop.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Stop](../api-ref/grpc/network_load_balancer_service.md#Stop).
 
   Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
 
@@ -64,7 +64,7 @@
 
 - API
 
-  Воспользуйтесь методом API [start](../api-ref/NetworkLoadBalancer/start.md) и передайте значение идентификатора нужного балансировщика в параметре `networkLoadBalancerId` запроса.
+  Чтобы запустить сетевой балансировщик, воспользуйтесь методом REST API [start](../api-ref/NetworkLoadBalancer/start.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Start](../api-ref/grpc/network_load_balancer_service.md#Start).
 
   Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
 

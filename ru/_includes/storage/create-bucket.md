@@ -20,6 +20,11 @@
 
       1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
+      1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
+          1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Введите метку в формате `ключ: значение`.
+          1. Нажмите **Enter**.
+
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
 - {{ yandex-cloud }} CLI
@@ -138,7 +143,7 @@
      * `yandex_storage_bucket` — описание бакета:
        * `bucket` — имя бакета.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Проверьте корректность конфигурационных файлов.
 

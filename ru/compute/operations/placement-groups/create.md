@@ -82,7 +82,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_placement_group).
+     Более подробную информацию о параметрах ресурса `yandex_compute_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_placement_group).
 
   1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
 

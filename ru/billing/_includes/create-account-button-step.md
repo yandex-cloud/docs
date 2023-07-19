@@ -1,1 +1,1 @@
-На странице **Аккаунты** нажмите кнопку **Создать аккаунт**.
+На странице **{{ ui-key.yacloud.billing.label_accounts }}** нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_create }}**.

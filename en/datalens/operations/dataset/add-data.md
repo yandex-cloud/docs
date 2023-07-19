@@ -7,7 +7,7 @@ description: "In this tutorial, you'll learn how to add data to a {{ datalens-fu
 
 {% note info %}
 
-To use subqueries as a source, in the connection settings, enable **Raw SQL level** → **Allow subselects in datasets**. You can do this when creating or editing the connection.
+To use subqueries as a source, in the connection settings, enable **Raw SQL level** → **Allow subselects in datasets**. You can do this when creating or editing the [connection](../../concepts/connection.md).
 
 {% endnote %}
 

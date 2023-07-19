@@ -11,7 +11,7 @@
 
    * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../concepts/image.md) и версию операционной системы на базе Linux.
-1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** настройте загрузочный [диск](../concepts/disk.md):
+1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** настройте загрузочный [диск](../concepts/disk.md):
    * Выберите [тип диска](../concepts/disk.md#disks_types).
    * Укажите нужный размер диска.
 
@@ -26,7 +26,7 @@
      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
 
-1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../concepts/filesystem.md):
+1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../concepts/filesystem.md):
    * Нажмите кнопку **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
    * В открывшемся окне укажите файловое хранилище.
    * Укажите имя устройства.
@@ -62,7 +62,7 @@
 
    {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 
-1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../concepts/placement-groups.md) ВМ.
+1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../concepts/placement-groups.md) ВМ.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../vpc/concepts/address.md) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).

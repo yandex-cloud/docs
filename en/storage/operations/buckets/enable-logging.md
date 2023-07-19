@@ -29,8 +29,8 @@ To log requests to the bucket:
          ```json
          {
             "LoggingEnabled": {
-               "TargetBucket": "<target bucket name>",
-               "TargetPrefix": "<key prefix>"
+               "TargetBucket": "<target_bucket_name>",
+               "TargetPrefix": "<key_prefix>"
             }
          }
          ```
@@ -44,9 +44,9 @@ To log requests to the bucket:
 
          ```bash
          aws s3api put-bucket-logging \
-           --bucket <source bucket name> \
+           --bucket <source_bucket_name> \
            --endpoint-url https://{{ s3-storage-host }} \
-           --bucket-logging-status file://<path to settings file>
+           --bucket-logging-status file://<path_to_settings_file>
          ```
 
          Where:
@@ -68,13 +68,13 @@ To log requests to the bucket:
 
          ```hcl
          resource "yandex_storage_bucket" "log_bucket" {
-           access_key = "<static_key_ID>"
+           access_key = "<static_key_id>"
            secret_key = "<private_key>"
            bucket     = "my-tf-log-bucket"
          }
 
          resource "yandex_storage_bucket" "b" {
-           access_key = "<static_key_ID>"
+           access_key = "<static_key_id>"
            secret_key = "<private_key>"
            bucket     = "my-tf-test-bucket"
            acl        = "private"
@@ -210,14 +210,14 @@ To disable logging, follow these steps:
       ```hcl
       ...
       resource "yandex_storage_bucket" "log_bucket" {
-        access_key = "FCAJEJj8ZjyMLr3ZNuNEn7jmO"
-        secret_key = "FTR_JbXncjTugRfqsWiiW7c7qnldb5ZEdxbpZkma"
+        access_key = "<static_key_id>"
+        secret_key = "<private_key>"
         bucket     = "my-tf-log-bucket"
       }
 
       resource "yandex_storage_bucket" "b" {
-        access_key = "YCAJEJh8ZjyMLr3ZNuCOn7hrO"
-        secret_key = "YCM_JbXncjTugRfqsWiiW7c7wcbgb5ZEdxbpZkcf"
+        access_key = "<static_key_id>"
+        secret_key = "<private_key>"
         bucket     = "my-tf-test-bucket"
         acl        = "private"
 

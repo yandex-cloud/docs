@@ -1,1 +1,1 @@
-В консоли управления перейдите в раздел [**Биллинг**]({{ link-console-billing }}).
+В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).

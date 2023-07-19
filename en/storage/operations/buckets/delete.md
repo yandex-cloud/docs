@@ -39,7 +39,7 @@ You can only delete an empty bucket. In the management console, information abou
       +------------------+----------------------+-------------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
@@ -68,8 +68,8 @@ You can only delete an empty bucket. In the management console, information abou
       ```hcl
       ...
       resource "yandex_storage_bucket" "test" {
-        access_key = "YCAJEX9Aw2ge1VKjlYXf-w-lJ"
-        secret_key = "YCONxG7rSdzVF9UMxLA_NRy5VbKzKlqZMcSJz2N0"
+        access_key = "<static_key_id>"
+        secret_key = "<private_key>"
         bucket     = "tf-test-bucket"
       }
       ...

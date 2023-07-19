@@ -258,12 +258,12 @@ ns1.{{ dns-ns-host-sld }}.
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_member)
-   * [yandex_iam_service_account_static_access_key]({{ tf-provider-link }}/iam_service_account_static_access_key)
-   * [yandex_storage_bucket]({{ tf-provider-link }}/storage_bucket)
-   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+   * [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)
+   * [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
 1. В файле `static.tf` вставьте в блок `locals` следующие значения:
 

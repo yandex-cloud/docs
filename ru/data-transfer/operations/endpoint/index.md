@@ -40,7 +40,7 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
     1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** или **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
     1. Укажите имя эндпоинта. Используйте строчные латинские буквы и цифры.
-    1. (опционально) Укажите описание эндпоинта.
+    1. (Опционально) Укажите описание эндпоинта.
     1. Выберите нужное значение в поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**. Будет создан эндпоинт соответствующего типа.
     1. Задайте параметры эндпоинта:
 

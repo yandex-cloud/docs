@@ -3,6 +3,16 @@
 For a complete listing of current and deprecated {{ dataproc-name }} images, please see [{#T}](../concepts/environment.md).
 
 
+## 2.0.66 {#2.0.66}
+
+* Adding a new YARN Node Manager to a cluster after running initialization scripts.
+
+## 2.0.64 {#2.0.64}
+
+* Added support for Helium.
+* Fixed the issue with redundant decommission.
+* Log delivery to {{ cloud-logging-name }} is run once a node is started.
+
 ## 2.0.62 {#2.0.62}
 
 * Fixed an error when the Zeppelin default plugins were missing.

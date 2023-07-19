@@ -146,7 +146,7 @@
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
         * `role` — назначаемая роль.
 
-        Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account).
+        Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -357,7 +357,7 @@
      * `environment` — переменные окружения. `<kratos_api_gw_domain>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
      * `content` — путь до ZIP-архива `index-js.zip` c исходным кодом функции.
 
-     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -15,7 +15,7 @@ links:
   - title: Audit Trails
     description: Сервис сбора и выгрузки аудитных логов
     href: audit-trails/
-  - title: Биллинг
+  - title: Yandex Cloud Billing
     description: Управление платежным аккаунтом
     href: billing/
   - title: Certificate Manager

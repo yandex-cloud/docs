@@ -77,7 +77,7 @@ default:
   yandex-360: Yandex 360
   storage-aws-cli-alias: ycs3
   yagpt-full-name: YandexGPT
-  billing-name: Billing
+  billing-name: Yandex Cloud Billing
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -3181,15 +3181,24 @@ default:
         dialog-rename-entry:
           view:
             button_apply: Done
+        dl-dialog-filter:
+          view:
+            button_apply: Apply filter
+            label_operation: Operation
+            label_select-column-left-title: Available
         dl-field-editor:
           view:
             button_create: Create
         navigation:
           view:
             button_create: Create
+            button_create-connection: Create connection
             button_create-dashboard: Create dashboard
             button_create-dataset: Create dataset
             switch_dashboards: Dashboards
+            switch_root: All objects
+        operations:
+          label_operation-in: Belongs to a set
       connections:
         connectors-list:
           view:
@@ -3222,6 +3231,9 @@ default:
             button_tabs: Tabs
             value_rename: Rename
             value_widget: Chart
+        chartkit-menu:
+          view:
+            button_edit: Edit
         connections-dialog:
           edit:
             button_add: Add
@@ -3265,6 +3277,12 @@ default:
           modify:
             button_add-connection: Add
             label_sources: Connections
+      dc:
+        billing:
+          column_cost: Cost
+          column_credit: Credit
+        mdb:
+          section_resource: Resources
       main:
         landing:
           view:
@@ -4758,8 +4776,10 @@ default:
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: New payer
+        label_card-add: Add card
         payment-type_label_card: Bank card
         payment-type_label_invoice: Bank transfer
+        section_person-type: Payer type
         section_persons: Payers
     yacloud_components:
       settings:
@@ -4806,6 +4826,10 @@ default:
         users:
           action:
             invite-users: Invite users
+    yacloud_portal:
+      subAccount:
+        detail:
+          column_cost: Cost
     yacloud:
       alb:
         button_add-listener: Add listener
@@ -4838,31 +4862,120 @@ default:
         section_external-address-specs: Public IP address
       billing:
         account:
+          bind-cloud:
+            button_bind: Link
+          budgets:
+            button_create: Create budget
+            label_budgets: Budgets
+            label_limits: Limits
+            label_type: Budget type
+            label_type-balance: Balance
+            label_type-cost: Cost
+            label_type-expense: Due and payable
+            reset-period_value_custom: Custom
+            reset-period_value_monthly: Monthly
+            section_scope: Scope
           button_billing-payment-action: Switch to the paid version
+          button_download-action: Download
           create-new:
+            account_label_new: New payer
+            account-type_label_company: Business account
+            account-type_label_individual: Individual account
+            payment-type_label_card: Bank card
+            payment-type_label_invoice: Bank transfer
             section_persons: Payers
+          dashboard-grants:
+            button_activate-grant: Activate promo code
+            section_grants: Grants
+          dashboard-info:
+            company_label_edit_ru: Edit data in Yandex Balance
+          dashboard-overview:
+            button_refill: Top up account
+            popup-refill_button_company-action: Issue receipt
+          dashboard-resources:
+            button_action-rename-account: Rename
+            button_bind-cloud: Link cloud
+            section_resources: Clouds
           dashboard:
+            button_refill: Top up account
             popup-go-pay_label_confirmation: I am switching to the paid version
+            popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
             button_export: Export details
+            button_move-to-datalens: Details in DataLens
+            column_cloud-name: Cloud
+            column_cost: Consumption cost
+            column_credit: Discount
+            column_expense: Due and payable
+            column_product: Product
+            column_service: Service
+            column_unit: Unit
+            filter_label_all-filters: Filters
+            filter_label-folders-unfill: ''
+            label_from: From
+            label_product: Products
+            label_service: Services
+            label_to: To
+            label_total: Total
+            value_cost: Consumption
           exports:
+            button_open-yandex-query: Process in YQ
             field_bucket: Bucket
             field_detail-type: Usage details
             field_locale: Language
             field_prefix: Directory
+            label_create-export-title: Create periodic export
             label_include-resources: Resource
+            label_not-include-resources: General
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
+          history:
+            column_date: Payment date
+            column_description: Description
+            column_money: Payment amount
+            column_status: Status
+          label_accounts: List of accounts
+          label_consumption: Consumption
           overview:
+            button_bind-card-apply: Apply
             card_label_edit: Change bank card
+            section_account-data: General information
             section_card: Bank card
+            usage-type_label_paid: Paid version
+          reconciliation-reports:
+            action_download-with-facsimile: Download signed report
+            action_request-report: Request reconciliation report
+            action_request-report-short: Request
+            value_completed: Done
+          switch_acts: Reporting documents
+          switch_budgets: Budgets
           switch_dashboard: Overview
           switch_detail: Usage details
+          switch_expences: Expense history
+          switch_exports: Export details
           switch_history: Payment history
           switch_offers: Commitments
+          switch_overview: Account info
+          switch_users: Access management
+          tab_acts-title: Closing documents
+          tab_reconciliation-reports-title: Reconciliation reports
+          user-dialog:
+            button_submit: Add
+          users:
+            button_add: Add user
+            button_remove-user: Remove user
+            button_tune-role: Configure roles
+            popup-tune-role_add-button: Assign role
         accounts:
+          button_create: Create an account
+          button_empty-billing-create: Create
+          column_cloud: Clouds
           label_title: List of accounts
+        cud:
+          purchase:
+            button_purchase: Purchase commitment
+        label_accounts: Accounts
         switch_accounts: List of accounts
       cdn:
         button_add-domain: Add domain name
@@ -4924,11 +5037,14 @@ default:
         label_https: HTTPS
         label_key: Key
         label_list: List
+        label_seconds_many: seconds
         label_value: Value
+        labels: Labels
         logs: Logs
         monitoring: Monitoring
         move: Move
         name: Name
+        open: Open
         operations-key-value: Operations
         overview: Overview
         password: Password
@@ -4946,6 +5062,7 @@ default:
         type: Type
         units:
           label_gigabyte: GB
+          label_megabyte: MB
           label_time-min_many: minutes
           label_time-min_zero: minutes
           label_time-sec_many: seconds
@@ -4985,11 +5102,14 @@ default:
           label_title: Documentation
         image-field:
           button_custom-image: Enter link
+        label-set:
+          button_add-label: Add label
         mdb:
           settings:
             popup_settings-submit: Save
         navigation-menu:
           label_account: Account
+          label_billing: Billing
           label_notifications: Notifications
         service-account-select:
           button_create-account-new: Create new account
@@ -5337,6 +5457,8 @@ default:
             field_default-net: Create a default network
           folders:
             section_folders: Folders
+          incident-notifications:
+            label_users: Users
           overview:
             label_id: ID
           quotas:
@@ -5634,6 +5756,9 @@ default:
           logs:
             button_editor-create: Create in editor
           overview:
+            label_latest-memory: Memory
+            label_latest-timeout: Timeout
+            label_title-environment-vars: Environment variables
             label_title-latest-version: Last version
           switch_editor: Editor
           switch_testing: Testing
@@ -5657,10 +5782,12 @@ default:
             field_name: Name
             field_service-account: Service account
             field_type: Type
+            label_billing-budget: Budget
             label_function: Function
             label_storage: Object Storage
             label_timer: Timer
             section_base: Basic settings
+            section_billing-budget: Budget settings
             section_dlq: Dead Letter Queue settings
             section_function: Function settings
             section_storage: Object Storage settings
@@ -5782,6 +5909,10 @@ default:
         permissions-dialog:
           button_save: Save
           label_title: ACL editing
+      support:
+        contact:
+          label_title: Queries
+        label_service: Support
       vpc:
         add-static-route:
           button_add: Add

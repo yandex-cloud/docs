@@ -4,7 +4,7 @@
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
-## Getting a cluster log {#get-log}
+## Getting cluster logs {#get-log}
 
 {% list tabs %}
 
@@ -60,7 +60,7 @@
 
 - API
 
-   To get a cluster log, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call, and provide in the request:
+   To get cluster logs, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call, and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter.
 

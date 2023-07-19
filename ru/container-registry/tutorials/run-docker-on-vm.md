@@ -128,7 +128,7 @@
         * Выберите созданный на предыдущем шаге [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
         * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
      1. В блоке **Образы из {{ marketplace-name }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
-     1. (опционально) В блоке **Диски** настройте загрузочный диск:
+     1. (Опционально) В блоке **Диски** настройте загрузочный диск:
         * Укажите нужный размер [диска](../../compute/concepts/disk.md).
         * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
 

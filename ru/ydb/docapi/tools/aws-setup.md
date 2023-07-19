@@ -87,7 +87,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
           +----------------------+------------------+-------------------------------+
           |          ID          |       NAME       |          DESCRIPTION          |
           +----------------------+------------------+-------------------------------+
-          | aje6o61dvog2h6g9a33s | my-robot         |                               |
+          | aje6o61dvog2******** | my-robot         |                               |
           ...
           ```
 
@@ -97,11 +97,11 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
           yc iam access-key create --service-account-name my-robot
     
           access_key:
-            id: aje6t3vsbj8lp9r4vk2u
-            service_account_id: ajepg0mjt06siuj65usm
+            id: aje6t3vsbj8l********
+            service_account_id: ajepg0mjt06s********
             created_at: "2018-11-22T14:37:51Z"
-            key_id: 0n8X6WY6S24N7OjXQ0YQ
-          secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hxtzMP1
+            key_id: 0n8X6WY6S24N********
+          secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
           ```
 
       1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.

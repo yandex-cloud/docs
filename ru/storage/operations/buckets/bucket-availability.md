@@ -109,7 +109,7 @@
      * `read` — доступ на чтение объектов в бакете.
 	 * `list` — доступ к списку объектов в бакете.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#bucket-anonymous-access-flags).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
   1. Проверьте корректность конфигурационных файлов.
 
