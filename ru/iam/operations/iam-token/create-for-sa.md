@@ -118,7 +118,9 @@ yc iam create-token
 - Python
 
   Пример создания JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
-  Необходимо установить модуль `cryptography` для работы с алгоритмом `PS256`
+
+  Установите модуль `cryptography` для работы с алгоритмом `PS256`:
+  
   ```bash
   pip3 install cryptography
   ```
