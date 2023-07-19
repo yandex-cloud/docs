@@ -96,7 +96,7 @@
 
         {% endnote %}
 
-        Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/compute_instance).
+        Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_instance).
 
     1. В блоке `metadata` укажите имя пользователя и путь к открытому SSH-ключу. Подробнее см. в разделе [{#T}](../../../compute/concepts/vm-metadata.md).
 

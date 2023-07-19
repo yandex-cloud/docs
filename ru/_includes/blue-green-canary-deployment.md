@@ -201,7 +201,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -292,7 +292,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -417,7 +417,7 @@
         }
         ```
 
-        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-link }}/storage_object) провайдера {{ TF }}.
+        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-resources-link }}/storage_object) провайдера {{ TF }}.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -582,7 +582,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -836,7 +836,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1059,7 +1059,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-link }}/alb_load_balancer) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-resources-link }}/alb_load_balancer) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1247,7 +1247,7 @@
       }
       ```
 
-      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) в документации провайдера {{ TF }}.
+      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1423,7 +1423,7 @@
         }
         ```
 
-        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) в документации провайдера {{ TF }}.
+        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) в документации провайдера {{ TF }}.
 
      1. Проверьте корректность конфигурационных файлов.
 

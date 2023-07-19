@@ -18,11 +18,11 @@
 
      * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный [образ](../../concepts/image.md) с программным обеспечением, которое хотите использовать.
-  1. (опционально) Если вы хотите добавить к ВМ дополнительные [диски](../../concepts/disk.md), [выберите их](../vm-create/create-from-disks.md) в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**.
+  1. (Опционально) Если вы хотите добавить к ВМ дополнительные [диски](../../concepts/disk.md), [выберите их](../vm-create/create-from-disks.md) в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**.
 
   
 
-  1. (опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
+  1. (Опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
 
 
 
@@ -200,7 +200,7 @@
 
      {% endnote %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:

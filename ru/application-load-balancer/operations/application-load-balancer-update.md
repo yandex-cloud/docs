@@ -13,7 +13,7 @@
   1. Измените параметры балансировщика.
   1. В блоке **Обработчики** напротив нужного обработчика нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
   1. Измените параметры обработчика и нажмите **Сохранить**.
-  1. (опционально) В блоке **Настройки логов**:
+  1. (Опционально) В блоке **Настройки логов**:
   
       1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
       1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
@@ -79,7 +79,7 @@
      
 
 
-  1. (опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
 
       1. Посмотрите описание команды CLI для управления логированием в балансировщике:
 
@@ -213,7 +213,7 @@
            discard_percent: "90"
      ```
 
-  1. (опционально) Установите новые ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
+  1. (Опционально) Установите новые ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
  
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
@@ -265,7 +265,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
@@ -384,7 +384,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 

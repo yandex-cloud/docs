@@ -248,12 +248,12 @@
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/yandex_vpc_security_group)
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/yandex_vpc_security_group)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
 1. В файле `lamp-lemp.auto.tfvars` задайте пользовательские параметры:
     * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.

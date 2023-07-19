@@ -199,8 +199,8 @@
 
       Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-      * Ресурс [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router).
-      * Ресурс [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host).
+      * Ресурс [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router).
+      * Ресурс [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Создайте ресурсы
 

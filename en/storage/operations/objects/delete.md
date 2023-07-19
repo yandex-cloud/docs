@@ -52,8 +52,8 @@ To delete an object:
       ```hcl
       ...
       resource "yandex_storage_object" "cute-cat-picture" {
-        access_key = "YCAJEX9Aw2ge1VKjlYXf-w-lJ"
-        secret_key = "YCONxG7rSdzVF9UMxLA_NRy5VbKzKlqZMcSJz2N0"
+        access_key = "<static_key_ID>"
+        secret_key = "<private_key>"
         bucket     = "cat-pictures"
         key        = "cute-cat"
         source     = "/images/cats/cute-cat.jpg"

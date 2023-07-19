@@ -50,7 +50,7 @@ description: "Для управления доступом к объекту в 
      * `secret_key` — значение секретного ключа доступа.
      * `acl` — [предопределенный ACL](../../../storage/concepts/acl.md#predefined-acls) объекта. Значение по умолчанию — `private`: пользователи {{ yandex-cloud }} получают разрешения в соответствии со своими ролями в {{ iam-short-name }}.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_object` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_object).
+     Более подробную информацию о параметрах ресурса `yandex_storage_object` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
   1. Проверьте конфигурацию командой:
 

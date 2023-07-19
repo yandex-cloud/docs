@@ -14,7 +14,7 @@
 
       {% include [name-format](../../_includes/name-format.md) %}
    
-  1. (опционально) Добавьте описание шлюза.
+  1. (Опционально) Добавьте описание шлюза.
   1. По умолчанию выбран тип шлюза `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.

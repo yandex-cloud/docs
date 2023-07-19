@@ -81,4 +81,8 @@ items:
         href: cors.md
       - name: CLI
         href: cli.md
+  - name: Безопасность
+    items:
+      - name: SSL-сертификат
+        href: ssl-certificate.md
 base: ru/glossary

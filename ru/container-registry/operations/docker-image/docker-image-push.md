@@ -26,7 +26,7 @@
      ubuntu                                      latest  1d9c17228a9e  2 weeks ago   86.7MB
      ```
 
-  1. (опционально) Присвойте Docker-образу URL вида `{{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>`:
+  1. (Опционально) Присвойте Docker-образу URL вида `{{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>`:
 
      ```
      docker tag ubuntu \

@@ -84,6 +84,10 @@
 
 {% endlist %}
 
+## Утерян SSH-ключ {#lost-ssh}
+
+{% include [new-connect-ssh](../../../_qa/compute/new-connect-ssh.md) %}
+
 ## Не загружается ВМ {#os-recovery}
 
 Если ВМ не загружается, получите доступ к данным диска следующим образом:

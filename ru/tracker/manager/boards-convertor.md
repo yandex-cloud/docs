@@ -36,6 +36,8 @@
 
 ## Как выполнить миграцию {#how-to-migrate}
 
+Кнопку **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** видят все пользователи доски. Миграцию может выполнить любой пользователь и изменения будут видны всем пользователям доски.
+
 {% note info %}
 
 Если на верхней панели вашей доски отсутствует кнопка **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}**, значит ваша доска уже использует эти технологии.

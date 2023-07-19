@@ -12,25 +12,25 @@
 
 - CLI
      
-    Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
+  Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
 
-    * `--id` —  идентификатор [ключа KMS](../../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
-    * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
-    * `--version-id` — (опционально) [версия](../../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
-    * `--plaintext-file` — входной файл с открытым текстом.
-    * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/encryption.md#add-context).
-    * `--ciphertext-file` — выходной файл с шифртекстом.
+  * `--id` —  идентификатор [ключа KMS](../../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
+  * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
+  * `--version-id` — (опционально) [версия](../../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
+  * `--plaintext-file` — входной файл с открытым текстом.
+  * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/encryption.md#add-context).
+  * `--ciphertext-file` — выходной файл с шифртекстом.
 
-    ```
-    yc kms symmetric-crypto encrypt \
-      --id abj76v82ficsmn446ri7 \
-      --plaintext-file plaintext-file \
-      --ciphertext-file ciphertext-file
-    ```
+  ```
+  yc kms symmetric-crypto encrypt \
+    --id abj76v82ficsmn446ri7 \
+    --plaintext-file plaintext-file \
+    --ciphertext-file ciphertext-file
+  ```
     
 - API 
 
-    Воспользуйтесь методом [encrypt](../../api-ref/SymmetricCrypto/encrypt) для ресурса `SymmetricCrypto`.
+  Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../api-ref/grpc/symmetric_crypto_service.md#Encrypt).
     
 {% endlist %}
 
@@ -40,24 +40,24 @@
 
 - CLI
 
-    Команда расшифрует шифртекст, переданный в файле `--ciphertext-file`, и запишет полученный открытый текст в файл `--plaintext-file`:
-    
-    * `--id` — идентификатор [ключа KMS](../../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
-    * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
-    * `--ciphertext-file` — входной файл с открытым текстом.
-    * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/encryption.md#add-context).
-    * `--plaintext-file` — выходной файл с шифртекстом.
-    
-    ```
-    yc kms symmetric-crypto decrypt \
-      --id abj76v82ficsmn446ri7 \
-      --ciphertext-file ciphertext-file \
-      --plaintext-file decrypted-file
-    ```
+  Команда расшифрует шифртекст, переданный в файле `--ciphertext-file`, и запишет полученный открытый текст в файл `--plaintext-file`:
+  
+  * `--id` — идентификатор [ключа KMS](../../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
+  * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
+  * `--ciphertext-file` — входной файл с открытым текстом.
+  * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/encryption.md#add-context).
+  * `--plaintext-file` — выходной файл с шифртекстом.
+  
+  ```
+  yc kms symmetric-crypto decrypt \
+    --id abj76v82ficsmn446ri7 \
+    --ciphertext-file ciphertext-file \
+    --plaintext-file decrypted-file
+  ```
     
 - API 
 
-    Воспользуйтесь методом [decrypt](../../api-ref/SymmetricCrypto/decrypt) для ресурса `SymmetricCrypto`.
+  Чтобы расшифровать данные, воспользуйтесь методом REST API [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Decrypt](../../api-ref/grpc/symmetric_crypto_service.md#Decrypt).
     
 {% endlist %}
 

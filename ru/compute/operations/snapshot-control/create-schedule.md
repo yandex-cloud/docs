@@ -168,7 +168,7 @@
         * `labels` — [метка](../../../overview/concepts/services.md#labels) снимка в формате `<ключ> = "<значение>"`.
       * `disk_ids`— идентификаторы дисков, для которых будут создаваться снимки. Обязательный параметр.
       
-      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/compute_snapshot_schedule).
+      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
 
   1. Создайте ресурсы:
 

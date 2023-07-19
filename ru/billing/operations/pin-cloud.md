@@ -16,19 +16,19 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/main-menu.svg) **Все сервисы**.
+  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
-  1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
+  1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
   1. Выберите аккаунт из списка. 
 
-  1. Перейдите на страницу **Данные аккаунта**.
+  1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
 
-  1. Нажмите ссылку **Привязать облако** в блоке **Облака**.
+  1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_bind-cloud }}** в блоке **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**.
 
   1. Выберите облако из списка.
 
-  1. Нажмите кнопку **Привязать** — добавленное облако появится в списке.
+  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}** — добавленное облако появится в списке.
 
   1. Погасите задолженность на старом аккаунте, если переносили облако.
 
@@ -52,7 +52,7 @@
       * `billing_account_id` — идентификатор платежного аккаунта, к которому вы хотите привязать облако.
       * `cloud_id` — идентификатор облака, к которому будет привязан платежный аккаунт.
 
-      Более подробную информацию о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/billing_cloud_binding).
+      Более подробную информацию о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/billing_cloud_binding).
 
   1. Создайте ресурсы:
 

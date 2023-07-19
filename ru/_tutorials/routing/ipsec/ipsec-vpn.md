@@ -250,7 +250,7 @@
       sudo swanctl -L
       ```
 
-  1. (опционально) Посмотрите логи strongSwan:
+  1. (Опционально) Посмотрите логи strongSwan:
 
       ```bash
       sudo journalctl -u strongswan --no-pager
@@ -609,7 +609,7 @@
       sudo swanctl -L
       ```
 
-  1. (опционально) Посмотрите логи strongSwan:
+  1. (Опционально) Посмотрите логи strongSwan:
 
       ```bash
       sudo journalctl -u strongswan --no-pager

@@ -57,7 +57,7 @@
 
         Чтобы функция стала публичной, назначьте роль `{{ roles-functions-ivoker }}` всем неавторизованным пользователям ([системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers`).
 
-     Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера]({{ tf-provider-link }}/function_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_iam_binding).
 
   1. Проверьте конфигурацию командой:
 

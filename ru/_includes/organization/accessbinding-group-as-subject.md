@@ -101,7 +101,7 @@
        * `role` — назначаемая [роль](../../iam/concepts/access-control/roles.md). Обязательный параметр.
        * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
 
-       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_member).
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member`, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
     1. Проверьте корректность конфигурационных файлов.
 

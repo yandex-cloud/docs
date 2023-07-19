@@ -74,7 +74,7 @@
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/logging_group).
+     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
 
   1. Проверьте конфигурацию командой:
 

@@ -186,7 +186,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -354,7 +354,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -451,7 +451,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
   
   1. Проверьте конфигурацию командой:
      ```

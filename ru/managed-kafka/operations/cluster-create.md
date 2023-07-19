@@ -256,7 +256,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [IP-адреса](../../vpc/concepts/address.md) [ВМ](../../compute/concepts/vm.md). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 

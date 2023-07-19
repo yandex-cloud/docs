@@ -2,6 +2,12 @@
 
 После создания файлового хранилища вы можете изменить его имя, описание и размер.
 
+{% note info %}
+
+Размер хранилища можно изменить только с помощью CLI или API.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -30,19 +36,19 @@
      
      * Для изменения имени, описания и размера:
 
-       ```
+       ```bash
        yc compute filesystem update --help
        ```
      
      * Для изменения размера:
 
-       ```
+       ```bash
        yc compute filesystem resize --help
        ```
 
   1. Получите список доступных хранилищ:
 
-     ```
+     ```bash
      yc compute filesystem list --format yaml
      ```
 
@@ -74,7 +80,7 @@
 
      * Имя и описание:
 
-       ```
+       ```bash
        yc compute filesystem update \
          --name storage-1 \
          --new-name storage-3 \
@@ -98,7 +104,7 @@
 
      * Размер:
 
-       ```
+       ```bash
        yc compute filesystem resize \
          --name storage-1 \
          --size 2GB
@@ -117,6 +123,37 @@
        block_size: "4096"
        status: READY
        ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием хранилища:
+
+      {% cut "Пример описания хранилища в конфигурации {{ TF }}" %}
+
+      ```hcl
+      ...
+      resource "yandex_compute_filesystem" "default" {
+        name  = "fs-name"
+        type  = "network-ssd"
+        zone  = "{{ region-id }}-a"
+        size  = 150
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение хранилища и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc compute filesystem get <имя_хранилища>
+    ```
 
 - API
    

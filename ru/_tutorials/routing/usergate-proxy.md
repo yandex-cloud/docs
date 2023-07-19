@@ -110,7 +110,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -311,7 +311,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-link }}/vpc_security_group) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-resources-link }}/vpc_security_group) провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -514,7 +514,7 @@
      }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) в документации провайдера {{ TF }}.
+     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 

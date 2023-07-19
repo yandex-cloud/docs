@@ -14,7 +14,7 @@
 
       {% include [name-format](../../_includes/name-format.md) %}
 	  
-  1. (опционально) В поле **{{ ui-key.yacloud.vpc.networks.create.field_description }}** добавьте описание сети.
+  1. (Опционально) В поле **{{ ui-key.yacloud.vpc.networks.create.field_description }}** добавьте описание сети.
   1. По умолчанию выбрана опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Если вы хотите [создать](subnet-create.md) подсети позднее, выключите опцию.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
@@ -111,7 +111,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `vpc_network` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
+     Более подробную информацию о параметрах ресурса `vpc_network` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -167,7 +167,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -29,8 +29,8 @@
          ```json
          {
             "LoggingEnabled": {
-               "TargetBucket": "<имя целевого бакета>",
-               "TargetPrefix": "<префикс ключа>"
+               "TargetBucket": "<имя_целевого_бакета>",
+               "TargetPrefix": "<префикс_ключа>"
             }
          }
          ```
@@ -44,7 +44,7 @@
 
          ```bash
          aws s3api put-bucket-logging \
-           --bucket <имя исходного бакета> \
+           --bucket <имя_исходного_бакета> \
            --endpoint-url https://{{ s3-storage-host }} \
            --bucket-logging-status file://<путь к файлу настроек>
          ```
@@ -92,7 +92,7 @@
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например `logs/`.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#enable-logging).
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
 
 

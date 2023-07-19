@@ -47,7 +47,7 @@
 
     1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) пользователя к нужному топику.
 
-    1. (опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
+    1. (Опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -246,7 +246,7 @@
 
     1. [Включите режим полного бинарного лога](../../managed-mysql/operations/update.md#change-mysql-config) на источнике, установив значение `FULL` или `NOBLOB` для [параметра **Binlog row image**](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image).
 
-    1. (опционально) [Настройте лимит](../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
+    1. (Опционально) [Настройте лимит](../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
 
     1. [Создайте пользователя](../../managed-mysql/operations/cluster-users.md#adduser) для подключения к источнику.
 
@@ -280,7 +280,7 @@
 
         В обоих случаях это позволит продолжить репликацию в случае смены хоста-мастера.
 
-    1. (опционально) [Настройте лимит](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) на размер отправляемых кусков данных (chunk) с помощью параметра `max_allowed_packet`.
+    1. (Опционально) [Настройте лимит](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) на размер отправляемых кусков данных (chunk) с помощью параметра `max_allowed_packet`.
 
     1. Создайте пользователя для подключения к источнику и выдайте ему необходимые привилегии:
 
@@ -638,7 +638,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
+1. (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 
     {% cut "Пример функции обработки" %}
 
@@ -699,7 +699,7 @@
 
     {% endcut %}
 
-1. (опционально) Подготовьте файл схемы данных в формате JSON.
+1. (Опционально) Подготовьте файл схемы данных в формате JSON.
 
     Пример файла со схемой данных:
 

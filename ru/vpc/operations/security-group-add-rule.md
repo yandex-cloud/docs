@@ -156,7 +156,7 @@ description: "Добавлять правила можно через консо
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Проверьте конфигурацию командой:
 
@@ -236,7 +236,7 @@ description: "Добавлять правила можно через консо
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group_rule` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/resources/vpc_security_group_rule).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group_rule` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/resources/vpc_security_group_rule).
 
   1. Проверьте конфигурацию командой:
 

@@ -158,7 +158,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -309,7 +309,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

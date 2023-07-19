@@ -8,21 +8,21 @@
 
 Изменить имя платежного аккаунта вы можете как на главной странице консоли управления, так и в сервисе {{ billing-name }}:  
 1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **Все сервисы**.
-1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
-1. Выберите аккаунт на странице **Аккаунты**.
-1. Перейдите на страницу **Данные аккаунта**.
-1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Переименовать** в верхнем блоке напротив названия аккаунта. 
+1. В левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
+1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
+1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}** в верхнем блоке напротив названия аккаунта. 
 1. Введите новое имя. 
-1. Нажмите кнопку **Переименовать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
 
 ## Изменение контактов плательщика {#change-address}
 
 Контакты плательщика (например, почтовый адрес или телефон) вы можете изменить через сервис [Яндекс Баланс](https://balance.yandex.ru/):
-1. В [консоли управления]({{ link-console-billing }}) нажмите значок ![image](../../_assets/main-menu.svg) и перейдите в раздел **Биллинг**.
-1. Выберите аккаунт на странице **Аккаунты**.
-1. Перейдите на страницу **Данные аккаунта**.
-1. Нажмите ссылку **Редактировать данные в Яндекс Балансе**. <br/>Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
+1. В [консоли управления]({{ link-console-billing }}) нажмите значок ![image](../../_assets/main-menu.svg) и выберите сервис **{{ billing-name }}**.
+1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
+1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.
+1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
 1. Воспользуйтесь [инструкцией](https://yandex.ru/support/balance/operations/change-data.html) Яндекс Баланса.
 
 ## Изменение любых реквизитов, кроме ИНН {#change-details}

@@ -16,10 +16,10 @@
 
       * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** выберите образ [DSVM](/marketplace/products/yc/dsvm).
-  1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** настройте загрузочный диск:
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** настройте загрузочный диск:
       * Выберите [тип диска](../concepts/disk.md#disks_types).
       * Укажите нужный размер диска.
-    1. (опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../concepts/filesystem.md). Предварительно необходимо [создать](../operations/filesystem/create.md) хранилища.
+    1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../concepts/filesystem.md). Предварительно необходимо [создать](../operations/filesystem/create.md) хранилища.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Выберите [платформу](../concepts/vm-platforms.md).
       * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU и объем RAM.

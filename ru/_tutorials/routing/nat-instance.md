@@ -270,12 +270,12 @@ _NAT-инстанс_ — специальная виртуальная маши�
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_vpc_route_table]({{ tf-provider-link }}/vpc_route_table)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table)
 
 1. В файле `nat-instance.auto.tfvars` задайте пользовательские параметры:
 

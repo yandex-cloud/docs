@@ -9,7 +9,7 @@ items:
     href: application-load-balancer/index.yaml
   - name: Audit Trails
     href: audit-trails/index.yaml
-  - name: Биллинг
+  - name: Yandex Cloud Billing
     href: billing/index.yaml
   - name: Cloud CDN
     href: cdn/index.yaml

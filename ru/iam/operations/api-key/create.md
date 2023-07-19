@@ -34,8 +34,8 @@
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
-      | aje6o61dvog2h6g9a33s | my-robot         |                               |
-      | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+      | aje6o61dvog2******** | my-robot         |                               |
+      | aje9sda1ufvq******** | blabla           | bla bla bla is my description |
       +----------------------+------------------+-------------------------------+
       ```
 
@@ -49,10 +49,10 @@
 
       ```
       api_key:
-        id: ajeke74kbp5bfq7m6ka2
-        service_account_id: ajepg0mjt06siuj65usm
+        id: ajeke74kbp5b********
+        service_account_id: ajepg0mjt06s********
         created_at: "2019-04-09T08:41:27Z"
-      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHsssT5ICtm
+      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
       О том, как передать ключ в запросе, читайте в документации [сервисов](../../concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ авторизации.
@@ -63,7 +63,7 @@
   1. Создайте API-ключ с помощью метода REST API [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
 
       ```bash
-      export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
+      export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
       export IAM_TOKEN=CggaATEVAgA...
       curl -X POST \
         -H "Content-Type: application/json" \
@@ -87,13 +87,13 @@
 
        ```
        resource "yandex_iam_service_account_api_key" "sa-api-key" {
-         service_account_id = "<идентификатор сервисного аккаунта>"
-         description        = "<описание ключа>"
-         pgp_key            = "<pgp-ключ>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+         description        = "<описание_ключа>"
+         pgp_key            = "<pgp_ключ>"
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_api_key).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -142,7 +142,7 @@
 - API
 
   ```bash
-  export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
+  export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
   export IAM_TOKEN=CggaATEVAgA...
   curl -X POST \
     -H "Content-Type: application/json" \
@@ -165,14 +165,14 @@
 
          ```
          resource "yandex_iam_service_account_api_key" "sa-api-key" {
-           service_account_id = "aje82upckiqhi3943ekr"
+           service_account_id = "<идентификатор_сервисного_аккаунта>"
            description        = "this API-key is for my-robot"
          }
          ```
 
        {% endcut %}
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_api_key).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
     1. Проверьте корректность конфигурационных файлов.
 

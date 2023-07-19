@@ -102,7 +102,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. Проверьте конфигурацию командой:
      ```

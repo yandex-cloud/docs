@@ -18,6 +18,43 @@
         1. Укажите имя устройства, под которым файловое хранилище будет доступно в ВМ.
         1. Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
+   - {{ TF }}
+
+      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      Если вы не указали для ВМ параметр `allow_stopping_for_update` в значении `true`, сделайте это.
+
+      Чтобы подключить файловое хранилище к виртуальной машине, добавьте к ее описанию блок `filesystem` с параметром `filesystem_id` (см. пример).
+
+      1. Откройте файл конфигурации {{ TF }} и добавьте фрагмент с описанием хранилища к описанию ВМ:
+
+          {% cut "Пример описания хранилища в конфигурации ВМ в {{ TF }}" %}
+
+          ```hcl
+          ...
+          resource "yandex_compute_instance" "vm-1" {
+            name        = "test-vm"
+            platform_id = "standard-v3"
+            zone        = "{{ region-id }}-a"
+
+            filesystem {
+              filesystem_id = "fhmaikp755grp4mlvvem"
+            }
+          ...
+          ```
+
+          {% endcut %}
+
+      1. Примените изменения:
+
+          {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      Проверить присоединение хранилища к ВМ можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+        ```bash
+        yc compute instance get <имя_ВМ>
+        ```
+
    - API
 
      Воспользуйтесь методом REST API [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem).
@@ -29,7 +66,7 @@
    1. Выполните команду:
 
       ```bash
-      sudo mount -t virtiofs <имя устройства> <путь для монтирования>
+      sudo mount -t virtiofs <имя_устройства> <путь_для_монтирования>
       ```
 
    1. Проверьте, что файловое хранилище смонтировано:
@@ -53,7 +90,7 @@
       ```
 
    1. Чтобы файловое хранилище монтировалось при каждом запуске ВМ, добавьте в файл `/etc/fstab` строку вида:
-
-      ```text
-      <имя устройства>  <путь для монтирования> virtiofs    rw    0   0
+   
+      ```
+      <имя_устройства>  <путь_для_монтирования> virtiofs    rw    0   0
       ```
