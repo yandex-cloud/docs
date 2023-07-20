@@ -5,6 +5,10 @@
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 
+## II квартал 2023 {#q2-2023}
+
+* Доступно создание кластеров [{{ metastore-name }}](../concepts/metastore.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+
 ## III квартал 2022 {#q3-2022}
 
 * Добавлена поддержка [новых настроек](https://github.com/apache/airflow/pull/25158) в Airflow-операторе `DataprocCreateClusterOperator`.

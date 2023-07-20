@@ -4,6 +4,12 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## II квартал 2023 {#q2-2023}
+
+* Доступны новые версии {{ MY }} [5.7](https://docs.percona.com/percona-server/5.7/release-notes/release-notes_index.html) и [8.0](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html).
+* В версии {{ MY }} 5.7 добавлена возможность анализа запросов при помощи `query_response_time_stats`. Подробнее см. в [документации Percona](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
+* Добавлены новые глобальные разрешения для пользователей `FLUSH_OPTIMIZER_COSTS` и `SHOW_ROUTINE`.
+
 ## IV квартал 2022 {#q4-2022}
 
 * Состояние хоста на странице **Хосты** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи. {{ tag-con }}

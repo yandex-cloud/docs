@@ -6,7 +6,7 @@
 
 ## II квартал 2023 {#q2-2023}
 
-* Новая версия {{ KF }} 3.4 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* Новая версия {{ KF }} 3.4 доступна в окружении `PRODUCTION`. Подробнее об изменениях см. в [документации {{ KF }}](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## I квартал 2023 {#q1-2023}
 

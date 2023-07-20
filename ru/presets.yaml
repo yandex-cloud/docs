@@ -5293,6 +5293,7 @@ default:
             field_source: Наполнение
             value_network-hdd: HDD
             value_network-ssd: SSD
+            value_network-ssd-io-m3: SSD IO
             value_network-ssd-nonreplicated: Нереплицируемый SSD
             value_source-disk: Диск
             value_source-image: Образ
