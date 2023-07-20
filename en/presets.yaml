@@ -5285,6 +5285,7 @@ default:
             field_source: Contents
             value_network-hdd: HDD
             value_network-ssd: SSD
+            value_network-ssd-io-m3: SSD IO
             value_network-ssd-nonreplicated: Non-replicated SSD
             value_source-disk: Disk
             value_source-image: Image

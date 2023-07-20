@@ -115,6 +115,8 @@ items:
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Создать нереплицируемый диск
             href: operations/disk-create/nonreplicated.md
+          - name: Создать высокопроизводительный SSD-диск
+            href: operations/disk-create/ssd-io.md
           - name: Восстановить диск с помощью снимка
             href: operations/disk-create/from-snapshot.md
       - name: Управление диском
