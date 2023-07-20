@@ -786,6 +786,7 @@ default:
   cic-pbc-svc1-ip: 213.180.193.243/32
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-provider-link: https://terraform-provider.yandexcloud.net/
+  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster

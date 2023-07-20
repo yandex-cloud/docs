@@ -113,7 +113,7 @@ You can add and remove databases, as well as view information about them.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
+      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
    1. Add the `yandex_mdb_postgresql_database` resource. If necessary, specify the required collation and character set locales (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
 
@@ -184,7 +184,7 @@ You can add and remove databases, as well as view information about them.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
+      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
    1. Delete the `yandex_mdb_postgresql_database` resource with the name of the database to delete.
 

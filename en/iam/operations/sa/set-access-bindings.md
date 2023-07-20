@@ -175,7 +175,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
    1. Make sure the configuration files are valid.
 
@@ -335,7 +335,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
      {% endcut %}
 
-     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Check the configuration using this command:
        ```
@@ -557,7 +557,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
    {% endcut %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
    1. Check the configuration using this command:
       ```
@@ -659,7 +659,7 @@ For example, allow any authenticated user to view information about the `my-robo
 
    {% endcut %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
    1. Check the configuration using this command:
       ```

@@ -67,7 +67,7 @@ Secret version control enables you to:
          * `key`: Secret key, which is a non-secret name that identifies a value. This parameter is required.
          * `text_value`: Explicitly represented secret data. This parameter is required.
 
-      For more information about the parameters of the `yandex_lockbox_secret_version` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/lockbox_secret_version).
+      For more information about the parameters of the `yandex_lockbox_secret_version` resource in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
    1. Create resources:
 

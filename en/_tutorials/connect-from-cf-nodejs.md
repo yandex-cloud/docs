@@ -99,7 +99,7 @@ The infrastructure support cost for this scenario includes:
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
    1. Make sure the configuration files are valid.
 
@@ -175,7 +175,7 @@ The infrastructure support cost for this scenario includes:
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
 
    1. Make sure the configuration files are valid.
 

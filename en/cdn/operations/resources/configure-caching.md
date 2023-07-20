@@ -169,7 +169,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
          * `ignore_query_params`: Ignore query parameters. Optional parameter, defaults to `false`.
          * `ignore_cookie`: Ignore cookies. Optional parameter, defaults to `false`.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

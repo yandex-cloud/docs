@@ -82,7 +82,7 @@ Create a [placement group](../../concepts/placement-groups.md).
       }
       ```
 
-      For more information about the parameters of the `yandex_compute_placement_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_placement_group).
+      For more information about the parameters of the `yandex_compute_placement_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_placement_group).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

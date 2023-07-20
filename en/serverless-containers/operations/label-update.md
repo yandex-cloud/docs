@@ -55,7 +55,7 @@
       ...
       ```
 
-      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
    1. Check the configuration using this command:
       ```

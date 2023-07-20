@@ -42,7 +42,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
+      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

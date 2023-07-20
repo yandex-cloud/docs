@@ -84,7 +84,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       }
       ```
 
-      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
+      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
 
    1. Make sure the configuration files are valid.
 

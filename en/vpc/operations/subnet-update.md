@@ -92,7 +92,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       ...
       ```
 
-      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
    1. Check the configuration using this command:
 

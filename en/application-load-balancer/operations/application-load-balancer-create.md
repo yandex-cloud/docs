@@ -319,7 +319,7 @@ To create an L7 load balancer:
 
                You can set multiple rules.
 
-      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
    1. Make sure the configuration files are valid.
 

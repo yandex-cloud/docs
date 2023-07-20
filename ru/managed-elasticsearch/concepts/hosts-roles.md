@@ -9,6 +9,8 @@ keywords:
 
 # Роли хостов
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Каждый кластер {{ mes-name }} состоит из одного или нескольких хостов {{ ES }} с разными ролями: _Data node_ или _Master node_.
 
 ## Выделенные хосты с ролью Data node {#data-node}

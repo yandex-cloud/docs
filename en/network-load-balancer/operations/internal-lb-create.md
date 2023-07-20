@@ -209,7 +209,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
         type = "internal"
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -315,7 +315,7 @@ Create an internal network load balancer with a listener and attached target gro
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 

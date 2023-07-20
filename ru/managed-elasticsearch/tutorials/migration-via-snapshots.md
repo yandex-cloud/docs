@@ -1,5 +1,7 @@
 # Миграция в {{ mes-name }} с помощью снапшотов
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Кластер {{ mes-name }} поддерживает механизм [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot). Это позволяет мигрировать в него данные из другого кластера {{ ES }}. Подробнее о механизме снапшотов см. в [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 Чтобы мигрировать данные из *кластера-источника* {{ ES }} в *кластер-приемник* {{ mes-name }}:

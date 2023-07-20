@@ -28,7 +28,7 @@
         * **Окно вычисления**.
 
         
-        Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
+        Подробнее в разделе [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
      1. Укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).
@@ -62,7 +62,7 @@
         * **Окно вычисления**.
 
         
-        Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters). 
+        Подробнее в разделе [{#T}](../../monitoring/concepts/alerting/alert.md#condition). 
 
 
      1. Укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).

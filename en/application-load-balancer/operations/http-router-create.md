@@ -193,7 +193,7 @@ To create an HTTP router and add a route to it:
          * `http_router_id`: HTTP router ID.
          * `route`: Description of the HTTP router's route. Specify the route name, backend group ID, and request processing time (defaults to 60 seconds).
 
-      For more information about {{ TF }} resource parameters, see the provider documentation ([yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)).
+      For more information about {{ TF }} resource parameters, see the provider documentation ([yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)).
 
    1. Make sure the configuration files are valid.
 

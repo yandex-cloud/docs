@@ -117,7 +117,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 
 
-      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
+      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/logging_group).
 
    1. Make sure the configuration files are valid.
 

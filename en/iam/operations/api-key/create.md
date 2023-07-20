@@ -93,7 +93,7 @@ To create an API key:
       }
       ```
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 
@@ -172,7 +172,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       {% endcut %}
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 

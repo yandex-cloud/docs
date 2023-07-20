@@ -91,7 +91,7 @@ You can add a password to an existing registry or set it when creating a registr
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using this command:
 
@@ -308,7 +308,7 @@ You can add a password to an existing registry or set it when creating a registr
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using this command:
 

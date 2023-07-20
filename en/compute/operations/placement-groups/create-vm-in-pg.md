@@ -114,7 +114,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
       Where `placement_group_id`: ID of a placement group.
 
-      For more information about the parameters of the `yandex_compute_instance` and `yandex_compute_placement_group` resources in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
+      For more information about the parameters of the `yandex_compute_instance` and `yandex_compute_placement_group` resources in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

@@ -87,7 +87,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_topic).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
 - API
@@ -178,7 +178,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_topic).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
 - API
@@ -241,7 +241,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_topic).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 
 - API

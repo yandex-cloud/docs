@@ -107,7 +107,7 @@ The cost of this infrastructure includes:
          * `description`: Service account description. This is an optional parameter.
          * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
       1. Make sure the configuration files are valid.
 
@@ -178,7 +178,7 @@ The cost of this infrastructure includes:
          * `role`: Role being assigned. This parameter is required.
          * `member`: User or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
 
-         For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
+         For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
       1. Make sure the configuration files are valid.
 

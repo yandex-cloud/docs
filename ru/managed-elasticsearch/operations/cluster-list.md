@@ -9,6 +9,8 @@ keywords:
 
 # Информация об имеющихся {{ ES }}-кластерах
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mes-name }}.
 
 ## Получить список кластеров в каталоге {#list-clusters}

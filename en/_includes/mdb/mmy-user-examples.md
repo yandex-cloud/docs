@@ -61,6 +61,6 @@ To create a new user named `user2` with the password `SecretPassword` and read-o
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_user).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 {% endlist %}

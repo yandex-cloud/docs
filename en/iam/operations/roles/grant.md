@@ -114,7 +114,7 @@ This section describes how to assign a role to a user with a Yandex account. The
       ```
 
 
-       For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+       For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
    1. Make sure the configuration files are valid.
 

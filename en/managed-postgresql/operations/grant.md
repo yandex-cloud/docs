@@ -55,7 +55,7 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} i
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
    1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
    1. Add an attribute named `grants` with a list of required roles:

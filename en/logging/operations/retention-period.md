@@ -74,7 +74,7 @@
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
+      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/logging_group).
 
    1. Check the configuration using this command:
 

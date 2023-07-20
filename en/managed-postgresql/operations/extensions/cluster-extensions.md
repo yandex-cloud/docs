@@ -98,7 +98,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
       For more information about creating this file, see [{#T}](../cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
+      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
    1. Add one or more `extension` blocks (one block for each extension) to the description of the appropriate cluster database:
 

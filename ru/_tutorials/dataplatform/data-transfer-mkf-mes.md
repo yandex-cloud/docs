@@ -1,5 +1,7 @@
 # Поставка данных из очереди {{ KF }} {{ ES }} с помощью {{ data-transfer-full-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 В кластер {{ mes-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 
 Чтобы запустить поставку данных:

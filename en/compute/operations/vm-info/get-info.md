@@ -250,7 +250,7 @@ To set up metadata service parameters for a VM instance:
       ...
       ```
 
-      For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
+      For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
    1. Check the configuration using this command:
 
       ```bash

@@ -140,7 +140,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
          * `target_group_id`: Target group ID.
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -189,7 +189,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -290,7 +290,7 @@ Create a network load balancer with a listener and attached target group with th
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 

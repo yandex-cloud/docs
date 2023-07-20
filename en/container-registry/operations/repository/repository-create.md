@@ -18,7 +18,7 @@ To create a [repository](../../concepts/repository.md):
      > }
      > ```
 
-     For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/container_repository).
+     For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository).
   1. Run the check using the command:
 
      ```bash

@@ -1,5 +1,7 @@
 # Управление пользователями {{ ES }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете управлять пользователями кластера с помощью специального пользователя `admin`. Задать пароль этого пользователя можно при [создании](cluster-create.md#create-cluster) или [изменении](cluster-update.md#change-admin-password) кластера.
 
 Доступные интерфейсы для управления:

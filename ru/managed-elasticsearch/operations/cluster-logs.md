@@ -9,6 +9,8 @@ keywords:
 
 # Просмотр логов {{ ES }}-кластера
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {{ mes-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}

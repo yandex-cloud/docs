@@ -111,7 +111,7 @@ In addition to the cloud network in the default folder, you can create cloud net
       }
       ```
 
-      For more information about the parameters of the `vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
+      For more information about the parameters of the `vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
    1. Make sure the configuration files are valid.
 
@@ -167,7 +167,7 @@ Create a cloud network with a name and description in the selected folder:
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
    1. Make sure the configuration files are valid.
 

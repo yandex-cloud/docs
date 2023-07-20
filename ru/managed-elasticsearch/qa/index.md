@@ -5,6 +5,8 @@ description: "Как получить логи моей работы в упра
 
 # Вопросы и ответы о {{ mes-short-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 ## Общие вопросы {#general}
 
 #### Как происходит обслуживание кластеров {{ ES }}? {#service-window}

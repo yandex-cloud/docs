@@ -192,7 +192,7 @@ To create a [VM](../../concepts/vm.md):
 
       {% endnote %}
 
-      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:

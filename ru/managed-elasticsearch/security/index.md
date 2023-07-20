@@ -1,5 +1,7 @@
 # Управление доступом к {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 
 В этом разделе вы узнаете:
 

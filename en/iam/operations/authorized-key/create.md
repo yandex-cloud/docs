@@ -103,7 +103,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
 
    1. Make sure the configuration files are valid.
 

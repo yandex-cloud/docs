@@ -1,5 +1,7 @@
 # Сеть в {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 
 При создании кластера вы можете:
 
