@@ -241,12 +241,12 @@ To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM 
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_member)
-   * [yandex_compute_instance_group]({{ tf-provider-link }}/compute_instance_group)
-   * [yandex_lb_network_load_balancer]({{ tf-provider-link }}/lb_network_load_balancer)
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+   * [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group)
+   * [yandex_lb_network_load_balancer]({{ tf-provider-resources-link }}/lb_network_load_balancer)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
 
 1. In the `variable` section, enter the value for the `folder_id` variable, that is, the ID of the folder where the resources are created.
 

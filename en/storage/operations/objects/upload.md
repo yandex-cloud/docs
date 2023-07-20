@@ -93,7 +93,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
       * `source`: Relative or absolute path to the files you need to upload to the bucket.
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_object).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
    1. Make sure the configuration files are valid.
 

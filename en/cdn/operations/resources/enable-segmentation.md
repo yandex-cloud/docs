@@ -136,7 +136,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       * The `options` section contains additional parameters of CDN resources:
          * `slice`: Flag that indicates whether segmentation will be used. Optional parameter, the default value is `false`.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

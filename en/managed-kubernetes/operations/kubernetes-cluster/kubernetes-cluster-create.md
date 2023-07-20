@@ -129,7 +129,7 @@ To create a {{ k8s }} cluster:
      * {{ k8s }} cluster: Cluster description.
      * Network: A description of the [cloud network](../../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you don't need to describe it again.
      * Subnets: The [subnets](../../../vpc/concepts/network.md#subnet) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
-     * A [service account](#before-you-begin) for the cluster and nodes and [role settings]({{ tf-provider-link }}/resourcemanager_folder_iam_member) for the account. Create separate service accounts for the cluster and the nodes, as required. If you have a suitable service account already, you do not need to describe it again.
+     * A [service account](#before-you-begin) for the cluster and nodes and [role settings]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) for the account. Create separate service accounts for the cluster and the nodes, as required. If you have a suitable service account already, you do not need to describe it again.
 
      > Example configuration file structure:
      >

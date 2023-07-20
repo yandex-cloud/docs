@@ -9,6 +9,8 @@ keywords:
 
 # Подключение к {{ ES }}-кластеру
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 К хостам кластера {{ mes-name }} с [ролью _Data node_](../concepts/hosts-roles.md#data-node) можно подключиться:
 
 * Через интернет, если вы настроили публичный доступ для нужного хоста.

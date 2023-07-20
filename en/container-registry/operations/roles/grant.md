@@ -102,7 +102,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 
 
-       For more information about the `yandex_container_registry_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/container_registry_iam_binding).
+       For more information about the `yandex_container_registry_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_iam_binding).
      * `yandex_container_repository_iam_binding` resource parameters to assign a role to a repository:
        * `repository_id`: ID of the repository to which a role is being assigned.
        * `role`: Role ID.
@@ -125,7 +125,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 
 
-       For more information about the `yandex_container_repository_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/container_repository_iam_binding).
+       For more information about the `yandex_container_repository_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository_iam_binding).
   1. Run the check using the command:
 
      ```bash

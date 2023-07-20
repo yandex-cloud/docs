@@ -523,15 +523,15 @@ To host a WordPress website based on a MySQL cluster via {{ TF }}:
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_mdb_mysql_cluster]({{ tf-provider-link }}/mdb_mysql_cluster)
-   * [yandex_mdb_mysql_database]({{ tf-provider-link }}/mdb_mysql_database)
-   * [yandex_mdb_mysql_user]({{ tf-provider-link }}/mdb_mysql_user)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster)
+   * [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database)
+   * [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
 1. Under `metadata`, enter the metadata for creating a VM instance: `<username>:<SSH_key_contents>`. Regardless of the username specified, the key is assigned to the user set in the image configuration. In different images, these users differ. For more information, see [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
 

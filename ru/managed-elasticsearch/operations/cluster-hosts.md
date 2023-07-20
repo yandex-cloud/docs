@@ -9,6 +9,8 @@ keywords:
 
 # Управление хостами
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете получить список хостов в кластере {{ ES }}, а также добавлять и удалять хосты кластера.
 
 {% note info %}

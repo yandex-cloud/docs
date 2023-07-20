@@ -80,7 +80,7 @@
          * `external_address_spec`: Specification of the listener for the external load balancer:
             * `ip_version`: External IP address specification. Set the IP address version: `ipv4` or `ipv6`. The default value is `ipv4`.
 
-      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -151,7 +151,7 @@ Add a listener with the following test specifications to the `test-load-balancer
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 

@@ -50,7 +50,7 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
       * `secret_key`: Value of the secret access key.
       * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. `private` (default): {{ yandex-cloud }} users are authorized based on their roles in {{ iam-short-name }}.
 
-      For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_object).
+      For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
    1. Check the configuration using this command:
 

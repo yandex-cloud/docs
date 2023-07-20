@@ -1,5 +1,7 @@
 # Мониторинг состояния {{ ES }}-кластера и хостов
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 Новые данные для графиков поступают каждые {{ graph-update }}.

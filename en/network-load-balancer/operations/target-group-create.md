@@ -64,7 +64,7 @@
          * `subnet_id`: ID of the subnet to which target objects are connected. All targets in the target group must reside in the same availability zone.
          * `address`: Resource internal IP address.
 
-      For more information about the `yandex_lb_target_group` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_target_group).
+      For more information about the `yandex_lb_target_group` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_target_group).
 
    1. Make sure the settings are correct.
 

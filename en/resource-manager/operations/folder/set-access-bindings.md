@@ -186,7 +186,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -354,7 +354,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -453,7 +453,7 @@ You can only use the management console to assign a service account a role for a
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```

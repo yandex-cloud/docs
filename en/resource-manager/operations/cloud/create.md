@@ -55,7 +55,7 @@ To create an additional cloud:
 
 
 
-      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 

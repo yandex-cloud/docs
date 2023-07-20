@@ -99,7 +99,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
           {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} 
 
-      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
 
    1. Make sure the configuration files are valid.
 
@@ -235,7 +235,7 @@ You can only create a disk in an existing disk placement group.
 
       * `disk_placement_group_id`: ID of the disk placement group.
 
-      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
 
    1. Make sure the configuration files are valid.
 

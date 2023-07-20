@@ -103,7 +103,7 @@ To edit a key:
       ...
       ```
 
-      For more information about the `yandex_kms_symmetric_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/kms_symmetric_key).
+      For more information about the `yandex_kms_symmetric_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
    1. Check the configuration using the command:
 
       ```bash

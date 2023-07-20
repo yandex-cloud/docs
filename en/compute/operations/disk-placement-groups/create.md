@@ -110,7 +110,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       * `description`: Disk placement group description.
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). We recommend creating disk placement groups in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.
 
-      For more information about the `yandex_compute_disk_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk_placement_group).
+      For more information about the `yandex_compute_disk_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group).
 
    1. Make sure the configuration files are valid.
 

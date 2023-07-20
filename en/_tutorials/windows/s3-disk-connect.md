@@ -158,7 +158,7 @@ The cost for bucket support includes:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are valid.
 

@@ -6,6 +6,8 @@ description: "В {{ mes-name }} действуют лимиты и квоты н
 
 # Квоты и лимиты в {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 В сервисе {{ mes-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

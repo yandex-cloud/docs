@@ -97,7 +97,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 
 
-      For more information about the parameters of the `yandex_function_scaling_policy` resource, see the [provider documentation]({{ tf-provider-link }}/yandex_function_scaling_policy).
+      For more information about the parameters of the `yandex_function_scaling_policy` resource, see the [provider documentation]({{ tf-provider-resources-link }}/yandex_function_scaling_policy).
 
    1. Check the configuration using this command:
 

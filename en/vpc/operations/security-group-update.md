@@ -51,11 +51,11 @@ After creating a security group, you can change its name and description, and [a
       ...
       ```
 
-      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
       {% note info %}
 
-      To manage the [default security group](../../vpc/concepts/security-groups#default-security-group), use the [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group) resource.
+      To manage the [default security group](../../vpc/concepts/security-groups#default-security-group), use the [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group) resource.
 
       {% endnote %}
 

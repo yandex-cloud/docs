@@ -707,10 +707,26 @@ items:
   - name: Troubleshooting
     expanded: true
     items:
-      - name: Questions and answers
-        href: qa/index.md
       - name: '{{ datalens-name }} errors'
         href: troubleshooting/errors/all.md
+      - name: Questions and answers
+        items:
+          - name: All questions
+            href: qa/index.md
+          - name: Permissions
+            href: qa/permissions.md
+          - name: Connections
+            href: qa/connections.md
+          - name: Datasets
+            href: qa/datasets.md
+          - name: Charts
+            href: qa/charts.md
+          - name: Calculated fields
+            href: qa/calculation-fields.md
+          - name: Dashboards
+            href: qa/dashboards.md
+          - name: Other
+            href: qa/other.md
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md

@@ -63,7 +63,7 @@
        }
       ```
 
-      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
    1. Check the configuration using this command:
 

@@ -127,7 +127,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
       }
       ```
 
-      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 

@@ -9,6 +9,8 @@ keywords:
 
 # Удаление {{ ES }}-кластера
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете удалить кластер {{ ES }}, если он вам больше не нужен. Все данные в кластере будут удалены.
 
 ## Перед удалением кластера {#before-you-delete}

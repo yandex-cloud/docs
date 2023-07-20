@@ -248,12 +248,12 @@ To use {{ TF }} to deploy a LAMP or LEMP web server for your site running on a V
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/yandex_vpc_security_group)
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/yandex_vpc_security_group)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
 1. In the `lamp-lemp.auto.tfvars` file, set the user-defined parameters:
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that will host your VM.

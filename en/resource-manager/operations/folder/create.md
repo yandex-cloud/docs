@@ -63,7 +63,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
       }
       ```
 
-      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
+      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are valid.
 

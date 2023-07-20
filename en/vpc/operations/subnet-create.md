@@ -165,7 +165,7 @@
 
       To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource with the network specified in the `network_id` field (see an [example](#examples)).
 
-      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
    1. Make sure the configuration files are valid.
 
@@ -247,7 +247,7 @@
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
    1. Make sure the configuration files are valid.
 

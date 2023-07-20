@@ -146,7 +146,7 @@ The cost of this infrastructure includes:
          * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
-         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
       1. Make sure the configuration files are valid.
 
@@ -357,7 +357,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       * `environment`: Environment variables. `<kratos_api_gw_domain>`: API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
       * `content`: Path to the `index-js.zip` archive with the function source code.
 
-      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
    1. Make sure the configuration files are valid.
 

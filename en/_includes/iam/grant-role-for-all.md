@@ -91,7 +91,7 @@ For example, allow any authenticated user to view folder information:
       ...
       ```
 
-      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```

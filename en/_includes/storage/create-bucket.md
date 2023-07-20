@@ -138,7 +138,7 @@ The minimum role required to create a bucket is `storage.editor`. For details, s
       * `yandex_storage_bucket`: Bucket description:
          * `bucket`: Bucket name.
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are valid.
 

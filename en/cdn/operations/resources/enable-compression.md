@@ -141,7 +141,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       * The `options` section contains additional parameters of CDN resources:
          * `gzip_on`: Flag that indicates whether compression will be used.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

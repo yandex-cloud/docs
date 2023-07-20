@@ -56,7 +56,7 @@ To create an API gateway:
    }
    ```
 
-   For more information about the resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+   For more information about the resource parameters in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
 1. Make sure that the configuration files are correct.
 

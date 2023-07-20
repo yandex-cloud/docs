@@ -52,7 +52,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
       * `description`: Service account description. This is an optional parameter.
       * `folder_id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-      For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+      For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
    1. Make sure the configuration files are valid.
 

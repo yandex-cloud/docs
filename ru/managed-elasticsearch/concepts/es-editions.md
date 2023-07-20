@@ -1,5 +1,7 @@
 # Редакции Elasticsearch
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% note info %}
 
 С 13 июня 2022 года прекращена поддержка редакции `Gold` в кластерах {{ mes-name }}. Создать новый кластер с этой редакцией или перейти на нее с `Basic` или `Platinum` невозможно. 6 июля 2022 года редакция всех кластеров `Gold` была автоматически повышена до `Platinum`.

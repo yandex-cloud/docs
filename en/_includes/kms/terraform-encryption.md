@@ -22,7 +22,7 @@ To encrypt data:
 
    {% endnote %}
 
-   For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/kms_secret_ciphertext).
+   For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_secret_ciphertext).
 
 1. Check the configuration using the command:
 

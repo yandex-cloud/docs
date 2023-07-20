@@ -9,6 +9,8 @@ keywords:
 
 # Изменение настроек {{ ES }}-кластера
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 После создания кластера вы можете:
 
 

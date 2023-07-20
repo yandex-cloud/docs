@@ -198,12 +198,12 @@ To host your site in WordPress CMS via {{ TF }}:
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/yandex_vpc_security_group)
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/yandex_vpc_security_group)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
 1. Under `metadata`, enter the metadata for creating a VM instance: `<username>:<SSH_key_contents>`. Regardless of the username specified, the key is assigned to the user set in the WordPress image configuration. In different images, these users differ. For more information, see [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
 

@@ -69,7 +69,7 @@
 
    1. Delete the record with information about the resource.
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 

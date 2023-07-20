@@ -90,6 +90,6 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}

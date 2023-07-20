@@ -518,7 +518,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
    1. Check the {{ TF }} configuration files for errors:
 

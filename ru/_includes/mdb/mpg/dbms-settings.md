@@ -953,9 +953,9 @@
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) при репликации.
+  Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log), который хранится на хосте-мастере при репликации.
 
-  Минимальное значение и значение по умолчанию — `-1` (не ограничен), максимальное значение — `2251799812636672` (2 ПБ).
+  Минимальное значение — `67108864` (64 МБ). Максимальное значение — 50% от размера [хранилища](../../../managed-postgresql/concepts/storage.md). Значение по умолчанию — `-1` (не ограничен). Значение должно быть кратно 1024.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 

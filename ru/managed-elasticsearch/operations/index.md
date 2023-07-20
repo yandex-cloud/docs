@@ -1,5 +1,7 @@
 # Пошаговые инструкции для {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 ## Кластеры
 
 * [{#T}](cluster-list.md)

@@ -109,7 +109,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       * `read`: Read access to bucket objects.
       * `list`: Access to list of bucket objects.
 
-      For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-anonymous-access-flags).
+      For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
    1. Make sure the configuration files are valid.
 

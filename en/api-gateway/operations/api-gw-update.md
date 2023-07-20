@@ -98,7 +98,7 @@
       ...
       ```
 
-      For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+      For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
    1. Check the configuration using this command:
 

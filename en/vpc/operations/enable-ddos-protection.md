@@ -51,7 +51,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
       Where `ddos_protection_provider` is a parameter that enables DDoS protection. Available values: `qrator`.
 
-      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
+      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
 
    1. Check the configuration using this command:
 

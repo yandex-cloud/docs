@@ -712,18 +712,18 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_member)
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-   * [yandex_compute_instance_group]({{ tf-provider-link }}/compute_instance_group)
-   * [yandex_vpc_address]({{ tf-provider-link }}/vpc_address)
-   * [yandex_alb_backend_group]({{ tf-provider-link }}/alb_backend_group)
-   * [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router)
-   * [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)
-   * [yandex_alb_load_balancer]({{ tf-provider-link }}/alb_load_balancer)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group)
+   * [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address)
+   * [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group)
+   * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
+   * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
+   * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
 
 1. In the `alb-with-ddos-protection.auto.tfvars` file, set user-defined parameters:
 

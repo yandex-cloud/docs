@@ -53,8 +53,12 @@ items:
         href: concepts/health-check.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Рекомендации по использованию сервиса
-    href: best-practices.md
+  - name: Рекомендации по использованию сетевого балансировщика
+    items:
+      - name: Общие рекомендации
+        href: best-practices/index.md
+      - name: Особенности внутреннего балансировщика
+        href: best-practices/internal-balancer-features.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

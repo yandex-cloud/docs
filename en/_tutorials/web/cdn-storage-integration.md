@@ -194,7 +194,7 @@ To create a network and subnets:
       }
       ```
 
-      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
+      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
    1. Make sure the configuration files are valid.
 
@@ -279,7 +279,7 @@ Create a bucket named `example-bucket`:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are valid.
 
@@ -368,7 +368,7 @@ Create a bucket named `example-bucket`:
          }
          ```
 
-         For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_object).
+         For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
       1. Make sure the configuration files are valid.
 
@@ -539,7 +539,7 @@ To create security groups:
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
    1. Make sure the configuration files are valid.
 
@@ -718,7 +718,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
+      Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
    1. Make sure the configuration files are valid.
 
@@ -941,7 +941,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
    1. Make sure the configuration files are valid.
 
@@ -1114,7 +1114,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
+      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
    1. Make sure the configuration files are valid.
 
@@ -1279,7 +1279,7 @@ To configure DNS:
          }
          ```
 
-         Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
+         Learn more in the description of the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
       1. Make sure the configuration files are valid.
 

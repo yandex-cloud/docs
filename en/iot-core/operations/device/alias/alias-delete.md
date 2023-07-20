@@ -62,7 +62,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using the command:
 

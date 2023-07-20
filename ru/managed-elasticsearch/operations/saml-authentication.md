@@ -1,5 +1,7 @@
 # Настройка SAML-аутентификации
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 SAML (Security Assertion Markup Language) — это язык разметки для обмена данными аутентификации и авторизации между сторонами. SAML позволяет реализовать систему единого входа (Single Sign-On, SSO), с помощью которой можно переключаться между приложениями без повторной аутентификации.
 
 При работе с SAML и SSO кластер {{ mes-name }} получает сведения от провайдера идентификации (Identity Provider, IdP).

@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для Managed Service for Elasticsearch
 
+{% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Статус кластера {#running-stopped}

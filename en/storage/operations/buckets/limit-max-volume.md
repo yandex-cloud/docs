@@ -98,7 +98,7 @@ For example, if you provide the users of your service with the ability to upload
       * `secret_key`: Value of the secret access key.
       * `max_size`: Maximum bucket size (bytes).
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-max-size).
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
    1. Check the configuration using this command:
 

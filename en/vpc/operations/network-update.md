@@ -91,7 +91,7 @@ After creating a cloud network, you can change its name, description, and tags.
       ...
       ```
 
-      For more information about the parameters of the `yandex_vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
+      For more information about the parameters of the `yandex_vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
    1. Check the configuration using the command:
 

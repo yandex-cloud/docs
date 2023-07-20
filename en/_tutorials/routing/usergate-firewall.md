@@ -110,7 +110,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
       }
       ```
 
-      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
+      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are valid.
 
@@ -191,7 +191,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    }
    ```
 
-   To learn more, see the [vpc_address]({{ tf-provider-link }}/vpc_address) resource description in the {{ TF }} provider documentation.
+   To learn more, see the [vpc_address]({{ tf-provider-resources-link }}/vpc_address) resource description in the {{ TF }} provider documentation.
 
 {% endlist %}
 
@@ -319,7 +319,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         }
       ```
 
-      To learn more, see the [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
+      To learn more, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are valid.
 
@@ -575,7 +575,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify the network in the `netword id` field (such as `network_id = "${yandex_vpc_network.lab-net.id}"`).
 
-      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_route_table).
+      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
    1. Make sure that the configuration files are valid.
 

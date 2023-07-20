@@ -156,7 +156,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       ...
       ```
 
-      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
    1. Check the configuration using this command:
 
@@ -236,7 +236,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       ...
       ```
 
-      For more information about the parameters of the `yandex_vpc_security_group_rule` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resources/vpc_security_group_rule).
+      For more information about the parameters of the `yandex_vpc_security_group_rule` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resources/vpc_security_group_rule).
 
    1. Check the configuration using this command:
 

@@ -89,7 +89,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
       Where:
       * `certificate_id` is the ID of the certificate in {{ certificate-manager-name }} to be used for the bucket.
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-https-certificate).
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
    1. Check the configuration using this command:
 

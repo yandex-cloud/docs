@@ -63,7 +63,7 @@ In the management console, you can only grant a service account roles to folders
       }
       ```
 
-      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
    1. Make sure the configuration files are valid.
 

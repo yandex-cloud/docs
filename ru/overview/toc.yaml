@@ -1,12 +1,47 @@
 title: Обзор платформы
 href: index.yaml
 items:
-  - name: Сервисы {{ yandex-cloud }}
-    href: concepts/services.md
   - name: Начало работы
     href: quickstart.md
-  - name: Мобильное приложение
-    href: mobile-app/index.md
+  - name: Платформа {{ yandex-cloud }}
+    expanded: true
+    items:
+      - name: Архитектура платформы
+        href: architecture.md
+      - name: Зоны доступности
+        items:
+          - name: Обзор
+            href: concepts/geo-scope.md
+          - name: Вывод из эксплуатации зоны {{ region-id }}-c
+            href: concepts/ru-central1-c-deprecation.md
+      - name: Взаимодействие пользователей и ресурсов
+        href: roles-and-resources.md
+      - name: Удаление данных пользователей
+        href: concepts/data-deletion.md
+  - name: Сервисы {{ yandex-cloud }}
+    expanded: true
+    items:
+      - name: Список сервисов
+        href: concepts/services.md
+      - name: Стадии готовности сервисов
+        href: concepts/launch-stages.md
+      - name: SLA
+        href: sla.md
+      - name: Квоты и лимиты
+        href: concepts/quotas-limits.md
+      - name: История изменений
+        href: release-notes.md
+      - name: Решение проблем
+        href: qa.md
+  - name: Интерфейсы для работы с сервисами
+    expanded: true
+    items:
+      - name: Мобильное приложение
+        href: mobile-app/index.md
+      - name: API
+        href: api.md
+      - name: Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
+        href: concepts/console-syntax-guide.md
   - name: Сопоставление с другими платформами
     items:
       - name: Обзор
@@ -17,32 +52,6 @@ items:
         href: platform-comparison/gcp.md
       - name: Сопоставление с Microsoft Azure
         href: platform-comparison/azure.md
-  - name: Зоны доступности
-    items:
-      - name: Обзор
-        href: concepts/geo-scope.md
-      - name: Вывод из эксплуатации зоны {{ region-id }}-c
-        href: concepts/ru-central1-c-deprecation.md
-  - name: Стадии готовности сервисов
-    href: concepts/launch-stages.md
-  - name: Квоты и лимиты
-    href: concepts/quotas-limits.md
-  - name: API
-    href: api.md
-  - name: Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
-    href: concepts/console-syntax-guide.md
-  - name: Архитектура платформы
-    href: architecture.md
-  - name: Взаимодействие пользователей и ресурсов
-    href: roles-and-resources.md
-  - name: Удаление данных пользователей
-    href: concepts/data-deletion.md
-  - name: SLA
-    href: sla.md
-  - name: История изменений
-    href: release-notes.md
-  - name: Решение проблем
-    href: qa.md
   - name: Облачная терминология
     href: ../glossary/index.md
   - name: Обучающие курсы

@@ -95,7 +95,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     1. Delete the entry with information about the subject which rights are to be revoked from the `members` list of users.
 
-       For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+       For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Make sure that the configuration files are valid.
 

@@ -42,7 +42,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using this command:
 

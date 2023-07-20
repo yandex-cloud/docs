@@ -50,7 +50,7 @@ To link a cloud or transfer an existing one:
       * `billing_account_id`: ID of the billing account to link the cloud to.
       * `cloud_id`: ID of the cloud to link the billing account to.
 
-      For more information about the `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/billing_cloud_binding).
+      For more information about the `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/billing_cloud_binding).
 
   1. Create resources:
 

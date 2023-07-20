@@ -5,4 +5,6 @@ description: "Для выполнения операций через API в с�
 
 # Аутентификация в API {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% include notitle [auth](../../_includes/authentication.md) %}

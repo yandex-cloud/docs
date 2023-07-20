@@ -178,7 +178,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_elasticsearch_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_elasticsearch_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 

@@ -59,7 +59,7 @@ After you create a network load balancer, you can:
 
       For more information about creating this file, see [{#T}](load-balancer-create.md).
 
-      For a complete list of updatable configuration fields of a network load balancer, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For a complete list of updatable configuration fields of a network load balancer, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. In the network load balancer description, change the `name` and `description` parameter values:
 
@@ -137,7 +137,7 @@ After you create a network load balancer, you can:
 
       For more information about creating this file, see [{#T}](load-balancer-create.md).
 
-      For a complete list of updatable configuration fields of a network load balancer, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For a complete list of updatable configuration fields of a network load balancer, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. In the network load balancer description, change the `name` and `description` parameter values:
 
@@ -228,7 +228,7 @@ After you create a network load balancer, you can:
 
       For more information about creating this file, see [{#T}](load-balancer-create.md).
 
-      For a complete list of updatable configuration fields of a network load balancer, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For a complete list of updatable configuration fields of a network load balancer, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. In the network load balancer description, update the target group ID and its health check settings under `attached_target_group`:
 

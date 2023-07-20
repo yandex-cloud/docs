@@ -258,12 +258,12 @@ To host a static website in {{ objstorage-name }} using {{ TF }}:
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_member)
-   * [yandex_iam_service_account_static_access_key]({{ tf-provider-link }}/iam_service_account_static_access_key)
-   * [yandex_storage_bucket]({{ tf-provider-link }}/storage_bucket)
-   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+   * [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)
+   * [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
 1. In the `static.tf` file, paste the following values in the `locals` section:
 

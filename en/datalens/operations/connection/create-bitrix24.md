@@ -1,5 +1,11 @@
 # Creating a Bitrix24 connection
 
+{% note info %}
+
+[Table joins](../../concepts/dataset/settings.md#multi-table) are not available for this connection type.
+
+{% endnote %}
+
 To create a Bitrix24 connection:
 
 

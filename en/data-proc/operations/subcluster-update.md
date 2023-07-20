@@ -167,7 +167,7 @@ You can change the computing power of hosts in a separate subcluster:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -280,7 +280,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -378,7 +378,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -420,7 +420,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 

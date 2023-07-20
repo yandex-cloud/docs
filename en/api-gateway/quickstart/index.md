@@ -188,7 +188,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       * `content`: Function source code.
       * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
-      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
    1. Make sure that the configuration files are valid.
 
@@ -356,7 +356,7 @@ Add function information to the API gateway specification.
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
    1. Make sure that the configuration files are valid.
 

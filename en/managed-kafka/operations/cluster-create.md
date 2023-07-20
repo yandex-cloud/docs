@@ -253,7 +253,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
