@@ -655,6 +655,7 @@ default:
   link-support-mail: cloud@support.yandex.ru
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
+  link-cloud-desktop-showcase: https://console.cloud.yandex.ru/showcase/cloud-desktop
   geopoints-list-link: https://storage.yandexcloud.net/doc-files/geo_points_202106271509.csv
   geopolygons-list-link: https://storage.yandexcloud.net/doc-files/geo_polygons_202106221423.csv
   links:

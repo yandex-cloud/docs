@@ -105,6 +105,52 @@
      not_before: "2020-09-15T06:48:26Z"
      ```
 
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+          
+     ```hcl
+     resource "yandex_cm_certificate" "user-certificate" {
+       name    = "<имя_сертификата>"
+
+       self_managed {
+         certificate = <<-EOT
+                       -----BEGIN CERTIFICATE-----
+                       <содержимое_сертификата>
+                       -----END CERTIFICATE-----
+                       EOT
+         private_key = <<-EOT
+                       -----BEGIN PRIVATE KEY-----
+                       <содержимое_закрытого_ключа_сертификата>
+                       -----END PRIVATE KEY-----
+                       EOT
+       }
+     }
+     ```
+
+
+
+     Где:
+
+     * `name` — имя сертификата.
+     * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
+     * `private_key` — содержимое файла с закрытым ключом.
+
+     Более подробную информацию о параметрах ресурса `yandex_cm_certificate` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/cm_certificate).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будет создан сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+     yc certificate-manager certificate get <имя_сертификата>
+    ```
+
 - API
 
   Чтобы создать сертификат, воспользуйтесь методом REST API [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create).

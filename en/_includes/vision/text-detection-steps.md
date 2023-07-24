@@ -1,12 +1,3 @@
-1. Prepare an image file that meets the requirements:
-
-   {% include [file-restrictions](../../_includes/vision/file-restrictions.md) %}
-
-   {% note info %}
-
-    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
-
-    {% endnote %}
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](base64-encode-command.md) %}

@@ -35,6 +35,8 @@ items:
         href: containerization.md
       - name: SLA
         href: sla.md
+      - name: Бэкап
+        href: backup.md
   - name: Хранение и обработка данных
     items:
       - name: S3
@@ -77,6 +79,8 @@ items:
         href: ssh-keygen.md
       - name: REST API
         href: rest-api.md
+      - name: GRPC
+        href: grpc.md
       - name: CORS
         href: cors.md
       - name: CLI

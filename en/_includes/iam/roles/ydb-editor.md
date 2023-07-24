@@ -1,4 +1,4 @@
-### ydb.editor {#ydb-editor}
+#### ydb.editor {#ydb-editor}
 
 A user with the `ydb.editor` role can perform the following actions:
 * Manage DBs, for example, create a DB or reconfigure it.

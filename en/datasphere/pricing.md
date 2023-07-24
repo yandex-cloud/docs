@@ -32,7 +32,7 @@ You are separately charged for [data storage](#storage) in datasets and project 
 
 The cost of using integration with the {{ dataproc-name }} service takes into account:
 * {{ ml-platform-name }} c1.4 configuration computing resources.
-   These resources are created for integration with the {{ dataproc-name }} cluster and are charged while calculations are running on the cluster.
+   These resources are created for integration with the {{ dataproc-name }} cluster and are charged while computations are running on the cluster.
 * The entire lifetime of the {{ dataproc-name }} cluster according to the [{{ dataproc-full-name }} pricing policy](../data-proc/pricing.md).
 
 Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
@@ -61,13 +61,13 @@ Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](conce
 
 ### Performing background operations {#async}
 
+Learn more about [background operations](../datasphere/concepts/async.md).
+
 {% note alert %}
 
-From July 10, 2023, the performing of background operations will be charged according to the rules of [use of computing resources](#paug).
+Starting July 10, 2023, background operations will be charged according to the rules for [using computing resources](#paug).
 
 {% endnote %}
-
-Learn more about [background operations](../datasphere/concepts/async.md).
 
 
 

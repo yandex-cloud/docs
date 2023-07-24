@@ -102,3 +102,9 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       ```
 
 {% endlist %}
+
+{% note info %}
+
+You cannot delete a service account while it is linked to some cloud resources, such as instance groups. First, update the service account in the resource settings or delete the resource and then delete the service account.
+
+{% endnote %}

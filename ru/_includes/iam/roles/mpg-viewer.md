@@ -1,3 +1,3 @@
-### {{ roles.mpg.viewer }} {#mpg-viewer}
+#### {{ roles.mpg.viewer }} {#mpg-viewer}
 
 Роль `{{ roles.mpg.viewer }}` позволяет просматривать информацию о кластерах, логах их работы и квотах.

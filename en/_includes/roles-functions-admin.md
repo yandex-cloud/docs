@@ -1,4 +1,4 @@
-### functions.admin {#functions-admin}
+#### functions.admin {#functions-admin}
 
-The `functions.admin` role lets you manage function access settings.
+The `functions.admin` role allows you to manage function access settings.
 

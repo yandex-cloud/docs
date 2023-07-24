@@ -33,6 +33,8 @@ items:
     href: concepts/console-syntax-guide.md
   - name: Platform architecture
     href: architecture.md
+  - name: User interaction with resources
+    href: roles-and-resources.md
   - name: Deleting user data
     href: concepts/data-deletion.md
   - name: SLA

@@ -2,11 +2,13 @@
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
+{{ yandex-cloud }} reserves the right to automatically debit funds from the linked card during the current reporting period if your account balance exceeds the established credit limit.
+
 The method for topping up your personal account depends on your legal status.
 
 {% note info %}
 
-You cannot use [grants](../concepts/bonus-account.md) to top up your personal account.
+A billing cycle runs automatically for [individuals](../payment/billing-cycle-individual.md) as well as [businesses and individual entrepreneurs](../payment/billing-cycle-business.md) if they have a bank card linked to their billing account.
 
 {% endnote %}
 
@@ -42,7 +44,7 @@ To top up your personal account:
 
    Payment is processed in real time and completed within 15 minutes.
 
-- Bank transfers (from a bank teller)
+- Bank transfer from your account
 
    Enter your payment amount and click **Issue receipt**.
 
@@ -51,7 +53,7 @@ To top up your personal account:
    Before paying, please make sure the following is correct in your payment order:
    * Payment amount.
    * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Republic of Kazakhstan), SAG (outside the Russian Federation and the Republic of Kazakhstan).
-   * Your company TIN or sole proprietor TIN.
+   * Your company or individual entrepreneur TIN.
    * [Personal account number](../concepts/personal-account.md#id) in the payment details.
    * [Contract number](../concepts/contract.md) in the payment details.
 

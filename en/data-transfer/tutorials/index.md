@@ -46,8 +46,7 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 ![queue](../../_assets/data-transfer/tutorials/queue.svg)
 
 * [{{ KF }} to {{ CH }}](mkf-to-mch.md)
-* [{{ KF }} to {{ PG }}](mkf-to-mpg.md)
-* [{{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
+* [{{ KF }} to {{ PG }}](mkf-to-mpg.md)* [{{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
 * [{{ KF }} to {{ ES }}](mkf-to-mes.md)
 * [{{ KF }} to {{ MG }}](mkf-to-mmg.md)
 * [{{ KF }} to {{ MY }}](mkf-to-mmy.md)

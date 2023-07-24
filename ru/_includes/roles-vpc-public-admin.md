@@ -1,4 +1,4 @@
-### {{ roles-vpc-public-admin }} {#vpc-public-admin}
+#### {{ roles-vpc-public-admin }} {#vpc-public-admin}
 
 Роль `{{ roles-vpc-public-admin }}` позволяет создавать и удалять [статические публичные IP-адреса](../vpc/concepts/address.md). Также она включает все разрешения роли `{{ roles-vpc-viewer }}`.
 

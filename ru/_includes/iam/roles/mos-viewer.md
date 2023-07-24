@@ -1,3 +1,3 @@
-### {{ roles.mos.viewer }} {#mos-viewer}
+#### {{ roles.mos.viewer }} {#mos-viewer}
 
 Роль `{{ roles.mos.viewer }}` позволяет просматривать информацию о кластерах, логах их работы и квотах.

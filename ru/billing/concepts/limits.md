@@ -5,9 +5,9 @@ description: "В Биллинге действуют лимиты и квоты.
 editable: false
 ---
 
-# Квоты и лимиты в Биллинге
+# Квоты и лимиты в сервисе {{ billing-name }}
 
-В Биллинге {{ yandex-cloud }} действуют следующие ограничения:
+В {{ billing-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

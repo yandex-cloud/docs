@@ -130,3 +130,63 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
     ```
 
 {% endlist %}
+
+## Checking words for typos {#with-speller}
+
+Misspelled words may be translated incorrectly or transliterated. For example, the word <q>hellas</q> is translated as <q>эллада</q>. If the same word is misspelled, let's say as <q>helas</q>, it will be translated as <q>хелас</q>. To check spelling, use the `speller` parameter:
+
+{% list tabs %}
+
+- Bash
+
+    ```json
+    {
+      "sourceLanguageCode": "en"
+      "targetLanguageCode": "ru",
+      "texts": [
+        "helas"
+        ],
+      "folderId": "<folder_ID>",
+      "speller": true
+    }
+    ```
+
+    Where:
+
+    * `sourceLanguageCode`: Source language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code along with a [list of supported languages](../../translate/operations/list.md).
+    * `targetLanguageCode`: Target language.
+    * `texts`: Text to translate as a list of strings.
+    * `folderId`: Folder ID received [before starting](#before-begin).
+    * `speller`: Parameter that enables a spelling check.
+
+    Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
+
+    {% include [translate-file](../../_includes/translate/translate-file.md) %}
+
+    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
+
+    The response will contain a translation of the word checked for spelling:
+
+    ```json
+    {
+        "translations": [
+            {
+                "text": "эллада"
+            }
+        ]
+    }
+    ```
+
+    If no spelling check is enabled (`"speller": false`), the word will be translated as follows:
+
+    ```json
+    {
+        "translations": [
+            {
+                "text": "хелас"
+            }
+        ]
+    }
+    ```
+
+{% endlist %}

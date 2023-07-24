@@ -1,6 +1,6 @@
 ---
 title: "How to configure a source {{ PG }} endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a source {{ PG }} endpoint in {{ data-transfer-full-name }}."
+description: "In this tutorial, you will learn how to set up a source {{ PG }} endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring {{ PG }} source endpoints
@@ -165,7 +165,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * `--service-schema`: Name of the DB schema for service tables.
 
@@ -189,7 +189,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * `service_schema`: DB schema name for housekeeping tables.
 
@@ -235,7 +235,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * `serviceSchema`: Name of the DB schema for service tables.
 

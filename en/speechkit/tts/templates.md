@@ -1,12 +1,21 @@
 # Pattern-based speech synthesis
 
-Pattern-based synthesis allows you to synthesize speech based on specially prepared phrases, or _patterns_, with changeable key parts called _variables_. In pattern-based synthesis, a new phrase is synthesized integrally rather than combined of multiple pre-recorded and synthesized blocks. Speech intonations are copied from the pattern. As a result, the speech sounds naturally and cannot be told apart from real human speech.
+With pattern-based synthesis, you can synthesize speech based on pre-edited phrases, or _patterns_, with changeable key parts called _variables_. A new phrase is synthesized integrally instead of combining multiple pre-recorded and synthesized blocks. Speech intonations are copied from the pattern. This makes speech sound natural – just like real human speech.
 
-Pattern-based synthesis is only available for [{{ brand-voice-name }}](brand-voice/index.md) voices. To get started with pattern-based synthesis, [fill out the form](#contact-form).
+Pattern-based synthesis is only available for [{{ brand-voice-name }}](brand-voice/index.md) voices.
+
+
+{% note warning %}
+
+Access to the {{ brand-voice-name }} service is available on request. To get access to the technology, [fill out this form](#contact-form).
+
+{% endnote %}
+
 
 ## Source data for pattern-based synthesis {#income-data}
 
 Each request sent for pattern-based synthesis must include:
+
 * An audio recording of the pattern phrase.
 * Text template with markup of variable parts.
 * Values of variables for synthesizing a new phrase.
@@ -67,4 +76,7 @@ The logical stress should not fall on the variable part of the phrase.
 
 ## How to use pattern-based synthesis {#templates-implementation}
 
-Pattern-based synthesis is only available for [API v3](../tts-v3/api-ref/grpc/). [Example of pattern-based synthesis](api/tts-templates.md).
+Pattern-based synthesis is only available for [API v3](../tts-v3/api-ref/grpc/). Implementation examples:
+
+* [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
+* [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
