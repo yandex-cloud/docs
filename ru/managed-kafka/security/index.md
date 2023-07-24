@@ -26,6 +26,8 @@ description: "Управление доступом в сервисе созда
 
 ![image](../../_assets/mdb/roles-managed-kafka.svg)
 
+### Сервисные роли {#service-roles}
+
 {% include [mkf-auditor](../../_includes/iam/roles/mkf-auditor.md) %}
 
 {% include [mkf-viewer](../../_includes/iam/roles/mkf-viewer.md) %}
@@ -41,31 +43,23 @@ description: "Управление доступом в сервисе созда
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
-
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
-
-### {{ roles-editor }} {#editor}
-
-{% include [roles-editor](../../_includes/roles-editor.md) %}
-
-### {{ roles-admin }} {#admin}
-
-{% include [roles-admin](../../_includes/roles-admin.md) %}
-
-### {{ roles-cloud-member }} {#member}
+#### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#owner}
+#### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли необходимы {#required-roles}
 
 Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `{{ roles.mkf.editor }}` или выше на каталог, в котором создается кластер. Роль `{{ roles.mkf.viewer }}` позволит только просматривать список кластеров.
 
-Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mkf.admin }}` вместо `{{ roles.mkf.editor` }}.
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mkf.admin }}` вместо `{{ roles.mkf.editor}}`.
 
 ## Что дальше {#whats-next}
 

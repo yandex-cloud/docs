@@ -65,8 +65,8 @@ To improve the quality of generated responses, {{ yagpt-name }} logs user prompt
       ```bash
       export FOLDER_ID=<folder_ID>
       export IAM_TOKEN=<IAM_token>
-      curl --request POST 
-      -H "Content-Type: application/json" 
+      curl --request POST
+      -H "Content-Type: application/json"
       -H "Authorization: Bearer ${IAM_TOKEN}"
       -H "x-folder-id: ${FOLDER_ID}"
       -d "@prompt.json"

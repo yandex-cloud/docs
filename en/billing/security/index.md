@@ -79,10 +79,10 @@ A list of operations available to each role is given in the table below.
 
 ## Adding a user {#set-member-role}
 
-A billing account owner can add any {{ yandex-cloud }} user to the **Users** list. To add a user:
+A billing account owner can add any {{ yandex-cloud }} user or service account to the **Users** list. To do this:
 
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
+1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
 1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
 1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
@@ -90,28 +90,28 @@ A billing account owner can add any {{ yandex-cloud }} user to the **Users** lis
 1. Select a user from the drop-down list. The list shows users from your organization.
 1. Click **Add**.
 
-The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign the user the desired role.
+The user or service account is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign them the required role.
 
 ## Assigning roles {#set-role}
 
-The owner can grant access to the billing account to any user on the **Users** list. To do this:
+The owner can grant access to the billing account to any user or service account on the **Users** list. To do this:
 
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) in the upper-left corner of the page and go to **Billing**.
 1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
-1. Find the user in the list.
+1. Find the user or service account in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
 1. Click **Assign role**.
 1. Select a role from the list. The role is assigned without expiration.
 
 ## Revoking a role {#delete-role}
 
-The billing account owner can revoke roles from users on the list at any time. To do this:
+The billing account owner can revoke roles from users or service accounts on the list at any time. To do this:
 
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) in the upper-left corner of the page and go to **Billing**.
 1. Select an account on the **Accounts** page.
 1. Go to **Access control**.
-1. Find the user in the list.
+1. Find the user or service account in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
 1. Click ![image](../../_assets/cross.svg) next to the role to be invoked. The role is revoked.
 

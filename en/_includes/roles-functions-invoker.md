@@ -1,3 +1,3 @@
-### functions.functionInvoker {#functions-invoker}
+#### functions.functionInvoker {#functions-invoker}
 
-The `functions.functionInvoker` role lets you invoke functions.
+The `functions.functionInvoker` role allows you to invoke functions.

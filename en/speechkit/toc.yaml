@@ -109,10 +109,12 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Asynchronous recognition of OggOpus format, API v2
         href: stt/api/transcribation-ogg.md
-      - name: Synthesis API v3
+      - name: Speech synthesis in API v3
         href: tts/api/tts-examples-v3.md
-      - name: Pattern-based synthesis
+      - name: Pattern-based speech synthesis
         href: tts/api/tts-templates.md
+      - name: Brand Voice Call Center pattern-based speech synthesis
+        href: tts/api/tts-templates-bvcc.md
       - name: "Speech synthesis in WAV format using API\_v1"
         href: tts/api/tts-wav.md
       - name: "Speech synthesis in OggOpus format using API\_v1"

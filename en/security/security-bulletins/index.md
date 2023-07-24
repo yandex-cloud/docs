@@ -2,6 +2,16 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [29.06.2023 — CVE-2023-2478 GitLab Critical Security Release: 15.11.2, 15.10.6, and 15.9.7](../../_includes/security/security-bulletins/cve-2023-2478-gitlab-critical-security-release.md) %}
+
+{% include [29.06.2023 — CVE-2023-27561 Race-condition to bypass masked paths](../../_includes/security/security-bulletins/cve-2023-27561.md) %}
+
+{% include [29.06.2023 — CVE-2023-27492 Crash when a large request body is processed in Lua filter](../../_includes/security/security-bulletins/cve-2023-27492.md) %}
+
+{% include [29.06.2023 — CVE-2023-27491 Envoy forwards invalid HTTP/2 and HTTP/3 downstream headers](../../_includes/security/security-bulletins/cve-2023-27491.md) %}
+
+{% include [29.06.2023 — CVE-2022-3513 - CVE-2022-3375. GitLab Security Release: 15.10.1, 15.9.4, and 15.8.5](../../_includes/security/security-bulletins/cve-2022-3513-cve-2022-3375-gitlab-security-release.md) %}
+
 {% include [13.04.2023 — CVE-2023-26463 — StrongSwan IPsec — Incorrectly Accepted Untrusted Public Key With Incorrect Refcount](../../_includes/security/security-bulletins/cve-2023-26463-strongswan-ipsec.md) %}
 
 {% include [13.04.2023 — CVE-2023-0286](../../_includes/security/security-bulletins/cve-2023-0286-openssl.md) %}

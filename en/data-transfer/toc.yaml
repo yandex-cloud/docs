@@ -139,14 +139,12 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: Delivering data from {{ KF }} to {{ DS }}
             href: tutorials/mkf-to-yds.md
-          - name: Delivering data from {{ DS }} to {{ CH }}]
+          - name: Delivering data from {{ DS }} to {{ CH }}
             href: tutorials/yds-to-clickhouse.md
-          - name: Uploading {{ at-name }} logs from {{ DS }} to {{ OS }}
-            href: tutorials/trails-to-os.md
+          - name: Delivering data from {{ DS }} to {{ objstorage-name }}
+            href: tutorials/yds-to-objstorage.md
       - name: Uploading data to data marts
         items:
-          - name: Uploading data from {{ KF }} to {{ CH }}
-            href: tutorials/mkf-to-mch.md
           - name: Uploading data from {{ GP }} to {{ CH }}
             href: tutorials/greenplum-to-clickhouse.md
           - name: Uploading data from {{ MY }} to {{ CH }}
@@ -155,8 +153,6 @@ items:
             href: tutorials/metrika-to-clickhouse.md
           - name: Uploading data from {{ PG }} to {{ CH }}
             href: tutorials/rdbms-to-clickhouse.md
-          - name: Uploading data from {{ DS }} to {{ CH }}
-            href: tutorials/yds-to-clickhouse.md
           - name: Uploading data from {{ GP }} to {{ PG }}
             href: tutorials/greenplum-to-postgresql.md
       - name: Uploading data to {{ objstorage-name }}
@@ -165,8 +161,8 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: Uploading data from {{ PG }} to {{ objstorage-name }}
             href: tutorials/mpg-to-objstorage.md
-          - name: Uploading data from {{ DS }} to {{ objstorage-name }}
-            href: tutorials/yds-to-objstorage.md
+          - name: Uploading data from {{ at-name }} to {{ objstorage-name }}
+            href: tutorials/trails-to-os.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -177,6 +173,8 @@ items:
         href: concepts/transferred-objects.md
       - name: Data transformations
         href: concepts/data-transformation.md
+      - name: Serialization
+        href: concepts/serializer.md
       - name: '{{ data-transfer-full-name }} specifics for sources and targets'
         href: concepts/work-with-endpoints.md
       - name: Operations on transfers
@@ -187,7 +185,7 @@ items:
         href: concepts/copy-speed.md
       - name: Change data capture
         href: concepts/cdc.md
-      - name: Sharded copy
+      - name: Parallel copy
         href: concepts/sharded.md
       - name: What tasks the service is used for
         href: concepts/use-cases.md

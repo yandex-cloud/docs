@@ -39,8 +39,6 @@ The example shows recognition of Russian speech.
 
 This example uses the LPCM audio stream format with a sampling rate of 22,050 Hz, a WAV container, and the LUFS loudness normalization.
 
-[{#T}](../tts/api/tts-templates.md)
-
 [{#T}](../tts/api/tts-wav.md)
 
 The example uses the Russian language, the LPCM audio file format with a sampling rate of 48,000 Hz, a WAV container, and the `filipp` voice.
@@ -52,3 +50,12 @@ The example uses the Russian language and the `filipp` voice.
 [{#T}](../tts/api/tts-ssml.md)
 
 The example uses the Russian language and the `jane` voice.
+
+[{#T}](../tts/api/tts-templates.md)
+
+The example uses pattern-based synthesis for {{ brand-voice-core-name }} and {{ brand-voice-premium-name }} voices.
+
+[{#T}](../tts/api/tts-templates-bvcc.md)
+
+The example uses pattern-based synthesis for {{ brand-voice-cc-name }} voices.
+

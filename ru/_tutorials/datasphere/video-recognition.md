@@ -132,11 +132,11 @@
    1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
       
-      {% note warning %}
+         {% note warning %}
 
-      Не используйте для подключения бакеты, содержащие точку в имени. 
+         Не используйте для подключения бакеты, содержащие точку в имени. 
 
-      {% endnote %}
+         {% endnote %}
 
       1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
       1. При необходимости ограничьте максимальный размер бакета.

@@ -27,6 +27,8 @@
 
 ![image](../../_assets/mdb/roles-managed-elasticsearch.svg)
 
+### Сервисные роли {#service-roles}
+
 {% include [mes-auditor](../../_includes/iam/roles/mes-auditor.md) %}
 
 {% include [mes-viewer](../../_includes/iam/roles/mes-viewer.md) %}
@@ -42,25 +44,17 @@
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
-
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
-
-### {{ roles-editor }} {#editor}
-
-{% include [roles-editor](../../_includes/roles-editor.md) %}
-
-### {{ roles-admin }} {#admin}
-
-{% include [roles-admin](../../_includes/roles-admin.md) %}
-
-### {{ roles-cloud-member }} {#member}
+#### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#owner}
+#### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли необходимы {#required-roles}
 

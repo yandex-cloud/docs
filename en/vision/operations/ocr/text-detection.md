@@ -14,6 +14,16 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
 
 ### Recognize text from an image {#basic}
 
+1. Prepare an image file that meets the requirements:
+
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+
+    {% note info %}
+
+    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
+
+    {% endnote %}
+
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
 ### Recognize text from a PDF file {#pdf}

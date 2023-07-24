@@ -1,6 +1,6 @@
 ---
-title: "Overview"
-description: "Managing Yandex DataSphere resources using the API Basic methods for creating projects, uploading files, and working with notebooks"
+title: "{{ ml-platform-full-name }} API overview"
+description: "Managing {{ ml-platform-full-name }} resources using the API Basic methods for creating projects, uploading files, and working with notebooks"
 ---
 
 # {{ ml-platform-name }} API overview

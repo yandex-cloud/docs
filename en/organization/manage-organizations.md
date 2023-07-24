@@ -33,3 +33,5 @@ Once the organization is created, you become its owner and can manage it.
 1. In the list that opens, select the organization you need.
 
 The name of the selected organization is displayed in the top-left corner of the service window.
+
+If there are multiple organizations registered in your account, you can [move](../resource-manager/operations/cloud/change-organization.md) clouds between them.

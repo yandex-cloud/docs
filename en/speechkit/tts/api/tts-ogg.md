@@ -1,8 +1,9 @@
-# Synthesize speech in OggOpus format using API v1
+# Speech synthesis in OggOpus format using API v1
 
-The example shows how you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to an [OggOpus](../../formats.md) file using the [API v1](../request.md).
+With the [API v1](../request.md), you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to an [OggOpus](../../formats.md) file.
 
 The example uses the following synthesis parameters:
+
 * [Language](../index.md#langs): Russian.
 * [Voice](../voices.md): `filipp`.
 * Other parameters were left with their default values.
@@ -217,7 +218,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
 {% endlist %}
 
-#### For details, see also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../request.md)
 * [{#T}](tts-wav.md)

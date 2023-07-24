@@ -30,6 +30,9 @@ links:
   - title: Cloud Backup
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/
+  - title: Cloud Desktop
+    description: Виртуальная инфраструктура рабочих столов
+    href: cloud-desktop/
   - title: Cloud Interconnect
     description: Подключение к ресурсам Yandex Cloud по выделенному каналу
     href: interconnect/

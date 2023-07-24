@@ -24,13 +24,13 @@
 
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
-   To make large collections (over 1 GB) copy more quickly, enable sharding in the transfer settings: **Runtime environment** → **{{ yandex-cloud }}** → **Sharded copying parameters** → **Number of instances**. Specify a value of `2` or more. The collection will split into the specified number of parts that will be copied concurrently.
+   To make large collections (over 1 GB) copy more quickly, enable [parallel copy](../../data-transfer/concepts/sharded.md) in the transfer settings. Specify two or more workers. The collection will split into the specified number of parts that will be copied concurrently.
 
-   For sharding to work, the [data type](https://www.mongodb.com/docs/manual/reference/bson-types) in the `_id` field should be the same for all documents in a collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If required, remove documents with mismatched data types from the collection before starting a transfer.
+   For parallel copy to work, the [data type](https://www.mongodb.com/docs/manual/reference/bson-types) in the `_id` field should be the same for all documents in a collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If required, remove documents with mismatched data types from the collection before starting a transfer.
 
    {% note info %}
 
-   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the copying operation is sharded. However, when re-enabled, the transfer will not be able to partition a collection because the requirement on the `_id` field will not be met for some of the collection's documents.
+   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-enabled, the transfer will not be able to partition a collection because the `_id` field's type requirement will not be met for some documents in the collection.
 
    {% endnote %}
 
