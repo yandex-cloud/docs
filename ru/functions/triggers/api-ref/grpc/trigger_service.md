@@ -97,6 +97,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
@@ -108,6 +109,7 @@ Field | Description
 --- | ---
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
@@ -121,6 +123,7 @@ event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at leas
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
@@ -134,6 +137,7 @@ event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at 
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
@@ -203,6 +207,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
@@ -376,6 +381,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
@@ -387,6 +393,7 @@ Field | Description
 --- | ---
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
@@ -400,6 +407,7 @@ event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at leas
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
@@ -413,6 +421,7 @@ event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at 
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
@@ -482,6 +491,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
@@ -675,6 +685,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
@@ -686,6 +697,7 @@ Field | Description
 --- | ---
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
@@ -699,6 +711,7 @@ event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at leas
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
@@ -712,6 +725,7 @@ event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at 
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
@@ -781,6 +795,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
@@ -974,6 +989,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
@@ -985,6 +1001,7 @@ Field | Description
 --- | ---
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
@@ -998,6 +1015,7 @@ event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at leas
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
@@ -1011,6 +1029,7 @@ event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at 
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
@@ -1080,6 +1099,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
@@ -1309,6 +1329,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
@@ -1320,6 +1341,7 @@ Field | Description
 --- | ---
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
@@ -1333,6 +1355,7 @@ event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at leas
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
@@ -1346,6 +1369,7 @@ event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at 
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
@@ -1415,6 +1439,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
@@ -1604,6 +1629,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
@@ -1615,6 +1641,7 @@ Field | Description
 --- | ---
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
@@ -1628,6 +1655,7 @@ event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at leas
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
@@ -1641,6 +1669,7 @@ event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at 
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
+batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
@@ -1710,6 +1739,7 @@ cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buf
 Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 

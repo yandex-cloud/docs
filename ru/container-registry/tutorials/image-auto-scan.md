@@ -483,7 +483,7 @@
 
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-Чтобы  с помощью {{ TF }}:
+Чтобы настроить автоматическое сканирование Docker-образа при загрузке  с помощью {{ TF }}:
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).

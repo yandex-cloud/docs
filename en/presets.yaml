@@ -154,6 +154,7 @@ default:
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
   yt-name: YT
+  ytsaurus-name: YTsaurus
   eventhub-name: EventHub
   logbroker-name: Logbroker
   logfeller-name: Logfeller

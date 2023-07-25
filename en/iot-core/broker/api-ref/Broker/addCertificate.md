@@ -10,7 +10,7 @@ Adds a certificate.
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates
+POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates
 ```
  
 ## Path parameters {#path_params}

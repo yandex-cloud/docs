@@ -101,6 +101,8 @@
     Создайте файл с телом запроса (например, `body.php`):
 
     ```php
+    <?php
+    
     $IAM_TOKEN = '<IAM-токен>';
     $folder_id = '<идентификатор каталога>';
     $target_language = 'ru';
@@ -134,6 +136,8 @@
     curl_close($curl);
 
     var_dump($result);
+    
+    ?>
     ```
 
     Где: 

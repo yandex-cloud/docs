@@ -83,6 +83,10 @@ A set of methods for managing triggers for serverless functions.
       "registryId": "string",
       "deviceId": "string",
       "mqttTopic": "string",
+      "batchSettings": {
+        "size": "string",
+        "cutoff": "string"
+      },
 
       // `rule.iotMessage` includes only one of the fields `invokeFunction`, `invokeContainer`
       "invokeFunction": {
@@ -117,6 +121,10 @@ A set of methods for managing triggers for serverless functions.
     "iotBrokerMessage": {
       "brokerId": "string",
       "mqttTopic": "string",
+      "batchSettings": {
+        "size": "string",
+        "cutoff": "string"
+      },
 
       // `rule.iotBrokerMessage` includes only one of the fields `invokeFunction`, `invokeContainer`
       "invokeFunction": {
@@ -155,6 +163,10 @@ A set of methods for managing triggers for serverless functions.
       "bucketId": "string",
       "prefix": "string",
       "suffix": "string",
+      "batchSettings": {
+        "size": "string",
+        "cutoff": "string"
+      },
 
       // `rule.objectStorage` includes only one of the fields `invokeFunction`, `invokeContainer`
       "invokeFunction": {
@@ -193,6 +205,10 @@ A set of methods for managing triggers for serverless functions.
       "registryId": "string",
       "imageName": "string",
       "tag": "string",
+      "batchSettings": {
+        "size": "string",
+        "cutoff": "string"
+      },
 
       // `rule.containerRegistry` includes only one of the fields `invokeFunction`, `invokeContainer`
       "invokeFunction": {
@@ -388,6 +404,10 @@ A set of methods for managing triggers for serverless functions.
     },
     "mail": {
       "email": "string",
+      "batchSettings": {
+        "size": "string",
+        "cutoff": "string"
+      },
 
       // `rule.mail` includes only one of the fields `invokeFunction`, `invokeContainer`
       "invokeFunction": {
@@ -481,6 +501,9 @@ rule.<br>iotMessage | **object** <br>`rule` includes only one of the fields `tim
 rule.<br>iotMessage.<br>registryId | **string**<br><p>Required. ID of the IoT Core registry.</p> 
 rule.<br>iotMessage.<br>deviceId | **string**<br><p>ID of the IoT Core device in the registry.</p> 
 rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT topic whose messages activate the trigger.</p> 
+rule.<br>iotMessage.<br>batchSettings | **object**<br>Required. Batch settings for processing messages in the queue.
+rule.<br>iotMessage.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
+rule.<br>iotMessage.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
 rule.<br>iotMessage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retry. <br>`rule.iotMessage` includes only one of the fields `invokeFunction`, `invokeContainer`<br>
 rule.<br>iotMessage.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
@@ -504,6 +527,9 @@ rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId
 rule.<br>iotBrokerMessage | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`<br><br><p>Rule for activating a IoT Core Broker trigger.</p> 
 rule.<br>iotBrokerMessage.<br>brokerId | **string**<br><p>Required. ID of the IoT Core broker.</p> 
 rule.<br>iotBrokerMessage.<br>mqttTopic | **string**<br><p>MQTT topic whose messages activate the trigger.</p> 
+rule.<br>iotBrokerMessage.<br>batchSettings | **object**<br>Batch settings for processing events.
+rule.<br>iotBrokerMessage.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
+rule.<br>iotBrokerMessage.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`rule.iotBrokerMessage` includes only one of the fields `invokeFunction`, `invokeContainer`<br>
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>iotBrokerMessage.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
@@ -529,6 +555,9 @@ rule.<br>objectStorage.<br>eventType[] | **string**<br><p>Required. Type (name) 
 rule.<br>objectStorage.<br>bucketId | **string**<br><p>ID of the bucket.</p> 
 rule.<br>objectStorage.<br>prefix | **string**<br><p>Prefix of the object key. Filter, optional.</p> 
 rule.<br>objectStorage.<br>suffix | **string**<br><p>Suffix of the object key. Filter, optional.</p> 
+rule.<br>objectStorage.<br>batchSettings | **object**<br>Batch settings for processing events.
+rule.<br>objectStorage.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
+rule.<br>objectStorage.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
 rule.<br>objectStorage.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`rule.objectStorage` includes only one of the fields `invokeFunction`, `invokeContainer`<br>
 rule.<br>objectStorage.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
@@ -554,6 +583,9 @@ rule.<br>containerRegistry.<br>eventType[] | **string**<br><p>Required. Type (na
 rule.<br>containerRegistry.<br>registryId | **string**<br><p>ID of the registry.</p> 
 rule.<br>containerRegistry.<br>imageName | **string**<br><p>Docker-image name. Filter, optional.</p> 
 rule.<br>containerRegistry.<br>tag | **string**<br><p>Docker-image tag. Filter, optional.</p> 
+rule.<br>containerRegistry.<br>batchSettings | **object**<br>Batch settings for processing events.
+rule.<br>containerRegistry.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
+rule.<br>containerRegistry.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
 rule.<br>containerRegistry.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`rule.containerRegistry` includes only one of the fields `invokeFunction`, `invokeContainer`<br>
 rule.<br>containerRegistry.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>containerRegistry.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
@@ -681,6 +713,9 @@ rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **stri
 rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>mail | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`<br>
 rule.<br>mail.<br>email | **string**<br><p>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation.</p> 
+rule.<br>mail.<br>batchSettings | **object**<br>Batch settings for processing events.
+rule.<br>mail.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
+rule.<br>mail.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
 rule.<br>mail.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`rule.mail` includes only one of the fields `invokeFunction`, `invokeContainer`<br>
 rule.<br>mail.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>mail.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 

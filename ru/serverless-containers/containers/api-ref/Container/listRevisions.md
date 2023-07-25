@@ -95,8 +95,8 @@ filter | <p>A filter expression that filters resources listed in the response.</
         {
           "bucketId": "string",
           "prefix": "string",
-          "mountPointName": "string",
-          "readOnly": true
+          "readOnly": true,
+          "mountPointPath": "string"
         }
       ]
     }
@@ -151,6 +151,6 @@ revisions[].<br>logOptions.<br>folderId | **string** <br>`revisions[].logOptions
 revisions[].<br>storageMounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
 revisions[].<br>storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
 revisions[].<br>storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
-revisions[].<br>storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
 revisions[].<br>storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
+revisions[].<br>storageMounts[].<br>mountPointPath | **string**<br><p>Required. Mount point path inside the container for mounting.</p> <p>The string length in characters must be 1-300. Value must match the regular expression ``[-_0-9a-zA-Z/]*``.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/serverless/containers/api-ref/Container/listRevisions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

@@ -9,3 +9,4 @@ The service does not operate with resources.
 Resource | Description
 --- | ---
 [TextGeneration](TextGeneration/index.md) | 
+[Tokenizer](Tokenizer/index.md) | 

@@ -191,8 +191,6 @@ items:
             href: api-ref/grpc/index.md
           - name: CommunityService
             href: api-ref/grpc/community_service.md
-          - name: ProjectDataService
-            href: api-ref/grpc/project_data_service.md
           - name: ProjectService
             href: api-ref/grpc/project_service.md
           - name: OperationService

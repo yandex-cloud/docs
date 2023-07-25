@@ -689,6 +689,8 @@ items:
                 href: api-ref/InstanceGroup/listAccessBindings.md
               - name: update
                 href: api-ref/InstanceGroup/update.md
+              - name: rollingRecreate
+                href: api-ref/InstanceGroup/rollingRecreate.md
               - name: updateAccessBindings
                 href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: setAccessBindings
@@ -707,6 +709,8 @@ items:
                 href: api-ref/InstanceGroup/delete.md
               - name: pauseProcesses
                 href: api-ref/InstanceGroup/pauseProcesses.md
+              - name: rollingRestart
+                href: api-ref/InstanceGroup/rollingRestart.md
               - name: createFromYaml
                 href: api-ref/InstanceGroup/createFromYaml.md
               - name: stop

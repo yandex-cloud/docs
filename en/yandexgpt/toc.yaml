@@ -28,8 +28,16 @@ items:
             items:
               - name: Overview
                 href: api-ref/TextGeneration/index.md
+              - name: chat
+                href: api-ref/TextGeneration/chat.md
               - name: instruct
                 href: api-ref/TextGeneration/instruct.md
+          - name: Tokenizer
+            items:
+              - name: Overview
+                href: api-ref/Tokenizer/index.md
+              - name: tokenize
+                href: api-ref/Tokenizer/tokenize.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

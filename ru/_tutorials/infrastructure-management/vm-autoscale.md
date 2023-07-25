@@ -1,8 +1,27 @@
 # Работа с группой виртуальных машин с автоматическим масштабированием
 
-Чтобы создать [группу ВМ с автоматическим масштабированием](../../compute/concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
+В этом руководстве вы развернете [группу ВМ с политикой автоматического масштабирования](../../compute/concepts/instance-groups/scale.md#auto-scale) при превышении допустимой нагрузки.
 
-## Перед началом работы {#before-you-begin}
+ВМ будут развернуты в двух зонах доступности, а нагрузка на них будет регулироваться с помощью [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md) {{ network-load-balancer-name }}.
+
+Чтобы создать группу ВМ:
+
+1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте окружение](#prepare).
+1. [Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки](#create-vm-group).
+1. [Подключите сетевой балансировщик нагрузки с целевой группой](#connect-balancer).
+1. [Проверьте работу группы ВМ и сетевого балансировщика](#check-service).
+1. [Проверьте работу автоматического масштабирования](#check-highload).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#delete-infrastructure).
+
+
+Также инфраструктуру для масштабирования группы ВМ можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+
+
+## Подготовьте облако к работе {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
@@ -48,6 +67,12 @@
           --role editor \
           --subject serviceAccount:ajelabcde12f33nol1v5
         ```
+
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
    - API
 
@@ -127,6 +152,12 @@
         - 192.168.2.0/24
         ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      1. Создайте сеть:
@@ -135,6 +166,55 @@
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
    {% endlist %}
+
+1. Создайте группу безопасности:
+
+    {% note info %}
+
+    {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+    {% endnote %}
+
+    {% list tabs %}
+
+    - Консоль управления 
+
+      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
+      1. Откройте вкладку **Группы безопасности**.
+      1. Создайте группу безопасности для балансировщика:
+        
+        1. Нажмите кнопку **Создать группу**.
+        1. Укажите **Имя** группы: `sg-autoscale`.
+        1. Выберите **Сеть** `yc-auto-network`.
+        1. В блоке **Правила** создайте правила по инструкции под таблицей:
+          
+            | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
+            | --- | --- | --- | --- | --- | --- |
+            | Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0 |
+            | Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
+            | Входящий | healthchecks | 80 | TCP | Проверки состояния балансировщика | — |
+
+            1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
+            1. Нажмите кнопку **Добавить правило**.
+            1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+            1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
+            1. В поле **Назначение** или **Источник** выберите назначение правила:
+          
+              * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
+              * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+              * **Проверки состояния балансировщика** — правило, которое позволяет балансировщику проверять состояние ВМ.  
+
+            1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
+
+        1. Нажмите кнопку **Сохранить**.
+
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
+    {% endlist %}
 
 ## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
 
@@ -220,6 +300,12 @@
      status: ACTIVE
      ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
@@ -253,6 +339,12 @@
      | ef0uabc1s2fbde6f5tlu | cl0habce1nd2hqstga7b-craq | 130.193.56.102 | 192.168.2.19 | RUNNING_ACTUAL [4m14s] |                |
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
      ```
+
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
    - API
 
@@ -307,6 +399,12 @@
            port: "80"
      ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      1. Создайте балансировщик нагрузки с помощью метода REST API [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызова gRPC API [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create).
@@ -344,6 +442,12 @@
      ```
      
      
+
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
    - API
 
@@ -632,3 +736,118 @@
      Воспользуйтесь методом REST API [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete).
 
    {% endlist %}
+
+
+## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+Чтобы настроить масштабирование группы ВМ с помощью {{ TF }}:
+
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+
+1. Подготовьте файлы с описанием инфраструктуры:
+   
+    {% list tabs %}
+   
+    - Готовый архив
+
+      1. Склонируйте репозиторий с конфигурационными файлами:
+        
+          ```bash
+          git clone https://github.com/yandex-cloud-examples/yc-terraform-vm-autoscale.git
+          ```
+
+      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+          * `vm-autoscale.tf` — конфигурация создаваемой инфраструктуры;
+          * `declaration.yaml` — описание Docker-контейнера с веб-сервером, который будет запущен на ВМ для имитации нагрузки на сервис;
+          * `config.tpl` — описание параметров пользователя ВМ;
+          * `vm-autoscale.auto.tfvars` — пользовательские данные.
+
+          {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+    - Создание вручную
+
+      1. Создайте папку для конфигурационных файлов.
+
+      1. Создайте в папке:
+
+          1. Конфигурационный файл `vm-autoscale.tf`:
+
+              {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+              {% cut "vm-autoscale.tf" %}
+
+              {% include [vm-autoscale-tf-config](../../_includes/instance-groups/vm-autoscale-tf-config.md) %}
+
+              {% endcut %}
+
+          1. Файл `declaration.yaml` с описанием Docker-контейнера с веб-сервером, который будет запущен на ВМ для имитации нагрузки на сервис:
+
+              {% cut "declaration.yaml" %}
+
+              ```yaml
+              spec:
+              containers:
+              - image: cr.yandex/yc/demo/web-app:v1
+                securityContext:
+                  privileged: false
+                tty: false
+                stdin: false
+              ```
+
+              {% endcut %}
+
+          1. Файл `config.tpl` с параметрами пользователя ВМ:
+
+              {% cut "config.tpl" %}
+           
+              ```yaml
+              users:
+                - name: "${VM_USER}"
+                  groups: sudo
+                  shell: /bin/bash
+                  sudo: ['ALL=(ALL) NOPASSWD:ALL']
+                  ssh_authorized_keys:
+                    - "${SSH_KEY}"
+              ```
+
+              {% endcut %}
+
+          1. Файл с пользовательскими данными `vm-autoscale.auto.tfvars`:
+
+              {% cut "vm-autoscale.auto.tfvars" %}
+             
+              ```hcl
+              folder_id = "<идентификатор_каталога>"
+              vm_user   = "<имя_пользователя_ВМ>"
+              ssh_key   = "<содержимое_публичного_SSH-ключа>"
+              ```
+
+              {% endcut %}
+
+    {% endlist %}
+
+    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+    * [yandex_iam_service_account]({{ tf-provider-link }}Resources/iam_service_account)
+    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}Resources/resourcemanager_folder_iam_member)
+    * [yandex_vpc_network]({{ tf-provider-link }}Resources/vpc_network)
+    * [yandex_vpc_subnet]({{ tf-provider-link }}Resources/vpc_subnet)
+    * [yandex_vpc_security_group]({{ tf-provider-link }}Resources/vpc_security_group)
+    * [yandex_compute_instance_group]({{ tf-provider-link }}Resources/compute_instance_group)
+    * [yandex_lb_network_load_balancer]({{ tf-provider-link }}Resources/lb_network_load_balancer)
+
+1. В файле `vm-autoscale.auto.tfvars` задайте пользовательские параметры:
+    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+    * `vm_user` — имя пользователя ВМ.
+    * `ssh_key` — содержимое файла с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+1. Создайте ресурсы:
+
+    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Проверьте работу группы ВМ и сетевого балансировщика](#check-service).
+
+1. [Проверьте работу автоматического масштабирования](#check-highload).
+
