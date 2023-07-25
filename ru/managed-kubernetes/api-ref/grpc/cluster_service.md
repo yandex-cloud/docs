@@ -1503,6 +1503,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings)**<br> 
 container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings)**<br> 
+gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 
 
 ### NetworkSettings {#NetworkSettings}
@@ -1591,6 +1592,13 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+
+
+### GpuSettings {#GpuSettings}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
 
 
 ### ScalePolicy {#ScalePolicy}

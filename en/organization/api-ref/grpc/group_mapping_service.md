@@ -61,7 +61,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 federation_id | **string**<br>Required. Federation the group mapping will be created for The maximum string length in characters is 50.
-enabled | **bool**<br>A new state of synchronization to update (if mentioned in updated_fields). 
+enabled | **bool**<br>Synchronization status. 
 
 
 ### Operation {#Operation}
@@ -110,8 +110,8 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 federation_id | **string**<br>Required. Federation the group mapping update is requested The maximum string length in characters is 50.
-updated_fields | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. A set of fields that should be updated 
-enabled | **bool**<br>A new state of synchronization to update (if mentioned in updated_fields). 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>A set of fields that should be updated 
+enabled | **bool**<br>A new state of synchronization to update (if mentioned in update_mask). 
 
 
 ### Operation {#Operation1}

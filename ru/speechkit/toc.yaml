@@ -54,9 +54,13 @@ items:
           - name: Список поддерживаемых фонем в SSML
             href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
-        href: tts/brand-voice/index.md
-      - name: Синтез по шаблонам
-        href: tts/templates.md
+        items:
+          - name: Обзор
+            href: tts/brand-voice/index.md
+          - name: Данные для {{ brand-voice-core }}
+            href: tts/brand-voice/bv-full-data-upload.md
+          - name: Данные для {{ brand-voice-cc-name }}
+            href: tts/templates.md
   - name: '{{ sk-hybrid-name }}'
     items:
       - name: О технологии
@@ -83,6 +87,8 @@ items:
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
+              - name: OperationService
+                href: stt-v3/api-ref/grpc/operation_service.md
       - name: Синтез
         items:
           - name: API v1

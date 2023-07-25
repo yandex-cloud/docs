@@ -82,6 +82,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 
 
+
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
@@ -227,11 +228,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
-
 
 
 
@@ -288,11 +287,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 
 
-
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
-
 
 
 

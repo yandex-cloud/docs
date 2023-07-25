@@ -10,6 +10,7 @@ sourcePath: en/_api-ref-grpc/yandexgpt/api-ref/grpc/llm_service.md
 | Call | Description |
 | --- | --- |
 | [Instruct](#Instruct) |  |
+| [Chat](#Chat) |  |
 
 ## Calls TextGenerationService {#calls}
 
@@ -55,5 +56,47 @@ Field | Description
 text | **string**<br>Text of the response. 
 score | **double**<br>Text log likelihood. 
 num_tokens | **int64**<br>Number of tokens in the response. 
+
+
+## Chat {#Chat}
+
+
+
+**rpc Chat ([ChatRequest](#ChatRequest)) returns (stream [ChatResponse](#ChatResponse))**
+
+### ChatRequest {#ChatRequest}
+
+Field | Description
+--- | ---
+model | **string**<br> 
+generation_options | **[GenerationOptions](#GenerationOptions1)**<br> 
+messages[] | **[Message](#Message)**<br> 
+Instruction | **oneof:** `instruction_text`<br>
+&nbsp;&nbsp;instruction_text | **string**<br> 
+
+
+### GenerationOptions {#GenerationOptions1}
+
+Field | Description
+--- | ---
+partial_results | **bool**<br>Enables streaming of the partially generated text. 
+temperature | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness. 
+max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets response limit in tokens. It is a int number between 1 and 2000. 
+
+
+### Message {#Message}
+
+Field | Description
+--- | ---
+role | **string**<br> 
+text | **string**<br> 
+
+
+### ChatResponse {#ChatResponse}
+
+Field | Description
+--- | ---
+message | **[Message](#Message1)**<br> 
+num_tokens | **int64**<br> 
 
 

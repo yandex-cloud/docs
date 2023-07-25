@@ -25,7 +25,7 @@ Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
-filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the ``id`` field. To get the host ID, use <a href="/docs/compute/api-ref/HostGroup/listHosts">listHosts</a> request.</p> <p>The maximum string length in characters is 1000.</p> 
+filter | <p>Filter support is not currently implemented. Any filters are ignored.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

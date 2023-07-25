@@ -13,6 +13,7 @@ description: "В разделе описаны сценарии использо
   * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
   * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
   * [Анализ продаж сети магазинов из БД {{ CH }}](data-from-ch-visualization.md)
+  * [Визуализация данных из CHYT](data-from-ch-over-yt.md)
 
 * Работа с геоданными
 
@@ -27,6 +28,7 @@ description: "В разделе описаны сценарии использо
   * [Визуализация данных Битрикс24](data-from-bitrix24-visualization.md)
   * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
   * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)
+  * [Визуализация данных из {{ tracker-full-name }}](data-from-tracker.md)
   * [Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)](data-from-podcasts.md)
   * [Построение чартов customer journeys на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
 

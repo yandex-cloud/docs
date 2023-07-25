@@ -359,8 +359,8 @@ Field | Description
 --- | ---
 bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
 prefix | **string**<br>S3 bucket prefix for mounting. 
-mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+mount_point_path | **string**<br>Required. Mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
 
 
 ### Operation {#Operation3}
@@ -597,8 +597,8 @@ Field | Description
 --- | ---
 bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
 prefix | **string**<br>S3 bucket prefix for mounting. 
-mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+mount_point_path | **string**<br>Required. Mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
 
 
 ## ListRevisions {#ListRevisions}
@@ -735,8 +735,8 @@ Field | Description
 --- | ---
 bucket_id | **string**<br>Required. S3 bucket name for mounting. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
 prefix | **string**<br>S3 bucket prefix for mounting. 
-mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+mount_point_path | **string**<br>Required. Mount point path inside the container for mounting. The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
 
 
 ## ListOperations {#ListOperations}

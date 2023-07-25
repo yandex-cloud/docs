@@ -9,3 +9,4 @@ description: "Пошаговые инструкции по работе с {{ tr
 - [{#T}](better-quality.md)
 - [{#T}](detect.md)
 - [{#T}](list.md)
+- [{#T}](sa-api-key.md)

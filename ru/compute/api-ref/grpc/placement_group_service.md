@@ -68,10 +68,11 @@ Retrieves the list of placement groups in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to list placement groups in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) that can be used to get the next page of results in subsequent list requests. 
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) returned by a previous list request. 
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [PlacementGroup.name](#PlacementGroup1) field. 
+folder_id | **string**<br>Required. ID of the folder to list placement groups in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`. <br>Each condition has the form `<field> <operator> <value>`, where: <ol><li>`<field>` is the field name. Currently you can use filtering only on the limited number of fields. </li><li>`<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`. </li><li>`<value>` represents a value. </li></ol>String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). The maximum string length in characters is 1000.
+order_by | **string**<br>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. The default sorting order is ascending The maximum string length in characters is 100.
 
 
 ### ListPlacementGroupsResponse {#ListPlacementGroupsResponse}

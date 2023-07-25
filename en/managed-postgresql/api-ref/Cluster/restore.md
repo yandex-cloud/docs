@@ -269,7 +269,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoSelectionBias": "number",
       "geqoSeed": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_10": {
       "maxConnections": "integer",
@@ -399,7 +401,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "geqoSelectionBias": "number",
       "geqoSeed": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_11": {
       "maxConnections": "integer",
@@ -540,7 +544,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_11_1C": {
       "maxConnections": "integer",
@@ -683,7 +689,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_12": {
       "maxConnections": "integer",
@@ -826,7 +834,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_12_1C": {
       "maxConnections": "integer",
@@ -971,7 +981,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_13": {
       "maxConnections": "integer",
@@ -1126,7 +1138,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_13_1C": {
       "maxConnections": "integer",
@@ -1282,7 +1296,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_14": {
       "maxConnections": "integer",
@@ -1442,7 +1458,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_14_1C": {
       "maxConnections": "integer",
@@ -1603,7 +1621,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_15": {
       "maxConnections": "integer",
@@ -1757,7 +1777,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_15_1C": {
       "maxConnections": "integer",
@@ -1918,7 +1940,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
       "maxStandbyArchiveDelay": "integer",
-      "sessionDurationTimeout": "integer"
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     // end of the list of possible fields`configSpec`
 
@@ -3079,6 +3103,8 @@ configSpec.<br>postgresqlConfig_10_1C.<br>geqoSelectionBias | **number** (double
 configSpec.<br>postgresqlConfig_10_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_10_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10 | **object**<br>Configuration for a PostgreSQL 10 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_10.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)
@@ -3206,6 +3232,8 @@ configSpec.<br>postgresqlConfig_10.<br>geqoSelectionBias | **number** (double)<b
 configSpec.<br>postgresqlConfig_10.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_10.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a PostgreSQL 11 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_11.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)
@@ -3344,6 +3372,8 @@ configSpec.<br>postgresqlConfig_11.<br>pgTrgmWordSimilarityThreshold | **number*
 configSpec.<br>postgresqlConfig_11.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_11.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_11_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
@@ -3484,6 +3514,8 @@ configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmWordSimilarityThreshold | **numb
 configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_11_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a PostgreSQL 12 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_12.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
@@ -3624,6 +3656,8 @@ configSpec.<br>postgresqlConfig_12.<br>pgTrgmWordSimilarityThreshold | **number*
 configSpec.<br>postgresqlConfig_12.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_12.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_12_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
@@ -3766,6 +3800,8 @@ configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmWordSimilarityThreshold | **numb
 configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_12_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a PostgreSQL 13 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_13.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
@@ -3918,6 +3954,8 @@ configSpec.<br>postgresqlConfig_13.<br>pgTrgmWordSimilarityThreshold | **number*
 configSpec.<br>postgresqlConfig_13.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_13.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_13_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
@@ -4071,6 +4109,8 @@ configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmWordSimilarityThreshold | **numb
 configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_13_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a PostgreSQL 14 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_14.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
@@ -4228,6 +4268,8 @@ configSpec.<br>postgresqlConfig_14.<br>pgTrgmWordSimilarityThreshold | **number*
 configSpec.<br>postgresqlConfig_14.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_14.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_14_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
@@ -4386,6 +4428,8 @@ configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmWordSimilarityThreshold | **numb
 configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_14_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a PostgreSQL 15 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_15.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>sharedBuffers | **integer** (int64)
@@ -4537,6 +4581,8 @@ configSpec.<br>postgresqlConfig_15.<br>pgTrgmWordSimilarityThreshold | **number*
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a PostgreSQL 15 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_15_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>sharedBuffers | **integer** (int64)
@@ -4695,6 +4741,8 @@ configSpec.<br>postgresqlConfig_15_1C.<br>pgTrgmWordSimilarityThreshold | **numb
 configSpec.<br>postgresqlConfig_15_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 hostSpecs[] | **object**<br><p>Required. Configurations for PostgreSQL hosts that should be created for the cluster that is being created from the backup.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-postgresql/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>The maximum string length in characters is 50.</p> 

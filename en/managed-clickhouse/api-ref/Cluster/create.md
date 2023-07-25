@@ -41,7 +41,13 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
           "minBytesForWidePart": "integer",
           "minRowsForWidePart": "integer",
           "ttlOnlyDropParts": true,
-          "allowRemoteFsZeroCopyReplication": true
+          "allowRemoteFsZeroCopyReplication": true,
+          "mergeWithTtlTimeout": "integer",
+          "mergeWithRecompressionTtlTimeout": "integer",
+          "maxPartsInTotal": "integer",
+          "maxNumberOfMergesWithTtlInPool": "integer",
+          "cleanupDelayPeriod": "integer",
+          "numberOfFreeEntriesInPoolToExecuteMutation": "integer"
         },
         "compression": [
           {
@@ -235,6 +241,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "backgroundMovePoolSize": "integer",
         "backgroundDistributedSchedulePoolSize": "integer",
         "backgroundBufferFlushSchedulePoolSize": "integer",
+        "backgroundMessageBrokerSchedulePoolSize": "integer",
         "defaultDatabase": "string",
         "totalMemoryProfilerStep": "integer",
         "totalMemoryTrackerSampleProbability": "number"
@@ -415,6 +422,11 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "asyncInsertStaleTimeout": "integer",
         "memoryProfilerStep": "integer",
         "memoryProfilerSampleProbability": "number",
+        "maxFinalThreads": "integer",
+        "inputFormatParallelParsing": true,
+        "inputFormatImportNestedJson": true,
+        "localFilesystemReadMethod": "string",
+        "maxReadBufferSize": "integer",
         "compile": true,
         "minCountToCompile": "integer"
       },
@@ -488,6 +500,12 @@ configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>minBytesForWidePart | **i
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>minRowsForWidePart | **integer** (int64)<br><p>Minimum number of rows in a data part that can be stored in <strong>Wide</strong> format.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>ttlOnlyDropParts | **boolean** (boolean)<br><p>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>allowRemoteFsZeroCopyReplication | **boolean** (boolean)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>mergeWithTtlTimeout | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>mergeWithRecompressionTtlTimeout | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxPartsInTotal | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxNumberOfMergesWithTtlInPool | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>cleanupDelayPeriod | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>numberOfFreeEntriesInPoolToExecuteMutation | **integer** (int64)
 configSpec.<br>clickhouse.<br>config.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -580,7 +598,7 @@ configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[] | **obj
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>regexp | **string**<br><p>Pattern for metric names.</p> 
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>function | **string**<br><p>Required. Name of the aggregating function to apply to data of the age specified in ``retention``.</p> 
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>kafka | **object**
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>securityProtocol | **string**
@@ -632,6 +650,7 @@ configSpec.<br>clickhouse.<br>config.<br>backgroundFetchesPoolSize | **integer**
 configSpec.<br>clickhouse.<br>config.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>totalMemoryTrackerSampleProbability | **number** (double)
@@ -794,6 +813,11 @@ userSpecs[].<br>settings.<br>asyncInsertBusyTimeout | **integer** (int64)<br><p>
 userSpecs[].<br>settings.<br>asyncInsertStaleTimeout | **integer** (int64)<br><p>The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the ``asyncInsertBusyTimeout`` with every INSERT query as long as ``asyncInsertMaxDataSize`` is not exceeded.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms">ClickHouse documentation</a>.</p> 
 userSpecs[].<br>settings.<br>memoryProfilerStep | **integer** (int64)<br><p>Memory profiler step (in bytes).</p> <p>If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.</p> <p>Default value: <strong>4194304</strong> (4 MB). Zero means disabled memory profiler.</p> 
 userSpecs[].<br>settings.<br>memoryProfilerSampleProbability | **number** (double)<br><p>Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.</p> <p>Possible values: from <strong>0</strong> to <strong>1</strong>. Default: <strong>0</strong>.</p> 
+userSpecs[].<br>settings.<br>maxFinalThreads | **integer** (int64)<br><p>Sets the maximum number of parallel threads for the SELECT query data read phase with the FINAL modifier. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#max-final-threads">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>inputFormatParallelParsing | **boolean** (boolean)<br><p>Enables or disables order-preserving parallel parsing of data formats. Supported only for <a href="https://clickhouse.com/docs/en/interfaces/formats#tabseparated">TSV</a>, <a href="https://clickhouse.com/docs/en/interfaces/formats#tskv">TKSV</a>, <a href="https://clickhouse.com/docs/en/interfaces/formats#csv">CSV</a> and <a href="https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow">JSONEachRow</a> formats. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing">ClickHouse documentation</a></p> 
+userSpecs[].<br>settings.<br>inputFormatImportNestedJson | **boolean** (boolean)<br><p>Enables or disables the insertion of JSON data with nested objects. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing">ClickHouse documentation</a></p> 
+userSpecs[].<br>settings.<br>localFilesystemReadMethod | **string**<br><p>Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.</p> 
+userSpecs[].<br>settings.<br>maxReadBufferSize | **integer** (int64)<br><p>The maximum size of the buffer to read from the filesystem. See in-depth description in <a href="https://clickhouse.com/codebrowser/ClickHouse/src/Core/Settings.h.html#DB::SettingsTraits::Data::max_read_buffer_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 userSpecs[].<br>settings.<br>compile | **boolean** (boolean)<br><p>The setting is deprecated and has no effect.</p> 
 userSpecs[].<br>settings.<br>minCountToCompile | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 userSpecs[].<br>quotas[] | **object**<br><p>Set of quotas assigned to the user.</p> 

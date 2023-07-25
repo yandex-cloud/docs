@@ -88,8 +88,8 @@ containerRevisionId | <p>Required. ID of the revision to return.</p> <p>To get a
     {
       "bucketId": "string",
       "prefix": "string",
-      "mountPointName": "string",
-      "readOnly": true
+      "readOnly": true,
+      "mountPointPath": "string"
     }
   ]
 }
@@ -140,5 +140,5 @@ logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the f
 storageMounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
 storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
 storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
-storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
 storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
+storageMounts[].<br>mountPointPath | **string**<br><p>Required. Mount point path inside the container for mounting.</p> <p>The string length in characters must be 1-300. Value must match the regular expression ``[-_0-9a-zA-Z/]*``.</p> 

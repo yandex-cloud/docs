@@ -8,6 +8,12 @@ editable: false
 
 Имя метрики пишется в метку `name`.
 
+## Сервис {{ alb-full-name }} {#alb}
+
+{% include [alb](../../_includes/monitoring/metrics-ref/alb.md) %}
+
+Подробнее о сервисе в документации [{{ alb-name }}](../../application-load-balancer/).
+
 {% include [compute.md](../../_includes/monitoring/metrics-ref/compute.md) %}
 
 

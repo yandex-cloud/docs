@@ -1,24 +1,27 @@
 title: Search API
 description:
-  - "Search API — сервис, позволяющий отправлять запросы к поисковой базе Яндекса и получать ответы в формате XML. В данном документе перечислены <a href=\"/docs/search-api/concepts/restrictions\\\">ограничения и требования</a>, наложенные на использование сервиса, описан\_<a href=\"/docs/search-api/ operations/quickstart\\\">общий порядок подключения</a> и <a href=\"/docs/search-api/ operations/registration\\\">регистрации</a>, рассмотрены форматы поисковых <a href=\"/docs/search-api/concepts/request\\\">запросов</a> и <a href=\"/docs/search-api/concepts/response\\\">ответов</a>, а также приведены <a href=\"/docs/search-api/reference/faq\\\">ответы на частые вопросы</a>. Документ предназначен для разработчиков, которым необходимо организовать поиск по сайту, группе сайтов или интернету."
+  - >-
+    <em>Сервис Search API находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Search API — сервис, позволяющий отправлять запросы к поисковой базе Яндекса
+    и получать ответы в формате XML. Сервис  предназначен для разработчиков,
+    которым необходимо организовать поиск по сайту, группе сайтов или интернету.
 meta:
   title: Search API
 links:
+  - title: Начало работы
+    description: Узнайте, как начать работать с сервисом
+    href: quickstart
   - title: Ограничения и требования
     description: Ограничения и требования
-    href: concepts/limits.md
+    href: concepts/limits
   - title: Общий порядок подключения
     description: Общий порядок подключения
-    href: operations/quickstart.md
+    href: operations/workaround
   - title: Регистрация
     description: Регистрация
-    href: operations/registration.md
+    href: operations/registration
   - title: Запрос результатов поиска
     description: Запрос результатов поиска
-    href: concepts/index.md
-  - title: Оформление результатов
-    description: Оформление результатов
-    href: concepts/design-requirements.md
-  - title: Защита от роботов
-    description: Защита от роботов
-    href: concepts/captcha.md
+    href: concepts/index

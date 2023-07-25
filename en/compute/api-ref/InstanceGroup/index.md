@@ -481,6 +481,8 @@ Method | Description
 [listOperations](listOperations.md) | Lists operations for the specified instance group.
 [pauseProcesses](pauseProcesses.md) | Pauses all processes regarding management of the specified instance group, i.e. scaling, checking instances' health, auto-healing and updating them. Running instances are not stopped.
 [resumeProcesses](resumeProcesses.md) | Resumes all processes regarding management of the specified instance group, i.e. scaling, checking instances' health, auto-healing and updating them.
+[rollingRecreate](rollingRecreate.md) | Performs rolling recreate of specified instances for the specified instance group. Rolling recreate does recreate of instance VMs respecting all group policies.
+[rollingRestart](rollingRestart.md) | Performs rolling restart of specified instances for the specified instance group. Rolling restart does restart of instances respecting all group policies.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified instance group.
 [start](start.md) | Starts the specified instance group.
 [stop](stop.md) | Stops the specified instance group.

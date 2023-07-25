@@ -10,7 +10,7 @@ Retrieves the list of brokers in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers
+GET https://iot-data.{{ api-host }}/iot-broker/v1/brokers
 ```
  
 ## Query parameters {#query_params}

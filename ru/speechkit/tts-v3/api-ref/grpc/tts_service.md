@@ -53,12 +53,13 @@ variable_value | **string**<br>The text of the variable.
 
 Field | Description
 --- | ---
-Hint | **oneof:** `voice`, `audio_template`, `speed`, `volume` or `role`<br>The hint for TTS engine to specify synthesised audio characteristics.
+Hint | **oneof:** `voice`, `audio_template`, `speed`, `volume`, `role` or `pitch_shift`<br>The hint for TTS engine to specify synthesised audio characteristics.
 &nbsp;&nbsp;voice | **string**<br>Name of speaker to use. 
 &nbsp;&nbsp;audio_template | **[AudioTemplate](#AudioTemplate)**<br>Template for synthesizing. 
 &nbsp;&nbsp;speed | **double**<br>Hint to change speed. 
 &nbsp;&nbsp;volume | **double**<br>Hint to regulate normalization level. <ul><li>For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7. </li><li>For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.</li></ul> 
 &nbsp;&nbsp;role | **string**<br>Hint to specify pronunciation character for the speaker. 
+&nbsp;&nbsp;pitch_shift | **double**<br>Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0. 
 
 
 ### AudioTemplate {#AudioTemplate}

@@ -57,11 +57,11 @@ Retrieves the list of GPU clusters in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to list GPU clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListGpuClustersResponse.next_page_token](#ListGpuClustersResponse) that can be used to get the next page of results in subsequent list requests. 
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListGpuClustersResponse.next_page_token](#ListGpuClustersResponse) returned by a previous list request. 
-filter | **string**<br>A filter expression that filters GPU clusters listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [GpuCluster.name](#GpuCluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-schedule`. 
-order_by | **string**<br>A sorting expression that sorts GPU clusters listed in the response. <br>The expression must specify the field name from [GpuCluster](#GpuCluster1) and `asc`ending or `desc`ending order, e.g. `createdAt desc`. <br>Default value: `id asc`. 
+folder_id | **string**<br>Required. ID of the folder to list GPU clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListGpuClustersResponse.next_page_token](#ListGpuClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListGpuClustersResponse.next_page_token](#ListGpuClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters GPU clusters listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [GpuCluster.name](#GpuCluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-schedule`. The maximum string length in characters is 1000.
+order_by | **string**<br>A sorting expression that sorts GPU clusters listed in the response. <br>The expression must specify the field name from [GpuCluster](#GpuCluster1) and `asc`ending or `desc`ending order, e.g. `createdAt desc`. <br>Default value: `id asc`. The maximum string length in characters is 100.
 
 
 ### ListGpuClustersResponse {#ListGpuClustersResponse}

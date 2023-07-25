@@ -10,7 +10,7 @@ Deletes the specified broker certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
+DELETE https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
 ```
  
 ## Path parameters {#path_params}

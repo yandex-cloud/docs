@@ -49,7 +49,7 @@
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
       | aje6o61dvog2******** | my-robot         |                               |
-      | aje9sda1ufvq******** | blabla           | bla bla bla is my description |
+      | aje9sda1ufvq******** | account_name     | account_description           |
       +----------------------+------------------+-------------------------------+
       ```
   1. Создайте ключ доступа для сервисного аккаунта `my-robot`:

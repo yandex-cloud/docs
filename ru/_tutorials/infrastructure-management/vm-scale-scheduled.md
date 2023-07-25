@@ -647,13 +647,13 @@
      1. Создайте в папке:
 
         * Конфигурационный файл `vm-scale-scheduled.tf`:
-  
+
           {% cut "vm-scale-scheduled.tf" %}
-     
+
           {% include [vm-scale-scheduled-tf-config](../../_includes/instance-groups/vm-scale-scheduled-tf-config.md) %}
-     
+
           {% endcut %}
-     
+
         * Файл с кодом функции {{ sf-name }} `handler.sh`:
        
           {% cut "handler.sh" %}

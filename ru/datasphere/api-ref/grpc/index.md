@@ -9,6 +9,5 @@ See the interface definitions of the API on [GitHub](https://github.com/yandex-c
 Service | Description
 --- | ---
 [CommunityService](./community_service.md) | 
-[ProjectDataService](./project_data_service.md) | A set of methods for managing data of the Project resource.
 [ProjectService](./project_service.md) | A set of methods for managing Project resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

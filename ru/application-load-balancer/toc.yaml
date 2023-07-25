@@ -247,6 +247,8 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
+  - name: Справочник метрик
+    href: metrics.md
   - name: Справочники инструментов для {{ managed-k8s-name }}
     items:
       - name: Обзор

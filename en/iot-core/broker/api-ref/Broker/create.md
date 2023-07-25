@@ -10,7 +10,7 @@ Creates a broker in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers
+POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers
 ```
  
 ## Body parameters {#body_params}

@@ -10,7 +10,7 @@ Retrieves the list of passwords for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords
+GET https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords
 ```
  
 ## Path parameters {#path_params}
