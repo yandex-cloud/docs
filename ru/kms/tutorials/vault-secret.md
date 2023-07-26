@@ -60,8 +60,6 @@
 * плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за количество активных версий {{ kms-short-name }}-ключа и число выполненных криптографических операций (см. [тарифы {{ vpc-full-name }}](../../kms/pricing.md)).
 
-
-
 ## Настройте Auto Unseal {#setup}
 
 Для настройки Auto Unseal внесите изменения в [конфигурационный файл](https://www.vaultproject.io/docs/configuration) Vault:
@@ -92,7 +90,7 @@
 
     {% endlist %}
 
-1. Если Vault уже проинициализирован, то выполните миграцию командой `vault operator unseal -migrate`
+1. Измените конфигурацию в рамках [процедуры миграции](https://www.vaultproject.io/docs/concepts/seal#seal-migration), соответствующей используемой версии Vault.
 
 {% note info %}
 
