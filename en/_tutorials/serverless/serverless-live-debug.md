@@ -51,7 +51,7 @@ The cost of this infrastructure includes:
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **Service accounts** tab, click **Create service account**.
-      1. Enter a name for the service account, such as `sa-terraform`.
+      1. Enter a name for the service account, such as `sa-live-debug`.
 
          The name format requirements are as follows:
 
@@ -300,7 +300,7 @@ The cost of this infrastructure includes:
    WS connection opened
    Local client ready.
    Check url: https://d5ddt4ltdvh7********.apigw.yandexcloud.net
-   Waiting requests... 
+   Waiting requests...
    ```
 
    Where `Check url` is the public address of the {{ api-gw-name }} [API gateway](../../api-gateway/concepts/index.md).

@@ -4,7 +4,7 @@ Get the authorization data for your account:
 
 - User's Yandex account
 
-   1. [On the billing page]({{ link-console-billing }}), make sure that the [payment account](../../billing/concepts/billing-account.md) is in `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+   1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
    1. [Get an IAM token](../../iam/operations/iam-token/create.md), which is required for authentication.
    1. [Get the ID of any folder](../../resource-manager/operations/folder/get-id.md) that your account is granted the `{{ roles-vision-user }}` role or higher for.
 
@@ -19,7 +19,7 @@ Get the authorization data for your account:
          ```
    1. [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-vision-user }}` role or a higher role for the folder where it was created.
 
-      Don't specify the folder ID in your requests: the service uses the folder where the service account was created.
+      Do not specify the folder ID in your requests, as the service uses the folder where the service account was created.
 
 - Federated account
 

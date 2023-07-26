@@ -35,7 +35,7 @@ The infrastructure support cost for this tutorial includes:
 * Fee for data storage and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for requests to the created API gateways and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for queue requests and outgoing traffic (see [{{ message-queue-full-name }} pricing](../../message-queue/pricing.md)).
-* Fee for function calls and computing resources allocated to execute the functions (see [{{ sf-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for function calls and computing resources allocated to execute the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Prepare the environment {#prepare}
 
@@ -780,7 +780,6 @@ The following service accounts were created when deploying the project:
 1. Copy the API gateway's service domain. You can find it in the previous command output in the `domain` field.
 
 1. Find a Telegram bot named [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
-
 1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`, the URL will look like `https://d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`.
 
 ## Test the app {#test-app}

@@ -54,6 +54,10 @@
 
 {% include [color-issue](../../_includes/tracker/color-issue.md) %}
 
+### Критический путь {#critical-path}
+
+{% include [critical-path](../../_includes/tracker/gantt-critical-path.md) %}
+
 ## Отображение блока со списком задач {#tasks-view}
 
 {% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}

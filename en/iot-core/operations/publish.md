@@ -14,6 +14,8 @@ When using registries and devices, you can send messages of the following types:
 
 To receive messages, you need to subscribe to the sender. For information about how to do this, see [{#T}](subscribe.md).
 
+To learn how to make sure a message has been sent and delivered, see [{#T}](../tutorials/message-delivery-check.md).
+
 {% include [registry-and-device-topic-note](../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
 {% include [iot-before-you-begin](../../_includes/iot-core/iot-before-you-begin.md) %}

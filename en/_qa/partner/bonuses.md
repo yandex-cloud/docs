@@ -2,7 +2,7 @@
 
 #### What is a partner bonus? {#bonus}
 
-A partner bonus is a discount on {{ yandex-cloud }} services that is applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at the end of month. The certificate, payment invoice, and invoice issued to the partner indicate the final amount including the discount.
+A partner bonus is a discount on {{ yandex-cloud }} services applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at the end of month. The certificate, payment invoice, and invoice issued to the partner indicate the final amount including the discount.
 
 #### What determines the discount amount, the way it is credited, and how it is calculated? {#discount}
 

@@ -33,7 +33,7 @@ The following limitations apply:
 * The `start` and `end` parameters are not supported and are ignored for `/api/v1/labels`, `/api/v1/<label_name>/values`, and `/api/v1/series` requests.
 * The maximum number of selectors that you can provide as the `match[]` parameter is 8.
 * The maximum number of time series that you can get metadata for using `/api/v1/series` requests is 10,000.
-* The maximum number of time series that can be read per `/api/v1/query` or `/api/v1/query_range` is 640.
+* The maximum number of time series that can be read per `/api/v1/query` or `/api/v1/query_range` is 10,000.
 * The `--query.lookback-delta` parameter value is `5m`.
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

@@ -9,3 +9,4 @@ Boot disk images must meet the following requirements:
 * Services running your application are resistant to VM reboots.
 * GPT disk partitioning is used.
 * The disk is mounted by its UUID rather than by name.
+* File system is not encrypted.

@@ -16,7 +16,7 @@ To increase the quotas, contact support. In your request, specify the **folder I
 
 #### What is folderId used for? {#folderid}
 
-{{ speechkit-short-name }} uses the `folderId` for authorization (verifying access rights) and billing.
+{{ speechkit-short-name }} uses the `folderId` for authorization (verifying access rights) and payments for resources.
 
 When making a request under a service account, you don't need to specify any `folderId`, since, by default, the service uses the `folderId` of the folder that this service account was created in. If you specify a different ID, the service returns an error.
 

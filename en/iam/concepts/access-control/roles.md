@@ -150,7 +150,6 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
 
-
 ## {{ yds-full-name }} {#yds-roles}
 
 {% include [yds-viewer](../../../_includes/iam/roles/yds-viewer.md) %}
@@ -161,6 +160,8 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [yds-admin](../../../_includes/iam/roles/yds-admin.md) %}
 
+
+
 ## {{ data-transfer-full-name }} {#data-transfer-roles}
 
 {% include [data-transfer-viewer](../../../_includes/iam/roles/data-transfer-viewer.md) %}
@@ -170,12 +171,12 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [data-transfer-admin](../../../_includes/iam/roles/data-transfer-admin.md) %}
 
 
+
 ## {{ datalens-full-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
-
 
 
 ## {{ ml-platform-name }} {#datasphere-roles}
@@ -283,6 +284,8 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [mch-admin](../../../_includes/iam/roles/mch-admin.md) %}
 
+
+
 ## {{ mes-full-name }} {#mes-roles}
 
 {% include [mes-auditor](../../../_includes/iam/roles/mes-auditor.md) %}
@@ -311,6 +314,8 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [mgp-admin](../../../_includes/iam/roles/mgp-admin.md) %}
 
+
+
 ## {{ managed-k8s-full-name }} {#kubernetes-roles}
 
 {% include [k8s-cluster-api-viewer](../../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
@@ -331,6 +336,8 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
+
+
 ## {{ mmg-full-name }} {#mmg-roles}
 
 {% include [mmg-auditor](../../../_includes/iam/roles/mmg-auditor.md) %}
@@ -340,6 +347,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [mmg-editor](../../../_includes/iam/roles/mmg-editor.md) %}
 
 {% include [mmg-admin](../../../_includes/iam/roles/mmg-admin.md) %}
+
+
 
 ## {{ mmy-full-name }} {#mmy-roles}
 
@@ -381,6 +390,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [mrd-admin](../../../_includes/iam/roles/mrd-admin.md) %}
 
+
+
 ## {{ mms-full-name }} {#mms-roles}
 
 {% include [mms-auditor](../../../_includes/iam/roles/mms-auditor.md) %}
@@ -398,7 +409,6 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [ydb-editor](../../../_includes/iam/roles/ydb-editor.md) %}
 
 {% include [ydb-admin](../../../_includes/iam/roles/ydb-admin.md) %}
-
 
 ## {{ message-queue-full-name }} {#ymq-roles}
 
@@ -471,6 +481,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
+
+
 ## {{ translate-full-name }} {#translate-roles}
 
 {% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
@@ -478,6 +490,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 ## {{ vision-full-name }} {#vision-roles}
 
 {% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
+
+
 
 ## {{ vpc-full-name }} {#vpc-roles}
 

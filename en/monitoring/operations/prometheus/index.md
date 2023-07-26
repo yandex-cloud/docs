@@ -51,10 +51,10 @@ The system functionality will be enhanced in upcoming releases.
 
 The limits specified below are not technical system restrictions and can be increased by sending a request to the [support team]({{ link-console-support }}).
 
-* 200 requests per second and 3 MB/s per write in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format.
+* 350 requests per second and 5 MB/s per write in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format.
 * 10000 metrics per request per write.
-* 25 requests per second per read via the [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api).
-* 50 requests per second per read via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
+* 100 requests per second per read via the [Remote Read API](https://prometheus.io/docs/prometheus/latest/querying/remote_read_api).
+* 100 requests per second per read via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
 * 1 million unique metrics.
 * 29 unique labels per metric.
 * [Expired metrics](../../concepts/ttl.md) are deleted in 60 days.
