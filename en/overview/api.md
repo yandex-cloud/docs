@@ -12,7 +12,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | ---------------- | --------------- |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |
 | {{ alb-full-name }}                     | [gRPC](../application-load-balancer/api-ref/grpc/)<br>[REST](../application-load-balancer/api-ref/) |
-| Billing                                 | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
+| {{ billing-name }}                                 | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
 | {{ certificate-manager-full-name }}     | [gRPC](../certificate-manager/api-ref/grpc/)<br>[REST](../certificate-manager/api-ref/) |
 | {{ cdn-full-name }}                     | [gRPC](../cdn/api-ref/grpc/)<br>[REST](../cdn/api-ref/) |
 | {{ dns-full-name }}                     | [gRPC](../dns/api-ref/grpc/)<br>[REST](../dns/api-ref/) |
@@ -55,4 +55,3 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
-

@@ -5,7 +5,6 @@
 | Maximum query result retention time | 24 hours |
 | Maximum streaming query runtime (preview stage) | 7 days |
 | Maximum analytical query duration | 24 hours |
-| Maximum size of a Parquet file | 50 MB |
 
 #### Quotas {#yq-quotas}
 

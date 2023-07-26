@@ -10,10 +10,10 @@ You can view details of how customers use services:
 
    To view charts and tables with information about {{ yandex-cloud }} service usage:
    1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
-   2. Select an account on the **List of accounts** page.
+   2. Select an account on the **Accounts** page.
    3. Go to the **Usage details** page.
 
-   For more information about the settings of the **Usage details** page, see the [Billing documentation](../../billing/operations/check-charges.md).
+   For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
 
 - Partner portal
 

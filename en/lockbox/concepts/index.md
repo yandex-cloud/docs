@@ -5,9 +5,9 @@ description: "A service for creating and storing secrets in the {{ yandex-cloud 
 
 # {{ lockbox-full-name }} overview
 
-{{ lockbox-full-name }} is a service for the centralized storage of secrets, such as passwords, SSH keys, and tokens. A secret is a set of versions that store your data. A version contains a key-value pair. A key is a non-secret ID that identifies a value. The value is your secret data.
+{{ lockbox-full-name }} is a service for the centralized storage of secrets, such as passwords, SSH keys, and tokens. A secret is a set of versions that store your data. A version contains one or more key-value pairs. A key is a non-secret ID that identifies a value. The value is your secret data.
 
-{{ lockbox-full-name }} allows users to manage a secret's lifecycle by creating, updating, and deleting secrets in a centralized manner and take advantage of all the access control features that [{{ iam-full-name }}](../../iam/) provides.
+{{ lockbox-full-name }} allows users to manage a secret's lifecycle by creating, updating, and deleting secrets in a centralized manner and take advantage of all the access control features that [{{ iam-full-name }}](../../iam/index.yaml) provides.
 
 All secrets are stored in encrypted form. By default, secrets are encrypted with a system key but you can also use [{{ kms-full-name }}](../../kms/index.yaml) with your own keys.
 

@@ -59,6 +59,7 @@
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за количество активных версий {{ kms-short-name }}-ключа и число выполненных криптографических операций (см. [тарифы {{ vpc-full-name }}](../../kms/pricing.md)).
+
 
 ## Настройте Auto Unseal {#setup}
 

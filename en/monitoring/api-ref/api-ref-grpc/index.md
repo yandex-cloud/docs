@@ -1,6 +1,6 @@
 # Overview
 
-This API reference is organized by resource. To perform an operation on a resource, make a remote procedure call (RPC). For more information, see the [{{ yandex-cloud }} API concepts](../../../api-design-guide/) documentation.
+This API reference is organized by resource. To perform an operation on a resource, make a remote procedure call (RPC). For more information, see the documentation on [{{ yandex-cloud }} API concepts](../../../api-design-guide/).
 
 | Service | Description | Use cases |
 ------|--------|--------
@@ -27,7 +27,7 @@ message: "ALREADY_EXISTS: Name must be unique in parentId"
 
 ## Handling errors {#error-handling}
 
-If an error occurs, the Monitoring API returns the gRPC `status != OK`. The response body contains a detailed error description in the following format:
+If an error occurs, the {{ monitoring-name }} API returns the gRPC `status != OK`. The response body contains a detailed error description in the following format:
 
 ```
 code: <number> error code
@@ -40,7 +40,7 @@ code: 6
 message: "ALREADY_EXISTS: Name must be unique in parentId"
 ```
 
-Currently, there is no fixed list of error codes, so the `code` field is reserved for use in future versions of Yandex Monitoring.
+Currently, there is no fixed list of error codes, so the `code` field is reserved for use in future versions of {{ monitoring-name }}.
 
 {% note tip %}
 

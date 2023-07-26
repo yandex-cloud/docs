@@ -13,7 +13,7 @@ Program participants:
 
 ## Bonus for participating in the program {#premium}
 
-A partner bonus is a discount on {{ yandex-cloud }} services that is applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at the end of month. The certificate, payment invoice, and regular invoice issued to the partner show the total amount for all services consumed by all partner's customers, including the discount.
+A partner bonus is a discount on {{ yandex-cloud }} services applied to the payment invoice issued to the {{ yandex-cloud }} partner's billing account at the end of month. The certificate, payment invoice, and regular invoice issued to the partner show the total amount for all services consumed by all partner's customers, including the discount.
 
 ### Discount amount {#discount}
 
