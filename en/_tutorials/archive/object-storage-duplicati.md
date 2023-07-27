@@ -11,9 +11,9 @@ To set up backups in {{ objstorage-name }} via Duplicati:
 1. [Set up Duplicati](#configure-duplicati).
 1. [Test the backup process](#test-backup).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -24,7 +24,7 @@ The price for backups via Duplicati includes:
 
 * Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
 
 
 ## Create a bucket {#create-bucket}
@@ -41,7 +41,7 @@ To create a bucket for backups:
 
 ## Set up a service account {#configure-service-account}
 
-Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account, [create](../../iam/operations/sa/create.md) one.
+Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you do not have a service account, [create](../../iam/operations/sa/create.md) one.
 
 To create a service account:
 
@@ -74,7 +74,7 @@ To configure Duplicati to work with {{ objstorage-name }}:
 1. Enter the backup plan name: `{{ yandex-cloud }}`. If you selected to encrypt the backup (`AES-256 encryption`), enter the password and confirm it. Click **Next**.
 1. Under **Storage Type**, select`S3 compatible`.
 1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `{{ s3-storage-host }}/`.
-1. In the **Bucket name** field, enter the name of your bucket: `backup`.
+1. In the **Bucket name** field, enter a name for your bucket.
 1. In the **AWS Access ID** field, specify the ID of the static access key.
 1. In the **AWS Access Key** field, enter the private key.
 1. To double-check the settings, click **Test connection**. In the window that opens, click **No**.
@@ -97,6 +97,6 @@ To test a backup:
 
 For more information about restoring from a backup, see the [Duplicati documentation](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup).
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 {% include [clear-out](../_tutorials_includes/storage-clear-out.md) %}

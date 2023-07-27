@@ -10,7 +10,7 @@ Using this tutorial, you'll learn how to save application runtime logs to {{ obj
 
 To set up application runtime log storage:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Configure the environment](#setup).
 1. [Create a bucket for storing logs](#create-bucket).
 1. [Create a data stream](#create-stream).
@@ -46,6 +46,7 @@ You'll need the ID and secret key in the next steps.
 1. In the list of services, select **{{ objstorage-name }}**.
 1. Click **Create bucket**.
 1. Name the bucket.
+1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
 1. In the **Storage class** field, select `Cold`.
 1. Click **Create bucket**.
 
@@ -58,7 +59,7 @@ You'll need the ID and secret key in the next steps.
 1. Enter the name of the stream.
 1. Click **Create**.
 
-Wait for the stream to start. Once the stream is ready for use, its status changes from `CREATING` to `ACTIVE`.
+Wait for the stream to start. Once the stream is ready for use, its status will change from `CREATING` to `ACTIVE`.
 
 ## Create a transfer {#create-transfer}
 
@@ -88,7 +89,7 @@ Wait for the stream to start. Once the stream is ready for use, its status chang
    1. Click **Create**.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
 
-Wait until the transfer is activated. Once the transfer is ready for use, its status changes from {{ dt-status-creation }} to {{ dt-status-repl }}.
+Wait until the transfer is activated. Once the transfer is ready for use, its status will change from {{ dt-status-creation }} to {{ dt-status-repl }}.
 
 ## Install Fluentd {#install-fluentd}
 
@@ -127,7 +128,7 @@ sudo td-agent-gem install fluent-plugin-kinesis
     aws_sec_key <secret>
 
     # kinesis stream name
-    stream_name /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream
+    stream_name /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream
 
     # region
     region ru-central-1
@@ -156,14 +157,14 @@ If the setup is successful, the Fluentd `/var/log/td-agent/td-agent.log` operati
 ```text
 ...
 2022-04-20 19:36:37.770311035 +0000 kinesis: {"user_id":"user1","score":100}
-2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
-2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Finish writing chunk
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream: Finish writing chunk
 ...
 ```
 
 The created bucket will contain a file with the message sent.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you used:
 

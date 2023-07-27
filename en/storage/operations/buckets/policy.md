@@ -4,7 +4,7 @@
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. For details, see the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to apply or modify an access policy is `storage.configurer`. See also the [role description](../../../storage/security/#storage-configurer).
 
 To apply or edit a bucket access policy:
 
@@ -81,7 +81,7 @@ To apply or edit a bucket access policy:
 
       ```bash
       name: my-bucket
-      folder_id: csgeoelk7fl15s6dsvbo
+      folder_id: csgeoelk7fl1********
       default_storage_class: STANDARD
       versioning: VERSIONING_SUSPENDED
       max_size: "10737418240"
@@ -202,7 +202,7 @@ To apply or edit a bucket access policy:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -214,7 +214,7 @@ To apply or edit a bucket access policy:
 
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view an access policy is `storage.configViewer`. For details, see the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view an access policy is `storage.configViewer`. See also the [role description](../../../storage/security/#storage-config-viewer).
 
 To view the access policy applied to a bucket:
 
@@ -255,7 +255,7 @@ To view the access policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete an access policy is `storage.configurer`. For details, see the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete an access policy is `storage.configurer`. See also the [role description](../../../storage/security/#storage-configurer).
 
 To delete a bucket policy:
 

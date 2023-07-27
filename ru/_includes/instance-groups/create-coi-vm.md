@@ -46,7 +46,7 @@
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8avp6edhbt
+     service_account_id: aje3932acd8a********
      description: "This instance group was created from YAML config."
      ```
 
@@ -70,11 +70,11 @@
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: <идентификатор последней версии COI>
+           image_id: <идентификатор_последней_версии_COI>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
-         - network_id: c64mknqgnd8avp6edhbt
+         - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
        metadata:
          docker-container-declaration: |-
@@ -118,6 +118,10 @@
      allocation_policy:
        zones:
          - zone_id: {{ region-id }}-a
+           instance_tags_pool:
+           - first
+           - second
+           - third
      ```
 
      Где:
@@ -130,10 +134,10 @@
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8avp6edhbt
+     service_account_id: aje3932acd8a********
      description: "This instance group was created from YAML config."
      instance_template:
-       service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+       service_account_id: aje3932acd8a******** # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
        platform_id: standard-v3
        resources_spec:
          memory: 2G
@@ -141,11 +145,11 @@
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: <идентификатор последней версии COI>
+           image_id: <идентификатор_последней_версии_COI>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
-         - network_id: c64mknqgnd8avp6edhbt
+         - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
        metadata:
          docker-container-declaration: |-
@@ -165,7 +169,11 @@
          size: 3
      allocation_policy:
        zones:
-         - zone_id: {{ region-id }}-a
+          - zone_id: {{ region-id }}-a
+            instance_tags_pool:
+            - first
+            - second
+            - third
      ```
 
      {% note info %}

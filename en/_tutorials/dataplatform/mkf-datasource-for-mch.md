@@ -39,7 +39,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-from-kafka-to-clickhouse/data-from-kafka-to-clickhouse.tf) configuration file to the same working directory.
 
       This file describes:
@@ -47,7 +47,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Network.
       * Subnet.
       * Default security group and rules required to connect to the clusters from the internet.
-      * A {{ mkf-name }} cluster with a description of one topic and two users on whose behalf the producer and consumer will connect to the topic, respectively. To create multiple topics or clusters, duplicate blocks with their description and specify new unique names. Users in different clusters may have the same names.
+      * A {{ mkf-name }} cluster with a description of one topic and two users on whose behalf the producer and consumer will connect to the topic, respectively.
+
+         To create multiple topics or clusters, duplicate blocks with their description and specify new unique names. Users in different clusters may have the same names.
+
       * A {{ mch-name }} cluster with a single shard and a database named `db1`.
 
    1. Specify in the file `data-from-kafka-to-clickhouse.tf`:
@@ -137,31 +140,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. Depending on the number of {{ mkf-name }} clusters:
 
-      - If there is a single {{ KF }} cluster, enter the authentication credentials in the block `clickhouse.config.kafka`:
+      - If there is a single {{ KF }} cluster, uncomment the `clickhouse.config.kafka` section in the `data-from-kafka-to-clickhouse.tf` file:
 
          ```hcl
-         resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
-         clickhouse {
-             ...
-             config {
+         config {
              kafka {
                  security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                  sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
                  sasl_username     = "<consumer username>"
                  sasl_password     = "<user password for the consumer>"
              }
-             }
-         }
          }
          ```
 
-      - If there are multiple {{ KF }} clusters, specify the authentication credentials for each {{ mkf-name }} topic in the block `clickhouse.config.kafka_topic`:
+      - If there are multiple {{ KF }} clusters, uncomment the `clickhouse.config.kafka_topic` section and specify the authentication credentials for each {{ mkf-name }} topic:
 
          ```hcl
-         resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
-         clickhouse {
-             ...
-             config {
+         config {
              kafka_topic {
                  name = "<topic name>"
                  settings {
@@ -171,11 +166,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
                  sasl_password     = "<user password for the consumer>"
                  }
              }
-             ...
-             }
-         }
          }
          ```
+
+         If there are multiple topics in the clusters, duplicate the `kafka_topic` section as many times as required and specify the respective topic names.
 
    1. Make sure the settings are correct.
 
@@ -189,22 +183,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## In the {{ mch-name }} cluster, create tables on the Kafka engine {#create-kf-table}
 
-For example, {{ KF }} topics receive data from car sensors in JSON format:
-
-- String ID of the device, `device_id`.
-- Date and time when the data was generated, `datetime`, in `YYYY-MM-DD HH:MM:SS` format.
-- Car coordinates:
-
-   - `latitude`: Latitude.
-   - `longitude`: Longitude.
-   - `altitude`: Altitude above sea level.
-
-- `speed`: Current speed.
-- `battery_voltage`: Battery voltage (used for electric cars. For cars with internal combustion engine, this parameter is `null`).
-- `cabin_temperature`: Temperature in the interior of the car.
-- `fuel_level`: Fuel level (used for cars with internal combustion engine. For electric cars, this parameter is `null`).
-
-This data will be sent as {{ KF }} messages, each containing a string like this:
+For example, {{ KF }} topics receive some data from car sensors in JSON format. This data will be sent as {{ KF }} messages, each containing a string like this:
 
 ```json
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
@@ -350,7 +329,7 @@ To learn more about how to work with data received from {{ KF }}, see the [{{ CH
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 

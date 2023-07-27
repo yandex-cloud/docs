@@ -1,6 +1,6 @@
 # Converting a video to a GIF in Python
 
-You'll create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}. This guide is intended for Linux and macOS users.
+You will create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}. This guide is intended for Linux and macOS users.
 
 
 To create an application:
@@ -12,7 +12,7 @@ To create an application:
 1. [Create a trigger](#create-trigger).
 1. [Test the application](#test-app).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -57,13 +57,13 @@ The infrastructure support cost includes:
    * **Table type**:  [Document table](../ydb/operations/schema.md#create-table). 
    * **Columns**: One column with the name `task_id` and the `String` type.  Set the [Partition key](../ydb/operations/schema.md#create-table) attribute. 
 
-1. [Create a bucket](../storage/operations/buckets/create) named `converter-bucket` in {{ objstorage-full-name }}.
+1. [Create a bucket](../storage/operations/buckets/create) with restricted access in {{ objstorage-full-name }}.
 
 ## Create an API function {#create-api-function}
 
 The function implements an API which you can use to perform the following actions:
 
-* `convert`: Transfer a video to convert. The function writes the task to the `tasks` table using the [Document API](../ydb/docapi/tools/aws-http.md). 
+* `convert`: Transfer a video to convert. The function writes the task to the `tasks` table  using the [Document API](../ydb/docapi/tools/aws-http.md). 
 * `get_task_status`: Get the task status. The function checks whether the task is completed and returns a link to a GIF file.
 
 {% list tabs %}
@@ -80,7 +80,7 @@ The function implements an API which you can use to perform the following action
          ```
 
       1. Create a file named `index.py` and paste the contents of `ffmpeg-api.py` from the archive into it.
-      1. Indicate the following:
+      1. Specify the following:
 
          * Runtime environment: `python37`.
          * Entry point: `index.handle_api`.
@@ -118,13 +118,13 @@ Video conversion is done using the FFmpeg utility. The FFmpeg executable file is
       * The `index.py` file with the contents of `ffmpeg-converter.py` from the archive.
       * The FFmpeg executable file. Go to the [FFmpeg official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the archive with the 64-bit FFmpeg version, and make the file executable by running the `chmod +x ffmpeg` command.
 
-   1. [Upload](../storage/operations/objects/upload.md) `src.zip` to `converter-bucket`.
+   1. [Upload](../storage/operations/objects/upload.md) `src.zip` to the previously created bucket.
    1. [Create](../functions/operations/function/version-manage.md) a function version:
 
       1. Specify the following:
 
          * Upload method: `Object Storage`.
-         * Bucket: `converter-bucket`.
+         * Name of the previously created bucket.
          * Object: `src.zip`.
          * Runtime environment: `python37`.
          * Entry point: `index.handle_process_event`.
@@ -137,7 +137,7 @@ Video conversion is done using the FFmpeg utility. The FFmpeg executable file is
          * `DOCAPI_ENDPOINT`: The **Endpoint** from the database configuration.
          * `SECRET_ID`: The {{ lockbox-name }} secret **ID**.
          * `YMQ_QUEUE_URL`: The {{ message-queue-name }} queue **URL**.
-         * `S3_BUCKET`: The `converter-bucket`.
+         * `S3_BUCKET`: Name of the previously created bucket.
 
 {% endlist %}
 
@@ -149,14 +149,14 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
    1. Select **{{ sf-name }}**.
    1. Go to the **Triggers** tab.
    1. Click **Create trigger**.
    1. Under **Basic parameters**:
       * Name the trigger `ffmpeg-trigger`.
       * In the **Type** field, select **Message Queue**.
-   1. Under **Message Queue settings**, select `converter-queue` and the `ffmpeg-sa` service account with rights to read messages from the queue.
+   1. Under **Message Queue settings**, select `converter-queue` and the `ffmpeg-sa` service account with the permissions to read messages from the queue.
    1. Under **Function settings**:
       * Select the function to be invoked by the trigger: `ffmpeg-converter`.
       * Specify the [function version tag](../functions/concepts/function.md#tag): `$latest`.
@@ -187,7 +187,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
    1. You'll see the task ID in the **Function output** field:
 
       ```json
-      { "task_id": "c4269ceb-8d3a-40fe-95f0-84cf16e8c17f" }
+      { "task_id": "c4269ceb-8d3a-40fe-95f0-84cf********" }
       ```
 
 {% endlist %}
@@ -253,19 +253,19 @@ The trigger should invoke the converter function for each message in the queue. 
       ```json
       {
           "ready": true,
-          "gif_url": "https://{{ s3-storage-host }}/converter-bucket/1b4db1a6-f2b2-4b1c-b662-37f7a62e6e2e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df4ee4183c"
+          "gif_url": "https://{{ s3-storage-host }}/<bucket_name>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
       }
       ```
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To shut down the infrastructure and stop paying for the created resources:
 
 1. [Delete](../message-queue/operations/message-queue-delete-queue.md) the `converter-queue`.
 1. [Delete](../ydb/operations/manage-databases.md#delete-db) the database.
-1. [Delete](../storage/operations/objects/delete.md) all objects from the `converter-bucket`.
-1. [Delete](../storage/operations/buckets/delete.md) the `converter-bucket`.
+1. [Delete](../storage/operations/objects/delete.md) all objects from the bucket.
+1. [Delete](../storage/operations/buckets/delete.md) the respective bucket.
 1. [Delete](../functions/operations/function/function-delete.md) the `ffmpeg-api` and `ffmpeg-converter` functions.
 1. [Delete](../functions/operations/trigger/trigger-delete.md) the `ffmpeg-trigger`.

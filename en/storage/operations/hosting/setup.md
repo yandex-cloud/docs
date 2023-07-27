@@ -42,6 +42,7 @@
       ```
 
       Where:
+
       * `index`: Absolute path to the file of the website home page.
       * `error`: Absolute path to the file to display to the user in the event of 4xx errors.
 
@@ -60,7 +61,7 @@
 
       ```text
       name: my-bucket
-      folder_id: b1gjs8dck8bvb10chmjf
+      folder_id: b1gjs8dck8bv********
       default_storage_class: STANDARD
       versioning: VERSIONING_SUSPENDED
       max_size: "10737418240"
@@ -211,7 +212,7 @@
 
       ```text
       name: my-bucket
-      folder_id: b1gjs8dck8bvb10chmjf
+      folder_id: b1gjs8dck8bv********
       default_storage_class: STANDARD
       versioning: VERSIONING_SUSPENDED
       max_size: "10737418240"
@@ -381,7 +382,7 @@
 
       ```text
       name: my-bucket
-      folder_id: b1gjs8dck8bvb10chmjf
+      folder_id: b1gjs8dck8bv********
       default_storage_class: STANDARD
       versioning: VERSIONING_SUSPENDED
       max_size: "10737418240"

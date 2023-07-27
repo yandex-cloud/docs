@@ -2,18 +2,18 @@ Use a [service account](../iam/concepts/users/service-accounts.md) to manage the
 
 You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md#passport),, or a [federated account](../iam/concepts/index.md#saml-federation), but this method is less secure. For more information, see the end of this section.
 
-1. If you don't have the {{ yandex-cloud }} command line interface, [install](../cli/quickstart.md#install) it.
-1. If you don't have a service account, create one:
+1. If you do not have the {{ yandex-cloud }} command line interface, [install](../cli/quickstart.md#install) it.
+1. If you do not have a service account, create one:
 
    {% list tabs %}
 
    - Management console
 
-      1. In [the management console]({{ link-console-main }}), select a folder where you wish to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **Service accounts** tab, click **Create service account**.
       1. Enter the name of the service account.
 
-         Name format requirements:
+         The name format requirements are as follows:
 
          {% include [name-format](../_includes/name-format.md) %}
 
@@ -56,8 +56,6 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
 
    - Management console
 
-      In the management console, you can only grant a service account roles to folders in the same cloud as the service account's folder and to the cloud itself. To assign it a role for another resource, use the CLI or API.
-
       To assign a service account a role for the folder:
 
       {% include [grant-role-console-sa](../_includes/grant-role-console-sa.md) %}
@@ -78,6 +76,7 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          +----------------------+--------------+
          | aje6ij7qvdhbns1e91ut | sa-terraform |
          +----------------------+--------------+
+         ```
 
       1. Assign the service account the role for the resource.
 
@@ -123,9 +122,9 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          ```
 
          Where:
-         * `service-account-id`: The ID of your service account.
-         * `folder-name`: The name of the folder the service account was created in.
-         * `output`: The name of the file with the authorized key.
+         * `service-account-id`: ID of your service account.
+         * `folder-name`: Name of the folder the service account was created in.
+         * `output`: Name of the file with the authorized key.
 
          Result:
 

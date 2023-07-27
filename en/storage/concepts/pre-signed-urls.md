@@ -22,7 +22,7 @@ SDKs for various programming languages and other tools for AWS S3 have out-of-th
 https://{{ s3-storage-host }}/<bucket name>/<object key>?
      X-Amz-Algorithm=AWS4-HMAC-SHA256
     &X-Amz-Expires=<time interval in seconds>
-    &X-Amz-SignedHeaders=<list of headers separated by ";">
+    &X-Amz-SignedHeaders=<list of headers separated by ";">
     &X-Amz-Signature=<signature>
     &X-Amz-Date=<time in ISO 8601>
     &X-Amz-Credential=<access-key-id>%2F<YYYYMMDD>%2F{{ region-id }}%2Fs3%2Faws4_request
@@ -149,21 +149,21 @@ To create a pre-signed URL, add the [parameters](#presigned-url-preview) require
 
 #### Example of composing a pre-signed URL for downloading an object {#example-for-object-download}
 
-Here is an example of creating a signed URL to download the `object-for-share.txt` object from `example-bucket` valid for an hour.
+Here is an example of creating a signed URL to download the `object-for-share.txt` object from the bucket valid for an hour.
 
 - Static key:
 
     ```
-    access_key_id = 'JK38EXAMPLEAKDID8'
-    secret_access_key = 'ExamP1eSecReTKeykdokKK38800'
+    access_key_id = 'JK38EXAMP********'
+    secret_access_key = 'ExamP1eSecReTKeykdo********'
     ```
 
 - Canonical request:
 
     ```
     GET
-    /example-bucket/object-for-share.txt
-    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
+    /<bucket_name>/object-for-share.txt
+    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMP********%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
     host:{{ s3-storage-host }}
 
     host
@@ -176,7 +176,7 @@ Here is an example of creating a signed URL to download the `object-for-share.tx
     AWS4-HMAC-SHA256
     20190801T000000Z
     20190801/{{ region-id }}/s3/aws4_request
-    2d2b4efefa9072d90a646afbc0fbaef4618c81396b216969ddfc2869db5aa356
+    2d2b4efefa9072d90a646afbc0fbaef4618c81396b216969ddfc2869********
     ```
 
 - Signing key:
@@ -191,13 +191,13 @@ Here is an example of creating a signed URL to download the `object-for-share.tx
 - Signature:
 
     ```
-    56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
+    56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33********
     ```
 
 - Pre-signed URL:
 
     ```
-    https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
+    https://{{ s3-storage-host }}/<bucket_name>/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33********
     ```
 
 ## Examples of getting pre-signed links in {{ objstorage-name }} tools {#example-for-getting-in-tools}
@@ -231,8 +231,8 @@ Here is an example of creating a signed URL to download the `object-for-share.tx
 
     ENDPOINT = "https://{{ s3-storage-host }}"
 
-    ACCESS_KEY = "JK38EXAMPLEAKDID8"
-    SECRET_KEY = "ExamP1eSecReTKeykdokKK38800"
+    ACCESS_KEY = "JK38EXAMP********"
+    SECRET_KEY = "ExamP1eSecReTKeykdo********"
 
     session = boto3.Session(
         aws_access_key_id=ACCESS_KEY,

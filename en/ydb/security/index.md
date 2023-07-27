@@ -22,9 +22,11 @@ To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles {#roles}
+## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ ydb-name }} service.
+
+### Service roles {#service-roles}
 
 {% include [ydb-viewer](../../_includes/iam/roles/ydb-viewer.md) %}
 
@@ -32,16 +34,18 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [ydb-admin](../../_includes/iam/roles/ydb-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
+### Primitive roles {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
 
 {% include [roles-viewer](../../_includes/roles-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 {% include [roles-editor](../../_includes/roles-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}

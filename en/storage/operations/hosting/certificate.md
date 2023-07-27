@@ -59,7 +59,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
      ```text
      source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
-     certificate_id: fpqe2g0hfr0ejvksjdbs
+     certificate_id: fpqe2g0hfr0e********
      ```
 
 - {{ TF }}

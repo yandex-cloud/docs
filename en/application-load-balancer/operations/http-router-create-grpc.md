@@ -19,17 +19,15 @@ To create an HTTP router and add a route to it:
          To specify the FQMN, you can use the following options:
          * `Matches` to route all requests that match the specified FQMN.
          * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+         {% note warning %}
 
-      {% note warning %}
+         The FQMN must start with a slash `/` and contain part of the name of the service that the procedure call is redirected to.
 
-      The FQMN must start with a slash `/` and contain part of the name of the service that the procedure call is redirected to.
-
-      {% endnote %}
+         {% endnote %}
 
       1. In the **Action** field, leave the `Routing` value.
       1. In the **Backend group**, select the backend group name from the same folder where you create the router.
       1. Leave all other settings as they are and click **Create**.
-
 
 - CLI
 
@@ -128,6 +126,73 @@ To create an HTTP router and add a route to it:
          route:
            backend_group_id: ds7snban2dvnedokp6kc
            max_timeout: 60s
+      ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, specify the parameters of the HTTP router and virtual host:
+
+      ```hcl
+      resource "yandex_alb_http_router" "tf-router" {
+        name          = "<HTTP_router_name>"
+        labels        = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+      }
+
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<virtual_host_name>"
+        http_router_id          = yandex_alb_http_router.tf-router.id
+        route {
+          name                  = "<route_name>"
+          grpc_route {
+            grpc_route_action {
+              backend_group_id  = "<backend_group_ID>"
+              max_timeout       = "60s"
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `yandex_alb_http_router`: HTTP router description:
+         * `name`: HTTP router name. The name format is as follows:
+
+            {% include [name-format](../../_includes/name-format.md) %}
+
+         * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Set a key-value pair.
+      * `yandex_alb_virtual_host`: Virtual host description:
+         * `name`: Virtual host name. The name format is as follows:
+
+            {% include [name-format](../../_includes/name-format.md) %}
+
+         * `http_router_id`: HTTP router ID.
+         * `grpc_route`: Description of the route for gRPC traffic:
+            * `name`: Route name.
+            * `grpc_route_action`: Parameter to indicate an action on gRPC traffic.
+               * `backend_group_id`: Backend group ID.
+               * `max_timeout`: Maximum request idle timeout, seconds.
+
+      For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+
+      * [Yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) resource.
+      * [Yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resource.
+
+   1. Create resources
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc alb http-router get <HTTP_router_name>
       ```
 
 - API

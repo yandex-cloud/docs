@@ -3,11 +3,13 @@
 Create a trail to upload audit logs for a single cloud's resources to a {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
 
 The solution described in the tutorial follows the procedure below:
+
 1. A [trail](../audit-trails/concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
 1. A [bucket](../storage/concepts/bucket.md) is mounted to a folder on the intermediate VM.
 1. The intermediate VM runs a script that pulls logs from the bucket on a schedule and pushes them to the {{ mes-name }} cluster.
 
 The following data required for log analysis is uploaded to the {{ mes-name }} cluster:
+
 * A dashboard with use cases and statistics.
 * A set of `Saved Queries` to search for security events.
 * A set of `Detection Rules` with correlation rules for which alerts are preset.
@@ -19,12 +21,13 @@ All the [source files](https://github.com/yandex-cloud/yc-solution-library-for-s
 In addition to using the solution for your cloud logs, you can use it for organization or folder logs. To do this, create a trail by following the instructions for [organizations](../audit-trails/operations/export-organization-bucket.md) or [folders](../audit-trails/operations/export-folder-bucket.md), respectively.
 
 To export audit logs:
+
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
 1. [Deploy a {{ ES }} cluster and intermediate VM](#create-cluster-vm).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
@@ -35,16 +38,18 @@ If you no longer need these resources, [delete them](#clear-out).
 Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
+
 * [{{ at-name }}](../audit-trails/).
 * [Security groups](../vpc/concepts/security-groups.md).
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-* A fee for computing resources and {{ ES }} cluster storage capacity in the `Platinum` edition (see [{{ mes-full-name }} pricing](../managed-elasticsearch/pricing.md)).
-* A fee for the intermediate VM's computing resources and disk (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
-* A fee for storing the intermediate VM's Docker image in {{ container-registry-name }} (see [{{ container-registry-full-name }} pricing](../container-registry/pricing.md)).
-* A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../storage/pricing.md)).
+
+* Fee for computing resources and {{ ES }} cluster storage capacity in the `Platinum` edition (see [{{ mes-full-name }} pricing](../managed-elasticsearch/pricing.md)).
+* Fee for the intermediate VM's computing resources and disk (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
+* Fee for storing the intermediate VM's Docker image in {{ container-registry-name }} (see [{{ container-registry-full-name }} pricing](../container-registry/pricing.md)).
+* Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../storage/pricing.md)).
 
 ## Prepare the environment {#environment-preparing}
 
@@ -58,7 +63,7 @@ The infrastructure support cost includes:
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name following the [naming guidelines](../storage/concepts/bucket.md#naming), such as `trails-bucket`.
+      1. Enter the bucket name, following the [naming requirements](../storage/concepts/bucket.md#naming).
       1. Specify the maximum size of the bucket: **No limit**.
       1. Select the **Limited** [access](../storage/concepts/bucket.md#bucket-access) type.
       1. Select the [storage class](../storage/concepts/storage-class.md): **Standard**.
@@ -72,15 +77,15 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
-   1. Go to the **Service accounts** tab.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
-   1. Enter a name for the service account, such as `trails-bucket`.
+   1. Enter the name of the service account.
    1. Click **Create**.
 
 - CLI
 
-   To create a service account, run the command:
+   To create a service account, run the following command:
 
    ```bash
    yc iam service-account create --name <service_account_name>
@@ -104,7 +109,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       1. Go to the **Access bindings** tab.
       1. Click **Assign bindings**.
       1. In the **Configure access bindings** window, click **Select user**.
-      1. Go to the **Service accounts** tab.
+      1. At the top of the screen, go to the **Service accounts** tab.
       1. Select the `trails-sa` service account.
       1. Click **Add role**.
       1. Select the `storage.uploader` role.
@@ -116,7 +121,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       1. Go to the **Access bindings** tab.
       1. Click **Assign bindings**.
       1. In the **Configure access bindings** window, click **Select user**.
-      1. Go to the **Service accounts** tab.
+      1. At the top of the screen, go to the **Service accounts** tab.
       1. Select the `trails-sa` service account.
       1. Click **Add role**.
       1. Select the `audit-trails.viewer` role.
@@ -134,9 +139,9 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       ```
 
       Where:
-      * `role`: The role assigned.
-      * `id`: The ID of the folder with the bucket.
-      * `service-account-id`: The ID of your service account.
+      * `role`: Role being assigned.
+      * `id`: ID of the folder with the bucket.
+      * `service-account-id`: ID of your service account.
 
    1. Assign the `audit-trails.viewer` [role](../audit-trails/security/index.md#roles) to the cloud whose logs will be sent to the {{ ES }} cluster:
 
@@ -148,9 +153,9 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       ```
 
       Where:
-      * `role`: The role assigned.
-      * `id`: The ID of the cloud whose logs will be sent to the {{ ES }} cluster.
-      * `service-account-id`: The ID of your service account.
+      * `role`: Role being assigned.
+      * `id`: ID of the cloud whose logs will be sent to the {{ ES }} cluster.
+      * `service-account-id`: ID of your service account.
 
 {% endlist %}
 
@@ -232,7 +237,7 @@ If you don't have a [cloud network](../vpc/concepts/network.md), create one:
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
-      | enpavfmgapumnl7cqin8 | trails-network |
+      | enpavfmgapum******** | trails-network |
       +----------------------+----------------+
       ```
 
@@ -264,7 +269,7 @@ If you don't have a [cloud network](../vpc/concepts/network.md), create one:
 1. [Enable](../vpc/operations/create-nat-gateway.md) an NAT gateway for the subnet where the intermediate VM will be deployed.
 1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing traffic will be allowed for the {{ ES }} cluster.
 
-   If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) to it the rules below:
+   If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) the rules below to it:
 
    | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
    --- | --- | --- | --- | --- | ---
@@ -273,7 +278,7 @@ If you don't have a [cloud network](../vpc/concepts/network.md), create one:
 
 {% note info %}
 
-You can also deploy the required environment using {{ TF }}. See a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
+You can also deploy the required environment using {{ TF }}. See also a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
 
 {% endnote %}
 
@@ -293,7 +298,7 @@ You can also deploy the required environment using {{ TF }}. See a [sample confi
       * **Folders**: Leave the default `all folders` value.
    1. Under **Destination**, set up the destination object:
       * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: Select the bucket where you want to upload audit logs, such as `trails-bucket`.
+      * **Bucket**: Select the bucket where you want to upload audit logs.
       * **Object prefix**: An optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
    1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
    1. Click **Create**.
@@ -322,6 +327,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
          * Storage: network-hdd, 1 TB.
          * Number of index replicas: 2.
          * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/CONFIGURE-HA_RU.md).
+
       * `yc-elastic-trail`:
          * Creates a static access key for the service account to use JSON objects in the bucket and encrypt or decrypt secrets.
          * Creates an intermediate VM based on the `{{ registry }}/sol/s3-elk-importer:latest` image with a script that transfers audit logs from the bucket to the {{ ES }} cluster.
@@ -329,6 +335,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
          * Creates a {{ kms-short-name }} key.
          * Assigns the `kms.keys.encrypterDecrypter` role to the service account for the secret encryption key.
          * Encrypts secrets and passes them to a Docker container.
+
    1. Create a file named `main.tf` and copy the following {{ TF }} configuration there:
 
       ```hcl
@@ -391,7 +398,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       * `subnet_ids`: IDs of the subnets that will host the {{ ES }} cluster, such as `trails-subnet-1`, `trails-subnet-2`, and `trails-subnet-3`.
       * `network_id`: ID of the cloud network that will host the {{ ES }} cluster, such as `trails-network`.
       * `elk_public_ip`: Set `true` if public access to the {{ ES }} cluster is required, or else, set `false`.
-      * `bucket_name`: Name of the bucket to send audit logs to, such as `trails-bucket`.
+      * `bucket_name`: Name of the bucket to send audit logs to.
       * `bucket_folder`: Prefix of audit logs in the bucket. Leave it empty if logs are written to the bucket's root directory.
       * `sa_id`: ID of the service account on whose behalf audit logs are transferred, such as `trails-sa`.
       * `coi_subnet_id`: ID of the subnet that will host the intermediate VM, such as `trails-subnet-1`.
@@ -408,7 +415,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources:
 
@@ -445,18 +452,18 @@ To use the latest version of the solution for exporting audit logs to your {{ ES
 
    ```bash
    docker run \
-       -it \
-       --rm \
-       -e ELASTIC_AUTH_USER='<{{ ES }}_cluster_user_name>' \
-       -e ELASTIC_AUTH_PW='<{{ ES }}_cluster_access_password>' \
-       -e KIBANA_SERVER='<{{ ES }}_cluster_network_address>' \
-       --name elk-updater {{ registry }}/sol/elk-updater:latest
+        -it \
+        --rm \
+        -e ELASTIC_AUTH_USER='<{{ ES }}_cluster_user_name>' \
+        -e ELASTIC_AUTH_PW='<{{ ES }}_cluster_user_password>' \
+        -e KIBANA_SERVER='<{{ ES }}_cluster_network_address>' \
+        --name elk-updater {{ registry }}/sol/elk-updater:latest
    ```
 
    Where:
-   * `ELASTIC_AUTH_USER` is the {{ ES }} cluster user name.
-   * `ELASTIC_AUTH_PW` is the password to access the {{ ES }} cluster.
-   * `KIBANA_SERVER` is the {{ ES }} cluster network address.
+   * `ELASTIC_AUTH_USER`: {{ ES }} cluster user name.
+   * `ELASTIC_AUTH_PW`: Password to access the {{ ES }} cluster.
+   * `KIBANA_SERVER`: {{ ES }} cluster network address.
 
 {% note tip %}
 
@@ -464,7 +471,7 @@ You can also check the [yandex-cloud/yc-solution-library-for-security](https://g
 
 {% endnote %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 

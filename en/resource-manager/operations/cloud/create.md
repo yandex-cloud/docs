@@ -11,10 +11,10 @@ To create an additional cloud:
 
 - Management console
 
-      1. [On the billing page]({{ link-console-billing }}), make sure that the [payment account](../../../billing/concepts/billing-account.md) is in `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+      1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
    1. On the [management console]({{ link-console-main }}) homepage, click ![image](../../../_assets/options.svg) next to your billing account.
    1. Select **Create cloud**.
-   1. Enter the name of the cloud. For naming requirements, see below:
+   1. Enter the name of the cloud. The naming requirements are as follows:
 
       {% include [name-format.md](../../../_includes/name-format.md) %}
 
@@ -30,7 +30,7 @@ To create an additional cloud:
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of the cloud to create:
-      * `name`: Cloud name. For naming requirements, see below:
+      * `name`: Cloud name. The naming requirements are as follows:
 
          {% include [name-format.md](../../../_includes/name-format.md) %}
 
@@ -63,7 +63,7 @@ To create an additional cloud:
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.

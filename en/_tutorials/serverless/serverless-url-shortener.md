@@ -1,6 +1,6 @@
 # URL shortener
 
-With this script, you'll create a URL shortening service using serverless technologies available in {{ yandex-cloud }}.
+With this script, you will create a URL shortening service using serverless technologies available in {{ yandex-cloud }}.
 
 The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting](../../storage/concepts/hosting.md) service sends the user an HTML page with a field for entering the URL. The [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
 
@@ -13,7 +13,7 @@ To configure and test the service:
 1. [Publish the service via {{ api-gw-full-name }}](#api-gw).
 1. [Test the URL shortener](#test-shortener).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -23,10 +23,10 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources for the script includes:
-* A fee for using the storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for accessing the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
-* 0A fee for function calls (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* A fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for using the storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for accessing the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for function calls (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 
 ## Set up hosting for the URL shortener page {#object-storage}
@@ -41,11 +41,11 @@ To create a bucket to place the HTML page of your service in and configure it fo
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter a name for the bucket like` for-serverless-shortener`.
+      1. Enter the name of the bucket.
 
          {% note warning %}
 
-         Bucket names are unique throughout {{ objstorage-name }}, meaning that you can't create two buckets with the same name (even in different folders located in different clouds).
+         Bucket names are unique throughout {{ objstorage-name }}, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds.
 
          {% endnote %}
 
@@ -123,7 +123,7 @@ To create a service account for the service components to interact:
 - Management console
 
    1. Go to your working folder.
-   1. In the left pane, select **Service accounts**.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the name of the service account: `serverless-shortener`.
    1. Click **Add role** and choose the `editor` role.
@@ -362,7 +362,7 @@ To publish the service via {{ api-gw-name }}:
           get:
             x-yc-apigateway-integration:
               type: object_storage
-              bucket: for-serverless-shortener # <-- name of the bucket
+              bucket: <bucket_name> # <-- name of the bucket
               object: index.html # <-- HTML file name
               presigned_redirect: false
               service_account: <service_account_id> # <-- service-account-ID
@@ -438,7 +438,7 @@ To delete all the created service components:
       1. Click **Delete**.
    1. Delete the service account:
       1. Go to your working folder.
-      1. In the left pane, select **Service accounts**.
+      1. At the top of the screen, go to the **Service accounts** tab.
       1. To the right of the service account name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
       1. Click **Delete**.
    1. Delete the bucket:

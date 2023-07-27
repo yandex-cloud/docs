@@ -52,9 +52,12 @@ To create an instance group based on a {{ coi }}:
 
      Where:
 
-     * `name`: An arbitrary name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters.
+     * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
      * `service_account_id`: Service account ID.
-     * `description`: A description of the instance group.
+
+       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
+
+     * `description`: Description of the instance group.
 
    * [Instance template](../../compute/concepts/instance-groups/instance-template.md):
 
@@ -100,7 +103,7 @@ To create an instance group based on a {{ coi }}:
      * `size`: Disk size.
      * `network_id`: ID of `default-net`.
      * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
-     * `metadata`: Values to pass to the VM metadata.
+     * `metadata`: Values to send to the VM metadata.
      * `docker-container-declaration`: Key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/coi-specifications.md). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
 
    * [Policies](../../compute/concepts/instance-groups/policies/index.md):

@@ -18,6 +18,6 @@
 
 {% note warning %}
 
-The maximum streaming query runtime (preview stage) is 7 days. Once expired, the query is forced to stop. To run streaming queries for an unlimited time, contact {{  yandex-cloud }} support.
+The maximum streaming query runtime (preview stage) is 7 days. Once expired, the query is forced to stop. To run streaming queries for an unlimited time, contact {{ yandex-cloud }} support.
 
 {% endnote %}

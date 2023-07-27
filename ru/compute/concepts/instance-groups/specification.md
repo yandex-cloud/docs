@@ -19,7 +19,7 @@
 По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
-folder_id: b1gken0eihqn2oa0fm2k
+folder_id: b1gken0eihqn********
 name: queue-autoscale-ig
 instance_template:
   platform_id: standard-v3
@@ -32,11 +32,11 @@ instance_template:
     disk_spec:
       type_id: network-hdd
       size: 5g
-      image_id: fd8m5bal0bi9tjhu7av2
+      image_id: fd8m5bal0bi9********
   network_interface_specs:
-  - network_id: enpocgefm44fp31qpdru
+  - network_id: enpocgefm44f********
     subnet_ids:
-    - e2ljvdp4j2762fl4qh1i
+    - e2ljvdp4j276********
     primary_v4_address_spec:
       one_to_one_nat_spec:
         ip_version: IPV4
@@ -64,8 +64,8 @@ deploy_policy:
   strategy: OPPORTUNISTIC
 allocation_policy:
   zones:
-  - zone_id: {{ region-id }}-b
-service_account_id: ajefnb8427bhl9t0pvf8
+    - zone_id: {{ region-id }}-b
+service_account_id: ajefnb8427bh********
 ```
 
 

@@ -42,7 +42,7 @@
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * Machine learning:
-  * [Convert text to speech and vice versa using {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
+  * [Convert text to speech and vice versa using {{ speechkit-name }}](../speechkit/quickstart/index.md).
   * [Translate text in {{ translate-name }}](../translate/quickstart.md).
   * [Analyze an image using computer vision in {{ vision-name }}](../vision/quickstart.md).
   * [Train and launch your machine learning models in {{ ml-platform-name }}](../datasphere/quickstart.md).

@@ -67,7 +67,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
    1. Select **{{ objstorage-short-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter a name for the bucket, such as `for-serverless-hello-telegram-bot`. Save the bucket name. You will need it later.
+      1. Enter the name of the bucket. Save the bucket name. You will need it later.
       1. Specify the bucket settings:
          * **Max Size**: `1 GB`.
          * **Object read access**: `Public`.
@@ -164,7 +164,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
       ```javascript
       const { Telegraf } = require('telegraf');
- 
+
       const bot = new Telegraf(process.env.BOT_TOKEN);
       bot.start((ctx) => ctx.reply(`Hello. \nMy name is Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
       bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
@@ -203,7 +203,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
       }
       ```
 
-   1. Indicate the following:
+   1. Specify the following:
       * Runtime environment: `nodejs12`.
       * Entry point: `index.handler`.
       * Timeout: `5 seconds`.
@@ -302,9 +302,9 @@ Talk to the bot:
 
 1. Send any text message in the chat. The bot must respond with an image and `Hello, <username>`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 * [Delete the function](../../functions/operations/function/function-delete.md).
 * [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 * [Delete the bucket](../../storage/operations/buckets/delete.md).

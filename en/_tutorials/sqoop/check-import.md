@@ -4,12 +4,12 @@ If the import was successful, you'll see the contents of the `persons` table.
 
 * {{ objstorage-name }}
 
-   [From](../../storage/operations/objects/download.md) `my-bucket`, download files with import results.
+   [Download](../../storage/operations/objects/download.md) the files with import results from the bucket.
 
 * HDFS directory
 
    1. [Connect](../../data-proc/operations/connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       hdfs dfs -cat /user/root/import-directory/*
@@ -18,7 +18,7 @@ If the import was successful, you'll see the contents of the `persons` table.
 * Apache Hive
 
    1. [Connect](../../data-proc/operations/connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       hive -e "SELECT * FROM import-table;"
@@ -27,7 +27,7 @@ If the import was successful, you'll see the contents of the `persons` table.
 * Apache HBase
 
    1. [Connect](../../data-proc/operations/connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       echo -e "scan 'import-table'" | hbase shell -n

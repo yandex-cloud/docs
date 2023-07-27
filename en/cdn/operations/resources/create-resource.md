@@ -81,7 +81,7 @@ To create a [resource](../../concepts/resource.md):
 
       ```bash
       - id: "90209"
-        folder_id: somefolder7p3l5eobbd
+        folder_id: somefolder7p********
         name: test-group-1
         use_next: true
         origins:
@@ -95,7 +95,7 @@ To create a [resource](../../concepts/resource.md):
           source: www.example1.com
           enabled: true
       - id: "90208"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5ve********
         name: test-group
         use_next: true
         origins:
@@ -234,7 +234,7 @@ To create a [resource](../../concepts/resource.md):
    Result:
 
    ```bash
-   id: someidkfjqjfl325fw
+   id: someidkfjq********
 
    ...
 

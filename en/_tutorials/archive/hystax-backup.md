@@ -58,22 +58,22 @@ Configure network traffic permissions in the [default security group](../../vpc/
 
 If a security group is available, [add](../../vpc/operations/security-group-update.md#add-rule) the rules below to it:
 
-| Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
+| Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 --- | --- | --- | --- | --- | ---
-| Incoming | http | 80 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | https | 443 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | https | 4443 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | TCP | 15,000 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | http | 80 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | https | 443 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
-| Outgoing | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
+| Incoming | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `https` | `4443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `tcp` | `15000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 Save the security group ID. You will need it later.
 
@@ -90,8 +90,8 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
       1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
@@ -99,11 +99,11 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access):
-         * **Object read access**: **Limited**.
-         * **Object listing access**: **Limited**.
-         * **Read access to settings**: **Limited**.
-      1. Select the [storage class](../../storage/concepts/storage-class.md): **Standard**.
-      1. Click **Create bucket** to complete the operation.
+         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+      1. Select the [storage class](../../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
    1. Save the bucket name. You will need it later.
 
 - API
@@ -122,35 +122,35 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-      1. In the list of services, select **{{ compute-name }}**.
-      1. Click **Create VM**.
-      1. Under **Basic parameters**:
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, select ![img](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
          * Enter `hystax-acura-vm` as your VM name and add a description.
          * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
 
             Save the availability zone ID. You will need it later.
-      1. Under **Image/boot disk selection**:
-         * Click the **{{ marketplace-name }}** tab.
-         * Click **Show more**.
-         * In the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **Use**.
-      1. Under **Disks**, enter 200 GB as your disk size.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+         * Click the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+         * Click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+         * In the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
 
-      
-      1. Under **File storage**, keep the default value.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+         * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+         * Select a [subnet](../../vpc/concepts/network.md#subnet). If you don't have a subnet, click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
+         * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions.
 
+            {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
-      1. Under **Computing resources**, specify:
-         * vCPU: 8
-         * RAM: 16 GB
-      1. Under **Network settings**:
-         * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create network**. Set the network parameters and click **Create**.
-         * Select a [subnet](../../vpc/concepts/network.md#subnet). If you don't have a subnet, click ![image](../../_assets/plus.svg) **Add subnet**. Set the subnet parameters and click **Create**. Save the subnet ID. You will need it later.
-         * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
-      1. Under **Access**, specify the information required to access the instance:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Select the [previously created](#create-sa) `hystax-acura-account` service account.
-         * In the **Login** field, enter a user name for SSH access, such as `yc-user`.
-         * In the **SSH key** field, paste the public SSH key.
-      1. Click **Create VM**.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a user name for SSH access, such as `yc-user`.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key.
+      1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI
 
@@ -203,11 +203,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 - Management console
 
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
-   1. Select **{{ vpc-name }}**.
-   1. Go to the **IP addresses** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Click the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
    1. Click ![image](../../_assets/options.svg) in the row next to the address of your Hystax Acura Backup VM.
-   1. In the menu that opens, select **Make static**.
-   1. In the window that opens, click **Change**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
    1. Save the IP. You will need it later.
 
 - CLI
@@ -234,11 +234,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
       +----------------------+------+---------------+----------+------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED |
       +----------------------+------+---------------+----------+------+
-      | e2l46k8conff8n6ru1jl |      | 84.201.177.41 | false    | true |
+      | e2l46k8conff******** |      | 8*.20*.17*.4* | false    | true |
       +----------------------+------+---------------+----------+------+
       ```
 
-      The `false` value of the `RESERVED` parameter of the IP address with the `e2l46k8conff8n6ru1jl` `ID` shows that this address is dynamic.
+      The `false` value of the `RESERVED` parameter of the IP address with the `e2l46k8conff********` `ID` shows that this address is dynamic.
    1. Make the address static by using the `--reserved=true` key and IP address `ID`:
 
       ```bash
@@ -248,11 +248,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
       Result:
 
       ```bash
-      id: e2l46k8conff8n6ru1jl
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e2l46k8conff********
+      folder_id: b1g7gvsi89m3********
       created_at: "2022-01-14T09:36:46Z"
       external_ipv4_address:
-        address: 84.201.177.41
+        address: 8*.20*.17*.4*
         zone_id: {{ region-id }}-b
         requirements: {}
       reserved: true

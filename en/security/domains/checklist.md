@@ -94,7 +94,7 @@
 
 ## Managing budgets {#budget-management}
 
-* **Notifications for cost control**: Set up notifications for budget thresholds in Billing. See the [instructions](../../billing/operations/budgets.md).
+* **Notifications for cost control**: Set up notifications for budget thresholds in {{ billing-name }}. See [this guide](../../billing/operations/budgets.md) for details.
 
 ## Incident response {#incident-response}
 
