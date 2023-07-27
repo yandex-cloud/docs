@@ -68,8 +68,8 @@ The minimum role required to create a bucket is `storage.editor`. For details, s
       Result:
 
       ```yaml
-      name: first-bucket
-      folder_id: b1gmit33ngp6cv2mhjmo
+      name: <bucket_name>
+      folder_id: b1gmit33ngp6********
       anonymous_access_flags:
         read: false
         list: false

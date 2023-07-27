@@ -9,7 +9,7 @@ To create a web application:
 1. [Create an API gateway](#create-api-gw).
 1. [Test your application](#test).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
@@ -19,9 +19,9 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources to support a web application includes:
-* A fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * A fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* A fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 
 ## Prepare the environment {#prepare}
@@ -41,9 +41,9 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
-      1. If necessary, limit the maximum bucket size.
-      1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
+      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Limit the maximum bucket size, if required.
+      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
    1. Select the created bucket.
@@ -64,7 +64,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
       1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
       1. Select **{{ ydb-name }}**.
       1. Click **Create database**.
-      1. Enter the database **Name**. For naming requirements, see below:
+      1. Enter the database **Name**. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -103,7 +103,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
    - CLI
 
-      Run the query:
+      Run the following query:
 
       ```bash
       ydb -e grpcs://<YDB endpoint> -d <database> \
@@ -156,12 +156,12 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       Result:
 
       ```bash
-      id: d4ejb1799eko6re4omb1
-      folder_id: aoek49ghmknnpj1ll45e
+      id: d4ejb1799eko********
+      folder_id: aoek49ghmknn********
       created_at: "2021-03-08T14:07:32.134Z"
       name: add-task
-      log_group_id: eolm8aoq9vcppsieej6h
-      http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko6re4omb1
+      log_group_id: eolm8aoq9vcp********
+      http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko********
       status: ACTIVE
       ```
 
@@ -179,8 +179,8 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       ```
 
       Where:
-      * `function-name`: The name of the function you want to create a version of.
-      * `runtime`: The runtime environment.
+      * `function-name`: Name of the function you want to create a version of.
+      * `runtime`: Runtime environment.
       * `entrypoint`: Entry point specified in the \<function file name>.\<handler name> format.
       * `memory`: Amount of RAM.
       * `execution-timeout`: Maximum function execution time before the timeout is reached.
@@ -191,12 +191,12 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
       ```bash
       done (1s)
-      id: d4evvn8obisajd51plaq
-      function_id: d4ejb1799eko6re4omb1
+      id: d4evvn8obisa********
+      function_id: d4ejb1799eko********
       ...
       tags:
       - $latest
-      log_group_id: ckg3qh8h363p40gmr9gn
+      log_group_id: ckg3qh8h363p********
       ```
 
    1. Repeat steps 1–2 and create a function named `list-tasks` with the entry point `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
@@ -328,14 +328,14 @@ To ensure interaction between services, create an API gateway:
 
       ```bash
       done (41s)
-      id: d5delqeel34qjjfcdj81
-      folder_id: b1g86q4m5vej8lkljme5
+      id: d5delqeel34q********
+      folder_id: b1g86q4m5vej********
       created_at: "2021-03-08T14:07:32.134Z"
       name: todo-list
       description: simple todo list
       status: ACTIVE
-      domain: d5delqeel34qjjfcdj81.apigw.yandexcloud.net
-      log_group_id: ckg2hdmevnvcngprqvqb
+      domain: d5delqeel34q********.apigw.yandexcloud.net
+      log_group_id: ckg2hdmevnvc********
       ```
 
 - {{ yandex-cloud }} Toolkit
@@ -348,9 +348,9 @@ To ensure interaction between services, create an API gateway:
 
 To open the app, follow the link in the **Service domain** field of the created API gateway.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 * [Delete the functions](../../functions/operations/function/function-delete.md).

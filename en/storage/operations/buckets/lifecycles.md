@@ -57,7 +57,7 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
          * `storage_class`: Storage class to move the object to. The value must be either `COLD` or `STANDARD_IA`. This parameter is required.
-      * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter. It may contain:
+      * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
          * `date`: Date after which you want the rule to take effect. This is an optional parameter.
          * `days`: Number of days after creating an object when the rule takes effect. The minimum value is 1. This is an optional parameter.
       * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from `STANDARD` to `COLD` or `STANDARD_IA`. This is an optional parameter. It may contain:
@@ -89,7 +89,7 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
       +------------------+----------------------+-------------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
@@ -142,7 +142,7 @@ Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
 
       Possible configuration parameters:
       * `ID`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
-      * `Filter`: Object filter. This is an optional parameter It may only contain one element of each type:
+      * `Filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
          * `Prefix`: Key prefix. The rule applies to objects with the specified key prefix. This is an optional parameter.
          * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
          * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.

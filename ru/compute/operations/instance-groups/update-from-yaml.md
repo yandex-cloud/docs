@@ -10,10 +10,10 @@
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  Выполните следующую команду:
+  Выполните следующую команду, указав имя или идентификатор группы ВМ и путь к файлу YAML-спецификации:
   
   ```
-  {{ yc-compute-ig }} update --file specification.yaml
+  {{ yc-compute-ig }} update <имя_группы_ВМ>|<идентификатор_группы_ВМ> --file specification.yaml
   ```
   
   Подробнее о команде `{{ yc-compute-ig}} update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).

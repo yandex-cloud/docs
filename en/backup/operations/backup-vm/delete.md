@@ -10,6 +10,41 @@
    1. Next to the backup you wish to delete, click ![image](../../../_assets/options.svg) and select **Delete**.
    1. Confirm the deletion.
 
+- CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI delete backup command:
+
+      ```bash
+      yc backup backups delete --help
+      ```
+
+   1. Get the ID of the backup to delete:
+
+      {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
+
+   1. Get the ID of the VM instance whose backup you want to delete:
+
+      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+
+   1. Delete the backup:
+
+      ```bash
+      yc backup backups delete \
+        --backup-id <backup_ID> \
+        --instance-id <VM_instance_ID>
+      ```
+
+      Where:
+
+      * `--backup-id`: ID of the backup to delete.
+      * `--instance-id`: ID of the VM instance whose backup you want to delete.
+
+   For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/delete.md).
+
 {% endlist %}
 
 {% note info %}

@@ -27,7 +27,7 @@ Prepare the infrastructure:
    1. [Create a virtual machine running Linux](../../compute/operations/vm-create/create-linux-vm.md) on the same cloud network as the {{ mgp-name }} cluster.
 
 
-   1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md) and [upload](../../storage/operations/objects/upload.md) the `example.csv` test table to the bucket:
+   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. [Upload](../../storage/operations/objects/upload.md) the `example.csv` file with a test table to it:
 
       ```csv
       10.2010
@@ -79,7 +79,7 @@ Prepare the infrastructure:
 
       If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Create the infrastructure required to run instructions from this tutorial:
+   1. Create the infrastructure required to follow the steps provided in this tutorial:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -201,7 +201,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
@@ -222,7 +222,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete `greenplum-s3-vm.tf`.
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       terraform validate

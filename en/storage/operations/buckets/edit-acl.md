@@ -37,66 +37,66 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
    : Run this command:
 
-     ```bash
-     yc storage bucket update --name <bucket_name> --acl <predefined_ACL>
-     ```
+    ```bash
+    yc storage bucket update --name <bucket_name> --acl <predefined_ACL>
+    ```
 
-     Where:
-     * `--name`: Bucket name.
-     * `--acl`: Predefined ACL. For a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+    Where:
+    * `--name`: Bucket name.
+    * `--acl`: Predefined ACL. For a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
 
-     Result:
+    Result:
 
-     ```bash
-     name: my-bucket
-     folder_id: csgeoelk7fl15s6chmjd
-     default_storage_class: STANDARD
-     versioning: VERSIONING_DISABLED
-     max_size: "1073741824"
-     acl:
-       grants:
-         - permission: PERMISSION_READ
-           grant_type: GRANT_TYPE_ALL_USERS
-     created_at: "2022-12-14T19:10:05.957940Z"
-     ```
+    ```bash
+    name: my-bucket
+    folder_id: csgeoelk7fl1********
+    default_storage_class: STANDARD
+    versioning: VERSIONING_DISABLED
+    max_size: "1073741824"
+    acl:
+      grants:
+        - permission: PERMISSION_READ
+          grant_type: GRANT_TYPE_ALL_USERS
+    created_at: "2022-12-14T19:10:05.957940Z"
+    ```
 
    Setting up individual permissions
 
    : 1. To grant a {{ yandex-cloud }} user or service account permissions using an ACL, get their ID. For more information, see [{#T}](../../../iam/operations/users/get.md) and [{#T}](../../../iam/operations/sa/get-id.md).
-     1. Run the following command:
+    1. Run the following command:
 
-        ```bash
-        yc storage bucket update --name <bucket_name> \
-          --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>
-        ```
+       ```bash
+       yc storage bucket update --name <bucket_name> \
+         --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>
+       ```
 
-        Where:
-        * `grant-type`: Type of permission grantee. Possible values:
-           * `grant-type-account`: User or service account.
-           * `grant-type-all-authenticated-users`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
-           * `grant-type-all-users`: System group of all internet users.
-        * `grantee-id`: ID of the user or service account to grant permission to. Specified only if `grant-type=grant-type-account`.
-        * `permission`: ACL permission type. Possible values are `permission-full-control`, `permission-write`, and `permission-read`. For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+       Where:
+       * `grant-type`: Type of permission grantee. Possible values:
+         * `grant-type-account`: User or service account.
+         * `grant-type-all-authenticated-users`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
+         * `grant-type-all-users`: System group of all internet users.
+       * `grantee-id`: ID of the user or service account to grant permission to. Specified only if `grant-type=grant-type-account`.
+       * `permission`: ACL permission type. Possible values are `permission-full-control`, `permission-write`, and `permission-read`. For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
-        To configure multiple permissions, specify the `--grants` parameter multiple times.
+       To configure multiple permissions, specify the `--grants` parameter multiple times.
 
-        Permissions specified in the command override the current ACL settings of the bucket, including its predefined ACL. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full` command.
+       Permissions specified in the command override the current ACL settings of the bucket, including its predefined ACL. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full` command.
 
-        Result:
+       Result:
 
-        ```bash
-        name: my-bucket
-        folder_id: csgeoelk7fl15s6chmjd
-        default_storage_class: STANDARD
-        versioning: VERSIONING_SUSPENDED
-        max_size: "10737418240"
-        acl:
-          grants:
-            - permission: PERMISSION_READ
-              grant_type: GRANT_TYPE_ACCOUNT
-              grantee_id: ajej2th5699nld4j7fok
-        created_at: "2022-12-14T08:42:16.273717Z"
-        ```
+       ```bash
+       name: my-bucket
+       folder_id: csgeoelk7fl1********
+       default_storage_class: STANDARD
+       versioning: VERSIONING_SUSPENDED
+       max_size: "10737418240"
+       acl:
+         grants:
+           - permission: PERMISSION_READ
+             grant_type: GRANT_TYPE_ACCOUNT
+             grantee_id: ajej2th5699n********
+       created_at: "2022-12-14T08:42:16.273717Z"
+       ```
 
 - {{ TF }}
 
@@ -136,7 +136,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
          * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).
          * `uri`: System group ID.
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
 
@@ -157,7 +157,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

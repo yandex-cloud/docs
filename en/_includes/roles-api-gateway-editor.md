@@ -1,3 +1,3 @@
-### api-gateway.editor
+#### api-gateway.editor {#api-gateway-editor}
 
-The `api-gateway.editor` role lets you create, edit, and delete API gateways.
+The `api-gateway.editor` role allows you to create, edit, and delete API gateways.

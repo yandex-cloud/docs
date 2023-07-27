@@ -35,11 +35,11 @@
       +------------------+----------------------+-------------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Save the name of the bucket using the `NAME` column to set up the CORS configuration in.
+   1. Using the `NAME` column, save the name of the bucket to set up the CORS configuration in.
    1. Run the following command:
 
       ```bash
@@ -65,7 +65,7 @@
 
          ```yaml
          name: first-bucket
-         folder_id: b1gmit33ngp6cv2mhjmo
+         folder_id: b1gmit33ngp6********
          default_storage_class: STANDARD
          versioning: VERSIONING_DISABLED
          max_size: "53687091200"
@@ -85,7 +85,7 @@
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Describe the CORS object configurations in JSON format. For example:
+   1. Describe the CORS object configurations in JSON format, e.g.:
 
       ```json
       {
@@ -155,14 +155,14 @@
       * `acl`: Applied ACL policy. This is an optional parameter.
 
       `CORS` parameters:
-      * `allowed_headers`: Headers allowed. This is an optional parameter.
-      * `allowed_methods`: Methods allowed. Possible values: `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. This parameter is required.
+      * `allowed_headers`: Allowed headers. This is an optional parameter.
+      * `allowed_methods`: Allowed methods. Possible values are `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. This parameter is required.
       * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. This parameter is required.
       * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. This is an optional parameter.
       * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. This is an optional parameter.
       * `server_side_encryption_configuration`: Bucket encryption settings on the server side. This is an optional parameter.
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
@@ -183,7 +183,7 @@
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

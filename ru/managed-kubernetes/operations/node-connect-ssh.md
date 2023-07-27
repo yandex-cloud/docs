@@ -80,20 +80,20 @@
 Файл с публичным ключом создается в таком виде:
 
 ```text
-ssh-ed25519 AAAAB3NzaC*********** ed25519-key-20190412
+ssh-ed25519 AAAAB3NzaC***********lP1ww ed25519-key-20190412
 ```
 
 Необходимо привести ключ к формату `<имя пользователя>:ssh-ed25519 <тело ключа> <имя пользователя>`, чтобы он выглядел следующим образом:
 
 ```text
-username:ssh-ed25519 AAAAB3NzaC***********zo/lP1ww== username
+username:ssh-ed25519 AAAAB3NzaC***********lP1ww username
 ```
 
 В одном файле можно передать несколько публичных ключей для доступа разных пользователей:
 
 ```text
-username:ssh-ed25519 AAAAB3NzaC***********zo/lP1ww== username
-username2:ssh-ed25519 ONEMOREkey***********88OavEHw== username2
+username:ssh-ed25519 AAAAB3NzaC***********lP1ww username
+username2:ssh-ed25519 ONEMOREkey***********avEHw username2
 ```
 
 ## Создайте группу узлов и добавьте публичный ключ {#node-create}
@@ -102,11 +102,11 @@ username2:ssh-ed25519 ONEMOREkey***********88OavEHw== username2
 
 ```bash
 yc managed-kubernetes node-group create \
-  --name <имя группы узлов> \
-  --cluster-name <имя кластера {{ k8s }}> \
-  --fixed-size <количество узлов в группе> \
-  --network-interface security-group-ids=[<список групп безопасности>],subnets=<имя подсети>,ipv4-address=nat \
-  --metadata-from-file ssh-keys=<имя файла с публичными ключами>
+  --name <имя_группы_узлов> \
+  --cluster-name <имя_кластера_{{ k8s }}> \
+  --fixed-size <количество_узлов_в_группе> \
+  --network-interface security-group-ids=[<список_групп_безопасности>],subnets=<имя_подсети>,ipv4-address=nat \
+  --metadata-from-file ssh-keys=<имя_файла_с_публичными_ключами>
 ```
 
 {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
@@ -117,8 +117,8 @@ yc managed-kubernetes node-group create \
 
 ```bash
 yc managed-kubernetes node-group add-metadata \
-  --name <имя группы узлов> \
-  --metadata-from-file ssh-keys=<имя файла с публичными ключами>
+  --name <имя_группы_узлов> \
+  --metadata-from-file ssh-keys=<имя_файла_с_публичными_ключами>
 ```
 
 ## Получите публичный IP-адрес узла {#node-public-ip}

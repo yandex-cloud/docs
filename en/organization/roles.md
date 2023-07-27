@@ -39,7 +39,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% list tabs %}
 
-- Cloud {{ org-name }}
+- {{ org-name }}
 
   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 
@@ -176,6 +176,8 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% endlist %}
 
+In a similar way, you can [assign roles](../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) for an organization to a service account.
+
 ### Revoking a user's role {#revoke}
 
 If you wish to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../iam/concepts/access-control/index.md) documentation.
@@ -184,7 +186,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 {% list tabs %}
 
-- Cloud {{ org-name }}
+- {{ org-name }}
 
    1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
 

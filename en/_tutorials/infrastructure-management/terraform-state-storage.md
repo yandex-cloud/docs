@@ -64,7 +64,7 @@ The cost of supporting this infrastructure includes:
 
 ## Create a bucket {#create-service-account}
 
-[Create a bucket](../../storage/operations/buckets/create.md) with any name, for example, `terraform-object-storage-tutorial`. It stores the {{ TF }} state file.
+[Create a bucket](../../storage/operations/buckets/create.md) with restricted access. It stores the {{ TF }} state file.
 
 ## Configure the backend {#set-up-backend}
 

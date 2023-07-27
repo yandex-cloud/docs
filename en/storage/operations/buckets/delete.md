@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-You can only delete an empty bucket. In the management console, information about the number of objects in a bucket is updated with a few minutes' delay.
+You can only delete empty buckets. In the management console, information about the number of objects in a bucket is updated with a few minutes' delay.
 
 {% endnote %}
 
@@ -68,9 +68,9 @@ You can only delete an empty bucket. In the management console, information abou
       ```hcl
       ...
       resource "yandex_storage_bucket" "test" {
-        access_key = "<static_key_id>"
-        secret_key = "<private_key>"
-        bucket     = "tf-test-bucket"
+        access_key = "YCAJEX9Aw2ge********-w-lJ"
+        secret_key = "YCONxG7rSdz********_NRy5VbKzKlqZ********"
+        bucket     = "<bucket_name>"
       }
       ...
       ```

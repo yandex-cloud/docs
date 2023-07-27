@@ -14,7 +14,7 @@ An ID or email can be received by users with the `organization-manager.admin` or
 
 {% list tabs %}
 
-- Cloud {{ org-name }}
+- {{ org-name }}
 
    {% include [users-info](../_includes/users-info.md) %}
 

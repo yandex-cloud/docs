@@ -22,7 +22,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a folder created with {{ TF }}:
 
@@ -51,7 +51,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
@@ -81,7 +81,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
 {% note alert %}
 
-While a folder's status is `PENDING_DELETION`, your disks, reserved IPs, and other data are preserved. The cost of such storage is charged at the previous rate. Track your resource costs in [billing]({{ link-console-billing }}).
+While a folder's status is `PENDING_DELETION`, your disks, reserved IPs, and other data are preserved. The cost of such storage is charged at the previous rate. Track your resource costs in [{{ billing-name }}]({{ link-console-billing }}).
 
 {% endnote %}
 

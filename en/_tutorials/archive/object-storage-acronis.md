@@ -7,7 +7,7 @@ To set up backups in {{ objstorage-name }} via [Acronis](https://www.acronis.com
 1. [Configure Acronis Backup Gateway](#configure-acronis)
 1. [Test the backup procedure](#test-backup)
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -24,7 +24,7 @@ To configure backups, you will need a service account with access keys:
 The cost for backup and recovery includes:
 
 * Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Create a bucket {#create-bucket}
@@ -46,7 +46,7 @@ To configure Acronis Backup Gateway to work with {{ objstorage-name }}:
    1. Select the **AuthV2 compatible** provider type.
    1. In the **Endpoint URL** field, specify `{{ s3-storage-host }}`.
    1. Specify a static key for authentication.
-   1. Specify the `backup` bucket for storing backups.
+   1. Specify the bucket for storing backups.
 1. In the **Registration** section, enter your Acronis account details.
 1. Click **DONE**.
 
@@ -54,6 +54,6 @@ To configure Acronis Backup Gateway to work with {{ objstorage-name }}:
 
 Configure and perform a backup in Acronis Backup by following the [instructions](https://www.acronis.com/en-us/support/documentation/BackupService/index.html#33507.html).
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 {% include [clear-out](../_tutorials_includes/storage-clear-out.md) %}

@@ -43,7 +43,7 @@ Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricin
 
 ## Set up a service account {#configure-service-account}
 
-Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account, [create](../../iam/operations/sa/create.md) one.
+Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you do not have a service account, [create](../../iam/operations/sa/create.md) one.
 
 To create a service account:
 
@@ -62,7 +62,7 @@ To create a service account:
    * `Provider:`: `compatible-with-s3`.
    * `ServiceHost:`: `{{ s3-storage-host }}`.
    * `SslMode:`: `disabled`.
-   * `Name:`: `{{ product }}`.
+   * `Name:`: `cloud`.
 
    Result:
 
@@ -72,11 +72,11 @@ To create a service account:
      Provider: compatible-with-s3
      ServiceHost: {{ s3-storage-host }}
      SslMode: disabled
-     Name: {{ product }}
+     Name: cloud
 
 
-   Name        : {{ product }}
-   Id          : 12436533-a39e-4df6-81db-f8365eb4178d
+   Name        : cloud
+   Id          : 12436533-a39e-4df6-81db-f836********
    Provider    : compatible-with-s3
    ServiceHost : {{ s3-storage-host }}
    SslMode     : Disabled
@@ -93,7 +93,7 @@ To create a service account:
 1. Enter a **Name** for the cloud storage device and click **Next**.
 1. Select a vendor for the **S3** device and click **Next**.
 1. Enter the connection information:
-   * Select `{{ product }} [ compatible-with-s3 ]` as **Cloud Storage**.
+   * Select `cloud [ compatible-with-s3 ]` as **Cloud Storage**.
    * Next to **Logon account**, click **Add/Edit**.
    * In the **Logon account selection** window, click **Add**.
    * In the **User name** field, enter the key ID.
@@ -138,6 +138,6 @@ To create a service account:
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 {% include [clear-out](../_tutorials_includes/storage-clear-out.md) %}

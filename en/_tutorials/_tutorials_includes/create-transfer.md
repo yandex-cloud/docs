@@ -21,7 +21,7 @@
       1. In the **Direction** field, select `Target`.
       1. Enter the endpoint name, for example, `logs-receiver`.
       1. In the **Database type** list, select `{{ objstorage-name }}`.
-      1. Enter the name of the previously created bucket (`logs-bucket`).
+      1. Enter the name of the previously created bucket.
       1. Select the previously created `logs-sa` service account.
       1. In the **Output format** field, select `JSON`.
       1. Click **Create**.
@@ -33,6 +33,6 @@
       1. Click **Create**.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the created transfer and select **Activate**.
 
-   Wait until the transfer is activated. Once the transfer is ready for use, its status changes from {{ dt-status-creation }} to {{ dt-status-repl }}.
+   Wait until the transfer is activated. Once the transfer is ready for use, its status will change from {{ dt-status-creation }} to {{ dt-status-repl }}.
 
 {% endlist %}

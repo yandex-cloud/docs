@@ -98,9 +98,9 @@ To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex
 ## Managing privileged users {#privileged-users}
 
 {{ yandex-cloud }} privileged users include accounts with the following roles:
-* `billing.accounts.owner`;
+* `billing.accounts.owner`.
 * `{{ roles-admin }}` assigned for a billing account.
-* `{{ roles-cloud-owner }}`;
+* `{{ roles-cloud-owner }}`.
 * `{{ roles-admin }}` assigned for a cloud.
 * `{{ roles-admin }}` assigned for a folder.
 
@@ -116,7 +116,7 @@ The most appropriate approach would be to not use this account on a regular basi
 
 We recommend disabling 2FA only for this account and if it is not assigned to a specific employee. This lets you avoid linking this critical account to a personal device.
 
-To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account. To view billing data, assign the `{{ roles-viewer }}` role for the billing account to a dedicated employee with a federated account.
+To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account. To view {{ billing-name }} data, assign the `{{ roles-viewer }}` role for the billing account to a dedicated employee with a federated account.
 
 The `{{ roles-cloud-owner }}` role is assigned automatically when you create a cloud. A user with this role can perform any operation with the cloud or its resources and grant cloud access to other users: assign roles and revoke them.
 

@@ -2,15 +2,36 @@
 
 ## Current version {#latest-release}
 
-## Version 0.107.0 (15/06/23) {#version0.107.0}
+### Version 0.108.1 (06/07/23) {#version0.108.1}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to the CLI {#cli}
 
-#### {{ compute-name }} {#compute}
+* Temporarily removed the `oslogin` command.
+
+## Previous releases {#previous-releases}
+
+### Version 0.108.0 (04/07/23) {#version0.108.0}
+
+#### Changes to the CLI {#cli}
+
+* Added the `oslogin` command to get the username of the current OS user.
+* Disabled the display of global flags for all commands by default when running `yc [command] -h`. To view global flags, run `yc help [command]`.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ kms-name }} {#kms}
+
+* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, see the [documentation](../kms/).
+
+### Version 0.107.0 (15/06/23) {#version0.107.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
 
 * Added the `--partitions` parameter to the `yc compute placement-group create` command to specify the number of partitions in `partitionPlacementStrategy`.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -25,8 +46,6 @@
 **{{ mmy-name }}**
 
 * Added the `--global-permissions` parameter to the `yc managed-mysql user update` command to grant users `FLUSH_OPTIMIZER_COSTS` and `SHOW_ROUTINE` privileges.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.106.0 (19/05/23) {#version0.106.00}
 
@@ -552,9 +571,10 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
 
+
    * Added the `--node-name` flag that can be used to specify a node name template within a group.
 
-   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for VMs — group nodes (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
+   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for group node VMs (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
 
@@ -1079,7 +1099,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 ##### {{ sf-name }} {#serverless-functions}
 
-* Added the `yc serverless trigger create billing-budget` command to create triggers for billing events.
+* Added the `yc serverless trigger create billing-budget` command to create triggers for {{ billing-name }} events.
 * Added commands to control connections to managed databases:
    * `yc serverless mdbproxy update clickhouse`
    * `yc serverless mdbproxy create clickhouse`
@@ -1626,6 +1646,7 @@ Added primary support for {{ mkf-name }}:
    Added the `--security-group-ids` flag to set cluster security groups.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
+
    Added the `--network-interface` flag that allows you to configure more detailed network specifications for nodes. For example, you can manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
 
@@ -1903,6 +1924,7 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
+
    Added the `--gpus=GPUS` flag to specify the number of GPUs on the nodes.
 
 ##### {{ container-registry-name }} {#container-registry}
@@ -2018,7 +2040,8 @@ Added support for {{ api-gw-full-name }}.
    Added the `--node-ipv4-mask-size` flag to configure the size of `CIDR` allocated to each cluster node.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-   Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created at instance group update.
+
+   Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created when updating the group.
 
 
 #### Managed database services {#managed-db}
@@ -2123,8 +2146,7 @@ Added support for {{ api-gw-full-name }}.
 **Improved**
 
 * When you start `yc` with the `--help` or `-h` flag, interactive help opens: in `less` (`$PAGER`) on Linux and macOS and in `more` on Windows. Now you no longer have to scroll up through the help result.
-* The execution debug logs and API interaction debug logs are now saved to the
-   `$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the issue when `yc`, which was installed as a stand-alone binary file, suddenly tries to save its log in the same directory without the rights to it.
+* The execution debug logs and API interaction debug logs are now saved to the `$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the issue when `yc`, which was installed as a stand-alone binary file, suddenly tries to save its log in the same directory without the rights to it.
 * Debug logs are also saved for successful requests. If you contact support about an issue with a `yc` command, we can help you faster if you attach your log file.
 
 **Fixed**

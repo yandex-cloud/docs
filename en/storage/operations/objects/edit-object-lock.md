@@ -72,7 +72,7 @@ To remove a retention:
         --bucket <bucket_name> \
         --key <object_key> \
         --version-id <version ID> \
-        --retention Mode="",RetainUntilDate="" \
+        --retention '{}' \
         --bypass-governance-retention
       ```
 

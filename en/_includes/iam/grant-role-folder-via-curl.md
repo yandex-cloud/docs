@@ -1,5 +1,5 @@
 ```bash
-export FOLDER_ID=b1gvmob95yysaplct532
+export FOLDER_ID=b1gvmob95yysaplct...
 export IAM_TOKEN=CggaATEVAgA...
 curl -X POST \
   -H "Content-Type: application/json" \

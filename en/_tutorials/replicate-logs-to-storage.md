@@ -2,7 +2,7 @@
 
 Data aggregators enable you to transmit data (for example, logs) from the [VM instances](../compute/concepts/vm.md) to the log monitoring and data storage services.
 
-In this tutorial, you'll learn to replicate VM logs automatically to an {{ objstorage-name }} bucket using the [Fluent Bit](https://fluentbit.io) logging processor.
+In this tutorial, you will learn how to replicate VM logs automatically to an {{ objstorage-name }} bucket using the [Fluent Bit](https://fluentbit.io) logging processor.
 
 The solution described below works in the following way:
 1. Fluent Bit runs on an active VM as a [systemd](https://ru.wikipedia.org/wiki/Systemd) module.
@@ -127,11 +127,11 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
    Where:
 
    * `data-stream`: {{ yds-name }} data stream ID.
-      > For example, if your stream ID is `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logs-stream`, it breaks down into the following parts:
+      > For example, if your stream ID is `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream`, it breaks down into the following parts:
       > * `logs-stream`: Name of the stream.
       > * `{{ region-id }}`: Region.
-      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
-      > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
+      > * `aoeu1kuk2dht********`: Folder ID.
+      > * `cc8029jgtuab********`: {{ ydb-short-name }} database ID.
 
    For more information on how to install Fluent Bit, see the [official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
 
@@ -173,9 +173,9 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
 
 {% include [check-ingestion](_tutorials_includes/check-ingestion.md) %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../data-transfer/operations/endpoint/index.md#delete).

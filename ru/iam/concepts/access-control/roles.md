@@ -543,3 +543,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
 
+
+## {{ yagpt-full-name }} {#yandexgpt-roles}
+
+{% include [roles-yandexgpt-user](../../../_includes/roles-yandexgpt-user.md) %}

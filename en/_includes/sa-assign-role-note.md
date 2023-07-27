@@ -1,2 +1,1 @@
-A service account can only be assigned roles for the resources of the cloud that the service account belongs to.
-
+You can [assign roles](../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) to a service account for any resources in any cloud if these resources belong to the same organization as the service account. You can also [assign roles](../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) to a service account for the organization.

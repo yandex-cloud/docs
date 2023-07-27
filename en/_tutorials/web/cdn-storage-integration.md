@@ -54,18 +54,16 @@ The cost of this infrastructure includes:
 
 All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
-To create a network and subnets:
-
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click **Create network**.
-   1. Specify the **Name** of the network: `example-network`.
-   1. In the **Advanced** field, select **Create subnets**.
-   1. Click **Create network**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `example-network`.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 
@@ -82,11 +80,11 @@ To create a network and subnets:
       Result:
 
       ```
-      id: enptrcle5q3d3ktd33hj
-      folder_id: b1g9hv2loamqfnbul7d9
+      id: enptrcle5q3d********
+      folder_id: b1g9hv2loamq********
       created_at: "2022-04-04T05:25:03Z"
       name: example-network
-      default_security_group_id: enpbsnnop4akg7ng70ll
+      default_security_group_id: enpbsnnop4ak********
       ```
 
       For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -105,11 +103,11 @@ To create a network and subnets:
          Result:
 
          ```
-         id: e9bnnssj8sc8mjhat9qk
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: e9bnnssj8sc8********
+         folder_id: b1g9hv2loamq********
          created_at: "2022-04-04T09:27:00Z"
          name: example-subnet-{{ region-id }}-a
-         network_id: enptrcle5q3d3ktd33hj
+         network_id: enptrcle5q3d********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 10.1.0.0/16
@@ -127,11 +125,11 @@ To create a network and subnets:
          Result:
 
          ```
-         id: e2lghukd9iqo4haidjbt
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: e2lghukd9iqo********
+         folder_id: b1g9hv2loamq********
          created_at: "2022-04-04T09:27:39Z"
          name: example-subnet-{{ region-id }}-b
-         network_id: enptrcle5q3d3ktd33hj
+         network_id: enptrcle5q3d********
          zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 10.2.0.0/16
@@ -149,11 +147,11 @@ To create a network and subnets:
          Result:
 
          ```
-         id: b0c3pte4o2kn4v12o05p
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: b0c3pte4o2kn********
+         folder_id: b1g9hv2loamq********
          created_at: "2022-04-04T09:28:08Z"
          name: example-subnet-{{ region-id }}-c
-         network_id: enptrcle5q3d3ktd33hj
+         network_id: enptrcle5q3d********
          zone_id: {{ region-id }}-c
          v4_cidr_blocks:
          - 10.3.0.0/16
@@ -226,35 +224,31 @@ To create a network and subnets:
 
 ## Create a bucket in {{ objstorage-name }} {#create-buckets}
 
-Create a bucket named `example-bucket`:
-
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ objstorage-name }}**.
-   1. Create a bucket named `example-bucket`:
-
-      1. Click **Create bucket**.
-      1. Specify the **name** of the bucket: `example-bucket`.
-      1. In the **Object read access** and **Object listing access** fields, select **Public**.
-      1. Click **Create bucket**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 
 - AWS CLI
 
-   1. Create a bucket named `example-bucket`:
+   1. Create a bucket:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
-        s3 mb s3://example-bucket
+        s3 mb s3://<bucket_name>
       ```
 
       Result:
 
       ```
-      make_bucket: s3://example-bucket
+      make_bucket: s3://<bucket_name>
       ```
 
    1. Enable public access to reading objects and their list:
@@ -262,19 +256,19 @@ Create a bucket named `example-bucket`:
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3api put-bucket-acl \
-        --bucket example-bucket \
+        --bucket <bucket_name> \
         --acl public-read
       ```
 
 - {{ TF }}
 
-   1. Add the parameters of the `example-bucket` bucket to the configuration file:
+   1. Add bucket parameters to the configuration file:
 
       ```hcl
       ...
 
-      resource "yandex_storage_bucket" "example-bucket" {
-        bucket = "example-bucket"
+      resource "yandex_storage_bucket" "<bucket_name>" {
+        bucket = "<bucket_name>"
         acl    = "public-read"
       }
       ```
@@ -335,34 +329,34 @@ Create a bucket named `example-bucket`:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ objstorage-name }}**.
-      1. In the bucket list, select `example-bucket`.
-      1. Click **Upload** and select the `index.html` file for uploading.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Select the bucket.
+      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for uploading.
 
    - AWS CLI
 
-      1. Upload `index.html` to the `example-bucket` file:
+      1. Upload the `index.html` file to the bucket:
 
          ```bash
          aws --endpoint-url https://{{ s3-storage-host }} \
-           s3 cp v1/index.html s3://example-bucket/index.html
+           s3 cp v1/index.html s3://<bucket_name>/index.html
          ```
 
          Result:
 
          ```
-         upload: v1/index.html to s3://example-bucket/index.html
+         upload: v1/index.html to s3://<bucket_name>/index.html
          ```
 
    - {{ TF }}
 
-      1. Add the parameters of the `v1/index.html` file uploaded to the `example-bucket`, to the configuration file:
+      1. To the configuration file, add the parameters of the `v1/index.html` file uploaded to the bucket:
 
          ```hcl
          ...
 
          resource "yandex_storage_object" "example-bucket-index" {
-           bucket = "example-bucket"
+           bucket = "<bucket_name>"
            key    = "index.html"
            source = "v1/index.html"
          }
@@ -413,12 +407,13 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Click the **Security groups** tab.
-   1. Click **Create group**.
-   1. Enter the **Name** of the group: `example-sg`.
-   1. Select the `example-network` **network**:
-   1. Under **Rules**, create the following rules using the instructions below the table:
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `example-sg`.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `example-network`.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
       | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
       | --- | --- | --- | --- | --- | --- |
@@ -427,19 +422,18 @@ To create security groups:
       | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
-      1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
-      1. Click **Add rule**.
-      1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-      1. In the **Purpose** or **Source** field, select the purpose of the rule:
+      1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-         * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}**: Rule that allows an L7 load balancer to check the health of VMs.
 
-      1. Click **Save**. Repeat the steps to create all rules from the table.
+      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all rules from the table.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -457,21 +451,21 @@ To create security groups:
    Result:
 
    ```
-   id: enpd133ngcnrgc8475cc
-   folder_id: b1g9hv2loamqfnbul7d9
+   id: enpd133ngcnr********
+   folder_id: b1g9hv2loamq********
    created_at: "2022-04-04T10:26:16Z"
    name: example-sg
-   network_id: enptrcle5q3d3ktd33hj
+   network_id: enptrcle5q3d********
    status: ACTIVE
    rules:
-   - id: enpkgrpi2gsibdm6aotd
+   - id: enpkgrpi2gsi********
      direction: EGRESS
      protocol_name: ANY
      protocol_number: "-1"
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpgssij0i168jknb85r
+   - id: enpgssij0i16********
      direction: INGRESS
      ports:
        from_port: "80"
@@ -481,7 +475,7 @@ To create security groups:
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enp0bft67j9lrlnhdur5
+   - id: enp0bft67j9l********
      direction: INGRESS
      ports:
        from_port: "443"
@@ -491,7 +485,7 @@ To create security groups:
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpmorcimu65fk4oaanm
+   - id: enpmorcimu65********
      direction: INGRESS
      ports:
        from_port: "30080"
@@ -576,21 +570,20 @@ To create security groups:
 
 - Management console
 
-   1. Create the `example-bg` backend group with the `example-backend` backend:
+   1. In the [management console]({{ link-console-main }}), select `example-folder`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-bg`.
+   1. In the **{{ ui-key.yacloud.alb.label_backend-type }}** field, select **{{ ui-key.yacloud.alb.label_proto-http }}** as the [backend group type](../../application-load-balancer/concepts/backend-group.md#group-types).
+   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **Add** and set up the backend:
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-backend`.
+      1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `100`.
+      1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_bucket }}** as the [backend type](../../application-load-balancer/concepts/backend-group.md#types).
+      1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the previously created bucket.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
-      1. Click **Create backend group**.
-      1. Name the backend group: `example-bg`.
-      1. Select **HTTP** as the [backend group type](../../application-load-balancer/concepts/backend-group.md#group-types).
-      1. Under **Backends**, click **Add**. Specify the backend settings:
-         1. Enter the backend name: `example-backend`.
-         1. Set the weight of the backend: `100`.
-         1. Select **Bucket** as the [backend type](../../application-load-balancer/concepts/backend-group.md#types).
-         1. In the **Bucket** field, enter the bucket name: `example-bucket`.
-      1. Click **Create**.
-
-   1. If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the **Backend groups** tab.
+   If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
 
 - API
 
@@ -598,31 +591,30 @@ To create security groups:
 
 {% endlist %}
 
-## Create an HTTP router and virtual hosts {#create-route-hosts}
-
-Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
+## Create an HTTP router and a virtual host {#create-route-hosts}
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ alb-name }}** and go to the **HTTP routers** tab.
-   1. Click **Create HTTP router**.
-   1. Enter the router name: `example-router`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-router`.
    1. Create the `example-vh` virtual host:
 
-      1. Under **Virtual hosts**, click **Add virtual host**.
-      1. Enter the hostname: `example-vh`.
-      1. Specify the value for **Authority**: `cdn.yandexcloud.example`
-      1. Click **Add route**.
-      1. Enter the **Name**: `example-route`.
-      1. In the **Path** field, select **Starts with** and specify the path `/`.
-      1. In the **HTTP methods** list, select **GET**.
-      1. In the **Action** field, leave the **Routing** value.
-      1. In the **Backend group** list, select `example-bg`.
+      1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-vh`.
+      1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify `cdn.yandexcloud.example`.
+      1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-route`.
+      1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select **{{ ui-key.yacloud.alb.label_match-prefix }}** and specify the path `/`.
+      1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select **GET**.
+      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, leave **{{ ui-key.yacloud.alb.label_route-action-route }}**.
+      1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `example-bg`.
 
-   1. Leave all other settings as they are and click **Create**.
+   1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -635,9 +627,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       Result:
 
       ```
-      id: ds7qd0vj01djuu3c6f8q
+      id: ds7qd0vj01dj********
       name: example-router
-      folder_id: b1g9hv2loamqfnbul7d9
+      folder_id: b1g9hv2loamq********
       created_at: "2022-04-04T10:31:41.027649223Z"
       ```
 
@@ -686,7 +678,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
             path:
               prefix_match: /
           route:
-            backend_group_id: ds7pbm5fj2v09ptnn29p
+            backend_group_id: ds7pbm5fj2v0********
       ```
 
       For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
@@ -755,24 +747,24 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ alb-name }}**, then click **Load balancers**.
-   1. Click **Create L7 load balancer**.
-   1. Enter the load balancer name: `example-balancer`.
-   1. Under **Network settings**:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. At the top right, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-balancer`.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
-      1. Select the `example-network` **network**:
-      1. Select the `example-sg` **security group**. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
+      1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `example-network`.
+      1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `example-sg`. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
 
-   1. Under **Allocation**, select three subnets for the load balancer nodes: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
-   1. Click **Add listener** under **Listeners**. Set the listener settings:
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
 
-      1. Enter the listener name: `example-listener`.
-      1. Under **Public IP address settings**, enable traffic.
-      1. Set the port to `80`.
-      1. In the **Assign IP address** field, select **Automatically**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-listener`.
+      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
+         * In the **{{ ui-key.yacloud.alb.label_port }}** field, enter `80`.
+         * In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_address-auto }}**.
 
-   1. In the **HTTP router** field, select `example-router`.
-   1. Click **Create**.
+   1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `example-router`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -785,13 +777,13 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       Result:
 
       ```
-      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
-      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-      | e9bnnssj8sc8mjhat9qk | example-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
-      | e2lghukd9iqo4haidjbt | example-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
-      | b0c3pte4o2kn4v12o05p | example-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
-      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
+      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
+      |          ID          |               NAME               |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |     RANGE     |
+      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
+      | e9bnnssj8sc8******** | example-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
+      | e2lghukd9iqo******** | example-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
+      | b0c3pte4o2kn******** | example-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
+      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
       ```
 
       For more information about the `yc vpc network list-subnets` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
@@ -825,23 +817,23 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       ```hcl
       done (3m0s)
-      id: ds77q7v39b4ubg8ta2n4
+      id: ds77q7v39b4u********
       name: example-balancer
-      folder_id: b1g9hv2loamqfnbul7d9
+      folder_id: b1g9hv2loamq********
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: enptrcle5q3d3ktd33hj
+      network_id: enptrcle5q3d********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-c
-          subnet_id: b0c3pte4o2kn4v12o05p
+          subnet_id: b0c3pte4o2kn********
         - zone_id: {{ region-id }}-b
-          subnet_id: e2lghukd9iqo4haidjbt
+          subnet_id: e2lghukd9iqo********
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bnnssj8sc8mjhat9qk
-      log_group_id: ckg23vr4dlkse3hvq0kc
+          subnet_id: e9bnnssj8sc8********
+      log_group_id: ckg23vr4dlks********
       security_group_ids:
-      - enpd133ngcnrgc8475cc
+      - enpd133ngcnr********
       created_at: "2022-04-04T10:55:49.134935148Z"
       ```
 
@@ -861,12 +853,12 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       ```
       done (43s)
-      id: ds77q7v39b4ubg8ta2n4
+      id: ds77q7v39b4u********
       name: example-balancer
-      folder_id: b1g9hv2loamqfnbul7d9
+      folder_id: b1g9hv2loamq********
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: enptrcle5q3d3ktd33hj
+      network_id: enptrcle5q3d********
       listeners:
       - name: example-listener
         endpoints:
@@ -877,18 +869,18 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
           - "80"
         http:
           handler:
-            http_router_id: ds7qd0vj01djuu3c6f8q
+            http_router_id: ds7qd0vj01dj********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-c
-          subnet_id: b0c3pte4o2kn4v12o05p
+          subnet_id: b0c3pte4o2kn********
         - zone_id: {{ region-id }}-b
-          subnet_id: e2lghukd9iqo4haidjbt
+          subnet_id: e2lghukd9iqo********
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bnnssj8sc8mjhat9qk
-      log_group_id: ckg23vr4dlkse3hvq0kc
+          subnet_id: e9bnnssj8sc8********
+      log_group_id: ckg23vr4dlks********
       security_group_ids:
-      - enpd133ngcnrgc8475cc
+      - enpd133ngcnr********
       created_at: "2022-04-04T10:55:49.134935148Z"
       ```
 
@@ -977,18 +969,18 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. In the list of services, select **{{ cdn-name }}**.
-   1. If the CDN provider hasn't been activated yet, click **Activate provider**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. If the CDN provider hasn't been activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
    1. Create a CDN resource:
 
-      1. On the **CDN resources** tab, click **Create resource**.
-      1. Set up the main parameters of the CDN resource as follows:
+      1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+      1. Set the main parameters of the CDN resource:
 
-         * **Content query**: **From one origin**.
-         * **Source type**: **L7 load balancer**.
-         * **L7 load balancer**: `example-balancer`.
-         * **IP address**: The IP address assigned to the load balancer (the only one in the list).
-         * **Domain names for content distribution**: `cdn.yandexcloud.example`.
+         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: **{{ ui-key.yacloud.cdn.value_query-type-one-origin }}**.
+         * **{{ ui-key.yacloud.cdn.label_source-type }}**: **{{ ui-key.yacloud.cdn.value_source-type-balancer }}**.
+         * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`.
+         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: The IP address assigned to the load balancer (the only one in the list).
+         * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`.
 
             {% note alert %}
 
@@ -996,25 +988,25 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
             {% endnote %}
 
-         * In the **Advanced** section:
+         * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
 
-            * In the **Source protocol** field, select **HTTP**.
-            * In the **Redirect clients** field, select **Don't use**.
+            * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select **HTTP**.
+            * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select **{{ ui-key.yacloud.cdn.value_do-not-use }}**.
             * Enable **End-user access to content**.
-            * In the **Certificate type** field, select **Let's Encrypt® **to automatically issue a certificate for the `cdn.yandexcloud.example` domain name after creating your CDN resource.
-            * In the **Host header** field, select **Forward**.
+            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select **{{ ui-key.yacloud.cdn.md_value_certificate-le }}** to automatically issue a certificate for the `cdn.yandexcloud.example` domain name after creating your CDN resource.
+            * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select **{{ ui-key.yacloud.cdn.value_host-header-resend }}**.
 
-      1. Click **Create**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
       Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
 
    1. Enable a client redirect from HTTP to HTTPS:
 
-      1. In the ![image](../../_assets/cdn/cdn-res.svg) **CDN resources** tab, select the previously created resource.
-      1. Make sure the certificate status under **Additional** changes to `Issued`.
-      1. At the top right, click ![image](../../_assets/pencil.svg) **Edit**.
-      1. Under **Additional**, in the **Redirect clients** field, select **HTTP to HTTPS**.
-      1. Click **Save**.
+      1. Select the previously created resource.
+      1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+      1. At the top right, click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select **{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}** in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -1035,7 +1027,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       ```
       id: "90748"
-      folder_id: b1geoelk7fldts6chmjq
+      folder_id: b1geoelk7fld********
       name: example-origin-group
       use_next: true
       origins:
@@ -1062,8 +1054,8 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       Result:
 
       ```
-      id: bc843k2yinvq5fhgvuvc
-      folder_id: b1ge1elk72ldts6chmjq
+      id: bc843k2yinvq********
+      folder_id: b1ge1elk72ld********
       cname: cdn.yandexcloud.example
       ...
       active: true
@@ -1185,9 +1177,9 @@ To configure DNS:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
-      1. In the list of services, select **{{ cdn-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **DNS settings**, copy the domain name in `cl-....edgecdn.ru` format.
+      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the domain name in `cl-....edgecdn.ru` format.
 
    {% endlist %}
 
@@ -1195,7 +1187,7 @@ To configure DNS:
 1. Create or edit a CNAME record for `cdn.yandexcloud.example` to link them to the copied domain name:
 
    ```
-   cdn CNAME cl-....edgecdn.ru
+   cdn CNAME cl-****edgecdn.ru
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:
@@ -1206,23 +1198,23 @@ To configure DNS:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ dns-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you don't have a public DNS zone, create one:
 
-         1. Click **Create zone**.
-         1. In the **Zone** field, enter the site's domain name with a trailing dot: `yandexcloud.example`.
-         1. Select the zone **Type**: **Public**.
-         1. Specify the **Name** of the zone: `example-dns-zone`.
+         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
+         1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the site's domain name with a trailing dot: `yandexcloud.example`.
+         1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.dns.label_public }}**.
+         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-dns-zone`.
          1. Click **Create**.
 
       1. In the zone, create a CNAME record for `cdn.yandexcloud.example`:
 
-         1. In the list of zones, click `example-dns-zone`.
-         1. Click **Create record**.
+         1. Select `example-dns-zone`.
+         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
          1. In the **Name** field, enter `cdn`.
-         1. Select the record **Type**: **CNAME**.
+         1. In the **Type** field, specify **CNAME**.
          1. In the **Value** field, paste the copied value in `cl-....edgecdn.ru` format.
-         1. Click **Create**.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI
 
@@ -1238,8 +1230,8 @@ To configure DNS:
          Result:
 
          ```
-         id: dns4rq4tadddth4h20qm
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: dns4rq4taddd********
+         folder_id: b1g9hv2loamq********
          created_at: "2022-04-04T11:03:28.847Z"
          name: example-dns-zone
          zone: yandexcloud.example.
@@ -1248,12 +1240,12 @@ To configure DNS:
 
          For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
 
-      1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in `cl-....edgecdn.ru` format:
+      1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in `cl-****edgecdn.ru` format:
 
          ```bash
          yc dns zone add-records \
            --name example-dns-zone \
-           --record "cdn CNAME cl-....edgecdn.ru" \
+           --record "cdn CNAME cl-****edgecdn.ru" \
          ```
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1275,7 +1267,7 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.example-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied_value_in_the_ format_cl-....edgecdn.ru>"]
+           data    = ["<copied_value_in_the_ format_cl-****edgecdn.ru>"]
          }
          ```
 
@@ -1305,7 +1297,7 @@ To configure DNS:
    - API
 
       1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` CNAME record to the zone, copying the `cl-....edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Add the `cdn` CNAME record to the zone, copying the `cl-****edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
@@ -1336,7 +1328,7 @@ To shut down the infrastructure and stop paying for the created resources:
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the `example-dns-zone` DNS zone.
 1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN resource with the primary `cdn.yandexcloud.example` domain name.
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `example-balancer` L7 load balancer.
-1. [Delete](../../storage/operations/objects/delete.md) all objects from the `example-bucket` bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the `example-bucket` bucket.
+1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the respective bucket.
 1. [Delete](../../vpc/operations/subnet-delete.md) the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets.
 1. [Delete](../../vpc/operations/network-delete.md) the `example-network` network.

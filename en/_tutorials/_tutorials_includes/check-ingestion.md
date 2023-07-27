@@ -12,7 +12,7 @@
    1. Select `logs-transfer`.
    1. Go to the **Monitoring** tab and look at the transfer activity charts.
    1. Select **{{ objstorage-name }}**.
-   1. Select `logs-bucket`.
-   1. Make sure that you have objects in the bucket. Download and review the resulting log files.
+   1. Select the previously created bucket.
+   1. Make sure that you have objects in the bucket. Download and review the log files you got.
 
 {% endlist %}

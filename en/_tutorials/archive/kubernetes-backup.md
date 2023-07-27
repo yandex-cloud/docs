@@ -24,8 +24,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Select the [Velero client](https://github.com/vmware-tanzu/velero/releases) of version `1.8.1` or lower for your platform.
-1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
+1. Select [Velero client](https://github.com/vmware-tanzu/velero/releases) version `1.10.3` or higher for your platform based on the [compatibility table](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
+1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.10/basic-install/#install-the-cli).
 1. View a description of any Velero command:
 
    ```bash
@@ -35,6 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a bucket](../../storage/operations/buckets/create.md) {{ objstorage-name }}:
    * **Name**: `velero-backup`.
    * **Storage class**: `Standard`.
+   * In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
 1. [Create a service account](../../iam/operations/sa/create.md):
    * **Name**: `velero-sa`.
    * **Folder roles**: `compute.admin`.
@@ -47,10 +48,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Result:
 
-   ```bash
+   ```text
    access_key:
-     id: abcdo12h3j04odg56def
-     service_account_id: ajego12h3j03slk16upe
+     id: abcdo12h3j04********
+     service_account_id: ajego12h3j03********
      created_at: "2020-10-19T13:22:29Z"
      key_id: <key ID>
    secret: <secret key value>
@@ -90,8 +91,7 @@ To back up cluster group data:
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }} \
-     --use-restic
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Where:
@@ -102,7 +102,6 @@ To back up cluster group data:
    * `--secret-file`: Full path to static access key data.
    * `--features`: List of active functionalities.
    * `--snapshot-location-config`: Availability zone where disk snapshots will be located.
-   * (Optional) `--use-restic`: Enables the restic plugin.
 
    Result:
 
@@ -164,8 +163,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }} \
-     --use-restic
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Where:
@@ -176,7 +174,6 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    * `--secret-file`: Full path to static access key data.
    * `--features`: List of active functionalities.
    * `--snapshot-location-config`: Select the availability zone to host disk snapshots.
-   * (Optional) `--use-restic`: Enables the restic plugin.
 
    Result:
 
@@ -239,7 +236,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved public static IP addresses for the clusters, [delete them](../../vpc/operations/address-delete.md).

@@ -1,6 +1,6 @@
 # Developing a skill for Alice and a website with authorization
 
-In this scenario, you'll develop a skill for Alice and deploy a web app for creating, reading and editing to-do lists with Alice's help, as well as for sharing the lists with other users on the website.
+In this scenario, you will develop a skill for Alice and deploy a web app for creating, reading and editing to-do lists with Alice's help, as well as for sharing the lists with other users on the website.
 
 
 To deploy a project:
@@ -30,7 +30,7 @@ To deploy a project:
 
 ## Create resources {#create-resources}
 
-1. [Create a bucket](../../storage/operations/buckets/create.md) named `frontend-statics` in {{ objstorage-full-name }}.
+1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** and **Database** fields under **Connection**. You will need them when setting up your project.
 1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
@@ -66,12 +66,12 @@ Set the project parameters in the `variables.json` file:
 * `database-endpoint`: Endpoint from the {{ ydb-name }} configuration.
 * `yc-profile`: {{ yandex-cloud }} CLI [profile name](../../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
-* `storage-bucket`: Name of the bucket you created for storing static data, `frontend-statics`.
+* `storage-bucket`: Name of the bucket you created for storing static data.
 * `gateway-id`: ID of the API gateway.
 
 ### Create a secure-config.json file {#set-variables-secure-config}
 
-The `secure-config.json` file contains secrets. You can create it from the `secure-config-template.json` template. To do this, run the command:
+The `secure-config.json` file contains secrets. You can create it from the `secure-config-template.json` template. To do this, run the following command:
 
 ```bash
 cp secure-config-template.json secure-config.json

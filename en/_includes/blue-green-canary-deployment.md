@@ -89,11 +89,11 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
       Result:
 
       ```
-      id: enptrcle5q3d3ktd33hj
-      folder_id: b1g9hv2loamqfnbul7d9
+      id: enptrcle5q3d********
+      folder_id: b1g9hv2loamq********
       created_at: "2021-11-03T09:25:03Z"
       name: canary-network
-      default_security_group_id: enpbsnnop4akg7ng70ll
+      default_security_group_id: enpbsnnop4ak********
       ```
 
       For more information about the `yc vpc network create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -112,11 +112,11 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          Result:
 
          ```
-         id: e9bnnssj8sc8mjhat9qk
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: e9bnnssj8sc8********
+         folder_id: b1g9hv2loamq********
          created_at: "2021-11-03T09:27:00Z"
          name: canary-subnet-{{ region-id }}-a
-         network_id: enptrcle5q3d3ktd33hj
+         network_id: enptrcle5q3d********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 10.1.0.0/16
@@ -134,11 +134,11 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          Result:
 
          ```
-         id: e2lghukd9iqo4haidjbt
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: e2lghukd9iqo********
+         folder_id: b1g9hv2loamq********
          created_at: "2021-11-03T09:27:39Z"
          name: canary-subnet-{{ region-id }}-b
-         network_id: enptrcle5q3d3ktd33hj
+         network_id: enptrcle5q3d********
          zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 10.2.0.0/16
@@ -156,11 +156,11 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          Result:
 
          ```
-         id: b0c3pte4o2kn4v12o05p
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: b0c3pte4o2kn********
+         folder_id: b1g9hv2loamq********
          created_at: "2021-11-03T09:28:08Z"
          name: canary-subnet-{{ region-id }}-c
-         network_id: enptrcle5q3d3ktd33hj
+         network_id: enptrcle5q3d********
          zone_id: {{ region-id }}-c
          v4_cidr_blocks:
          - 10.3.0.0/16
@@ -239,28 +239,28 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Create a bucket named `canary-bucket-blue`:
+   1. Create a blue bucket for the backend stable version:
 
       1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify `canary-bucket-blue`.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}**.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-   1. Similarly create a bucket named `canary-bucket-green`.
+   1. Similarly, create a green bucket for the backend test version.
 
 - AWS CLI
 
-   1. Create a bucket named `canary-bucket-blue`:
+   1. Create a blue bucket for the backend stable version:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
-        s3 mb s3://canary-bucket-blue
+        s3 mb s3://<blue_bucket_name>
       ```
 
       Result:
 
       ```
-      make_bucket: s3://canary-bucket-blue
+      make_bucket: s3://<blue_bucket_name>
       ```
 
    1. Enable public access to reading objects and their list:
@@ -268,26 +268,26 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3api put-bucket-acl \
-        --bucket canary-bucket-blue \
+        --bucket <blue_bucket_name> \
         --acl public-read
       ```
 
-   1. In a similar way, create a bucket named `canary-bucket-green` and enable public access to it.
+   1. Similarly, create a green bucket for the backend test version and enable public access to it.
 
 - {{ TF }}
 
-   1. Add the parameters of the `canary-bucket-blue` and `canary-bucket-green` buckets to the configuration file:
+   1. Add the parameters of the blue (backend stable version) and green (backend test version) buckets to the configuration file:
 
       ```hcl
       ...
 
       resource "yandex_storage_bucket" "canary-bucket-blue" {
-        bucket = "canary-bucket-blue"
+        bucket = "<blue_bucket_name>"
         acl    = "public-read"
       }
 
       resource "yandex_storage_bucket" "canary-bucket-green" {
-        bucket = "canary-bucket-green"
+        bucket = "<green_bucket_name>"
         acl    = "public-read"
       }
       ```
@@ -365,53 +365,53 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Select the `canary-bucket-blue` bucket.
+      1. Select the blue bucket.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `index.html` file for version 1.
-      1. Similarly upload to the `canary-bucket-green` bucket the `index.html` file for version 2.
+      1. Similarly, upload the `index.html` version 2 file to the green bucket.
 
    - AWS CLI
 
-      1. To the `canary-bucket-blue` bucket, upload the `index.html` file version 1:
+      1. Upload the `index.html` version 1 file to the blue bucket:
 
          ```bash
          aws --endpoint-url https://{{ s3-storage-host }} \
-           s3 cp v1/index.html s3://canary-bucket-blue/index.html
+           s3 cp v1/index.html s3://<blue_bucket_name>/index.html
          ```
 
          Result:
 
          ```
-         upload: v1/index.html to s3://canary-bucket-blue/index.html
+         upload: v1/index.html to s3://<blue_bucket_name>/index.html
          ```
 
-      1. Upload to the `canary-bucket-green` bucket the `index.html` file version 2:
+      1. Upload the `index.html` version 2 file to the green bucket:
 
          ```bash
          aws --endpoint-url https://{{ s3-storage-host }} \
-           s3 cp v2/index.html s3://canary-bucket-green/index.html
+           s3 cp v2/index.html s3://<green_bucket_name>/index.html
          ```
 
          Result:
 
          ```
-         upload: v2/index.html to s3://canary-bucket-green/index.html
+         upload: v2/index.html to s3://<green_bucket_name>/index.html
          ```
 
    - {{ TF }}
 
-      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to `canary-bucket-blue` and `canary-bucket-green`, respectively:
+      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
 
          ```hcl
          ...
 
          resource "yandex_storage_object" "canary-bucket-blue-index" {
-           bucket = "canary-bucket-blue"
+           bucket = "<blue_bucket_name>"
            key    = "index.html"
            source = "v1/index.html"
          }
 
          resource "yandex_storage_bucket" "canary-bucket-green-index" {
-           bucket = "canary-bucket-green"
+           bucket = "<green_bucket_name>"
            key    = "index.html"
            source = "v2/index.html"
          }
@@ -476,7 +476,7 @@ To create security groups:
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**.
-      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** field, select the purpose of the rule:
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}**: Rule that allows an L7 load balancer to check the health of VMs.
@@ -501,21 +501,21 @@ To create security groups:
    Result:
 
    ```
-   id: enpd133ngcnrgc8475cc
-   folder_id: b1g9hv2loamqfnbul7d9
+   id: enpd133ngcnr********
+   folder_id: b1g9hv2loamq********
    created_at: "2021-11-03T10:26:16Z"
    name: canary-sg
-   network_id: enptrcle5q3d3ktd33hj
+   network_id: enptrcle5q3d********
    status: ACTIVE
    rules:
-   - id: enpkgrpi2gsibdm6aotd
+   - id: enpkgrpi2gsi********
      direction: EGRESS
      protocol_name: ANY
      protocol_number: "-1"
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpgssij0i168jknb85r
+   - id: enpgssij0i16********
      direction: INGRESS
      ports:
        from_port: "80"
@@ -525,7 +525,7 @@ To create security groups:
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enp0bft67j9lrlnhdur5
+   - id: enp0bft67j9l********
      direction: INGRESS
      ports:
        from_port: "443"
@@ -535,7 +535,7 @@ To create security groups:
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpmorcimu65fk4oaanm
+   - id: enpmorcimu65********
      direction: INGRESS
      ports:
        from_port: "30080"
@@ -631,13 +631,13 @@ To create security groups:
          1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-backend-blue`.
          1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `100`.
          1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_bucket }}**.
-         1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select `canary-bucket-blue`.
+         1. Select the blue bucket in the **{{ ui-key.yacloud.alb.label_bucket }}** field.
       1. Create a backend named `canary-backend-green`:
          1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **Add**.
          1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-backend-green`.
          1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `0`.
          1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.alb.label_bucket }}**.
-         1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select `canary-bucket-green`.
+         1. Select the green bucket in the **{{ ui-key.yacloud.alb.label_bucket }}** field.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
    1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`; for `canary-backend-green`, set the weight to `100`.
@@ -694,9 +694,9 @@ To create security groups:
       Result:
 
       ```
-      id: ds7qd0vj01djuu3c6f8q
+      id: ds7qd0vj01dj********
       name: canary-router
-      folder_id: b1g9hv2loamqfnbul7d9
+      folder_id: b1g9hv2loamq********
       created_at: "2021-11-03T10:31:41.027649223Z"
       ```
 
@@ -745,7 +745,7 @@ To create security groups:
             path:
               prefix_match: /
           route:
-            backend_group_id: ds7pbm5fj2v09ptnn29p
+            backend_group_id: ds7pbm5fj2v0********
       ```
 
       For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
@@ -906,9 +906,9 @@ To create security groups:
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
       |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-      | e9bnnssj8sc8mjhat9qk | canary-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
-      | e2lghukd9iqo4haidjbt | canary-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
-      | b0c3pte4o2kn4v12o05p | canary-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
+      | e9bnnssj8sc8******** | canary-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
+      | e2lghukd9iqo******** | canary-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
+      | b0c3pte4o2kn******** | canary-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
       ```
 
@@ -923,7 +923,7 @@ To create security groups:
       Result:
 
       ```
-      id: enpd133ngcnrgc8475cc
+      id: enpd133ngcnr********
       ```
 
       For more information about the `yc vpc security-group get` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/get.md).
@@ -943,23 +943,23 @@ To create security groups:
 
       ```
       done (3m0s)
-      id: ds77q7v39b4ubg8ta2n4
+      id: ds77q7v39b4u********
       name: canary-balancer
-      folder_id: b1g9hv2loamqfnbul7d9
+      folder_id: b1g9hv2loamq********
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: enptrcle5q3d3ktd33hj
+      network_id: enptrcle5q3d********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-c
-          subnet_id: b0c3pte4o2kn4v12o05p
+          subnet_id: b0c3pte4o2kn********
         - zone_id: {{ region-id }}-b
-          subnet_id: e2lghukd9iqo4haidjbt
+          subnet_id: e2lghukd9iqo********
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bnnssj8sc8mjhat9qk
-      log_group_id: ckg23vr4dlkse3hvq0kc
+          subnet_id: e9bnnssj8sc8********
+      log_group_id: ckg23vr4dlks********
       security_group_ids:
-      - enpd133ngcnrgc8475cc
+      - enpd133ngcnr********
       created_at: "2021-11-03T10:55:49.134935148Z"
       ```
 
@@ -979,12 +979,12 @@ To create security groups:
 
       ```
       done (43s)
-      id: ds77q7v39b4ubg8ta2n4
+      id: ds77q7v39b4u********
       name: canary-balancer
-      folder_id: b1g9hv2loamqfnbul7d9
+      folder_id: b1g9hv2loamq********
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: enptrcle5q3d3ktd33hj
+      network_id: enptrcle5q3d********
       listeners:
       - name: canary-listener
         endpoints:
@@ -995,18 +995,18 @@ To create security groups:
           - "80"
         http:
           handler:
-            http_router_id: ds7qd0vj01djuu3c6f8q
+            http_router_id: ds7qd0vj01dj********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-c
-          subnet_id: b0c3pte4o2kn4v12o05p
+          subnet_id: b0c3pte4o2kn********
         - zone_id: {{ region-id }}-b
-          subnet_id: e2lghukd9iqo4haidjbt
+          subnet_id: e2lghukd9iqo********
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bnnssj8sc8mjhat9qk
-      log_group_id: ckg23vr4dlkse3hvq0kc
+          subnet_id: e9bnnssj8sc8********
+      log_group_id: ckg23vr4dlks********
       security_group_ids:
-      - enpd133ngcnrgc8475cc
+      - enpd133ngcnr********
       created_at: "2021-11-03T10:55:49.134935148Z"
       ```
 
@@ -1163,7 +1163,7 @@ To create security groups:
 
       ```
       id: "90748"
-      folder_id: b1geoelk7fldts6chmjq
+      folder_id: b1geoelk7fld********
       name: canary-origin-group
       use_next: true
       origins:
@@ -1191,8 +1191,8 @@ To create security groups:
       Result:
 
       ```
-      id: bc843k2yinvq5fhgvuvc
-      folder_id: b1ge1elk72ldts6chmjq
+      id: bc843k2yinvq********
+      folder_id: b1ge1elk72ld********
       cname: cdn.yandexcloud.example
       ...
       active: true
@@ -1374,8 +1374,8 @@ To configure DNS:
          Result:
 
          ```
-         id: dns4rq4tadddth4h20qm
-         folder_id: b1g9hv2loamqfnbul7d9
+         id: dns4rq4taddd********
+         folder_id: b1g9hv2loamq********
          created_at: "2021-11-03T11:03:28.847Z"
          name: canary-dns-zone
          zone: yandexcloud.example.
@@ -1493,7 +1493,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
          +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
          |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
          +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
-         | bc837xptmpkhbc7xwioa | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
+         | bc837xptmpkh******** | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
          |                      |                          | nanos:434085000                | nanos:434115000                |        | default_value:345600}                     |
          |                      |                          |                                |                                |        | cache_http_headers:{value:"accept-ranges" |
          |                      |                          |                                |                                |        | value:"cache-control" value:"connection"  |
@@ -1584,7 +1584,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
          +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
          |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
          +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
-         | bc837xptmpkhbc7xwioa | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
+         | bc837xptmpkh******** | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
          |                      |                          | nanos:434085000                | nanos:434115000                |        | default_value:345600}                     |
          |                      |                          |                                |                                |        | cache_http_headers:{value:"accept-ranges" |
          |                      |                          |                                |                                |        | value:"cache-control" value:"connection"  |
@@ -1651,15 +1651,15 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```
          done (1s)
-         id: ds7l9puc18c9b40cd359
+         id: ds7l9puc18c9********
          name: canary-bg-production
-         folder_id: b1g9hv2loamqfnbul7d9
+         folder_id: b1g9hv2loamq********
          http:
            backends:
            - name: canary-backend-blue
              backend_weight: "80"
              storage_bucket:
-               bucket: canary-bucket-blue
+               bucket: <blue_bucket_name>
          created_at: "2021-11-03T10:28:47.680825561Z"
          ```
 
@@ -1678,15 +1678,15 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```
          done (1s)
-         id: ds7l9puc18c9b40cd359
+         id: ds7l9puc18c9********
          name: canary-bg-production
-         folder_id: b1g9hv2loamqfnbul7d9
+         folder_id: b1g9hv2loamq********
          http:
            backends:
            - name: canary-backend-green
              backend_weight: "20"
              storage_bucket:
-               bucket: canary-bucket-green
+               bucket: <green_bucket_name>
          created_at: "2021-11-03T10:28:47.680825561Z"
          ```
 
@@ -1776,7 +1776,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
          +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
          |          ID          |          CNAME           |           CREATED AT           |           UPDATED AT           | ACTIVE |                  OPTIONS                  |
          +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
-         | bc837xptmpkhbc7xwioa | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
+         | bc837xptmpkh******** | cdn.yandexcloud.example  | seconds:1637235693             | seconds:1637235693             | true   | edge_cache_settings:{enabled:true         |
          |                      |                          | nanos:434085000                | nanos:434115000                |        | default_value:345600}                     |
          |                      |                          |                                |                                |        | cache_http_headers:{value:"accept-ranges" |
          |                      |                          |                                |                                |        | value:"cache-control" value:"connection"  |
@@ -1825,7 +1825,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
          1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `100`.
          1. Click **{{ ui-key.yacloud.common.save }}**.
 
-      1. Similarly, set the weight to 0 instead of 100 for `canary-bucket-green`.
+      1. Similarly, set the weight to 0 instead of 100 for `canary-backend-green`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
@@ -1843,15 +1843,15 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```
          done (1s)
-         id: ds7l9puc18c9b40cd359
+         id: ds7l9puc18c9********
          name: canary-bg-production
-         folder_id: b1g9hv2loamqfnbul7d9
+         folder_id: b1g9hv2loamq********
          http:
            backends:
            - name: canary-backend-blue
              backend_weight: "100"
              storage_bucket:
-               bucket: canary-bucket-blue
+               bucket: <blue_bucket_name>
          created_at: "2021-11-03T10:28:47.680825561Z"
          ```
 
@@ -1868,15 +1868,15 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```
          done (1s)
-         id: ds7l9puc18c9b40cd359
+         id: ds7l9puc18c9********
          name: canary-bg-production
-         folder_id: b1g9hv2loamqfnbul7d9
+         folder_id: b1g9hv2loamq********
          http:
            backends:
            - name: canary-backend-green
              backend_weight: "0"
              storage_bucket:
-               bucket: canary-bucket-green
+               bucket: <green_bucket_name>
          created_at: "2021-11-03T10:28:47.680825561Z"
          ```
 
@@ -1916,7 +1916,7 @@ To shut down the infrastructure and stop paying for the created resources:
 1. If you set up CNAME records in {{ dns-name }}, [delete](../dns/operations/zone-delete.md) the `canary-dns-zone` DNS zone.
 1. [Delete](../cdn/operations/resources/delete-resource.md) the CDN resource with the primary `cdn.yandexcloud.example` domain name.
 1. [Delete](../application-load-balancer/operations/application-load-balancer-delete.md) the `canary-balancer` L7 load balancer.
-1. [Delete](../storage/operations/objects/delete.md) all objects from the `canary-bucket-blue` and `canary-bucket-green` buckets.
-1. [Delete](../storage/operations/buckets/delete.md) the `canary-bucket-blue` and `canary-bucket-green` buckets.
+1. [Delete](../storage/operations/objects/delete.md) all objects from the blue and green buckets.
+1. [Delete](../storage/operations/buckets/delete.md) the blue and green buckets.
 1. [Delete](../vpc/operations/subnet-delete.md) the `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c` subnets.
 1. [Delete](../vpc/operations/network-delete.md) `canary-network` network.

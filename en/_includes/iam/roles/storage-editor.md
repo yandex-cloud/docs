@@ -1,4 +1,4 @@
-### storage.editor {#storage-editor}
+#### storage.editor {#storage-editor}
 
 Users with the `storage.editor` role can perform any operation with [buckets](../../../storage/concepts/bucket.md) and [objects](../../../storage/concepts/object.md) in the folder: create (including a publicly accessible bucket), delete, and edit them.
 
