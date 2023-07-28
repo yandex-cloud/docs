@@ -22,8 +22,8 @@ keywords:
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mos-name }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **Группы хостов**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
 
 - API
 
@@ -39,12 +39,12 @@ keywords:
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mos-name }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **Группы хостов**.
-    1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **Добавить группу хостов**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Укажите параметры группы:
 
-        * [Тип группы](../concepts/host-groups.md): `{{ OS }}` и `Dashboards`.
+        * [Тип группы](../concepts/host-groups.md): `{{ OS }}` или `Dashboards`.
         * Имя. Оно должно быть уникальным в кластере.
         * Для группы хостов `{{ OS }}` выберите [роль хостов](../concepts/host-roles.md).
         * Платформу, тип и класс хостов.
@@ -60,14 +60,14 @@ keywords:
         * Количество создаваемых хостов.
 
         
-        * Включите опцию **Публичный доступ**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
+        * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
 
-    1. Нажмите кнопку **Создать группу хостов**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
 
     {% note warning %}
 
-    После добавления группы хостов опцию **Публичный доступ** изменить нельзя. Остальные параметры можно [изменить](#update-host-group) только с помощью [API](../../glossary/rest-api.md), однако при необходимости вы сможете создать новую группу хостов с другой конфигурацией.
+    После добавления группы хостов опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** изменить нельзя. Остальные параметры можно [изменить](#update-host-group) только с помощью [API](../../glossary/rest-api.md), однако при необходимости вы сможете создать новую группу хостов с другой конфигурацией.
 
     {% endnote %}
 
@@ -125,9 +125,9 @@ keywords:
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mos-name }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **Группы хостов**.
-    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужной группы и выберите пункт **Удалить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
 - API
 

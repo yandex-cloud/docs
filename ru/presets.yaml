@@ -4811,6 +4811,8 @@ default:
         label_evaluation-period: Окно вычисления
         label_evaluation-type: Функция агрегации
         label_trigger-condition: Условие срабатывания
+        status_alarm: Alarm
+        status_warn: Warning
         title_comparison-eq: Равно
         title_comparison-gte: Больше или равно
         title_comparison-lte: Меньше или равно
@@ -5079,6 +5081,8 @@ default:
           label_time-sec_many: секунд
         user: Пользователь
       component:
+        acl-dialog:
+          label_select-placeholder: Выберите пользователя
         compute:
           network-select:
             field_address: IP-адрес
@@ -5499,6 +5503,7 @@ default:
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
+            label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
@@ -5614,6 +5619,7 @@ default:
           backups:
             button_create: Создать резервную копию
             button_restore: Восстановить кластер
+            label_title: Резервные копии
           hosts:
             button_add-host: Добавить хост
             button_rebalance-cluster: Ребалансировать кластер
@@ -5706,6 +5712,7 @@ default:
           label_network: Сеть
           maintenance-window-type: Окно обслуживания
           new_section_resource: Ресурсы
+          resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
           resource_presets_field-type: Тип
@@ -5732,6 +5739,27 @@ default:
       mysql:
         cluster:
           switch_explore: SQL
+      opensearch:
+        auth:
+          button_save: Сохранить
+          button_settings: Настроить
+          field_dashboards-url: kibana_url
+          field_enabled: Активировать
+          field_idp-entity-id: idp_entity_id
+          field_roles-key: roles_key
+          field_sp-entity-id: sp_entity_id
+          field_subject-key: subject_key
+          section_auth: Источники авторизации
+        cluster:
+          node-groups:
+            action_add-node-group: Добавить группу хостов
+            action_add-virtual-node-group: Добавить группу виртуальных хостов
+            action_create-node-group: Создать группу хостов
+            action_delete: Удалить
+            title_node-groups: Группы хостов
+            title_virtual-node-group: Группа виртуальных хостов
+        title_dashboards: Dashboards
+        title_opensearch-dashboards-section: OpenSearch Dashboards
       redis:
         cluster:
           switch_backups: Резервные копии
@@ -5908,6 +5936,7 @@ default:
           button_permissions: ACL бакета
           create:
             button_create: Создать бакет
+          label_title: Бакеты
         button_upload: Загрузить
         file:
           action_file-restore: Восстановить

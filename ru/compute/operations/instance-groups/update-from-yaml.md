@@ -12,11 +12,11 @@
 
   Выполните следующую команду, указав имя или идентификатор группы ВМ и путь к файлу YAML-спецификации:
   
-  ```
+  ```bash
   {{ yc-compute-ig }} update <имя_группы_ВМ>|<идентификатор_группы_ВМ> --file specification.yaml
   ```
-  
-  Подробнее о команде `{{ yc-compute-ig}} update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
+
+  Подробнее о команде `{{ yc-compute-ig }} update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
 
 - API
 
@@ -24,4 +24,4 @@
 
   Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
 
-{% endlist %} 
+{% endlist %}

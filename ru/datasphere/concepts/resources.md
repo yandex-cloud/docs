@@ -12,7 +12,7 @@
 * [Секреты](secrets.md)
 * [Docker-образы](docker.md)
 * [Датасеты](dataset.md)
-* [Подключения S3](../operations/data/connect-to-s3.md)
+* [Коннекторы S3](s3-connector.md)
 * [Ноды и алиасы](deploy/index.md#python-nodes)
 
 Подробнее о ресурсной модели {{ ml-platform-name }} см. [{#T}](resource-model.md).
