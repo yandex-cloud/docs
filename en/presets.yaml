@@ -4804,6 +4804,8 @@ default:
         label_evaluation-period: Evaluation window
         label_evaluation-type: Aggregation function
         label_trigger-condition: Condition
+        status_alarm: Alarm
+        status_warn: Warning
         title_comparison-eq: Equals to
         title_comparison-gte: Greater than or equals
         title_comparison-lte: Less than or equals
@@ -5072,6 +5074,8 @@ default:
           label_time-sec_many: seconds
         user: User
       component:
+        acl-dialog:
+          label_select-placeholder: Select a user
         compute:
           network-select:
             field_address: IP address
@@ -5492,6 +5496,7 @@ default:
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
+            label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
@@ -5607,6 +5612,7 @@ default:
           backups:
             button_create: Create backup
             button_restore: Restore cluster
+            label_title: Backups
           hosts:
             button_add-host: Add host
             button_rebalance-cluster: Rebalance cluster
@@ -5699,6 +5705,7 @@ default:
           label_network: Network
           maintenance-window-type: Maintenance window
           new_section_resource: Resources
+          resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Platform
           resource_presets_field-type: Type
@@ -5725,6 +5732,27 @@ default:
       mysql:
         cluster:
           switch_explore: SQL
+      opensearch:
+        auth:
+          button_save: Save
+          button_settings: Settings
+          field_dashboards-url: kibana_url
+          field_enabled: Enable
+          field_idp-entity-id: idp_entity_id
+          field_roles-key: roles_key
+          field_sp-entity-id: sp_entity_id
+          field_subject-key: subject_key
+          section_auth: Authorization sources
+        cluster:
+          node-groups:
+            action_add-node-group: Add host group
+            action_add-virtual-node-group: Add virtual host group
+            action_create-node-group: Create host group
+            action_delete: Delete
+            title_node-groups: Node groups
+            title_virtual-node-group: Virtual host group
+        title_dashboards: Dashboards
+        title_opensearch-dashboards-section: OpenSearch Dashboards
       redis:
         cluster:
           switch_backups: Backups
@@ -5901,6 +5929,7 @@ default:
           button_permissions: Bucket ACL
           create:
             button_create: Create bucket
+          label_title: Buckets
         button_upload: Upload
         file:
           action_file-restore: Restore

@@ -31,17 +31,17 @@
 ## Создайте кластер {#create-cluster}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-1. Выберите сервис **{{ mos-name }}**.
-1. Нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
     
-    Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **Ресурсы** → **Dashboards** выберите опцию **Публичный доступ**.
+    Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** с типом группы **{{ ui-key.yacloud.opensearch.title_dashboards }}** выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mos-name }} сменится на **Creating** и далее — на **Alive**. Это может занять некоторое время.
 
 
@@ -92,7 +92,7 @@
 
 
    1. Установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
-   1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор кластера {{ OS }}>.rw.{{ dns-zone }}>`.
+   1. На странице кластера в консоли управления нажмите кнопку **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** или перейдите в браузере по адресу `https://c-<идентификатор кластера {{ OS }}>.rw.{{ dns-zone }}>`.
    1. Введите имя пользователя `admin` и пароль, который был задан при [создании кластера](#create-cluster).
 
 1. Исследуйте набор тестовых данных:

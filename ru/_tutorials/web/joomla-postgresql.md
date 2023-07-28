@@ -114,7 +114,7 @@ keywords:
 
     Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
 
-1. Скачайте и распакуйте архив с Joomla:
+1. Скачайте и распакуйте архив с Joomla 3.8.7:
 
     {% list tabs %}
 
@@ -122,7 +122,7 @@ keywords:
 
       ```bash
       sudo mkdir -p /var/www/html/
-      curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
+      curl https://github.com/joomla/joomla-cms/releases/download/3.8.7/Joomla_3.8.7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
       sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
       (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
       sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz

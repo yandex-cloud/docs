@@ -291,11 +291,11 @@ RANK_DENSE(AVG([Price]), "desc" WITHIN [ShopID] BEFORE FILTER BY [PaymentType])
 Для создания размеченного текста используются [функции разметки](../../function-ref/markup-functions.md):
 
 ```
-MARKUP(BOLD("This"), " ", ITALIC("is"), " ", URL("https://example.com/", [LinkName])))
+MARKUP(BOLD("This"), " ", ITALIC("is"), " ", URL("https://example.com/", [LinkName]))
 ```
 
 Чтобы использовать числовые константы при разметке URL-адреса, необходимо их привести к типу `Строка`:
 
 ```
-URL("https://example.com/?value=" + STR([Value]), [Value]))
+URL("https://example.com/?value=" + STR([Value]), [Value])
 ```

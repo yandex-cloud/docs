@@ -211,10 +211,6 @@
 
 ## Поделиться датасетом {#share}
 
-Поделиться датасетом в сообществе может только администратор сообщества.
-
-Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../security/index.md).
-
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Выберите нужный датасет в списке.

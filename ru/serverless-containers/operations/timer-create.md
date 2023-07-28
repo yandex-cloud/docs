@@ -28,7 +28,10 @@
         * В поле **Тип** выберите **Таймер**.
         * В поле **Запускаемый ресурс** выберите **Контейнер**.
 
-    1. В блоке **Настройки таймера** укажите расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
+    1. В блоке **Настройки таймера**:
+
+        * В поле **Cron-выражение** укажите расписание вызова функции в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
+        * (опционально) В поле **Данные** укажите сообщение, которое будет передаваться в функцию при срабатывании таймера в поле `payload`. Тип данных — строка, длина которой не более 4096 символов.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -52,6 +55,7 @@
     yc serverless trigger create timer \
       --name <имя_таймера> \
       --cron-expression '<cron_выражение>' \
+      --payload <сообщение> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
@@ -64,6 +68,7 @@
 
     * `--name` — имя таймера.
     * `--cron-expression` — расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
+    * `--payload` — сообщение, которое будет передаваться в функцию при срабатывании таймера. Длина строки должна быть не более 4096 символов.
 
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -77,6 +82,7 @@
     rule:
       timer:
         cron_expression: 5 10 ? * * *
+        payload: <сообщение>
         invoke_container_with_retry:
           container_id: bba5jb38o8**********
           service_account_id: aje3932acd**********
