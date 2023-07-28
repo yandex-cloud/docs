@@ -192,7 +192,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
-            1. Enable **Verify server certificate**.
+            1. Disable **Verify server certificate**.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
