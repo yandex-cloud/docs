@@ -69,6 +69,7 @@ default:
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
   yq-full-name: Yandex Query
+  search-api-full-name: Yandex Search API
   captcha-full-name: Yandex SmartCaptcha
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
@@ -159,6 +160,7 @@ default:
   logbroker-name: Logbroker
   logfeller-name: Logfeller
   backup-name: Cloud Backup
+  search-api-name: Search API
   yagpt-name: YandexGPT
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
@@ -217,6 +219,7 @@ default:
   backup-short-name: Cloud Backup
   yq-short-name: YQ
   datalens-public: DataLens Public
+  search-api: Search API
   speechkit-slug: speechkit
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-alb-viewer: alb.viewer
@@ -751,6 +754,8 @@ default:
   jlab: Jupyter
   dd: Dedicated
   ds: Serverlesss
+  search-api-request-ch: 400 characters
+  search-api-request-w: 40 words
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
@@ -1407,6 +1412,12 @@ default:
               ram:
                 v2|string: ₸2.2100
                 v3|string: ₸1.9975
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: ₸9.1375
+              ram:
+                v3|string: ₸2.4225
             kafka:
               cpu:
                 c100:
@@ -1423,6 +1434,12 @@ default:
               ram:
                 v2|string: ₸2.1675
                 v3|string: ₸1.9550
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: ₸7.1400
+              ram:
+                v3|string: ₸2.9750
             pg:
               cpu:
                 c100:
@@ -1466,6 +1483,12 @@ default:
               ram:
                 v2|string: ₸2.0280
                 v3|string: ₸1.8330
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: ₸8.3850
+              ram:
+                v3|string: ₸2.2230
             kafka:
               cpu:
                 c100:
@@ -1482,6 +1505,12 @@ default:
               ram:
                 v2|string: ₸1.9890
                 v3|string: ₸1.7940
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: ₸6.5520
+              ram:
+                v3|string: ₸2.7300
             pg:
               cpu:
                 c100:
@@ -1520,14 +1549,6 @@ default:
                 basic|string: ₸7.3800
                 gold|string: ₸8.7000
                 platinum|string: ₸10.0200
-          greenplum:
-            cpu:
-              c100:
-                v2|string: ₸6.3720
-                v3|string: ₸5.7300
-            ram:
-              v2|string: ₸1.5420
-              v3|string: ₸1.3980
           mongodb:
             cpu:
               c100:
@@ -1551,14 +1572,6 @@ default:
                 basic|string: ₸7.1400
                 gold|string: ₸8.4000
                 platinum|string: ₸9.6600
-          greenplum:
-            cpu:
-              c100:
-                v2|string: ₸4.8960
-                v3|string: ₸4.4040
-            ram:
-              v2|string: ₸1.1820
-              v3|string: ₸1.0740
           mongodb:
             cpu:
               c100:
@@ -2159,6 +2172,12 @@ default:
               ram:
                 v2|string: ₽0.4420
                 v3|string: ₽0.3995
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: ₽1.8275
+              ram:
+                v3|string: ₽0.4845
             kafka:
               cpu:
                 c100:
@@ -2175,6 +2194,12 @@ default:
               ram:
                 v2|string: ₽0.4335
                 v3|string: ₽0.3910
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: ₽1.4280
+              ram:
+                v3|string: ₽0.5950
             pg:
               cpu:
                 c100:
@@ -2218,6 +2243,12 @@ default:
               ram:
                 v2|string: ₽0.4056
                 v3|string: ₽0.3666
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: ₽1.6770
+              ram:
+                v3|string: ₽0.4446
             kafka:
               cpu:
                 c100:
@@ -2234,6 +2265,12 @@ default:
               ram:
                 v2|string: ₽0.3978
                 v3|string: ₽0.3588
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: ₽1.3104
+              ram:
+                v3|string: ₽0.5460
             pg:
               cpu:
                 c100:
@@ -2272,14 +2309,6 @@ default:
                 basic|string: ₽1.2300
                 gold|string: ₽1.4500
                 platinum|string: ₽1.6700
-          greenplum:
-            cpu:
-              c100:
-                v2|string: ₽1.0620
-                v3|string: ₽0.9550
-            ram:
-              v2|string: ₽0.2570
-              v3|string: ₽0.2330
           mongodb:
             cpu:
               c100:
@@ -2303,14 +2332,6 @@ default:
                 basic|string: ₽1.1900
                 gold|string: ₽1.4000
                 platinum|string: ₽1.6100
-          greenplum:
-            cpu:
-              c100:
-                v2|string: ₽0.8160
-                v3|string: ₽0.7340
-            ram:
-              v2|string: ₽0.1970
-              v3|string: ₽0.1790
           mongodb:
             cpu:
               c100:
@@ -2526,6 +2547,15 @@ default:
             basic|string: $0.016800
             gold|string: $0.019680
             platinum|string: $0.022640
+      greenplum:
+        v2:
+          cpu:
+            c100|string: $0.019120
+          ram|string: $0.005040
+        v3:
+          cpu:
+            c100|string: $0.017200
+          ram|string: $0.004560
       kafka:
         v2:
           cpu:
@@ -2869,6 +2899,12 @@ default:
               ram:
                 v2|string: $0.003536
                 v3|string: $0.003196
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: $0.014620
+              ram:
+                v3|string: $0.003876
             kafka:
               cpu:
                 c100:
@@ -2885,6 +2921,12 @@ default:
               ram:
                 v2|string: $0.003468
                 v3|string: $0.003128
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: $0.011424
+              ram:
+                v3|string: $0.004760
             pg:
               cpu:
                 c100:
@@ -2928,6 +2970,12 @@ default:
               ram:
                 v2|string: $0.003245
                 v3|string: $0.002933
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: $0.013416
+              ram:
+                v3|string: $0.003557
             kafka:
               cpu:
                 c100:
@@ -2944,6 +2992,12 @@ default:
               ram:
                 v2|string: $0.003182
                 v3|string: $0.002870
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: $0.010483
+              ram:
+                v3|string: $0.004368
             pg:
               cpu:
                 c100:
@@ -2982,14 +3036,6 @@ default:
                 basic|string: $0.015769
                 gold|string: $0.018590
                 platinum|string: $0.021410
-          greenplum:
-            cpu:
-              c100:
-                v2|string: $0.013615
-                v3|string: $0.012244
-            ram:
-              v2|string: $0.003295
-              v3|string: $0.002987
           mongodb:
             cpu:
               c100:
@@ -3013,14 +3059,6 @@ default:
                 basic|string: $0.015256
                 gold|string: $0.017949
                 platinum|string: $0.020641
-          greenplum:
-            cpu:
-              c100:
-                v2|string: $0.010462
-                v3|string: $0.009410
-            ram:
-              v2|string: $0.002526
-              v3|string: $0.002295
           mongodb:
             cpu:
               c100:

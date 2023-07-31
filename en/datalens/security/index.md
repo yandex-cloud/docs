@@ -211,7 +211,6 @@ Granting users the `{{ permission-execute }}` permission lets you:
 
 * Restrict the creation of subqueries to the source database. A user with the `{{ permission-execute }}` permission can't write subqueries.
 
-
 ### {{ permission-read }} {#permission-read}
 
 A user with the `{{ permission-read }}` permission can view dashboards, widgets, datasets, and directories.

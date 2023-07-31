@@ -53,7 +53,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       
       * Select the [disk type](../concepts/storage.md).
 
+                  
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
 
       * Select the size of disk to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
@@ -148,7 +150,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              `subnet-id=<subnet ID>,`
              `assign-public-ip=<public access to host: true or false> \
         --clickhouse-resource-preset <host class> \
-        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --clickhouse-disk-type <disk type> \
         --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
@@ -482,8 +484,8 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * With 20 GB of local SSD storage (`{{ disk-type-example }}`).
-   * Database name `db1`.
+   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
+Re   * Database name `db1`.
    * With a user named `user1` with the `user1user1` password.
 
    The configuration files for this cluster look like this:

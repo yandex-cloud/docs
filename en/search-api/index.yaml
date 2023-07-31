@@ -1,0 +1,28 @@
+title: Search API
+description:
+  - >-
+    <em>Search API is currently at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    Search API is a service that allows you to send requests to the Yandex
+    search database and get responses in XML format. The service is designed for
+    developers responsible for enabling a search across a website, a group of
+    websites, or on the internet.
+meta:
+  title: Search API
+links:
+  - title: Getting started
+    description: Learn how to get started with the service
+    href: quickstart
+  - title: Restrictions and requirements
+    description: Restrictions and requirements
+    href: concepts/limits
+  - title: General procedure for activation
+    description: General procedure for activation
+    href: operations/workaround
+  - title: Registration
+    description: Registration
+    href: operations/registration
+  - title: Request for search results
+    description: Request for search results
+    href: concepts/index

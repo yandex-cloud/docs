@@ -115,6 +115,8 @@ items:
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Creating a non-replicated disk
             href: operations/disk-create/nonreplicated.md
+          - name: Creating a high-performance SSD
+            href: operations/disk-create/ssd-io.md
           - name: Recovering a disk from a snapshot
             href: operations/disk-create/from-snapshot.md
       - name: Disk management

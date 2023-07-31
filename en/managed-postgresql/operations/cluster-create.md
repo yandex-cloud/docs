@@ -43,7 +43,9 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       
       * Select the disk type.
 
+         
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
 
       * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
@@ -70,7 +72,10 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 
+            
       When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the cluster.
+
+
    1. Configure additional cluster settings, if required:
 
       {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -122,7 +127,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
         --user name=<username>,password=<user password> \
         --database name=<DB name>,owner=<DB owner name> \
         --disk-size <storage size, GB> \
-        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --disk-type <disk type> \
         --security-group-ids <list of security group IDs> \
         --connection-pooling-mode=<connection manager mode> \
         --deletion-protection=<cluster deletion protection: true or false>

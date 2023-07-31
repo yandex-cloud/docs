@@ -60,6 +60,8 @@
            {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
 
+       
+
        * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
 
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_config }}** в поле **{{ ui-key.yacloud.mdb.forms.config_field_password }}** укажите пароль пользователя.

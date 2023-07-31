@@ -362,7 +362,7 @@ default:
   permission-execute: Исполнение
   subjects-allUsers: allUsers
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
-  subnet-id: b0rcctk2rvtr8efcch64
+  subnet-id: b0rcctk2rvtr********
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   s3-objstorage-host: s3.yandex.net
@@ -670,8 +670,8 @@ default:
       ci: https://ru.wikipedia.org/wiki/Непрерывная_интеграция
   login-example: login@yandex.ru
   pg-docs: https://www.postgresql.org/docs/current
-  tf-cloud-id: b1gq90dgh25bebiu75o
-  tf-folder-id: b1gia87mbaomkfvsleds
+  tf-cloud-id: b1gq90dgh25********
+  tf-folder-id: b1gia87mbaom********
   yandex-cloud: Yandex Cloud
   yds-short-name: Data Streams
   yds: yds
@@ -1414,6 +1414,12 @@ default:
               ram:
                 v2|string: "2,2100\_₸"
                 v3|string: "1,9975\_₸"
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: "9,1375\_₸"
+              ram:
+                v3|string: "2,4225\_₸"
             kafka:
               cpu:
                 c100:
@@ -1430,6 +1436,12 @@ default:
               ram:
                 v2|string: "2,1675\_₸"
                 v3|string: "1,9550\_₸"
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: "7,1400\_₸"
+              ram:
+                v3|string: "2,9750\_₸"
             pg:
               cpu:
                 c100:
@@ -1473,6 +1485,12 @@ default:
               ram:
                 v2|string: "2,0280\_₸"
                 v3|string: "1,8330\_₸"
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: "8,3850\_₸"
+              ram:
+                v3|string: "2,2230\_₸"
             kafka:
               cpu:
                 c100:
@@ -1489,6 +1507,12 @@ default:
               ram:
                 v2|string: "1,9890\_₸"
                 v3|string: "1,7940\_₸"
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: "6,5520\_₸"
+              ram:
+                v3|string: "2,7300\_₸"
             pg:
               cpu:
                 c100:
@@ -1527,14 +1551,6 @@ default:
                 basic|string: "7,3800\_₸"
                 gold|string: "8,7000\_₸"
                 platinum|string: "10,0200\_₸"
-          greenplum:
-            cpu:
-              c100:
-                v2|string: "6,3720\_₸"
-                v3|string: "5,7300\_₸"
-            ram:
-              v2|string: "1,5420\_₸"
-              v3|string: "1,3980\_₸"
           mongodb:
             cpu:
               c100:
@@ -1558,14 +1574,6 @@ default:
                 basic|string: "7,1400\_₸"
                 gold|string: "8,4000\_₸"
                 platinum|string: "9,6600\_₸"
-          greenplum:
-            cpu:
-              c100:
-                v2|string: "4,8960\_₸"
-                v3|string: "4,4040\_₸"
-            ram:
-              v2|string: "1,1820\_₸"
-              v3|string: "1,0740\_₸"
           mongodb:
             cpu:
               c100:
@@ -2166,6 +2174,12 @@ default:
               ram:
                 v2|string: "0,4420\_₽"
                 v3|string: "0,3995\_₽"
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: "1,8275\_₽"
+              ram:
+                v3|string: "0,4845\_₽"
             kafka:
               cpu:
                 c100:
@@ -2182,6 +2196,12 @@ default:
               ram:
                 v2|string: "0,4335\_₽"
                 v3|string: "0,3910\_₽"
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: "1,4280\_₽"
+              ram:
+                v3|string: "0,5950\_₽"
             pg:
               cpu:
                 c100:
@@ -2225,6 +2245,12 @@ default:
               ram:
                 v2|string: "0,4056\_₽"
                 v3|string: "0,3666\_₽"
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: "1,6770\_₽"
+              ram:
+                v3|string: "0,4446\_₽"
             kafka:
               cpu:
                 c100:
@@ -2241,6 +2267,12 @@ default:
               ram:
                 v2|string: "0,3978\_₽"
                 v3|string: "0,3588\_₽"
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: "1,3104\_₽"
+              ram:
+                v3|string: "0,5460\_₽"
             pg:
               cpu:
                 c100:
@@ -2279,14 +2311,6 @@ default:
                 basic|string: "1,2300\_₽"
                 gold|string: "1,4500\_₽"
                 platinum|string: "1,6700\_₽"
-          greenplum:
-            cpu:
-              c100:
-                v2|string: "1,0620\_₽"
-                v3|string: "0,9550\_₽"
-            ram:
-              v2|string: "0,2570\_₽"
-              v3|string: "0,2330\_₽"
           mongodb:
             cpu:
               c100:
@@ -2310,14 +2334,6 @@ default:
                 basic|string: "1,1900\_₽"
                 gold|string: "1,4000\_₽"
                 platinum|string: "1,6100\_₽"
-          greenplum:
-            cpu:
-              c100:
-                v2|string: "0,8160\_₽"
-                v3|string: "0,7340\_₽"
-            ram:
-              v2|string: "0,1970\_₽"
-              v3|string: "0,1790\_₽"
           mongodb:
             cpu:
               c100:
@@ -2533,6 +2549,15 @@ default:
             basic|string: "0,016800\_$"
             gold|string: "0,019680\_$"
             platinum|string: "0,022640\_$"
+      greenplum:
+        v2:
+          cpu:
+            c100|string: "0,019120\_$"
+          ram|string: "0,005040\_$"
+        v3:
+          cpu:
+            c100|string: "0,017200\_$"
+          ram|string: "0,004560\_$"
       kafka:
         v2:
           cpu:
@@ -2876,6 +2901,12 @@ default:
               ram:
                 v2|string: "0,003536\_$"
                 v3|string: "0,003196\_$"
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: "0,014620\_$"
+              ram:
+                v3|string: "0,003876\_$"
             kafka:
               cpu:
                 c100:
@@ -2892,6 +2923,12 @@ default:
               ram:
                 v2|string: "0,003468\_$"
                 v3|string: "0,003128\_$"
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: "0,011424\_$"
+              ram:
+                v3|string: "0,004760\_$"
             pg:
               cpu:
                 c100:
@@ -2935,6 +2972,12 @@ default:
               ram:
                 v2|string: "0,003245\_$"
                 v3|string: "0,002933\_$"
+            greenplum:
+              cpu:
+                c100:
+                  v3|string: "0,013416\_$"
+              ram:
+                v3|string: "0,003557\_$"
             kafka:
               cpu:
                 c100:
@@ -2951,6 +2994,12 @@ default:
               ram:
                 v2|string: "0,003182\_$"
                 v3|string: "0,002870\_$"
+            opensearch:
+              cpu:
+                c100:
+                  v3|string: "0,010483\_$"
+              ram:
+                v3|string: "0,004368\_$"
             pg:
               cpu:
                 c100:
@@ -2989,14 +3038,6 @@ default:
                 basic|string: "0,015769\_$"
                 gold|string: "0,018590\_$"
                 platinum|string: "0,021410\_$"
-          greenplum:
-            cpu:
-              c100:
-                v2|string: "0,013615\_$"
-                v3|string: "0,012244\_$"
-            ram:
-              v2|string: "0,003295\_$"
-              v3|string: "0,002987\_$"
           mongodb:
             cpu:
               c100:
@@ -3020,14 +3061,6 @@ default:
                 basic|string: "0,015256\_$"
                 gold|string: "0,017949\_$"
                 platinum|string: "0,020641\_$"
-          greenplum:
-            cpu:
-              c100:
-                v2|string: "0,010462\_$"
-                v3|string: "0,009410\_$"
-            ram:
-              v2|string: "0,002526\_$"
-              v3|string: "0,002295\_$"
           mongodb:
             cpu:
               c100:

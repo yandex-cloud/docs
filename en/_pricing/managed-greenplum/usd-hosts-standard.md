@@ -1,9 +1,8 @@
-| Resource | Cost per hour |
-|------------------|---------------|
-| **Intel Cascade Lake** |
-| 100% vCPU | $0.019179 |
-| RAM (for 1 GB) | $0.005077 |
-| **Intel Ice Lake** |
-| 100% vCPU | $0.017231 |
-| RAM (for 1 GB) | $0.004564 |
-
+| Resource       | Cost per hour                                          | Cost with CVoS for 6 months                                                         | Cost with CVoS for 1 year                                                           |
+|----------------|--------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| **Intel Cascade Lake**                                                                                                                                                                                                                              |
+| 100% vCPU      | {{ sku|USD|mdb.cluster.greenplum.v2.cpu.c100|string }} | —                                                                                   | —                                                                                   |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.greenplum.v2.ram|string }}      | —                                                                                   | —                                                                                   |
+| **Intel Ice Lake**                                                                                                                                                                                                                                  |
+| 100% vCPU      | {{ sku|USD|mdb.cluster.greenplum.v3.cpu.c100|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.greenplum.cpu.c100.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.greenplum.cpu.c100.v3|string }} (-22%) |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.greenplum.v3.ram|string }}      | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.greenplum.ram.v3|string }} (-15%)      | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.greenplum.ram.v3|string }} (-22%)      |

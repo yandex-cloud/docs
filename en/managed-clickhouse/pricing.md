@@ -50,8 +50,10 @@ The following is charged:
 
 * Storage allocated for DB clusters.
 
+
    * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
+
 
 * The size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage used by data backups:
 

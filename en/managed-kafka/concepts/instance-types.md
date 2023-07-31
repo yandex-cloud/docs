@@ -14,7 +14,8 @@ The host class affects the list of available [disk types](./storage.md):
 * **s2**, **m2**, **s3**, **m3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **b2**, **b3**: `network-ssd`, `network-hdd`.
 
-The available storage does not depend on the host class. Storage restrictions are shown under [Quotas and limits in Managed Service for Apache Kafka®](limits.md).
+The available storage does not depend on the host class. Storage restrictions are shown under [{#T}](limits.md).
+
 
 
 ## Available host classes {#available-flavors}

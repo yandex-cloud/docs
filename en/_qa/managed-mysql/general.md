@@ -66,6 +66,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
 - If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
 - If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
 
+
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
 For more information, see [{#T}](../../managed-mysql/concepts/limits.md).

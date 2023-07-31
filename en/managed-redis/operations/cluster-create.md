@@ -59,6 +59,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
+      
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 

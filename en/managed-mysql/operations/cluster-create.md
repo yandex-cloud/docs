@@ -30,7 +30,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * Select the [disk type](../concepts/storage.md).
 
+                  
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -60,7 +62,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the {{ mmy-name }} cluster. If you open **Advanced settings**, you can choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 
+            
       If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
+
+      
    1. Configure additional {{ mmy-name }} cluster settings, if required:
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -110,7 +115,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --user name=<username>,password=<user password> \
         --database name=<DB name> \
         --disk-size <storage size in GB> \
-        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --disk-type <disk type> \
         --security-group-ids <list of security group IDs>
       ```
 

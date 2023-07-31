@@ -80,6 +80,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [billing-accounts-admin](../../../_includes/iam/roles/billing-accounts-admin.md) %}
 
+{% include [billing-accounts-var-without-discounts](../../../_includes/iam/roles/billing-accounts-var-without-discounts.md) %}
+
 {% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}

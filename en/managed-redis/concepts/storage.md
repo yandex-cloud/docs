@@ -14,7 +14,6 @@ This storage does not provide fault tolerance for a single-host cluster: if a lo
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
-
 ## Choice of disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created together with a {{ RD }} cluster depends on the disk type you select and on whether you enable [sharding](./sharding.md):
@@ -28,4 +27,5 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 Additional hosts are required to ensure fault tolerance.
 
 For more information about limits on the number of hosts per cluster or shard, see [{#T}](./limits.md).
+
 

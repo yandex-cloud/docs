@@ -87,7 +87,9 @@ editable: false
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
+
 От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
+
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

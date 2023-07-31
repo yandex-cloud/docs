@@ -8,11 +8,13 @@ description: "The host class determines the computing power allocated for each h
 The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
+
 The host class also determines which [disk types](./storage.md) are available:
 
 * **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
 * **b1**, **b2**: `network-ssd`, `network-hdd`.
+
 
 The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 

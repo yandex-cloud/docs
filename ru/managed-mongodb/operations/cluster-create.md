@@ -5,8 +5,10 @@
 
 {% note info %}
 
+
 * Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
+
 
 {% endnote %}
 
@@ -41,7 +43,9 @@
 
       * Выберите [тип диска](../concepts/storage.md).
 
+                
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
       * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
       
@@ -73,7 +77,9 @@
      * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **Публичный доступ**.
 
 
+          
      Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
   
@@ -123,7 +129,7 @@
         --mongod-resource-preset <класс хоста> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
-        --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --mongod-disk-type <тип диска> \
         --mongod-disk-size <размер хранилища в гигабайтах> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```

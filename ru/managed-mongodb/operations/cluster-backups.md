@@ -113,7 +113,7 @@ description: "Вы можете создавать резервные копии
                `subnet-id=<идентификатор подсети> \
          --mongod-resource-preset <класс хоста> \
          --mongod-disk-size <размер хранилища в гигабайтах> \
-         --mongod-disk-type <тип диска: network-hdd, network-ssd, local-ssd или network-ssd-nonreplicated>
+         --mongod-disk-type <тип диска: network-hdd или network-ssd>
       ```
 
 

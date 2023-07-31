@@ -1,4 +1,4 @@
-# Синтез речи по шаблону с помощью API v3 
+# Синтез речи по шаблонам с помощью API v3 
 
 Синтез по шаблонам в {{ brand-voice-premium }} и {{ brand-voice-core }} доступен только для голосов [{{ brand-voice-name }}](../brand-voice/index.md).
 

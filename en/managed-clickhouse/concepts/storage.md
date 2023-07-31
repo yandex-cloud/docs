@@ -1,11 +1,12 @@
 # Disk types in {{ mch-name }}
 
 
-{{ mch-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
+{{ mch-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.  Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
 If you enable the **Hybrid storage** setting when creating or updating a cluster, you'll be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used "hot" data in cluster storage and rarely used "cold" data in less expensive and slower object storage. For details, see [{#T}](#hybrid-storage-features).
+
 
 ## Specifics of local SSD storage {#local-storage-features}
 
@@ -17,6 +18,7 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
+
 
 ## Hybrid storage {#hybrid-storage-features}
 
@@ -109,6 +111,7 @@ You can specify hybrid storage settings when [creating](../operations/cluster-cr
 
 For more information about setting up hybrid storage, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
+
 ## Choice of disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created along with a {{ CH }} cluster depends on the selected disk type:
@@ -118,4 +121,5 @@ The number of hosts that can be created along with a {{ CH }} cluster depends on
 * If you use non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (a minimum of three hosts is required to ensure fault tolerance).
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
+
 
