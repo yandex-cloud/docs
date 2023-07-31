@@ -51,12 +51,12 @@
       Результат:
 
       ```text
-      id: etne027gi9aap7ldau3f
-      folder_id: b1gmit33ngp3kr4mhjmo
+      id: etne027gi9aa********
+      folder_id: b1gmit33ngp3********
       created_at: "2022-12-13T09:17:06Z"
       name: svlbd
       status: PROVISIONING
-      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etne027gi9aa********
       serverless_database:
       storage_size_limit: "53687091200"
       location_id: {{ region-id }}
@@ -69,7 +69,7 @@
                 hours: 17
           backup_time_to_live: 604800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
+      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********/etne027gi9aa********
       monitoring_config: {}
       ```
 
@@ -87,7 +87,8 @@
 
       ```hcl
       resource "yandex_ydb_database_serverless" "database1" {
-        name = "<имя_БД>"
+        name                = "<имя_БД>"
+        deletion_protection = "<защита_от_удаления:_true_или_false>"
 
         serverless_database {
           enable_throttling_rcu_limit = <true_или_false>
@@ -101,11 +102,12 @@
      Где:
 
      * `name` — имя БД. Обязательный параметр.
+     * `deletion_protection` — защита БД от удаления. Пока опция включена, удалить БД  невозможно. Включенная защита от удаления не защищает содержимое БД. Значение по умолчанию `false`.
      * `enable_throttling_rcu_limit` — включить ограничение пропускной способности. Необязательный параметр. Значение по умолчанию `false`.
      * `provisioned_rcu_limit` — ограничение потребления Request Units в секунду. Необязательный параметр. Значение по умолчанию 0.
      * `storage_size_limit` — объем данных, ГБ. Необязательный параметр. Значение по умолчанию 50 ГБ.
      * `throttling_rcu_limit` — устанавленное значение показывает, какое потребление Request Units в секунду оплачивается по часам по тарифу. Ноль выключает почасовую оплату. Необязательный параметр. Значение по умолчанию 0.
-
+     
   1. Примените изменения:
   
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
@@ -118,11 +120,12 @@
 
   **Пример**
 
-  Создание Serverless БД с ограничением пропускной способности 10 RU/c и объемом данных 50 ГБ:
+  Создание Serverless БД с защитой от удаления, ограничением пропускной способности 10 RU/c и объемом данных 50 ГБ:
 
     > ```hcl
     > resource "yandex_ydb_database_serverless" "database1" {
-    >   name = "test-ydb-serverless"
+    >   name                = "test-ydb-serverless"
+    >   deletion_protection = "true"
     > 
     >   serverless_database {
     >     enable_throttling_rcu_limit = false
@@ -188,7 +191,8 @@
 
       ```hcl
       resource "yandex_ydb_database_serverless" "database1" {
-        name = "<имя_БД>"
+        name                = "<имя_БД>"
+        deletion_protection = "<защита_от_удаления:_true_или_false>"
 
         serverless_database {
           enable_throttling_rcu_limit = <true_или_false>
@@ -202,6 +206,7 @@
      Где:
 
      * `name` — имя БД. Обязательный параметр.
+     * `deletion_protection` — защита БД от удаления. Пока опция включена, удалить БД невозможно. Включенная защита от удаления не защищает содержимое БД. Значение по умолчанию `false`.
      * `enable_throttling_rcu_limit` — включить ограничение пропускной способности. Необязательный параметр. Значение по умолчанию `false`.
      * `provisioned_rcu_limit` — ограничение потребления Request Units в секунду. Необязательный параметр. Значение по умолчанию 0.
      * `storage_size_limit` — объем данных, ГБ. Необязательный параметр. Значение по умолчанию 50 ГБ.
@@ -223,7 +228,9 @@
 
     > ```hcl
     > resource "yandex_ydb_database_serverless" "database1" {
-    >   name = "test-ydb-serverless"
+    >   name                = "test-ydb-serverless"
+    >   deletion_protection = "true"
+    >
     >   serverless_database {
     >     enable_throttling_rcu_limit = false
     >     provisioned_rcu_limit       = 10
@@ -349,6 +356,7 @@
         subnet_ids          = ["<идентификатор_подсети1>", "<идентификатор_подсети2>", "<идентификатор_подсети3>"]
 
         resource_preset_id  = "<конфигурация_вычислительных_ресурсов>"      
+        deletion_protection = "<защита_от_удаления:_true_или_false>"
 
         scale_policy {
           fixed_scale {
@@ -369,6 +377,7 @@
      * `network_id` — идентификатор сети, к которой подключается БД.
      * `subnet_ids` — список идентификаторов подсетей. Перечисляются через запятую.
      * `resource_preset_id` — конфигурация вычислительных ресурсов узла. Возможные значения перечислены в колонке **Имя конфигурации** в таблице раздела [{#T}](../concepts/resources.md#resource-presets).
+     * `deletion_protection` — защита БД от удаления. Пока опция включена, БД удалить невозможно. Включенная защита не защищает содержимое БД. Значение по умолчанию — `false`.
      * `scale_policy` — политика масштабирования, где `size` — количество экземпляров БД.
      * `storage_config` — конфигурация хранилища, где:
         * `group_count` — количество [групп хранения](../concepts/resources.md#storage-groups).
@@ -390,10 +399,11 @@
 
     > ```hcl
     > resource "yandex_ydb_database_dedicated" "database2" {
-    >    name               = "test-ydb-dedicated"
-    >    network_id         = yandex_vpc_network.my-net.id
-    >    subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
-    >    resource_preset_id = "medium"
+    >    name                = "test-ydb-dedicated"
+    >    network_id          = yandex_vpc_network.my-net.id
+    >    subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+    >    resource_preset_id  = "medium"
+    >    deletion_protection = "true"
     >    scale_policy {
     >      fixed_scale {
     >        size = 1
@@ -456,10 +466,11 @@
 
       > ```hcl
       > resource "yandex_ydb_database_dedicated" "database2" {
-      >   name               = "my-first-ydb-dedicated"
-      >   network_id         = yandex_vpc_network.my-net.id
-      >   subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
-      >   resource_preset_id = "medium"
+      >   name                = "my-first-ydb-dedicated"
+      >   network_id          = yandex_vpc_network.my-net.id
+      >   subnet_ids          = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
+      >   resource_preset_id  = "medium"
+      >   deletion_protection = "true"
       >   scale_policy {
       >     fixed_scale {
       >       size = 2
@@ -546,7 +557,6 @@
        subnet_ids         = [yandex_vpc_subnet.my-subnet-a.id, yandex_vpc_subnet.my-subnet-b.id, yandex_vpc_subnet.my-subnet-c.id]
 
        resource_preset_id = "medium"
-
        scale_policy {
          fixed_scale {
            size = 1

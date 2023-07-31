@@ -5,6 +5,7 @@
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
 
+
 ## Specifics of local SSD storage {#Local-storage-features}
 
 Local SSD storage does not provide fault tolerance for stored data and affects the overall pricing for the cluster:
@@ -25,6 +26,7 @@ The number of hosts that can be created along with a {{ MG }} cluster depends on
 * With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of hosts per cluster or [shard](./sharding.md), see [{#T}](./limits.md).
+
 
 
 ## Managing disk space {#manage-storage-space}

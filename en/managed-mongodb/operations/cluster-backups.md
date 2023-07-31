@@ -113,7 +113,7 @@ When restoring to the current state, the new cluster will reflect the state of:
                 `subnet-id=<subnet ID> \
           --mongod-resource-preset <host class> \
           --mongod-disk-size <storage size in GB> \
-          --mongod-disk-type <disk type: network-hdd, network-ssd, local-ssd, or network-ssd-nonreplicated>
+          --mongod-disk-type <disk type>
       ```
 
 

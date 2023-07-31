@@ -57,7 +57,9 @@
       
       * Выберите [тип диска](../concepts/storage.md).
 
+                
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
 
       * Выберите размер диска, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
@@ -152,7 +154,7 @@
             `subnet-id=<идентификатор подсети>,`
             `assign-public-ip=<публичный доступ к хосту: true или false> \
        --clickhouse-resource-preset <класс хоста> \
-       --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+       --clickhouse-disk-type <тип диска> \
        --clickhouse-disk-size <размер хранилища в гигабайтах> \
        --user name=<имя пользователя>,password=<пароль пользователя> \
        --database name=<имя базы данных> \

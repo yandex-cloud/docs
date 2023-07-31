@@ -5,6 +5,7 @@
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
+
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of broker hosts that can be created together with a {{ KF }} cluster depends on the selected type of disk:
@@ -16,6 +17,7 @@ The number of broker hosts that can be created together with a {{ KF }} cluster 
 * With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of broker hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of broker hosts per cluster, see [{#T}](./limits.md).
+
 
 
 ## Minimum storage size {#minimal-storage-size}

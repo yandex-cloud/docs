@@ -191,9 +191,10 @@ keywords:
         
         ```hcl
         resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
-          name        = "<имя кластера>"
-          environment = "<окружение, PRESTABLE или PRODUCTION>"
-          network_id  = "<идентификатор сети>"
+          name                = "<имя кластера>"
+          environment         = "<окружение, PRESTABLE или PRODUCTION>"
+          network_id          = "<идентификатор сети>"
+          deletion_protection = "<защита от удаления: true или false>"
 
           config {
             version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
@@ -224,11 +225,11 @@ keywords:
           security_group_ids = [ "<список групп безопасности>" ]
 
           host {
-            name = "<имя хоста>"
-            zone = "<зона доступности>"
-            type = "<роль хоста: DATA_NODE или MASTER_NODE>"
+            name             = "<имя хоста>"
+            zone             = "<зона доступности>"
+            type             = "<роль хоста: DATA_NODE или MASTER_NODE>"
             assign_public_ip = <публичный доступ к хосту: true или false>
-            subnet_id = "<идентификатор подсети>"
+            subnet_id        = "<идентификатор подсети>"
           }
         }
 
@@ -244,6 +245,8 @@ keywords:
 
 
 
+
+        Включенная защита от удаления кластера не защищает содержимое БД.
 
         1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
@@ -303,7 +306,7 @@ keywords:
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
-    * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
+    * Группа безопасности с идентификатором `enpp2s8l3irh********`.
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
@@ -322,7 +325,7 @@ keywords:
       --datanode-disk-type={{ disk-type-example }} \
       --datanode-disk-size=20 \
       --admin-password=esadminpwd \
-      --security-group-ids enpp2s8l3irhk5eromd7 \
+      --security-group-ids enpp2s8l3irh******** \
       --version {{ versions.cli.latest }} \
       --edition platinum \
       --deletion-protection=true
@@ -331,29 +334,16 @@ keywords:
 
 - {{ TF }}
 
-    Создайте кластер {{ mes-name }} с тестовыми характеристиками:
-
-    * Имя `my-es-clstr`.
-    * Версия `{{ versions.tf.latest }}`.
-    * Редакция `Basic`.
-    * Окружение `PRODUCTION`.
-    * Облако с идентификатором `{{ tf-cloud-id }}`.
-    * Каталог с идентификатором `{{ tf-folder-id }}`.
-    * Новая сеть `mynet`.
-    * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
-    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
-    * Пароль `esadminpwd` для пользователя `admin`.
-
-    Конфигурационный файл для такого кластера выглядит так:
+    Создайте кластер {{ mes-name }}. Конфигурационный файл для кластера выглядит так:
 
     
     
     ```hcl
     resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
-      name        = "my-es-clstr"
-      environment = "PRODUCTION"
-      network_id  = yandex_vpc_network.mynet.id
+      name                = "my-es-clstr"
+      environment         = "PRODUCTION"
+      network_id          = yandex_vpc_network.mynet.id
+      deletion_protection = "true"
 
       config {
         edition = "basic"
@@ -374,11 +364,11 @@ keywords:
       security_group_ids = [ yandex_vpc_security_group.es-sg.id ]
 
       host {
-        name = "node"
-        zone = "{{ region-id }}-a"
-        type = "DATA_NODE"
+        name             = "node"
+        zone             = "{{ region-id }}-a"
+        type             = "DATA_NODE"
         assign_public_ip = true
-        subnet_id = yandex_vpc_subnet.mysubnet.id
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
       }
 
     }
@@ -416,5 +406,20 @@ keywords:
 
 
 
+
+    Где применены тестовые характеристики:
+
+    * Имя `my-es-clstr`.
+    * Версия `{{ versions.tf.latest }}`.
+    * Редакция `Basic`.
+    * Окружение `PRODUCTION`.
+    * Защита кластера от удаления `deletion_protection`. Пока опция включена, кластер удалить невозможно.
+    * Облако с идентификатором `{{ tf-cloud-id }}`.
+    * Каталог с идентификатором `{{ tf-folder-id }}`.
+    * Новая сеть `mynet`.
+    * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
+    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+    * Пароль `esadminpwd` для пользователя `admin`.
 
 {% endlist %}

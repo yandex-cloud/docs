@@ -20,7 +20,7 @@ Yes, you can. To do this, [change the values of the relevant settings](../../man
 
 Yes, you can by following the procedure in [Changing cluster settings](../../managed-postgresql/operations/update.md#change-resource-preset).
 
-#### Can I change the disk type in an existing cluster from network-hdd to network-ssd or local-ssd? {#disk-type}
+#### Can I change the disk type in an existing cluster? {#disk-type}
 
 Yes, you can. To do this, [restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the desired disk type when configuring the new cluster.
 
