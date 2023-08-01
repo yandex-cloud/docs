@@ -39,20 +39,20 @@
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-1. Выберите сервис **{{ mes-name }}**.
-1. Нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
    Чтобы получить доступ к веб-интерфейсу Kibana, запросите публичный доступ:
-   1. В блоке **Хосты** измените настройки хоста с ролью _Data node_, нажав значок ![image](../_assets/pencil.svg) для хоста.
-   1. Выберите опцию **Публичный доступ**.
-   1. Нажмите кнопку **Сохранить**.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** измените настройки хоста с ролью _Data node_, нажав значок ![image](../_assets/pencil.svg) для хоста.
+   1. Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
    Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах.  Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру. 
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mes-name }} сменится на **Creating** и далее — на **Alive**. Это может занять некоторое время.
 
 

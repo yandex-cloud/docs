@@ -37,10 +37,6 @@ For all parameter types, you can set the *Default value* that will be used when 
 
  <!-- Cloud dashboards -->
 
-Creating a new dashboard parameter looks like this:
-
-![Creating a new dashboard parameter](../../../_assets/monitoring/dashboard-new-parameter.png "Creating a new dashboard parameter")
-
 ### Parameter substitution {#templates}
 
 Dashboard parameter values are used in widget headings and queries to metrics to filter label values. Parameter values are substituted using [mustache template](https://mustache.github.io/).
@@ -60,7 +56,7 @@ You can only use parameter value substitution in label values when making querie
 
 Substituting parameter values in query strings looks like this:
 
-![Substituting parameter values in query strings](../../../_assets/monitoring/query-string-templating.png "Substituting parameter values in query strings")
+![Substituting parameter values in query strings](../../../_assets/monitoring/query_string_templating_2023.png "Substituting parameter values in query strings")
  <!-- Cloud dashboards -->
 
 ### Label value filter {#common-labels-filter}

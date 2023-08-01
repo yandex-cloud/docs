@@ -12,3 +12,4 @@ description: "Различные сценарии использования {{ 
 * [{#T}](stable-diffusion.md)
 * [{#T}](regular-launch.md)
 * [{#T}](batch-code-execution.md)
+* [{#T}](s3-to-datasphere.md)

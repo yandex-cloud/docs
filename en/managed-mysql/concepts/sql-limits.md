@@ -1,15 +1,15 @@
 ---
 title: "SQL command limits in {{ mmy-name }}"
-description: "{{ mmy-short-name }} has some limits on DB owner actions using SQL commands."
+description: "{{ mmy-short-name }} has some limits on DB owner actions when using SQL commands."
 ---
 
 # SQL command limits
 
-{{ mmy-short-name }} has some limits on DB owner actions using SQL commands:
+{{ mmy-short-name }} has some limitations on DB owner actions when using SQL commands:
 
-* You can't change the {{ MY }} settings.
-* You can't manage users and user permissions at the level of the entire cluster or an individual database. However, you can [grant user privileges](../operations/grant.md) at the level of individual DB objects.
-* You can't create a database. However DB owners and users with the `ALL_PRIVILEGES` [privilege](user-rights.md#db-privileges) can run `ALTER DATABASE` for a previously created DB.
+* You cannot change the {{ MY }} settings.
+* You cannot manage users and user permissions at the level of the entire cluster or an individual database. However, you can [grant user privileges](./../operations/grant.md) at the level of individual DB objects.
+* You cannot create databases; however, DB owners and users with the `ALL_PRIVILEGES` [privilege](user-rights.md#db-privileges) can run `ALTER DATABASE` for a previously created DB.
 * No actions related to server administration are allowed.
 
-See our [step-by-step instructions](../operations/index.md) on how to perform these actions using the {{ yandex-cloud }} tools.
+You can, however, perform all these actions using the {{ yandex-cloud }} tools. To learn how, check out our [step-by-step guides](../operations/index.md).

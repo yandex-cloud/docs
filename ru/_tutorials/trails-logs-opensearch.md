@@ -13,7 +13,7 @@
 1. [Создайте кластер {{ mos-name }}](#create-os).
 1. [Настройте трансфер для доставки логов в кластер {{ mos-name }}](#configure-data-transfer).
 1. [Проверьте результат](#check-result).
-1. [Загрузите дополнительной контент](#additional-content).
+1. [Загрузите дополнительный контент](#additional-content).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -99,7 +99,7 @@
 
 {% include [primary-key](../_includes/data-transfer/notes/os-es-transfer-conditions.md) %}
 
-## Загрузите дополнительной контент {#additional-content}
+## Загрузите дополнительный контент {#additional-content}
 
 Для удобства пользователей команда безопасности {{ yandex-cloud }} подготовила библиотеку Solution Library — набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}. Библиотека доступна в [публичном репозитории на GitHub](https://github.com/yandex-cloud/yc-solution-library-for-security). Она включает следующие объекты для загрузки в {{ OS }}:
 

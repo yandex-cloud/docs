@@ -31,13 +31,13 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. Выберите вкладку **Бакеты**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.storage.switch_buckets }}**.
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
-        1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
+        1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
         1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
-        1. Нажмите кнопку **Добавить**.
-        1. Нажмите кнопку **Сохранить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

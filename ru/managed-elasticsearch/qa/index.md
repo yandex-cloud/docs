@@ -55,13 +55,13 @@ description: "Как получить логи моей работы в упра
 
 Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
 
-* `Alarm` — 90% дискового пространства.
-* `Warning` — 80% дискового пространства.
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` — 90% дискового пространства.
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` — 80% дискового пространства.
 
 Значения порогов задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `96636764160` байтов (90%).
-* `Warning` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` — `96636764160` байтов (90%).
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` — `85899345920` байтов (80%).
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 

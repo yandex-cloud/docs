@@ -4859,6 +4859,12 @@ default:
           button_continue: Продолжить
       homepage:
         title_service-dashboards: Сервисные дашборды
+      monitoring-alerts:
+        status:
+          alarm: Alarm
+          warn: Warning
+      services:
+        label_managed-elasticsearch: Managed Service for Elasticsearch
     yacloud_org:
       entity:
         invitation:
@@ -5077,6 +5083,7 @@ default:
         disabled: Выключено
         edit: Редактировать
         enabled: Включено
+        folder: Каталог
         id: Идентификатор
         import: Импортировать
         label_auto: Автоматически
@@ -5485,6 +5492,26 @@ default:
         label_form-ttl: TTL (в секундах)
         label_public: Публичная
         label_zone: Зона
+      elasticsearch:
+        auth:
+          auth-providers: Контроль доступа
+          provider-enabled: Активирован
+          provider-hint: Подсказка
+          provider-icon: Иконка
+          provider-type: Тип провайдера
+          saml_settings: Настройки SAML
+          saml-attribute_dn: attribute_dn
+          saml-attribute_email: attribute_email
+          saml-attribute_groups: attribute_groups
+          saml-attribute_name: attribute_name
+          saml-attribute_principal: attribute_principal
+          saml-idp_entity_id: idp_entity_id
+          saml-idp_metadata_file: idp_metadata_file
+          saml-kibana_url: kibana_url
+          saml-sp_entity_id: sp_entity_id
+        base_field_edition: Редакция
+        button_add-hosts: Добавить хосты
+        label_kibana: Kibana
       forms:
         label_form-list: Список
         label_service-account-select: Сервисный аккаунт
@@ -5533,6 +5560,7 @@ default:
             label_lockbox: Lockbox
             label_logging: Cloud Logging
             label_managed-clickhouse: Managed Service for ClickHouse
+            label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
@@ -5669,6 +5697,7 @@ default:
             button_action-edit: Изменить кластер
             button_action-start: Запустить кластер
             button_action-stop: Остановить кластер
+            label_anytime-maintenance-warning-value: Произвольное время
           shards:
             button_action-remove: Удалить
             button_add: Добавить шард
@@ -5745,7 +5774,6 @@ default:
           label_network: Сеть
           maintenance-window-type: Окно обслуживания
           new_section_resource: Ресурсы
-          resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
           resource_presets_field-type: Тип
@@ -5759,7 +5787,9 @@ default:
           section_resource: Класс хоста
           section_service-settings: Сервисные настройки
           section_settings: Настройки СУБД
+          section_storage: Хранилище
           section_subclusters: Подкластеры
+          section_user: Пользователь
           value_maintenance-type-anytime: произвольное
           value_maintenance-type-weekly: по расписанию
         hosts:
@@ -5792,6 +5822,7 @@ default:
             title_node-groups: Группы хостов
             title_virtual-node-group: Группа виртуальных хостов
         title_dashboards: Dashboards
+        title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
       redis:
         cluster:
@@ -5981,8 +6012,10 @@ default:
           label_lifetime: Время жизни
           popup-confirm_button_delete: Удалить
         permissions-dialog:
+          button_add: Добавить
           button_save: Сохранить
           label_title: Редактирование ACL
+        switch_buckets: Бакеты
       support:
         contact:
           label_title: Запросы

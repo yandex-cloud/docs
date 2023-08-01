@@ -95,10 +95,10 @@
 
 1. [Настройте ACL](../../storage/operations/buckets/edit-acl.md) для бакета:
 
-    1. В выпадающем списке **Выберите пользователя** укажите созданный ранее сервисный аккаунт.
-    1. Задайте разрешения `READ + WRITE` для выбранного сервисного аккаунта.
-    1. Нажмите кнопку **Добавить**.
-    1. Нажмите кнопку **Сохранить**.
+    1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите созданный ранее сервисный аккаунт.
+    1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 1. [Установите плагин](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) `repository-s3` на все хосты кластера-источника.
 

@@ -26,6 +26,8 @@
 
 {% include [text-detection-steps](../_includes/vision/text-detection-steps.md) %}
 
+{% include [coordinate-definition-issue-note](../_includes/vision/coordinate-definition-issue-note.md) %}
+
 #### Что дальше {#what-is-next}
 
 * [Узнайте обо всех возможностях сервиса](concepts/index.md)

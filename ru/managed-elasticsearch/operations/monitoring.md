@@ -18,8 +18,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
 
     1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -78,9 +78,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{mes-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-    1. Выберите вкладку **Мониторинги**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
     1. Выберите нужный хост из выпадающего списка.
 
     На этой странице выводятся графики, показывающие нагрузку на отдельный хост кластера:
@@ -102,16 +102,16 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-  1. В блоке **Сервисные дашборды** выберите:
+  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}** выберите:
 
-      * **{{ mes-name }}** для настройки алертов кластера;
-      * **{{ mes-name }} — Host Overview** для настройки алертов хостов.
+      * **{{ ui-key.yacloud_monitoring.services.label_managed-elasticsearch }}** для настройки алертов кластера;
+      * **{{ ui-key.yacloud_monitoring.services.label_managed-elasticsearch }} — Host Overview** для настройки алертов хостов.
 
-  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов [см. документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов [см. документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -119,7 +119,7 @@
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                                      |                Обозначение                |         Формула        |              `Alarm`              |             `Warning`             |
+| Метрика                                      |                Обозначение                |         Формула        |              `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`              |             `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`             |
 |----------------------------------------------|:-----------------------------------------:|:----------------------:|:---------------------------------:|:---------------------------------:|
 | Статус кластера                              |           `elasticsearch_status`          |     `bottom_last(1)`   |              `равно 0`            |              `равно 1`            |
 | Число неназначенных шардов                   |     `elasticsearch_unassigned_shards`     |      `top_last(1)`     |             `больше 0`            |                                   |
@@ -131,10 +131,10 @@
 | Использование пула долгоживущих объектов JVM |   `elasticsearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | больше 90% от объема RAM на хосте | больше 75% от объема RAM на хосте |
 | Размер использованного хранилища             | `disk.used_bytes`                         | —                      | 90% от размера хранилища          | 80% от размера хранилища          |
 
-Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `96636764160` байтов (90%).
-* `Warning` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` — `96636764160` байтов (90%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` — `85899345920` байтов (80%).
 
 Текущий размер хранилища и объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-elasticsearch).
 
@@ -149,8 +149,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ mes-name }}**.
-    1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 - API
 

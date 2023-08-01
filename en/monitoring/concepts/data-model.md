@@ -1,15 +1,15 @@
 ---
 title: "Data model in {{ monitoring-full-name }}"
-description: "The article describes the data model used in {{ monitoring-full-name }}. Metrics are time series that shows a change of some value over time. Metrics are identified using text labels. A label is a metric's characteristic in the key/value format. Each metric is identified by an unordered set of labels. Use a parameter that takes a limited set of values as a label."
+description: "The article describes the data model used in {{ monitoring-full-name }}. Metric is a timeseries that shows a change of some value over time. Metrics are identified using text labels. A label is a metric's characteristic in the key/value format. Each metric is identified by an unordered set of labels. Use a parameter that takes a limited set of values as a label."
 ---
 
 # Data model in {{ monitoring-name }}
 
 
-{{ monitoring-full-name }} stores data as [time series](https://en.wikipedia.org/wiki/Time_series).
+{{ monitoring-full-name }} stores data as [timeseries](https://en.wikipedia.org/wiki/Time_series).
 
 ## Metrics {#metric}
-_Metrics_ are time series that shows a change of some value over time. For example, the resource status of a {{ yandex-cloud }} service: the amount of used disk space, network data transfer rate, and so on.
+_Metric_ is a timeseries that shows a change of some value over time. For example, the resource status of a {{ yandex-cloud }} service: the amount of used disk space, network data transfer rate, and so on.
 
 Metrics are identified using text labels.
 
@@ -38,11 +38,13 @@ The {{ monitoring-full-name }} service offers the following metric types:
 | `COUNTER` | Counter. It shows the metric value that increases over time. For example, the number of days of service continuous running. |
 | `RATE` | Derivative value. It shows the change in the metric value over time. For example, the number of requests per second. |
 
-### Requests {#queries}
+### Queries {#queries}
 
-{{ monitoring-full-name }} allows you to create queries to select a set of metrics and display them on a chart. You can also use templates as label values.
+A query is an arbitrary expression in the [query language](querying.md) that results in a line or a set of lines. Query text may refer to the results of higher-level queries as variables.
 
-The following templates are available in {{ monitoring-full-name }}:
+{{ monitoring-name }} allows you to create queries to select a set of metrics and display them on a chart. You can also use templates as label values.
+
+The following templates are available in {{ monitoring-name }}:
 
 | Syntax | Description |
 ----- | -----

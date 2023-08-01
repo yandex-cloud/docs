@@ -28,7 +28,7 @@ To create an alert:
          * **Evaluation window**.
 
          
-         For more information, see [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
+         For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
       1. Specify the notification channel. If you don't have a notification channel, [create one](../../monitoring/operations/alert/create-channel.md
@@ -63,7 +63,7 @@ To create an alert:
          * **Evaluation window**.
 
          
-         For more information, see [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
+         For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
       1. Specify the notification channel. If you don't have a notification channel, [create one](../../monitoring/operations/alert/create-channel.md).

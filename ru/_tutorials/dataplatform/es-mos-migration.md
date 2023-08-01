@@ -58,10 +58,10 @@
 
 1. [Настройте ACL](../../storage/operations/buckets/edit-acl.md) для бакета:
 
-    1. В выпадающем списке **Выберите пользователя** укажите созданный ранее сервисный аккаунт.
+    1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите созданный ранее сервисный аккаунт.
     1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
-    1. Нажмите кнопку **Добавить**.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_add }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 
 1. Настройте кластер-источник {{ ES }}:
 
@@ -290,23 +290,7 @@
 
 1. Установите SSL-сертификат:
 
-    {% list tabs %}
-
-    - Linux (Bash)
-
-        {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
-
-        Сертификат будет сохранен в каталоге `$HOME/.opensearch/root.crt`.
-
-    - Windows (PowerShell)
-
-        ```powershell
-        mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
-        ```
-
-        Сертификат будет сохранен в каталоге `$HOME\.opensearch\root.crt`.
-
-    {% endlist %}
+    {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
 1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
