@@ -61,7 +61,7 @@
       - name: <имя_пользователя>
         groups: sudo
         shell: /bin/bash
-        sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        sudo: 'ALL=(ALL) NOPASSWD:ALL'
         ssh-authorized-keys:
           - <содержимое_SSH-ключа>
     ```
@@ -73,7 +73,7 @@
     ```hcl
     ...
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - <содержимое_SSH-ключа>")}"
+      user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <содержимое_SSH-ключа>")}"
     }
     ...
     ```
@@ -134,7 +134,7 @@
 
     ```json
     "metadata": {
-      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
+      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
     }
     ```
 
@@ -154,7 +154,7 @@
 
 ## Идентификационный документ {#identity-document}
 
-При создании ВМ формируется идентификационный документ (identity document), в котором хранятся сведения о самой ВМ: идентификаторы ВМ, продукта Marketplace, образа диска и т.д. Виртуальные машины  могут запрашивать у сервиса метаданных информацию о самих себе. 
+При создании ВМ формируется идентификационный документ (identity document), в котором хранятся сведения о самой ВМ: идентификаторы ВМ, продукта Marketplace, образа диска и т.д. Виртуальные машины  могут запрашивать у сервиса метаданных информацию о самих себе.
 
 Чтобы запросить идентификационный документ:
 
@@ -164,10 +164,10 @@
    ssh <IP-адрес ВМ>
    ```
 
-1. Идентификационный документ можно получить в форматах [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) и [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata). Выполните команду: 
-   
+1. Идентификационный документ можно получить в форматах [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) и [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata). Выполните команду:
+
    {% list tabs %}
-   
+
    - GCE
 
      ```bash
@@ -179,24 +179,24 @@
      ```bash
      curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```
-     
-   {% endlist %}   
 
-   Пример ответа: 
-   
+   {% endlist %}
+
+   Пример ответа:
+
    ```
    {"instanceId":"fhmm5252k8**********","productCodes":null,"imageId":"fd8evlqsgg4e81rbdkn7","productIds":["f2e3ia802labs61kou0g"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
 {% note info %}
 
-Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ. 
+Если ВМ была создана до 09.06.2023 и вы не можете получить идентификационный документ, остановите и снова запустите ВМ.
 
 {% endnote %}
 
 ### Подписанные идентификационные документы {#signed-identity-documents}
 
-Идентификационный документ можно подписать, чтобы затем проверить подлинность полученного документа. 
+Идентификационный документ можно подписать, чтобы затем проверить подлинность полученного документа.
 
 {% list tabs %}
 
@@ -208,8 +208,8 @@
      ssh <IP-адрес ВМ>
      ```
 
-  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`: 
-     
+  1. Получите RSA-подпись из метаданных ВМ и сохраните ее в файл `rsa2048`:
+
      * **GCE**:
 
        ```bash
@@ -221,11 +221,11 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/rsa > rsa2048
        ```
-  
+
   1. Создайте файл `certificate` и добавьте в него публичный сертификат:
 
 
-     
+
 
      ```
      -----BEGIN CERTIFICATE-----
@@ -247,7 +247,8 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
+
+
 
 
 
@@ -258,7 +259,7 @@
      openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - DSA
 
@@ -268,8 +269,8 @@
      ssh <IP-адрес ВМ>
      ```
 
-  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`: 
-   
+  1. Получите dsa2048-подпись из метаданных ВМ и сохраните ее в файл `dsa2048`:
+
      * **GCE**:
 
        ```bash
@@ -284,7 +285,7 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-     
+
 
      ```
      -----BEGIN CERTIFICATE-----
@@ -313,7 +314,8 @@
      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
      -----END CERTIFICATE-----
      ```
-     
+
+
 
 
 
@@ -323,7 +325,7 @@
      openssl smime -verify -in dsa2048 -inform PEM -certfile certificate -noverify | tee document
      ```
 
-     Если подпись верна, появится сообщение `Verification successful`. 
+     Если подпись верна, появится сообщение `Verification successful`.
 
 - BASE64
 
@@ -333,8 +335,8 @@
      ssh <IP-адрес ВМ>
      ```
 
-  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`: 
-   
+  1. Получите base64-подпись из метаданных ВМ и сохраните ее в файл `signature`:
+
      * **GCE**:
 
        ```bash
@@ -346,7 +348,7 @@
        ```bash
        curl http://169.254.169.254/latest/vendor/instance-identity/base64 | base64 -d >> signature
        ```
-  
+
   1. Получите идентификационный документ и сохраните его в файл `document`:
 
      * **GCE**:
@@ -363,7 +365,7 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-     
+
 
      ```
      -----BEGIN CERTIFICATE-----
@@ -385,7 +387,8 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-     
+
+
 
 
 
@@ -401,7 +404,7 @@
      openssl dgst -sha256 -verify key -signature signature document
      ```
 
-     Если подпись верна, появится сообщение `Verified OK`. 
+     Если подпись верна, появится сообщение `Verified OK`.
 
 {% endlist %}
 

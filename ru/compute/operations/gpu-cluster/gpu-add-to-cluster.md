@@ -33,7 +33,7 @@
 
     1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
 
-              
+
         ```hcl
         provider "yandex" {
           zone = "{{ region-id }}-a"
@@ -64,7 +64,7 @@
           }
 
           metadata = {
-            user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("<путь_к_открытому_SSH-ключу>")}"
+            user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<путь_к_открытому_SSH-ключу>")}"
           }
         }
 
@@ -89,7 +89,7 @@
         * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md).
         * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#subnet), в которой будет создана виртуальная машина.
 
-        
+
         {% note info %}
 
         Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.

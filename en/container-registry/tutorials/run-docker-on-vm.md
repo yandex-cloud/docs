@@ -145,7 +145,7 @@ The cost of this infrastructure includes:
           * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
           * **No address**: Do not assign a public IP address.
 
-          
+
           * (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
 
 
@@ -228,7 +228,7 @@ The cost of this infrastructure includes:
      1. Prepare the key pair (public and private keys) for SSH access to the VM.
      1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
 
-        
+
         * [Instructions](../../iam/operations/iam-token/create.md) for users with a Yandex account.
 
 
@@ -283,7 +283,7 @@ The cost of this infrastructure includes:
             "cores": "2"
           },
           "metadata": {
-            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
           },
           "bootDiskSpec": {
             "diskSpec": {
@@ -360,7 +360,7 @@ The cost of this infrastructure includes:
 
    {% list tabs %}
 
-   
+
    - Using an OAuth token
 
      1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).

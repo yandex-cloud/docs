@@ -231,7 +231,7 @@
 
 1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/cloud-terraform`:
 
-   
+
    ```
    provider "yandex" {
      token     = "<OAuth-токен>"
@@ -353,7 +353,7 @@
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
-        
+
         An execution plan has been generated and is shown below.
         Resource actions are indicated with the following symbols:
         ...

@@ -145,7 +145,7 @@
           * **Список** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
           * **Без адреса** — чтобы не назначать публичный IP-адрес.
 
-          
+
           * (опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
 
 
@@ -228,7 +228,7 @@
      1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
      1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
 
-        
+
         * [Инструкция](../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
 
 
@@ -283,7 +283,7 @@
             "cores": "2"
           },
           "metadata": {
-            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
           },
           "bootDiskSpec": {
             "diskSpec": {
@@ -360,7 +360,7 @@
 
    {% list tabs %}
 
-   
+
    - С помощью OAuth-токена
 
      1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
@@ -564,9 +564,9 @@ Hi, I'm inside
      1. Создайте в папке конфигурационный файл `run-docker-on-vm.tf`:
 
         {% cut "Содержимое файла run-docker-on-vm.tf" %}
-     
+
         {% include [run-docker-on-vm-tf-config](../../_includes/container-registry/run-docker-on-vm-tf-config.md) %}
-     
+
         {% endcut %}
 
    {% endlist %}

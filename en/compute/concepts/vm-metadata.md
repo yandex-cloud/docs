@@ -60,7 +60,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
         - name: <username>
           groups: sudo
           shell: /bin/bash
-          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          sudo: 'ALL=(ALL) NOPASSWD:ALL'
           ssh-authorized-keys:
             - <SSH_key_contents>
       ```
@@ -72,7 +72,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
       ```hcl
       ...
       metadata = {
-        user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - <SSH_key _contents>")}"
+        user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <SSH_key _contents>")}"
       }
       ...
       ```
@@ -133,7 +133,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
     ```json
     "metadata": {
-      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
+      "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
     }
     ```
 
@@ -224,7 +224,7 @@ An identity document can be signed to then verify the obtained document.
    1. Create a `certificate` file and add a public certificate to it:
 
 
-      
+
       ```
       -----BEGIN CERTIFICATE-----
       MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
@@ -281,7 +281,7 @@ An identity document can be signed to then verify the obtained document.
 
    1. Create a `certificate` file and save a public certificate to it:
 
-      
+
       ```
       -----BEGIN CERTIFICATE-----
       MIIERjCCA+ugAwIBAgIULIUmuptqf9Pz7nMGMHeW+BPNneYwCwYJYIZIAWUDBAMC
@@ -358,7 +358,7 @@ An identity document can be signed to then verify the obtained document.
 
    1. Create a `certificate` file and save a public certificate to it:
 
-      
+
       ```
       -----BEGIN CERTIFICATE-----
       MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL

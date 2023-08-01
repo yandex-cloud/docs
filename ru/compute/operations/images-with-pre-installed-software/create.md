@@ -20,11 +20,12 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный [образ](../../concepts/image.md) с программным обеспечением, которое хотите использовать.
   1. (Опционально) Если вы хотите добавить к ВМ дополнительные [диски](../../concepts/disk.md), [выберите их](../vm-create/create-from-disks.md) в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**.
 
-  
+
 
   1. (Опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
 
-
+
+
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../concepts/vm-platforms.md).
@@ -47,10 +48,11 @@
        * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
        * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
 
-     
+
 
      * (опционально) При необходимости в поле **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** выберите опцию [защиты от DDoS-атак](../../../vpc/ddos-protection/index.md).
-
+
+
 
      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md) (если соответствующего поля нет, для ВМ будет разрешен любой входящий и исходящий трафик).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
@@ -163,7 +165,7 @@
        }
 
        metadata = {
-         user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("<путь_к_открытому_SSH-ключу>")}"
+         user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<путь_к_открытому_SSH-ключу>")}"
        }
      }
 
@@ -190,7 +192,7 @@
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
        * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#network). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
-       * `metadata` — в метаданных необходимо передать имя пользователя и [публичный ключ для SSH-доступа](../vm-connect/ssh.md#creating-ssh-keys) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md). 
+       * `metadata` — в метаданных необходимо передать имя пользователя и [публичный ключ для SSH-доступа](../vm-connect/ssh.md#creating-ssh-keys) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
