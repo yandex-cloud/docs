@@ -1,165 +1,165 @@
 ---
-title: Type conversion functions
+title: Функции преобразования типов
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/type-conversion-functions.md
+sourcePath: ru/_api-ref/datalens/function-ref/type-conversion-functions.md
 ---
 
-# Type conversion functions
+# Функции преобразования типов
 
 
 ## [BOOL](BOOL.md)
 
-**Syntax:**`BOOL( expression )`
+**Синтаксис:**`BOOL( expression )`
 
-Converts the `expression` expression to Boolean type according to the following rules:
+Переводит выражение `expression` в логический тип по следующим правилам:
 
-| Type                                          | `FALSE`             | `TRUE`     |
-|:----------------------------------------------|:--------------------|:-----------|
-| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
-| `String`                                      | Empty string (`""`) | All others |
-| `Boolean`                                     | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
+| Тип                                           | `FALSE`              | `TRUE`        |
+|:----------------------------------------------|:---------------------|:--------------|
+| <code>Дробное число &#124; Целое число</code> | `0`, `0.0`           | Все остальные |
+| `Строка`                                      | Пустая строка (`""`) | Все остальные |
+| `Логический`                                  | `FALSE`              | `TRUE`        |
+| <code>Дата &#124; Дата и время</code>         | -                    | `TRUE`        |
 
 
 
 ## [DATE](DATE.md)
 
-**Syntax:**`DATE( expression [ , timezone ] )`
+**Синтаксис:**`DATE( expression [ , timezone ] )`
 
-Converts the `expression` expression to date format.
+Переводит выражение `expression` в формат даты.
 
-The date must be in the format `YYYY-MM-DD`.
+Дата должна быть определена в формате `YYYY-MM-DD`.
 
-If `expression` is a number, then the `timezone` option can be used to convert the date to the specified time zone.
+Если `expression` является числом, то при наличии дополнительного параметра `timezone` дата рассчитывается для указанной временной зоны.
 
 
 
 ## [DATE_PARSE](DATE_PARSE.md)
 
-**Syntax:**`DATE_PARSE( value )`
+**Синтаксис:**`DATE_PARSE( value )`
 
-Converts the `value` expression to date format. Unlike [DATE](DATE.md), it supports multiple formats.
+Переводит выражение `value` в формат даты. В отличие от [DATE](DATE.md), поддерживает множество форматов.
 
 
 
 ## [DATETIME](DATETIME.md)
 
-**Syntax:**`DATETIME( expression [ , timezone ] )`
+**Синтаксис:**`DATETIME( expression [ , timezone ] )`
 
-Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
-The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+Переводит выражение `expression` в формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
+Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
 
-The date and time can be converted to the specified time zone when the `timezone` option is available.
+При наличии дополнительного параметра `timezone` дата и время рассчитываются для указанной временной зоны.
 
 
 
 ## [DATETIME_PARSE](DATETIME_PARSE.md)
 
-**Syntax:**`DATETIME_PARSE( value )`
+**Синтаксис:**`DATETIME_PARSE( value )`
 
-Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats.
+Переводит выражение `value` в формат даты и времени. В отличие от [DATETIME](DATETIME.md), поддерживает множество форматов.
 
 
 
 ## [DB_CAST](DB_CAST.md)
 
-**Syntax:**`DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )`
+**Синтаксис:**`DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )`
 
-Converts the `expression` expression to database's native type `native_type`.
+Переводит выражение `expression` в указанный нативный тип данных `native_type`.
 
-The following type casts are supported:
+Поддерживаются следующие типы:
 
-| Data source   | Data type                     | Native data type      | Parameters for native type   | Comment                       |
-|:--------------|:------------------------------|:----------------------|:-----------------------------|:------------------------------|
-| `ClickHouse`  | `Date`                        | `Date`                |                              |                               |
-| `ClickHouse`  | `Date`                        | `Date32`              |                              |                               |
-| `ClickHouse`  | `Fractional number`           | `Float32`             |                              |                               |
-| `ClickHouse`  | `Fractional number`           | `Float64`             |                              |                               |
-| `ClickHouse`  | `Fractional number`           | `Decimal`             | `Integer`, `Integer`         |                               |
-| `ClickHouse`  | `Integer`                     | `Int8`                |                              |                               |
-| `ClickHouse`  | `Integer`                     | `Int16`               |                              |                               |
-| `ClickHouse`  | `Integer`                     | `Int32`               |                              |                               |
-| `ClickHouse`  | `Integer`                     | `Int64`               |                              |                               |
-| `ClickHouse`  | `Integer`                     | `UInt8`               |                              |                               |
-| `ClickHouse`  | `Integer`                     | `UInt16`              |                              |                               |
-| `ClickHouse`  | `Integer`                     | `UInt32`              |                              |                               |
-| `ClickHouse`  | `Integer`                     | `UInt64`              |                              |                               |
-| `ClickHouse`  | `String`                      | `String`              |                              |                               |
-| `PostgreSQL`  | `Array of fractional numbers` | `double precision[]`  |                              |                               |
-| `PostgreSQL`  | `Array of fractional numbers` | `real[]`              |                              |                               |
-| `PostgreSQL`  | `Array of fractional numbers` | `numeric[]`           | `Integer`, `Integer`         |                               |
-| `PostgreSQL`  | `Array of integers`           | `smallint[]`          |                              |                               |
-| `PostgreSQL`  | `Array of integers`           | `integer[]`           |                              |                               |
-| `PostgreSQL`  | `Array of integers`           | `bigint[]`            |                              |                               |
-| `PostgreSQL`  | `Array of strings`            | `text[]`              |                              |                               |
-| `PostgreSQL`  | `Array of strings`            | `character varying[]` |                              |                               |
-| `PostgreSQL`  | `Array of strings`            | `varchar[]`           |                              |                               |
-| `PostgreSQL`  | `Fractional number`           | `double precision`    |                              |                               |
-| `PostgreSQL`  | `Fractional number`           | `real`                |                              |                               |
-| `PostgreSQL`  | `Fractional number`           | `numeric`             | `Integer`, `Integer`         |                               |
-| `PostgreSQL`  | `Integer`                     | `smallint`            |                              |                               |
-| `PostgreSQL`  | `Integer`                     | `integer`             |                              |                               |
-| `PostgreSQL`  | `Integer`                     | `bigint`              |                              |                               |
-| `PostgreSQL`  | `String`                      | `text`                |                              |                               |
-| `PostgreSQL`  | `String`                      | `character`           | `Integer`                    | Alias: `char`                 |
-| `PostgreSQL`  | `String`                      | `character varying`   | `Integer`                    | Alias: `varchar`              |
-| `PostgreSQL`  | `String`                      | `char`                | `Integer`                    | Alias for `character`         |
-| `PostgreSQL`  | `String`                      | `varchar`             | `Integer`                    | Alias for `character varying` |
+| Источник данных   | Тип данных             | Нативный тип          | Параметры нативного типа     | Комментарий                   |
+|:------------------|:-----------------------|:----------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`      | `Дата`                 | `Date`                |                              |                               |
+| `ClickHouse`      | `Дата`                 | `Date32`              |                              |                               |
+| `ClickHouse`      | `Дробное число`        | `Float32`             |                              |                               |
+| `ClickHouse`      | `Дробное число`        | `Float64`             |                              |                               |
+| `ClickHouse`      | `Дробное число`        | `Decimal`             | `Целое число`, `Целое число` |                               |
+| `ClickHouse`      | `Целое число`          | `Int8`                |                              |                               |
+| `ClickHouse`      | `Целое число`          | `Int16`               |                              |                               |
+| `ClickHouse`      | `Целое число`          | `Int32`               |                              |                               |
+| `ClickHouse`      | `Целое число`          | `Int64`               |                              |                               |
+| `ClickHouse`      | `Целое число`          | `UInt8`               |                              |                               |
+| `ClickHouse`      | `Целое число`          | `UInt16`              |                              |                               |
+| `ClickHouse`      | `Целое число`          | `UInt32`              |                              |                               |
+| `ClickHouse`      | `Целое число`          | `UInt64`              |                              |                               |
+| `ClickHouse`      | `Строка`               | `String`              |                              |                               |
+| `PostgreSQL`      | `Массив дробных чисел` | `double precision[]`  |                              |                               |
+| `PostgreSQL`      | `Массив дробных чисел` | `real[]`              |                              |                               |
+| `PostgreSQL`      | `Массив дробных чисел` | `numeric[]`           | `Целое число`, `Целое число` |                               |
+| `PostgreSQL`      | `Массив целых числел`  | `smallint[]`          |                              |                               |
+| `PostgreSQL`      | `Массив целых числел`  | `integer[]`           |                              |                               |
+| `PostgreSQL`      | `Массив целых числел`  | `bigint[]`            |                              |                               |
+| `PostgreSQL`      | `Массив строк`         | `text[]`              |                              |                               |
+| `PostgreSQL`      | `Массив строк`         | `character varying[]` |                              |                               |
+| `PostgreSQL`      | `Массив строк`         | `varchar[]`           |                              |                               |
+| `PostgreSQL`      | `Дробное число`        | `double precision`    |                              |                               |
+| `PostgreSQL`      | `Дробное число`        | `real`                |                              |                               |
+| `PostgreSQL`      | `Дробное число`        | `numeric`             | `Целое число`, `Целое число` |                               |
+| `PostgreSQL`      | `Целое число`          | `smallint`            |                              |                               |
+| `PostgreSQL`      | `Целое число`          | `integer`             |                              |                               |
+| `PostgreSQL`      | `Целое число`          | `bigint`              |                              |                               |
+| `PostgreSQL`      | `Строка`               | `text`                |                              |                               |
+| `PostgreSQL`      | `Строка`               | `character`           | `Целое число`                | Алиас: `char`                 |
+| `PostgreSQL`      | `Строка`               | `character varying`   | `Целое число`                | Алиас: `varchar`              |
+| `PostgreSQL`      | `Строка`               | `char`                | `Целое число`                | Алиас для `character`         |
+| `PostgreSQL`      | `Строка`               | `varchar`             | `Целое число`                | Алиас для `character varying` |
 
 
 
 
 ## [FLOAT](FLOAT.md)
 
-**Syntax:**`FLOAT( expression )`
+**Синтаксис:**`FLOAT( expression )`
 
-Converts the `expression` expression to fractional number format according to the following rules:
+Переводит выражение `expression` в формат дробного числа по следующим правилам:
 
-| Type                                          | Value                                                                                                                                                                                                             |
-|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
-| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+| Тип                                           | Значение                                                                                                                                                                                                                                        |
+|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Дробное число &#124; Целое число</code> | Исходное значение.                                                                                                                                                                                                                              |
+| <code>Дата &#124; Дата и время</code>         | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
+| `Строка`                                      | Число из строки в десятичной записи.                                                                                                                                                                                                            |
+| `Логический`                                  | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                                                |
 
 
 
 ## [GEOPOINT](GEOPOINT.md)
 
-**Syntax:**`GEOPOINT( value_1 [ , value_2 ] )`
+**Синтаксис:**`GEOPOINT( value_1 [ , value_2 ] )`
 
-Generates a Geopoint type value. For the input, it accepts a string, a "geopoint" type value, or coordinates — latitude `value_1` and longitude `value_2`. If a single string is input, it must contain a list of two numbers (latitude and longitude) in JSON syntax.
+Формирует значение типа геоточка. Принимает на вход строку, либо значение типа "геоточка", либо координаты — широту `value_1` и долготу `value_2`. Если на вход подается одна строка, в ней должен содержаться список из двух чисел, координат (широты и долготы) в JSON-синтаксисе.
 
 
 
 ## [GEOPOLYGON](GEOPOLYGON.md)
 
-**Syntax:**`GEOPOLYGON( value )`
+**Синтаксис:**`GEOPOLYGON( value )`
 
-Converts the `value` expression to geopolygon format.
+Переводит выражение `value` в формат геополигона.
 
 
 
 ## [INT](INT.md)
 
-**Syntax:**`INT( expression )`
+**Синтаксис:**`INT( expression )`
 
-Converts the `expression` expression to integer format according to the following rules:
+Переводит выражение `expression` в формат целого числа по следующим правилам:
 
-| Type                              | Value                                                                                                                                                                                                             |
-|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Integer`                         | Original value.                                                                                                                                                                                                   |
-| `Fractional number`               | Integer part of the number (rounded down).                                                                                                                                                                        |
-| <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                          | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                         | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |
+| Тип                                   | Значение                                                                                                                                                                                                                                        |
+|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Целое число`                         | Исходное значение.                                                                                                                                                                                                                              |
+| `Дробное число`                       | Целая часть числа (округление вниз).                                                                                                                                                                                                            |
+| <code>Дата &#124; Дата и время</code> | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
+| `Строка`                              | Число из строки в десятичной записи.                                                                                                                                                                                                            |
+| `Логический`                          | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                                                    |
 
 
 
 ## [STR](STR.md)
 
-**Syntax:**`STR( expression )`
+**Синтаксис:**`STR( expression )`
 
-Converts the `expression` expression to string type.
+Переводит выражение `expression` к типу строки.
 
 

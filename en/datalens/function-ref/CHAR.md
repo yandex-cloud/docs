@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/CHAR.md
+sourcePath: ru/_api-ref/datalens/function-ref/CHAR.md
 ---
 
 # CHAR
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 CHAR( string )
 ```
 
-#### Description {#description}
-Converts the numeric representation of an ASCII character to a value.
+#### Описание {#description}
+Преобразовывает числовое представление символа ASCII в значение.
 
-**Argument types:**
-- `string` — `Integer`
+**Типы аргументов:**
+- `string` — `Целое число`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 CHAR(78) = "N"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

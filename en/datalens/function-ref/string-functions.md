@@ -1,232 +1,232 @@
 ---
-title: String functions
+title: Строковые функции
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/string-functions.md
+sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 ---
 
-# String functions
+# Строковые функции
 
 
 ## [ASCII](ASCII.md)
 
-**Syntax:**`ASCII( string )`
+**Синтаксис:**`ASCII( string )`
 
-Returns the numeric representation of the first character of the string.
+Возвращает числовое представление первого символа строки.
 
 
 
 ## [CHAR](CHAR.md)
 
-**Syntax:**`CHAR( string )`
+**Синтаксис:**`CHAR( string )`
 
-Converts the numeric representation of an ASCII character to a value.
+Преобразовывает числовое представление символа ASCII в значение.
 
 
 
 ## [CONCAT](CONCAT.md)
 
-**Syntax:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+**Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
 
-Merges any number of strings. When non-string types are used, they're converted to strings and then merged.
+Объединяет произвольное количество строк. При использовании нестроковых типов происходит преобразование в строку и объединение.
 
 
 
 ## [CONTAINS](CONTAINS.md)
 
-**Syntax:**`CONTAINS( string, substring )`
+**Синтаксис:**`CONTAINS( string, substring )`
 
-Returns `TRUE` if `string` contains `substring`. For case-insensitive searches, see [ICONTAINS](ICONTAINS.md).
+Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`. Для регистронезависимой проверки см. [ICONTAINS](ICONTAINS.md).
 
 
 
 ## [ENDSWITH](ENDSWITH.md)
 
-**Syntax:**`ENDSWITH( string, substring )`
+**Синтаксис:**`ENDSWITH( string, substring )`
 
-Returns `TRUE` if `string` ends in `substring`. For case-insensitive searches, see [IENDSWITH](IENDSWITH.md).
+Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](IENDSWITH.md).
 
 
 
 ## [FIND](FIND.md)
 
-**Syntax:**`FIND( string, substring [ , start_index ] )`
+**Синтаксис:**`FIND( string, substring [ , start_index ] )`
 
-Returns the index of the position of the first character of the substring `substring` in the string `string`.
+Возвращает индекс позиции первого символа подстроки `substring` в строке `string`.
 
-If the `start_index` option is specified, the search starts from the specified position.
+Если указан опциональный параметр `start_index`, то поиск начнется с указанной позиции.
 
 
 
 ## [ICONTAINS](ICONTAINS.md)
 
-**Syntax:**`ICONTAINS( string, substring )`
+**Синтаксис:**`ICONTAINS( string, substring )`
 
-Case-insensitive version of [CONTAINS](CONTAINS.md). Returns `TRUE` if `string` contains `substring`.
+Регистронезависимый вариант [CONTAINS](CONTAINS.md). Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`.
 
 
 
 ## [IENDSWITH](IENDSWITH.md)
 
-**Syntax:**`IENDSWITH( string, substring )`
+**Синтаксис:**`IENDSWITH( string, substring )`
 
-Case-insensitive version of [ENDSWITH](ENDSWITH.md). Returns `TRUE` if `string` ends in `substring`.
+Регистронезависимый вариант [ENDSWITH](ENDSWITH.md). Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.
 
 
 
 ## [ISTARTSWITH](ISTARTSWITH.md)
 
-**Syntax:**`ISTARTSWITH( string, substring )`
+**Синтаксис:**`ISTARTSWITH( string, substring )`
 
-Case-insensitive version of [STARTSWITH](STARTSWITH.md). Returns `TRUE`  if `string` starts with `substring`.
+Регистронезависимый вариант [STARTSWITH](STARTSWITH.md). Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
 
 
 
 ## [LEFT](LEFT.md)
 
-**Syntax:**`LEFT( string, number )`
+**Синтаксис:**`LEFT( string, number )`
 
-Returns a string that contains the number of characters specified in `number` from the beginning of the string `string`.
+Возвращает строку, которая содержит указанное количество символов `number` с начала строки `string`.
 
 
 
 ## [LEN](LEN.md)
 
-**Syntax:**`LEN( value )`
+**Синтаксис:**`LEN( value )`
 
-Returns the number of characters in the string or items in array `value`.
+Возвращает количество символов в строке или элементов в массиве `value`.
 
 
 
 ## [LOWER](LOWER.md)
 
-**Syntax:**`LOWER( string )`
+**Синтаксис:**`LOWER( string )`
 
-Returns the string `string` in lowercase.
+Возвращает строку `string` в нижнем регистре.
 
 
 
 ## [LTRIM](LTRIM.md)
 
-**Syntax:**`LTRIM( string )`
+**Синтаксис:**`LTRIM( string )`
 
-Returns the string `string` without spaces at the beginning of the string.
+Возвращает строку `string` без знаков пробела в начале строки.
 
 
 
 ## [REGEXP_EXTRACT](REGEXP_EXTRACT.md)
 
-**Syntax:**`REGEXP_EXTRACT( string, pattern )`
+**Синтаксис:**`REGEXP_EXTRACT( string, pattern )`
 
-Returns the substring `string` that matches the regular expression pattern `pattern`.
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`.
 
 
 
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
-**Syntax:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
+**Синтаксис:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
 
-Returns a substring `string` that matches the regular expression pattern `pattern` starting from the specified index.
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
 
 
 
 ## [REGEXP_MATCH](REGEXP_MATCH.md)
 
-**Syntax:**`REGEXP_MATCH( string, pattern )`
+**Синтаксис:**`REGEXP_MATCH( string, pattern )`
 
-Returns 'TRUE' if the string `string` has a substring that matches the regular expression pattern `pattern`.
+Возвращает `TRUE`, если в строке `string` есть подстрока, которая соответствует шаблону регулярного выражения `pattern`.
 
 
 
 ## [REGEXP_REPLACE](REGEXP_REPLACE.md)
 
-**Syntax:**`REGEXP_REPLACE( string, pattern, replace_with )`
+**Синтаксис:**`REGEXP_REPLACE( string, pattern, replace_with )`
 
-Searches for a substring in the string `string` using the regular expression pattern `pattern` and replaces it with the string `replace_with`.
+Ищет подстроку в строке `string` по шаблону регулярного выражения `pattern` и заменяет ее строкой `replace_with`.
 
-If the substring is not found, the string is not changed.
+Если подстрока не найдена, то строка не будет изменена.
 
 
 
 ## [REPLACE](REPLACE.md)
 
-**Syntax:**`REPLACE( string, substring, replace_with )`
+**Синтаксис:**`REPLACE( string, substring, replace_with )`
 
-Searches for the substring `substring` in the string `string` and replaces it with the string `replace_with`.
+Ищет подстроку `substring` в строке `string` и заменяет ее строкой `replace_with`.
 
-If the substring is not found, the string is not changed.
+Если подстрока не найдена, то строка не будет изменена.
 
 
 
 ## [RIGHT](RIGHT.md)
 
-**Syntax:**`RIGHT( string, number )`
+**Синтаксис:**`RIGHT( string, number )`
 
-Returns a string that contains the number of characters specified in `number` from the end of the string `string`.
+Возвращает строку, которая содержит указанное количество символов `number` с конца строки `string`.
 
 
 
 ## [RTRIM](RTRIM.md)
 
-**Syntax:**`RTRIM( string )`
+**Синтаксис:**`RTRIM( string )`
 
-Returns the string `string` without spaces at the end of the string.
+Возвращает строку `string` без знаков пробела в конце строки.
 
 
 
 ## [SPACE](SPACE.md)
 
-**Syntax:**`SPACE( value )`
+**Синтаксис:**`SPACE( value )`
 
-Returns a string with the specified number of spaces.
+Возвращает строку с указанным количеством пробелов.
 
 
 
 ## [SPLIT](SPLIT.md)
 
-**Syntax:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
+**Синтаксис:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
 
-Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
+Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`. Разделитель по умолчанию – запятая. Если не передан `part_index`, то возвращается массив (только для источников `ClickHouse`, `PostgreSQL`).
 
 
 
 ## [STARTSWITH](STARTSWITH.md)
 
-**Syntax:**`STARTSWITH( string, substring )`
+**Синтаксис:**`STARTSWITH( string, substring )`
 
-Returns `TRUE` if `string` starts with `substring`. For case-insensitive searches, see [ISTARTSWITH](ISTARTSWITH.md).
+Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`. Для регистронезависимой проверки см. [ISTARTSWITH](ISTARTSWITH.md).
 
 
 
 ## [SUBSTR](SUBSTR.md)
 
-**Syntax:**`SUBSTR( string, from_index [ , length ] )`
+**Синтаксис:**`SUBSTR( string, from_index [ , length ] )`
 
-Returns the substring `string` starting from the index `from_index`.
+Возвращает подстроку `string`, начиная с индекса `from_index`.
 
-If an additional argument `length` is specified, a substring of the specified length is returned.
+Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
 
 
 
 ## [TRIM](TRIM.md)
 
-**Syntax:**`TRIM( string )`
+**Синтаксис:**`TRIM( string )`
 
-Returns the string `string` without spaces at the beginning or end of the string.
+Возвращает строку `string` без знаков пробела в начале и конце строки.
 
 
 
 ## [UPPER](UPPER.md)
 
-**Syntax:**`UPPER( string )`
+**Синтаксис:**`UPPER( string )`
 
-Returns the string `string` in uppercase.
+Возвращает строку `string` в верхнем регистре.
 
 
 
 ## [UTF8](UTF8.md)
 
-**Syntax:**`UTF8( string, old_encoding )`
+**Синтаксис:**`UTF8( string, old_encoding )`
 
-Converts the `string` string encoding to `UTF8`.
+Переводит кодировку строки `string` в `UTF8`.
 
 

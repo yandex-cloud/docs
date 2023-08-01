@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DAY.md
+sourcePath: ru/_api-ref/datalens/function-ref/DAY.md
 ---
 
 # DAY
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 DAY( datetime )
 ```
 
-#### Description {#description}
-Returns the number of the day in the month of the specified date `datetime`.
+#### Описание {#description}
+Возвращает номер дня в месяце в указанной дате `datetime`.
 
-**Argument types:**
-- `datetime` — `Date | Datetime`
+**Типы аргументов:**
+- `datetime` — `Дата | Дата и время`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 DAY(#2019-01-23#) = 23
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

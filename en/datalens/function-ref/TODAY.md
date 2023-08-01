@@ -1,38 +1,38 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/TODAY.md
+sourcePath: ru/_api-ref/datalens/function-ref/TODAY.md
 ---
 
 # TODAY
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 TODAY()
 ```
 
-#### Description {#description}
-Returns the current date, depending on the data source and connection type.
+#### Описание {#description}
+Возвращает текущую дату в зависимости от источника данных и типа соединения.
 
-**Return type**: `Date`
+**Возвращаемый тип**: `Дата`
 
 {% note info %}
 
-On materialization, the function returns the UTC+3 date and time.
+При материализации функция возвращает дату и время по Московскому времени.
 
 {% endnote %}
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 TODAY() = #2019-01-23#
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

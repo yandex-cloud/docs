@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/SPACE.md
+sourcePath: ru/_api-ref/datalens/function-ref/SPACE.md
 ---
 
 # SPACE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 SPACE( value )
 ```
 
-#### Description {#description}
-Returns a string with the specified number of spaces.
+#### Описание {#description}
+Возвращает строку с указанным количеством пробелов.
 
-**Argument types:**
-- `value` — `Integer`
+**Типы аргументов:**
+- `value` — `Целое число`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 SPACE(5) = "     "
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

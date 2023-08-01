@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/BOOL.md
+sourcePath: ru/_api-ref/datalens/function-ref/BOOL.md
 ---
 
 # BOOL
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 BOOL( expression )
 ```
 
-#### Description {#description}
-Converts the `expression` expression to Boolean type according to the following rules:
+#### Описание {#description}
+Переводит выражение `expression` в логический тип по следующим правилам:
 
-| Type                                          | `FALSE`             | `TRUE`     |
-|:----------------------------------------------|:--------------------|:-----------|
-| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
-| `String`                                      | Empty string (`""`) | All others |
-| `Boolean`                                     | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
+| Тип                                           | `FALSE`              | `TRUE`        |
+|:----------------------------------------------|:---------------------|:--------------|
+| <code>Дробное число &#124; Целое число</code> | `0`, `0.0`           | Все остальные |
+| `Строка`                                      | Пустая строка (`""`) | Все остальные |
+| `Логический`                                  | `FALSE`              | `TRUE`        |
+| <code>Дата &#124; Дата и время</code>         | -                    | `TRUE`        |
 
-**Argument types:**
-- `expression` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String`
+**Типы аргументов:**
+- `expression` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка`
 
 
-**Return type**: `Boolean`
+**Возвращаемый тип**: `Логический`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 BOOL(0) = FALSE
@@ -45,6 +45,6 @@ BOOL("Lorem ipsum") = TRUE
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/AVG_IF.md
+sourcePath: ru/_api-ref/datalens/function-ref/AVG_IF.md
 ---
 
 # AVG_IF
 
-_Function `AVG_IF` is also found in the following categories: [Window functions](AVG_IF_WINDOW.md)._
+_Функция `AVG_IF` также доступна в следующих категориях: [Оконные функции](AVG_IF_WINDOW.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   AVG_IF( expression, condition )
   ```
 
-- Extended
+- Расширенный
 
   ```
   AVG_IF( expression, condition
@@ -26,29 +26,29 @@ _Function `AVG_IF` is also found in the following categories: [Window functions]
         )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
+#### Описание {#description}
+Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
 
-**Argument types:**
-- `expression` — `Fractional number | Integer`
-- `condition` — `Boolean`
+**Типы аргументов:**
+- `expression` — `Дробное число | Целое число`
+- `condition` — `Логический`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 AVG_IF([Profit], [Profit] > 5)
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

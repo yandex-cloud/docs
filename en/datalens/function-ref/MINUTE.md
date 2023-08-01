@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/MINUTE.md
+sourcePath: ru/_api-ref/datalens/function-ref/MINUTE.md
 ---
 
 # MINUTE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 MINUTE( datetime )
 ```
 
-#### Description {#description}
-Returns the number of the minute in the hour of the specified date `datetime`. When the date is specified without time, it returns `0`.
+#### Описание {#description}
+Возвращает номер минуты в часе в указанной дате `datetime`. При указании даты без времени возвращает 0.
 
-**Argument types:**
-- `datetime` — `Date | Datetime`
+**Типы аргументов:**
+- `datetime` — `Дата | Дата и время`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 MINUTE(#2019-01-23 15:07:47#) = 7
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

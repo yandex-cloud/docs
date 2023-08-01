@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ICONTAINS.md
+sourcePath: ru/_api-ref/datalens/function-ref/ICONTAINS.md
 ---
 
 # ICONTAINS
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 ICONTAINS( string, substring )
 ```
 
-#### Description {#description}
-Case-insensitive version of [CONTAINS](CONTAINS.md). Returns `TRUE` if `string` contains `substring`.
+#### Описание {#description}
+Регистронезависимый вариант [CONTAINS](CONTAINS.md). Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`.
 
-**Argument types:**
-- `string` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
-- `substring` — `String`
+**Типы аргументов:**
+- `string` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+- `substring` — `Строка`
 
 
-**Return type**: `Boolean`
+**Возвращаемый тип**: `Логический`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 ICONTAINS("RU0891923", "ru") = TRUE
@@ -35,6 +35,6 @@ ICONTAINS("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

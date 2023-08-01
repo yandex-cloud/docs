@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/CASE.md
+sourcePath: ru/_api-ref/datalens/function-ref/CASE.md
 ---
 
 # CASE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- As a block
+- Как блок
 
   ```
   CASE expression
@@ -22,7 +22,7 @@ sourcePath: en/_api-ref/datalens/function-ref/CASE.md
   END
   ```
 
-- As a function
+- Как функция
 
   ```
   CASE(
@@ -36,28 +36,29 @@ sourcePath: en/_api-ref/datalens/function-ref/CASE.md
 
 {% endlist %}
 
-#### Description {#description}
-Compares `expression` to `value_1`, `value_2`, ... consecutively and returns the corresponding result for the first match. If no match is found, it returns `default_result`.
+#### Описание {#description}
+Сравнивает выражение `expression` с последовательностью значений `value_1`, `value_2`, ... и возвращает результат для первого совпадения.
+Если совпадений не найдено, то возвращает `default_result`.
 
-**Argument types:**
-- `expression` — `Any`
-- `value_1` — `Any`
-- `result_1` — `Any`
-- `value_2` — `Any`
-- `result_2` — `Any`
-- `default_result` — `Any`
+**Типы аргументов:**
+- `expression` — `Любой`
+- `value_1` — `Любой`
+- `result_1` — `Любой`
+- `value_2` — `Любой`
+- `result_2` — `Любой`
+- `default_result` — `Любой`
 
 
-**Return type**: Same type as (`result_1`, `result_2`, `default_result`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`result_1`, `result_2`, `default_result`)
 
 {% note info %}
 
-Arguments (`result_1`, `result_2`, `default_result`) must be of the same type.
+Тип аргументов (`result_1`, `result_2`, `default_result`) должен совпадать.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 CASE (
@@ -82,10 +83,10 @@ CASE [country]
 END
 ```
 
-{% cut "Example with data table" %}
+{% cut "Пример с таблицей данных" %}
 
 
-Formulas:
+Формулы:
 
 - **unit**: `[unit]` ;
 - **case_function**: `CASE([unit], "s", 1, "m", 60, "h", 3600, 0)` ;
@@ -100,6 +101,6 @@ Formulas:
 {% endcut %}
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

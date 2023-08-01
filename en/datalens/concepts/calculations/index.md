@@ -17,7 +17,7 @@ You can add new fields to a dataset field list.
 
 When creating a formula, you can use any dataset field, including the calculated fields that you created earlier. 
 
-After creating a calculated field and saving the dataset, the field becomes available to all the charts and dashboard [selectors](../dashboard.md#selector) based on that dataset.
+After creating a calculated field and saving the dataset, the field becomes available to all the charts and dashboard [selectors](../../dashboard/selector.md) based on that dataset.
 To hide fields in the wizard, enable the **Don't display** option when creating them.
 
 Calculated fields are marked with ![image](../../../_assets/datalens/formula-dataset.svg).
@@ -88,10 +88,10 @@ You can create calculated fields in the dataset or wizard interface.
    1. Select the dataset to create a chart in.
    1. In the left part of the screen, click **![image](../../../_assets/plus-sign.svg)** above the list of dataset fields.
    1. Enter the required formula.
-   1. Click **Create**. The field appears in the list of fields. You can use it as your chart's data source.
+   1. Click **Create**. The field will appear in the list of fields. You can use it as your chart data source.
 
 {% endlist %}
 
 #### See also {#see-also}
 - [{#T}](../../operations/dataset/create-field.md)
-- [{#T}](../../operations/dataset/manage-row-level-security.md)
+- [{#T}](../../security/row-level-security.md)

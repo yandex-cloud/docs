@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/MIN.md
+sourcePath: ru/_api-ref/datalens/function-ref/MIN.md
 ---
 
 # MIN
 
-_Function `MIN` is also found in the following categories: [Window functions](MIN_WINDOW.md)._
+_Функция `MIN` также доступна в следующих категориях: [Оконные функции](MIN_WINDOW.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   MIN( value )
   ```
 
-- Extended
+- Расширенный
 
   ```
   MIN( value
@@ -26,34 +26,34 @@ _Function `MIN` is also found in the following categories: [Window functions](MI
      )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the minimum value.
+#### Описание {#description}
+Возвращает минимальное значение.
 
-If `value`:
-- number — Returns the smallest number.
-- date — Returns the earliest date.
-- string — Returns the first value in the alphabetic order.
-
-
-**Argument types:**
-- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
+Если `value`:
+- число — возвращает наименьшее число;
+- дата — возвращает самую раннюю дату;
+- строка — возвращает первое значение в алфавитном порядке.
 
 
-**Return type**: Same type as (`value`)
+**Типы аргументов:**
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
 
-#### Example {#examples}
+
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+
+#### Пример {#examples}
 
 ```
 MIN([Profit])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

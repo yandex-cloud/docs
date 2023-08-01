@@ -1,38 +1,38 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARRAY.md
+sourcePath: ru/_api-ref/datalens/function-ref/ARRAY.md
 ---
 
 # ARRAY
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 ARRAY( value_1, value_2, value_3 [ , ... ] )
 ```
 
-#### Description {#description}
-Returns an array containing the passed values.
+#### Описание {#description}
+Возвращает массив, содержащий переданные элементы.
 
-**Argument types:**
-- `value_1` — `Fractional number | Integer | String`
-- `value_2` — `Fractional number | Integer | String`
-- `value_3` — `Fractional number | Integer | String`
+**Типы аргументов:**
+- `value_1` — `Дробное число | Целое число | Строка`
+- `value_2` — `Дробное число | Целое число | Строка`
+- `value_3` — `Дробное число | Целое число | Строка`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
 {% note info %}
 
-All passed values must be of the same type or `NULL`. At least one value must be non-`NULL`.
+Все переданные элементы должны быть одинакового типа или `NULL`. Хотя бы один элемент должен быть не `NULL`.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 ARRAY(1, 2, NULL, 3)
@@ -47,6 +47,6 @@ ARRAY(0, 2.3, NULL, 0.18)
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

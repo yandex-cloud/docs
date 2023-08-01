@@ -15,13 +15,13 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Add selectors to the dashboard](#add-selectors-to-dashboard).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 To get started with {{ datalens-short-name }}:
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account.
 1. Open the [{{ datalens-short-name }} homepage]({{ link-datalens-main }}).
-1. Click **Open DataLens**.
+1. Click **Open Datalens**.
 1. Select one of the options:
 
    * If you already have an organization, select it from the drop-down menu in the **Organizations** tab and click **Open DataLens**.
@@ -41,7 +41,7 @@ To get started with {{ datalens-short-name }}:
 
 {% note info %}
 
-To create a connection, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `{{ roles-monitoring-viewer }}` (or `{{ roles-viewer }}`) [role](../../iam/operations/sa/assign-role-for-sa.md).
+To create a connection, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `{{ roles-monitoring-viewer }}` or `{{ roles-viewer }}` [role](../../iam/operations/sa/assign-role-for-sa.md).
 Use the [{{ monitoring-full-name }} query language](../../monitoring/concepts/querying.md) to write queries in QL charts.
 
 {% endnote %}
@@ -55,11 +55,11 @@ To create a {{ monitoring-name }} connection:
 1. Select a **{{ monitoring-name }}** connection.
 1. Specify the connection parameters:
 
-   * **Cloud and folder**. Select the folder where your service account is located.
-   * **Service account**. Select an existing service account or create a new one.
+   * **Cloud and folder**: Select the folder where your service account is located.
+   * **Service account**: Select an existing service account or create a new one.
 
 1. Click **Create connection**.
-1. Enter the connection name and click **Create**. The connection appears in the list.
+1. Enter the connection name and click **Create**. The connection will appear in the list.
 
 ## Create a QL chart {#create-sql-chart}
 
@@ -77,7 +77,7 @@ To create a {{ monitoring-name }} connection:
    1. At the bottom of the screen, go to the **Queries** tab.
    1. In the line with the desired query, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Copy as text**.
 
-      Example query:
+      Sample request:
 
       ```sql
       alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.{{ dns-zone }}", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
@@ -90,7 +90,7 @@ To create a {{ monitoring-name }} connection:
    ![monitoring-datetime-parameters](../../_assets/datalens/monitoring-visualization/monitoring-datetime-parameters.png)
 
 1. Click **Start**. Check that the query is executed without errors and the chart with the data is displayed.
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Enter the chart name `Monitoring Data Chart` and click **Save**.
 
 You can place the chart created on the dashboard. You can also add a selector to the dashboard to control the QL chart `interval` parameter.
@@ -126,7 +126,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 ## Add selectors to the dashboard {#add-selectors-to-dashboard}
 
-Add a [selector](../../datalens/concepts/dashboard.md#selector) to select the time interval for which the data is displayed:
+Add a [selector](../../datalens/dashboard/selector.md) to select the time interval for which the data is displayed:
 
 1. At the top of the page, click **Add**.
 1. Choose **Selector**.
@@ -144,7 +144,7 @@ Add a [selector](../../datalens/concepts/dashboard.md#selector) to select the ti
 
    ![image](../../_assets/datalens/monitoring-visualization/selector-default-values.png)
 
-1. Enable the **Title** option and enter `Date interval`.
+1. Enable the **Name** option and enter `Date interval`.
 1. Click **Add**.
 1. Place the selector on the dashboard under the chart.
 1. Save the dashboard.

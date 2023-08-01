@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARR_SUM.md
+sourcePath: ru/_api-ref/datalens/function-ref/ARR_SUM.md
 ---
 
 # ARR_SUM
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 ARR_SUM( array )
 ```
 
-#### Description {#description}
-Returns the sum of elements in the `array`.
+#### Описание {#description}
+Возвращает сумму элементов в массиве `array`.
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
 {% note info %}
 
-This function cannot work with arrays with `Nullable` items. To remove `NULL` items from the array, use [ARR_REMOVE](ARR_REMOVE.md) or [REPLACE](REPLACE_ARRAY.md).
+Функция не работает для массивов с `Nullable` элементами. Чтобы удалить из массива элементы, равные `NULL`, используйте [ARR_REMOVE](ARR_REMOVE.md) или [REPLACE](REPLACE_ARRAY.md).
 
 {% endnote %}
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -43,6 +43,6 @@ This function cannot work with arrays with `Nullable` items. To remove `NULL` it
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`.

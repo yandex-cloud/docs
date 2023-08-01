@@ -1,20 +1,20 @@
 ---
-title: Logical functions
+title: Логические функции
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/logical-functions.md
+sourcePath: ru/_api-ref/datalens/function-ref/logical-functions.md
 ---
 
-# Logical functions
+# Логические функции
 
 
 ## [CASE](CASE.md)
 
-**Syntax:**<br/>`CASE expression
+**Синтаксис:**<br/>`CASE expression
     WHEN value_1 THEN result_1
     [ WHEN value_2 THEN result_2
       ... ]
     ELSE default_result
-END`<br/>or<br/>`CASE(
+END`<br/>или<br/>`CASE(
     expression,
     value_1, result_1,
   [ value_2, result_2,
@@ -22,52 +22,54 @@ END`<br/>or<br/>`CASE(
     default_result
 )`
 
-Compares `expression` to `value_1`, `value_2`, ... consecutively and returns the corresponding result for the first match. If no match is found, it returns `default_result`.
+Сравнивает выражение `expression` с последовательностью значений `value_1`, `value_2`, ... и возвращает результат для первого совпадения.
+Если совпадений не найдено, то возвращает `default_result`.
 
 
 
 ## [IF](IF.md)
 
-**Syntax:**<br/>`IF condition_1
+**Синтаксис:**<br/>`IF condition_1
     THEN result_1
 [ ELSEIF condition_2
     THEN result_2
   ... ]
 ELSE
     default_result
-END`<br/>or<br/>`IF(
+END`<br/>или<br/>`IF(
     condition_1, result_1,
   [ condition_2, result_2,
     ... ]
     default_result
 )`
 
-Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.
+Проверяет последовательно логические выражения `condition_1`, `condition_2`, ... и возвращает соответсвующий результат для первого выполнения.
+Если все `condition_1`, `condition_2`, ... возвращают `FALSE`, то блок возвращает `default_result`.
 
 
 
 ## [IFNULL](IFNULL.md)
 
-**Syntax:**`IFNULL( check_value, alt_value )`
+**Синтаксис:**`IFNULL( check_value, alt_value )`
 
-Returns `check_value` if it's not `NULL`. Otherwise returns `alt_value`.
+Возвращает `check_value`, если оно не `NULL`. В противном случае возвращает `alt_value`.
 
 
 
 ## [ISNULL](ISNULL.md)
 
-**Syntax:**<br/>`ISNULL( expression )`<br/>or<br/>`expression IS [ NOT ] NULL`
+**Синтаксис:**<br/>`ISNULL( expression )`<br/>или<br/>`expression IS [ NOT ] NULL`
 
-Returns `TRUE` if `expression` is `NULL`, otherwise returns `FALSE`.
+Возвращает `TRUE`, если `expression` является `NULL`. В противном случае возвращает `FALSE`.
 
-`expression IS NOT NULL` returns the opposite result.
+Вариант `expression IS NOT NULL` возвращает противоположное значение.
 
 
 
 ## [ZN](ZN.md)
 
-**Syntax:**`ZN( expression )`
+**Синтаксис:**`ZN( expression )`
 
-Returns `expression` if it's not `NULL`. Otherwise returns 0.
+Возвращает значение выражения `expression`, если оно не `NULL`. В противном случае возвращает 0.
 
 

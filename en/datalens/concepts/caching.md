@@ -7,9 +7,9 @@ _Cache_ stores frequently requested data and provides quick access to it.
 Default cache lifetime: 300 seconds (5 minutes). The user can change cache lifetime in the [connection](connection.md) settings up to 86,400 seconds (1 day).
 
 
-## Caching in {{ datalens-public }} {#caching-in-public}
+## Caching in public objects {#caching-in-public}
 
-Charts and dashboards published in {{ datalens-public }} benefit from additional caching, so the cache lifetime for them is five minutes or more.
+[Public](./datalens-public.md) charts and dashboards benefit from additional caching, so the cache lifetime for them is five minutes or more.
 
 
 ## Purge cache conditions {#reset-cache}

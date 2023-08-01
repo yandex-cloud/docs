@@ -1,48 +1,48 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/UNNEST.md
+sourcePath: ru/_api-ref/datalens/function-ref/UNNEST.md
 ---
 
 # UNNEST
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 UNNEST( array )
 ```
 
-#### Description {#description}
-Expands the `array` array expression to a set of rows.
+#### Описание {#description}
+Дублирует исходную строку для каждого элемента массива `array`.
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers | Array of strings`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
 {% note info %}
 
-`PostgreSQL` doesn't allow filtering fields containing the UNNEST function. If the data source is `PostgreSQL`, do not use such fields in selectors.
+`PostgreSQL` запрещает фильтрацию по полям, содержащим функцию `UNNEST`. Не используйте такие поля для создания селектора, если источник данных — `PostgreSQL`.
 
 {% endnote %}
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
 
-Source data
+Исходные данные
 
 | **City**   | **Category**                       |
 |:-----------|:-----------------------------------|
 | `'Moscow'` | `['Office Supplies', 'Furniture']` |
 | `'London'` | `['Office Supplies']`              |
 
-Result
+Результат
 
 | **[City]**   | **UNNEST([Category])**   |
 |:-------------|:-------------------------|
@@ -53,6 +53,6 @@ Result
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

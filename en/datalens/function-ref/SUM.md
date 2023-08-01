@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/SUM.md
+sourcePath: ru/_api-ref/datalens/function-ref/SUM.md
 ---
 
 # SUM
 
-_Function `SUM` is also found in the following categories: [Window functions](SUM_WINDOW.md)._
+_Функция `SUM` также доступна в следующих категориях: [Оконные функции](SUM_WINDOW.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   SUM( value )
   ```
 
-- Extended
+- Расширенный
 
   ```
   SUM( value
@@ -26,27 +26,27 @@ _Function `SUM` is also found in the following categories: [Window functions](SU
      )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the sum of all expression values. Applicable to numeric data types only.
+#### Описание {#description}
+Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
 
-**Argument types:**
-- `value` — `Fractional number | Integer`
-
-
-**Return type**: Same type as (`value`)
-
-#### Example {#examples}
+**Типы аргументов:**
+- `value` — `Дробное число | Целое число`
 
 
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+
+#### Пример {#examples}
 
 
-Source data
+
+
+Исходные данные
 
 | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:------------------|:--------------------|:-------------|:-------------|
@@ -57,11 +57,11 @@ Source data
 | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
 | `'Detroit'`       | `'Furniture'`       | `5`          | `6205.87`    |
 
-Grouped by `[City]`.
+Группировка по `[City]`.
 
-Sorted by `[City]`.
+Сортировка по `[City]`.
 
-Result
+Результат
 
 | **[City]**        | **SUM([Orders])**   | **SUM([Profit])**   |
 |:------------------|:--------------------|:--------------------|
@@ -73,6 +73,6 @@ Result
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

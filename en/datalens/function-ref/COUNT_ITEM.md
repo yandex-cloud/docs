@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/COUNT_ITEM.md
+sourcePath: ru/_api-ref/datalens/function-ref/COUNT_ITEM.md
 ---
 
 # COUNT_ITEM
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 COUNT_ITEM( array, value )
 ```
 
-#### Description {#description}
-Returns the number of elements in the array `array` equal to `value`. The type of `value` must match the type of the `array` elements.
+#### Описание {#description}
+Возвращает количество элементов массива `array`, равных `value`. Тип `value` должен соответствовать типу элементов `array`.
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers | Array of strings`
-- `value` — `Fractional number | Integer | String`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
+- `value` — `Дробное число | Целое число | Строка`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 COUNT_ITEM(ARRAY(1, 2, 2, 3), 2) = 2
@@ -39,6 +39,6 @@ COUNT_ITEM(ARRAY(1, NULL, 2, NULL), NULL) = 2
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

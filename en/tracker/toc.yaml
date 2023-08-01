@@ -663,8 +663,10 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: April 2023
+      - name: May 2023
         href: changelogs/index.md
+      - name: April 2023
+        href: changelogs/2304.md
       - name: March 2023
         href: changelogs/2303.md
       - name: February 2023

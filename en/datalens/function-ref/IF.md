@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/IF.md
+sourcePath: ru/_api-ref/datalens/function-ref/IF.md
 ---
 
 # IF
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- As a block
+- Как блок
 
   ```
   IF condition_1
@@ -24,7 +24,7 @@ sourcePath: en/_api-ref/datalens/function-ref/IF.md
   END
   ```
 
-- As a function
+- Как функция
 
   ```
   IF(
@@ -37,20 +37,21 @@ sourcePath: en/_api-ref/datalens/function-ref/IF.md
 
 {% endlist %}
 
-#### Description {#description}
-Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.
+#### Описание {#description}
+Проверяет последовательно логические выражения `condition_1`, `condition_2`, ... и возвращает соответсвующий результат для первого выполнения.
+Если все `condition_1`, `condition_2`, ... возвращают `FALSE`, то блок возвращает `default_result`.
 
-**Argument types:**
-- `condition_1` — `Any`
-- `result_1` — `Any`
-- `condition_2` — `Any`
-- `result_2` — `Any`
-- `default_result` — `Any`
+**Типы аргументов:**
+- `condition_1` — `Любой`
+- `result_1` — `Любой`
+- `condition_2` — `Любой`
+- `result_2` — `Любой`
+- `default_result` — `Любой`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 IF
@@ -62,10 +63,10 @@ IF
 END
 ```
 
-{% cut "Example with data table" %}
+{% cut "Пример с таблицей данных" %}
 
 
-Formulas:
+Формулы:
 
 - **sales**: `[sales]` ;
 - **if_function**: `IF(ZN([sales]) < 100, "Less than 100", [sales] < 1000, "100 - 1000", "1000 and greater")` ;
@@ -85,6 +86,6 @@ Formulas:
 {% endcut %}
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

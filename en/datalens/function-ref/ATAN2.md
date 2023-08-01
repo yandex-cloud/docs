@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ATAN2.md
+sourcePath: ru/_api-ref/datalens/function-ref/ATAN2.md
 ---
 
 # ATAN2
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 ATAN2( x, y )
 ```
 
-#### Description {#description}
-Returns the arctangent in radians for the specified coordinates `x` and `y`.
+#### Описание {#description}
+Возвращает выраженный в радианах арктангенс для заданных координат `x` и `y`.
 
-**Argument types:**
-- `x` — `Fractional number | Integer`
-- `y` — `Fractional number | Integer`
+**Типы аргументов:**
+- `x` — `Дробное число | Целое число`
+- `y` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 ATAN2(5, 7) = 0.62024
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -1,54 +1,56 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DATETRUNC.md
+sourcePath: ru/_api-ref/datalens/function-ref/DATETRUNC.md
 ---
 
 # DATETRUNC
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 DATETRUNC( datetime, unit [ , number ] )
 ```
 
-#### Description {#description}
-Rounds `datetime` down to the given `unit`. If optional `number` is given, then the value is rounded down to a `number` multiple of `unit` (omitting `number` is the same as `number = 1`).
+#### Описание {#description}
+Возвращает дату, округленную по аргументу `unit`.
 
-Supported units:
+Если задан аргумент `number`, то происходит округление до этого количества временных единиц. Отсутствие аргумента эквивалентно значению `1`.
+
+Поддерживаемые значения `unit`:
 - `"second"`;
 - `"minute"`;
 - `"hour"`;
-- `"day"` (acts as the day of the year if `number` is specified);
+- `"day"` (при заданном `number` используется номер дня в году);
 - `"week"`;
 - `"month"`;
 - `"quarter"`;
 - `"year"`.
 
-**Argument types:**
-- `datetime` — `Date | Datetime`
-- `unit` — `String`
-- `number` — `Integer`
+**Типы аргументов:**
+- `datetime` — `Дата | Дата и время`
+- `unit` — `Строка`
+- `number` — `Целое число`
 
 
-**Return type**: Same type as (`datetime`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`datetime`)
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`unit`, `number`).
+Значения аргументов (`unit`, `number`) должны быть константами.
 
 {% endnote %}
 
 {% note info %}
 
-The function with three arguments is only available for the sources `ClickHouse` version `21.8` or higher.
+Функция с тремя аргументами доступна только для источников `ClickHouse` версии `21.8` и выше.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 DATETRUNC(#2018-07-12 11:07:13#, "minute") = #2018-07-12 11:07:00#
@@ -67,6 +69,6 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

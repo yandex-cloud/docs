@@ -123,4 +123,3 @@ You can transfer the RLS logic to the source side for sources where the data str
 To configure permissions for a data row value:
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}
-

@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/OP_POWER.md
+sourcePath: ru/_api-ref/datalens/function-ref/OP_POWER.md
 ---
 
-# Power (^)
+# Степень (^)
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 base ^ power
 ```
 
-#### Description {#description}
-Raises `base` to the power of `power`.
+#### Описание {#description}
+Возводит число `base` в степень `power`.
 
-**Argument types:**
-- `base` — `Fractional number | Integer`
-- `power` — `Fractional number | Integer`
+**Типы аргументов:**
+- `base` — `Дробное число | Целое число`
+- `power` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 2 ^ 3 = 8.0
@@ -35,6 +35,6 @@ Raises `base` to the power of `power`.
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

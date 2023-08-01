@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/LEN.md
+sourcePath: ru/_api-ref/datalens/function-ref/LEN.md
 ---
 
 # LEN
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 LEN( value )
 ```
 
-#### Description {#description}
-Returns the number of characters in the string or items in array `value`.
+#### Описание {#description}
+Возвращает количество символов в строке или элементов в массиве `value`.
 
-**Argument types:**
-- `value` — `Array of fractional numbers | Array of integers | Array of strings | String`
+**Типы аргументов:**
+- `value` — `Массив дробных чисел | Массив целых числел | Массив строк | Строка`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 LEN("Computer") = 8
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

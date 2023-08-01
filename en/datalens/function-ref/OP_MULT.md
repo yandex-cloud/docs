@@ -1,32 +1,32 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/OP_MULT.md
+sourcePath: ru/_api-ref/datalens/function-ref/OP_MULT.md
 ---
 
-# Multiplication (*)
+# Умножение (*)
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 value_1 * value_2
 ```
 
-#### Description {#description}
-If both arguments are numbers, it returns the result by multiplying `value_1` by `value_2`.
+#### Описание {#description}
+Если оба аргумента — числа, то возвращает результат умножения числа `value_1` на число `value_2`.
 
-If one of the arguments is `String` and the other is `Integer`, it returns the string repeated the specified number of times.
+Если один из аргументов — `Строка`, а другой — `Целое число`, возвращает строку, повторенную заданное количество раз.
 
-**Argument types:**
-- `value_1` — `Fractional number | Integer | String`
-- `value_2` — `Fractional number | Integer | String`
+**Типы аргументов:**
+- `value_1` — `Дробное число | Целое число | Строка`
+- `value_2` — `Дробное число | Целое число | Строка`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 2 * 3 = 6
@@ -45,6 +45,6 @@ If one of the arguments is `String` and the other is `Integer`, it returns the s
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

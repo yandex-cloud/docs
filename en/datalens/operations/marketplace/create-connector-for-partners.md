@@ -1,4 +1,4 @@
-# Creating and using a connector
+# Creating a partner connector
 
 If you are a {{ datalens-short-name }} partner, you can create your own connector (connection type) and add it to [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) or to the [connections]({{ link-datalens-main }}/connections/new) page. With the help of a connector, users will be able to create datasets, charts, and dashboards from your data.
 
@@ -146,6 +146,6 @@ You need to create a connector in the same CH cluster that will host your user d
 1. Saves the connection. At this point, {{ datalens-short-name }} deploys a standard dashboard based on connector data.
 
 
-#### For details, see also
+#### See also
 
 - [{#T}](../../concepts/marketplace.md)

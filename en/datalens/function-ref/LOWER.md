@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/LOWER.md
+sourcePath: ru/_api-ref/datalens/function-ref/LOWER.md
 ---
 
 # LOWER
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 LOWER( string )
 ```
 
-#### Description {#description}
-Returns the string `string` in lowercase.
+#### Описание {#description}
+Возвращает строку `string` в нижнем регистре.
 
-**Argument types:**
-- `string` — `String`
+**Типы аргументов:**
+- `string` — `Строка`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 LOWER("Lorem ipsum") = "lorem ipsum"
@@ -34,6 +34,6 @@ LOWER("Карл у Клары") = "карл у клары"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

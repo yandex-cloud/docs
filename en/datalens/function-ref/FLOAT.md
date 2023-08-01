@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/FLOAT.md
+sourcePath: ru/_api-ref/datalens/function-ref/FLOAT.md
 ---
 
 # FLOAT
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 FLOAT( expression )
 ```
 
-#### Description {#description}
-Converts the `expression` expression to fractional number format according to the following rules:
+#### Описание {#description}
+Переводит выражение `expression` в формат дробного числа по следующим правилам:
 
-| Type                                          | Value                                                                                                                                                                                                             |
-|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
-| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+| Тип                                           | Значение                                                                                                                                                                                                                                        |
+|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Дробное число &#124; Целое число</code> | Исходное значение.                                                                                                                                                                                                                              |
+| <code>Дата &#124; Дата и время</code>         | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
+| `Строка`                                      | Число из строки в десятичной записи.                                                                                                                                                                                                            |
+| `Логический`                                  | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                                                |
 
-**Argument types:**
-- `expression` — `Boolean | Date | Datetime | Fractional number | Integer | String`
+**Типы аргументов:**
+- `expression` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 FLOAT(7) = 7.0
@@ -45,6 +45,6 @@ FLOAT(TRUE) = 1.0
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

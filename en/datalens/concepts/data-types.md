@@ -8,14 +8,14 @@ description: "{{ datalens-name }} uses multiple data sources whose fields may ta
 {{ datalens-short-name }} uses multiple data sources whose fields may take different data types.
 
 To streamline the data operations, {{ datalens-short-name }} converts the source data types to its own types.
-This optimizes data operations. For more information, see [{#T}](#types-lookup-table).
+This optimizes data operations. For more information, see [{#T}](../dataset/types-lookup-table.md).
 
 You can change the field data type in the dataset interface and in the wizard.
 
 
 {% note warning %}
 
-When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
+When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.
 If it can't identify the data type, DataLens sets the `String` data type for the field.
 
 You can use the dataset interface or the wizard to change the field data type.
@@ -32,6 +32,12 @@ If a single string is input, it must contain a list of two numbers in JSON forma
 
 If the source data is a string like `"[55.75222,37.61556]"`, you can use the dataset interface or wizard to change the field data type without a formula.
 
+{% note info %}
+
+{% include notitle [get-geo](../../_qa/datalens/get-geo.md) %}
+
+{% endnote %}
+
 #### Example notation {#geopoint-example}
 
 ```sql
@@ -45,6 +51,12 @@ Several coordinate points defining the polygon on the map. In {{ datalens-short-
 The [Even-Odd](https://en.wikipedia.org/wiki/Even–odd_rule) algorithm is used to fill in the polygon. This way you can create polygons with holes.
 
 The function accepts strings in `"[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]"` format. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without a formula.
+
+{% note info %}
+
+{% include notitle [get-geo](../../_qa/datalens/get-geo.md) %}
+
+{% endnote %}
 
 #### Example notation {#geopolygon-example}
 
@@ -231,7 +243,7 @@ To store trees, use sources that support operations with arrays:
 
 ### Creating a tree {#how-to-create-tree}
 
-1. In the data source, define an array with a full path for each node of the tree. For example:
+1. In the data source, define an array with a full path for each node of the tree, e.g.:
 
    * United States: `["United States"]`
    * West: `["United States", "West"]`
@@ -265,26 +277,3 @@ In the current version, a tree hierarchy has the following limitations:
 * The tree expansion state is not remembered.
 * Selectors do not support trees.
 * A source should store intermediate tree nodes, even those with no data available.
-
-## Data type mapping table {#types-lookup-table}
-
-When you create a dataset, {{ datalens-short-name }} converts the source data to its own type for streamlined data processing.
-This helps {{ datalens-short-name }} unify the operations with data from different sources.
-
-The table below shows how data types of different databases and {{ datalens-short-name }} internal data types correspond to one another.
-
-DataLens | ClickHouse | PostgreSQL | MySQL | MS SQL |
------ | ----- | ----- | ----- | ----- |
-**Boolean** | boolean | boolean | bit | bit |
-**Date** | date | date | date | date |
-**Date and time** | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |
-**Floating-point number** | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup> |
-**Integer** | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |
-**String** | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |
-**Geopoint** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |
-**Geopolygon** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |
-**Integer array** | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Not supported | Not supported |
-**Float array** | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Not supported | Not supported |
-**String array** | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Not supported | Not supported |
-
-<sup>*</sup> You may lose precision when converting data.

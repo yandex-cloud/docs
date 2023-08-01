@@ -1,49 +1,49 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DAYOFWEEK.md
+sourcePath: ru/_api-ref/datalens/function-ref/DAYOFWEEK.md
 ---
 
 # DAYOFWEEK
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 DAYOFWEEK( datetime [ , firstday ] )
 ```
 
-#### Description {#description}
-Returns the day of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
-- Monday — 1.
-- Sunday — 7.
+#### Описание {#description}
+Возвращает день недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
+- Понедельник — 1;
+- Воскресенье — 7.
 
-If the additional parameter `firstday` is specified, this day is considered the first day of the week. Valid values:
-- `"Monday"`, `"Mon"` — Monday;
-- `"Tuesday"`. `"Tue"` — Tuesday;
-- `"Wednesday"`, `"Wed"` — Wednesday;
-- `"Thursday"`, `"Thu"` — Thursday;
-- `"Friday"`, `"Fri"` — Friday;
-- `"Saturday"`, ` "Sat"` — Saturday;
-- `"Sunday"`, `"Sun"` — Sunday.
-
-
-**Argument types:**
-- `datetime` — `Date | Datetime`
-- `firstday` — `String`
+Если указан дополнительный параметр `firstday`, то этот день считается первым в неделе. Допустимые значения:
+- `"Monday"`, `"Mon"` — понедельник;
+- `"Tuesday"`, `"Tue"` — вторник;
+- `"Wednesday"`, `"Wed"` — среда;
+- `"Thursday"`, `"Thu"` — четверг;
+- `"Friday"`, `"Fri"` — пятница;
+- `"Saturday"`, `"Sat"` — суббота;
+- `"Sunday"`, `"Sun"` — воскресенье.
 
 
-**Return type**: `Integer`
+**Типы аргументов:**
+- `datetime` — `Дата | Дата и время`
+- `firstday` — `Строка`
+
+
+**Возвращаемый тип**: `Целое число`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`firstday`).
+Значения аргументов (`firstday`) должны быть константами.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 DAYOFWEEK(#1971-01-14 01:02:03#) = 4
@@ -58,6 +58,6 @@ DAYOFWEEK(#1971-01-14#, "wednesday") = 2
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

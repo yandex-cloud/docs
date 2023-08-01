@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/SUM_WINDOW.md
+sourcePath: ru/_api-ref/datalens/function-ref/SUM_WINDOW.md
 ---
 
-# SUM (window)
+# SUM (оконная)
 
-_Function `SUM` is also found in the following categories: [Aggregate functions](SUM.md)._
+_Функция `SUM` также доступна в следующих категориях: [Агрегатные функции](SUM.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   SUM( value
@@ -19,10 +19,10 @@ _Function `SUM` is also found in the following categories: [Aggregate functions]
      )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Extended
+- Расширенный
 
   ```
   SUM( value
@@ -31,27 +31,27 @@ _Function `SUM` is also found in the following categories: [Aggregate functions]
      )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the sum of all expression values. Applicable to numeric data types only.
+#### Описание {#description}
+Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
 
-**Argument types:**
-- `value` — `Fractional number | Integer`
-
-
-**Return type**: Same type as (`value`)
-
-#### Example {#examples}
+**Типы аргументов:**
+- `value` — `Дробное число | Целое число`
 
 
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+
+#### Пример {#examples}
 
 
-Source data
+
+
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -67,11 +67,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`, `[Category]`.
+Группировка по `[City]`, `[Category]`.
 
-Sorted by `[City]`, `[Category]`.
+Сортировка по `[City]`, `[Category]`.
 
-Result
+Результат
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **SUM(SUM([Orders]) TOTAL)**   | **SUM(SUM([Orders]) WITHIN [City])**   | **SUM(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
@@ -87,6 +87,6 @@ Result
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

@@ -32,7 +32,7 @@ _Дашборд_ — страница или набор страниц, на к�
   * [{#T}](../operations/dashboard/auto-update.md)
   * [{#T}](../operations/dashboard/display-modes.md)
 
+
 #### См. также {#see-also}
 
-* [{#T}](optimization_recommendations.md)
 * [{#T}](../security/index.md)

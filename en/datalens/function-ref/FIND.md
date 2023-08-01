@@ -1,33 +1,33 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/FIND.md
+sourcePath: ru/_api-ref/datalens/function-ref/FIND.md
 ---
 
 # FIND
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 FIND( string, substring [ , start_index ] )
 ```
 
-#### Description {#description}
-Returns the index of the position of the first character of the substring `substring` in the string `string`.
+#### Описание {#description}
+Возвращает индекс позиции первого символа подстроки `substring` в строке `string`.
 
-If the `start_index` option is specified, the search starts from the specified position.
+Если указан опциональный параметр `start_index`, то поиск начнется с указанной позиции.
 
-**Argument types:**
-- `string` — `String`
-- `substring` — `String`
-- `start_index` — `Integer`
+**Типы аргументов:**
+- `string` — `Строка`
+- `substring` — `Строка`
+- `start_index` — `Целое число`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 FIND("Lorem ipsum dolor sit amet", "abc") = 0
@@ -42,6 +42,6 @@ FIND("Lorem ipsum dolor sit amet", "or", 7) = 16
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

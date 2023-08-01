@@ -1,31 +1,31 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/FDIV_SAFE.md
+sourcePath: ru/_api-ref/datalens/function-ref/FDIV_SAFE.md
 ---
 
 # FDIV_SAFE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 FDIV_SAFE( numerator, denominator [ , fallback_value ] )
 ```
 
-#### Description {#description}
-Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
+#### Описание {#description}
+Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
 
-**Argument types:**
-- `numerator` — `Fractional number | Integer`
-- `denominator` — `Fractional number | Integer`
-- `fallback_value` — `Fractional number | Integer`
+**Типы аргументов:**
+- `numerator` — `Дробное число | Целое число`
+- `denominator` — `Дробное число | Целое число`
+- `fallback_value` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -37,6 +37,6 @@ Divides `numerator` by `denominator`. Returns `fallback_value` if division by ze
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

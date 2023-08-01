@@ -1,10 +1,11 @@
 # Request permissions
 
-To request permission to a directory or object that:
+You can request permission to a directory or object that you do not have access to.
+You can also request editing permissions to a directory or object that you are allowed to view:
 
 {% list tabs %}
 
-- You have no access to
+- Request permissions
 
    1. On the navigation page, find the relevant directory or object and click on it.
 
@@ -12,7 +13,7 @@ To request permission to a directory or object that:
 
    1. Enter a username, select the permissions, and click **Request**.
 
-- You have access to
+- Edit permissions
 
    1. On the navigation page, find the relevant directory or object.
 

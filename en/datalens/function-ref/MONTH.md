@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/MONTH.md
+sourcePath: ru/_api-ref/datalens/function-ref/MONTH.md
 ---
 
 # MONTH
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 MONTH( datetime )
 ```
 
-#### Description {#description}
-Returns the number of the month in the year of the specified date `datetime`.
+#### Описание {#description}
+Возвращает номер месяца в году в указанной дате `datetime`.
 
-**Argument types:**
-- `datetime` — `Date | Datetime`
+**Типы аргументов:**
+- `datetime` — `Дата | Дата и время`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 MONTH(#2019-01-23#) = 1
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

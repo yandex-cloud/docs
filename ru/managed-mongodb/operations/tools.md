@@ -57,8 +57,8 @@ db.currentOp({ "$ownOps": true })
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **Логи**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}**.
 
 - CLI
 
@@ -66,7 +66,7 @@ db.currentOp({ "$ownOps": true })
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы посмотреть логи **{{ mmg-name }}**:
+    Чтобы посмотреть логи **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**:
 
     1. Посмотрите описание команды CLI для просмотра логов:
 

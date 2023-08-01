@@ -76,6 +76,8 @@ items:
         href: tutorials/cloud-logging.md
       - name: Processing CDC Debezium streams
         href: tutorials/debezium.md
+      - name: Visualizing {{ datalens-name }} data in {{ objstorage-name }}
+        href: tutorials/datalens.md
       - name: Processing {{ at-name }} audit logs
         href: tutorials/audit-trails.md
       - name: Processing files with billing details
