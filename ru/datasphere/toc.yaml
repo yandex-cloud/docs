@@ -185,6 +185,8 @@ items:
         href: tutorials/regular-launch.md
       - name: Запуск вычислений с помощью API
         href: tutorials/batch-code-execution.md
+      - name: Обучение модели на данных из {{ objstorage-full-name }}
+        href: tutorials/s3-to-datasphere.md
   - name: Справочник API
     items:
       - name: Обзор

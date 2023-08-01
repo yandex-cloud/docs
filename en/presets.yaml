@@ -4857,6 +4857,12 @@ default:
           button_continue: Continue
       homepage:
         title_service-dashboards: Service dashboards
+      monitoring-alerts:
+        status:
+          alarm: Alarm
+          warn: Warning
+      services:
+        label_managed-elasticsearch: Managed Service for Elasticsearch
     yacloud_org:
       entity:
         invitation:
@@ -5075,6 +5081,7 @@ default:
         disabled: Disabled
         edit: Edit
         enabled: Enabled
+        folder: Folder
         id: ID
         import: Import
         label_auto: Auto
@@ -5483,6 +5490,26 @@ default:
         label_form-ttl: TTL (in seconds)
         label_public: Public
         label_zone: Zone
+      elasticsearch:
+        auth:
+          auth-providers: Access control
+          provider-enabled: Enabled
+          provider-hint: Hint
+          provider-icon: Icon
+          provider-type: Provider type
+          saml_settings: SAML settings
+          saml-attribute_dn: attribute_dn
+          saml-attribute_email: attribute_email
+          saml-attribute_groups: attribute_groups
+          saml-attribute_name: attribute_name
+          saml-attribute_principal: attribute_principal
+          saml-idp_entity_id: idp_entity_id
+          saml-idp_metadata_file: idp_metadata_file
+          saml-kibana_url: kibana_url
+          saml-sp_entity_id: sp_entity_id
+        base_field_edition: Edition
+        button_add-hosts: Add hosts
+        label_kibana: Kibana
       forms:
         label_form-list: List
         label_service-account-select: Service account
@@ -5531,6 +5558,7 @@ default:
             label_lockbox: Lockbox
             label_logging: Cloud Logging
             label_managed-clickhouse: Managed Service for ClickHouse
+            label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
@@ -5667,6 +5695,7 @@ default:
             button_action-edit: Edit cluster
             button_action-start: Start cluster
             button_action-stop: Stop cluster
+            label_anytime-maintenance-warning-value: Arbitrary time
           shards:
             button_action-remove: Remove
             button_add: Add shard
@@ -5743,7 +5772,6 @@ default:
           label_network: Network
           maintenance-window-type: Maintenance window
           new_section_resource: Resources
-          resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Platform
           resource_presets_field-type: Type
@@ -5757,7 +5785,9 @@ default:
           section_resource: Host class
           section_service-settings: Service settings
           section_settings: DBMS settings
+          section_storage: Storage
           section_subclusters: Subclusters
+          section_user: User
           value_maintenance-type-anytime: arbitrary
           value_maintenance-type-weekly: by schedule
         hosts:
@@ -5790,6 +5820,7 @@ default:
             title_node-groups: Node groups
             title_virtual-node-group: Virtual host group
         title_dashboards: Dashboards
+        title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
       redis:
         cluster:
@@ -5979,8 +6010,10 @@ default:
           label_lifetime: Lifetime
           popup-confirm_button_delete: Delete
         permissions-dialog:
+          button_add: Add
           button_save: Save
           label_title: ACL editing
+        switch_buckets: Buckets
       support:
         contact:
           label_title: Queries
