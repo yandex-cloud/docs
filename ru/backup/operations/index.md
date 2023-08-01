@@ -3,6 +3,7 @@
 ## Подключение виртуальных машин к {{ backup-name }} {#connect-vm}
 
 * [Создать виртуальную машину Linux с подключением к {{ backup-name }}](create-vm.md)
+* [Подключить виртуальную машину Linux к {{ backup-name }}](connect-vm-linux.md)
 * [Подключить виртуальную машину Windows Server к {{ backup-name }}](connect-vm-windows.md)
 * [Обновить подключение виртуальной машины к {{ backup-name }}](refresh-connection.md)
 

@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/AVG_IF_WINDOW.md
+sourcePath: ru/_api-ref/datalens/function-ref/AVG_IF_WINDOW.md
 ---
 
-# AVG_IF (window)
+# AVG_IF (оконная)
 
-_Function `AVG_IF` is also found in the following categories: [Aggregate functions](AVG_IF.md)._
+_Функция `AVG_IF` также доступна в следующих категориях: [Агрегатные функции](AVG_IF.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   AVG_IF( expression, condition
@@ -19,10 +19,10 @@ _Function `AVG_IF` is also found in the following categories: [Aggregate functio
         )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Extended
+- Расширенный
 
   ```
   AVG_IF( expression, condition
@@ -31,23 +31,23 @@ _Function `AVG_IF` is also found in the following categories: [Aggregate functio
         )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
+#### Описание {#description}
+Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
 
-**Argument types:**
-- `expression` — `Fractional number | Integer`
-- `condition` — `Boolean`
+**Типы аргументов:**
+- `expression` — `Дробное число | Целое число`
+- `condition` — `Логический`
 
 
-**Return type**: Same type as (`expression`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 AVG_IF([Profit], [Category] = 'Office Supplies' TOTAL)
@@ -62,6 +62,6 @@ AVG_IF([Profit], [Category] = 'Office Supplies' AMONG [Date])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

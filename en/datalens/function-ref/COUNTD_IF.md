@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/COUNTD_IF.md
+sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_IF.md
 ---
 
 # COUNTD_IF
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   COUNTD_IF( expression, condition )
   ```
 
-- Extended
+- Расширенный
 
   ```
   COUNTD_IF( expression, condition
@@ -26,31 +26,31 @@ sourcePath: en/_api-ref/datalens/function-ref/COUNTD_IF.md
            )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the number of unique values in the group that meet the `condition` condition.
+#### Описание {#description}
+Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
 
-See also [COUNTD_APPROX](COUNTD_APPROX.md).
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
 
-**Argument types:**
-- `expression` — `Any`
-- `condition` — `Boolean`
+**Типы аргументов:**
+- `expression` — `Любой`
+- `condition` — `Логический`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD_IF([ClientID], [Profit] > 5)
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

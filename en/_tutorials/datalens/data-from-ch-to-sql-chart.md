@@ -23,7 +23,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 {% endnote %}
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -40,13 +40,13 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 1. On the **Query** tab, enter the query code:
 
    ```sql
-   SELECT 
+   SELECT
       toDate(t1.OrderDatetime) as "Date",
       COUNT(t1.ClientID) as "Number of new customers", t3.ClientStatus as "Status"
    FROM
       samples.MS_SalesFacts t1,
-      (SELECT 
-   	      ClientID, 
+      (SELECT
+   	      ClientID,
          MIN(OrderDatetime) as FirstDate
       FROM samples.MS_SalesFacts
       GROUP BY ClientID) as t2,
@@ -101,7 +101,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 
       ![sql-chart-rezult](../../_assets/datalens/sql-chart/sql-chart-rezult.png)
 
-1. In the upper right-hand corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Enter `New clients` as your chart name and click **Save**.
 
 You can place the chart created on the dashboard. You can also equip the dashboard with selectors to control the values of the QL chart `status` and `interval` parameters.
@@ -140,7 +140,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 ## Add selectors to the dashboard {#add-selectors-to-dashboard}
 
-1. Add a [selector](../../datalens/concepts/dashboard.md#selector) to be able to filter the chart by client status:
+1. Add a [selector](../../datalens/dashboard/selector.md) to be able to filter the chart by client status:
 
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.

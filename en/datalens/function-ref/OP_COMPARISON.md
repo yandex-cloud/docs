@@ -1,57 +1,57 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/OP_COMPARISON.md
+sourcePath: ru/_api-ref/datalens/function-ref/OP_COMPARISON.md
 ---
 
-# Comparison
+# Сравнение
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
-Equality
+Равенство
 ```
 value_1 = value_2
 ```
-Inequality
+Неравенство
 ```
 value_1 != value_2
 ```
-Less than
+Меньше
 ```
 value_1 < value_2
 ```
-Less than or equal
+Меньше или равно
 ```
 value_1 <= value_2
 ```
-Greater than
+Больше
 ```
 value_1 > value_2
 ```
-Greater than or equal
+Больше или равно
 ```
 value_1 >= value_2
 ```
 
-#### Description {#description}
-Compares the value `value_1` with the value `value_2`.
+#### Описание {#description}
+Сравнивают значение `value_1` со значением `value_2`.
 
-**Argument types:**
-- `value_1` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
-- `value_2` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+**Типы аргументов:**
+- `value_1` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+- `value_2` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
 
 
-**Return type**: `Boolean`
+**Возвращаемый тип**: `Логический`
 
 {% note info %}
 
-Due to implementation details of the `Fractional number` type in `ClickHouse` sources it is recommended to use the [COMPARE](COMPARE.md) function instead of comparison operators for this type.
+Из-за особенностей реализации типа `Дробное число` в источниках `ClickHouse` рекомендуется для этого типа использовать функцию [COMPARE](COMPARE.md) вместо операторов сравнения.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 1 = 1 = TRUE
@@ -62,6 +62,6 @@ Due to implementation details of the `Fractional number` type in `ClickHouse` so
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

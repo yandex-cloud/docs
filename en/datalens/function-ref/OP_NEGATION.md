@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/OP_NEGATION.md
+sourcePath: ru/_api-ref/datalens/function-ref/OP_NEGATION.md
 ---
 
-# Negation (-)
+# Отрицание (-)
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 -value
 ```
 
-#### Description {#description}
-Returns the number `value` with the opposite sign.
+#### Описание {#description}
+Возвращает число `value` с противоположным знаком.
 
-**Argument types:**
-- `value` — `Fractional number | Integer`
+**Типы аргументов:**
+- `value` — `Дробное число | Целое число`
 
 
-**Return type**: Same type as (`value`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 - (5) = -5
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

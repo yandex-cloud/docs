@@ -257,7 +257,7 @@
 1. В верхнем меню нажмите **Git** и выберите **Clone**.
 1. В открывшемся окне введите URI репозитория `https://github.com/yandex-cloud-examples/yc-datasphere-s3-mount.git` и нажмите кнопку **Clone**.
 
- В ноутбуке `diabetes_catboost.ipynb` вы подключитесь к датасету `diabetes_data.csv` в вашем смонтированном бакете и обучите модель `CatBoost`:
+В ноутбуке `diabetes_catboost.ipynb` вы подключитесь к датасету `diabetes_data.csv` в вашем смонтированном бакете и обучите модель `CatBoost`:
 
 1. Установите необходимые модули:
 

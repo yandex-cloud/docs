@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/STARTSWITH.md
+sourcePath: ru/_api-ref/datalens/function-ref/STARTSWITH.md
 ---
 
-# STARTSWITH (string)
+# STARTSWITH (строковая)
 
-_Function `STARTSWITH` is also found in the following categories: [Array functions](STARTSWITH_ARRAY.md)._
+_Функция `STARTSWITH` также доступна в следующих категориях: [Функции для работы с массивами](STARTSWITH_ARRAY.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 STARTSWITH( string, substring )
 ```
 
-#### Description {#description}
-Returns `TRUE` if `string` starts with `substring`. For case-insensitive searches, see [ISTARTSWITH](ISTARTSWITH.md).
+#### Описание {#description}
+Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`. Для регистронезависимой проверки см. [ISTARTSWITH](ISTARTSWITH.md).
 
-**Argument types:**
-- `string` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
-- `substring` — `String`
+**Типы аргументов:**
+- `string` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+- `substring` — `Строка`
 
 
-**Return type**: `Boolean`
+**Возвращаемый тип**: `Логический`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 STARTSWITH("Petrov Ivan", "Petrov") = TRUE
@@ -39,6 +39,6 @@ STARTSWITH("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

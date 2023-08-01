@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/SQUARE.md
+sourcePath: ru/_api-ref/datalens/function-ref/SQUARE.md
 ---
 
 # SQUARE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 SQUARE( number )
 ```
 
-#### Description {#description}
-Returns the number `number` raised to the power of 2.
+#### Описание {#description}
+Возвращает число `number`, возведенное в степень 2.
 
-**Argument types:**
-- `number` — `Fractional number | Integer`
+**Типы аргументов:**
+- `number` — `Дробное число | Целое число`
 
 
-**Return type**: Same type as (`number`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`number`)
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -41,6 +41,6 @@ Returns the number `number` raised to the power of 2.
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

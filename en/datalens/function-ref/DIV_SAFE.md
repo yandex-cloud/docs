@@ -1,32 +1,32 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DIV_SAFE.md
+sourcePath: ru/_api-ref/datalens/function-ref/DIV_SAFE.md
 ---
 
 # DIV_SAFE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 DIV_SAFE( numerator, denominator [ , fallback_value ] )
 ```
 
-#### Description {#description}
-Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
-The result is rounded down to the nearest integer.
+#### Описание {#description}
+Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
+Результат будет округлен до целого числа.
 
-**Argument types:**
-- `numerator` — `Fractional number | Integer`
-- `denominator` — `Fractional number | Integer`
-- `fallback_value` — `Integer`
+**Типы аргументов:**
+- `numerator` — `Дробное число | Целое число`
+- `denominator` — `Дробное число | Целое число`
+- `fallback_value` — `Целое число`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -38,6 +38,6 @@ The result is rounded down to the nearest integer.
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

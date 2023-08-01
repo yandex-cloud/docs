@@ -112,6 +112,8 @@ items:
             href: operations/connection/create-appmetrica.md
           - name: Создание подключения к {{ yandex-cloud }} Billing
             href: operations/connection/create-cloud-billing.md
+          - name: Создание подключения к Snowflake
+            href: operations/connection/create-snowflake.md
   - name: Датасет
     items:
       - name: Обзор

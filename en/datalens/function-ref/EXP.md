@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/EXP.md
+sourcePath: ru/_api-ref/datalens/function-ref/EXP.md
 ---
 
 # EXP
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 EXP( number )
 ```
 
-#### Description {#description}
-Returns the result of raising the number 'e' to the power of `number`.
+#### Описание {#description}
+Возвращает результата возведения числа `e` в степень `number`.
 
-**Argument types:**
-- `number` — `Fractional number | Integer`
+**Типы аргументов:**
+- `number` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 EXP(0) = 1.0
@@ -38,6 +38,6 @@ EXP(3) = 20.08553
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -38,7 +38,7 @@ To make it easier to compare different values, you can add conditional formattin
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a table {#create-diagram}
 
@@ -58,41 +58,41 @@ To create a table:
 
    {% endnote %}
 
-### Additional settings {#additional-settings}
+## Additional settings {#additional-settings}
 
-#### Renaming table columns {#change-columns-names}
+### Renaming table columns {#change-columns-names}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
-#### Setting up the width of table columns {#set-column-width}
+### Setting up the width of table columns {#set-column-width}
 
-1. In the top right corner of the **Columns** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you hover the mouse over the section).
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you hover the mouse over the section).
 1. In the **Column width** window that opens, set up the width of each column:
 
-* `Auto`: Automatic column width.
-* `%`: Column width as a percentage of the table's total width.
-* `px`: Column width in pixels.
+   * `Auto`: Automatic column width.
+   * `%`: Column width as a percentage of the table's total width.
+   * `px`: Column width in pixels.
 
-The `%` and `px` options let you make a table cell break (by word). This may increase the number of rows in a cell.
+   The `%` and `px` options let you make a table cell break (by word). This may increase the number of rows in a cell.
 
-{% cut "Sample column width settings" %}
+   {% cut "Sample column width settings" %}
 
-![image](../../_assets/datalens/operations/chart/table-column-setting.png)
+   ![image](../../_assets/datalens/operations/chart/table-column-setting.png)
 
-{% endcut %}
+   {% endcut %}
 
-{% note info %}
+   {% note info %}
 
-The total width of a table always takes up 100% of available space regardless of the specified width of individual columns.
+   The total width of a table always takes up 100% of available space regardless of the specified width of individual columns.
 
-{% endnote %}
+   {% endnote %}
 
 1. Click **Apply**.
 
 To set the width of any column to `Auto`, click **Reset**.
 
-#### Adding a row with totals {#add-totals}
+### Adding a row with totals {#add-totals}
 
 1. In the left part of the screen above the chart, click ![image](../../_assets/datalens/gear.svg).
 1. Enable the **Totals** settings.
@@ -105,27 +105,65 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 {% endnote %}
 
-#### Adding row colors {#add-column-colour}
+### Adding row colors {#add-column-colour}
 
-1. Drag a measure to the **Colors** section.
-1. In the top right corner of the **Colors** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you mouse over the section).
+1. Drag a measure to the **Color** section.
+1. In the top-right corner of the **Color** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you mouse over the section).
 1. Set up colors:
 
-   * **Gradient type**: Select 2 or 3 colors.
-     * Gradient color: Select a color palette for the gradient from the list.
-     * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
-   * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
+    * **Gradient type**: Select 2 or 3 colors.
+      * Gradient color: Select a color palette for the gradient from the list.
+      * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
+    * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
 
-#### Adding a linear indicator to a column with a measure {#add-linear-indicator}
+### Setting up a field fill color {#set-field-colour}
+
+1. Under **Columns**, click the icon to the left of the dimension or measure name.
+1. In the window that opens, enable **Column fill color**.
+1. In the **By field** list, select the field whose values the fill will be based on.
+1. Set the **Fill type**:
+
+   {% note info %}
+
+   You can use the **Palette** type for dimensions and the **Gradient** type for measures.
+
+   {% endnote %}
+
+   {% list tabs %}
+
+   - For a dimension
+
+     1. Click the color scheme selection field and set a color for each dimension value.
+     1. Click **Apply**.
+
+   - For a measure
+
+     1. Click the gradient selection field and set up:
+
+        * **Gradient type**: Select 2 or 3 colors.
+
+          * Gradient color: Select a color palette for the gradient from the list.
+          * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
+
+        * **Set threshold values**: Set numeric thresholds for each color.
+
+     1. Click **Apply**.
+
+   {% endlist %}
+
+1. Click **Apply**.
+
+### Adding a linear indicator to a column with a measure {#add-linear-indicator}
 
 1. Under **Columns**, click the icon to the left of the measure name.
 1. In the window that opens, enable **Linear indicator**.
-1. You can also set up:
+1. Specify the indicator settings:
 
    * **Fill type**: Type of fill color for the indicator.
    * **Positive values**: Indicator color for positive values.
    * **Negative values**: Indicator color for negative values.
-   * **Show labels**: This option enables or disables the display of measure values in a column.
+   * **Show labels**: This option enables displaying measure values in a cell.
+   * **Show in totals**: This option enables displaying the indicator in cells with totals.
    * **Align**: Left or right alignment of the indicator position in a column. Only applies if all numbers in a column are either positive or negative.
    * **Scale**: Sets the indicator scale. If you set it manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
 

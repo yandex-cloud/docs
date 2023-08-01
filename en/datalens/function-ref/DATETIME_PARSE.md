@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DATETIME_PARSE.md
+sourcePath: ru/_api-ref/datalens/function-ref/DATETIME_PARSE.md
 ---
 
 # DATETIME_PARSE
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 DATETIME_PARSE( value )
 ```
 
-#### Description {#description}
-Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats.
+#### Описание {#description}
+Переводит выражение `value` в формат даты и времени. В отличие от [DATETIME](DATETIME.md), поддерживает множество форматов.
 
-**Argument types:**
-- `value` — `String`
+**Типы аргументов:**
+- `value` — `Строка`
 
 
-**Return type**: `Datetime`
+**Возвращаемый тип**: `Дата и время`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 DATETIME_PARSE("2019-01-02 03:04:05") = #2019-01-02 03:04:05#
@@ -58,6 +58,6 @@ DATETIME_PARSE("2019 Jan 02 03:04:05") = #2019-01-02 03:04:05#
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`.

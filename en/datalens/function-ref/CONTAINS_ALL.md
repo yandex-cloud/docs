@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/CONTAINS_ALL.md
+sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS_ALL.md
 ---
 
 # CONTAINS_ALL
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 CONTAINS_ALL( array_1, array_2 )
 ```
 
-#### Description {#description}
-Returns `TRUE` if `array_1` contains all elements of `array_2`.
+#### Описание {#description}
+Возвращает `TRUE`, если `array_1` содержит все элементы `array_2`.
 
-**Argument types:**
-- `array_1` — `Array of fractional numbers | Array of integers | Array of strings`
-- `array_2` — `Array of fractional numbers | Array of integers | Array of strings`
+**Типы аргументов:**
+- `array_1` — `Массив дробных чисел | Массив целых числел | Массив строк`
+- `array_2` — `Массив дробных чисел | Массив целых числел | Массив строк`
 
 
-**Return type**: `Boolean`
+**Возвращаемый тип**: `Логический`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -36,6 +36,6 @@ Returns `TRUE` if `array_1` contains all elements of `array_2`.
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

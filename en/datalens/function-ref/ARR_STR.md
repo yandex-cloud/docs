@@ -1,40 +1,40 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARR_STR.md
+sourcePath: ru/_api-ref/datalens/function-ref/ARR_STR.md
 ---
 
 # ARR_STR
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 ARR_STR( array [ , delimiter [ , null_str ] ] )
 ```
 
-#### Description {#description}
-Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a `NULL` string (`NULL` items are skipped by default).
+#### Описание {#description}
+Из элементов массива `array` формирует строку, используя `delimiter` в качестве разделителя (запятая по умолчанию) и `null_str` в качестве строки, подставляемой вместо `NULL` (по умолчанию такие элементы пропускаются и в результат не попадают).
 
-See also [STR](STR.md)
+См. также [STR](STR.md)
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers | Array of strings`
-- `delimiter` — `String`
-- `null_str` — `String`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
+- `delimiter` — `Строка`
+- `null_str` — `Строка`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`delimiter`, `null_str`).
+Значения аргументов (`delimiter`, `null_str`) должны быть константами.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 ARR_STR(ARRAY(1, 2, NULL, 4)) = 1,2,4
@@ -53,6 +53,6 @@ ARR_STR(ARRAY('a', 'b', '', NULL), ';', '*') = a;b;;*
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

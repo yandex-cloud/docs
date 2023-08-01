@@ -1,52 +1,52 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/REGEXP_EXTRACT.md
+sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_EXTRACT.md
 ---
 
 # REGEXP_EXTRACT
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 REGEXP_EXTRACT( string, pattern )
 ```
 
-#### Description {#description}
-Returns the substring `string` that matches the regular expression pattern `pattern`.
+#### Описание {#description}
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`.
 
-**Argument types:**
-- `string` — `String`
-- `pattern` — `String`
+**Типы аргументов:**
+- `string` — `Строка`
+- `pattern` — `Строка`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`pattern`).
+Значения аргументов (`pattern`) должны быть константами.
 
 {% endnote %}
 
 {% note info %}
 
-See the documentation of the data source to clarify the regular expression syntax.
+Информацию о синтаксисе регулярных выражений уточняйте в документации к источникам данных.
 
 {% endnote %}
 
-Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
+Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
 
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 REGEXP_EXTRACT("RU 912873", "[A-Z]+\s+(\d+)") = "912873"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

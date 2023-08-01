@@ -1,31 +1,31 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ROUND.md
+sourcePath: ru/_api-ref/datalens/function-ref/ROUND.md
 ---
 
 # ROUND
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 ROUND( number [ , precision ] )
 ```
 
-#### Description {#description}
-Rounds the number `number` to the number of decimal digits specified in `precision`.
-If the number `precision` is omitted, `number` is rounded to the nearest integer.
+#### Описание {#description}
+Округляет число `number` до указанного числа знаков `precision` после запятой.
+Если число `precision` не указано, то `number` округляется до ближайшего целого.
 
-**Argument types:**
-- `number` — `Fractional number | Integer`
-- `precision` — `Integer`
+**Типы аргументов:**
+- `number` — `Дробное число | Целое число`
+- `precision` — `Целое число`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 ROUND(3.14159) = 3
@@ -36,6 +36,6 @@ ROUND(3.14159, 3) = 3.142
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

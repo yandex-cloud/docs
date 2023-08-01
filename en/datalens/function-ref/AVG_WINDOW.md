@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/AVG_WINDOW.md
+sourcePath: ru/_api-ref/datalens/function-ref/AVG_WINDOW.md
 ---
 
-# AVG (window)
+# AVG (оконная)
 
-_Function `AVG` is also found in the following categories: [Aggregate functions](AVG.md)._
+_Функция `AVG` также доступна в следующих категориях: [Агрегатные функции](AVG.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   AVG( value
@@ -19,10 +19,10 @@ _Function `AVG` is also found in the following categories: [Aggregate functions]
      )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Extended
+- Расширенный
 
   ```
   AVG( value
@@ -31,27 +31,27 @@ _Function `AVG` is also found in the following categories: [Aggregate functions]
      )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the average of all values. Applicable to numeric data types.
+#### Описание {#description}
+Возвращает среднее арифметическое значений выражения. Работает только с числовыми типами данных.
 
-**Argument types:**
-- `value` — `Any`
-
-
-**Return type**: `Fractional number`
-
-#### Example {#examples}
+**Типы аргументов:**
+- `value` — `Любой`
 
 
+**Возвращаемый тип**: `Дробное число`
+
+#### Пример {#examples}
 
 
-Source data
+
+
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -67,11 +67,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`, `[Category]`.
+Группировка по `[City]`, `[Category]`.
 
-Sorted by `[City]`, `[Category]`.
+Сортировка по `[City]`, `[Category]`.
 
-Result
+Результат
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **AVG(SUM([Orders]) TOTAL)**   | **AVG(SUM([Orders]) WITHIN [City])**   | **AVG(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
@@ -87,6 +87,6 @@ Result
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

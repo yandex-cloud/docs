@@ -4,7 +4,7 @@ A parameter is a variable that can substitute constant values in calculated fiel
 
 Dataset parameters are available in all charts created based on this dataset, while chart parameters are only available in the chart they're created in. The default value for a dataset parameter can be [overridden](../operations/chart/add-parameter-chart.md#change-value) at the chart level.
 
-### Using parameters {#using-params}
+## Using parameters {#using-params}
 
 With dataset or chart parameters, you can manage formulas and change visualization in a chart.
 The saved dataset parameters are substituted in all charts based on this dataset when they're uploaded.
@@ -13,7 +13,7 @@ You can edit parameter values on dashboards using selectors with manual input. H
 
 * Use the **Multiple choice** option.
 * Choose an operation in a selector (leave a dash in the selection field from the **Operation** drop-down list).
-* When using a selector based on a dataset parameter, you must unlink the selector from any others on the dashboard tab (set **Ignore** as your [link](dashboard.md#link) type).
+* When using a selector based on a dataset parameter, you must unlink the selector from any others on the dashboard tab (set **Ignore** as your [link](../dashboard/link.md) type).
 
 You can also specify parameter values in chart links. To do this, add `?` at the end of a URL, write a parameter name with no space after the URL, put `=`, and specify a parameter value with no space. You can list multiple parameters in a URL using `&` as a separator. 
 
@@ -32,7 +32,7 @@ To use a chart with a parameter:
    By changing selector values, you can customize visualization in the chart through the parameter.
 
 
-### Examples {#examples}
+## Examples {#examples}
 
 Let's look at some examples of how to use parameters to manage visualization in a chart. We'll build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (the `samples.MS_SalesFullTable` table) and use it as our data source.
 
@@ -111,7 +111,7 @@ Use a selector to enable selecting a dimension to color in your chart:
    Now, by choosing selector values, you can change the dimension to color in your chart.
 
 
-### Limitations {#restrictions-params}
+## Limitations {#restrictions-params}
 
 When using parameters, keep in mind the following parameter naming restrictions:
 

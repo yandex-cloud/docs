@@ -5,4 +5,3 @@
 #### See also
 
 - [{#T}](../../concepts/marketplace.md)
-- [{#T}](delete-marketplace-product.md)

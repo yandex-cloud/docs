@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/TRIM.md
+sourcePath: ru/_api-ref/datalens/function-ref/TRIM.md
 ---
 
 # TRIM
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 TRIM( string )
 ```
 
-#### Description {#description}
-Returns the string `string` without spaces at the beginning or end of the string.
+#### Описание {#description}
+Возвращает строку `string` без знаков пробела в начале и конце строки.
 
-**Argument types:**
-- `string` — `String`
+**Типы аргументов:**
+- `string` — `Строка`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 TRIM(" Computer ") = "Computer"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

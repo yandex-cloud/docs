@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/GEOPOINT.md
+sourcePath: ru/_api-ref/datalens/function-ref/GEOPOINT.md
 ---
 
 # GEOPOINT
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 GEOPOINT( value_1 [ , value_2 ] )
 ```
 
-#### Description {#description}
-Generates a Geopoint type value. For the input, it accepts a string, a "geopoint" type value, or coordinates — latitude `value_1` and longitude `value_2`. If a single string is input, it must contain a list of two numbers (latitude and longitude) in JSON syntax.
+#### Описание {#description}
+Формирует значение типа геоточка. Принимает на вход строку, либо значение типа "геоточка", либо координаты — широту `value_1` и долготу `value_2`. Если на вход подается одна строка, в ней должен содержаться список из двух чисел, координат (широты и долготы) в JSON-синтаксисе.
 
-**Argument types:**
-- `value_1` — `Fractional number | Geopoint | Integer | String`
-- `value_2` — `Fractional number | Integer | String`
+**Типы аргументов:**
+- `value_1` — `Дробное число | Геоточка | Целое число | Строка`
+- `value_2` — `Дробное число | Целое число | Строка`
 
 
-**Return type**: `Geopoint`
+**Возвращаемый тип**: `Геоточка`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 GEOPOINT("[55.75222,37.61556]") = "[55.75222,37.61556]"
@@ -35,6 +35,6 @@ GEOPOINT(55.75222, 37.61556) = "[55.75222,37.61556]"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

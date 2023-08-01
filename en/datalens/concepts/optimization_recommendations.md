@@ -48,6 +48,6 @@ To optimize data operations, follow the recommendations below:
 
 1. Use the {{ datalens-short-name }} tools that help optimize data operations:
 
-   * [Chart inspector](dashboard.md#diagnostics), a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues.
+   * [Chart inspector](./chart/inspector.md), a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues.
    * [Caching](caching.md) of frequently requested source data to quickly access it.
 

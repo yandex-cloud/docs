@@ -1,264 +1,265 @@
 ---
-title: Mathematical functions
+title: Математические функции
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/numeric-functions.md
+sourcePath: ru/_api-ref/datalens/function-ref/numeric-functions.md
 ---
 
-# Mathematical functions
+# Математические функции
 
 
 ## [ABS](ABS.md)
 
-**Syntax:**`ABS( number )`
+**Синтаксис:**`ABS( number )`
 
-Returns the absolute value of `number`.
+Возвращает абсолюное значение заданного числа `number`.
 
 
 
 ## [ACOS](ACOS.md)
 
-**Syntax:**`ACOS( number )`
+**Синтаксис:**`ACOS( number )`
 
-Returns the arccosine of `number` in radians.
+Возвращает выраженный в радианах арккосинус числа `number`.
 
 
 
 ## [ASIN](ASIN.md)
 
-**Syntax:**`ASIN( number )`
+**Синтаксис:**`ASIN( number )`
 
-Returns the arcsine of `number` in radians.
+Возвращает выраженный в радианах арксинус числа `number`.
 
 
 
 ## [ATAN](ATAN.md)
 
-**Syntax:**`ATAN( number )`
+**Синтаксис:**`ATAN( number )`
 
-Returns the arctangent of `number` in radians.
+Возвращает выраженный в радианах арктангенс числа `number`.
 
 
 
 ## [ATAN2](ATAN2.md)
 
-**Syntax:**`ATAN2( x, y )`
+**Синтаксис:**`ATAN2( x, y )`
 
-Returns the arctangent in radians for the specified coordinates `x` and `y`.
+Возвращает выраженный в радианах арктангенс для заданных координат `x` и `y`.
 
 
 
 ## [CEILING](CEILING.md)
 
-**Syntax:**`CEILING( number )`
+**Синтаксис:**`CEILING( number )`
 
-Rounds the value up to the nearest integer.
+Округляет значение до ближайшего целого числа в большую сторону.
 
 
 
 ## [COMPARE](COMPARE.md)
 
-**Syntax:**`COMPARE( left, right, epsilon )`
+**Синтаксис:**`COMPARE( left, right, epsilon )`
 
-Returns:
-* 0 if `left` and `right` differs by not more than `epsilon`.
-* -1 if `left` is less than `right` by more than `epsilon`.
-* 1 if `left` is greater than `right` by more than `epsilon`.
+Возвращает:
+* 0, если `left` и `right` отличаются не более чем на `epsilon`.
+* -1, если `left` меньше `right` более чем на `epsilon`.
+* 1, если `left` больше `right` более чем на `epsilon`.
 
 
 
 ## [COS](COS.md)
 
-**Syntax:**`COS( number )`
+**Синтаксис:**`COS( number )`
 
-Returns the cosine of `number` in radians.
+Возвращает косинус числа `number`, заданного в радианах.
 
 
 
 ## [COT](COT.md)
 
-**Syntax:**`COT( number )`
+**Синтаксис:**`COT( number )`
 
-Returns the cotangent of `number` in radians.
+Возвращает котангенс числа `number`, заданного в радианах.
 
 
 
 ## [DEGREES](DEGREES.md)
 
-**Syntax:**`DEGREES( radians )`
+**Синтаксис:**`DEGREES( radians )`
 
-Converts radians to degrees.
+Преобразует радианы в градусы.
 
 
 
 ## [DIV](DIV.md)
 
-**Syntax:**`DIV( number_1, number_2 )`
+**Синтаксис:**`DIV( number_1, number_2 )`
 
-Divides `number_1` by `number_2`. The result is rounded down to the nearest integer.
+Возвращает результат деления `number_1` на `number_2`.
+Результат будет округлен до целого числа.
 
 
 
 ## [DIV_SAFE](DIV_SAFE.md)
 
-**Syntax:**`DIV_SAFE( numerator, denominator [ , fallback_value ] )`
+**Синтаксис:**`DIV_SAFE( numerator, denominator [ , fallback_value ] )`
 
-Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
-The result is rounded down to the nearest integer.
+Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
+Результат будет округлен до целого числа.
 
 
 
 ## [EXP](EXP.md)
 
-**Syntax:**`EXP( number )`
+**Синтаксис:**`EXP( number )`
 
-Returns the result of raising the number 'e' to the power of `number`.
+Возвращает результата возведения числа `e` в степень `number`.
 
 
 
 ## [FDIV_SAFE](FDIV_SAFE.md)
 
-**Syntax:**`FDIV_SAFE( numerator, denominator [ , fallback_value ] )`
+**Синтаксис:**`FDIV_SAFE( numerator, denominator [ , fallback_value ] )`
 
-Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
+Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
 
 
 
 ## [FLOOR](FLOOR.md)
 
-**Syntax:**`FLOOR( number )`
+**Синтаксис:**`FLOOR( number )`
 
-Rounds the value down to the nearest integer.
+Округляет значение до ближайшего целого числа в меньшую сторону.
 
 
 
 ## [GREATEST](GREATEST.md)
 
-**Syntax:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
+**Синтаксис:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
 
-Returns the greatest value.
+Возвращает наибольшее из значений.
 
-See also [LEAST](LEAST.md).
+См. также [LEAST](LEAST.md).
 
-Depending on the specified data type, it returns:
-- The greatest number.
-- The last string in alphabetical order.
-- The latest date.
-- `TRUE` when selecting between `TRUE` and `FALSE` for Boolean type.
+В зависимости от указанного типа данных, возвращает:
+- наибольшее число;
+- последнюю строку в алфавитном порядке;
+- позднюю дату;
+- `TRUE` при выборе из `TRUE` и `FALSE` для логического типа.
 
 
 
 ## [LEAST](LEAST.md)
 
-**Syntax:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
+**Синтаксис:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
 
-Returns the smallest value.
+Возвращает наименьшее из значений.
 
-See also [GREATEST](GREATEST.md).
+См. также [GREATEST](GREATEST.md).
 
-Depending on the specified data type, it returns:
-- The smallest number.
-- The first string in alphabetical order.
-- The earliest date.
-- `FALSE` when selecting between `TRUE` and `FALSE` for Boolean type.
+В зависимости от указанного типа данных, возвращает:
+- наименьшее число;
+- первую строку в алфавитном порядке;
+- раннюю дату;
+- `FALSE` при выборе из `TRUE` и `FALSE` для логического типа.
 
 
 
 ## [LN](LN.md)
 
-**Syntax:**`LN( number )`
+**Синтаксис:**`LN( number )`
 
-Returns the natural logarithm of the number `number`. Returns `NULL` if the number is less than or equal to 0.
+Возвращает натуральный логарифм числа `number`. Возвращает `NULL`, если число меньше или равно 0.
 
 
 
 ## [LOG](LOG.md)
 
-**Syntax:**`LOG( value, base )`
+**Синтаксис:**`LOG( value, base )`
 
-Returns the logarithm of `value` to base `base`. Returns `NULL` if the number `value` is less than or equal to 0.
+Возвращает логарифм числа `value` по основанию числа `base`. Возвращает `NULL`, если число `value` меньше или равно 0.
 
 
 
 ## [LOG10](LOG10.md)
 
-**Syntax:**`LOG10( number )`
+**Синтаксис:**`LOG10( number )`
 
-Returns the logarithm of the number `number` to base 10. Returns `NULL` if the number is less than or equal to 0.
+Возвращает логарифм числа `number` по основанию 10. Возвращает `NULL`, если число меньше или равно 0.
 
 
 
 ## [PI](PI.md)
 
-**Syntax:**`PI()`
+**Синтаксис:**`PI()`
 
-Returns PI. The accuracy depends on the data source.
+Возвращает число Пи. Точность зависит от источника данных.
 
 
 
 ## [POWER](POWER.md)
 
-**Syntax:**`POWER( base, power )`
+**Синтаксис:**`POWER( base, power )`
 
-Raises `base` to the power of `power`.
+Возводит число `base` в степень `power`.
 
 
 
 ## [RADIANS](RADIANS.md)
 
-**Syntax:**`RADIANS( degrees )`
+**Синтаксис:**`RADIANS( degrees )`
 
-Converts `degrees` degrees to radians.
+Преобразует градусы `degrees` в радианы.
 
 
 
 ## [ROUND](ROUND.md)
 
-**Syntax:**`ROUND( number [ , precision ] )`
+**Синтаксис:**`ROUND( number [ , precision ] )`
 
-Rounds the number `number` to the number of decimal digits specified in `precision`.
-If the number `precision` is omitted, `number` is rounded to the nearest integer.
+Округляет число `number` до указанного числа знаков `precision` после запятой.
+Если число `precision` не указано, то `number` округляется до ближайшего целого.
 
 
 
 ## [SIGN](SIGN.md)
 
-**Syntax:**`SIGN( number )`
+**Синтаксис:**`SIGN( number )`
 
-Returns the sign of the number `number`:
-- `-1` if the number is negative.
-`0` if the number is zero.
-- `1` if the number is positive.
+Возвращает знак числа `number`:
+- `-1` если число отрицательное;
+- `0` если число равно нулю;
+- `1` если число положительное.
 
 
 
 ## [SIN](SIN.md)
 
-**Syntax:**`SIN( number )`
+**Синтаксис:**`SIN( number )`
 
-Returns the sine of `number` in radians.
+Возвращает синус числа `number`, заданного в радианах.
 
 
 
 ## [SQRT](SQRT.md)
 
-**Syntax:**`SQRT( number )`
+**Синтаксис:**`SQRT( number )`
 
-Returns the square root of the specified number.
+Возвращает квадратный корень заданного числа.
 
 
 
 ## [SQUARE](SQUARE.md)
 
-**Syntax:**`SQUARE( number )`
+**Синтаксис:**`SQUARE( number )`
 
-Returns the number `number` raised to the power of 2.
+Возвращает число `number`, возведенное в степень 2.
 
 
 
 ## [TAN](TAN.md)
 
-**Syntax:**`TAN( number )`
+**Синтаксис:**`TAN( number )`
 
-Returns the tangent of `number` in radians.
+Возвращает тангенс числа `number`, заданного в радианах.
 
 

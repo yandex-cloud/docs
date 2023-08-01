@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/LOG10.md
+sourcePath: ru/_api-ref/datalens/function-ref/LOG10.md
 ---
 
 # LOG10
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 LOG10( number )
 ```
 
-#### Description {#description}
-Returns the logarithm of the number `number` to base 10. Returns `NULL` if the number is less than or equal to 0.
+#### Описание {#description}
+Возвращает логарифм числа `number` по основанию 10. Возвращает `NULL`, если число меньше или равно 0.
 
-**Argument types:**
-- `number` — `Fractional number | Integer`
+**Типы аргументов:**
+- `number` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 LOG10(1) = 0.0
@@ -38,6 +38,6 @@ LOG10(100) = 2.0
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

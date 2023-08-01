@@ -2,12 +2,6 @@
 
 Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами семейства Linux — Ubuntu 20.04 и ниже и CentOS 7. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
 
-{% note info %}
-
-Подключить ВМ Linux к {{ backup-name }} можно только при создании. Чтобы подключить существующую ВМ к {{ backup-name }}, [сделайте](../../compute/operations/disk-control/create-snapshot.md) снимки дисков этой ВМ и [создайте](../../compute/operations/vm-create/create-from-snapshots.md) новую из этих снимков, выбрав опцию резервного копирования.
-
-{% endnote %}
-
 {% list tabs %}
 
 - Консоль управления
@@ -34,6 +28,7 @@
 #### См. также {#see-also}
 
 * [{#T}](connect-vm-windows.md)
+* [{#T}](connect-vm-linux.md)
 * [Привязать виртуальную машину к политике резервного копирования](./policy-vm/update.md#update-vm-list)
 * [{#T}](./backup-vm/recover.md)
 * [{#T}](./backup-vm/delete.md)

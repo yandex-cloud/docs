@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/COUNT_IF_WINDOW.md
+sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF_WINDOW.md
 ---
 
-# COUNT_IF (window)
+# COUNT_IF (оконная)
 
-_Function `COUNT_IF` is also found in the following categories: [Aggregate functions](COUNT_IF.md)._
+_Функция `COUNT_IF` также доступна в следующих категориях: [Агрегатные функции](COUNT_IF.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   COUNT_IF( expression, condition
@@ -19,10 +19,10 @@ _Function `COUNT_IF` is also found in the following categories: [Aggregate funct
           )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Extended
+- Расширенный
 
   ```
   COUNT_IF( expression, condition
@@ -31,23 +31,23 @@ _Function `COUNT_IF` is also found in the following categories: [Aggregate funct
           )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the number of items in the specified window meeting the `expression` condition.
+#### Описание {#description}
+Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
 
-**Argument types:**
-- `expression` — `Fractional number | Integer`
-- `condition` — `Boolean`
+**Типы аргументов:**
+- `expression` — `Дробное число | Целое число`
+- `condition` — `Логический`
 
 
-**Return type**: Same type as (`expression`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 COUNT_IF([Profit], [Category] = 'Office Supplies' TOTAL)
@@ -62,6 +62,6 @@ COUNT_IF([Profit], [Category] = 'Office Supplies' AMONG [Date])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

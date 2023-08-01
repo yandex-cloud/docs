@@ -1,37 +1,37 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/IFNULL.md
+sourcePath: ru/_api-ref/datalens/function-ref/IFNULL.md
 ---
 
 # IFNULL
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 IFNULL( check_value, alt_value )
 ```
 
-#### Description {#description}
-Returns `check_value` if it's not `NULL`. Otherwise returns `alt_value`.
+#### Описание {#description}
+Возвращает `check_value`, если оно не `NULL`. В противном случае возвращает `alt_value`.
 
-**Argument types:**
-- `check_value` — `Any`
-- `alt_value` — `Any`
+**Типы аргументов:**
+- `check_value` — `Любой`
+- `alt_value` — `Любой`
 
 
-**Return type**: Same type as (`check_value`, `alt_value`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`check_value`, `alt_value`)
 
 {% note info %}
 
-Arguments (`check_value`, `alt_value`) must be of the same type.
+Тип аргументов (`check_value`, `alt_value`) должен совпадать.
 
 {% endnote %}
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -49,6 +49,6 @@ Arguments (`check_value`, `alt_value`) must be of the same type.
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

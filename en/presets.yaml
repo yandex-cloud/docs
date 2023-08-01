@@ -3217,6 +3217,7 @@ default:
         chartkit-alerts:
           view:
             button_save: Save
+            section_additional-settings: Additional settings
         dialog-create-editor-chart:
           view:
             button_apply: Save
@@ -4831,6 +4832,8 @@ default:
         common:
           apply: Apply
       alert-template:
+        field:
+          evaluation-window: Evaluation window
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -4844,6 +4847,7 @@ default:
         label_trigger-condition: Condition
         status_alarm: Alarm
         status_warn: Warning
+        title_aggregation-min: Minimum
         title_comparison-eq: Equals to
         title_comparison-gte: Greater than or equals
         title_comparison-lte: Less than or equals
@@ -4861,6 +4865,9 @@ default:
         status:
           alarm: Alarm
           warn: Warning
+      service:
+        field:
+          function: Aggregation function
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
     yacloud_org:
@@ -5092,6 +5099,7 @@ default:
         label_value: Value
         labels: Labels
         logs: Logs
+        metric: Metric
         monitoring: Monitoring
         move: Move
         name: Name
@@ -5562,6 +5570,7 @@ default:
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
+            label_managed-mongodb: Managed Service for MongoDB
             label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
@@ -5678,7 +5687,14 @@ default:
           backups:
             button_create: Create backup
             button_restore: Restore cluster
+            column_name: Name
             label_title: Backups
+          databases:
+            button_action-remove: Delete
+            button_add: Add
+          diagnostics:
+            label_indexes: Suggested indexes
+            label_profiling: Profiling
           hosts:
             button_add-host: Add host
             button_rebalance-cluster: Rebalance cluster
@@ -5696,38 +5712,53 @@ default:
             button_action-start: Start cluster
             button_action-stop: Stop cluster
             label_anytime-maintenance-warning-value: Arbitrary time
+            label_mongodb-pitr: Point-in-time recovery
           shards:
             button_action-remove: Remove
             button_add: Add shard
+            button_sharding-enable: Enable
             popup-confirm_button_delete: Remove
           start-dialog:
             popup-confirm_button: Start
           stop-dialog:
             popup-confirm_button: Stop
+          switch_hosts: Hosts
           switch_monitoring: Monitoring
           users:
+            button_action-password: Change password
             button_action-update: Configure
+            button_add: Add
             button_advanced-settings: Additional settings
+            button_remove: Remove
+            popup-add_button_add: Add
             popup-button_save: Save
         clusters:
           button_action-delete: Delete
           button_action-move: Move
+          button_action-start: Start
+          button_action-stop: Stop
           button_create: Create cluster
         datalens:
           button-action_activate: Activate
           button-action_new-connection: Create connection
         dialogs:
+          button_add-database: Add database
           popup_button_move-cluster: Move
+          popup_button_save: Save
+          popup-add-db_button_add: Add
           popup-confirm-delete-cluster_button: Delete
           popup-confirm-switch-master_button: Switch
           popup-confirm-switch-master_label_confirmation: I want to switch the master
           popup-confirm-switch-master_label-title: Switch master host
         forms:
           additional-field-datalens: DataLens access
+          additional-field-datatransfer: Data Transfer access
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
+          backup-retain-period: Retention period for automatic backups, days
           backup-window-start: Backup start time (UTC)
+          base_field_description: Description
           base_field_environment: Environment
           base_field_folder: Folder
           base_field_name: Cluster name
@@ -5759,6 +5790,7 @@ default:
           database_field_user-password: Password
           field_assign-public-ip: Public access
           field_cluster-mode: Cluster sharding
+          field_diagnostics-enabled: Statistics sampling
           field_initialization-action-args: Arguments
           field_initialization-action-uri: URI
           field_security-group: Security groups
@@ -5778,6 +5810,7 @@ default:
           section_additional: Advanced settings
           section_base: Basic parameters
           section_config: Cluster configuration
+          section_database: Database
           section_disk: Size of storage
           section_host: Hosts
           section_network: Network settings
@@ -5794,6 +5827,24 @@ default:
           dialog:
             button_choose: Save
             field_public_ip: Public access
+      mongodb:
+        cluster:
+          shards:
+            button_enable_sharding: Enable sharding
+            label_custom: Advanced
+            label_standard: Standard
+          switch_backups: Backups
+          switch_databases: Databases
+          switch_diagnostics: Performance diagnostics
+          switch_hosts: Hosts
+          switch_logs: Logs
+          switch_monitoring: Monitoring
+          switch_operations: Operations
+          switch_shards: Shards
+          switch_users: Users
+        hosts:
+          action_resetup-host: Resynchronize
+          action_stepdown-host: Step down
       monitoring:
         button_create-alert: Create alert
         button_open-in-monitoring: Open in Monitoring

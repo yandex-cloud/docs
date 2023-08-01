@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/MAX.md
+sourcePath: ru/_api-ref/datalens/function-ref/MAX.md
 ---
 
 # MAX
 
-_Function `MAX` is also found in the following categories: [Window functions](MAX_WINDOW.md)._
+_Функция `MAX` также доступна в следующих категориях: [Оконные функции](MAX_WINDOW.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   MAX( value )
   ```
 
-- Extended
+- Расширенный
 
   ```
   MAX( value
@@ -26,34 +26,34 @@ _Function `MAX` is also found in the following categories: [Window functions](MA
      )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the maximum value.
+#### Описание {#description}
+Возвращает максимальное значение.
 
-If `value`:
-- number — Returns the largest number.
-- date — Returns the latest date.
-- string — Returns the last value in the alphabetic order.
-
-
-**Argument types:**
-- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
+Если `value`:
+- число — возвращает наибольшее число;
+- дата — возвращает самую позднюю дату;
+- строка — возвращает последнее значение в алфавитном порядке.
 
 
-**Return type**: Same type as (`value`)
+**Типы аргументов:**
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
 
-#### Example {#examples}
+
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+
+#### Пример {#examples}
 
 ```
 MAX([Profit])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

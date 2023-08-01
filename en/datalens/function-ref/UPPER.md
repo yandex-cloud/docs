@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/UPPER.md
+sourcePath: ru/_api-ref/datalens/function-ref/UPPER.md
 ---
 
 # UPPER
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 UPPER( string )
 ```
 
-#### Description {#description}
-Returns the string `string` in uppercase.
+#### Описание {#description}
+Возвращает строку `string` в верхнем регистре.
 
-**Argument types:**
-- `string` — `String`
+**Типы аргументов:**
+- `string` — `Строка`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 UPPER("Lorem ipsum") = "LOREM IPSUM"
@@ -34,6 +34,6 @@ UPPER("Карл у Клары") = "КАРЛ У КЛАРЫ"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

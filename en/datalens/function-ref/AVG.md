@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/AVG.md
+sourcePath: ru/_api-ref/datalens/function-ref/AVG.md
 ---
 
 # AVG
 
-_Function `AVG` is also found in the following categories: [Window functions](AVG_WINDOW.md)._
+_Функция `AVG` также доступна в следующих категориях: [Оконные функции](AVG_WINDOW.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   AVG( value )
   ```
 
-- Extended
+- Расширенный
 
   ```
   AVG( value
@@ -26,28 +26,28 @@ _Function `AVG` is also found in the following categories: [Window functions](AV
      )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the average of all values. Applicable to numeric data types as well as `Date`.
+#### Описание {#description}
+Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата`.
 
-**Argument types:**
-- `value` — `Date | Datetime | Fractional number | Integer`
+**Типы аргументов:**
+- `value` — `Дата | Дата и время | Дробное число | Целое число`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 AVG([Profit])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

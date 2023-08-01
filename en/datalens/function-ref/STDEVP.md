@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/STDEVP.md
+sourcePath: ru/_api-ref/datalens/function-ref/STDEVP.md
 ---
 
 # STDEVP
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   STDEVP( value )
   ```
 
-- Extended
+- Расширенный
 
   ```
   STDEVP( value
@@ -26,28 +26,28 @@ sourcePath: en/_api-ref/datalens/function-ref/STDEVP.md
         )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the statistical standard deviation of all values in the expression based on the biased population.
+#### Описание {#description}
+Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.
 
-**Argument types:**
-- `value` — `Fractional number | Integer`
+**Типы аргументов:**
+- `value` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 STDEVP([Profit])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

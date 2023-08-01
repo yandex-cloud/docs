@@ -1,31 +1,31 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/REPLACE_ARRAY.md
+sourcePath: ru/_api-ref/datalens/function-ref/REPLACE_ARRAY.md
 ---
 
-# REPLACE (array)
+# REPLACE (массивы)
 
-_Function `REPLACE` is also found in the following categories: [String functions](REPLACE.md)._
+_Функция `REPLACE` также доступна в следующих категориях: [Строковые функции](REPLACE.md)._
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 REPLACE( array, old, new )
 ```
 
-#### Description {#description}
-Replaces each `array` element equal to `old` with `new`.
+#### Описание {#description}
+Заменяет в массиве `array` все элементы, равные `old`, на `new`.
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers | Array of strings`
-- `old` — `Fractional number | Integer | String`
-- `new` — `Fractional number | Integer | String`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
+- `old` — `Дробное число | Целое число | Строка`
+- `new` — `Дробное число | Целое число | Строка`
 
 
-**Return type**: Same type as (`array`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`array`)
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -38,6 +38,6 @@ Replaces each `array` element equal to `old` with `new`.
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

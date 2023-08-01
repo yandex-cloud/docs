@@ -3219,6 +3219,7 @@ default:
         chartkit-alerts:
           view:
             button_save: Сохранить
+            section_additional-settings: Дополнительные настройки
         dialog-create-editor-chart:
           view:
             button_apply: Сохранить
@@ -4833,6 +4834,8 @@ default:
         common:
           apply: Применить
       alert-template:
+        field:
+          evaluation-window: Окно вычисления
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -4846,6 +4849,7 @@ default:
         label_trigger-condition: Условие срабатывания
         status_alarm: Alarm
         status_warn: Warning
+        title_aggregation-min: Минимум
         title_comparison-eq: Равно
         title_comparison-gte: Больше или равно
         title_comparison-lte: Меньше или равно
@@ -4863,6 +4867,9 @@ default:
         status:
           alarm: Alarm
           warn: Warning
+      service:
+        field:
+          function: Функция агрегации
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
     yacloud_org:
@@ -5094,6 +5101,7 @@ default:
         label_value: Значение
         labels: Метки
         logs: Логи
+        metric: Метрика
         monitoring: Мониторинг
         move: Переместить
         name: Имя
@@ -5564,6 +5572,7 @@ default:
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
+            label_managed-mongodb: Managed Service for MongoDB
             label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
@@ -5680,7 +5689,14 @@ default:
           backups:
             button_create: Создать резервную копию
             button_restore: Восстановить кластер
+            column_name: Имя
             label_title: Резервные копии
+          databases:
+            button_action-remove: Удалить
+            button_add: Добавить
+          diagnostics:
+            label_indexes: Предлагаемые индексы
+            label_profiling: Профайлинг
           hosts:
             button_add-host: Добавить хост
             button_rebalance-cluster: Ребалансировать кластер
@@ -5698,38 +5714,53 @@ default:
             button_action-start: Запустить кластер
             button_action-stop: Остановить кластер
             label_anytime-maintenance-warning-value: Произвольное время
+            label_mongodb-pitr: Point-in-time recovery
           shards:
             button_action-remove: Удалить
             button_add: Добавить шард
+            button_sharding-enable: Включить
             popup-confirm_button_delete: Удалить
           start-dialog:
             popup-confirm_button: Запустить
           stop-dialog:
             popup-confirm_button: Остановить
+          switch_hosts: Хосты
           switch_monitoring: Мониторинг
           users:
+            button_action-password: Изменить пароль
             button_action-update: Настроить
+            button_add: Добавить
             button_advanced-settings: Дополнительные настройки
+            button_remove: Удалить
+            popup-add_button_add: Добавить
             popup-button_save: Сохранить
         clusters:
           button_action-delete: Удалить
           button_action-move: ' Переместить'
+          button_action-start: Запустить
+          button_action-stop: Остановить
           button_create: Создать кластер
         datalens:
           button-action_activate: Активировать
           button-action_new-connection: Создать подключение
         dialogs:
+          button_add-database: Добавить базу данных
           popup_button_move-cluster: Переместить
+          popup_button_save: Сохранить
+          popup-add-db_button_add: Добавить
           popup-confirm-delete-cluster_button: Удалить
           popup-confirm-switch-master_button: Переключить
           popup-confirm-switch-master_label_confirmation: Я хочу переключить мастер
           popup-confirm-switch-master_label-title: Переключение мастера
         forms:
           additional-field-datalens: Доступ из DataLens
+          additional-field-datatransfer: Доступ из Data Transfer в режиме Serverless
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
+          backup-retain-period: Срок хранения автоматических резервных копии, дней
           backup-window-start: Начало резервного копирования (UTC)
+          base_field_description: Описание
           base_field_environment: Окружение
           base_field_folder: Каталог
           base_field_name: Имя кластера
@@ -5761,6 +5792,7 @@ default:
           database_field_user-password: Пароль
           field_assign-public-ip: Публичный доступ
           field_cluster-mode: Шардирование кластера
+          field_diagnostics-enabled: Сбор статистики
           field_initialization-action-args: Аргументы
           field_initialization-action-uri: URI
           field_security-group: Группы безопасности
@@ -5780,6 +5812,7 @@ default:
           section_additional: Дополнительные настройки
           section_base: Базовые параметры
           section_config: Настройки кластера
+          section_database: База данных
           section_disk: Размер хранилища
           section_host: Хосты
           section_network: Сетевые настройки
@@ -5796,6 +5829,24 @@ default:
           dialog:
             button_choose: Сохранить
             field_public_ip: Публичный доступ
+      mongodb:
+        cluster:
+          shards:
+            button_enable_sharding: Включить шардирование
+            label_custom: Расширенный
+            label_standard: Стандартный
+          switch_backups: Резервные копии
+          switch_databases: Базы данных
+          switch_diagnostics: Диагностика производительности
+          switch_hosts: Хосты
+          switch_logs: Логи
+          switch_monitoring: Мониторинг
+          switch_operations: Операции
+          switch_shards: Шарды
+          switch_users: Пользователи
+        hosts:
+          action_resetup-host: Ресинхронизировать
+          action_stepdown-host: Сменить мастер
       monitoring:
         button_create-alert: Создать алерт
         button_open-in-monitoring: Открыть в Мониторинге

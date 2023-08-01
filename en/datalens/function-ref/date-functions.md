@@ -1,62 +1,64 @@
 ---
-title: Date/Time functions
+title: Функции даты и времени
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/date-functions.md
+sourcePath: ru/_api-ref/datalens/function-ref/date-functions.md
 ---
 
-# Date/Time functions
+# Функции даты и времени
 
 
 ## [DATEADD](DATEADD.md)
 
-**Syntax:**`DATEADD( datetime [ , unit [ , number ] ] )`
+**Синтаксис:**`DATEADD( datetime [ , unit [ , number ] ] )`
 
-Returns the date obtained by adding `unit` in the amount of `number` to the specified date `datetime`.
+Возвращает дату, полученную в результате добавления `unit` в количестве `number` к указанной дате `datetime`.
 
-The `number` argument is an integer. It can be negative.
-The `unit` argument takes the following values:
-- `"year"`;
-- `"month"`;
-- `"day"`;
-- `"hour"`;
-- `"minute"`;
-- `"second"`.
+Аргумент `number` задается целым числом. Может принимать отрицательные значения.
+Аргумент `unit` принимает следующие значения:
+- `"year"` — год;
+- `"month"` — месяц;
+- `"day"` — день;
+- `"hour"` — час;
+- `"minute"` — минута;
+- `"second"` — секунда.
 
 
 
 ## [DATEPART](DATEPART.md)
 
-**Syntax:**`DATEPART( datetime, unit [ , firstday ] )`
+**Синтаксис:**`DATEPART( datetime, unit [ , firstday ] )`
 
-Returns a part of the date as an integer.
+Возвращает часть даты в виде целого числа.
 
-Depending on the argument, `unit` returns the following values:
-- `"year"` — the year number (see [YEAR](YEAR.md));
-- `"quarter"` — the number of the quarter (from `1` to `4`) of the year (see [QUARTER](QUARTER.md));
-- `"month"` — the number of the month in the year (see [MONTH](MONTH.md));
-- `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md));
-- `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md));
-- `"day"` — the number of the day in the month (see [DAY](DAY.md));
-- `"hour"` — the number of the hour in the day (see [HOUR](HOUR.md));
-- `"minute"` — the number of the minute in the hour (see [MINUTE](MINUTE.md));
-- `"second"` — the number of the second in the minute (see [SECOND](SECOND.md)).
+В зависимости от аргумента `unit` возвращает следующие значения:
+- `"year"` — номер года (см. [YEAR](YEAR.md));
+- `"quarter"` — номер квартала года (от `1` до `4`) (см. [QUARTER](QUARTER.md));
+- `"month"` — номер месяца в году (см. [MONTH](MONTH.md));
+- `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md));
+- `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md));
+- `"day"` — номер дня в месяце (см. [DAY](DAY.md));
+- `"hour"` — номер часа в дне (см. [HOUR](HOUR.md));
+- `"minute"` — номер минуты в часе (см. [MINUTE](MINUTE.md));
+- `"second"` — номер секунды в минуте (см. [SECOND](SECOND.md)).
 
-If you select `"dayofweek"`, you can use the additional parameter `firstday` to specify the first day of the week (Monday by default). Learn more about this parameter in the [DAYOFWEEK](DAYOFWEEK.md) function description.
+Если выбран "`dayofweek`", то дополнительным параметром `firstday` можно задать, какой день недели считать первым — по умолчанию это понедельник. Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](DAYOFWEEK.md).
 
 
 
 
 ## [DATETRUNC](DATETRUNC.md)
 
-**Syntax:**`DATETRUNC( datetime, unit [ , number ] )`
+**Синтаксис:**`DATETRUNC( datetime, unit [ , number ] )`
 
-Rounds `datetime` down to the given `unit`. If optional `number` is given, then the value is rounded down to a `number` multiple of `unit` (omitting `number` is the same as `number = 1`).
+Возвращает дату, округленную по аргументу `unit`.
 
-Supported units:
+Если задан аргумент `number`, то происходит округление до этого количества временных единиц. Отсутствие аргумента эквивалентно значению `1`.
+
+Поддерживаемые значения `unit`:
 - `"second"`;
 - `"minute"`;
 - `"hour"`;
-- `"day"` (acts as the day of the year if `number` is specified);
+- `"day"` (при заданном `number` используется номер дня в году);
 - `"week"`;
 - `"month"`;
 - `"quarter"`;
@@ -66,100 +68,100 @@ Supported units:
 
 ## [DAY](DAY.md)
 
-**Syntax:**`DAY( datetime )`
+**Синтаксис:**`DAY( datetime )`
 
-Returns the number of the day in the month of the specified date `datetime`.
+Возвращает номер дня в месяце в указанной дате `datetime`.
 
 
 
 ## [DAYOFWEEK](DAYOFWEEK.md)
 
-**Syntax:**`DAYOFWEEK( datetime [ , firstday ] )`
+**Синтаксис:**`DAYOFWEEK( datetime [ , firstday ] )`
 
-Returns the day of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
-- Monday — 1.
-- Sunday — 7.
+Возвращает день недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
+- Понедельник — 1;
+- Воскресенье — 7.
 
-If the additional parameter `firstday` is specified, this day is considered the first day of the week. Valid values:
-- `"Monday"`, `"Mon"` — Monday;
-- `"Tuesday"`. `"Tue"` — Tuesday;
-- `"Wednesday"`, `"Wed"` — Wednesday;
-- `"Thursday"`, `"Thu"` — Thursday;
-- `"Friday"`, `"Fri"` — Friday;
-- `"Saturday"`, ` "Sat"` — Saturday;
-- `"Sunday"`, `"Sun"` — Sunday.
+Если указан дополнительный параметр `firstday`, то этот день считается первым в неделе. Допустимые значения:
+- `"Monday"`, `"Mon"` — понедельник;
+- `"Tuesday"`, `"Tue"` — вторник;
+- `"Wednesday"`, `"Wed"` — среда;
+- `"Thursday"`, `"Thu"` — четверг;
+- `"Friday"`, `"Fri"` — пятница;
+- `"Saturday"`, `"Sat"` — суббота;
+- `"Sunday"`, `"Sun"` — воскресенье.
 
 
 
 
 ## [HOUR](HOUR.md)
 
-**Syntax:**`HOUR( datetime )`
+**Синтаксис:**`HOUR( datetime )`
 
-Returns the number of the hour in the day of the specified date and time `datetime`. When the date is specified without time, it returns `0`.
+Возвращает номер часа в дне в указанной дате и времени `datetime`. При указании даты без времени возвращает `0`.
 
 
 
 ## [MINUTE](MINUTE.md)
 
-**Syntax:**`MINUTE( datetime )`
+**Синтаксис:**`MINUTE( datetime )`
 
-Returns the number of the minute in the hour of the specified date `datetime`. When the date is specified without time, it returns `0`.
+Возвращает номер минуты в часе в указанной дате `datetime`. При указании даты без времени возвращает 0.
 
 
 
 ## [MONTH](MONTH.md)
 
-**Syntax:**`MONTH( datetime )`
+**Синтаксис:**`MONTH( datetime )`
 
-Returns the number of the month in the year of the specified date `datetime`.
+Возвращает номер месяца в году в указанной дате `datetime`.
 
 
 
 ## [NOW](NOW.md)
 
-**Syntax:**`NOW()`
+**Синтаксис:**`NOW()`
 
-Returns the current date and time, depending on the data source and connection type.
+Возвращает текущую дату и время в зависимости от источника данных и типа соединения.
 
 
 
 ## [QUARTER](QUARTER.md)
 
-**Syntax:**`QUARTER( datetime )`
+**Синтаксис:**`QUARTER( datetime )`
 
-Returns the number of the quarter (from `1` to `4`) of the year of the specified date `datetime`.
+Возвращает номер квартала года (от `1` до `4`) в указанной дате `datetime`.
 
 
 
 ## [SECOND](SECOND.md)
 
-**Syntax:**`SECOND( datetime )`
+**Синтаксис:**`SECOND( datetime )`
 
-Returns the number of the second in the minute of the specified date `datetime`. When the date is specified without time, it returns `0`.
+Возвращает номер секунды в минуте в указанной дате `datetime`. При указании даты без времени возвращает `0`.
 
 
 
 ## [TODAY](TODAY.md)
 
-**Syntax:**`TODAY()`
+**Синтаксис:**`TODAY()`
 
-Returns the current date, depending on the data source and connection type.
+Возвращает текущую дату в зависимости от источника данных и типа соединения.
 
 
 
 ## [WEEK](WEEK.md)
 
-**Syntax:**`WEEK( value )`
+**Синтаксис:**`WEEK( value )`
 
-The number of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). The first week is the week that contains the first Thursday of the year or January 4th.
+Возвращает номер недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Первой считается неделя, которая содержит первый четверг года и 4.01.
 
 
 
 ## [YEAR](YEAR.md)
 
-**Syntax:**`YEAR( datetime )`
+**Синтаксис:**`YEAR( datetime )`
 
-Returns the year number in the specified date `datetime`.
+Возвращает номер года в указанной дате `datetime`.
 
 

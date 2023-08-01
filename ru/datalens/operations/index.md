@@ -21,6 +21,7 @@
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-appmetrica.md)
 - [{#T}](connection/create-cloud-billing.md)
+- [{#T}](connection/create-snowflake.md)
 - [{#T}](connection/create-monitoring.md)
 - [{#T}](connection/create-bitrix24.md)
 - [{#T}](../security/manage-access.md)

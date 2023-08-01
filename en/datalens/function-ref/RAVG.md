@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/RAVG.md
+sourcePath: ru/_api-ref/datalens/function-ref/RAVG.md
 ---
 
-# RAVG (window)
+# RAVG (оконная)
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   RAVG( value [ , direction ] )
   ```
 
-- Extended
+- Расширенный
 
   ```
   RAVG( value [ , direction ]
@@ -27,55 +27,55 @@ sourcePath: en/_api-ref/datalens/function-ref/RAVG.md
       )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [ORDER BY](window-functions.md#syntax-order-by)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
+#### Описание {#description}
 
 {% note warning %}
 
-The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
+Сортировка осуществляется на основе полей, перечисленных в области сортировки в чарте и в ORDER BY. При этом сначала берутся поля из `ORDER BY`.
 
 {% endnote %}
 
-Returns the average of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
+Возвращает среднее арифметическое значений в рамках окна записей, определяемого аргументом `direction`:
 
-| `direction`   | Window                                                 |
-|:--------------|:-------------------------------------------------------|
-| `"asc"`       | Starts from the first row and ends at the current row. |
-| `"desc"`      | Starts from the current row and ends at the last row.  |
+| `direction`   | Окно                            |
+|:--------------|:--------------------------------|
+| `"asc"`       | От первой записи до текущей.    |
+| `"desc"`      | От текущей записи до последней. |
 
-By default `"asc"` is used.
-
-
-Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md).
-
-See also [AVG](AVG.md), [MAVG](MAVG.md).
-
-**Argument types:**
-- `value` — `Fractional number | Integer`
-- `direction` — `String`
+По умолчанию используется значение `"asc"`.
 
 
-**Return type**: `Integer`
+Аналогичное поведение у оконных функций [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md).
+
+См. также [AVG](AVG.md), [MAVG](MAVG.md).
+
+**Типы аргументов:**
+- `value` — `Дробное число | Целое число`
+- `direction` — `Строка`
+
+
+**Возвращаемый тип**: `Целое число`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`direction`).
+Значения аргументов (`direction`) должны быть константами.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
-{% cut "Example with grouping" %}
+{% cut "Пример с группировкой" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -91,11 +91,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`, `[Category]`.
+Группировка по `[City]`, `[Category]`.
 
-Sorted by `[City]`, `[Category]`.
+Сортировка по `[City]`, `[Category]`.
 
-Result
+Результат
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RAVG(SUM([Orders]) TOTAL)**   | **RAVG(SUM([Orders]) WITHIN [City])**   | **RAVG(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
@@ -110,10 +110,10 @@ Result
 
 {% endcut %}
 
-{% cut "Example with ORDER BY" %}
+{% cut "Пример с ORDER BY" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -129,11 +129,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`.
+Группировка по `[City]`.
 
-Sorted by `[City]`.
+Сортировка по `[City]`.
 
-Result
+Результат
 
 | **[City]**        | **SUM([Orders])**   | **RAVG(SUM([Orders]), "desc")**   | **RAVG(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RAVG(SUM([Orders]) ORDER BY [Order Sum])**   |
 |:------------------|:--------------------|:----------------------------------|:------------------------------------------------------|:-----------------------------------------------|
@@ -145,6 +145,6 @@ Result
 {% endcut %}
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

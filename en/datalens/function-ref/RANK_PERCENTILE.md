@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
+sourcePath: ru/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
 ---
 
-# RANK_PERCENTILE (window)
+# RANK_PERCENTILE (оконная)
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   RANK_PERCENTILE( value [ , direction ] )
   ```
 
-- Extended
+- Расширенный
 
   ```
   RANK_PERCENTILE( value [ , direction ]
@@ -26,39 +26,39 @@ sourcePath: en/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
                  )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
+#### Описание {#description}
+Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.
 
-If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
+Если `direction` равно `"desc"` или не указано, то ранжирование происходит от большего к меньшему, если `"asc"`, то от меньшего к большему. По умолчанию используется `"desc"`.
 
-See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
+См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
 
-**Argument types:**
-- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
-- `direction` — `String`
+**Типы аргументов:**
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
+- `direction` — `Строка`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`direction`).
+Значения аргументов (`direction`) должны быть константами.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
-{% cut "Example with two arguments" %}
+{% cut "Пример с двумя аргументами" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -74,11 +74,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`.
+Группировка по `[City]`.
 
-Sorted by `[City]`.
+Сортировка по `[City]`.
 
-Result
+Результат
 
 | **[City]**        | **SUM([Orders])**   | **RANK_PERCENTILE(SUM([Orders]), "desc")**   | **RANK_PERCENTILE(SUM([Orders]), "asc")**   |
 |:------------------|:--------------------|:---------------------------------------------|:--------------------------------------------|
@@ -89,10 +89,10 @@ Result
 
 {% endcut %}
 
-{% cut "Example with grouping" %}
+{% cut "Пример с группировкой" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -108,11 +108,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`, `[Category]`.
+Группировка по `[City]`, `[Category]`.
 
-Sorted by `[City]`, `[Category]`.
+Сортировка по `[City]`, `[Category]`.
 
-Result
+Результат
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RANK_PERCENTILE(SUM([Orders]) TOTAL)**   | **RANK_PERCENTILE(SUM([Orders]) WITHIN [City])**   | **RANK_PERCENTILE(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-------------------------------------------|:---------------------------------------------------|:--------------------------------------------------|
@@ -128,6 +128,6 @@ Result
 {% endcut %}
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

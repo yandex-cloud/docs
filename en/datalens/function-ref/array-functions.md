@@ -1,178 +1,178 @@
 ---
-title: Array functions
+title: Функции для работы с массивами
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/array-functions.md
+sourcePath: ru/_api-ref/datalens/function-ref/array-functions.md
 ---
 
-# Array functions
+# Функции для работы с массивами
 
 
 ## [ARR_AVG](ARR_AVG.md)
 
-**Syntax:**`ARR_AVG( array )`
+**Синтаксис:**`ARR_AVG( array )`
 
-Returns the average of elements in the `array`.
+Возвращает среднее значение элементов в массиве `array`.
 
 
 
 ## [ARR_MAX](ARR_MAX.md)
 
-**Syntax:**`ARR_MAX( array )`
+**Синтаксис:**`ARR_MAX( array )`
 
-Returns the greatest of elements in the `array`.
+Возвращает значение максимального элемента в массиве `array`.
 
 
 
 ## [ARR_MIN](ARR_MIN.md)
 
-**Syntax:**`ARR_MIN( array )`
+**Синтаксис:**`ARR_MIN( array )`
 
-Returns the least of elements in the `array`.
+Возвращает значение минимального элемента в массиве `array`.
 
 
 
 ## [ARR_PRODUCT](ARR_PRODUCT.md)
 
-**Syntax:**`ARR_PRODUCT( array )`
+**Синтаксис:**`ARR_PRODUCT( array )`
 
-Returns the product of elements in the `array`.
+Возвращает произведение элементов массива `array`.
 
 
 
 ## [ARR_REMOVE](ARR_REMOVE.md)
 
-**Syntax:**`ARR_REMOVE( array, value )`
+**Синтаксис:**`ARR_REMOVE( array, value )`
 
-Removes all `array` elements equal to `value`.
+Удаляет из массива `array` все элементы, равные `value`.
 
 
 
 ## [ARR_STR](ARR_STR.md)
 
-**Syntax:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
+**Синтаксис:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
 
-Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a `NULL` string (`NULL` items are skipped by default).
+Из элементов массива `array` формирует строку, используя `delimiter` в качестве разделителя (запятая по умолчанию) и `null_str` в качестве строки, подставляемой вместо `NULL` (по умолчанию такие элементы пропускаются и в результат не попадают).
 
-See also [STR](STR.md)
+См. также [STR](STR.md)
 
 
 
 ## [ARR_SUM](ARR_SUM.md)
 
-**Syntax:**`ARR_SUM( array )`
+**Синтаксис:**`ARR_SUM( array )`
 
-Returns the sum of elements in the `array`.
+Возвращает сумму элементов в массиве `array`.
 
 
 
 ## [ARRAY](ARRAY.md)
 
-**Syntax:**`ARRAY( value_1, value_2, value_3 [ , ... ] )`
+**Синтаксис:**`ARRAY( value_1, value_2, value_3 [ , ... ] )`
 
-Returns an array containing the passed values.
+Возвращает массив, содержащий переданные элементы.
 
 
 
 ## [CAST_ARR_FLOAT](CAST_ARR_FLOAT.md)
 
-**Syntax:**`CAST_ARR_FLOAT( array )`
+**Синтаксис:**`CAST_ARR_FLOAT( array )`
 
-Converts `array` to an array of fractional numbers. The conversion rules are the same as for [FLOAT](FLOAT.md).
+Приводит массив `array` к массиву дробных значений. Правила преобразования аналогичны функции [FLOAT](FLOAT.md).
 
 
 
 ## [CAST_ARR_INT](CAST_ARR_INT.md)
 
-**Syntax:**`CAST_ARR_INT( array )`
+**Синтаксис:**`CAST_ARR_INT( array )`
 
-Converts `array` to an array of integers. The conversion rules are the same as for [INT](INT.md).
+Приводит массив `array` к массиву целых чисел. Правила преобразования аналогичны функции [INT](INT.md).
 
 
 
 ## [CAST_ARR_STR](CAST_ARR_STR.md)
 
-**Syntax:**`CAST_ARR_STR( array )`
+**Синтаксис:**`CAST_ARR_STR( array )`
 
-Converts `array` to an array of strings. The conversion rules are the same as for [STR](STR.md).
+Приводит массив `array` к массиву строк. Правила преобразования аналогичны функции [STR](STR.md).
 
 
 
 ## [CONTAINS](CONTAINS_ARRAY.md)
 
-**Syntax:**`CONTAINS( array, value )`
+**Синтаксис:**`CONTAINS( array, value )`
 
-Returns `TRUE` if `array` contains `value`.
+Возвращает `TRUE`, если `array` содержит `value`.
 
 
 
 ## [CONTAINS_ALL](CONTAINS_ALL.md)
 
-**Syntax:**`CONTAINS_ALL( array_1, array_2 )`
+**Синтаксис:**`CONTAINS_ALL( array_1, array_2 )`
 
-Returns `TRUE` if `array_1` contains all elements of `array_2`.
+Возвращает `TRUE`, если `array_1` содержит все элементы `array_2`.
 
 
 
 ## [CONTAINS_ANY](CONTAINS_ANY.md)
 
-**Syntax:**`CONTAINS_ANY( array_1, array_2 )`
+**Синтаксис:**`CONTAINS_ANY( array_1, array_2 )`
 
-Returns `TRUE` if `array_1` contains any elements of `array_2`.
+Возвращает `TRUE`, если `array_1` содержит хотя бы один элемент из `array_2`.
 
 
 
 ## [CONTAINS_SUBSEQUENCE](CONTAINS_SUBSEQUENCE.md)
 
-**Syntax:**`CONTAINS_SUBSEQUENCE( array_1, array_2 )`
+**Синтаксис:**`CONTAINS_SUBSEQUENCE( array_1, array_2 )`
 
-Returns `TRUE` if `array_2` is a continuous subsequence of `array_1`. In other words, returns `TRUE` if and only if `array1 = prefix + array2 + suffix`.
+Возвращает `TRUE`, если `array_2` является непрерывной подпоследовательностью `array_1`. Другими словами, возвращает `TRUE` исключительно если `array1 = prefix + array2 + suffix`.
 
 
 
 ## [COUNT_ITEM](COUNT_ITEM.md)
 
-**Syntax:**`COUNT_ITEM( array, value )`
+**Синтаксис:**`COUNT_ITEM( array, value )`
 
-Returns the number of elements in the array `array` equal to `value`. The type of `value` must match the type of the `array` elements.
+Возвращает количество элементов массива `array`, равных `value`. Тип `value` должен соответствовать типу элементов `array`.
 
 
 
 ## [GET_ITEM](GET_ITEM.md)
 
-**Syntax:**`GET_ITEM( array, index )`
+**Синтаксис:**`GET_ITEM( array, index )`
 
-Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
+Возвращает элемент с индексом `index` из массива `array`. Индекс должен быть целым числом. Индексы в массиве начинаются с единицы.
 
 
 
 ## [REPLACE](REPLACE_ARRAY.md)
 
-**Syntax:**`REPLACE( array, old, new )`
+**Синтаксис:**`REPLACE( array, old, new )`
 
-Replaces each `array` element equal to `old` with `new`.
+Заменяет в массиве `array` все элементы, равные `old`, на `new`.
 
 
 
 ## [SLICE](SLICE.md)
 
-**Syntax:**`SLICE( array, offset, length )`
+**Синтаксис:**`SLICE( array, offset, length )`
 
-Returns the part of array `array` of length `length` starting from index `offset`. Indexes in an array begin with one.
+Возвращает часть массива `array` длины `length`, начиная с индекса `offset`. Индексы в массиве начинаются с единицы.
 
 
 
 ## [STARTSWITH](STARTSWITH_ARRAY.md)
 
-**Syntax:**`STARTSWITH( array_1, array_2 )`
+**Синтаксис:**`STARTSWITH( array_1, array_2 )`
 
-Returns `TRUE` if `array_1` starts with `array_2`.
+Возвращает `TRUE`, если значения из массива `array_2` находятся в начале массива `array_1`.
 
 
 
 ## [UNNEST](UNNEST.md)
 
-**Syntax:**`UNNEST( array )`
+**Синтаксис:**`UNNEST( array )`
 
-Expands the `array` array expression to a set of rows.
+Дублирует исходную строку для каждого элемента массива `array`.
 
 

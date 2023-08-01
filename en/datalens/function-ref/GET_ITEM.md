@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/GET_ITEM.md
+sourcePath: ru/_api-ref/datalens/function-ref/GET_ITEM.md
 ---
 
 # GET_ITEM
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 GET_ITEM( array, index )
 ```
 
-#### Description {#description}
-Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
+#### Описание {#description}
+Возвращает элемент с индексом `index` из массива `array`. Индекс должен быть целым числом. Индексы в массиве начинаются с единицы.
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers | Array of strings`
-- `index` — `Integer`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
+- `index` — `Целое число`
 
 
-**Return type**: Depends on argument types
+**Возвращаемый тип**: Зависит от типов аргументов
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 GET_ITEM([array_field], 2)
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

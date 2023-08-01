@@ -46,7 +46,7 @@ In the dataset creation interface and wizard, you can duplicate fields, create f
 
 {% note warning %}
 
-The maximum number of fields in a single dataset is 1,200.
+The maximum number of fields in a single dataset is 1200.
 
 {% endnote %}
 
@@ -70,9 +70,11 @@ The following aggregation functions are available for fields with different data
 | Minimum | Minimum value | `Date`<br/>`Date and time`<br/>`Fractional number`<br/>`Integer` |
 | Amount | Sum of values | `Fractional number`<br/>`Integer` |
 
+Additional aggregation functions are available in [calculated fields](../calculations/index.md).
+
 {% note info %}
 
-You can't use aggregation functions for some sources.
+You cannot use aggregation functions for some sources.
 The sources you can use aggregation functions for are listed in **Data source support** section on the aggregation function page in the [reference](../../function-ref/aggregation-functions.md).
 
 {% endnote %}

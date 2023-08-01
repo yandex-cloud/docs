@@ -25,7 +25,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Add selectors to the dashboard](#step9).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -34,7 +34,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 {% include [datalens-create-sample-connection](../../_includes/datalens/operations/datalens-create-sample-connection.md) %}
 
-1. In the upper-right corner, click **Create dataset**.
+1. In the top-right corner, click **Create dataset**.
 
 ## Step 2. Set up the dataset fields {#step2}
 
@@ -130,7 +130,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 3. Create a line chart {#step3}
 
-To visualize sales dynamics by month, create a [chart](../../datalens/concepts/chart/index.md): line chart.
+To visualize sales dynamics by month, create a line [chart](../../datalens/concepts/chart/index.md).
 
 1. For the visualization type, choose **Line chart**.
 
@@ -156,7 +156,7 @@ To visualize sales dynamics by month, create a [chart](../../datalens/concepts/c
    1. In the window that opens, enter a name for the chart: **Sales dynamics by month and payment type**, and click **Save**.
 ## Step 4. Create a column chart {#step4}
 
-To visualize sales by brands and product categories, create a [chart](../../datalens/concepts/chart/index.md): column chart.
+To visualize sales by brand and product categories, create a column [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
    1. Click the down arrow next to the **Save** button in the upper-right corner.
@@ -188,7 +188,7 @@ To visualize sales by brands and product categories, create a [chart](../../data
 
 ## Step 5. Create a pivot table chart {#step5}
 
-To visualize sales in terms of products and time, create a [chart](../../datalens/concepts/chart/index.md): pivot table.
+To visualize sales in terms of products and time, create a pivot table [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
    1. Click the down arrow next to the **Save** button in the upper-right corner.
@@ -224,9 +224,9 @@ To visualize sales in terms of products and time, create a [chart](../../datalen
 
 1. Save the chart.
 
-## Step 6. Create a heat map chart {#step6}
+## Step 6. Create a heat map {#step6}
 
-To visualize the density of orders on the Moscow map, create a [chart](../../datalens/concepts/chart/index.md): heat map.
+To visualize the density of orders on the map of Moscow, create a heat map [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
    1. Click the icon next to the **Save** button in the upper-right corner and select **Save as**.
@@ -284,7 +284,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 ## Step 9. Add selectors to the dashboard {#step9}
 
-Add [selectors](../../datalens/concepts/dashboard.md#selector) to filter your charts by date, Moscow districts, products, and customer statuses.
+Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by date, Moscow districts, products, and customer statuses.
 
 1. Click **Add**.
 1. Choose **Selector**.

@@ -1,33 +1,33 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/BETWEEN.md
+sourcePath: ru/_api-ref/datalens/function-ref/BETWEEN.md
 ---
 
 # BETWEEN
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 value [ NOT ] BETWEEN low AND high
 ```
 
-#### Description {#description}
-Returns `TRUE` if `value` is in the range from `low` to `high`.
+#### Описание {#description}
+Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
 
-The option `value NOT BETWEEN low AND high` returns the opposite value.
+Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
 
-**Argument types:**
-- `value` — `Date | Datetime | Fractional number | Integer | String`
-- `low` — `Date | Datetime | Fractional number | Integer | String`
-- `high` — `Date | Datetime | Fractional number | Integer | String`
+**Типы аргументов:**
+- `value` — `Дата | Дата и время | Дробное число | Целое число | Строка`
+- `low` — `Дата | Дата и время | Дробное число | Целое число | Строка`
+- `high` — `Дата | Дата и время | Дробное число | Целое число | Строка`
 
 
-**Return type**: `Boolean`
+**Возвращаемый тип**: `Логический`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 3 BETWEEN 1 AND 100 = TRUE
@@ -38,6 +38,6 @@ The option `value NOT BETWEEN low AND high` returns the opposite value.
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

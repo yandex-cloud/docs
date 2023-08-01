@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/LEFT.md
+sourcePath: ru/_api-ref/datalens/function-ref/LEFT.md
 ---
 
 # LEFT
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 LEFT( string, number )
 ```
 
-#### Description {#description}
-Returns a string that contains the number of characters specified in `number` from the beginning of the string `string`.
+#### Описание {#description}
+Возвращает строку, которая содержит указанное количество символов `number` с начала строки `string`.
 
-**Argument types:**
-- `string` — `String`
-- `number` — `Integer`
+**Типы аргументов:**
+- `string` — `Строка`
+- `number` — `Целое число`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 LEFT("Computer", 4) = "Comp"
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

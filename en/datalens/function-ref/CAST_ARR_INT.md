@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/CAST_ARR_INT.md
+sourcePath: ru/_api-ref/datalens/function-ref/CAST_ARR_INT.md
 ---
 
 # CAST_ARR_INT
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 CAST_ARR_INT( array )
 ```
 
-#### Description {#description}
-Converts `array` to an array of integers. The conversion rules are the same as for [INT](INT.md).
+#### Описание {#description}
+Приводит массив `array` к массиву целых чисел. Правила преобразования аналогичны функции [INT](INT.md).
 
-**Argument types:**
-- `array` — `Array of fractional numbers | Array of integers | Array of strings`
+**Типы аргументов:**
+- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
 
 
-**Return type**: `Array of integers`
+**Возвращаемый тип**: `Массив целых числел`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 
 
@@ -36,6 +36,6 @@ Converts `array` to an array of integers. The conversion rules are the same as f
 
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

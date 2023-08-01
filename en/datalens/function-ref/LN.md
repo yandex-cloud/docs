@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/LN.md
+sourcePath: ru/_api-ref/datalens/function-ref/LN.md
 ---
 
 # LN
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 LN( number )
 ```
 
-#### Description {#description}
-Returns the natural logarithm of the number `number`. Returns `NULL` if the number is less than or equal to 0.
+#### Описание {#description}
+Возвращает натуральный логарифм числа `number`. Возвращает `NULL`, если число меньше или равно 0.
 
-**Argument types:**
-- `number` — `Fractional number | Integer`
+**Типы аргументов:**
+- `number` — `Дробное число | Целое число`
 
 
-**Return type**: `Fractional number`
+**Возвращаемый тип**: `Дробное число`
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 LN(1) = 0.0
@@ -34,6 +34,6 @@ LN(EXP(2)) = 2.0
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

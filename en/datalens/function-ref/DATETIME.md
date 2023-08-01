@@ -1,52 +1,52 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DATETIME.md
+sourcePath: ru/_api-ref/datalens/function-ref/DATETIME.md
 ---
 
 # DATETIME
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 DATETIME( expression [ , timezone ] )
 ```
 
-#### Description {#description}
-Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
-The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+#### Описание {#description}
+Переводит выражение `expression` в формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
+Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
 
-The date and time can be converted to the specified time zone when the `timezone` option is available.
+При наличии дополнительного параметра `timezone` дата и время рассчитываются для указанной временной зоны.
 
-**Argument types:**
-- `expression` — `Date | Datetime | Fractional number | Integer | String`
-- `timezone` — `String`
+**Типы аргументов:**
+- `expression` — `Дата | Дата и время | Дробное число | Целое число | Строка`
+- `timezone` — `Строка`
 
 
-**Return type**: `Datetime`
+**Возвращаемый тип**: `Дата и время`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`timezone`).
+Значения аргументов (`timezone`) должны быть константами.
 
 {% endnote %}
 
 {% note info %}
 
-Argument `timezone` is available only for `ClickHouse` sources.
+Параметр `timezone` доступен только для источников `ClickHouse`.
 
 {% endnote %}
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 DATETIME("2019-01-23 15:07:47") = #2019-01-23 15:07:47#
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

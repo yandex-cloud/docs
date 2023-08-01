@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/COUNTD.md
+sourcePath: ru/_api-ref/datalens/function-ref/COUNTD.md
 ---
 
 # COUNTD
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   COUNTD( value )
   ```
 
-- Extended
+- Расширенный
 
   ```
   COUNTD( value
@@ -26,30 +26,30 @@ sourcePath: en/_api-ref/datalens/function-ref/COUNTD.md
         )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns the number of unique values in the group.
+#### Описание {#description}
+Возвращает количество уникальных значений в группе.
 
-See also [COUNTD_APPROX](COUNTD_APPROX.md).
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
 
-**Argument types:**
-- `value` — `Any`
+**Типы аргументов:**
+- `value` — `Любой`
 
 
-**Return type**: `Integer`
+**Возвращаемый тип**: `Целое число`
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD([ClientID])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

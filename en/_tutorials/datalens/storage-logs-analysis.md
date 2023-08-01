@@ -36,54 +36,54 @@ The cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify `bucket-logs`.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI
 
-   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
-   1. Create a bucket `bucket-logs`:
+  1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
+  1. Create a bucket:
 
-      ```bash
-      aws --endpoint-url https://{{ s3-storage-host }} \
-        s3 mb s3://bucket-logs
-      ```
+     ```bash
+     aws --endpoint-url https://{{ s3-storage-host }} \
+       s3 mb s3://<bucket_name>
+     ```
 
-      Result:
+     Result:
 
-      ```
-      make_bucket: bucket-logs
-      ```
+     ```
+     make_bucket: <bucket_name>
+     ```
 
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Add the parameters of the `bucket-logs` bucket to the configuration file:
+  1. Add bucket parameters to the configuration file:
 
-      ```
-      resource "yandex_storage_bucket" "bucket-logs" {
-        bucket = "bucket-logs"
-      }
-      ```
+     ```
+     resource "yandex_storage_bucket" "bucket-logs" {
+       bucket = "<bucket_name>"
+     }
+     ```
 
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create a bucket.
+  1. Create a bucket.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   Use the [create](../../storage/s3/api-ref/bucket/create.md) REST API method.
+  Use the [create](../../storage/s3/api-ref/bucket/create.md) REST API method.
 
 {% endlist %}
 
@@ -93,29 +93,29 @@ The cost includes:
 
 - AWS CLI
 
-   1. Create a `log-config.json` file with the following content:
+  1. Create a `log-config.json` file with the following content:
 
-      ```json
-      {
-       "LoggingEnabled": {
-          "TargetBucket": "bucket-logs",
-          "TargetPrefix": "s3-logs/"
-       }
+     ```json
+     {
+      "LoggingEnabled": {
+         "TargetBucket": "<bucket_name>",
+         "TargetPrefix": "s3-logs/"
       }
-      ```
+     }
+     ```
 
-   1. Run this command:
+  1. Run this command:
 
-      ```
-      aws s3api put-bucket-logging \
-        --endpoint-url https://{{ s3-storage-host }} \
-        --bucket <name of the bucket to enable action logging for> \
-        --bucket-logging-status file://log-config.json
-      ```
+     ```
+     aws s3api put-bucket-logging \
+       --endpoint-url https://{{ s3-storage-host }} \
+       --bucket <name of the bucket to enable action logging for> \
+       --bucket-logging-status file://log-config.json
+     ```
 
 - API
 
-   Use the REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) method.
+  Use the REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) method.
 
 {% endlist %}
 
@@ -127,72 +127,72 @@ The cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-   1. Specify the settings for a {{ CH }} cluster:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. Specify the settings for a {{ CH }} cluster:
 
-      1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify `s3-logs` in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify `s3-logs` in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field.
 
-      1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select **burstable** in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** field.
+     1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select **burstable** in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** field.
 
-      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/edit.svg) and enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/edit.svg) and enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-         * In the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field, select **Disabled**.
-         * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** field, specify `user`.
-         * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, set a password.
-         * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, specify `s3_data`.
+        * In the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field, select **Disabled**.
+        * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** field, specify `user`.
+        * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, set a password.
+        * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, specify `s3_data`.
 
-         Remember the database name.
+        Remember the database name.
 
-      1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
 
-         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
-         * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
 
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a cluster:
+  To create a cluster:
 
-   1. Check whether the folder has any subnets for the cluster hosts:
+  1. Check whether the folder has any subnets for the cluster hosts:
 
-      ```bash
-      yc vpc subnet list
-      ```
+     ```bash
+     yc vpc subnet list
+     ```
 
-      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-   1. Specify the cluster parameters in the create command:
+  1. Specify the cluster parameters in the create command:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster create \
-         --name s3-logs \
-         --environment production \
-         --network-name <network name> \
-         --host type=clickhouse,zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --clickhouse-resource-preset b2.medium \
-         --clickhouse-disk-type {{ disk-type-example }} \
-         --clickhouse-disk-size 10 \
-         --user name=user,password=<user password> \
-         --database name=s3_data \
-         --datalens-access=true \
-         --websql-access=true
-      ```
+     ```bash
+     {{ yc-mdb-ch }} cluster create \
+        --name s3-logs \
+        --environment production \
+        --network-name <network name> \
+        --host type=clickhouse,zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --clickhouse-resource-preset b2.medium \
+        --clickhouse-disk-type {{ disk-type-example }} \
+        --clickhouse-disk-size 10 \
+        --user name=user,password=<user password> \
+        --database name=s3_data \
+        --datalens-access=true \
+        --websql-access=true
+     ```
 
 - {{ TF }}
 
-   1. Add a description of the cluster and cluster hosts to the configuration file:
+  1. Add a description of the cluster and cluster hosts to the configuration file:
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
+     ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
         name                = "s3-logs"
         environment         = "PRODUCTION"
         network_id          = yandex_vpc_network.<name of network in {{ TF }}>.id
@@ -227,22 +227,22 @@ The cost includes:
           datalens  = true
           web_sql   = true
         }
-      }
-      ```
+     }
+     ```
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+     For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
-   1. Make sure the settings are correct.
+  1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create a cluster:
+  1. Create a cluster:
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-   Use the [create](../../managed-clickhouse/api-ref/Cluster/create.md) REST API method.
+  Use the [create](../../managed-clickhouse/api-ref/Cluster/create.md) REST API method.
 
 {% endlist %}
 
@@ -256,12 +256,12 @@ Wait for the cluster status to change to `Alive`.
 
 - Management console
 
-   1. Select the cluster `s3-logs`.
-   1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
-   1. In the **Date time input format** field, select `best_effort`.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+  1. Select the cluster `s3-logs`.
+  1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
+  1. In the **Date time input format** field, select `best_effort`.
+  1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
 {% endlist %}
 
@@ -275,57 +275,57 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 - Management console
 
-   1. Select the cluster `s3-logs`.
-   1. Click the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
-   1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password.
-   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
-   1. In the window on the right, write an SQL query:
+  1. Select the cluster `s3-logs`.
+  1. Click the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
+  1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password.
+  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. In the window on the right, write an SQL query:
 
-      ```sql
-      CREATE TABLE s3_data.s3logs
-      (
-         bucket String,              -- Bucket name.
-         bytes_received Int64,       -- Size of request in bytes.
-         bytes_send Int64,           -- Size of response in bytes.
-         handler String,             -- Request method in REST.<HTTP method>.<subject> format.
-         http_referer String,        -- URL of request source.
-         ip String,                  -- User's IP address.
-         method String,              -- HTTP request method.
-         object_key String,          -- Object's key in URL encoded format.
-         protocol String,            -- Version of data transfer protocol.
-         range String,               -- HTTP header that defines range of bytes to load from object.
-         requester String,           -- User ID.
-         request_args String,        -- Argument of URL request.
-         request_id String,          -- Request ID.
-         request_path String,        -- Full path of request.
-         request_time Int64,         -- Request processing time, in milliseconds.
-         scheme String,              -- Type of data transfer protocol.
-                                     -- Possible values:
-                                     -- * http: An application layer protocol.
-                                     -- * https: An application layer protocol with encryption support.
-         ssl_protocol String,        -- Security protocol.
-         status Int64,               -- HTTP response code.
-         storage_class String,       -- Object's storage class.
-         timestamp DateTime,         -- Date and time of the operation with the bucket, in the YYYY-MM-DDTHH:MM:MMZ format.
-         user_agent String,          -- Client application (User Agent) that executed request.
-         version_id String,          -- Version of object.
-         vhost String                -- Virtual host of request.
-                                     -- Possible values:
-                                     -- * {{ s3-storage-host }}.
-                                     -- * <bucket name>.{{ s3-storage-host }}.
-                                     -- * {{ s3-web-host }}.
-                                     -- * <bucket name>.{{ s3-web-host }}.
-      )
-      ENGINE = S3(
-            'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
-            '<key_ID>',
-            '<secret key>',
-            'JSONEachRow'
-         )
-      SETTINGS date_time_input_format='best_effort';
-      ```
+     ```sql
+     CREATE TABLE s3_data.s3logs
+     (
+        bucket String,              -- Bucket name.
+        bytes_received Int64,       -- Size of request in bytes.
+        bytes_send Int64,           -- Size of response in bytes.
+        handler String,             -- Request method in REST.<HTTP method>.<subject> format.
+        http_referer String,        -- URL of request source.
+        ip String,                  -- User's IP address.
+        method String,              -- HTTP request method.
+        object_key String,          -- Object's key in URL encoded format.
+        protocol String,            -- Version of data transfer protocol.
+        range String,               -- HTTP header that defines range of bytes to load from object.
+        requester String,           -- User ID.
+        request_args String,        -- Argument of URL request.
+        request_id String,          -- Request ID.
+        request_path String,        -- Full path of request.
+        request_time Int64,         -- Request processing time, in milliseconds.
+        scheme String,              -- Type of data transfer protocol.
+                                    -- Possible values:
+                                    -- * http: An application layer protocol.
+                                    -- * https: An application layer protocol with encryption support.
+        ssl_protocol String,        -- Security protocol.
+        status Int64,               -- HTTP response code.
+        storage_class String,       -- Object's storage class.
+        timestamp DateTime,         -- Date and time of the operation with the bucket, in the YYYY-MM-DDTHH:MM:MMZ format.
+        user_agent String,          -- Client application (User Agent) that executed request.
+        version_id String,          -- Version of object.
+        vhost String                -- Virtual host of request.
+                                    -- Possible values:
+                                    -- * {{ s3-storage-host }}.
+                                    -- * <bucket name>.{{ s3-storage-host }}.
+                                    -- * {{ s3-web-host }}.
+                                    -- * <bucket name>.{{ s3-web-host }}.
+     )
+     ENGINE = S3(
+           'https://{{ s3-storage-host }}/<bucket_name>/s3-logs/*',
+           '<key_ID>',
+           '<secret key>',
+           'JSONEachRow'
+        )
+     SETTINGS date_time_input_format='best_effort';
+     ```
 
-   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
 
 {% endlist %}
 
@@ -335,15 +335,15 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 - Management console
 
-   1. Select the cluster `s3-logs`.
-   1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
-   1. In the window that opens, click **{{ ui-key.datalens.connections.form.button_add-connection }}**.
-   1. Fill in the connection settings:
+  1. Select the cluster `s3-logs`.
+  1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. In the window that opens, click **{{ ui-key.datalens.connections.form.button_add-connection }}**.
+  1. Fill in the connection settings:
 
-      1. Add a connection name: `s3-logs-con`.
-      1. In the **{{ ui-key.datalens.connections.form.field_cluster }}** field, select `s3-logs`.
-      1. In the **{{ ui-key.datalens.connections.form.field_host-name }}** field, select the {{ CH }} host from the drop-down list.
-      1. Enter the DB user's name and password.
+     1. Add a connection name: `s3-logs-con`.
+     1. In the **{{ ui-key.datalens.connections.form.field_cluster }}** field, select `s3-logs`.
+     1. In the **{{ ui-key.datalens.connections.form.field_host-name }}** field, select the {{ CH }} host from the drop-down list.
+     1. Enter the DB user's name and password.
 
    1. Click **{{ ui-key.datalens.connections.form.button_verify }}**.
    1. After checking the connection, click **{{ ui-key.datalens.connections.form.button_create-connection }}**.
@@ -356,7 +356,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 1. Click **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
 1. In the created dataset, move the `s3_data.s3logs` table to the workspace.
 1. Click the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}** tab.
-1. Click ![image](../../_assets/plus-sign.svg)**{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
+1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
 1. Create a calculated field with the file type:
 
    * Field name: `object_type`.
@@ -423,5 +423,5 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 
 Delete the resources you no longer need to avoid paying for them:
 
-* [Delete the bucket](../../storage/operations/buckets/delete.md) named `bucket-logs`.
+* [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the cluster](../../managed-clickhouse/operations/cluster-delete.md) named `s3-logs`.

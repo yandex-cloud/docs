@@ -5,8 +5,7 @@
 The difference is that when calculating window functions, the rows are not combined into one but continue to be separate. The result of the calculation is displayed in each row. The original number of rows doesn't change. For more detail on data aggregate and grouping in {{ datalens-short-name }}, please review [{#T}](aggregation-tutorial.md#datalens-aggregation).
 
 
-
-These examples will use [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) containing sales data by city as the data source to process.
+In these examples, the [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) file will be used as the source of data on sales in cities.
 
 ## Applying window functions {#usage-window-function}
 
@@ -29,8 +28,8 @@ Let's take a look at the `Selling` table with data on sales in cities:
 
 The [chart](https://datalens.yandex/ryw9h5g0ecc8k) based on the `Selling` table and grouped by `City` and `Category` must compute total sales (`TotalSales`) as well as each category's share in a city as a percentage of the total (`% Total`). To do this, you need to create two measures using the [SUM](../function-ref/SUM_WINDOW.md) window function:
 
-* TotalSales — `SUM(SUM([Sales]) TOTAL)`
-* % Total — `SUM([Sales]) / [TotalSales]`
+* TotalSales: `SUM(SUM([Sales]) TOTAL)`
+* % Total: `SUM([Sales]) / [TotalSales]`
 
 For example, for the **Table** chart, the result looks like this:
 
@@ -58,7 +57,7 @@ Let's review the most complicated window function example. Let's a build a datas
 
 1. Let's order our product subcategories in descending order by sales amount within each date. To accomplish this, we'll use the [RANK](../function-ref/RANK.md) window function to create a metric:
 
-   * Sales Rank — `RANK(SUM([Sales]) WITHIN [Date])`
+   * Sales Rank: `RANK(SUM([Sales]) WITHIN [Date])`
 
    As a result, for each date, the subcategory with the highest total sales will be numbered `1`, the subcategory with the next highest total `2`, and so on. For convenience, let's place the data in a **Table** chart:
 
@@ -66,7 +65,7 @@ Let's review the most complicated window function example. Let's a build a datas
 
 1. Let's highlight the subcategories in the top 3 most sold for the same date. To do this, create the following metric:
 
-   * Top-3 — `IF([Sales Rank] <= 3, 1, 0)`
+   * Top-3: `IF([Sales Rank] <= 3, 1, 0)`
 
    The subcategories that make it into the top 3 based on sales for each date will have the `[Top-3]` metric equal to `1`whereas for the remaining categories on the same date, it will be equal to `0`.
 
@@ -74,7 +73,7 @@ Let's review the most complicated window function example. Let's a build a datas
 
 1. Using the `[Top-3]` flag, we have highlighted the categories for the same date. Now, we need to highlight these subcategories for the other dates. To accomplish this, we create a metric using the [MAX](../function-ref/MAX_WINDOW.md) window function:
 
-   * [Show Category] — `MAX([Top-3] WITHIN [Sub-Category])`
+   * [Show Category]: `MAX([Top-3] WITHIN [Sub-Category])`
 
    In each product subcategory, the `[Show Category]` flag will be equal to `1` both for the date when the subcategory made it into the top 3 based on sales and for all the other dates. If a subcategory did not make it into the 3 most sold on any date, its `[Show Category]` flag will be equal to `0`.
 
@@ -93,7 +92,7 @@ Let's review the most complicated window function example. Let's a build a datas
       ![image](../../_assets/datalens/concepts/tutorial/window-func-15.png)
 
 {% endcut %}
-
+
 
 ## Grouping in window functions {#grouping}
 
@@ -135,8 +134,8 @@ In `WITHIN`, the [dimensions](aggregation-tutorial.md#dimensions-and-measures) t
 
 Calculating the share of each category (`% Total`) of the total sales amount by city (`TotalSales`):
 
-* TotalSales — `SUM(SUM([Sales]) WITHIN [City])`
-* % Total — `SUM([Sales]) / [TotalSales]`
+* TotalSales: `SUM(SUM([Sales]) WITHIN [City])`
+* % Total: `SUM([Sales]) / [TotalSales]`
 
 For example, this is the result for the **Column chart**:
 
@@ -207,7 +206,6 @@ To understand what aggregate function to select for converting dimensions into m
 If you need to get a string measure with a value determined by grouping and sorting data in a window function, use the [ANY](../function-ref/ANY.md) aggregate function.
 
 
-
 Let's take a look at examples of creating measures for a window function. We'll build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (the `MS_SalesMiniTable` table) and use it as our data source.
 
 **Example 1**
@@ -248,7 +246,7 @@ As a result, we should get a pivot table with the IDs of the last sales for the 
 1. Place the `last_shop_order` measure in the **Measures** section.
 
    ![image](../../_assets/datalens/concepts/tutorial/window-func-measure-last.png)
-
+
 
 ## Questions and answers {#qa}
 

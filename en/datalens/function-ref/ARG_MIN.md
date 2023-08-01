@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARG_MIN.md
+sourcePath: ru/_api-ref/datalens/function-ref/ARG_MIN.md
 ---
 
 # ARG_MIN
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   ARG_MIN( value, comp )
   ```
 
-- Extended
+- Расширенный
 
   ```
   ARG_MIN( value, comp
@@ -26,29 +26,29 @@ sourcePath: en/_api-ref/datalens/function-ref/ARG_MIN.md
          )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
+#### Описание {#description}
+Возвращает значение `value`, соответствующее минимальному значению `comp`. Если есть несколько значений `value`, соответствующих минимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
 
-**Argument types:**
-- `value` — `Any`
-- `comp` — `Any`
+**Типы аргументов:**
+- `value` — `Любой`
+- `comp` — `Любой`
 
 
-**Return type**: Same type as (`value`)
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 ARG_MIN([Sales], [Profit])
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `YDB`.

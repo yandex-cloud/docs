@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/TOP_CONCAT.md
+sourcePath: ru/_api-ref/datalens/function-ref/TOP_CONCAT.md
 ---
 
 # TOP_CONCAT
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   TOP_CONCAT( expression, amount [ , separator ] )
   ```
 
-- Extended
+- Расширенный
 
   ```
   TOP_CONCAT( expression, amount [ , separator ]
@@ -26,31 +26,31 @@ sourcePath: en/_api-ref/datalens/function-ref/TOP_CONCAT.md
             )
   ```
 
-  More info:
+  Подробнее:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
-Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+#### Описание {#description}
+Возвращает строку, которая содержит `amount` наиболее часто встречающихся уникальных значений из `expression`, разделенных `separator` (по умолчанию разделитель — запятая).
 
-**Argument types:**
-- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
-- `amount` — `Integer`
-- `separator` — `String`
+**Типы аргументов:**
+- `expression` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+- `amount` — `Целое число`
+- `separator` — `Строка`
 
 
-**Return type**: `String`
+**Возвращаемый тип**: `Строка`
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`amount`, `separator`).
+Значения аргументов (`amount`, `separator`) должны быть константами.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
 ```
 TOP_CONCAT([Profit], 3)
@@ -61,6 +61,6 @@ TOP_CONCAT([Profit], 3, '; ')
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `YDB`.

@@ -90,48 +90,48 @@
 - Нешардированный кластер-приемник
 
   1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
-      * **Тип базы данных** — `{{ MG }}`.
-      * **Настройки подключения** — `Пользовательская инсталляция`.
-        * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.ca_certificate.title }}** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
         * **Список хостов** — укажите FQDN хостов кластера-источника.
-        * **Порт** — укажите порт для подключения к хостам.
-        * **Источник аутентификации** — `db1`.
-        * **Имя пользователя** — `user1`.
-        * **Пароль** — укажите пароль пользователя `user1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.port.title }}** — укажите порт для подключения к хостам.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user1`.
   1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
-      * **Тип базы данных** — `{{ MG }}`.
-      * **Настройки подключения** — `Кластер MDB`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}** — `Кластер MDB`.
         * Укажите идентификатор кластера-приемника.
-        * **Имя пользователя** — `user_transfer`.
-        * **Пароль** — укажите пароль пользователя `user_transfer`.
-        * **Политика очистки** — `DROP`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user_transfer`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user_transfer`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.cleanup_policy.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`.
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create):
-     * **Тип трансфера** — {{ dt-type-copy-repl }}.
-     * **Источник** — выберите созданный эндпоинт для кластера-источника.
-     * **Приемник** — выберите созданный эндпоинт для кластера-приемника.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — {{ dt-type-copy-repl }}.
+     * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — выберите созданный эндпоинт для кластера-источника.
+     * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — выберите созданный эндпоинт для кластера-приемника.
 
 - Шардированный кластер-приемник
 
   1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
-      * **Тип базы данных** — `{{ MG }}`.
-      * **Настройки подключения** — `Пользовательская инсталляция`.
-        * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.ca_certificate.title }}** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
         * **Список хостов** — укажите FQDN хостов кластера-источника.
-        * **Порт** — укажите порт для подключения к хостам.
-        * **Источник аутентификации** — `db1`.
-        * **Имя пользователя** — `user1`.
-        * **Пароль** — укажите пароль пользователя `user1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.port.title }}** — укажите порт для подключения к хостам.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user1`.
   1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
-      * **Тип базы данных** — `{{ MG }}`.
-      * **Настройки подключения** — `Кластер MDB`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}** — `Кластер MDB`.
          * Укажите идентификатор кластера-приемника.
-         * **Имя пользователя** — `user_transfer`.
-         * **Пароль** — укажите пароль пользователя `user_transfer`.
-         * **Политика очистки** — `DISABLED` или `TRUNCATE`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user_transfer`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user_transfer`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.cleanup_policy.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`.
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create):
-      * **Тип трансфера** — {{ dt-type-copy-repl }}.
-      * **Источник** — выберите созданный эндпоинт для кластера-источника.
-      * **Приемник** — выберите созданный эндпоинт для кластера-приемника.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — {{ dt-type-copy-repl }}.
+      * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — выберите созданный эндпоинт для кластера-источника.
+      * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — выберите созданный эндпоинт для кластера-приемника.
 
 {% endlist %}
 

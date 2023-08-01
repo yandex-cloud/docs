@@ -1,6 +1,6 @@
-# DataLens Public
+# Public access
 
-With {{ datalens-public }}, you can grant public access to charts and dashboards: any user can view published objects without authorization. However, the user cannot view chart settings, connections, or the dataset, or execute an ad-hoc SQL query.
+You can grant public access to charts and dashboards you create: any user can view published objects without authorization. However, the user cannot view chart settings, connections, or the dataset, or execute an ad-hoc SQL query.
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
@@ -12,9 +12,13 @@ To protect the data, we recommend that you only grant the user rights to view th
 
 We also recommend minimizing the data in a dataset and adding only the required filters to the dashboard. You can download data on a public dashboard in a machine-readable format.
 
-## Publishing an object {#how-to-publish}
+Before publishing data, make sure that:
 
-You can grant public access to a dashboard or chart.
+* Your charts and dashboards don't contain any personal data or trade secrets. Access to published data is not restricted.
+* You can't publish dashboards and charts built on the [Yandex Metrica API](../operations/connection/create-metrica-api.md) and [AppMetrica](../operations/connection/create-appmetrica.md), but you can [share](#metrica-share) them.
+* You have administrator rights to published charts and dashboards, as well as related objects.
+
+## Publishing an object {#how-to-publish}
 
 {% list tabs %}
 
@@ -22,19 +26,17 @@ You can grant public access to a dashboard or chart.
 
   {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
 
-  To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
-
-  {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
-
 - Charts
 
   {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
 
-  To share a chart containing Yandex Metrica or AppMetrica data, use one of the following methods:
-
-  {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
-
 {% endlist %}
+
+## Share a chart based on Yandex Metrica or AppMetrica data {#metrica-share}
+
+To share a chart or dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 ## Embedding public objects {#embedded-public-chart}
 
@@ -43,8 +45,7 @@ You can embed published dashboards and charts into a website or app using an `if
 * `_theme=light`: Use the light theme for the object.
 * `_theme=dark`: Use the dark theme for the object.
 
-The parameter is added to the URL following the question mark `?`.
-For example:
+The parameter is added to the URL following the question mark `?`, e.g.:
 
 ```
 <iframe src="https://datalens.yandex/oxxbqilhotpgk?_theme=dark"></iframe>

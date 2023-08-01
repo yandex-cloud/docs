@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/MMIN.md
+sourcePath: ru/_api-ref/datalens/function-ref/MMIN.md
 ---
 
-# MMIN (window)
+# MMIN (оконная)
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 {% list tabs %}
 
-- Standard
+- Стандартный
 
   ```
   MMIN( value, rows_1 [ , rows_2 ] )
   ```
 
-- Extended
+- Расширенный
 
   ```
   MMIN( value, rows_1 [ , rows_2 ]
@@ -27,55 +27,56 @@ sourcePath: en/_api-ref/datalens/function-ref/MMIN.md
       )
   ```
 
-  More info:
+  Подробнее:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [ORDER BY](window-functions.md#syntax-order-by)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Description {#description}
+#### Описание {#description}
 
 {% note warning %}
 
-The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
+Сортировка осуществляется на основе полей, перечисленных в области сортировки в чарте и в ORDER BY. При этом сначала берутся поля из `ORDER BY`.
 
 {% endnote %}
 
-Returns the moving minimum of values in a fixed-size window defined by the sort order and arguments:
+Возвращает скользящий минимум значений по окну записей, определяемому порядком сортировки и аргументами:
 
-| `rows_1`   | `rows_2`   | Window                                                                |
-|:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` preceding rows.                          |
-| negative   | -          | The current row and -`rows_1` following rows.                         |
-| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
-
-
-Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
-
-See also [MIN](MIN.md), [RMIN](RMIN.md).
-
-**Argument types:**
-- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
-- `rows_1` — `Integer`
-- `rows_2` — `Integer`
+| `rows_1`      | `rows_2`   | Окно                                                             |
+|:--------------|:-----------|:-----------------------------------------------------------------|
+| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
+| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
+| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
 
 
-**Return type**: Same type as (`value`)
+
+Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
+
+См. также [MIN](MIN.md), [RMIN](RMIN.md).
+
+**Типы аргументов:**
+- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
+- `rows_1` — `Целое число`
+- `rows_2` — `Целое число`
+
+
+**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`rows_1`, `rows_2`).
+Значения аргументов (`rows_1`, `rows_2`) должны быть константами.
 
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Примеры {#examples}
 
-{% cut "Example with two and three arguments" %}
+{% cut "Пример с двумя и тремя аргументами" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -91,11 +92,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`.
+Группировка по `[City]`.
 
-Sorted by `[City]`.
+Сортировка по `[City]`.
 
-Result
+Результат
 
 | **[City]**        | **SUM([Orders])**   | **MMIN(SUM([Orders]), 1)**   | **MMIN(SUM([Orders]), -2)**   | **MMIN(SUM([Orders]) 1, 1)**   |
 |:------------------|:--------------------|:-----------------------------|:------------------------------|:-------------------------------|
@@ -106,10 +107,10 @@ Result
 
 {% endcut %}
 
-{% cut "Example with ORDER BY" %}
+{% cut "Пример с ORDER BY" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -125,11 +126,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`.
+Группировка по `[City]`.
 
-Sorted by `[City]`.
+Сортировка по `[City]`.
 
-Result
+Результат
 
 | **[City]**        | **SUM([Orders])**   | **MMIN(SUM([Orders]), 1 ORDER BY [City] DESC)**   | **MMIN(SUM([Orders]), 1 ORDER BY [Order Sum])**   |
 |:------------------|:--------------------|:--------------------------------------------------|:--------------------------------------------------|
@@ -140,10 +141,10 @@ Result
 
 {% endcut %}
 
-{% cut "Example with grouping" %}
+{% cut "Пример с группировкой" %}
 
 
-Source data
+Исходные данные
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -159,11 +160,11 @@ Source data
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Grouped by `[City]`, `[Category]`.
+Группировка по `[City]`, `[Category]`.
 
-Sorted by `[City]`, `[Category]`.
+Сортировка по `[City]`, `[Category]`.
 
-Result
+Результат
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **MMIN(SUM([Orders]), 1 TOTAL)**   | **MMIN(SUM([Orders]), 1 WITHIN [City])**   | **MMIN(SUM([Orders]), 1 AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-----------------------------------|:-------------------------------------------|:------------------------------------------|
@@ -179,6 +180,6 @@ Result
 {% endcut %}
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

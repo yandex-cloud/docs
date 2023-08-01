@@ -1,44 +1,44 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/NOW.md
+sourcePath: ru/_api-ref/datalens/function-ref/NOW.md
 ---
 
 # NOW
 
 
 
-#### Syntax {#syntax}
+#### Синтаксис {#syntax}
 
 
 ```
 NOW()
 ```
 
-#### Description {#description}
-Returns the current date and time, depending on the data source and connection type.
+#### Описание {#description}
+Возвращает текущую дату и время в зависимости от источника данных и типа соединения.
 
-**Return type**: `Datetime`
+**Возвращаемый тип**: `Дата и время`
 
 {% note info %}
 
-On materialization, the function returns the UTC+3 date and time.
+При материализации функция возвращает дату и время по Московскому времени.
 
 {% endnote %}
 
 {% note info %}
 
-On `YQL`, the function always returns the UTC date and time.
+В `YQL` функция всегда возвращает дату и время в зоне UTC.
 
 {% endnote %}
 
 
-#### Example {#examples}
+#### Пример {#examples}
 
 ```
 NOW() = #2019-01-23 12:53:07#
 ```
 
 
-#### Data source support {#data-source-support}
+#### Поддержка источников данных {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
