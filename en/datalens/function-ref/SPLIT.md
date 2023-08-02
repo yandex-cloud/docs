@@ -1,38 +1,38 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SPLIT.md
+sourcePath: en/_api-ref/datalens/function-ref/SPLIT.md
 ---
 
 # SPLIT
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 SPLIT( orig_string [ , delimiter [ , part_index ] ] )
 ```
 
-#### Описание {#description}
-Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`. Разделитель по умолчанию – запятая. Если не передан `part_index`, то возвращается массив (только для источников `ClickHouse`, `PostgreSQL`).
+#### Description {#description}
+Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
 
-**Типы аргументов:**
-- `orig_string` — `Строка`
-- `delimiter` — `Строка`
-- `part_index` — `Целое число`
+**Argument types:**
+- `orig_string` — `String`
+- `delimiter` — `String`
+- `part_index` — `Integer`
 
 
-**Возвращаемый тип**: Зависит от типов аргументов
+**Return type**: Depends on argument types
 
 {% note info %}
 
-Значения аргументов (`delimiter`) должны быть константами.
+Only constant values are accepted for the arguments (`delimiter`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 SPLIT("RU-MOW-SVO", "-", 1) = "RU"
@@ -43,6 +43,6 @@ SPLIT("RU-MOW-SVO", "-", -1) = "SVO"
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `MySQL 5.6`, `PostgreSQL 9.3`, `YDB`.

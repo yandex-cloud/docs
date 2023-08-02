@@ -1,6 +1,6 @@
 # Component properties
 
-When [creating a {{ dataproc-name }} cluster](../operations/cluster-create.md), you can specify the properties of cluster components, jobs, and environment in the following format:
+Properties of cluster components, jobs, and environments are stored in the following format:
 
 ```text
 <key>:<value>
@@ -19,6 +19,15 @@ hdfs:dfs.replication : 2
 hdfs:dfs.blocksize : 1073741824
 spark:spark.driver.cores : 1
 ```
+
+## Updating component properties {#change-properties}
+
+You can update the component properties:
+
+* At the cluster level when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md) it. The properties provided this way apply to any new cluster jobs by default.
+* At the level of an individual [job](./jobs.md) when [creating](../operations/jobs.md) it. The properties provided this way only apply to this job and override the cluster-level properties set for it.
+
+## Available component properties {#available-properties}
 
 The available properties are listed in the official documentation for the components:
 
@@ -40,12 +49,18 @@ The available properties are listed in the official documentation for the compon
 | `tez` | `/etc/tez/conf/tez-site.xml` | [Tez 0.9.2](https://tez.apache.org/releases/0.9.2/tez-api-javadocs/configs/TezConfiguration.html) and [Tez 0.10.0](https://tez.apache.org/releases/0.10.0/tez-api-javadocs/configs/TezConfiguration.html) |
 | `zeppelin` | `/etc/zeppelin/conf/zeppelin-site.xml` | [Zeppelin](https://zeppelin.apache.org/docs/0.9.0/setup/operation/configuration.html) |
 
-Settings for running the jobs are specified in special properties:
+Settings for running jobs are specified in special properties:
 
 * `dataproc:version`: Version of the `dataproc-agent` that runs jobs, sends the property of a cluster state, and proxies the UI. Used for debugging. Default value: `latest`.
 * `dataproc:max-concurrent-jobs`: Number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
 * `dataproc:min-free-memory-to-enqueue-new-job`: Minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
 * `dataproc:job-memory-footprint`: Memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
+* `dataproc:spark_executors_per_vm`: Maximum number of containers per computing host when running [Spark jobs](./spark-sql.md). Default values:
+
+   * `1` for [lightweight clusters](./index.md#light-weight-clusters).
+   * `2` for clusters with HDFS.
+
+* `dataproc:spark_driver_memory_fraction`: Computing host memory fraction reserved for the driver when running [Spark jobs](./spark-sql.md). The default value is `0.25`.
 
 ## JVM settings for Spark applications set in {{ dataproc-name }} by default {#jvm-settings-for-spark}
 
@@ -80,7 +95,7 @@ The following settings are available for Apache Spark:
 | Configuration | Default value | Description |
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | `fs.s3a.access.key` | — | [Static key](../../iam/concepts/authorization/access-key.md) ID |
-| `fs.s3a.secret.key` | — | Private key |
+| `fs.s3a.secret.key` | — | Secret key |
 | `fs.s3a.endpoint` | `{{ s3-storage-host }}` | Endpoint to connect to {{ objstorage-name }} |
 | `fs.s3a.signing-algorithm` | Empty value | Signature algorithm |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Identity provider |

@@ -17,3 +17,9 @@ You can configure the load balancer parameters. For example, to change the maxim
 
 
 {% include [logs](../../_qa/logs.md) %}
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../../_qa/throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, consider switching to a different cluster with larger host storage or a faster disk type. You can transfer data to a new cluster, for example, using [{{ metastore-full-name }}](../concepts/metastore.md).

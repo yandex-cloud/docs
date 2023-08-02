@@ -1,39 +1,39 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/REPLACE.md
+sourcePath: en/_api-ref/datalens/function-ref/REPLACE.md
 ---
 
-# REPLACE (строковая)
+# REPLACE (string)
 
-_Функция `REPLACE` также доступна в следующих категориях: [Функции для работы с массивами](REPLACE_ARRAY.md)._
+_Function `REPLACE` is also found in the following categories: [Array functions](REPLACE_ARRAY.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 REPLACE( string, substring, replace_with )
 ```
 
-#### Описание {#description}
-Ищет подстроку `substring` в строке `string` и заменяет ее строкой `replace_with`.
+#### Description {#description}
+Searches for the substring `substring` in the string `string` and replaces it with the string `replace_with`.
 
-Если подстрока не найдена, то строка не будет изменена.
+If the substring is not found, the string is not changed.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `substring` — `Строка`
-- `replace_with` — `Строка`
+**Argument types:**
+- `string` — `String`
+- `substring` — `String`
+- `replace_with` — `String`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 REPLACE("350 RUB", "RUB", "USD") = "350 USD"
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

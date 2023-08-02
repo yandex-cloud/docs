@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/STR.md
+sourcePath: en/_api-ref/datalens/function-ref/STR.md
 ---
 
 # STR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 STR( expression )
 ```
 
-#### Описание {#description}
-Переводит выражение `expression` к типу строки.
+#### Description {#description}
+Converts the `expression` expression to string type.
 
-**Типы аргументов:**
-- `expression` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+**Argument types:**
+- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
 {% note info %}
 
-Если передан массив (только для источников `ClickHouse`, `PostgreSQL`), то преобразование осуществляется функцией источника и результат для разных источников может отличаться. Для получения одинакового результата используйте [ARR_STR](ARR_STR.md).
+If an array is passed (only for `ClickHouse`, `PostgreSQL` sources), the conversion is performed by a function in the source database and results may vary for different data sources. For consistent results use [ARR_STR](ARR_STR.md).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 STR(77) = "77"
@@ -61,6 +61,6 @@ STR(ARRAY('a', 'b', '', NULL)) = ['a','b','',NULL]  ClickHouse
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

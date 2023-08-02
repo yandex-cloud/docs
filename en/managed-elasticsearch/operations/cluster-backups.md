@@ -50,12 +50,12 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    Result:
 
    ```text
-   +----------+----------------------+----------------------+----------------------+
-   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-   +----------+----------------------+----------------------+----------------------+
-   | c9qlk... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
-   | c9qpm... | 2020-08-09T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2020-08-09T21:30:00Z |
-   +----------+----------------------+----------------------+----------------------+
+   +----------------------+----------------------+----------------------+----------------------+
+   |          ID          |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+   +----------------------+----------------------+----------------------+----------------------+
+   | c9qlk4v13uq7******** | 2020-08-10T12:00:00Z | c9qlk4v13uq7******** | 2020-08-10T11:55:17Z |
+   | c9qpm90p3pcg******** | 2020-08-09T22:01:04Z | c9qpm90p3pcg******** | 2020-08-09T21:30:00Z |
+   +----------------------+----------------------+----------------------+----------------------+
    ```
 
 - API
@@ -207,7 +207,7 @@ When creating a new cluster, set all required parameters.
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
-      | c9qlk4v13uq79r9cgcku...  | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
+      | c9qlk4v13uq79r9********  | 2020-08-10T12:00:00Z | c9qlk4v13uq7******** | 2020-08-10T11:55:17Z |
       | ...                                                                                           |
       +--------------------------+----------------------+----------------------+----------------------+
       ```
@@ -243,7 +243,7 @@ When creating a new cluster, set all required parameters.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).

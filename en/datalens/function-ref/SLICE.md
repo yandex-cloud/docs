@@ -1,38 +1,38 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SLICE.md
+sourcePath: en/_api-ref/datalens/function-ref/SLICE.md
 ---
 
 # SLICE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 SLICE( array, offset, length )
 ```
 
-#### Описание {#description}
-Возвращает часть массива `array` длины `length`, начиная с индекса `offset`. Индексы в массиве начинаются с единицы.
+#### Description {#description}
+Returns the part of array `array` of length `length` starting from index `offset`. Indexes in an array begin with one.
 
-**Типы аргументов:**
-- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
-- `offset` — `Целое число`
-- `length` — `Целое число`
+**Argument types:**
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
+- `offset` — `Integer`
+- `length` — `Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`array`)
+**Return type**: Same type as (`array`)
 
 {% note info %}
 
-Значения аргументов (`offset`, `length`) должны быть константами.
+Only constant values are accepted for the arguments (`offset`, `length`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 SLICE(ARRAY(1, 2, 3, 4, 5), 3, 2) = [3, 4]
@@ -43,6 +43,6 @@ SLICE(ARRAY(1, 2, 3, 4, 5), 3, 1) = [3]
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

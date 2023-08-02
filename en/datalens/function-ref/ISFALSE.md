@@ -1,31 +1,31 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ISFALSE.md
+sourcePath: en/_api-ref/datalens/function-ref/ISFALSE.md
 ---
 
 # IS FALSE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 value IS [ NOT ] FALSE
 ```
 
-#### Описание {#description}
-Проверяет, является ли значение `value` ложным (`FALSE`).
+#### Description {#description}
+Checks whether the `value` value is false (`FALSE`).
 
-Вариант `value IS NOT FALSE` возвращает противоположное значение.
+The `value IS NOT FALSE` option returns the opposite value.
 
-**Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка`
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 "" IS FALSE = TRUE
@@ -56,6 +56,6 @@ TRUE IS NOT FALSE = TRUE
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/MAX_WINDOW.md
+sourcePath: en/_api-ref/datalens/function-ref/MAX_WINDOW.md
 ---
 
-# MAX (оконная)
+# MAX (window)
 
-_Функция `MAX` также доступна в следующих категориях: [Агрегатные функции](MAX.md)._
+_Function `MAX` is also found in the following categories: [Aggregate functions](MAX.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   MAX( value
@@ -19,10 +19,10 @@ _Функция `MAX` также доступна в следующих кате
      )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Расширенный
+- Extended
 
   ```
   MAX( value
@@ -31,33 +31,33 @@ _Функция `MAX` также доступна в следующих кате
      )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает максимальное значение.
+#### Description {#description}
+Returns the maximum value.
 
-Если `value`:
-- число — возвращает наибольшее число;
-- дата — возвращает самую позднюю дату;
-- строка — возвращает последнее значение в алфавитном порядке.
-
-
-**Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
+If `value`:
+- number — Returns the largest number.
+- date — Returns the latest date.
+- string — Returns the last value in the alphabetic order.
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
-
-#### Пример {#examples}
-
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
 
 
+**Return type**: Same type as (`value`)
 
-Исходные данные
+#### Example {#examples}
+
+
+
+
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -73,11 +73,11 @@ _Функция `MAX` также доступна в следующих кате
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **MAX(SUM([Orders]) TOTAL)**   | **MAX(SUM([Orders]) WITHIN [City])**   | **MAX(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
@@ -93,6 +93,6 @@ _Функция `MAX` также доступна в следующих кате
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

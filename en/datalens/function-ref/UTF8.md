@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/UTF8.md
+sourcePath: en/_api-ref/datalens/function-ref/UTF8.md
 ---
 
 # UTF8
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 UTF8( string, old_encoding )
 ```
 
-#### Описание {#description}
-Переводит кодировку строки `string` в `UTF8`.
+#### Description {#description}
+Converts the `string` string encoding to `UTF8`.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `old_encoding` — `Строка`
+**Argument types:**
+- `string` — `String`
+- `old_encoding` — `String`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 UTF8([Name], "CP-1251")
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`.

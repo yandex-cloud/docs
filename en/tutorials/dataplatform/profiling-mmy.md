@@ -1,3 +1,7 @@
-# Performance analysis and tuning of {{ mmy-name }}
+---
+canonical: "{{ link-docs }}/managed-mysql/tutorials/profiling-mmy"
+---
 
-{% include notitle [profiling](../../_tutorials/dataplatform/profiling-mmy.md) %}
+# {{ mmy-name }} performance analysis and tuning
+
+{% include notitle [mysql-profiling](../../_tutorials/dataplatform/profiling-mmy.md) %}

@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/RIGHT.md
+sourcePath: en/_api-ref/datalens/function-ref/RIGHT.md
 ---
 
 # RIGHT
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 RIGHT( string, number )
 ```
 
-#### Описание {#description}
-Возвращает строку, которая содержит указанное количество символов `number` с конца строки `string`.
+#### Description {#description}
+Returns a string that contains the number of characters specified in `number` from the end of the string `string`.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `number` — `Целое число`
+**Argument types:**
+- `string` — `String`
+- `number` — `Integer`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 RIGHT("Computer", 3) = "ter"
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

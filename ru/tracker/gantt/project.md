@@ -61,3 +61,15 @@
 ## Отображение блока со списком задач {#tasks-view}
 
 {% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}
+
+## Действия с задачами {#issue-actions}
+
+Чтобы в блоке со списком задач открыть меню действий с задачей, справа от названия задачи нажмите ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.issue-action-menu-title }}**.
+
+В меню доступны действия:
+* ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.ui_components_projects_hooks.copy-to-clipboard }}**;
+* ![](../../_assets/tracker/svg/move-up.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-up }}** (только при ручной сортировке);
+* ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (только при ручной сортировке);
+* ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**;
+* ![](../../_assets/tracker/svg/gantt-palette.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.choose-color }}** (только при настройке цвета **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}**).
+

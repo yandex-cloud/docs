@@ -1,6 +1,19 @@
 title: Все решения
 href: index.yaml
 items:
+  - name: Application Load Balancer
+    items:
+      - name: Все решения для Application Load Balancer
+        href: application-load-balancer/index.md
+      - name: Решения для известных проблем Application Load Balancer
+        href: application-load-balancer/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Application Load Balancer
+        href: application-load-balancer/how-to/index.md
+        hidden: true
+      - name: Получение реального IP-адреса источника в заголовках запросов
+        href: >-
+          application-load-balancer/how-to/getting-external-src-ip-in-x-forwarded-for-headers.md
   - name: Cloud Billing
     items:
       - name: Все решения для Cloud Billing
@@ -27,6 +40,25 @@ items:
         href: billing/how-to/promocodes-and-grants-features-in-billing.md
       - name: Как посмотреть стоимость потребления отдельных ресурсов
         href: billing/how-to/how-to-view-separate-resource-consumption.md
+      - name: Особенности работы с грантами и промокодами в биллинге Yandex Cloud
+        href: billing/how-to/promocodes-and-grants-features-in-billing.md
+      - name: Как посмотреть стоимость потребления отдельных ресурсов
+        href: billing/how-to/how-to-view-separate-resource-consumption.md
+  - name: Certificate Manager
+    items:
+      - name: Все решения для Certificate Manager
+        href: cdn/index.md
+      - name: Решения для известных проблем Certificate Manager
+        href: certificate-manager/known-issues/index.md
+        hidden: true
+      - name: >-
+          Устранение проблем с получением и обновлением сертификатов от Let's
+          Encrypt
+        href: >-
+          certificate-manager/known-issues/certificate-issue-or-renewal-failed.md
+      - name: Примеры конфигураций и сценариев Certificate Manager
+        href: certificate-manager/how-to/index.md
+        hidden: true
   - name: Cloud CDN
     items:
       - name: Все решения для Cloud CDN
@@ -34,6 +66,10 @@ items:
       - name: Решения для известных проблем Cloud CDN
         href: cdn/known-issues/index.md
         hidden: true
+      - name: >-
+          Устранение ошибок no such bucket и no such key при загрузке объектов
+          из CDN
+        href: cdn/known-issues/no-such-bucket-no-such-key.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: cdn/how-to/index.md
         hidden: true
@@ -95,6 +131,10 @@ items:
       - name: Поддержка UEFI и загрузка с дисков, размеченных в формате GPT
         href: >-
           compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
+      - name: Устранение ошибки Not enough resources при запуске виртуальной машины
+        href: compute/known-issues/not-enough-resources.md
+      - name: Восстановление доступа к ВМ с утерянным SSH-ключом
+        href: compute/known-issues/restore-access-to-vm.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -110,6 +150,12 @@ items:
         href: compute/how-to/creating-instances-with-multiple-network-interfaces.md
       - name: Уменьшение объема диска виртуальной машины
         href: compute/how-to/shrink-instance-disk.md
+      - name: Экспорт образов дисков виртуальных машин Compute Cloud
+        href: compute/how-to/export-disk-image.md
+      - name: Перенос ВМ между разными каталогами или облаками
+        href: compute/how-to/transfer-vm-between-clouds.md
+      - name: Настройка GUI и графического окружения на ВМ с Linux
+        href: compute/how-to/access-gui-and-xorg-on-linux-vm.md
   - name: Container Registry
     items:
       - name: Все решения для Container Registry
@@ -132,11 +178,11 @@ items:
         hidden: true
       - name: Подключение к Яндекс Директ из DataLens
         href: datalens/how-to/access-yandex-direct-data.md
-      - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
-        href: datalens/known-issues/err-ds_api_field-title_conflict.md
       - name: Решения для известных проблем DataLens
         href: datalens/known-issues/index.md
         hidden: true
+      - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
+        href: datalens/known-issues/err-ds_api_field-title_conflict.md
       - name: >-
           Устранение ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED в
           DataLens
@@ -152,6 +198,30 @@ items:
           datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md
       - name: Устранение ошибки ERR.DS_API.US Not correct folder_id в DataLens
         href: datalens/known-issues/err-ds_api_us-not-correct-folder-id.md
+      - name: >-
+          Устранение проблем использования связанных таблиц при подключении к
+          Bitrix
+        href: datalens/known-issues/bitrix24-linking-talbes-issue.md
+      - name: Устранение ошибки ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE
+        href: datalens/known-issues/err-ds_api_formula-translation-data_type.md
+      - name: >-
+          Устранение проблем с доступом к дашборду со статистикой подкастов в
+          Яндекс Музыке
+        href: datalens/known-issues/yandex-music-stats-dashboard-issue.md
+      - name: Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT
+        href: >-
+          datalens/known-issues/err-ds_api_formula-validation-agg-inconsistent.md
+      - name: >-
+          Устранение проблем при загрузке CSV-файла в датасет в качестве
+          источника данных
+        href: datalens/known-issues/csv-upload-issue.md
+      - name: >-
+          Устранение ошибки Validation error Request failed with status code 500
+          при сохранении дашборда
+        href: >-
+          datalens/known-issues/validation-error-request-failed-with-status-code-500.md
+      - name: Поддержка пользовательских полей Битрикс24
+        href: datalens/known-issues/bitrix24-user-fields-support.md
   - name: DataProc
     items:
       - name: Все решения для DataProc
@@ -182,6 +252,8 @@ items:
           of Contents
         href: >-
           datasphere/known-issues/toc-extension-is-missing-in-jupyterlab-extensions-catalog.md
+      - name: Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere
+        href: datasphere/known-issues/getting-access-go-g1-1-config.md
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
@@ -224,6 +296,12 @@ items:
           при авторизации федеративным аккаунтом
         href: >-
           iam/known-issues/error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md
+      - name: >-
+          Устранение проблем при создании OAuth-токенов от имени учетных записей
+          Яндекс ID
+        href: iam/known-issues/unauthorised-client-issue.md
+      - name: Устранение проблем при переносе облака между разными организациями
+        href: iam/known-issues/move-org-public-access-bindings-error.md
       - name: Примеры конфигураций и сценариев IAM
         href: iam/how-to/index.md
         hidden: true
@@ -252,6 +330,11 @@ items:
         href: >-
           managed-kubernetes/known-issues/error-unable-to-attach-or-mount-volumes-timed-out-waiting-for-the-condition.md
       - name: >-
+          Устранение ошибки timed out waiting for the condition при монтировании
+          тома с большим количеством файлов
+        href: >-
+          managed-kubernetes/known-issues/unable-to-mount-volume-with-a-large-number-of-files.md
+      - name: >-
           Хосты группы узлов Managed Service for Kubernetes долго находятся в
           статусе Reconciling
         href: >-
@@ -269,6 +352,8 @@ items:
           Service for Kubernetes
         href: >-
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
+      - name: Выдача нодам Kubernetes доступа в Интернет
+        href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
   - name: Object Storage
     items:
       - name: Все решения для Object Storage
@@ -276,6 +361,14 @@ items:
       - name: Решения для известных проблем Object Storage
         href: storage/known-issues/index.md
         hidden: true
+      - name: >-
+          Устранение ошибки Bucket not empty при удалении бакета из Object
+          Storage
+        href: storage/known-issues/bucket-deletion-issue.md
+      - name: >-
+          Устранение ошибок доступа к бакету с назначенной политикой
+          безопасности
+        href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
       - name: Примеры конфигураций и сценариев Object Storage
         href: storage/how-to/index.md
         hidden: true
@@ -397,6 +490,12 @@ items:
           Ошибочно определяется географическая принадлежность IP-адресов
           ресурсов Yandex Cloud
         href: vpc/known-issues/external-ip-address-country-affiliation-issue.md
+      - name: >-
+          Устранение проблем со скоростью сетевого соединения при работе с
+          облачными ресурсами
+        href: vpc/known-issues/network-perfomance-issue.md
+      - name: Устранение ошибок при установке TLS-соединений на ВМ
+        href: vpc/known-issues/resolving-tls-traffic-issues.md
       - name: Примеры конфигураций и сценариев VPC
         href: vpc/how-to/index.md
         hidden: true

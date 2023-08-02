@@ -7,46 +7,54 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to a database
+      - name: Clusters
         items:
-          - name: Overview of database connection methods
-            href: operations/connect/index.md
-          - name: Connecting to a non-sharded cluster
-            href: operations/connect/non-sharded.md
-          - name: Connecting to a sharded cluster
-            href: operations/connect/sharded.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: Changing cluster and database settings
-        href: operations/update.md
-      - name: Selecting a different primary replica
-        href: operations/stepdown.md
-      - name: MongoDB version upgrade
-        href: operations/cluster-version-update.md
-      - name: Managing databases
-        href: operations/databases.md
-      - name: Managing hosts in a cluster
-        href: operations/hosts.md
-      - name: Managing database users
-        href: operations/cluster-users.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Managing shards
-        href: operations/shards.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
-      - name: Performance diagnostics
-        href: operations/performance-diagnostics.md
-      - name: Performance analysis tools
-        href: operations/tools.md
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing cluster settings
+            href: operations/update.md
+          - name: MongoDB version upgrade
+            href: operations/cluster-version-update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing hosts in a cluster
+            href: operations/hosts.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Databases
+        items:
+          - name: Connecting to a database
+            items:
+              - name: Overview of database connection methods
+                href: operations/connect/index.md
+              - name: Connecting to a non-sharded cluster
+                href: operations/connect/non-sharded.md
+              - name: Connecting to a sharded cluster
+                href: operations/connect/sharded.md
+          - name: Managing databases
+            href: operations/databases.md
+          - name: Managing database users
+            href: operations/cluster-users.md
+      - name: Sharding and replication
+        items:
+          - name: Managing shards
+            href: operations/shards.md
+          - name: Selecting a different primary replica
+            href: operations/stepdown.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Performance diagnostics
+            href: operations/performance-diagnostics.md
+          - name: Performance analysis tools
+            href: operations/tools.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: All use cases
@@ -75,6 +83,8 @@ items:
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
       - name: Network in Yandex Managed Service for MongoDB

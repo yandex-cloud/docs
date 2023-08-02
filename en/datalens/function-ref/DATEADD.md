@@ -1,53 +1,53 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/DATEADD.md
+sourcePath: en/_api-ref/datalens/function-ref/DATEADD.md
 ---
 
 # DATEADD
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 DATEADD( datetime [ , unit [ , number ] ] )
 ```
 
-#### Описание {#description}
-Возвращает дату, полученную в результате добавления `unit` в количестве `number` к указанной дате `datetime`.
+#### Description {#description}
+Returns the date obtained by adding `unit` in the amount of `number` to the specified date `datetime`.
 
-Аргумент `number` задается целым числом. Может принимать отрицательные значения.
-Аргумент `unit` принимает следующие значения:
-- `"year"` — год;
-- `"month"` — месяц;
-- `"day"` — день;
-- `"hour"` — час;
-- `"minute"` — минута;
-- `"second"` — секунда.
+The `number` argument is an integer. It can be negative.
+The `unit` argument takes the following values:
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
+- `"second"`.
 
-**Типы аргументов:**
-- `datetime` — `Дата | Дата и время`
-- `unit` — `Целое число | Строка`
-- `number` — `Целое число`
+**Argument types:**
+- `datetime` — `Date | Datetime`
+- `unit` — `Integer | String`
+- `number` — `Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`datetime`)
+**Return type**: Same type as (`datetime`)
 
 {% note info %}
 
-Значения аргументов (`unit`) должны быть константами.
+Only constant values are accepted for the arguments (`unit`).
 
 {% endnote %}
 
 {% note info %}
 
-Для всех источников кроме `ClickHouse` аргумент `number` принимает только константые значения.
+For all sources except `ClickHouse`, `number` takes only constant values.
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 DATEADD(#2018-01-12#, "day", 6) = #2018-01-18#
@@ -86,6 +86,6 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

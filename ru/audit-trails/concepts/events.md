@@ -114,7 +114,9 @@
 `functions.DeleteFunction` | Удаление функции
 `functions.RemoveFunctionTag` | Удаление тега функции
 `functions.SetFunctionTag` | Назначение тега функции
+`functions.SetFunctionAccessBindings` | Назначение привязок прав доступа для функции
 `functions.UpdateFunction` | Изменение функции
+`functions.UpdateFunctionAccessBindings` | Изменение привязок прав доступа для функции
 `mdbproxy.CreateProxy` | Создание прокси
 `mdbproxy.DeleteProxy` | Удаление прокси
 `mdbproxy.UpdateProxy` | Изменение прокси
@@ -146,7 +148,7 @@
 
 Имя события | Описание
 --- | ---
-`CreateCertificate` | Создание сертификата
+`CreateCertificate` | Добавление сертификата
 `CreateDomain` | Создание домена
 `UpdateCertificate` | Изменение сертификата
 `UpdateDomain` | Изменение домена
@@ -194,12 +196,14 @@
 `CrashInstance` | Аварийное отключение ВМ
 `CreateDisk` | Создание диска
 `CreateFilesystem` | Создание файловой системы
+`CreateGpuCluster` | Создание кластера GPU
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
 `CreateSnapshot` | Создание снимка диска
 `CreateSnapshotSchedule` | Создание расписания снимков диска
 `DeleteDisk` | Удаление диска
 `DeleteFilesystem` | Удаление файловой системы
+`DeleteGpuCluster` | Удаление кластера GPU
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
 `DeleteSnapshot` | Удаление снимка диска
@@ -216,6 +220,7 @@
 `StopInstance` | Остановка ВМ
 `UpdateDisk` | Изменение диска
 `UpdateFilesystem` | Изменение файловой системы
+`UpdateGpuCluster` | Изменение кластера GPU
 `UpdateImage` | Изменение образа диска
 `UpdateInstance` | Изменение ВМ
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
@@ -245,6 +250,7 @@
 `CreateImageTag` | Создание тега образа
 `CreateRegistry` | Создание реестра
 `CreateRepository` | Создание репозитория
+`CreateScanPolicy` | Создание политики сканирования
 `DeleteImage` | Удаление образа
 `DeleteImageTag` | Удаление тега образа
 `DeleteRegistry` | Удаление реестра
@@ -252,6 +258,7 @@
 `ScanImage` | Сканирование образа
 `UpdateIpPermission` | Изменение политики доступа с IP-адресов
 `UpdateRegistry` | Изменение реестра
+`UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение привязок прав доступа на реестр  
 `UpdateRepositoryAccessBindings` | Изменение привязок прав доступа на репозиторий
 `SetRegistryAccessBindings`  | Назначение привязок прав доступа на реестр
@@ -593,6 +600,8 @@
 `ObjectCreate` | Создание объекта в бакете ^*^
 `ObjectDelete` | Удаление объекта в бакете ^*^
 `ObjectUpdate` | Изменение объекта в бакете ^*^
+`ObjectTagsDelete` | Удаление тегов объекта
+`ObjectTagsUpdate` | Изменение тегов объекта
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane object storage в audit trail `<id трейла>`».
@@ -676,6 +685,8 @@
 
 Имя события | Описание
 --- | ---
+`AddressAttached` | Привязка адреса к облачному ресурсу
+`AddressDetached` | Отвязка адреса от облачного ресурса
 `CreateAddress` | Создание адреса облачных ресурсов
 `CreateGateway` | Создание шлюза
 `CreateNetwork` | Создание облачной сети

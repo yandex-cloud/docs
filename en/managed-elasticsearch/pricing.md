@@ -84,9 +84,9 @@ Where:
 > Total: $699.289600 is the cost of using the cluster for 30 days.
 
 Where:
-* 720 is the number of hours in 30 days.
+* 720: Number of hours in 30 days.
 * Total: $0.967680 is the cost per hour of operation for all hosts.
-* 100 is the amount of HDD network storage (in GB).
+* 100: Amount of HDD network storage (in GB).
 * $0.025600 is the cost of using 1 GB of network HDD storage per month.
 
 

@@ -13,3 +13,13 @@
   {% include [issues-table-queue-filter-project](../../_includes/tracker/issues-table-queue-filter-project.md) %}
 
   {% include [issues-table-project](../../_includes/tracker/issues-table-project.md) %}
+
+## Действия с задачами {#issue-actions}
+
+Чтобы в списке задач проекта открыть меню действий с задачей, в конце строки с описанием задачи нажмите ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_IssueTable2.row-actions }}**.
+
+В меню доступны действия:
+* ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.ui_components_projects_hooks.copy-to-clipboard }}**;
+* ![](../../_assets/tracker/svg/move-up.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-up }}** (только при ручной сортировке);
+* ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (только при ручной сортировке);
+* ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**.

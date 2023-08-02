@@ -21,9 +21,13 @@ Local SSD storage does not provide fault tolerance for stored data and affects t
 
 The number of hosts that can be created along with a {{ MG }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is required).
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 
-* With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
+   This cluster will be fault-tolerant.
+
+   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+
+* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 
 For more information about limits on the number of hosts per cluster or [shard](./sharding.md), see [{#T}](./limits.md).
 
@@ -44,7 +48,7 @@ If the amount of data in the cluster keeps growing, all hosts will switch to rea
 
 To make sure your cluster is healthy when the host switches to read-only mode:
 * [Increase the disk space on the host](../operations/update.md#change-disk-size). Once there is enough space on the host, {{ yandex-cloud }} will disable read-only mode automatically.
-* [Add additional shards to the cluster](../operations/shards.md#add-shard). Read-only mode will persist on this host, but the cluster will be able to continue working normally if there is free disk space on the other shards.
+* [Add more shards to the cluster](../operations/shards.md#add-shard). Read-only mode will persist on this host, but the cluster will be able to continue working normally if there is free disk space on the other shards.
 * Contact [technical support]({{ link-console-support }}) and ask them to temporarily disable this host's read-only mode to manually delete a part of the data.
 
    {% note alert %}

@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/RADIANS.md
+sourcePath: en/_api-ref/datalens/function-ref/RADIANS.md
 ---
 
 # RADIANS
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 RADIANS( degrees )
 ```
 
-#### Описание {#description}
-Преобразует градусы `degrees` в радианы.
+#### Description {#description}
+Converts `degrees` degrees to radians.
 
-**Типы аргументов:**
-- `degrees` — `Дробное число | Целое число`
+**Argument types:**
+- `degrees` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 RADIANS(0) = 0.0
@@ -34,6 +34,6 @@ RADIANS(180) = 3.14159
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/TOP_CONCAT.md
+sourcePath: en/_api-ref/datalens/function-ref/TOP_CONCAT.md
 ---
 
 # TOP_CONCAT
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   TOP_CONCAT( expression, amount [ , separator ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   TOP_CONCAT( expression, amount [ , separator ]
@@ -26,31 +26,31 @@ sourcePath: ru/_api-ref/datalens/function-ref/TOP_CONCAT.md
             )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает строку, которая содержит `amount` наиболее часто встречающихся уникальных значений из `expression`, разделенных `separator` (по умолчанию разделитель — запятая).
+#### Description {#description}
+Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
-**Типы аргументов:**
-- `expression` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
-- `amount` — `Целое число`
-- `separator` — `Строка`
+**Argument types:**
+- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `amount` — `Integer`
+- `separator` — `String`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
 {% note info %}
 
-Значения аргументов (`amount`, `separator`) должны быть константами.
+Only constant values are accepted for the arguments (`amount`, `separator`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 TOP_CONCAT([Profit], 3)
@@ -61,6 +61,6 @@ TOP_CONCAT([Profit], 3, '; ')
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `YDB`.

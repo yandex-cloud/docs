@@ -35,23 +35,7 @@ Regardless of the connection method, {{ mos-name }} only supports cluster host c
 
 To use an encrypted connection, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
-
-   The certificate will be saved in the `$HOME/.opensearch/root.crt` directory.
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
-   ```
-
-   The certificate will be saved in the `$HOME\.opensearch\root.crt` directory.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
 ## Connecting to {{ OS }} Dashboards {#dashboards}
 

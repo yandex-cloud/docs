@@ -1,50 +1,50 @@
 ---
-title: Функции разметки
-description: Функции разметки используются для создания размеченного текста (гипертекста) из строковых значений и/или из другого размеченного текста.
+title: Text markup functions
+description: Markup functions are used for creating marked up text (hypertext) from string values and/or other marked up text.
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
+sourcePath: en/_api-ref/datalens/function-ref/markup-functions.md
 ---
 
-# Функции разметки
-Функции разметки используются для создания размеченного текста (гипертекста) из строковых значений и/или из другого размеченного текста.
+# Text markup functions
+Markup functions are used for creating marked up text (hypertext) from string values and/or other marked up text.
 
-## Особенности использования {#usage-notes}
+## Usage notes {#usage-notes}
 
-Существуют следующие особенности использования функций разметки:
-1. Эти функции возвращают `NULL` при наличии `NULL` в любом из аргументов. Чтобы получить при этом значение, можно обернуть аргументы в `IFNULL()`. Пример: `BOLD(IFNULL([value], 'NULL'))`.
-1. Конвертация размеченного текста в обычные строковые значения не поддерживается.
-1. Функции разметки могут использоваться внутри логических функций. Пример: `IF(STARTSWITH([value], 'n'), BOLD([value]), MARKUP([value]))`.
+There are the following features of using markup:
+1. These functions return `NULL` when any argument is `NULL`. To get a non-NULL value, wrap argumens in `IFNULL()`. Example: `bold(ifnull([value], 'NULL'))`.
+1. Converting markup to a normal string is not currently possible.
+1. Markup functions can be used within logic functions. Example: `IF(STARTSWITH([value], 'n'), BOLD([value]), MARKUP([value]))`.
 
 
 
 ## [BOLD](BOLD.md)
 
-**Синтаксис:**`BOLD( text )`
+**Syntax:**`BOLD( text )`
 
-Выделяет переданный текст жирным шрифтом.
+Stylizes the passed text in bold font.
 
 
 
 ## [ITALIC](ITALIC.md)
 
-**Синтаксис:**`ITALIC( text )`
+**Syntax:**`ITALIC( text )`
 
-Выделяет переданный текст курсивом.
+Stylizes the passed text in cursive font.
 
 
 
 ## [MARKUP](MARKUP.md)
 
-**Синтаксис:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+**Syntax:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
 
-Объединяет размеченный текст. Также может быть использован для конвертации обычных строк в размеченный текст.
+Merges marked up text pieces. Can also be used for converting strings to marked up text.
 
 
 
 ## [URL](URL.md)
 
-**Синтаксис:**`URL( address, text )`
+**Syntax:**`URL( address, text )`
 
-Оборачивает `text` в ссылку на URL `address`.
+Wraps `text` into a hyperlink to URL `address`.
 
 

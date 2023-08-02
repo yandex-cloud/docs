@@ -31,7 +31,7 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
    For more information about these roles, see the [{{ objstorage-name }} documentation](../../storage/security/index.md).
 
-> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, [connect](../operations/connect.md) to the cluster and run the command:
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, connect to the [cluster](../operations/connect.md) and run the command:
 >
 > ```bash
 > hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
@@ -298,6 +298,8 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
    Once you have access, you can read the file directly from {{ objstorage-name }}:
 
    ```python
+   from pyspark.sql import SQLContext
+
    sql = SQLContext(sc)
    df = sql.read.parquet("s3a://<bucket name>/<object path>")
    ```

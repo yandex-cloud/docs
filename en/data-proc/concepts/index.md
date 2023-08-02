@@ -21,7 +21,7 @@ Each cluster consists of _subclusters_. They integrate _hosts_ that perform iden
 
 Subclusters for one cluster must reside in the same [cloud network](../../vpc/concepts/network.md#network) and [availability zone](../../overview/concepts/geo-scope.md).
 
-Hosts in each subcluster are created with the computing power consistent with the specified _host class_. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
+Hosts in each subcluster are created with the computing power consistent with the specified _host class_. For a list of available host classes and their specs, see [{#T}](instance-types.md).
 
 
 
@@ -61,9 +61,12 @@ Requirements for using lightweight clusters:
 * The cluster contains one or more data processing subclusters.
 * The cluster settings specify a bucket in {{ objstorage-full-name }}.
 
+For more information about resource allocation, see the section on [Spark jobs](./spark-sql.md#resource-management).
+
 ## Security {#security}
 
-Since a {{ dataproc-name }} cluster can run jobs without directly accessing clusters over SSH, the cluster logs the job execution results to an S3 bucket. This is done for the user's convenience. Logging to the bucket is performed under the service account specified during cluster creation. For more information about the concept, go to [Service accounts](../../iam/concepts/users/service-accounts.md).
+Since a {{ dataproc-name }} cluster can run jobs without directly accessing clusters over SSH,
+the cluster logs the job execution results to an S3 bucket. This is done for the user's convenience. Logging to the bucket is performed under the service account specified when creating a cluster. For more information about the concept, go to [Service accounts](../../iam/concepts/users/service-accounts.md).
 
 We recommend using at least two separate S3 buckets for a {{ dataproc-name }} cluster:
 

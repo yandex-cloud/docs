@@ -1,62 +1,62 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/DATE.md
+sourcePath: en/_api-ref/datalens/function-ref/DATE.md
 ---
 
 # DATE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 DATE( expression [ , timezone ] )
 ```
 
-#### Описание {#description}
+#### Description {#description}
 
 {% note warning %}
 
-Источники `ClickHouse` воспринимают числовые значения `expression` меньше или равные `65535` как количество дней (не секунд, как во всех остальных случаях) с 1 января 1970 г. Это следствие поведения доступных в `ClickHouse` функций.
+For `ClickHouse` data sources, numeric `expression` values less than or equal to `65535` are interpreted as the number of days (not seconds, like in all other cases) since January 1st 1970. This is the result of the behavior of available `ClickHouse` functions.
 
-Чтобы обойти это, воспользуйтесь формулой: `DATE(DATETIME([value]))`. Формула имеет более корректное поведение, но может работать значительно медленнее.
+One way to surpass this is to use the following formula: `DATE(DATETIME([value]))`. The result is more consistent, but is likely to be much slower.
 
 {% endnote %}
 
-Переводит выражение `expression` в формат даты.
+Converts the `expression` expression to date format.
 
-Дата должна быть определена в формате `YYYY-MM-DD`.
+The date must be in the format `YYYY-MM-DD`.
 
-Если `expression` является числом, то при наличии дополнительного параметра `timezone` дата рассчитывается для указанной временной зоны.
+If `expression` is a number, then the `timezone` option can be used to convert the date to the specified time zone.
 
-**Типы аргументов:**
-- `expression` — `Дата | Дата и время | Дробное число | Целое число | Строка`
-- `timezone` — `Строка`
+**Argument types:**
+- `expression` — `Date | Datetime | Fractional number | Integer | String`
+- `timezone` — `String`
 
 
-**Возвращаемый тип**: `Дата`
+**Return type**: `Date`
 
 {% note info %}
 
-Значения аргументов (`timezone`) должны быть константами.
+Only constant values are accepted for the arguments (`timezone`).
 
 {% endnote %}
 
 {% note info %}
 
-Параметр `timezone` доступен только для источников `ClickHouse`.
+Argument `timezone` is available only for `ClickHouse` sources.
 
 {% endnote %}
 
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 DATE("2019-01-23") = #2019-01-23#
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

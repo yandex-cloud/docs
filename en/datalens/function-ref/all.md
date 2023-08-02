@@ -1,96 +1,96 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/all.md
+sourcePath: en/_api-ref/datalens/function-ref/all.md
 ---
 
-# Все функции
+# All Functions
 
 
-## [Остаток (%)](OP_MOD.md)
+## [Modulo (%)](OP_MOD.md)
 
-**Синтаксис:**`number_1 % number_2`
+**Syntax:**`number_1 % number_2`
 
-Возвращает остаток от деления первого числа `number_1` на число `number_2`.
-
-
-
-## [Умножение (*)](OP_MULT.md)
-
-**Синтаксис:**`value_1 * value_2`
-
-Если оба аргумента — числа, то возвращает результат умножения числа `value_1` на число `value_2`.
-
-Если один из аргументов — `Строка`, а другой — `Целое число`, возвращает строку, повторенную заданное количество раз.
+Returns the remainder from dividing the first number `number_1` by the second number `number_2`.
 
 
 
-## [Сложение и конкатенация (+)](OP_PLUS.md)
+## [Multiplication (*)](OP_MULT.md)
 
-**Синтаксис:**`value_1 + value_2`
+**Syntax:**`value_1 * value_2`
 
-Имеет различное поведение в зависимости от типов аргументов. Возможные варианты приведены в таблице:
+If both arguments are numbers, it returns the result by multiplying `value_1` by `value_2`.
 
-| Тип `value_1`                                                                    | Тип `value_2`                                                                    | Возвращаемое значение                                                                                                                                                               |
-|:---------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Дробное число &#124; Целое число</code>                                    | <code>Дробное число &#124; Целое число</code>                                    | Сумма чисел `value_1` и `value_2`.                                                                                                                                                  |
-| `Дата`                                                                           | <code>Дробное число &#124; Целое число</code>                                    | Дата, на `value_2` дней большая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
-| `Дата и время`                                                                   | <code>Дробное число &#124; Целое число</code>                                    | Дата со временем, на `value_2` дней большая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
-| `Строка`                                                                         | `Строка`                                                                         | Объединение (конкатенация) строк `value_1` и `value_2`.                                                                                                                             |
-| <code>Массив дробных чисел &#124; Массив целых числел &#124; Массив строк</code> | <code>Массив дробных чисел &#124; Массив целых числел &#124; Массив строк</code> | Объединение (конкатенация) массивов `value_1` и `value_2`.                                                                                                                          |
-
-Изменение порядка аргументов не влияет на результат.
+If one of the arguments is `String` and the other is `Integer`, it returns the string repeated the specified number of times.
 
 
 
-## [Вычитание (-)](OP_MINUS.md)
+## [Addition and concatenation (+)](OP_PLUS.md)
 
-**Синтаксис:**`value_1 - value_2`
+**Syntax:**`value_1 + value_2`
 
-Имеет различное поведение в зависимости от типов аргументов. Возможные варианты приведены в таблице:
+Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Тип `value_1`                                 | Тип `value_2`                                 | Возвращаемое значение                                                                                                                                                               |
-|:----------------------------------------------|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Дробное число &#124; Целое число</code> | <code>Дробное число &#124; Целое число</code> | Разность чисел `value_1` и `value_2`.                                                                                                                                               |
-| `Дата`                                        | <code>Дробное число &#124; Целое число</code> | Дата, на `value_2` дней меньшая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
-| `Дата и время`                                | <code>Дробное число &#124; Целое число</code> | Дата со временем, на `value_2` дней меньшая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
-| `Дата`                                        | `Дата`                                        | Разность двух дат в днях.                                                                                                                                                           |
-| `Любой`                                       | `Любой`                                       | Разность двух дат в днях: целая часть — количество целых дней, дробная — количество часов, минут и секунд как долей целого дня (час — `1/24` и т.д.).                               |
-| `Дата и время`                                | `Дата и время`                                | Разность двух дат в днях: целая часть — количество целых дней, дробная — количество часов, минут и секунд как долей целого дня (час — `1/24` и т.д.).                               |
+| Type of `value_1`                                                                         | Type of `value_2`                                                                         | Return value                                                                                                                                                                     |
+|:------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>                                             | <code>Fractional number &#124; Integer</code>                                             | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
+| `Date`                                                                                    | <code>Fractional number &#124; Integer</code>                                             | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
+| `Datetime`                                                                                | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `String`                                                                                  | `String`                                                                                  | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | The merging (concatenation) of arrays `value_1` and `value_2`.                                                                                                                   |
 
-
-
-## [Деление (/)](OP_DIV.md)
-
-**Синтаксис:**`number_1 / number_2`
-
-Делит число `number_1` на число `number_2`.
+Changing the order of arguments does not affect the result.
 
 
 
-## [Сравнение](OP_COMPARISON.md)
+## [Subtraction (-)](OP_MINUS.md)
 
-**Синтаксис:**<br/>`value_1 = value_2`<br/>или<br/>`value_1 != value_2`<br/>или<br/>`value_1 < value_2`<br/>или<br/>`value_1 <= value_2`<br/>или<br/>`value_1 > value_2`<br/>или<br/>`value_1 >= value_2`
+**Syntax:**`value_1 - value_2`
 
-Сравнивают значение `value_1` со значением `value_2`.
+Behaves differently depending on the argument types. Possible options are listed in the table:
+
+| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                                                       |
+|:----------------------------------------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
+| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
+| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
+| `Date`                                        | `Date`                                        | The difference between two dates in days.                                                                                                                                                                          |
+| `Any`                                         | `Any`                                         | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
+| `Datetime`                                    | `Datetime`                                    | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
 
 
 
-## [Степень (^)](OP_POWER.md)
+## [Division (/)](OP_DIV.md)
 
-**Синтаксис:**`base ^ power`
+**Syntax:**`number_1 / number_2`
 
-Возводит число `base` в степень `power`.
+Divides the number `number_1` by the number `number_2`.
+
+
+
+## [Comparison](OP_COMPARISON.md)
+
+**Syntax:**<br/>`value_1 = value_2`<br/>or<br/>`value_1 != value_2`<br/>or<br/>`value_1 < value_2`<br/>or<br/>`value_1 <= value_2`<br/>or<br/>`value_1 > value_2`<br/>or<br/>`value_1 >= value_2`
+
+Compares the value `value_1` with the value `value_2`.
+
+
+
+## [Power (^)](OP_POWER.md)
+
+**Syntax:**`base ^ power`
+
+Raises `base` to the power of `power`.
 
 
 
 ## [CASE](CASE.md)
 
-**Синтаксис:**<br/>`CASE expression
+**Syntax:**<br/>`CASE expression
     WHEN value_1 THEN result_1
     [ WHEN value_2 THEN result_2
       ... ]
     ELSE default_result
-END`<br/>или<br/>`CASE(
+END`<br/>or<br/>`CASE(
     expression,
     value_1, result_1,
   [ value_2, result_2,
@@ -98,616 +98,612 @@ END`<br/>или<br/>`CASE(
     default_result
 )`
 
-Сравнивает выражение `expression` с последовательностью значений `value_1`, `value_2`, ... и возвращает результат для первого совпадения.
-Если совпадений не найдено, то возвращает `default_result`.
+Compares `expression` to `value_1`, `value_2`, ... consecutively and returns the corresponding result for the first match. If no match is found, it returns `default_result`.
 
 
 
 ## [IF](IF.md)
 
-**Синтаксис:**<br/>`IF condition_1
+**Syntax:**<br/>`IF condition_1
     THEN result_1
 [ ELSEIF condition_2
     THEN result_2
   ... ]
 ELSE
     default_result
-END`<br/>или<br/>`IF(
+END`<br/>or<br/>`IF(
     condition_1, result_1,
   [ condition_2, result_2,
     ... ]
     default_result
 )`
 
-Проверяет последовательно логические выражения `condition_1`, `condition_2`, ... и возвращает соответсвующий результат для первого выполнения.
-Если все `condition_1`, `condition_2`, ... возвращают `FALSE`, то блок возвращает `default_result`.
+Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.
 
 
 
 ## [ABS](ABS.md)
 
-**Синтаксис:**`ABS( number )`
+**Syntax:**`ABS( number )`
 
-Возвращает абсолюное значение заданного числа `number`.
+Returns the absolute value of `number`.
 
 
 
 ## [ACOS](ACOS.md)
 
-**Синтаксис:**`ACOS( number )`
+**Syntax:**`ACOS( number )`
 
-Возвращает выраженный в радианах арккосинус числа `number`.
+Returns the arccosine of `number` in radians.
 
 
 
 ## [AGO](AGO.md)
 
-**Синтаксис:**<br/>`AGO( measure, date_dimension [ , unit [ , number ] ] )`<br/>или<br/>`AGO( measure, date_dimension [ , unit [ , number ] ]
+**Syntax:**<br/>`AGO( measure, date_dimension [ , unit [ , number ] ] )`<br/>or<br/>`AGO( measure, date_dimension [ , unit [ , number ] ]
      [ BEFORE FILTER BY ... ]
      [ IGNORE DIMENSIONS ... ]
    )`
 
-Вычисляет `measure` для даты/времени с указанным смещением.
-Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
-Аргумент `number` задается целым числом. Может принимать отрицательные значения.
-Аргумент `unit` принимает следующие значения:
-- `"year"` — год;
-- `"month"` — месяц;
-- `"day"` — день;
-- `"hour"` — час;
-- `"minute"` — минута;
-- `"second"` — секунда.
+Re-evaluate `measure` for a date/time with a given offset.
+The `date_dimension` argument is the dimension along which the offset is made.
+The `number` argument is an integer. It can be negative.
+The `unit` argument takes the following values:
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
+- `"second"`.
 
-Возможен вариант использования `AGO( measure, date_dimension, number )`. В этом случае аргумент `unit` — количество дней.
+Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
 
-См. также [AT_DATE](AT_DATE.md), [LAG](LAG.md).
+See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 
 
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
-**Синтаксис:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>или<br/>`ALL_CONCAT( expression [ , separator ]
+**Syntax:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>or<br/>`ALL_CONCAT( expression [ , separator ]
             [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
             [ BEFORE FILTER BY ... ]
           )`
 
-Возвращает строку, которая содержит все уникальные значения `expression`, разделенные `separator` (по умолчанию разделитель — запятая).
+Returns a string that contains all unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
 ## [AND](AND.md)
 
-**Синтаксис:**`value_1 AND value_2`
+**Syntax:**`value_1 AND value_2`
 
-Выполняет логическое соединение двух выражений по условию `И`.
+Performs a Boolean join of two expressions with the `AND` condition.
 
 
 
 ## [ANY](ANY.md)
 
-**Синтаксис:**<br/>`ANY( value )`<br/>или<br/>`ANY( value
+**Syntax:**<br/>`ANY( value )`<br/>or<br/>`ANY( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает произвольное значение `value` из группы. Это недетерминированная агрегация — результат может различаться от запроса к запросу на одних и тех же входных данных.
+Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
 
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Синтаксис:**<br/>`ARG_MAX( value, comp )`<br/>или<br/>`ARG_MAX( value, comp
+**Syntax:**<br/>`ARG_MAX( value, comp )`<br/>or<br/>`ARG_MAX( value, comp
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Возвращает значение `value`, соответствующее максимальному значению `comp`. Если есть несколько значений `value`, соответствующих максимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Синтаксис:**<br/>`ARG_MIN( value, comp )`<br/>или<br/>`ARG_MIN( value, comp
+**Syntax:**<br/>`ARG_MIN( value, comp )`<br/>or<br/>`ARG_MIN( value, comp
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Возвращает значение `value`, соответствующее минимальному значению `comp`. Если есть несколько значений `value`, соответствующих минимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
 ## [ARR_AVG](ARR_AVG.md)
 
-**Синтаксис:**`ARR_AVG( array )`
+**Syntax:**`ARR_AVG( array )`
 
-Возвращает среднее значение элементов в массиве `array`.
+Returns the average of elements in the `array`.
 
 
 
 ## [ARR_MAX](ARR_MAX.md)
 
-**Синтаксис:**`ARR_MAX( array )`
+**Syntax:**`ARR_MAX( array )`
 
-Возвращает значение максимального элемента в массиве `array`.
+Returns the greatest of elements in the `array`.
 
 
 
 ## [ARR_MIN](ARR_MIN.md)
 
-**Синтаксис:**`ARR_MIN( array )`
+**Syntax:**`ARR_MIN( array )`
 
-Возвращает значение минимального элемента в массиве `array`.
+Returns the least of elements in the `array`.
 
 
 
 ## [ARR_PRODUCT](ARR_PRODUCT.md)
 
-**Синтаксис:**`ARR_PRODUCT( array )`
+**Syntax:**`ARR_PRODUCT( array )`
 
-Возвращает произведение элементов массива `array`.
+Returns the product of elements in the `array`.
 
 
 
 ## [ARR_REMOVE](ARR_REMOVE.md)
 
-**Синтаксис:**`ARR_REMOVE( array, value )`
+**Syntax:**`ARR_REMOVE( array, value )`
 
-Удаляет из массива `array` все элементы, равные `value`.
+Removes all `array` elements equal to `value`.
 
 
 
 ## [ARR_STR](ARR_STR.md)
 
-**Синтаксис:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
+**Syntax:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
 
-Из элементов массива `array` формирует строку, используя `delimiter` в качестве разделителя (запятая по умолчанию) и `null_str` в качестве строки, подставляемой вместо `NULL` (по умолчанию такие элементы пропускаются и в результат не попадают).
+Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a `NULL` string (`NULL` items are skipped by default).
 
-См. также [STR](STR.md)
+See also [STR](STR.md)
 
 
 
 ## [ARR_SUM](ARR_SUM.md)
 
-**Синтаксис:**`ARR_SUM( array )`
+**Syntax:**`ARR_SUM( array )`
 
-Возвращает сумму элементов в массиве `array`.
+Returns the sum of elements in the `array`.
 
 
 
 ## [ARRAY](ARRAY.md)
 
-**Синтаксис:**`ARRAY( value_1, value_2, value_3 [ , ... ] )`
+**Syntax:**`ARRAY( value_1, value_2, value_3 [ , ... ] )`
 
-Возвращает массив, содержащий переданные элементы.
+Returns an array containing the passed values.
 
 
 
 ## [ASCII](ASCII.md)
 
-**Синтаксис:**`ASCII( string )`
+**Syntax:**`ASCII( string )`
 
-Возвращает числовое представление первого символа строки.
+Returns the numeric representation of the first character of the string.
 
 
 
 ## [ASIN](ASIN.md)
 
-**Синтаксис:**`ASIN( number )`
+**Syntax:**`ASIN( number )`
 
-Возвращает выраженный в радианах арксинус числа `number`.
+Returns the arcsine of `number` in radians.
 
 
 
 ## [AT_DATE](AT_DATE.md)
 
-**Синтаксис:**<br/>`AT_DATE( measure, date_dimension, date_expr )`<br/>или<br/>`AT_DATE( measure, date_dimension, date_expr
+**Syntax:**<br/>`AT_DATE( measure, date_dimension, date_expr )`<br/>or<br/>`AT_DATE( measure, date_dimension, date_expr
          [ BEFORE FILTER BY ... ]
          [ IGNORE DIMENSIONS ... ]
        )`
 
-Вычисляет `measure` для даты/времени, заданных выражением `date_expr`.
-Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
+Re-evaluate `measure` for a date/time specified by `date_expr`.
+The `date_dimension` argument is the dimension along which the offset is made.
 
-См. также [AGO](AGO.md), [LAG](LAG.md).
+See also [AGO](AGO.md), [LAG](LAG.md).
 
 
 
 ## [ATAN](ATAN.md)
 
-**Синтаксис:**`ATAN( number )`
+**Syntax:**`ATAN( number )`
 
-Возвращает выраженный в радианах арктангенс числа `number`.
+Returns the arctangent of `number` in radians.
 
 
 
 ## [ATAN2](ATAN2.md)
 
-**Синтаксис:**`ATAN2( x, y )`
+**Syntax:**`ATAN2( x, y )`
 
-Возвращает выраженный в радианах арктангенс для заданных координат `x` и `y`.
+Returns the arctangent in radians for the specified coordinates `x` and `y`.
 
 
 
 ## [AVG](AVG.md)
 
-**Синтаксис:**<br/>`AVG( value )`<br/>или<br/>`AVG( value
+**Syntax:**<br/>`AVG( value )`<br/>or<br/>`AVG( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата`.
+Returns the average of all values. Applicable to numeric data types as well as `Date`.
 
 
 
-## [AVG (оконная)](AVG_WINDOW.md)
+## [AVG (window)](AVG_WINDOW.md)
 
-**Синтаксис:**<br/>`AVG( value
+**Syntax:**<br/>`AVG( value
      TOTAL | WITHIN ... | AMONG ...
-   )`<br/>или<br/>`AVG( value
+   )`<br/>or<br/>`AVG( value
      TOTAL | WITHIN ... | AMONG ...
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает среднее арифметическое значений выражения. Работает только с числовыми типами данных.
+Returns the average of all values. Applicable to numeric data types.
 
 
 
 ## [AVG_IF](AVG_IF.md)
 
-**Синтаксис:**<br/>`AVG_IF( expression, condition )`<br/>или<br/>`AVG_IF( expression, condition
+**Syntax:**<br/>`AVG_IF( expression, condition )`<br/>or<br/>`AVG_IF( expression, condition
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
+Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
 
 
-## [AVG_IF (оконная)](AVG_IF_WINDOW.md)
+## [AVG_IF (window)](AVG_IF_WINDOW.md)
 
-**Синтаксис:**<br/>`AVG_IF( expression, condition
+**Syntax:**<br/>`AVG_IF( expression, condition
         TOTAL | WITHIN ... | AMONG ...
-      )`<br/>или<br/>`AVG_IF( expression, condition
+      )`<br/>or<br/>`AVG_IF( expression, condition
         TOTAL | WITHIN ... | AMONG ...
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
+Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
 
 
 ## [BETWEEN](BETWEEN.md)
 
-**Синтаксис:**`value [ NOT ] BETWEEN low AND high`
+**Syntax:**`value [ NOT ] BETWEEN low AND high`
 
-Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
+Returns `TRUE` if `value` is in the range from `low` to `high`.
 
-Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
+The option `value NOT BETWEEN low AND high` returns the opposite value.
 
 
 
 ## [BOLD](BOLD.md)
 
-**Синтаксис:**`BOLD( text )`
+**Syntax:**`BOLD( text )`
 
-Выделяет переданный текст жирным шрифтом.
+Stylizes the passed text in bold font.
 
 
 
 ## [BOOL](BOOL.md)
 
-**Синтаксис:**`BOOL( expression )`
+**Syntax:**`BOOL( expression )`
 
-Переводит выражение `expression` в логический тип по следующим правилам:
+Converts the `expression` expression to Boolean type according to the following rules:
 
-| Тип                                           | `FALSE`              | `TRUE`        |
-|:----------------------------------------------|:---------------------|:--------------|
-| <code>Дробное число &#124; Целое число</code> | `0`, `0.0`           | Все остальные |
-| `Строка`                                      | Пустая строка (`""`) | Все остальные |
-| `Логический`                                  | `FALSE`              | `TRUE`        |
-| <code>Дата &#124; Дата и время</code>         | -                    | `TRUE`        |
+| Type                                          | `FALSE`             | `TRUE`     |
+|:----------------------------------------------|:--------------------|:-----------|
+| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
+| `String`                                      | Empty string (`""`) | All others |
+| `Boolean`                                     | `FALSE`             | `TRUE`     |
+| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
 
 
 
 ## [CAST_ARR_FLOAT](CAST_ARR_FLOAT.md)
 
-**Синтаксис:**`CAST_ARR_FLOAT( array )`
+**Syntax:**`CAST_ARR_FLOAT( array )`
 
-Приводит массив `array` к массиву дробных значений. Правила преобразования аналогичны функции [FLOAT](FLOAT.md).
+Converts `array` to an array of fractional numbers. The conversion rules are the same as for [FLOAT](FLOAT.md).
 
 
 
 ## [CAST_ARR_INT](CAST_ARR_INT.md)
 
-**Синтаксис:**`CAST_ARR_INT( array )`
+**Syntax:**`CAST_ARR_INT( array )`
 
-Приводит массив `array` к массиву целых чисел. Правила преобразования аналогичны функции [INT](INT.md).
+Converts `array` to an array of integers. The conversion rules are the same as for [INT](INT.md).
 
 
 
 ## [CAST_ARR_STR](CAST_ARR_STR.md)
 
-**Синтаксис:**`CAST_ARR_STR( array )`
+**Syntax:**`CAST_ARR_STR( array )`
 
-Приводит массив `array` к массиву строк. Правила преобразования аналогичны функции [STR](STR.md).
+Converts `array` to an array of strings. The conversion rules are the same as for [STR](STR.md).
 
 
 
 ## [CEILING](CEILING.md)
 
-**Синтаксис:**`CEILING( number )`
+**Syntax:**`CEILING( number )`
 
-Округляет значение до ближайшего целого числа в большую сторону.
+Rounds the value up to the nearest integer.
 
 
 
 ## [CHAR](CHAR.md)
 
-**Синтаксис:**`CHAR( string )`
+**Syntax:**`CHAR( string )`
 
-Преобразовывает числовое представление символа ASCII в значение.
+Converts the numeric representation of an ASCII character to a value.
 
 
 
 ## [COMPARE](COMPARE.md)
 
-**Синтаксис:**`COMPARE( left, right, epsilon )`
+**Syntax:**`COMPARE( left, right, epsilon )`
 
-Возвращает:
-* 0, если `left` и `right` отличаются не более чем на `epsilon`.
-* -1, если `left` меньше `right` более чем на `epsilon`.
-* 1, если `left` больше `right` более чем на `epsilon`.
+Returns:
+* 0 if `left` and `right` differs by not more than `epsilon`.
+* -1 if `left` is less than `right` by more than `epsilon`.
+* 1 if `left` is greater than `right` by more than `epsilon`.
 
 
 
 ## [CONCAT](CONCAT.md)
 
-**Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+**Syntax:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
 
-Объединяет произвольное количество строк. При использовании нестроковых типов происходит преобразование в строку и объединение.
-
-
-
-## [CONTAINS (массивы)](CONTAINS_ARRAY.md)
-
-**Синтаксис:**`CONTAINS( array, value )`
-
-Возвращает `TRUE`, если `array` содержит `value`.
+Merges any number of strings. When non-string types are used, they're converted to strings and then merged.
 
 
 
-## [CONTAINS (строковая)](CONTAINS.md)
+## [CONTAINS (array)](CONTAINS_ARRAY.md)
 
-**Синтаксис:**`CONTAINS( string, substring )`
+**Syntax:**`CONTAINS( array, value )`
 
-Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`. Для регистронезависимой проверки см. [ICONTAINS](ICONTAINS.md).
+Returns `TRUE` if `array` contains `value`.
+
+
+
+## [CONTAINS (string)](CONTAINS.md)
+
+**Syntax:**`CONTAINS( string, substring )`
+
+Returns `TRUE` if `string` contains `substring`. For case-insensitive searches, see [ICONTAINS](ICONTAINS.md).
 
 
 
 ## [CONTAINS_ALL](CONTAINS_ALL.md)
 
-**Синтаксис:**`CONTAINS_ALL( array_1, array_2 )`
+**Syntax:**`CONTAINS_ALL( array_1, array_2 )`
 
-Возвращает `TRUE`, если `array_1` содержит все элементы `array_2`.
+Returns `TRUE` if `array_1` contains all elements of `array_2`.
 
 
 
 ## [CONTAINS_ANY](CONTAINS_ANY.md)
 
-**Синтаксис:**`CONTAINS_ANY( array_1, array_2 )`
+**Syntax:**`CONTAINS_ANY( array_1, array_2 )`
 
-Возвращает `TRUE`, если `array_1` содержит хотя бы один элемент из `array_2`.
+Returns `TRUE` if `array_1` contains any elements of `array_2`.
 
 
 
 ## [CONTAINS_SUBSEQUENCE](CONTAINS_SUBSEQUENCE.md)
 
-**Синтаксис:**`CONTAINS_SUBSEQUENCE( array_1, array_2 )`
+**Syntax:**`CONTAINS_SUBSEQUENCE( array_1, array_2 )`
 
-Возвращает `TRUE`, если `array_2` является непрерывной подпоследовательностью `array_1`. Другими словами, возвращает `TRUE` исключительно если `array1 = prefix + array2 + suffix`.
+Returns `TRUE` if `array_2` is a continuous subsequence of `array_1`. In other words, returns `TRUE` if and only if `array1 = prefix + array2 + suffix`.
 
 
 
 ## [COS](COS.md)
 
-**Синтаксис:**`COS( number )`
+**Syntax:**`COS( number )`
 
-Возвращает косинус числа `number`, заданного в радианах.
+Returns the cosine of `number` in radians.
 
 
 
 ## [COT](COT.md)
 
-**Синтаксис:**`COT( number )`
+**Syntax:**`COT( number )`
 
-Возвращает котангенс числа `number`, заданного в радианах.
+Returns the cotangent of `number` in radians.
 
 
 
 ## [COUNT](COUNT.md)
 
-**Синтаксис:**<br/>`COUNT(  [ value ] )`<br/>или<br/>`COUNT(  [ value ]
+**Syntax:**<br/>`COUNT(  [ value ] )`<br/>or<br/>`COUNT(  [ value ]
        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
        [ BEFORE FILTER BY ... ]
      )`
 
-Возвращает количество элементов в группе.
+Returns the number of items in the group.
 
 
 
-## [COUNT (оконная)](COUNT_WINDOW.md)
+## [COUNT (window)](COUNT_WINDOW.md)
 
-**Синтаксис:**<br/>`COUNT(  [ value ]
+**Syntax:**<br/>`COUNT(  [ value ]
        TOTAL | WITHIN ... | AMONG ...
-     )`<br/>или<br/>`COUNT(  [ value ]
+     )`<br/>or<br/>`COUNT(  [ value ]
        TOTAL | WITHIN ... | AMONG ...
        [ BEFORE FILTER BY ... ]
      )`
 
-Возвращает количество элементов в заданном окне.
+Returns the number of items in the specified window.
 
 
 
 ## [COUNT_IF](COUNT_IF.md)
 
-**Синтаксис:**<br/>`COUNT_IF( condition )`<br/>или<br/>`COUNT_IF( condition
+**Syntax:**<br/>`COUNT_IF( condition )`<br/>or<br/>`COUNT_IF( condition
           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
           [ BEFORE FILTER BY ... ]
         )`
 
-Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
+Returns the number of items in the group meeting the `condition` condition.
 
 
 
-## [COUNT_IF (оконная)](COUNT_IF_WINDOW.md)
+## [COUNT_IF (window)](COUNT_IF_WINDOW.md)
 
-**Синтаксис:**<br/>`COUNT_IF( expression, condition
+**Syntax:**<br/>`COUNT_IF( expression, condition
           TOTAL | WITHIN ... | AMONG ...
-        )`<br/>или<br/>`COUNT_IF( expression, condition
+        )`<br/>or<br/>`COUNT_IF( expression, condition
           TOTAL | WITHIN ... | AMONG ...
           [ BEFORE FILTER BY ... ]
         )`
 
-Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
+Returns the number of items in the specified window meeting the `expression` condition.
 
 
 
 ## [COUNT_ITEM](COUNT_ITEM.md)
 
-**Синтаксис:**`COUNT_ITEM( array, value )`
+**Syntax:**`COUNT_ITEM( array, value )`
 
-Возвращает количество элементов массива `array`, равных `value`. Тип `value` должен соответствовать типу элементов `array`.
+Returns the number of elements in the array `array` equal to `value`. The type of `value` must match the type of the `array` elements.
 
 
 
 ## [COUNTD](COUNTD.md)
 
-**Синтаксис:**<br/>`COUNTD( value )`<br/>или<br/>`COUNTD( value
+**Syntax:**<br/>`COUNTD( value )`<br/>or<br/>`COUNTD( value
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает количество уникальных значений в группе.
+Returns the number of unique values in the group.
 
-См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-**Синтаксис:**<br/>`COUNTD_APPROX( value )`<br/>или<br/>`COUNTD_APPROX( value
+**Syntax:**<br/>`COUNTD_APPROX( value )`<br/>or<br/>`COUNTD_APPROX( value
                [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
                [ BEFORE FILTER BY ... ]
              )`
 
-Возвращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.
+Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.
 
 
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-**Синтаксис:**<br/>`COUNTD_IF( expression, condition )`<br/>или<br/>`COUNTD_IF( expression, condition
+**Syntax:**<br/>`COUNTD_IF( expression, condition )`<br/>or<br/>`COUNTD_IF( expression, condition
            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
            [ BEFORE FILTER BY ... ]
          )`
 
-Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
+Returns the number of unique values in the group that meet the `condition` condition.
 
-См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 
 
 ## [DATE](DATE.md)
 
-**Синтаксис:**`DATE( expression [ , timezone ] )`
+**Syntax:**`DATE( expression [ , timezone ] )`
 
-Переводит выражение `expression` в формат даты.
+Converts the `expression` expression to date format.
 
-Дата должна быть определена в формате `YYYY-MM-DD`.
+The date must be in the format `YYYY-MM-DD`.
 
-Если `expression` является числом, то при наличии дополнительного параметра `timezone` дата рассчитывается для указанной временной зоны.
+If `expression` is a number, then the `timezone` option can be used to convert the date to the specified time zone.
 
 
 
 ## [DATE_PARSE](DATE_PARSE.md)
 
-**Синтаксис:**`DATE_PARSE( value )`
+**Syntax:**`DATE_PARSE( value )`
 
-Переводит выражение `value` в формат даты. В отличие от [DATE](DATE.md), поддерживает множество форматов.
+Converts the `value` expression to date format. Unlike [DATE](DATE.md), it supports multiple formats.
 
 
 
 ## [DATEADD](DATEADD.md)
 
-**Синтаксис:**`DATEADD( datetime [ , unit [ , number ] ] )`
+**Syntax:**`DATEADD( datetime [ , unit [ , number ] ] )`
 
-Возвращает дату, полученную в результате добавления `unit` в количестве `number` к указанной дате `datetime`.
+Returns the date obtained by adding `unit` in the amount of `number` to the specified date `datetime`.
 
-Аргумент `number` задается целым числом. Может принимать отрицательные значения.
-Аргумент `unit` принимает следующие значения:
-- `"year"` — год;
-- `"month"` — месяц;
-- `"day"` — день;
-- `"hour"` — час;
-- `"minute"` — минута;
-- `"second"` — секунда.
+The `number` argument is an integer. It can be negative.
+The `unit` argument takes the following values:
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
+- `"second"`.
 
 
 
 ## [DATEPART](DATEPART.md)
 
-**Синтаксис:**`DATEPART( datetime, unit [ , firstday ] )`
+**Syntax:**`DATEPART( datetime, unit [ , firstday ] )`
 
-Возвращает часть даты в виде целого числа.
+Returns a part of the date as an integer.
 
-В зависимости от аргумента `unit` возвращает следующие значения:
-- `"year"` — номер года (см. [YEAR](YEAR.md));
-- `"quarter"` — номер квартала года (от `1` до `4`) (см. [QUARTER](QUARTER.md));
-- `"month"` — номер месяца в году (см. [MONTH](MONTH.md));
-- `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md));
-- `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md));
-- `"day"` — номер дня в месяце (см. [DAY](DAY.md));
-- `"hour"` — номер часа в дне (см. [HOUR](HOUR.md));
-- `"minute"` — номер минуты в часе (см. [MINUTE](MINUTE.md));
-- `"second"` — номер секунды в минуте (см. [SECOND](SECOND.md)).
+Depending on the argument, `unit` returns the following values:
+- `"year"` — the year number (see [YEAR](YEAR.md));
+- `"quarter"` — the number of the quarter (from `1` to `4`) of the year (see [QUARTER](QUARTER.md));
+- `"month"` — the number of the month in the year (see [MONTH](MONTH.md));
+- `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md));
+- `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md));
+- `"day"` — the number of the day in the month (see [DAY](DAY.md));
+- `"hour"` — the number of the hour in the day (see [HOUR](HOUR.md));
+- `"minute"` — the number of the minute in the hour (see [MINUTE](MINUTE.md));
+- `"second"` — the number of the second in the minute (see [SECOND](SECOND.md)).
 
-Если выбран "`dayofweek`", то дополнительным параметром `firstday` можно задать, какой день недели считать первым — по умолчанию это понедельник. Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](DAYOFWEEK.md).
+If you select `"dayofweek"`, you can use the additional parameter `firstday` to specify the first day of the week (Monday by default). Learn more about this parameter in the [DAYOFWEEK](DAYOFWEEK.md) function description.
 
 
 
 
 ## [DATETIME](DATETIME.md)
 
-**Синтаксис:**`DATETIME( expression [ , timezone ] )`
+**Syntax:**`DATETIME( expression [ , timezone ] )`
 
-Переводит выражение `expression` в формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
-Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
+Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
+The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
 
-При наличии дополнительного параметра `timezone` дата и время рассчитываются для указанной временной зоны.
+The date and time can be converted to the specified time zone when the `timezone` option is available.
 
 
 
 ## [DATETIME_PARSE](DATETIME_PARSE.md)
 
-**Синтаксис:**`DATETIME_PARSE( value )`
+**Syntax:**`DATETIME_PARSE( value )`
 
-Переводит выражение `value` в формат даты и времени. В отличие от [DATETIME](DATETIME.md), поддерживает множество форматов.
+Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats.
 
 
 
 ## [DATETRUNC](DATETRUNC.md)
 
-**Синтаксис:**`DATETRUNC( datetime, unit [ , number ] )`
+**Syntax:**`DATETRUNC( datetime, unit [ , number ] )`
 
-Возвращает дату, округленную по аргументу `unit`.
+Rounds `datetime` down to the given `unit`. If optional `number` is given, then the value is rounded down to a `number` multiple of `unit` (omitting `number` is the same as `number = 1`).
 
-Если задан аргумент `number`, то происходит округление до этого количества временных единиц. Отсутствие аргумента эквивалентно значению `1`.
-
-Поддерживаемые значения `unit`:
+Supported units:
 - `"second"`;
 - `"minute"`;
 - `"hour"`;
-- `"day"` (при заданном `number` используется номер дня в году);
+- `"day"` (acts as the day of the year if `number` is specified);
 - `"week"`;
 - `"month"`;
 - `"quarter"`;
@@ -717,1284 +713,1278 @@ END`<br/>или<br/>`IF(
 
 ## [DAY](DAY.md)
 
-**Синтаксис:**`DAY( datetime )`
+**Syntax:**`DAY( datetime )`
 
-Возвращает номер дня в месяце в указанной дате `datetime`.
+Returns the number of the day in the month of the specified date `datetime`.
 
 
 
 ## [DAYOFWEEK](DAYOFWEEK.md)
 
-**Синтаксис:**`DAYOFWEEK( datetime [ , firstday ] )`
+**Syntax:**`DAYOFWEEK( datetime [ , firstday ] )`
 
-Возвращает день недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
-- Понедельник — 1;
-- Воскресенье — 7.
+Returns the day of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+- Monday — 1.
+- Sunday — 7.
 
-Если указан дополнительный параметр `firstday`, то этот день считается первым в неделе. Допустимые значения:
-- `"Monday"`, `"Mon"` — понедельник;
-- `"Tuesday"`, `"Tue"` — вторник;
-- `"Wednesday"`, `"Wed"` — среда;
-- `"Thursday"`, `"Thu"` — четверг;
-- `"Friday"`, `"Fri"` — пятница;
-- `"Saturday"`, `"Sat"` — суббота;
-- `"Sunday"`, `"Sun"` — воскресенье.
+If the additional parameter `firstday` is specified, this day is considered the first day of the week. Valid values:
+- `"Monday"`, `"Mon"` — Monday;
+- `"Tuesday"`. `"Tue"` — Tuesday;
+- `"Wednesday"`, `"Wed"` — Wednesday;
+- `"Thursday"`, `"Thu"` — Thursday;
+- `"Friday"`, `"Fri"` — Friday;
+- `"Saturday"`, ` "Sat"` — Saturday;
+- `"Sunday"`, `"Sun"` — Sunday.
 
 
 
 
 ## [DB_CAST](DB_CAST.md)
 
-**Синтаксис:**`DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )`
+**Syntax:**`DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )`
 
-Переводит выражение `expression` в указанный нативный тип данных `native_type`.
+Converts the `expression` expression to database's native type `native_type`.
 
-Поддерживаются следующие типы:
+The following type casts are supported:
 
-| Источник данных   | Тип данных             | Нативный тип          | Параметры нативного типа     | Комментарий                   |
-|:------------------|:-----------------------|:----------------------|:-----------------------------|:------------------------------|
-| `ClickHouse`      | `Дата`                 | `Date`                |                              |                               |
-| `ClickHouse`      | `Дата`                 | `Date32`              |                              |                               |
-| `ClickHouse`      | `Дробное число`        | `Float32`             |                              |                               |
-| `ClickHouse`      | `Дробное число`        | `Float64`             |                              |                               |
-| `ClickHouse`      | `Дробное число`        | `Decimal`             | `Целое число`, `Целое число` |                               |
-| `ClickHouse`      | `Целое число`          | `Int8`                |                              |                               |
-| `ClickHouse`      | `Целое число`          | `Int16`               |                              |                               |
-| `ClickHouse`      | `Целое число`          | `Int32`               |                              |                               |
-| `ClickHouse`      | `Целое число`          | `Int64`               |                              |                               |
-| `ClickHouse`      | `Целое число`          | `UInt8`               |                              |                               |
-| `ClickHouse`      | `Целое число`          | `UInt16`              |                              |                               |
-| `ClickHouse`      | `Целое число`          | `UInt32`              |                              |                               |
-| `ClickHouse`      | `Целое число`          | `UInt64`              |                              |                               |
-| `ClickHouse`      | `Строка`               | `String`              |                              |                               |
-| `PostgreSQL`      | `Массив дробных чисел` | `double precision[]`  |                              |                               |
-| `PostgreSQL`      | `Массив дробных чисел` | `real[]`              |                              |                               |
-| `PostgreSQL`      | `Массив дробных чисел` | `numeric[]`           | `Целое число`, `Целое число` |                               |
-| `PostgreSQL`      | `Массив целых числел`  | `smallint[]`          |                              |                               |
-| `PostgreSQL`      | `Массив целых числел`  | `integer[]`           |                              |                               |
-| `PostgreSQL`      | `Массив целых числел`  | `bigint[]`            |                              |                               |
-| `PostgreSQL`      | `Массив строк`         | `text[]`              |                              |                               |
-| `PostgreSQL`      | `Массив строк`         | `character varying[]` |                              |                               |
-| `PostgreSQL`      | `Массив строк`         | `varchar[]`           |                              |                               |
-| `PostgreSQL`      | `Дробное число`        | `double precision`    |                              |                               |
-| `PostgreSQL`      | `Дробное число`        | `real`                |                              |                               |
-| `PostgreSQL`      | `Дробное число`        | `numeric`             | `Целое число`, `Целое число` |                               |
-| `PostgreSQL`      | `Целое число`          | `smallint`            |                              |                               |
-| `PostgreSQL`      | `Целое число`          | `integer`             |                              |                               |
-| `PostgreSQL`      | `Целое число`          | `bigint`              |                              |                               |
-| `PostgreSQL`      | `Строка`               | `text`                |                              |                               |
-| `PostgreSQL`      | `Строка`               | `character`           | `Целое число`                | Алиас: `char`                 |
-| `PostgreSQL`      | `Строка`               | `character varying`   | `Целое число`                | Алиас: `varchar`              |
-| `PostgreSQL`      | `Строка`               | `char`                | `Целое число`                | Алиас для `character`         |
-| `PostgreSQL`      | `Строка`               | `varchar`             | `Целое число`                | Алиас для `character varying` |
+| Data source   | Data type                     | Native data type      | Parameters for native type   | Comment                       |
+|:--------------|:------------------------------|:----------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`  | `Date`                        | `Date`                |                              |                               |
+| `ClickHouse`  | `Date`                        | `Date32`              |                              |                               |
+| `ClickHouse`  | `Fractional number`           | `Float32`             |                              |                               |
+| `ClickHouse`  | `Fractional number`           | `Float64`             |                              |                               |
+| `ClickHouse`  | `Fractional number`           | `Decimal`             | `Integer`, `Integer`         |                               |
+| `ClickHouse`  | `Integer`                     | `Int8`                |                              |                               |
+| `ClickHouse`  | `Integer`                     | `Int16`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `Int32`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `Int64`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt8`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt16`              |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt32`              |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt64`              |                              |                               |
+| `ClickHouse`  | `String`                      | `String`              |                              |                               |
+| `PostgreSQL`  | `Array of fractional numbers` | `double precision[]`  |                              |                               |
+| `PostgreSQL`  | `Array of fractional numbers` | `real[]`              |                              |                               |
+| `PostgreSQL`  | `Array of fractional numbers` | `numeric[]`           | `Integer`, `Integer`         |                               |
+| `PostgreSQL`  | `Array of integers`           | `smallint[]`          |                              |                               |
+| `PostgreSQL`  | `Array of integers`           | `integer[]`           |                              |                               |
+| `PostgreSQL`  | `Array of integers`           | `bigint[]`            |                              |                               |
+| `PostgreSQL`  | `Array of strings`            | `text[]`              |                              |                               |
+| `PostgreSQL`  | `Array of strings`            | `character varying[]` |                              |                               |
+| `PostgreSQL`  | `Array of strings`            | `varchar[]`           |                              |                               |
+| `PostgreSQL`  | `Fractional number`           | `double precision`    |                              |                               |
+| `PostgreSQL`  | `Fractional number`           | `real`                |                              |                               |
+| `PostgreSQL`  | `Fractional number`           | `numeric`             | `Integer`, `Integer`         |                               |
+| `PostgreSQL`  | `Integer`                     | `smallint`            |                              |                               |
+| `PostgreSQL`  | `Integer`                     | `integer`             |                              |                               |
+| `PostgreSQL`  | `Integer`                     | `bigint`              |                              |                               |
+| `PostgreSQL`  | `String`                      | `text`                |                              |                               |
+| `PostgreSQL`  | `String`                      | `character`           | `Integer`                    | Alias: `char`                 |
+| `PostgreSQL`  | `String`                      | `character varying`   | `Integer`                    | Alias: `varchar`              |
+| `PostgreSQL`  | `String`                      | `char`                | `Integer`                    | Alias for `character`         |
+| `PostgreSQL`  | `String`                      | `varchar`             | `Integer`                    | Alias for `character varying` |
 
 
 
 
 ## [DEGREES](DEGREES.md)
 
-**Синтаксис:**`DEGREES( radians )`
+**Syntax:**`DEGREES( radians )`
 
-Преобразует радианы в градусы.
+Converts radians to degrees.
 
 
 
 ## [DIV](DIV.md)
 
-**Синтаксис:**`DIV( number_1, number_2 )`
+**Syntax:**`DIV( number_1, number_2 )`
 
-Возвращает результат деления `number_1` на `number_2`.
-Результат будет округлен до целого числа.
+Divides `number_1` by `number_2`. The result is rounded down to the nearest integer.
 
 
 
 ## [DIV_SAFE](DIV_SAFE.md)
 
-**Синтаксис:**`DIV_SAFE( numerator, denominator [ , fallback_value ] )`
+**Syntax:**`DIV_SAFE( numerator, denominator [ , fallback_value ] )`
 
-Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
-Результат будет округлен до целого числа.
+Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
+The result is rounded down to the nearest integer.
 
 
 
 ## [ENDSWITH](ENDSWITH.md)
 
-**Синтаксис:**`ENDSWITH( string, substring )`
+**Syntax:**`ENDSWITH( string, substring )`
 
-Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](IENDSWITH.md).
+Returns `TRUE` if `string` ends in `substring`. For case-insensitive searches, see [IENDSWITH](IENDSWITH.md).
 
 
 
 ## [EXP](EXP.md)
 
-**Синтаксис:**`EXP( number )`
+**Syntax:**`EXP( number )`
 
-Возвращает результата возведения числа `e` в степень `number`.
+Returns the result of raising the number 'e' to the power of `number`.
 
 
 
 ## [FDIV_SAFE](FDIV_SAFE.md)
 
-**Синтаксис:**`FDIV_SAFE( numerator, denominator [ , fallback_value ] )`
+**Syntax:**`FDIV_SAFE( numerator, denominator [ , fallback_value ] )`
 
-Возвращает результат деления `numerator` на `denominator`. В случае деления на ноль возвращает `fallback_value`. Если число `fallback_value` не указано, возвращает `NULL`.
+Divides `numerator` by `denominator`. Returns `fallback_value` if division by zero occurs. If the number `fallback_value` is omitted, it is assumed to be `NULL`.
 
 
 
 ## [FIND](FIND.md)
 
-**Синтаксис:**`FIND( string, substring [ , start_index ] )`
+**Syntax:**`FIND( string, substring [ , start_index ] )`
 
-Возвращает индекс позиции первого символа подстроки `substring` в строке `string`.
+Returns the index of the position of the first character of the substring `substring` in the string `string`.
 
-Если указан опциональный параметр `start_index`, то поиск начнется с указанной позиции.
+If the `start_index` option is specified, the search starts from the specified position.
 
 
 
-## [FIRST (оконная)](FIRST.md)
+## [FIRST (window)](FIRST.md)
 
-**Синтаксис:**<br/>`FIRST( value )`<br/>или<br/>`FIRST( value
+**Syntax:**<br/>`FIRST( value )`<br/>or<br/>`FIRST( value
        [ TOTAL | WITHIN ... | AMONG ... ]
        [ ORDER BY ... ]
        [ BEFORE FILTER BY ... ]
      )`
 
-Возвращает значение `value` из первой строки заданного окна. См. также [LAST](LAST.md).
+Returns the value of `value` from the first row in the window. See also [LAST](LAST.md).
 
 
 
 ## [FLOAT](FLOAT.md)
 
-**Синтаксис:**`FLOAT( expression )`
+**Syntax:**`FLOAT( expression )`
 
-Переводит выражение `expression` в формат дробного числа по следующим правилам:
+Converts the `expression` expression to fractional number format according to the following rules:
 
-| Тип                                           | Значение                                                                                                                                                                                                                                        |
-|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Дробное число &#124; Целое число</code> | Исходное значение.                                                                                                                                                                                                                              |
-| <code>Дата &#124; Дата и время</code>         | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
-| `Строка`                                      | Число из строки в десятичной записи.                                                                                                                                                                                                            |
-| `Логический`                                  | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                                                |
+| Type                                          | Value                                                                                                                                                                                                             |
+|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
+| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
 
 
 
 ## [FLOOR](FLOOR.md)
 
-**Синтаксис:**`FLOOR( number )`
+**Syntax:**`FLOOR( number )`
 
-Округляет значение до ближайшего целого числа в меньшую сторону.
+Rounds the value down to the nearest integer.
 
 
 
 ## [GEOPOINT](GEOPOINT.md)
 
-**Синтаксис:**`GEOPOINT( value_1 [ , value_2 ] )`
+**Syntax:**`GEOPOINT( value_1 [ , value_2 ] )`
 
-Формирует значение типа геоточка. Принимает на вход строку, либо значение типа "геоточка", либо координаты — широту `value_1` и долготу `value_2`. Если на вход подается одна строка, в ней должен содержаться список из двух чисел, координат (широты и долготы) в JSON-синтаксисе.
+Generates a Geopoint type value. For the input, it accepts a string, a "geopoint" type value, or coordinates — latitude `value_1` and longitude `value_2`. If a single string is input, it must contain a list of two numbers (latitude and longitude) in JSON syntax.
 
 
 
 ## [GEOPOLYGON](GEOPOLYGON.md)
 
-**Синтаксис:**`GEOPOLYGON( value )`
+**Syntax:**`GEOPOLYGON( value )`
 
-Переводит выражение `value` в формат геополигона.
+Converts the `value` expression to geopolygon format.
 
 
 
 ## [GET_ITEM](GET_ITEM.md)
 
-**Синтаксис:**`GET_ITEM( array, index )`
+**Syntax:**`GET_ITEM( array, index )`
 
-Возвращает элемент с индексом `index` из массива `array`. Индекс должен быть целым числом. Индексы в массиве начинаются с единицы.
+Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
 
 
 
 ## [GREATEST](GREATEST.md)
 
-**Синтаксис:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
+**Syntax:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
 
-Возвращает наибольшее из значений.
+Returns the greatest value.
 
-См. также [LEAST](LEAST.md).
+See also [LEAST](LEAST.md).
 
-В зависимости от указанного типа данных, возвращает:
-- наибольшее число;
-- последнюю строку в алфавитном порядке;
-- позднюю дату;
-- `TRUE` при выборе из `TRUE` и `FALSE` для логического типа.
+Depending on the specified data type, it returns:
+- The greatest number.
+- The last string in alphabetical order.
+- The latest date.
+- `TRUE` when selecting between `TRUE` and `FALSE` for Boolean type.
 
 
 
 ## [HOUR](HOUR.md)
 
-**Синтаксис:**`HOUR( datetime )`
+**Syntax:**`HOUR( datetime )`
 
-Возвращает номер часа в дне в указанной дате и времени `datetime`. При указании даты без времени возвращает `0`.
+Returns the number of the hour in the day of the specified date and time `datetime`. When the date is specified without time, it returns `0`.
 
 
 
 ## [ICONTAINS](ICONTAINS.md)
 
-**Синтаксис:**`ICONTAINS( string, substring )`
+**Syntax:**`ICONTAINS( string, substring )`
 
-Регистронезависимый вариант [CONTAINS](CONTAINS.md). Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`.
+Case-insensitive version of [CONTAINS](CONTAINS.md). Returns `TRUE` if `string` contains `substring`.
 
 
 
 ## [IENDSWITH](IENDSWITH.md)
 
-**Синтаксис:**`IENDSWITH( string, substring )`
+**Syntax:**`IENDSWITH( string, substring )`
 
-Регистронезависимый вариант [ENDSWITH](ENDSWITH.md). Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.
+Case-insensitive version of [ENDSWITH](ENDSWITH.md). Returns `TRUE` if `string` ends in `substring`.
 
 
 
 ## [IFNULL](IFNULL.md)
 
-**Синтаксис:**`IFNULL( check_value, alt_value )`
+**Syntax:**`IFNULL( check_value, alt_value )`
 
-Возвращает `check_value`, если оно не `NULL`. В противном случае возвращает `alt_value`.
+Returns `check_value` if it's not `NULL`. Otherwise returns `alt_value`.
 
 
 
 ## [IN](IN.md)
 
-**Синтаксис:**`item [ NOT ] IN (<list>)`
+**Syntax:**`item [ NOT ] IN (<list>)`
 
-Проверяет условие соответствия значения хотя бы одному из значений, перечисленных в `IN(...)`.
+Checks whether the value matches at least one of the values listed in `IN(...)`.
 
-Вариант `item NOT IN (<`list`>)` возвращает противоположное значение
+The option `item NOT IN (<`list`>)` returns the opposite value.
 
 
 
 ## [INT](INT.md)
 
-**Синтаксис:**`INT( expression )`
+**Syntax:**`INT( expression )`
 
-Переводит выражение `expression` в формат целого числа по следующим правилам:
+Converts the `expression` expression to integer format according to the following rules:
 
-| Тип                                   | Значение                                                                                                                                                                                                                                        |
-|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Целое число`                         | Исходное значение.                                                                                                                                                                                                                              |
-| `Дробное число`                       | Целая часть числа (округление вниз).                                                                                                                                                                                                            |
-| <code>Дата &#124; Дата и время</code> | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
-| `Строка`                              | Число из строки в десятичной записи.                                                                                                                                                                                                            |
-| `Логический`                          | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                                                    |
+| Type                              | Value                                                                                                                                                                                                             |
+|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Integer`                         | Original value.                                                                                                                                                                                                   |
+| `Fractional number`               | Integer part of the number (rounded down).                                                                                                                                                                        |
+| <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                          | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                         | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |
 
 
 
 ## [IS FALSE](ISFALSE.md)
 
-**Синтаксис:**`value IS [ NOT ] FALSE`
+**Syntax:**`value IS [ NOT ] FALSE`
 
-Проверяет, является ли значение `value` ложным (`FALSE`).
+Checks whether the `value` value is false (`FALSE`).
 
-Вариант `value IS NOT FALSE` возвращает противоположное значение.
+The `value IS NOT FALSE` option returns the opposite value.
 
 
 
 ## [ISNULL](ISNULL.md)
 
-**Синтаксис:**<br/>`ISNULL( expression )`<br/>или<br/>`expression IS [ NOT ] NULL`
+**Syntax:**<br/>`ISNULL( expression )`<br/>or<br/>`expression IS [ NOT ] NULL`
 
-Возвращает `TRUE`, если `expression` является `NULL`. В противном случае возвращает `FALSE`.
+Returns `TRUE` if `expression` is `NULL`, otherwise returns `FALSE`.
 
-Вариант `expression IS NOT NULL` возвращает противоположное значение.
+`expression IS NOT NULL` returns the opposite result.
 
 
 
 ## [ISTARTSWITH](ISTARTSWITH.md)
 
-**Синтаксис:**`ISTARTSWITH( string, substring )`
+**Syntax:**`ISTARTSWITH( string, substring )`
 
-Регистронезависимый вариант [STARTSWITH](STARTSWITH.md). Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
+Case-insensitive version of [STARTSWITH](STARTSWITH.md). Returns `TRUE`  if `string` starts with `substring`.
 
 
 
 ## [IS TRUE](ISTRUE.md)
 
-**Синтаксис:**`value IS [ NOT ] TRUE`
+**Syntax:**`value IS [ NOT ] TRUE`
 
-Проверяет, является ли значение `value` истинным (`TRUE`).
+Checks whether the value of `value` is true (`TRUE`).
 
-Вариант `value IS NOT TRUE` возвращает противоположное значение.
+The `value IS NOT TRUE` option returns the opposite value.
 
 
 
 ## [ITALIC](ITALIC.md)
 
-**Синтаксис:**`ITALIC( text )`
+**Syntax:**`ITALIC( text )`
 
-Выделяет переданный текст курсивом.
+Stylizes the passed text in cursive font.
 
 
 
-## [LAG (оконная)](LAG.md)
+## [LAG (window)](LAG.md)
 
-**Синтаксис:**<br/>`LAG( value [ , offset [ , default ] ] )`<br/>или<br/>`LAG( value [ , offset [ , default ] ]
+**Syntax:**<br/>`LAG( value [ , offset [ , default ] ] )`<br/>or<br/>`LAG( value [ , offset [ , default ] ]
      [ TOTAL | WITHIN ... | AMONG ... ]
      [ ORDER BY ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает значение `value` из строки со смещением `offset` относительно текущей в рамках заданного окна:
-- положительное значение `offset` делает смещение назад;
-- отрицательное значение `offset` делает смещение вперед.
+Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
+- Positive `offset` seeks among preceding rows.
+- Negative `offset` seeks among following rows.
 
-По умолчанию `offset` равно `1`.
+By default `offset` is `1`.
 
-Если значение отсутствует (`offset` ссылается на строку до первой или после последней), то возвращается значение `default` в качестве результата. Если `default` не задано, то используется `NULL`.
+If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
 
-См. также [AGO](AGO.md) в качестве неоконной альтернативы.
+See also [AGO](AGO.md) for a non-window function alternative.
 
 
 
-## [LAST (оконная)](LAST.md)
+## [LAST (window)](LAST.md)
 
-**Синтаксис:**<br/>`LAST( value )`<br/>или<br/>`LAST( value
+**Syntax:**<br/>`LAST( value )`<br/>or<br/>`LAST( value
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает значение `value` из последней строки заданного окна. См. также [FIRST](FIRST.md).
+Returns the value of `value` from the last row in the window. See also [FIRST](FIRST.md).
 
 
 
 ## [LEAST](LEAST.md)
 
-**Синтаксис:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
+**Syntax:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
 
-Возвращает наименьшее из значений.
+Returns the smallest value.
 
-См. также [GREATEST](GREATEST.md).
+See also [GREATEST](GREATEST.md).
 
-В зависимости от указанного типа данных, возвращает:
-- наименьшее число;
-- первую строку в алфавитном порядке;
-- раннюю дату;
-- `FALSE` при выборе из `TRUE` и `FALSE` для логического типа.
+Depending on the specified data type, it returns:
+- The smallest number.
+- The first string in alphabetical order.
+- The earliest date.
+- `FALSE` when selecting between `TRUE` and `FALSE` for Boolean type.
 
 
 
 ## [LEFT](LEFT.md)
 
-**Синтаксис:**`LEFT( string, number )`
+**Syntax:**`LEFT( string, number )`
 
-Возвращает строку, которая содержит указанное количество символов `number` с начала строки `string`.
+Returns a string that contains the number of characters specified in `number` from the beginning of the string `string`.
 
 
 
 ## [LEN](LEN.md)
 
-**Синтаксис:**`LEN( value )`
+**Syntax:**`LEN( value )`
 
-Возвращает количество символов в строке или элементов в массиве `value`.
+Returns the number of characters in the string or items in array `value`.
 
 
 
 ## [LIKE](LIKE.md)
 
-**Синтаксис:**`string_1 [ NOT ] LIKE string_2`
+**Syntax:**`string_1 [ NOT ] LIKE string_2`
 
-Сравнивает строку `string_1` со шаблоном `string_2` и в случае совпадения возвращает `TRUE`.
-В качестве `string_2` можно задать значение или использовать знак `%`, который соответствует строке любой длины.
+Matches the string `string_1` to the template `string_2` and returns `TRUE` on match.
+You can specify the value in `string_2` or use the `%` character to match a string of any length.
 
-Вариант `string_1 NOT LIKE` возвращает противоположное значение.
+The `string_1 NOT LIKE` option returns the opposite value.
 
 
 
 ## [LN](LN.md)
 
-**Синтаксис:**`LN( number )`
+**Syntax:**`LN( number )`
 
-Возвращает натуральный логарифм числа `number`. Возвращает `NULL`, если число меньше или равно 0.
+Returns the natural logarithm of the number `number`. Returns `NULL` if the number is less than or equal to 0.
 
 
 
 ## [LOG](LOG.md)
 
-**Синтаксис:**`LOG( value, base )`
+**Syntax:**`LOG( value, base )`
 
-Возвращает логарифм числа `value` по основанию числа `base`. Возвращает `NULL`, если число `value` меньше или равно 0.
+Returns the logarithm of `value` to base `base`. Returns `NULL` if the number `value` is less than or equal to 0.
 
 
 
 ## [LOG10](LOG10.md)
 
-**Синтаксис:**`LOG10( number )`
+**Syntax:**`LOG10( number )`
 
-Возвращает логарифм числа `number` по основанию 10. Возвращает `NULL`, если число меньше или равно 0.
+Returns the logarithm of the number `number` to base 10. Returns `NULL` if the number is less than or equal to 0.
 
 
 
 ## [LOWER](LOWER.md)
 
-**Синтаксис:**`LOWER( string )`
+**Syntax:**`LOWER( string )`
 
-Возвращает строку `string` в нижнем регистре.
+Returns the string `string` in lowercase.
 
 
 
 ## [LTRIM](LTRIM.md)
 
-**Синтаксис:**`LTRIM( string )`
+**Syntax:**`LTRIM( string )`
 
-Возвращает строку `string` без знаков пробела в начале строки.
+Returns the string `string` without spaces at the beginning of the string.
 
 
 
 ## [MARKUP](MARKUP.md)
 
-**Синтаксис:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+**Syntax:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
 
-Объединяет размеченный текст. Также может быть использован для конвертации обычных строк в размеченный текст.
+Merges marked up text pieces. Can also be used for converting strings to marked up text.
 
 
 
-## [MAVG (оконная)](MAVG.md)
+## [MAVG (window)](MAVG.md)
 
-**Синтаксис:**<br/>`MAVG( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MAVG( value, rows_1 [ , rows_2 ]
+**Syntax:**<br/>`MAVG( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MAVG( value, rows_1 [ , rows_2 ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает скользящее среднее значений по окну записей. Значение определяется порядком сортировки и аргументами:
+Returns the moving average of values in a fixed-size window defined by the sort order and arguments:
 
-| `rows_1`      | `rows_2`   | Окно                                                             |
-|:--------------|:-----------|:-----------------------------------------------------------------|
-| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
-| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
-| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
+| `rows_1`   | `rows_2`   | Window                                                                |
+|:-----------|:-----------|:----------------------------------------------------------------------|
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
+| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
+Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
 
-Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
-
-См. также [AVG](AVG.md), [RAVG](RAVG.md).
+See also [AVG](AVG.md), [RAVG](RAVG.md).
 
 
 
 ## [MAX](MAX.md)
 
-**Синтаксис:**<br/>`MAX( value )`<br/>или<br/>`MAX( value
+**Syntax:**<br/>`MAX( value )`<br/>or<br/>`MAX( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает максимальное значение.
+Returns the maximum value.
 
-Если `value`:
-- число — возвращает наибольшее число;
-- дата — возвращает самую позднюю дату;
-- строка — возвращает последнее значение в алфавитном порядке.
-
-
+If `value`:
+- number — Returns the largest number.
+- date — Returns the latest date.
+- string — Returns the last value in the alphabetic order.
 
 
-## [MAX (оконная)](MAX_WINDOW.md)
 
-**Синтаксис:**<br/>`MAX( value
+
+## [MAX (window)](MAX_WINDOW.md)
+
+**Syntax:**<br/>`MAX( value
      TOTAL | WITHIN ... | AMONG ...
-   )`<br/>или<br/>`MAX( value
+   )`<br/>or<br/>`MAX( value
      TOTAL | WITHIN ... | AMONG ...
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает максимальное значение.
+Returns the maximum value.
 
-Если `value`:
-- число — возвращает наибольшее число;
-- дата — возвращает самую позднюю дату;
-- строка — возвращает последнее значение в алфавитном порядке.
-
-
+If `value`:
+- number — Returns the largest number.
+- date — Returns the latest date.
+- string — Returns the last value in the alphabetic order.
 
 
-## [MCOUNT (оконная)](MCOUNT.md)
 
-**Синтаксис:**<br/>`MCOUNT( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MCOUNT( value, rows_1 [ , rows_2 ]
+
+## [MCOUNT (window)](MCOUNT.md)
+
+**Syntax:**<br/>`MCOUNT( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MCOUNT( value, rows_1 [ , rows_2 ]
         [ TOTAL | WITHIN ... | AMONG ... ]
         [ ORDER BY ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает количество значений (не равных `NULL`) по окну записей, которое определяется порядком сортировки и аргументами:
+Returns the moving count of (non-`NULL`) values in a fixed-size window defined by the sort order and arguments:
 
-| `rows_1`      | `rows_2`   | Окно                                                             |
-|:--------------|:-----------|:-----------------------------------------------------------------|
-| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
-| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
-| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
+| `rows_1`   | `rows_2`   | Window                                                                |
+|:-----------|:-----------|:----------------------------------------------------------------------|
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
+| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
+Window functions with a similar behavior: [MSUM](MSUM.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
-Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
-
-См. также [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
+See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
 
 
 
 ## [MEDIAN](MEDIAN.md)
 
-**Синтаксис:**<br/>`MEDIAN( value )`<br/>или<br/>`MEDIAN( value
+**Syntax:**<br/>`MEDIAN( value )`<br/>or<br/>`MEDIAN( value
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Вовзращает медианное значение.
+Returns the median value.
 
 
 
 ## [MIN](MIN.md)
 
-**Синтаксис:**<br/>`MIN( value )`<br/>или<br/>`MIN( value
+**Syntax:**<br/>`MIN( value )`<br/>or<br/>`MIN( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает минимальное значение.
+Returns the minimum value.
 
-Если `value`:
-- число — возвращает наименьшее число;
-- дата — возвращает самую раннюю дату;
-- строка — возвращает первое значение в алфавитном порядке.
-
-
+If `value`:
+- number — Returns the smallest number.
+- date — Returns the earliest date.
+- string — Returns the first value in the alphabetic order.
 
 
-## [MIN (оконная)](MIN_WINDOW.md)
 
-**Синтаксис:**<br/>`MIN( value
+
+## [MIN (window)](MIN_WINDOW.md)
+
+**Syntax:**<br/>`MIN( value
      TOTAL | WITHIN ... | AMONG ...
-   )`<br/>или<br/>`MIN( value
+   )`<br/>or<br/>`MIN( value
      TOTAL | WITHIN ... | AMONG ...
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает минимальное значение.
+Returns the minimum value.
 
-Если `value`:
-- число — возвращает наименьшее число;
-- дата — возвращает самую раннюю дату;
-- строка — возвращает первое значение в алфавитном порядке.
+If `value`:
+- number — Returns the smallest number.
+- date — Returns the earliest date.
+- string — Returns the first value in the alphabetic order.
 
 
 
 
 ## [MINUTE](MINUTE.md)
 
-**Синтаксис:**`MINUTE( datetime )`
+**Syntax:**`MINUTE( datetime )`
 
-Возвращает номер минуты в часе в указанной дате `datetime`. При указании даты без времени возвращает 0.
+Returns the number of the minute in the hour of the specified date `datetime`. When the date is specified without time, it returns `0`.
 
 
 
-## [MMAX (оконная)](MMAX.md)
+## [MMAX (window)](MMAX.md)
 
-**Синтаксис:**<br/>`MMAX( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MMAX( value, rows_1 [ , rows_2 ]
+**Syntax:**<br/>`MMAX( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MMAX( value, rows_1 [ , rows_2 ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает скользящий максимум значений по окну записей. Значение определяется порядком сортировки и аргументами:
+Returns the moving maximum of values in a fixed-size window defined by the sort order and arguments:
 
-| `rows_1`      | `rows_2`   | Окно                                                             |
-|:--------------|:-----------|:-----------------------------------------------------------------|
-| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
-| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
-| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
-
-
-
-Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MAVG](MAVG.md).
-
-См. также [MAX](MAX.md), [RMAX](RMAX.md).
+| `rows_1`   | `rows_2`   | Window                                                                |
+|:-----------|:-----------|:----------------------------------------------------------------------|
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
+| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
+Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MAVG](MAVG.md).
 
-## [MMIN (оконная)](MMIN.md)
+See also [MAX](MAX.md), [RMAX](RMAX.md).
 
-**Синтаксис:**<br/>`MMIN( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MMIN( value, rows_1 [ , rows_2 ]
+
+
+## [MMIN (window)](MMIN.md)
+
+**Syntax:**<br/>`MMIN( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MMIN( value, rows_1 [ , rows_2 ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает скользящий минимум значений по окну записей, определяемому порядком сортировки и аргументами:
+Returns the moving minimum of values in a fixed-size window defined by the sort order and arguments:
 
-| `rows_1`      | `rows_2`   | Окно                                                             |
-|:--------------|:-----------|:-----------------------------------------------------------------|
-| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
-| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
-| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
+| `rows_1`   | `rows_2`   | Window                                                                |
+|:-----------|:-----------|:----------------------------------------------------------------------|
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
+| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
+Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
-Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
-
-См. также [MIN](MIN.md), [RMIN](RMIN.md).
+See also [MIN](MIN.md), [RMIN](RMIN.md).
 
 
 
 ## [MONTH](MONTH.md)
 
-**Синтаксис:**`MONTH( datetime )`
+**Syntax:**`MONTH( datetime )`
 
-Возвращает номер месяца в году в указанной дате `datetime`.
+Returns the number of the month in the year of the specified date `datetime`.
 
 
 
-## [MSUM (оконная)](MSUM.md)
+## [MSUM (window)](MSUM.md)
 
-**Синтаксис:**<br/>`MSUM( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MSUM( value, rows_1 [ , rows_2 ]
+**Syntax:**<br/>`MSUM( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MSUM( value, rows_1 [ , rows_2 ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает скользящую сумму значений по окну записей, которое определяется порядком сортировки и аргументами:
+Returns the moving sum of values in a fixed-size window defined by the sort order and arguments:
 
-| `rows_1`      | `rows_2`   | Окно                                                             |
-|:--------------|:-----------|:-----------------------------------------------------------------|
-| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
-| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
-| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
-
-
-
-Аналогичное поведение у оконных функций [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
-
-См. также [SUM](SUM.md), [RSUM](RSUM.md).
+| `rows_1`   | `rows_2`   | Window                                                                |
+|:-----------|:-----------|:----------------------------------------------------------------------|
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
+| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
+Window functions with a similar behavior: [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
-## [Отрицание (-)](OP_NEGATION.md)
+See also [SUM](SUM.md), [RSUM](RSUM.md).
 
-**Синтаксис:**`-value`
 
-Возвращает число `value` с противоположным знаком.
+
+## [Negation (-)](OP_NEGATION.md)
+
+**Syntax:**`-value`
+
+Returns the number `value` with the opposite sign.
 
 
 
 ## [NOT](OP_NOT.md)
 
-**Синтаксис:**`NOT value`
+**Syntax:**`NOT value`
 
-Инвертирует логическое значение.
+Inverts a Boolean value.
 
 
 
 ## [NOW](NOW.md)
 
-**Синтаксис:**`NOW()`
+**Syntax:**`NOW()`
 
-Возвращает текущую дату и время в зависимости от источника данных и типа соединения.
+Returns the current date and time, depending on the data source and connection type.
 
 
 
 ## [OR](OR.md)
 
-**Синтаксис:**`value_1 OR value_2`
+**Syntax:**`value_1 OR value_2`
 
-Выполняет логическое соединение двух выражений по условию `ИЛИ`.
+Performs a Boolean join of two expressions with the `OR` condition.
 
 
 
 ## [PI](PI.md)
 
-**Синтаксис:**`PI()`
+**Syntax:**`PI()`
 
-Возвращает число Пи. Точность зависит от источника данных.
+Returns PI. The accuracy depends on the data source.
 
 
 
 ## [POWER](POWER.md)
 
-**Синтаксис:**`POWER( base, power )`
+**Syntax:**`POWER( base, power )`
 
-Возводит число `base` в степень `power`.
+Raises `base` to the power of `power`.
 
 
 
 ## [QUANTILE](QUANTILE.md)
 
-**Синтаксис:**<br/>`QUANTILE( value, quant )`<br/>или<br/>`QUANTILE( value, quant
+**Syntax:**<br/>`QUANTILE( value, quant )`<br/>or<br/>`QUANTILE( value, quant
           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
           [ BEFORE FILTER BY ... ]
         )`
 
-Возвращает точный квантиль уровня `quant` (значение от 0 до 1).
+Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-**Синтаксис:**<br/>`QUANTILE_APPROX( value, quant )`<br/>или<br/>`QUANTILE_APPROX( value, quant
+**Syntax:**<br/>`QUANTILE_APPROX( value, quant )`<br/>or<br/>`QUANTILE_APPROX( value, quant
                  [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
                  [ BEFORE FILTER BY ... ]
                )`
 
-Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).
+Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 
 
 ## [QUARTER](QUARTER.md)
 
-**Синтаксис:**`QUARTER( datetime )`
+**Syntax:**`QUARTER( datetime )`
 
-Возвращает номер квартала года (от `1` до `4`) в указанной дате `datetime`.
+Returns the number of the quarter (from `1` to `4`) of the year of the specified date `datetime`.
 
 
 
 ## [RADIANS](RADIANS.md)
 
-**Синтаксис:**`RADIANS( degrees )`
+**Syntax:**`RADIANS( degrees )`
 
-Преобразует градусы `degrees` в радианы.
+Converts `degrees` degrees to radians.
 
 
 
-## [RANK (оконная)](RANK.md)
+## [RANK (window)](RANK.md)
 
-**Синтаксис:**<br/>`RANK( value [ , direction ] )`<br/>или<br/>`RANK( value [ , direction ]
+**Syntax:**<br/>`RANK( value [ , direction ] )`<br/>or<br/>`RANK( value [ , direction ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Выполняет ранжирование значений с пропусками: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `3`. Значение `2` в этом случае пропускается.
+Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.
 
-Если `direction` равно `"desc"` или не указано, то ранжирование происходит от большего к меньшему, если `"asc"`, то от меньшего к большему. По умолчанию используется `"desc"`.
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
-См. также [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
+See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 
 
-## [RANK_DENSE (оконная)](RANK_DENSE.md)
+## [RANK_DENSE (window)](RANK_DENSE.md)
 
-**Синтаксис:**<br/>`RANK_DENSE( value [ , direction ] )`<br/>или<br/>`RANK_DENSE( value [ , direction ]
+**Syntax:**<br/>`RANK_DENSE( value [ , direction ] )`<br/>or<br/>`RANK_DENSE( value [ , direction ]
             [ TOTAL | WITHIN ... | AMONG ... ]
             [ BEFORE FILTER BY ... ]
           )`
 
-Выполняет ранжирование значений без пропусков: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `2`. Значения ранга не пропускаются.
+Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `2`, (rank without gaps).
 
-Если `direction` равно `"desc"` или не указано, то ранжирование происходит от большего к меньшему, если `"asc"`, то от меньшего к большему. По умолчанию используется `"desc"`.
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
-См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
+See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 
 
-## [RANK_PERCENTILE (оконная)](RANK_PERCENTILE.md)
+## [RANK_PERCENTILE (window)](RANK_PERCENTILE.md)
 
-**Синтаксис:**<br/>`RANK_PERCENTILE( value [ , direction ] )`<br/>или<br/>`RANK_PERCENTILE( value [ , direction ]
+**Syntax:**<br/>`RANK_PERCENTILE( value [ , direction ] )`<br/>or<br/>`RANK_PERCENTILE( value [ , direction ]
                  [ TOTAL | WITHIN ... | AMONG ... ]
                  [ BEFORE FILTER BY ... ]
                )`
 
-Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.
+Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
 
-Если `direction` равно `"desc"` или не указано, то ранжирование происходит от большего к меньшему, если `"asc"`, то от меньшего к большему. По умолчанию используется `"desc"`.
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
-См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
+See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
 
 
 
-## [RANK_UNIQUE (оконная)](RANK_UNIQUE.md)
+## [RANK_UNIQUE (window)](RANK_UNIQUE.md)
 
-**Синтаксис:**<br/>`RANK_UNIQUE( value [ , direction ] )`<br/>или<br/>`RANK_UNIQUE( value [ , direction ]
+**Syntax:**<br/>`RANK_UNIQUE( value [ , direction ] )`<br/>or<br/>`RANK_UNIQUE( value [ , direction ]
              [ TOTAL | WITHIN ... | AMONG ... ]
              [ BEFORE FILTER BY ... ]
            )`
 
-Выполняет уникальное ранжирование. Возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют разные значения ранга. Ни для каких двух строк значения не совпадают. Принимает все значения от `1` до значения, которое равно количеству строк.
+Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.
 
-Если `direction` равно `"desc"` или не указано, то ранжирование происходит от большего к меньшему, если `"asc"`, то от меньшего к большему. По умолчанию используется `"desc"`.
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
-См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
+See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 
 
-## [RAVG (оконная)](RAVG.md)
+## [RAVG (window)](RAVG.md)
 
-**Синтаксис:**<br/>`RAVG( value [ , direction ] )`<br/>или<br/>`RAVG( value [ , direction ]
+**Syntax:**<br/>`RAVG( value [ , direction ] )`<br/>or<br/>`RAVG( value [ , direction ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает среднее арифметическое значений в рамках окна записей, определяемого аргументом `direction`:
+Returns the average of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
-| `direction`   | Окно                            |
-|:--------------|:--------------------------------|
-| `"asc"`       | От первой записи до текущей.    |
-| `"desc"`      | От текущей записи до последней. |
+| `direction`   | Window                                                 |
+|:--------------|:-------------------------------------------------------|
+| `"asc"`       | Starts from the first row and ends at the current row. |
+| `"desc"`      | Starts from the current row and ends at the last row.  |
 
-По умолчанию используется значение `"asc"`.
-
-
-Аналогичное поведение у оконных функций [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md).
-
-См. также [AVG](AVG.md), [MAVG](MAVG.md).
+By default `"asc"` is used.
 
 
+Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md).
 
-## [RCOUNT (оконная)](RCOUNT.md)
+See also [AVG](AVG.md), [MAVG](MAVG.md).
 
-**Синтаксис:**<br/>`RCOUNT( value [ , direction ] )`<br/>или<br/>`RCOUNT( value [ , direction ]
+
+
+## [RCOUNT (window)](RCOUNT.md)
+
+**Syntax:**<br/>`RCOUNT( value [ , direction ] )`<br/>or<br/>`RCOUNT( value [ , direction ]
         [ TOTAL | WITHIN ... | AMONG ... ]
         [ ORDER BY ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает количество значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
+Returns the count of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
-| `direction`   | Окно                            |
-|:--------------|:--------------------------------|
-| `"asc"`       | От первой записи до текущей.    |
-| `"desc"`      | От текущей записи до последней. |
+| `direction`   | Window                                                 |
+|:--------------|:-------------------------------------------------------|
+| `"asc"`       | Starts from the first row and ends at the current row. |
+| `"desc"`      | Starts from the current row and ends at the last row.  |
 
-По умолчанию используется значение `"asc"`.
+By default `"asc"` is used.
 
 
-Аналогичное поведение у оконных функций [RSUM](RSUM.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
+Window functions with a similar behavior: [RSUM](RSUM.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
 
-См. также [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
+See also [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
 
 
 
 ## [REGEXP_EXTRACT](REGEXP_EXTRACT.md)
 
-**Синтаксис:**`REGEXP_EXTRACT( string, pattern )`
+**Syntax:**`REGEXP_EXTRACT( string, pattern )`
 
-Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`.
+Returns the substring `string` that matches the regular expression pattern `pattern`.
 
 
 
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
-**Синтаксис:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
+**Syntax:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
 
-Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
+Returns a substring `string` that matches the regular expression pattern `pattern` starting from the specified index.
 
 
 
 ## [REGEXP_MATCH](REGEXP_MATCH.md)
 
-**Синтаксис:**`REGEXP_MATCH( string, pattern )`
+**Syntax:**`REGEXP_MATCH( string, pattern )`
 
-Возвращает `TRUE`, если в строке `string` есть подстрока, которая соответствует шаблону регулярного выражения `pattern`.
+Returns 'TRUE' if the string `string` has a substring that matches the regular expression pattern `pattern`.
 
 
 
 ## [REGEXP_REPLACE](REGEXP_REPLACE.md)
 
-**Синтаксис:**`REGEXP_REPLACE( string, pattern, replace_with )`
+**Syntax:**`REGEXP_REPLACE( string, pattern, replace_with )`
 
-Ищет подстроку в строке `string` по шаблону регулярного выражения `pattern` и заменяет ее строкой `replace_with`.
+Searches for a substring in the string `string` using the regular expression pattern `pattern` and replaces it with the string `replace_with`.
 
-Если подстрока не найдена, то строка не будет изменена.
-
-
-
-## [REPLACE (массивы)](REPLACE_ARRAY.md)
-
-**Синтаксис:**`REPLACE( array, old, new )`
-
-Заменяет в массиве `array` все элементы, равные `old`, на `new`.
+If the substring is not found, the string is not changed.
 
 
 
-## [REPLACE (строковая)](REPLACE.md)
+## [REPLACE (array)](REPLACE_ARRAY.md)
 
-**Синтаксис:**`REPLACE( string, substring, replace_with )`
+**Syntax:**`REPLACE( array, old, new )`
 
-Ищет подстроку `substring` в строке `string` и заменяет ее строкой `replace_with`.
+Replaces each `array` element equal to `old` with `new`.
 
-Если подстрока не найдена, то строка не будет изменена.
+
+
+## [REPLACE (string)](REPLACE.md)
+
+**Syntax:**`REPLACE( string, substring, replace_with )`
+
+Searches for the substring `substring` in the string `string` and replaces it with the string `replace_with`.
+
+If the substring is not found, the string is not changed.
 
 
 
 ## [RIGHT](RIGHT.md)
 
-**Синтаксис:**`RIGHT( string, number )`
+**Syntax:**`RIGHT( string, number )`
 
-Возвращает строку, которая содержит указанное количество символов `number` с конца строки `string`.
+Returns a string that contains the number of characters specified in `number` from the end of the string `string`.
 
 
 
-## [RMAX (оконная)](RMAX.md)
+## [RMAX (window)](RMAX.md)
 
-**Синтаксис:**<br/>`RMAX( value [ , direction ] )`<br/>или<br/>`RMAX( value [ , direction ]
+**Syntax:**<br/>`RMAX( value [ , direction ] )`<br/>or<br/>`RMAX( value [ , direction ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает максимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
+Returns the maximum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
-| `direction`   | Окно                            |
-|:--------------|:--------------------------------|
-| `"asc"`       | От первой записи до текущей.    |
-| `"desc"`      | От текущей записи до последней. |
+| `direction`   | Window                                                 |
+|:--------------|:-------------------------------------------------------|
+| `"asc"`       | Starts from the first row and ends at the current row. |
+| `"desc"`      | Starts from the current row and ends at the last row.  |
 
-По умолчанию используется значение `"asc"`.
-
-
-Аналогичное поведение у оконных функций [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RAVG](RAVG.md).
-
-См. также [MAX](MAX.md), [MMAX](MMAX.md).
+By default `"asc"` is used.
 
 
+Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RAVG](RAVG.md).
 
-## [RMIN (оконная)](RMIN.md)
+See also [MAX](MAX.md), [MMAX](MMAX.md).
 
-**Синтаксис:**<br/>`RMIN( value [ , direction ] )`<br/>или<br/>`RMIN( value [ , direction ]
+
+
+## [RMIN (window)](RMIN.md)
+
+**Syntax:**<br/>`RMIN( value [ , direction ] )`<br/>or<br/>`RMIN( value [ , direction ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает минимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
+Returns the minimum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
-| `direction`   | Окно                            |
-|:--------------|:--------------------------------|
-| `"asc"`       | От первой записи до текущей.    |
-| `"desc"`      | От текущей записи до последней. |
+| `direction`   | Window                                                 |
+|:--------------|:-------------------------------------------------------|
+| `"asc"`       | Starts from the first row and ends at the current row. |
+| `"desc"`      | Starts from the current row and ends at the last row.  |
 
-По умолчанию используется значение `"asc"`.
+By default `"asc"` is used.
 
 
-Аналогичное поведение у оконных функций [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
+Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
 
-См. также [MIN](MIN.md), [MMIN](MMIN.md).
+See also [MIN](MIN.md), [MMIN](MMIN.md).
 
 
 
 ## [ROUND](ROUND.md)
 
-**Синтаксис:**`ROUND( number [ , precision ] )`
+**Syntax:**`ROUND( number [ , precision ] )`
 
-Округляет число `number` до указанного числа знаков `precision` после запятой.
-Если число `precision` не указано, то `number` округляется до ближайшего целого.
+Rounds the number `number` to the number of decimal digits specified in `precision`.
+If the number `precision` is omitted, `number` is rounded to the nearest integer.
 
 
 
-## [RSUM (оконная)](RSUM.md)
+## [RSUM (window)](RSUM.md)
 
-**Синтаксис:**<br/>`RSUM( value [ , direction ] )`<br/>или<br/>`RSUM( value [ , direction ]
+**Syntax:**<br/>`RSUM( value [ , direction ] )`<br/>or<br/>`RSUM( value [ , direction ]
       [ TOTAL | WITHIN ... | AMONG ... ]
       [ ORDER BY ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает сумму значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
+Returns the sum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
-| `direction`   | Окно                            |
-|:--------------|:--------------------------------|
-| `"asc"`       | От первой записи до текущей.    |
-| `"desc"`      | От текущей записи до последней. |
+| `direction`   | Window                                                 |
+|:--------------|:-------------------------------------------------------|
+| `"asc"`       | Starts from the first row and ends at the current row. |
+| `"desc"`      | Starts from the current row and ends at the last row.  |
 
-По умолчанию используется значение `"asc"`.
+By default `"asc"` is used.
 
 
-Аналогичное поведение у оконных функций [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
+Window functions with a similar behavior: [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
 
-См. также [SUM](SUM.md), [MSUM](MSUM.md).
+See also [SUM](SUM.md), [MSUM](MSUM.md).
 
 
 
 ## [RTRIM](RTRIM.md)
 
-**Синтаксис:**`RTRIM( string )`
+**Syntax:**`RTRIM( string )`
 
-Возвращает строку `string` без знаков пробела в конце строки.
+Returns the string `string` without spaces at the end of the string.
 
 
 
 ## [SECOND](SECOND.md)
 
-**Синтаксис:**`SECOND( datetime )`
+**Syntax:**`SECOND( datetime )`
 
-Возвращает номер секунды в минуте в указанной дате `datetime`. При указании даты без времени возвращает `0`.
+Returns the number of the second in the minute of the specified date `datetime`. When the date is specified without time, it returns `0`.
 
 
 
 ## [SIGN](SIGN.md)
 
-**Синтаксис:**`SIGN( number )`
+**Syntax:**`SIGN( number )`
 
-Возвращает знак числа `number`:
-- `-1` если число отрицательное;
-- `0` если число равно нулю;
-- `1` если число положительное.
+Returns the sign of the number `number`:
+- `-1` if the number is negative.
+`0` if the number is zero.
+- `1` if the number is positive.
 
 
 
 ## [SIN](SIN.md)
 
-**Синтаксис:**`SIN( number )`
+**Syntax:**`SIN( number )`
 
-Возвращает синус числа `number`, заданного в радианах.
+Returns the sine of `number` in radians.
 
 
 
 ## [SLICE](SLICE.md)
 
-**Синтаксис:**`SLICE( array, offset, length )`
+**Syntax:**`SLICE( array, offset, length )`
 
-Возвращает часть массива `array` длины `length`, начиная с индекса `offset`. Индексы в массиве начинаются с единицы.
+Returns the part of array `array` of length `length` starting from index `offset`. Indexes in an array begin with one.
 
 
 
 ## [SPACE](SPACE.md)
 
-**Синтаксис:**`SPACE( value )`
+**Syntax:**`SPACE( value )`
 
-Возвращает строку с указанным количеством пробелов.
+Returns a string with the specified number of spaces.
 
 
 
 ## [SPLIT](SPLIT.md)
 
-**Синтаксис:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
+**Syntax:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
 
-Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`. Разделитель по умолчанию – запятая. Если не передан `part_index`, то возвращается массив (только для источников `ClickHouse`, `PostgreSQL`).
+Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
 
 
 
 ## [SQRT](SQRT.md)
 
-**Синтаксис:**`SQRT( number )`
+**Syntax:**`SQRT( number )`
 
-Возвращает квадратный корень заданного числа.
+Returns the square root of the specified number.
 
 
 
 ## [SQUARE](SQUARE.md)
 
-**Синтаксис:**`SQUARE( number )`
+**Syntax:**`SQUARE( number )`
 
-Возвращает число `number`, возведенное в степень 2.
-
-
-
-## [STARTSWITH (массивы)](STARTSWITH_ARRAY.md)
-
-**Синтаксис:**`STARTSWITH( array_1, array_2 )`
-
-Возвращает `TRUE`, если значения из массива `array_2` находятся в начале массива `array_1`.
+Returns the number `number` raised to the power of 2.
 
 
 
-## [STARTSWITH (строковая)](STARTSWITH.md)
+## [STARTSWITH (array)](STARTSWITH_ARRAY.md)
 
-**Синтаксис:**`STARTSWITH( string, substring )`
+**Syntax:**`STARTSWITH( array_1, array_2 )`
 
-Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`. Для регистронезависимой проверки см. [ISTARTSWITH](ISTARTSWITH.md).
+Returns `TRUE` if `array_1` starts with `array_2`.
+
+
+
+## [STARTSWITH (string)](STARTSWITH.md)
+
+**Syntax:**`STARTSWITH( string, substring )`
+
+Returns `TRUE` if `string` starts with `substring`. For case-insensitive searches, see [ISTARTSWITH](ISTARTSWITH.md).
 
 
 
 ## [STDEV](STDEV.md)
 
-**Синтаксис:**<br/>`STDEV( value )`<br/>или<br/>`STDEV( value
+**Syntax:**<br/>`STDEV( value )`<br/>or<br/>`STDEV( value
        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
        [ BEFORE FILTER BY ... ]
      )`
 
-Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.
+Returns the statistical standard deviation of all values in the expression based on a selection from the population.
 
 
 
 ## [STDEVP](STDEVP.md)
 
-**Синтаксис:**<br/>`STDEVP( value )`<br/>или<br/>`STDEVP( value
+**Syntax:**<br/>`STDEVP( value )`<br/>or<br/>`STDEVP( value
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.
+Returns the statistical standard deviation of all values in the expression based on the biased population.
 
 
 
 ## [STR](STR.md)
 
-**Синтаксис:**`STR( expression )`
+**Syntax:**`STR( expression )`
 
-Переводит выражение `expression` к типу строки.
+Converts the `expression` expression to string type.
 
 
 
 ## [SUBSTR](SUBSTR.md)
 
-**Синтаксис:**`SUBSTR( string, from_index [ , length ] )`
+**Syntax:**`SUBSTR( string, from_index [ , length ] )`
 
-Возвращает подстроку `string`, начиная с индекса `from_index`.
+Returns the substring `string` starting from the index `from_index`.
 
-Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
+If an additional argument `length` is specified, a substring of the specified length is returned.
 
 
 
 ## [SUM](SUM.md)
 
-**Синтаксис:**<br/>`SUM( value )`<br/>или<br/>`SUM( value
+**Syntax:**<br/>`SUM( value )`<br/>or<br/>`SUM( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+Returns the sum of all expression values. Applicable to numeric data types only.
 
 
 
-## [SUM (оконная)](SUM_WINDOW.md)
+## [SUM (window)](SUM_WINDOW.md)
 
-**Синтаксис:**<br/>`SUM( value
+**Syntax:**<br/>`SUM( value
      TOTAL | WITHIN ... | AMONG ...
-   )`<br/>или<br/>`SUM( value
+   )`<br/>or<br/>`SUM( value
      TOTAL | WITHIN ... | AMONG ...
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+Returns the sum of all expression values. Applicable to numeric data types only.
 
 
 
 ## [SUM_IF](SUM_IF.md)
 
-**Синтаксис:**<br/>`SUM_IF( expression, condition )`<br/>или<br/>`SUM_IF( expression, condition
+**Syntax:**<br/>`SUM_IF( expression, condition )`<br/>or<br/>`SUM_IF( expression, condition
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
 
 
-## [SUM_IF (оконная)](SUM_IF_WINDOW.md)
+## [SUM_IF (window)](SUM_IF_WINDOW.md)
 
-**Синтаксис:**<br/>`SUM_IF( expression, condition
+**Syntax:**<br/>`SUM_IF( expression, condition
         TOTAL | WITHIN ... | AMONG ...
-      )`<br/>или<br/>`SUM_IF( expression, condition
+      )`<br/>or<br/>`SUM_IF( expression, condition
         TOTAL | WITHIN ... | AMONG ...
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
 
 
 ## [TAN](TAN.md)
 
-**Синтаксис:**`TAN( number )`
+**Syntax:**`TAN( number )`
 
-Возвращает тангенс числа `number`, заданного в радианах.
+Returns the tangent of `number` in radians.
 
 
 
 ## [TODAY](TODAY.md)
 
-**Синтаксис:**`TODAY()`
+**Syntax:**`TODAY()`
 
-Возвращает текущую дату в зависимости от источника данных и типа соединения.
+Returns the current date, depending on the data source and connection type.
 
 
 
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
-**Синтаксис:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>или<br/>`TOP_CONCAT( expression, amount [ , separator ]
+**Syntax:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>or<br/>`TOP_CONCAT( expression, amount [ , separator ]
             [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
             [ BEFORE FILTER BY ... ]
           )`
 
-Возвращает строку, которая содержит `amount` наиболее часто встречающихся уникальных значений из `expression`, разделенных `separator` (по умолчанию разделитель — запятая).
+Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
 ## [TRIM](TRIM.md)
 
-**Синтаксис:**`TRIM( string )`
+**Syntax:**`TRIM( string )`
 
-Возвращает строку `string` без знаков пробела в начале и конце строки.
+Returns the string `string` without spaces at the beginning or end of the string.
 
 
 
 ## [UNNEST](UNNEST.md)
 
-**Синтаксис:**`UNNEST( array )`
+**Syntax:**`UNNEST( array )`
 
-Дублирует исходную строку для каждого элемента массива `array`.
+Expands the `array` array expression to a set of rows.
 
 
 
 ## [UPPER](UPPER.md)
 
-**Синтаксис:**`UPPER( string )`
+**Syntax:**`UPPER( string )`
 
-Возвращает строку `string` в верхнем регистре.
+Returns the string `string` in uppercase.
 
 
 
 ## [URL](URL.md)
 
-**Синтаксис:**`URL( address, text )`
+**Syntax:**`URL( address, text )`
 
-Оборачивает `text` в ссылку на URL `address`.
+Wraps `text` into a hyperlink to URL `address`.
 
 
 
 ## [UTF8](UTF8.md)
 
-**Синтаксис:**`UTF8( string, old_encoding )`
+**Syntax:**`UTF8( string, old_encoding )`
 
-Переводит кодировку строки `string` в `UTF8`.
+Converts the `string` string encoding to `UTF8`.
 
 
 
 ## [VAR](VAR.md)
 
-**Синтаксис:**<br/>`VAR( value )`<br/>или<br/>`VAR( value
+**Syntax:**<br/>`VAR( value )`<br/>or<br/>`VAR( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает статистическую дисперсию всех значений в выражении на основе выборки из совокупности.
+Returns the statistical variance of all values in an expression based on a selection from the population.
 
 
 
 ## [VARP](VARP.md)
 
-**Синтаксис:**<br/>`VARP( value )`<br/>или<br/>`VARP( value
+**Syntax:**<br/>`VARP( value )`<br/>or<br/>`VARP( value
       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.
+Returns the statistical variance of all values in an expression across the entire population.
 
 
 
 ## [WEEK](WEEK.md)
 
-**Синтаксис:**`WEEK( value )`
+**Syntax:**`WEEK( value )`
 
-Возвращает номер недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Первой считается неделя, которая содержит первый четверг года и 4.01.
+The number of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). The first week is the week that contains the first Thursday of the year or January 4th.
 
 
 
 ## [YEAR](YEAR.md)
 
-**Синтаксис:**`YEAR( datetime )`
+**Syntax:**`YEAR( datetime )`
 
-Возвращает номер года в указанной дате `datetime`.
+Returns the year number in the specified date `datetime`.
 
 
 
 ## [ZN](ZN.md)
 
-**Синтаксис:**`ZN( expression )`
+**Syntax:**`ZN( expression )`
 
-Возвращает значение выражения `expression`, если оно не `NULL`. В противном случае возвращает 0.
+Returns `expression` if it's not `NULL`. Otherwise returns 0.
 
 

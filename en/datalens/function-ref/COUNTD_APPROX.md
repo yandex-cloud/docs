@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_APPROX.md
+sourcePath: en/_api-ref/datalens/function-ref/COUNTD_APPROX.md
 ---
 
 # COUNTD_APPROX
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   COUNTD_APPROX( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   COUNTD_APPROX( value
@@ -26,28 +26,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_APPROX.md
                )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.
+#### Description {#description}
+Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.
 
-**Типы аргументов:**
-- `value` — `Любой`
+**Argument types:**
+- `value` — `Any`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 COUNTD_APPROX([ClienID])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Oracle Database 12c (12.1)`, `YDB`.

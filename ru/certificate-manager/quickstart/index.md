@@ -1,6 +1,6 @@
 # Как начать работать с {{ certificate-manager-name }}
 
-В этой инструкции вы создадите свой первый [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
+В этой инструкции вы добавите в {{ certificate-manager-name }} свой первый [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
 
 ## Подготовка к работе {#before-you-begin}
 

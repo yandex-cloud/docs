@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ZN.md
+sourcePath: en/_api-ref/datalens/function-ref/ZN.md
 ---
 
 # ZN
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 ZN( expression )
 ```
 
-#### Описание {#description}
-Возвращает значение выражения `expression`, если оно не `NULL`. В противном случае возвращает 0.
+#### Description {#description}
+Returns `expression` if it's not `NULL`. Otherwise returns 0.
 
-**Типы аргументов:**
-- `expression` — `Дробное число | Целое число`
+**Argument types:**
+- `expression` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
+**Return type**: Same type as (`expression`)
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -41,6 +41,6 @@ ZN( expression )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

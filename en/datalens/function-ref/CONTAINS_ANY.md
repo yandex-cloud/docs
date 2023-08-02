@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS_ANY.md
+sourcePath: en/_api-ref/datalens/function-ref/CONTAINS_ANY.md
 ---
 
 # CONTAINS_ANY
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 CONTAINS_ANY( array_1, array_2 )
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если `array_1` содержит хотя бы один элемент из `array_2`.
+#### Description {#description}
+Returns `TRUE` if `array_1` contains any elements of `array_2`.
 
-**Типы аргументов:**
-- `array_1` — `Массив дробных чисел | Массив целых числел | Массив строк`
-- `array_2` — `Массив дробных чисел | Массив целых числел | Массив строк`
+**Argument types:**
+- `array_1` — `Array of fractional numbers | Array of integers | Array of strings`
+- `array_2` — `Array of fractional numbers | Array of integers | Array of strings`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -36,6 +36,6 @@ CONTAINS_ANY( array_1, array_2 )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

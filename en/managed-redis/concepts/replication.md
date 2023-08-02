@@ -30,15 +30,21 @@ A master host can be changed both automatically as a result of a failure and [ma
 
 High data availability in an unsharded cluster is implemented using {{ RD }} Sentinel: in a cluster consisting of three or more hosts, Sentinel services automatically manage master selection and replica configurations.
 
-In order to make decisions about cluster performance, the majority of Sentinel services need to be healthy. As a result, it's more cost-efficient to deploy clusters with an odd number of hosts when working with {{ mrd-name }}. For example, a cluster with three hosts can lose one host and continue working, while a cluster with four hosts can also lose no more than one host: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
+Sentinel requires most of its services to be healthy. As a result, it is more cost-efficient to deploy clusters with an odd number of hosts when using Sentinel. For example, a cluster with three hosts can lose one host and still continue to work. But no four-host cluster can lose more than one host, either: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
 
-A cluster consisting of two hosts does not provide full failover for the same reason: one of the two Sentinel instances will not be enough to assign one host as a master if the other one failed. In this situation, the cluster can only process read operations.
+A cluster consisting of two hosts does not provide full failover for the same reason: one of the two Sentinel instances will not be enough to assign one host as a master if the other one fails. In this situation, the cluster can only process read operations.
 
-Owners of {{ mrd-name }} clusters can't configure Sentinel services, but they can read the information that the services provide. Read more about Sentinel in the [DBMS documentation](https://redis.io/topics/sentinel).
+Owners of {{ mrd-name }} clusters cannot configure Sentinel services, but they can read the information that the services provide. Read more about Sentinel in the [DBMS documentation](https://redis.io/topics/sentinel).
+
+{% note info %}
+
+Sentinel is only applied for clusters with {{ RD }} version 6.2. The `rdsync` [agent is used](switchover.md) to ensure the fault tolerance of clusters with {{ RD }} 7.0.
+
+{% endnote %}
 
 ### Assigning a different host as a master if the primary master fails {#master-failover}
 
-If the master host fails, any of the cluster hosts available for replication becomes a new master. If the master assignment priority is set for the cluster hosts, the host with the lowest priority is selected as a new master. The minimum value is `0` and the maximum (default) value is `100`. A host with the `0` priority will never be selected as a master.
+If the master host fails, any of the cluster hosts available for replication becomes a new master. If the master assignment priority is set for the cluster hosts, the host with the lowest priority is selected as a new master. The minimum value is `0`, and the maximum (default) value is `100`. A host with `0` priority will never be selected as a master.
 
 ## Persistence {#persistence}
 

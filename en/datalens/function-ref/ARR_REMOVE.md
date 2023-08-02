@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ARR_REMOVE.md
+sourcePath: en/_api-ref/datalens/function-ref/ARR_REMOVE.md
 ---
 
 # ARR_REMOVE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 ARR_REMOVE( array, value )
 ```
 
-#### Описание {#description}
-Удаляет из массива `array` все элементы, равные `value`.
+#### Description {#description}
+Removes all `array` elements equal to `value`.
 
-**Типы аргументов:**
-- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
-- `value` — `Дробное число | Целое число | Строка`
+**Argument types:**
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
+- `value` — `Fractional number | Integer | String`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`array`)
+**Return type**: Same type as (`array`)
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -37,6 +37,6 @@ ARR_REMOVE( array, value )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

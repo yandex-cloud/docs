@@ -80,35 +80,9 @@ For more information about security groups, see [DB network and clusters](../con
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-To use an encrypted connection, get an SSL certificate.
+To use an encrypted connection, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   Run the following commands:
-
-   {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-   1. Download and import the certificate:
-      ```powershell
-      mkdir -Force $HOME\.clickhouse; `
-      (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
-        | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
-      Import-Certificate `
-        -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
-        -CertStoreLocation cert:\CurrentUser\Root
-      ```
-
-   1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
-
-   The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

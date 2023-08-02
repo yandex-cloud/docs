@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
+sourcePath: en/_api-ref/datalens/function-ref/LAG.md
 ---
 
-# LAG (оконная)
+# LAG (window)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   LAG( value [ , offset [ , default ] ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   LAG( value [ , offset [ , default ] ]
@@ -27,52 +27,52 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
      )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [ORDER BY](window-functions.md#syntax-order-by)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
+#### Description {#description}
 
 {% note warning %}
 
-Сортировка осуществляется на основе полей, перечисленных в области сортировки в чарте и в ORDER BY. При этом сначала берутся поля из `ORDER BY`.
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 
-Возвращает значение `value` из строки со смещением `offset` относительно текущей в рамках заданного окна:
-- положительное значение `offset` делает смещение назад;
-- отрицательное значение `offset` делает смещение вперед.
+Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
+- Positive `offset` seeks among preceding rows.
+- Negative `offset` seeks among following rows.
 
-По умолчанию `offset` равно `1`.
+By default `offset` is `1`.
 
-Если значение отсутствует (`offset` ссылается на строку до первой или после последней), то возвращается значение `default` в качестве результата. Если `default` не задано, то используется `NULL`.
+If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
 
-См. также [AGO](AGO.md) в качестве неоконной альтернативы.
+See also [AGO](AGO.md) for a non-window function alternative.
 
-**Типы аргументов:**
-- `value` — `Любой`
-- `offset` — `Целое число`
-- `default` — `Любой`
+**Argument types:**
+- `value` — `Any`
+- `offset` — `Integer`
+- `default` — `Any`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+**Return type**: Same type as (`value`)
 
 {% note info %}
 
-Значения аргументов (`offset`, `default`) должны быть константами.
+Only constant values are accepted for the arguments (`offset`, `default`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
-{% cut "Пример с группировкой" %}
+{% cut "Example with grouping" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -88,11 +88,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **LAG(SUM([Orders]) TOTAL)**   | **LAG(SUM([Orders]) WITHIN [City])**   | **LAG(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
@@ -107,10 +107,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 
 {% endcut %}
 
-{% cut "Пример опциональным аргументом" %}
+{% cut "Example with the optional argument" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -126,11 +126,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **LAG(SUM([Orders]), 1)**   | **LAG(SUM([Orders]), -2)**   |
 |:------------------|:--------------------|:----------------------------|:-----------------------------|
@@ -141,10 +141,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 
 {% endcut %}
 
-{% cut "Пример с ORDER BY" %}
+{% cut "Example with ORDER BY" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -160,11 +160,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **LAG(SUM([Orders]) ORDER BY [City] DESC)**   | **LAG(SUM([Orders]) ORDER BY [Order Sum])**   |
 |:------------------|:--------------------|:----------------------------------------------|:----------------------------------------------|
@@ -176,6 +176,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

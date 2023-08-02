@@ -1,57 +1,57 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OP_COMPARISON.md
+sourcePath: en/_api-ref/datalens/function-ref/OP_COMPARISON.md
 ---
 
-# Сравнение
+# Comparison
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
-Равенство
+Equality
 ```
 value_1 = value_2
 ```
-Неравенство
+Inequality
 ```
 value_1 != value_2
 ```
-Меньше
+Less than
 ```
 value_1 < value_2
 ```
-Меньше или равно
+Less than or equal
 ```
 value_1 <= value_2
 ```
-Больше
+Greater than
 ```
 value_1 > value_2
 ```
-Больше или равно
+Greater than or equal
 ```
 value_1 >= value_2
 ```
 
-#### Описание {#description}
-Сравнивают значение `value_1` со значением `value_2`.
+#### Description {#description}
+Compares the value `value_1` with the value `value_2`.
 
-**Типы аргументов:**
-- `value_1` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
-- `value_2` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+**Argument types:**
+- `value_1` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `value_2` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
 {% note info %}
 
-Из-за особенностей реализации типа `Дробное число` в источниках `ClickHouse` рекомендуется для этого типа использовать функцию [COMPARE](COMPARE.md) вместо операторов сравнения.
+Due to implementation details of the `Fractional number` type in `ClickHouse` sources it is recommended to use the [COMPARE](COMPARE.md) function instead of comparison operators for this type.
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 1 = 1 = TRUE
@@ -62,6 +62,6 @@ value_1 >= value_2
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

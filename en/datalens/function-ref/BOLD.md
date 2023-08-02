@@ -1,28 +1,28 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/BOLD.md
+sourcePath: en/_api-ref/datalens/function-ref/BOLD.md
 ---
 
 # BOLD
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 BOLD( text )
 ```
 
-#### Описание {#description}
-Выделяет переданный текст жирным шрифтом.
+#### Description {#description}
+Stylizes the passed text in bold font.
 
-**Типы аргументов:**
-- `text` — `Разметка | Строка`
+**Argument types:**
+- `text` — `Markup | String`
 
 
-**Возвращаемый тип**: `Разметка`
+**Return type**: `Markup`
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

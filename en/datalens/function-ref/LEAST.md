@@ -1,46 +1,46 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/LEAST.md
+sourcePath: en/_api-ref/datalens/function-ref/LEAST.md
 ---
 
 # LEAST
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 LEAST( value_1, value_2, value_3 [ , ... ] )
 ```
 
-#### Описание {#description}
-Возвращает наименьшее из значений.
+#### Description {#description}
+Returns the smallest value.
 
-См. также [GREATEST](GREATEST.md).
+See also [GREATEST](GREATEST.md).
 
-В зависимости от указанного типа данных, возвращает:
-- наименьшее число;
-- первую строку в алфавитном порядке;
-- раннюю дату;
-- `FALSE` при выборе из `TRUE` и `FALSE` для логического типа.
+Depending on the specified data type, it returns:
+- The smallest number.
+- The first string in alphabetical order.
+- The earliest date.
+- `FALSE` when selecting between `TRUE` and `FALSE` for Boolean type.
 
-**Типы аргументов:**
-- `value_1` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка`
-- `value_2` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка`
-- `value_3` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка`
+**Argument types:**
+- `value_1` — `Boolean | Date | Datetime | Fractional number | Integer | String`
+- `value_2` — `Boolean | Date | Datetime | Fractional number | Integer | String`
+- `value_3` — `Boolean | Date | Datetime | Fractional number | Integer | String`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value_1`, `value_2`, `value_3`)
+**Return type**: Same type as (`value_1`, `value_2`, `value_3`)
 
 {% note info %}
 
-Тип аргументов (`value_1`, `value_2`, `value_3`) должен совпадать.
+Arguments (`value_1`, `value_2`, `value_3`) must be of the same type.
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 LEAST(3.4, 2.6) = 2.6
@@ -75,6 +75,6 @@ LEAST(#2019-01-02#, #2019-01-17#, #2019-01-10#) = #2019-01-02#
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -306,9 +306,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    func signedToken() string {
      claims := jwt.RegisteredClaims{
              Issuer:    serviceAccountID,
-             ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Hour)),
-             IssuedAt:  jwt.NewNumericDate(time.Now()),
-             NotBefore: jwt.NewNumericDate(time.Now()),
+             ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
+             IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
+             NotBefore: jwt.NewNumericDate(time.Now().UTC()),
              Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
      }
      token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)

@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ANY.md
+sourcePath: en/_api-ref/datalens/function-ref/ANY.md
 ---
 
 # ANY
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   ANY( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   ANY( value
@@ -26,28 +26,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/ANY.md
      )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает произвольное значение `value` из группы. Это недетерминированная агрегация — результат может различаться от запроса к запросу на одних и тех же входных данных.
+#### Description {#description}
+Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
-**Типы аргументов:**
-- `value` — `Любой`
+**Argument types:**
+- `value` — `Any`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+**Return type**: Same type as (`value`)
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 ANY([Profit])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `MySQL 5.7`, `YDB`.

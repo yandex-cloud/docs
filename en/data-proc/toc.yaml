@@ -7,23 +7,31 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to a cluster
-        href: operations/connect.md
-      - name: Updating clusters
-        href: operations/cluster-update.md
-      - name: Managing subclusters
-        href: operations/subclusters.md
-      - name: Updating subclusters
-        href: operations/subcluster-update.md
-      - name: Connecting to component interfaces
-        href: operations/connect-interfaces.md
-      - name: How to use Sqoop
-        href: operations/sqoop-usage.md
-      - name: Managing jobs
+      - name: '{{ dataproc-name }} clusters'
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Connecting to a cluster
+            href: operations/connect.md
+          - name: Updating clusters
+            href: operations/cluster-update.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: '{{ dataproc-name }} subclusters'
+        items:
+          - name: Managing subclusters
+            href: operations/subclusters.md
+          - name: Updating subclusters
+            href: operations/subcluster-update.md
+      - name: Apache and other third-party services
+        items:
+          - name: Connecting to component interfaces
+            href: operations/connect-interfaces.md
+          - name: How to use Sqoop
+            href: operations/sqoop-usage.md
+      - name: Jobs
         items:
           - name: All jobs
             href: operations/jobs.md
@@ -35,28 +43,26 @@ items:
             href: operations/jobs-hive.md
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
-      - name: Managing {{ metastore-name }} clusters
+      - name: '{{ metastore-name }} clusters'
         items:
           - name: Creating a {{ metastore-name }} cluster
             href: operations/metastore/cluster-create.md
           - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
-            hidden: true
             href: operations/metastore/dataproc-connect.md
-          - name: Deleting a {{ metastore-name }} server
-            hidden: true
+          - name: Deleting a {{ metastore-name }} cluster
             href: operations/metastore/cluster-delete.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Working with logs
-        href: operations/logging.md
-      - name: Monitoring the state of Spark applications
-        href: operations/spark-monitoring.md
-      - name: >-
-          Diagnostics and troubleshooting of Spark application performance
-          issues
-        href: operations/spark-diagnostics.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
+      - name: Logs and monitoring
+        items:
+          - name: Working with logs
+            href: operations/logging.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
+          - name: Monitoring the state of Spark applications
+            href: operations/spark-monitoring.md
+          - name: >-
+              Diagnostics and troubleshooting of Spark application performance
+              issues
+            href: operations/spark-diagnostics.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -100,14 +106,19 @@ items:
           exporting it to {{ mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
       - name: Shared use of tables through {{ metastore-name }}
-        hidden: true
         href: tutorials/dataproc-to-dataproc.md
   - name: Concepts
     items:
       - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
-        href: concepts/instance-types.md
+        items:
+          - name: Active host classes
+            href: concepts/instance-types.md
+          - name: Archive
+            items:
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
       - name: Runtime environment
         href: concepts/environment.md
       - name: '{{ dataproc-name }} component interfaces and ports'

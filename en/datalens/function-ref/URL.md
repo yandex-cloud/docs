@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/URL.md
+sourcePath: en/_api-ref/datalens/function-ref/URL.md
 ---
 
 # URL
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 URL( address, text )
 ```
 
-#### Описание {#description}
-Оборачивает `text` в ссылку на URL `address`.
+#### Description {#description}
+Wraps `text` into a hyperlink to URL `address`.
 
-**Типы аргументов:**
-- `address` — `Строка`
-- `text` — `Разметка | Строка`
+**Argument types:**
+- `address` — `String`
+- `text` — `Markup | String`
 
 
-**Возвращаемый тип**: `Разметка`
+**Return type**: `Markup`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 URL('https://example.com/?value=' + [value], [value])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

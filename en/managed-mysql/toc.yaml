@@ -7,38 +7,46 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to a database
-        href: operations/connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: SQL queries in the management console
-        href: operations/web-sql-query.md
-      - name: Updating clusters
-        href: operations/update.md
-      - name: Connecting to DataLens
-        href: operations/datalens-connect.md
-      - name: Managing MySQL hosts
-        href: operations/hosts.md
-      - name: Managing databases
-        href: operations/databases.md
-      - name: Managing users
-        href: operations/cluster-users.md
-      - name: Managing user permissions
-        href: operations/grant.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Performance diagnostics
-        href: operations/performance-diagnostics.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Updating clusters
+            href: operations/update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing MySQL hosts
+            href: operations/hosts.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Databases
+        items:
+          - name: Connecting to a database
+            href: operations/connect.md
+          - name: SQL queries in the management console
+            href: operations/web-sql-query.md
+          - name: Managing databases
+            href: operations/databases.md
+      - name: '{{ MY }} users'
+        items:
+          - name: Managing users
+            href: operations/cluster-users.md
+          - name: Managing user permissions
+            href: operations/grant.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Performance diagnostics
+            href: operations/performance-diagnostics.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
+          - name: Connecting from {{ datalens-name }}
+            href: operations/datalens-connect.md
   - name: Concepts
     items:
       - name: Relationships between service resources

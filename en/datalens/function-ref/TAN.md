@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/TAN.md
+sourcePath: en/_api-ref/datalens/function-ref/TAN.md
 ---
 
 # TAN
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 TAN( number )
 ```
 
-#### Описание {#description}
-Возвращает тангенс числа `number`, заданного в радианах.
+#### Description {#description}
+Returns the tangent of `number` in radians.
 
-**Типы аргументов:**
-- `number` — `Дробное число | Целое число`
+**Argument types:**
+- `number` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -40,6 +40,6 @@ TAN( number )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

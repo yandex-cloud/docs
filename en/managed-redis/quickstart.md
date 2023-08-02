@@ -31,7 +31,7 @@ To get started with the service:
 
 ## Connect to the cluster {#connect}
 
-1. If TLS support is enabled in your cluster, set up an SSL certificate:
+1. If TLS support is enabled in your cluster, get an SSL certificate:
 
    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 

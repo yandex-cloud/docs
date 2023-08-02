@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
+sourcePath: en/_api-ref/datalens/function-ref/LAST.md
 ---
 
-# LAST (оконная)
+# LAST (window)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   LAST( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   LAST( value
@@ -27,35 +27,35 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
       )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [ORDER BY](window-functions.md#syntax-order-by)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
+#### Description {#description}
 
 {% note warning %}
 
-Сортировка осуществляется на основе полей, перечисленных в области сортировки в чарте и в ORDER BY. При этом сначала берутся поля из `ORDER BY`.
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 
-Возвращает значение `value` из последней строки заданного окна. См. также [FIRST](FIRST.md).
+Returns the value of `value` from the last row in the window. See also [FIRST](FIRST.md).
 
-**Типы аргументов:**
-- `value` — `Любой`
-
-
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
-
-#### Примеры {#examples}
-
-{% cut "Пример с группировкой" %}
+**Argument types:**
+- `value` — `Any`
 
 
-Исходные данные
+**Return type**: Same type as (`value`)
+
+#### Examples {#examples}
+
+{% cut "Example with grouping" %}
+
+
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -71,11 +71,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **LAST(SUM([Orders]) TOTAL)**   | **LAST(SUM([Orders]) WITHIN [City])**   | **LAST(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
@@ -90,10 +90,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
 
 {% endcut %}
 
-{% cut "Пример с ORDER BY" %}
+{% cut "Example with ORDER BY" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -109,11 +109,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **LAST(SUM([Orders]) ORDER BY [City] DESC)**   | **LAST(SUM([Orders]) ORDER BY [Order Sum])**   |
 |:------------------|:--------------------|:-----------------------------------------------|:-----------------------------------------------|
@@ -125,6 +125,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

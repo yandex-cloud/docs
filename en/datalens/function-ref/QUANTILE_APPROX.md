@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
+sourcePath: en/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
 ---
 
 # QUANTILE_APPROX
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   QUANTILE_APPROX( value, quant )
   ```
 
-- Расширенный
+- Extended
 
   ```
   QUANTILE_APPROX( value, quant
@@ -26,22 +26,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
                  )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).
+#### Description {#description}
+Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
-**Типы аргументов:**
-- `value` — `Дата | Дата и время | Дробное число | Целое число`
-- `quant` — `Дробное число | Целое число`
+**Argument types:**
+- `value` — `Date | Datetime | Fractional number | Integer`
+- `quant` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+**Return type**: Same type as (`value`)
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`.

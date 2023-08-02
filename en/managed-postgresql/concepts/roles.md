@@ -1,6 +1,6 @@
 # Assigning {{ PG }} roles
 
-With {{ mpg-name }}, you cannot you access [predefined roles](https://www.postgresql.org/docs/current/predefined-roles.html). Instead, this service provides you with the following special roles:
+With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. Instead, this service provides you with the following special roles:
 
 * `mdb_admin`: For users who are not database owners but need administrative privileges.
 * `mdb_monitor`: For users who need to read various configuration parameters, statistics, and other system information.

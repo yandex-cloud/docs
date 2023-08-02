@@ -13,7 +13,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
     1. Click **Submit job**.
     1. (optional) Enter a name for the job.
     1. In the **Job type** field, select `Hive`.
-    1. Specify **Settings** as `key:value` pairs.
+    1. (Optional) In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key:value` pairs.
 
        {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
@@ -60,11 +60,11 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 - API
 
-   Use the [create](../api-ref/Job/create) API method and pass the following information in the request:
+    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list).
-   * The job name in the `name` parameter.
-   * Job properties in the `hiveJob` parameter.
+    * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list).
+    * Job name in the `name` parameter.
+    * Job properties in the `hiveJob` parameter.
 
 {% endlist %}
 

@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS.md
+sourcePath: en/_api-ref/datalens/function-ref/CONTAINS.md
 ---
 
-# CONTAINS (строковая)
+# CONTAINS (string)
 
-_Функция `CONTAINS` также доступна в следующих категориях: [Функции для работы с массивами](CONTAINS_ARRAY.md)._
+_Function `CONTAINS` is also found in the following categories: [Array functions](CONTAINS_ARRAY.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 CONTAINS( string, substring )
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`. Для регистронезависимой проверки см. [ICONTAINS](ICONTAINS.md).
+#### Description {#description}
+Returns `TRUE` if `string` contains `substring`. For case-insensitive searches, see [ICONTAINS](ICONTAINS.md).
 
-**Типы аргументов:**
-- `string` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
-- `substring` — `Строка`
+**Argument types:**
+- `string` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `substring` — `String`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 CONTAINS("RU0891923", "RU") = TRUE
@@ -35,6 +35,6 @@ CONTAINS("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

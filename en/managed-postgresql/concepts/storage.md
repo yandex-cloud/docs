@@ -8,21 +8,15 @@
 
 ## Specifics of local SSD storage {#local-storage-features}
 
-Local SSD storage does not provide fault tolerance for stored data and affects the overall pricing for the cluster:
-
-* This storage does not provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mpg-name }} cluster using this type of storage, a three-host fault-tolerant configuration is automatically set up.
-* You are charged for a cluster with this storage type even if it is stopped. You can find more information in the [pricing policy](../pricing.md).
-
-## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
-
-{% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
-
-## Selecting disk type during cluster creation {#storage-type-selection}
-
 The number of hosts that can be created along with a {{ PG }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
-* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the [current quota](./limits.md).
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
+
+   This cluster will be fault-tolerant.
+
+   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+
+* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 
 For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
 
@@ -47,14 +41,14 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
    1. **Metric**: Set the following metric parameters:
 
-      * Cloud.
-      * Folder.
-      * **{{ mpg-name }}** service.
-      * {{ mpg-name }} cluster ID.
+      * Cloud
+      * Folder
+      * **{{ mpg-name }}** service
+      * {{ mpg-name }} cluster ID
 
          You can get the cluster ID [with a list of clusters in a folder](../operations/cluster-list.md#list-clusters).
 
-      * `disk.free_bytes` label.
+      * `disk.free_bytes` label
 
    1. **Trigger condition**: Set the `Less than or equal to` condition for the percentage of free disk space to trigger the alert:
 

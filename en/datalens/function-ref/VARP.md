@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/VARP.md
+sourcePath: en/_api-ref/datalens/function-ref/VARP.md
 ---
 
 # VARP
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   VARP( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   VARP( value
@@ -26,28 +26,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/VARP.md
       )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.
+#### Description {#description}
+Returns the statistical variance of all values in an expression across the entire population.
 
-**Типы аргументов:**
-- `value` — `Дробное число | Целое число`
+**Argument types:**
+- `value` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 VARP([Profit])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

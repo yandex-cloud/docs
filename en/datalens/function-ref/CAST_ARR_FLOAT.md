@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CAST_ARR_FLOAT.md
+sourcePath: en/_api-ref/datalens/function-ref/CAST_ARR_FLOAT.md
 ---
 
 # CAST_ARR_FLOAT
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 CAST_ARR_FLOAT( array )
 ```
 
-#### Описание {#description}
-Приводит массив `array` к массиву дробных значений. Правила преобразования аналогичны функции [FLOAT](FLOAT.md).
+#### Description {#description}
+Converts `array` to an array of fractional numbers. The conversion rules are the same as for [FLOAT](FLOAT.md).
 
-**Типы аргументов:**
-- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
+**Argument types:**
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
 
 
-**Возвращаемый тип**: `Массив дробных чисел`
+**Return type**: `Array of fractional numbers`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -36,6 +36,6 @@ CAST_ARR_FLOAT( array )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

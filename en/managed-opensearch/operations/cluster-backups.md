@@ -143,7 +143,7 @@ To work with snapshots, use the [public API {{ OS }}]({{ os.docs }}/api-referenc
    GET https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
    ```
 
-   If the desired repository is not on the list, [connect it](s3-access.md).
+   If the required repository is not on the list, [connect it](s3-access.md).
 
 1. Get a list of snapshots in the repository:
 
@@ -161,7 +161,7 @@ To work with snapshots, use the [public API {{ OS }}]({{ os.docs }}/api-referenc
    GET https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
    ```
 
-   If the desired repository is not on the list, [connect it](s3-access.md).
+   If the required repository is not on the list, [connect it](s3-access.md).
 
 1. [Create a snapshot]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#take-snapshots) of the required data or an entire cluster in the selected repository:
 

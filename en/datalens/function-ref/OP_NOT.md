@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OP_NOT.md
+sourcePath: en/_api-ref/datalens/function-ref/OP_NOT.md
 ---
 
 # NOT
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 NOT value
 ```
 
-#### Описание {#description}
-Инвертирует логическое значение.
+#### Description {#description}
+Inverts a Boolean value.
 
-**Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка`
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 NOT FALSE = TRUE
@@ -58,6 +58,6 @@ NOT #2019-01-01 03:00:00# = FALSE
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

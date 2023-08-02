@@ -105,21 +105,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To use an encrypted connection, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
-   ```
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
 
 The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 

@@ -1,12 +1,12 @@
 # Изменить сертификат от Let's Encrypt
 
-После создания [сертификата от Let's Encrypt](../../concepts/managed-certificate.md) вы можете изменить его название или описание. Чтобы изменить сертификат:
+После выпуска и добавления в {{ certificate-manager-name }} [сертификата от Let's Encrypt](../../concepts/managed-certificate.md) вы можете изменить его название или описание. Чтобы изменить сертификат:
 
 {% list tabs %}
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан сертификат.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. В списке сервисов выберите **{{ certificate-manager-name }}**.
   1. Выберите в списке сертификат, который необходимо изменить.
   1. В открывшемся окне нажмите кнопку **Изменить**.

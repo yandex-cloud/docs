@@ -78,10 +78,10 @@ Time taken: 0.077 seconds, Fetched: 1 row(s)
 1. Example of the query results:
 
    ```text
-   Query ID = root_20200119195338_28049b67-4de9-4568-a4c4-3bbe500b78a1
+   Query ID = root_20200119195338_28049b67-4de9-4568-a4c4-3bbe********
    Total jobs = 1
    Launching Job 1 out of 1
-   Status: Running (Executing on YARN cluster with App id application_1579251575762_0013)
+   Status: Running (Executing on YARN cluster with App id application_157925157****_****)
 
    ----------------------------------------------------------------------------------------------
            VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED

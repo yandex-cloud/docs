@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/YEAR.md
+sourcePath: en/_api-ref/datalens/function-ref/YEAR.md
 ---
 
 # YEAR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 YEAR( datetime )
 ```
 
-#### Описание {#description}
-Возвращает номер года в указанной дате `datetime`.
+#### Description {#description}
+Returns the year number in the specified date `datetime`.
 
-**Типы аргументов:**
-- `datetime` — `Дата | Дата и время`
+**Argument types:**
+- `datetime` — `Date | Datetime`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 YEAR(#2019-01-23#) = 2019
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

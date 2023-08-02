@@ -6,7 +6,7 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан сертификат.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. В списке сервисов выберите **{{ certificate-manager-name }}**.
   1. Найдите в списке сертификат, который необходимо удалить.
   1. Нажмите кнопку ![image](../../../_assets/options.svg).

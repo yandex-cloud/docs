@@ -1,57 +1,57 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/DATEPART.md
+sourcePath: en/_api-ref/datalens/function-ref/DATEPART.md
 ---
 
 # DATEPART
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 DATEPART( datetime, unit [ , firstday ] )
 ```
 
-#### Описание {#description}
-Возвращает часть даты в виде целого числа.
+#### Description {#description}
+Returns a part of the date as an integer.
 
-В зависимости от аргумента `unit` возвращает следующие значения:
-- `"year"` — номер года (см. [YEAR](YEAR.md));
-- `"quarter"` — номер квартала года (от `1` до `4`) (см. [QUARTER](QUARTER.md));
-- `"month"` — номер месяца в году (см. [MONTH](MONTH.md));
-- `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md));
-- `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md));
-- `"day"` — номер дня в месяце (см. [DAY](DAY.md));
-- `"hour"` — номер часа в дне (см. [HOUR](HOUR.md));
-- `"minute"` — номер минуты в часе (см. [MINUTE](MINUTE.md));
-- `"second"` — номер секунды в минуте (см. [SECOND](SECOND.md)).
+Depending on the argument, `unit` returns the following values:
+- `"year"` — the year number (see [YEAR](YEAR.md));
+- `"quarter"` — the number of the quarter (from `1` to `4`) of the year (see [QUARTER](QUARTER.md));
+- `"month"` — the number of the month in the year (see [MONTH](MONTH.md));
+- `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md));
+- `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md));
+- `"day"` — the number of the day in the month (see [DAY](DAY.md));
+- `"hour"` — the number of the hour in the day (see [HOUR](HOUR.md));
+- `"minute"` — the number of the minute in the hour (see [MINUTE](MINUTE.md));
+- `"second"` — the number of the second in the minute (see [SECOND](SECOND.md)).
 
-Если выбран "`dayofweek`", то дополнительным параметром `firstday` можно задать, какой день недели считать первым — по умолчанию это понедельник. Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](DAYOFWEEK.md).
-
-
-**Типы аргументов:**
-- `datetime` — `Дата | Дата и время`
-- `unit` — `Строка`
-- `firstday` — `Строка`
+If you select `"dayofweek"`, you can use the additional parameter `firstday` to specify the first day of the week (Monday by default). Learn more about this parameter in the [DAYOFWEEK](DAYOFWEEK.md) function description.
 
 
-**Возвращаемый тип**: `Целое число`
+**Argument types:**
+- `datetime` — `Date | Datetime`
+- `unit` — `String`
+- `firstday` — `String`
+
+
+**Return type**: `Integer`
 
 {% note info %}
 
-Значения аргументов (`firstday`) должны быть константами.
+Only constant values are accepted for the arguments (`firstday`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
-{% cut "Пример с датой" %}
+{% cut "Example with date" %}
 
 
-Формулы:
+Formulas:
 
 - **Date**: `[Date]` ;
 - **Year**: `DATEPART([Date], "year")` ;
@@ -69,10 +69,10 @@ DATEPART( datetime, unit [ , firstday ] )
 
 {% endcut %}
 
-{% cut "Пример с заданным первым днем недели" %}
+{% cut "Example with custom first day of the week" %}
 
 
-Формулы:
+Formulas:
 
 - **Date**: `[Date]` ;
 - **DOW**: `DATEPART([Date], "dow")` ;
@@ -89,10 +89,10 @@ DATEPART( datetime, unit [ , firstday ] )
 
 {% endcut %}
 
-{% cut "Пример с датой и временем" %}
+{% cut "Example with date and time" %}
 
 
-Формулы:
+Formulas:
 
 - **DateTime**: `[DateTime]` ;
 - **Year**: `DATEPART([DateTime], "year")` ;
@@ -112,6 +112,6 @@ DATEPART( datetime, unit [ , firstday ] )
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

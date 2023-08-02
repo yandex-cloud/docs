@@ -274,7 +274,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
 {% note warning %}
 
-You can't change the disk type for {{ KF }} clusters after creation.
+You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 {% endnote %}
 
@@ -341,6 +341,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
             disk_size = <storage size in GB>
             ...
           }
+          ...
         }
         zookeeper {
           resources {

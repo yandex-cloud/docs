@@ -11,7 +11,7 @@ description: "С помощью сервиса {{ sf-name }} вы можете �
 |----|----|----|----|
 | python37 | 3.7.13 | Ubuntu 18.04 LTS | нет |
 | python38 | 3.8.13 | Ubuntu 18.04 LTS | нет |
-| python39 | 3.9.11 | Ubuntu 18.04 LTS | да |
+| python39 | 3.9.11 | Ubuntu 18.04 LTS | нет |
 | python311 | 3.11.0 | Ubuntu 18.04 LTS | да |
 
 {% note info %}

@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CAST_ARR_STR.md
+sourcePath: en/_api-ref/datalens/function-ref/CAST_ARR_STR.md
 ---
 
 # CAST_ARR_STR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 CAST_ARR_STR( array )
 ```
 
-#### Описание {#description}
-Приводит массив `array` к массиву строк. Правила преобразования аналогичны функции [STR](STR.md).
+#### Description {#description}
+Converts `array` to an array of strings. The conversion rules are the same as for [STR](STR.md).
 
-**Типы аргументов:**
-- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
+**Argument types:**
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
 
 
-**Возвращаемый тип**: `Массив строк`
+**Return type**: `Array of strings`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -36,6 +36,6 @@ CAST_ARR_STR( array )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

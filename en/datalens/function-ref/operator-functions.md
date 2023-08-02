@@ -1,168 +1,168 @@
 ---
-title: Операторы
+title: Operators
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/operator-functions.md
+sourcePath: en/_api-ref/datalens/function-ref/operator-functions.md
 ---
 
-# Операторы
+# Operators
 
 
-## [Остаток (%)](OP_MOD.md)
+## [Modulo (%)](OP_MOD.md)
 
-**Синтаксис:**`number_1 % number_2`
+**Syntax:**`number_1 % number_2`
 
-Возвращает остаток от деления первого числа `number_1` на число `number_2`.
-
-
-
-## [Умножение (*)](OP_MULT.md)
-
-**Синтаксис:**`value_1 * value_2`
-
-Если оба аргумента — числа, то возвращает результат умножения числа `value_1` на число `value_2`.
-
-Если один из аргументов — `Строка`, а другой — `Целое число`, возвращает строку, повторенную заданное количество раз.
+Returns the remainder from dividing the first number `number_1` by the second number `number_2`.
 
 
 
-## [Сложение и конкатенация (+)](OP_PLUS.md)
+## [Multiplication (*)](OP_MULT.md)
 
-**Синтаксис:**`value_1 + value_2`
+**Syntax:**`value_1 * value_2`
 
-Имеет различное поведение в зависимости от типов аргументов. Возможные варианты приведены в таблице:
+If both arguments are numbers, it returns the result by multiplying `value_1` by `value_2`.
 
-| Тип `value_1`                                                                    | Тип `value_2`                                                                    | Возвращаемое значение                                                                                                                                                               |
-|:---------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Дробное число &#124; Целое число</code>                                    | <code>Дробное число &#124; Целое число</code>                                    | Сумма чисел `value_1` и `value_2`.                                                                                                                                                  |
-| `Дата`                                                                           | <code>Дробное число &#124; Целое число</code>                                    | Дата, на `value_2` дней большая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
-| `Дата и время`                                                                   | <code>Дробное число &#124; Целое число</code>                                    | Дата со временем, на `value_2` дней большая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
-| `Строка`                                                                         | `Строка`                                                                         | Объединение (конкатенация) строк `value_1` и `value_2`.                                                                                                                             |
-| <code>Массив дробных чисел &#124; Массив целых числел &#124; Массив строк</code> | <code>Массив дробных чисел &#124; Массив целых числел &#124; Массив строк</code> | Объединение (конкатенация) массивов `value_1` и `value_2`.                                                                                                                          |
-
-Изменение порядка аргументов не влияет на результат.
+If one of the arguments is `String` and the other is `Integer`, it returns the string repeated the specified number of times.
 
 
 
-## [Вычитание (-)](OP_MINUS.md)
+## [Addition and concatenation (+)](OP_PLUS.md)
 
-**Синтаксис:**`value_1 - value_2`
+**Syntax:**`value_1 + value_2`
 
-Имеет различное поведение в зависимости от типов аргументов. Возможные варианты приведены в таблице:
+Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Тип `value_1`                                 | Тип `value_2`                                 | Возвращаемое значение                                                                                                                                                               |
-|:----------------------------------------------|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Дробное число &#124; Целое число</code> | <code>Дробное число &#124; Целое число</code> | Разность чисел `value_1` и `value_2`.                                                                                                                                               |
-| `Дата`                                        | <code>Дробное число &#124; Целое число</code> | Дата, на `value_2` дней меньшая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
-| `Дата и время`                                | <code>Дробное число &#124; Целое число</code> | Дата со временем, на `value_2` дней меньшая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
-| `Дата`                                        | `Дата`                                        | Разность двух дат в днях.                                                                                                                                                           |
-| `Любой`                                       | `Любой`                                       | Разность двух дат в днях: целая часть — количество целых дней, дробная — количество часов, минут и секунд как долей целого дня (час — `1/24` и т.д.).                               |
-| `Дата и время`                                | `Дата и время`                                | Разность двух дат в днях: целая часть — количество целых дней, дробная — количество часов, минут и секунд как долей целого дня (час — `1/24` и т.д.).                               |
+| Type of `value_1`                                                                         | Type of `value_2`                                                                         | Return value                                                                                                                                                                     |
+|:------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>                                             | <code>Fractional number &#124; Integer</code>                                             | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
+| `Date`                                                                                    | <code>Fractional number &#124; Integer</code>                                             | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
+| `Datetime`                                                                                | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `String`                                                                                  | `String`                                                                                  | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | The merging (concatenation) of arrays `value_1` and `value_2`.                                                                                                                   |
 
-
-
-## [Деление (/)](OP_DIV.md)
-
-**Синтаксис:**`number_1 / number_2`
-
-Делит число `number_1` на число `number_2`.
+Changing the order of arguments does not affect the result.
 
 
 
-## [Сравнение](OP_COMPARISON.md)
+## [Subtraction (-)](OP_MINUS.md)
 
-**Синтаксис:**<br/>`value_1 = value_2`<br/>или<br/>`value_1 != value_2`<br/>или<br/>`value_1 < value_2`<br/>или<br/>`value_1 <= value_2`<br/>или<br/>`value_1 > value_2`<br/>или<br/>`value_1 >= value_2`
+**Syntax:**`value_1 - value_2`
 
-Сравнивают значение `value_1` со значением `value_2`.
+Behaves differently depending on the argument types. Possible options are listed in the table:
+
+| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                                                       |
+|:----------------------------------------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
+| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
+| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
+| `Date`                                        | `Date`                                        | The difference between two dates in days.                                                                                                                                                                          |
+| `Any`                                         | `Any`                                         | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
+| `Datetime`                                    | `Datetime`                                    | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
 
 
 
-## [Степень (^)](OP_POWER.md)
+## [Division (/)](OP_DIV.md)
 
-**Синтаксис:**`base ^ power`
+**Syntax:**`number_1 / number_2`
 
-Возводит число `base` в степень `power`.
+Divides the number `number_1` by the number `number_2`.
+
+
+
+## [Comparison](OP_COMPARISON.md)
+
+**Syntax:**<br/>`value_1 = value_2`<br/>or<br/>`value_1 != value_2`<br/>or<br/>`value_1 < value_2`<br/>or<br/>`value_1 <= value_2`<br/>or<br/>`value_1 > value_2`<br/>or<br/>`value_1 >= value_2`
+
+Compares the value `value_1` with the value `value_2`.
+
+
+
+## [Power (^)](OP_POWER.md)
+
+**Syntax:**`base ^ power`
+
+Raises `base` to the power of `power`.
 
 
 
 ## [AND](AND.md)
 
-**Синтаксис:**`value_1 AND value_2`
+**Syntax:**`value_1 AND value_2`
 
-Выполняет логическое соединение двух выражений по условию `И`.
+Performs a Boolean join of two expressions with the `AND` condition.
 
 
 
 ## [BETWEEN](BETWEEN.md)
 
-**Синтаксис:**`value [ NOT ] BETWEEN low AND high`
+**Syntax:**`value [ NOT ] BETWEEN low AND high`
 
-Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
+Returns `TRUE` if `value` is in the range from `low` to `high`.
 
-Вариант `value NOT BETWEEN low AND high` возвращает противоположное значение
+The option `value NOT BETWEEN low AND high` returns the opposite value.
 
 
 
 ## [IN](IN.md)
 
-**Синтаксис:**`item [ NOT ] IN (<list>)`
+**Syntax:**`item [ NOT ] IN (<list>)`
 
-Проверяет условие соответствия значения хотя бы одному из значений, перечисленных в `IN(...)`.
+Checks whether the value matches at least one of the values listed in `IN(...)`.
 
-Вариант `item NOT IN (<`list`>)` возвращает противоположное значение
+The option `item NOT IN (<`list`>)` returns the opposite value.
 
 
 
 ## [IS FALSE](ISFALSE.md)
 
-**Синтаксис:**`value IS [ NOT ] FALSE`
+**Syntax:**`value IS [ NOT ] FALSE`
 
-Проверяет, является ли значение `value` ложным (`FALSE`).
+Checks whether the `value` value is false (`FALSE`).
 
-Вариант `value IS NOT FALSE` возвращает противоположное значение.
+The `value IS NOT FALSE` option returns the opposite value.
 
 
 
 ## [IS TRUE](ISTRUE.md)
 
-**Синтаксис:**`value IS [ NOT ] TRUE`
+**Syntax:**`value IS [ NOT ] TRUE`
 
-Проверяет, является ли значение `value` истинным (`TRUE`).
+Checks whether the value of `value` is true (`TRUE`).
 
-Вариант `value IS NOT TRUE` возвращает противоположное значение.
+The `value IS NOT TRUE` option returns the opposite value.
 
 
 
 ## [LIKE](LIKE.md)
 
-**Синтаксис:**`string_1 [ NOT ] LIKE string_2`
+**Syntax:**`string_1 [ NOT ] LIKE string_2`
 
-Сравнивает строку `string_1` со шаблоном `string_2` и в случае совпадения возвращает `TRUE`.
-В качестве `string_2` можно задать значение или использовать знак `%`, который соответствует строке любой длины.
+Matches the string `string_1` to the template `string_2` and returns `TRUE` on match.
+You can specify the value in `string_2` or use the `%` character to match a string of any length.
 
-Вариант `string_1 NOT LIKE` возвращает противоположное значение.
+The `string_1 NOT LIKE` option returns the opposite value.
 
 
 
-## [Отрицание (-)](OP_NEGATION.md)
+## [Negation (-)](OP_NEGATION.md)
 
-**Синтаксис:**`-value`
+**Syntax:**`-value`
 
-Возвращает число `value` с противоположным знаком.
+Returns the number `value` with the opposite sign.
 
 
 
 ## [NOT](OP_NOT.md)
 
-**Синтаксис:**`NOT value`
+**Syntax:**`NOT value`
 
-Инвертирует логическое значение.
+Inverts a Boolean value.
 
 
 
 ## [OR](OR.md)
 
-**Синтаксис:**`value_1 OR value_2`
+**Syntax:**`value_1 OR value_2`
 
-Выполняет логическое соединение двух выражений по условию `ИЛИ`.
+Performs a Boolean join of two expressions with the `OR` condition.
 
 

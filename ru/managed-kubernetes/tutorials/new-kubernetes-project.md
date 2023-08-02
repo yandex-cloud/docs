@@ -46,7 +46,7 @@
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. Если у вас уже есть [сертификат](../../certificate-manager/concepts/index.md#types) для [доменной зоны](../../dns/concepts/dns-zone.md), [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {{ certificate-manager-full-name }}.
 
-   Если у вас нет сертификата, [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
+   Если у вас нет сертификата, выпустите новый сертификат от Let's Encrypt® и [добавьте](../../certificate-manager/operations/managed/cert-create.md) его в {{ certificate-manager-name }}.
 1. Получите идентификатор сертификата:
 
    ```bash

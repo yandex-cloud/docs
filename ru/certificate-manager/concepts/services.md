@@ -3,6 +3,7 @@
 
 Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{{ objstorage-full-name }}](#os).
+* [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 
 
@@ -18,6 +19,10 @@
 
 {% endnote %}
 
+
+## {{ alb-full-name }} {#alb}
+
+[{{ alb-name }}](../../application-load-balancer/index.yaml) может обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов, добавленных в {{ certificate-manager-name }}. Сертификаты из {{ certificate-manager-name }} можно использовать в обработчиках [L7-балансировщиков](../../application-load-balancer/operations/application-load-balancer-create.md).
 
 ## {{ api-gw-full-name }} {#api-gw}
 

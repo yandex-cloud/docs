@@ -7,31 +7,43 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Calculating the cluster configuration
-        href: operations/calculate-specs.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to a database
-        href: operations/connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: Managing hosts in a cluster
+      - name: Clusters
         items:
-          - name: Viewing hosts in a cluster
-            href: operations/hosts/cluster-hosts.md
-          - name: Expanding a cluster
-            href: operations/hosts/cluster-expand.md
-      - name: Changing cluster settings
-        href: operations/update.md
-      - name: Managing roles and users
-        href: operations/roles-and-users.md
-      - name: Managing client processes and user sessions
-        href: operations/cluster-process.md
-      - name: Using external tables
-        href: operations/external-tables.md
-      - name: Greenplum extensions
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Calculating the cluster configuration
+            href: operations/calculate-specs.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing cluster settings
+            href: operations/update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing hosts in a cluster
+            items:
+              - name: Viewing hosts in a cluster
+                href: operations/hosts/cluster-hosts.md
+              - name: Expanding a cluster
+                href: operations/hosts/cluster-expand.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Databases
+        items:
+          - name: Connecting to a database
+            href: operations/connect.md
+          - name: Using external tables
+            href: operations/external-tables.md
+      - name: Users and sessions
+        items:
+          - name: Managing roles and users
+            href: operations/roles-and-users.md
+          - name: Managing resource groups
+            href: operations/resource-groups.md
+          - name: Managing client processes and user sessions
+            href: operations/cluster-process.md
+      - name: '{{ GP }} extensions'
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
@@ -39,18 +51,16 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Performance diagnostics
-        href: operations/performance-diagnostics.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
-      - name: Managing resource groups
-        href: operations/resource-groups.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Performance diagnostics
+            href: operations/performance-diagnostics.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
+      - name: Auxiliary utilities
+        href: operations/greenplum-db.md
   - name: Tutorials
     items:
       - name: Migrating databases to {{ mgp-name }}

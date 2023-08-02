@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
+sourcePath: en/_api-ref/datalens/function-ref/RANK.md
 ---
 
-# RANK (оконная)
+# RANK (window)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   RANK( value [ , direction ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   RANK( value [ , direction ]
@@ -26,39 +26,39 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
       )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Выполняет ранжирование значений с пропусками: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `3`. Значение `2` в этом случае пропускается.
+#### Description {#description}
+Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.
 
-Если `direction` равно `"desc"` или не указано, то ранжирование происходит от большего к меньшему, если `"asc"`, то от меньшего к большему. По умолчанию используется `"desc"`.
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
-См. также [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
+See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
-**Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
-- `direction` — `Строка`
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
+- `direction` — `String`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
 {% note info %}
 
-Значения аргументов (`direction`) должны быть константами.
+Only constant values are accepted for the arguments (`direction`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
-{% cut "Пример с двумя аргументами" %}
+{% cut "Example with two arguments" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -74,11 +74,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **RANK(SUM([Orders]), "desc")**   | **RANK(SUM([Orders]), "asc")**   |
 |:------------------|:--------------------|:----------------------------------|:---------------------------------|
@@ -89,10 +89,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
 
 {% endcut %}
 
-{% cut "Пример с группировкой" %}
+{% cut "Example with grouping" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -108,11 +108,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RANK(SUM([Orders]) TOTAL)**   | **RANK(SUM([Orders]) WITHIN [City])**   | **RANK(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
@@ -128,6 +128,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

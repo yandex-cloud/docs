@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OP_MOD.md
+sourcePath: en/_api-ref/datalens/function-ref/OP_MOD.md
 ---
 
-# Остаток (%)
+# Modulo (%)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 number_1 % number_2
 ```
 
-#### Описание {#description}
-Возвращает остаток от деления первого числа `number_1` на число `number_2`.
+#### Description {#description}
+Returns the remainder from dividing the first number `number_1` by the second number `number_2`.
 
-**Типы аргументов:**
-- `number_1` — `Дробное число | Целое число`
-- `number_2` — `Дробное число | Целое число`
+**Argument types:**
+- `number_1` — `Fractional number | Integer`
+- `number_2` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: Зависит от типов аргументов
+**Return type**: Depends on argument types
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 2 % 3 = 2
@@ -39,6 +39,6 @@ number_1 % number_2
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

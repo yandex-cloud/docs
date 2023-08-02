@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ASCII.md
+sourcePath: en/_api-ref/datalens/function-ref/ASCII.md
 ---
 
 # ASCII
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 ASCII( string )
 ```
 
-#### Описание {#description}
-Возвращает числовое представление первого символа строки.
+#### Description {#description}
+Returns the numeric representation of the first character of the string.
 
-**Типы аргументов:**
-- `string` — `Строка`
+**Argument types:**
+- `string` — `String`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 ASCII("N") = 78
@@ -42,6 +42,6 @@ ASCII("…") = 8230
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

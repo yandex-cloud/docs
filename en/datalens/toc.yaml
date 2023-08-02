@@ -139,11 +139,11 @@ items:
         href: concepts/calculations/formula-syntax.md
       - name: Function reference
         items:
-          - name: Все функции
+          - name: All Functions
             href: function-ref/all.md
-          - name: Агрегатные функции
+          - name: Aggregate functions
             items:
-              - name: Обзор
+              - name: Overview
                 href: function-ref/aggregation-functions.md
               - name: ALL_CONCAT
                 href: function-ref/ALL_CONCAT.md
@@ -191,9 +191,87 @@ items:
                 href: function-ref/VAR.md
               - name: VARP
                 href: function-ref/VARP.md
-          - name: Логические функции
+          - name: Array functions
             items:
-              - name: Обзор
+              - name: Overview
+                href: function-ref/array-functions.md
+              - name: ARRAY
+                href: function-ref/ARRAY.md
+              - name: ARR_AVG
+                href: function-ref/ARR_AVG.md
+              - name: ARR_MAX
+                href: function-ref/ARR_MAX.md
+              - name: ARR_MIN
+                href: function-ref/ARR_MIN.md
+              - name: ARR_PRODUCT
+                href: function-ref/ARR_PRODUCT.md
+              - name: ARR_REMOVE
+                href: function-ref/ARR_REMOVE.md
+              - name: ARR_STR
+                href: function-ref/ARR_STR.md
+              - name: ARR_SUM
+                href: function-ref/ARR_SUM.md
+              - name: CAST_ARR_FLOAT
+                href: function-ref/CAST_ARR_FLOAT.md
+              - name: CAST_ARR_INT
+                href: function-ref/CAST_ARR_INT.md
+              - name: CAST_ARR_STR
+                href: function-ref/CAST_ARR_STR.md
+              - name: CONTAINS
+                href: function-ref/CONTAINS_ARRAY.md
+              - name: CONTAINS_ALL
+                href: function-ref/CONTAINS_ALL.md
+              - name: CONTAINS_ANY
+                href: function-ref/CONTAINS_ANY.md
+              - name: CONTAINS_SUBSEQUENCE
+                href: function-ref/CONTAINS_SUBSEQUENCE.md
+              - name: COUNT_ITEM
+                href: function-ref/COUNT_ITEM.md
+              - name: GET_ITEM
+                href: function-ref/GET_ITEM.md
+              - name: REPLACE
+                href: function-ref/REPLACE_ARRAY.md
+              - name: SLICE
+                href: function-ref/SLICE.md
+              - name: STARTSWITH
+                href: function-ref/STARTSWITH_ARRAY.md
+              - name: UNNEST
+                href: function-ref/UNNEST.md
+          - name: Date/Time functions
+            items:
+              - name: Overview
+                href: function-ref/date-functions.md
+              - name: DATEADD
+                href: function-ref/DATEADD.md
+              - name: DATEPART
+                href: function-ref/DATEPART.md
+              - name: DATETRUNC
+                href: function-ref/DATETRUNC.md
+              - name: DAY
+                href: function-ref/DAY.md
+              - name: DAYOFWEEK
+                href: function-ref/DAYOFWEEK.md
+              - name: HOUR
+                href: function-ref/HOUR.md
+              - name: MINUTE
+                href: function-ref/MINUTE.md
+              - name: MONTH
+                href: function-ref/MONTH.md
+              - name: NOW
+                href: function-ref/NOW.md
+              - name: QUARTER
+                href: function-ref/QUARTER.md
+              - name: SECOND
+                href: function-ref/SECOND.md
+              - name: TODAY
+                href: function-ref/TODAY.md
+              - name: WEEK
+                href: function-ref/WEEK.md
+              - name: YEAR
+                href: function-ref/YEAR.md
+          - name: Logical functions
+            items:
+              - name: Overview
                 href: function-ref/logical-functions.md
               - name: CASE
                 href: function-ref/CASE.md
@@ -205,9 +283,9 @@ items:
                 href: function-ref/ISNULL.md
               - name: ZN
                 href: function-ref/ZN.md
-          - name: Математические функции
+          - name: Mathematical functions
             items:
-              - name: Обзор
+              - name: Overview
                 href: function-ref/numeric-functions.md
               - name: ABS
                 href: function-ref/ABS.md
@@ -267,68 +345,20 @@ items:
                 href: function-ref/SQUARE.md
               - name: TAN
                 href: function-ref/TAN.md
-          - name: Оконные функции
+          - name: Operators
             items:
-              - name: Обзор
-                href: function-ref/window-functions.md
-              - name: AVG
-                href: function-ref/AVG_WINDOW.md
-              - name: AVG_IF
-                href: function-ref/AVG_IF_WINDOW.md
-              - name: COUNT
-                href: function-ref/COUNT_WINDOW.md
-              - name: COUNT_IF
-                href: function-ref/COUNT_IF_WINDOW.md
-              - name: FIRST
-                href: function-ref/FIRST.md
-              - name: LAG
-                href: function-ref/LAG.md
-              - name: LAST
-                href: function-ref/LAST.md
-              - name: MAVG
-                href: function-ref/MAVG.md
-              - name: MAX
-                href: function-ref/MAX_WINDOW.md
-              - name: MCOUNT
-                href: function-ref/MCOUNT.md
-              - name: MIN
-                href: function-ref/MIN_WINDOW.md
-              - name: MMAX
-                href: function-ref/MMAX.md
-              - name: MMIN
-                href: function-ref/MMIN.md
-              - name: MSUM
-                href: function-ref/MSUM.md
-              - name: RANK
-                href: function-ref/RANK.md
-              - name: RANK_DENSE
-                href: function-ref/RANK_DENSE.md
-              - name: RANK_PERCENTILE
-                href: function-ref/RANK_PERCENTILE.md
-              - name: RANK_UNIQUE
-                href: function-ref/RANK_UNIQUE.md
-              - name: RAVG
-                href: function-ref/RAVG.md
-              - name: RCOUNT
-                href: function-ref/RCOUNT.md
-              - name: RMAX
-                href: function-ref/RMAX.md
-              - name: RMIN
-                href: function-ref/RMIN.md
-              - name: RSUM
-                href: function-ref/RSUM.md
-              - name: SUM
-                href: function-ref/SUM_WINDOW.md
-              - name: SUM_IF
-                href: function-ref/SUM_IF_WINDOW.md
-          - name: Операторы
-            items:
-              - name: Обзор
+              - name: Overview
                 href: function-ref/operator-functions.md
               - name: AND
                 href: function-ref/AND.md
+              - name: Addition and concatenation (+)
+                href: function-ref/OP_PLUS.md
               - name: BETWEEN
                 href: function-ref/BETWEEN.md
+              - name: Comparison
+                href: function-ref/OP_COMPARISON.md
+              - name: Division (/)
+                href: function-ref/OP_DIV.md
               - name: IN
                 href: function-ref/IN.md
               - name: IS FALSE
@@ -337,29 +367,23 @@ items:
                 href: function-ref/ISTRUE.md
               - name: LIKE
                 href: function-ref/LIKE.md
+              - name: Modulo (%)
+                href: function-ref/OP_MOD.md
+              - name: Multiplication (*)
+                href: function-ref/OP_MULT.md
               - name: NOT
                 href: function-ref/OP_NOT.md
+              - name: Negation (-)
+                href: function-ref/OP_NEGATION.md
               - name: OR
                 href: function-ref/OR.md
-              - name: Вычитание (-)
-                href: function-ref/OP_MINUS.md
-              - name: Деление (/)
-                href: function-ref/OP_DIV.md
-              - name: Остаток (%)
-                href: function-ref/OP_MOD.md
-              - name: Отрицание (-)
-                href: function-ref/OP_NEGATION.md
-              - name: Сложение и конкатенация (+)
-                href: function-ref/OP_PLUS.md
-              - name: Сравнение
-                href: function-ref/OP_COMPARISON.md
-              - name: Степень (^)
+              - name: Power (^)
                 href: function-ref/OP_POWER.md
-              - name: Умножение (*)
-                href: function-ref/OP_MULT.md
-          - name: Строковые функции
+              - name: Subtraction (-)
+                href: function-ref/OP_MINUS.md
+          - name: String functions
             items:
-              - name: Обзор
+              - name: Overview
                 href: function-ref/string-functions.md
               - name: ASCII
                 href: function-ref/ASCII.md
@@ -415,95 +439,29 @@ items:
                 href: function-ref/UPPER.md
               - name: UTF8
                 href: function-ref/UTF8.md
-          - name: Функции даты и времени
+          - name: Text markup functions
             items:
-              - name: Обзор
-                href: function-ref/date-functions.md
-              - name: DATEADD
-                href: function-ref/DATEADD.md
-              - name: DATEPART
-                href: function-ref/DATEPART.md
-              - name: DATETRUNC
-                href: function-ref/DATETRUNC.md
-              - name: DAY
-                href: function-ref/DAY.md
-              - name: DAYOFWEEK
-                href: function-ref/DAYOFWEEK.md
-              - name: HOUR
-                href: function-ref/HOUR.md
-              - name: MINUTE
-                href: function-ref/MINUTE.md
-              - name: MONTH
-                href: function-ref/MONTH.md
-              - name: NOW
-                href: function-ref/NOW.md
-              - name: QUARTER
-                href: function-ref/QUARTER.md
-              - name: SECOND
-                href: function-ref/SECOND.md
-              - name: TODAY
-                href: function-ref/TODAY.md
-              - name: WEEK
-                href: function-ref/WEEK.md
-              - name: YEAR
-                href: function-ref/YEAR.md
-          - name: Функции для работы с временными рядами
+              - name: Overview
+                href: function-ref/markup-functions.md
+              - name: BOLD
+                href: function-ref/BOLD.md
+              - name: ITALIC
+                href: function-ref/ITALIC.md
+              - name: MARKUP
+                href: function-ref/MARKUP.md
+              - name: URL
+                href: function-ref/URL.md
+          - name: Time series functions
             items:
-              - name: Обзор
+              - name: Overview
                 href: function-ref/time-series-functions.md
               - name: AGO
                 href: function-ref/AGO.md
               - name: AT_DATE
                 href: function-ref/AT_DATE.md
-          - name: Функции для работы с массивами
+          - name: Type conversion functions
             items:
-              - name: Обзор
-                href: function-ref/array-functions.md
-              - name: ARRAY
-                href: function-ref/ARRAY.md
-              - name: ARR_AVG
-                href: function-ref/ARR_AVG.md
-              - name: ARR_MAX
-                href: function-ref/ARR_MAX.md
-              - name: ARR_MIN
-                href: function-ref/ARR_MIN.md
-              - name: ARR_PRODUCT
-                href: function-ref/ARR_PRODUCT.md
-              - name: ARR_REMOVE
-                href: function-ref/ARR_REMOVE.md
-              - name: ARR_STR
-                href: function-ref/ARR_STR.md
-              - name: ARR_SUM
-                href: function-ref/ARR_SUM.md
-              - name: CAST_ARR_FLOAT
-                href: function-ref/CAST_ARR_FLOAT.md
-              - name: CAST_ARR_INT
-                href: function-ref/CAST_ARR_INT.md
-              - name: CAST_ARR_STR
-                href: function-ref/CAST_ARR_STR.md
-              - name: CONTAINS
-                href: function-ref/CONTAINS_ARRAY.md
-              - name: CONTAINS_ALL
-                href: function-ref/CONTAINS_ALL.md
-              - name: CONTAINS_ANY
-                href: function-ref/CONTAINS_ANY.md
-              - name: CONTAINS_SUBSEQUENCE
-                href: function-ref/CONTAINS_SUBSEQUENCE.md
-              - name: COUNT_ITEM
-                href: function-ref/COUNT_ITEM.md
-              - name: GET_ITEM
-                href: function-ref/GET_ITEM.md
-              - name: REPLACE
-                href: function-ref/REPLACE_ARRAY.md
-              - name: SLICE
-                href: function-ref/SLICE.md
-              - name: STARTSWITH
-                href: function-ref/STARTSWITH_ARRAY.md
-              - name: UNNEST
-                href: function-ref/UNNEST.md
-          - name: Функции преобразования типов
-            items:
-              - name: Обзор
+              - name: Overview
                 href: function-ref/type-conversion-functions.md
               - name: BOOL
                 href: function-ref/BOOL.md
@@ -527,19 +485,61 @@ items:
                 href: function-ref/INT.md
               - name: STR
                 href: function-ref/STR.md
-          - name: Функции разметки
+          - name: Window functions
             items:
-              - name: Обзор
-                href: function-ref/markup-functions.md
-              - name: BOLD
-                href: function-ref/BOLD.md
-              - name: ITALIC
-                href: function-ref/ITALIC.md
-              - name: MARKUP
-                href: function-ref/MARKUP.md
-              - name: URL
-                href: function-ref/URL.md
-          - name: Поддержка функций
+              - name: Overview
+                href: function-ref/window-functions.md
+              - name: AVG
+                href: function-ref/AVG_WINDOW.md
+              - name: AVG_IF
+                href: function-ref/AVG_IF_WINDOW.md
+              - name: COUNT
+                href: function-ref/COUNT_WINDOW.md
+              - name: COUNT_IF
+                href: function-ref/COUNT_IF_WINDOW.md
+              - name: FIRST
+                href: function-ref/FIRST.md
+              - name: LAG
+                href: function-ref/LAG.md
+              - name: LAST
+                href: function-ref/LAST.md
+              - name: MAVG
+                href: function-ref/MAVG.md
+              - name: MAX
+                href: function-ref/MAX_WINDOW.md
+              - name: MCOUNT
+                href: function-ref/MCOUNT.md
+              - name: MIN
+                href: function-ref/MIN_WINDOW.md
+              - name: MMAX
+                href: function-ref/MMAX.md
+              - name: MMIN
+                href: function-ref/MMIN.md
+              - name: MSUM
+                href: function-ref/MSUM.md
+              - name: RANK
+                href: function-ref/RANK.md
+              - name: RANK_DENSE
+                href: function-ref/RANK_DENSE.md
+              - name: RANK_PERCENTILE
+                href: function-ref/RANK_PERCENTILE.md
+              - name: RANK_UNIQUE
+                href: function-ref/RANK_UNIQUE.md
+              - name: RAVG
+                href: function-ref/RAVG.md
+              - name: RCOUNT
+                href: function-ref/RCOUNT.md
+              - name: RMAX
+                href: function-ref/RMAX.md
+              - name: RMIN
+                href: function-ref/RMIN.md
+              - name: RSUM
+                href: function-ref/RSUM.md
+              - name: SUM
+                href: function-ref/SUM_WINDOW.md
+              - name: SUM_IF
+                href: function-ref/SUM_IF_WINDOW.md
+          - name: Function Availability
             href: function-ref/availability.md
       - name: Function tutorials
         items:
