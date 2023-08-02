@@ -128,6 +128,8 @@
            --segment-resource-preset=<класс хоста> \
            --segment-disk-size=<объем хранилища, ГБ> \
            --segment-disk-type=<тип диска> \
+           --segment-host-count=<количество сегментных хостов> \
+           --segment-in-host=<количество сегментов на хост>    
            --zone-id=<зона доступности> \
            --subnet-id=<идентификатор подсети> \
            --assign-public-ip=<публичный доступ к кластеру: true или false>
@@ -150,6 +152,8 @@
         * `--segment-resource-preset` — [класс хостов-сегментов](../concepts/instance-types.md#available-flavors).
         * `--segment-disk-size` — размер хранилища хостов-сегментов в гигабайтах.
         * `--segment-disk-type` — [тип диска](../concepts/storage.md) хостов-сегментов.
+        * `--segment-host-count` - количество сегментных хостов
+        * `--segment-in-host` - количество сегментов на хост
         * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
         
