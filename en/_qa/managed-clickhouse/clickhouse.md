@@ -36,7 +36,7 @@ Data may be lost only if a node with a [non-replicated table]({{ ch.docs }}/engi
 
 #### Is it possible to deploy a {{ CH }} database cluster in multiple availability zones? {#multiple-az}
 
-Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
+Yes, you can. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
 #### How does replication work for {{ CH }}? {#zookeeper-access}
 
@@ -77,3 +77,11 @@ Make sure you have the latest client version installed.
 {% endnote %}
 
 For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/working-with-json/json-semi-structured/#json-object-type).
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-clickhouse/operations/update.md#change-disk-size).
+
+If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.

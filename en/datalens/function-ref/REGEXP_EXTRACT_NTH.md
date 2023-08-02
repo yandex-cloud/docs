@@ -1,53 +1,53 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_EXTRACT_NTH.md
+sourcePath: en/_api-ref/datalens/function-ref/REGEXP_EXTRACT_NTH.md
 ---
 
 # REGEXP_EXTRACT_NTH
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 REGEXP_EXTRACT_NTH( string, pattern, match_index )
 ```
 
-#### Описание {#description}
-Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
+#### Description {#description}
+Returns a substring `string` that matches the regular expression pattern `pattern` starting from the specified index.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `pattern` — `Строка`
-- `match_index` — `Целое число`
+**Argument types:**
+- `string` — `String`
+- `pattern` — `String`
+- `match_index` — `Integer`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
 {% note info %}
 
-Значения аргументов (`pattern`) должны быть константами.
+Only constant values are accepted for the arguments (`pattern`).
 
 {% endnote %}
 
 {% note info %}
 
-Информацию о синтаксисе регулярных выражений уточняйте в документации к источникам данных.
+See the documentation of the data source to clarify the regular expression syntax.
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
+Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
 
 
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 REGEXP_EXTRACT_NTH("RU 912 EN 873", "[A-Z]+\s+(\d+)", 2) = "873"
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

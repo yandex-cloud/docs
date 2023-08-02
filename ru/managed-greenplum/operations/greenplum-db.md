@@ -6,19 +6,11 @@
 * [gpload](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
 * [psql](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/psql.html) — интерфейс командной строки для работы с {{ GP }}.
 
-Чтобы установить Greenplum Database 6 на рабочую или виртуальную машину под управлением OC Ubuntu 20.04 или Ubuntu 22.04:
+Чтобы установить Greenplum Database 6 на рабочую или виртуальную машину под управлением OC Ubuntu 22.04:
 
 1. Скачайте deb-пакеты, необходимые для установки Greenplum Database 6, из бакета {{ objstorage-full-name }} при помощи скрипта:
 
     {% list tabs %}
-
-    - Ubuntu 20.04
-
-        ```bash
-        curl storage.yandexcloud.net/greenplum-focal-packages/install.sh| sudo bash
-        ```
-
-        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://storage.yandexcloud.net/greenplum-focal-packages/install.sh).
 
     - Ubuntu 22.04
 
@@ -40,14 +32,15 @@
 1. Удалите временные файлы:
 
     ```bash
-    rm -rf /tmp/gp/packages
+    sudo rm -rf /tmp/gp-packages
     ```
 
-1. Добавьте переменную окружения в `~/.bashrc`:
+1. Добавьте переменные окружения в `~/.bashrc`:
 
     ```bash
     echo "export GPHOME=/opt/greenplum-db-6" >> ~/.bashrc && \
     echo "source \$GPHOME/greenplum_path.sh" >> ~/.bashrc && \
+    echo "export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}" >> ~/.bashrc && \
     source ~/.bashrc && \
     echo $GPHOME
     ```

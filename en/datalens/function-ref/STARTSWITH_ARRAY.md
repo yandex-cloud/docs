@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/STARTSWITH_ARRAY.md
+sourcePath: en/_api-ref/datalens/function-ref/STARTSWITH_ARRAY.md
 ---
 
-# STARTSWITH (массивы)
+# STARTSWITH (array)
 
-_Функция `STARTSWITH` также доступна в следующих категориях: [Строковые функции](STARTSWITH.md)._
+_Function `STARTSWITH` is also found in the following categories: [String functions](STARTSWITH.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 STARTSWITH( array_1, array_2 )
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если значения из массива `array_2` находятся в начале массива `array_1`.
+#### Description {#description}
+Returns `TRUE` if `array_1` starts with `array_2`.
 
-**Типы аргументов:**
-- `array_1` — `Массив дробных чисел | Массив целых числел | Массив строк`
-- `array_2` — `Массив дробных чисел | Массив целых числел | Массив строк`
+**Argument types:**
+- `array_1` — `Array of fractional numbers | Array of integers | Array of strings`
+- `array_2` — `Array of fractional numbers | Array of integers | Array of strings`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 STARTSWITH(ARRAY(1, 2, 3), ARRAY(1, 2)) = TRUE
@@ -35,6 +35,6 @@ STARTSWITH(ARRAY(1, 2, 3), ARRAY(2, 3)) = FALSE
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

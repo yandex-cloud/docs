@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/DATE_PARSE.md
+sourcePath: en/_api-ref/datalens/function-ref/DATE_PARSE.md
 ---
 
 # DATE_PARSE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 DATE_PARSE( value )
 ```
 
-#### Описание {#description}
-Переводит выражение `value` в формат даты. В отличие от [DATE](DATE.md), поддерживает множество форматов.
+#### Description {#description}
+Converts the `value` expression to date format. Unlike [DATE](DATE.md), it supports multiple formats.
 
-**Типы аргументов:**
-- `value` — `Строка`
+**Argument types:**
+- `value` — `String`
 
 
-**Возвращаемый тип**: `Дата`
+**Return type**: `Date`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 DATE_PARSE("2019-01-02 03:04:05") = #2019-01-02#
@@ -66,6 +66,6 @@ DATE_PARSE("2019") = #2019-01-01#
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`.

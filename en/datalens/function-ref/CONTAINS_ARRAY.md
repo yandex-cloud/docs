@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS_ARRAY.md
+sourcePath: en/_api-ref/datalens/function-ref/CONTAINS_ARRAY.md
 ---
 
-# CONTAINS (массивы)
+# CONTAINS (array)
 
-_Функция `CONTAINS` также доступна в следующих категориях: [Строковые функции](CONTAINS.md)._
+_Function `CONTAINS` is also found in the following categories: [String functions](CONTAINS.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 CONTAINS( array, value )
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если `array` содержит `value`.
+#### Description {#description}
+Returns `TRUE` if `array` contains `value`.
 
-**Типы аргументов:**
-- `array` — `Массив дробных чисел | Массив целых числел | Массив строк`
-- `value` — `Дробное число | Целое число | Строка`
+**Argument types:**
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
+- `value` — `Fractional number | Integer | String`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -36,6 +36,6 @@ CONTAINS( array, value )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`.

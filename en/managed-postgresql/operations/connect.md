@@ -145,20 +145,7 @@ To upgrade the library version used by the `psql` utility:
 
 {{ PG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\AppData\Roaming\postgresql; `
-   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-   ```
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -242,6 +229,55 @@ Create a new server connection:
 1. Click **Save** to save the server connection settings.
 
 As a result, the cluster appears in the server list in the navigation menu.
+
+## Connecting from {{ google-looker }} {#connection-google-looker}
+
+You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview) to connect to public cluster hosts.
+
+1. Save the `CA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
+1. In the same directory, generate a client certificate with a private key:
+
+   ```bash
+   openssl req -newkey rsa:2048 -nodes -keyout private.pem -out cert.pem
+   ```
+
+   When creating a certificate, you will be prompted to change some settings. Press **Enter** to use their default values.
+
+   You will see two files in your local directory: `cert.pem` and `private.pem`.
+
+1. On the [{{ google-looker }} navigation page](https://lookerstudio.google.com/navigation/reporting), select **Create** → **Data source**.
+1. Choose {{ PG }}.
+1. Fill out the fields below:
+
+   * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Port**: `{{ port-mpg }}`.
+   * **Database**: DB you want to connect to.
+   * **Username**: Username for connection.
+   * **Password**: User password.
+
+1. Select **Enable SSL** and **Enable client authentication**.
+1. Specify the certificate files and the client private key in the respective fields:
+
+   * **Server certificate**: Select the `CA.pem` file.
+   * **Client certificate**: Select the `cert.pem` file.
+   * **Client private key**: Select the `private.pem` file.
+
+1. Click **Authenticate**.
+
+## Connecting from a Docker container {#connection-docker}
+
+You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+
+To connect to a {{ mpg-name }} cluster, add the following lines to the Dockerfile:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget postgresql-client --yes && \
+    mkdir -p ~/.postgresql && \
+    wget "{{ crt-web-path }}" \
+        --output-document ~/.postgresql/root.crt && \
+    chmod 0600 ~/.postgresql/root.crt
+```
 
 ## Sample connection strings {#connection-string}
 

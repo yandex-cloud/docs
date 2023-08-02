@@ -790,8 +790,8 @@ default:
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
   k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-regular: 1.23, 1.24
-  k8s-versions-stable: 1.23, 1.24
+  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -4527,6 +4527,7 @@ default:
       ui_components_FilterFieldsSelect:
         applyChanges: Применить
       ui_components_Gantt_IssueActionsCell:
+        choose-color: Выбрать цвет
         issue-action-menu-title: Меню действий задачи
       ui_components_Gantt:
         color-type-by-manual: назначать вручную
@@ -4615,6 +4616,8 @@ default:
         preset_deadline: Скоро дедлайн
         preset-deadline: Скоро дедлайн
         show-closed-issues: Показывать завершённые задачи
+      ui_components_IssueTable2:
+        row-actions: Действия
       ui_components_IssueTabs:
         description-tab: Описание
         fields-tab: Параметры
@@ -4771,6 +4774,11 @@ default:
         description-tab: О проекте
         gantt-tab: Диаграмма Ганта
         issues-tab: Список задач
+      ui_components_projects_hooks:
+        copy-to-clipboard: Скопировать ссылку
+        delete-from-project: Удалить из проекта
+        issue-actions--move-down: Перенести вниз списка
+        issue-actions--move-up: Перенести наверх списка
       ui_components_projects_list_FilterPane:
         preset-author: Я автор
         preset-client: Я заказчик

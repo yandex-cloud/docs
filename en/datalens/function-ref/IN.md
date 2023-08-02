@@ -1,32 +1,32 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/IN.md
+sourcePath: en/_api-ref/datalens/function-ref/IN.md
 ---
 
 # IN
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 item [ NOT ] IN (<list>)
 ```
 
-#### Описание {#description}
-Проверяет условие соответствия значения хотя бы одному из значений, перечисленных в `IN(...)`.
+#### Description {#description}
+Checks whether the value matches at least one of the values listed in `IN(...)`.
 
-Вариант `item NOT IN (<`list`>)` возвращает противоположное значение
+The option `item NOT IN (<`list`>)` returns the opposite value.
 
-**Типы аргументов:**
-- `item` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
-- `list` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+**Argument types:**
+- `item` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `list` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 3 IN (23, 5, 3, 67) = TRUE
@@ -37,6 +37,6 @@ item [ NOT ] IN (<list>)
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

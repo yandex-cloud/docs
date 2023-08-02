@@ -7,36 +7,44 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to cluster
-        href: operations/connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: Changing cluster settings
-        href: operations/update.md
-      - name: Updating the {{ OS }} version
-        href: operations/cluster-version-update.md
-      - name: Configuring SAML authentication
-        href: operations/saml-authentication.md
-      - name: Configuring access to {{ objstorage-name }}
-        href: operations/s3-access.md
-      - name: Managing host groups
-        href: operations/host-groups.md
-      - name: Managing {{ OS }} plugins
-        href: operations/plugins.md
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Connection
+            items:
+              - name: Connecting to cluster
+                href: operations/connect.md
+              - name: Configuring SAML authentication
+                href: operations/saml-authentication.md
+          - name: Updating parameters
+            items:
+              - name: Changing cluster settings
+                href: operations/update.md
+              - name: Updating the {{ OS }} version and edition
+                href: operations/cluster-version-update.md
+              - name: Managing {{ OS }} plugins
+                href: operations/plugins.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing {{ OS }} hosts
+            href: operations/host-groups.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Configuring access to Object Storage
+            href: operations/s3-access.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
       - name: Managing {{ OS }} users
         href: operations/cluster-users.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: Migrating data from {{ ES }}

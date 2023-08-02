@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ISNULL.md
+sourcePath: en/_api-ref/datalens/function-ref/ISNULL.md
 ---
 
 # ISNULL
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
-Как функция
+As a function
 ```
 ISNULL( expression )
 ```
-Как оператор
+As an operator
 ```
 expression IS [ NOT ] NULL
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если `expression` является `NULL`. В противном случае возвращает `FALSE`.
+#### Description {#description}
+Returns `TRUE` if `expression` is `NULL`, otherwise returns `FALSE`.
 
-Вариант `expression IS NOT NULL` возвращает противоположное значение.
+`expression IS NOT NULL` returns the opposite result.
 
-**Типы аргументов:**
-- `expression` — `Любой`
+**Argument types:**
+- `expression` — `Any`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -47,6 +47,6 @@ expression IS [ NOT ] NULL
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

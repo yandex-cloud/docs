@@ -95,23 +95,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To use an encrypted connection, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
-
-   The certificate will be saved in the `$HOME/.elasticsearch/root.crt` folder.
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
-   ```
-
-   The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
 ## Automatic selecting the host to connect to {#automatic-host-selection}
 

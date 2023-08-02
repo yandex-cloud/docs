@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/HOUR.md
+sourcePath: en/_api-ref/datalens/function-ref/HOUR.md
 ---
 
 # HOUR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 HOUR( datetime )
 ```
 
-#### Описание {#description}
-Возвращает номер часа в дне в указанной дате и времени `datetime`. При указании даты без времени возвращает `0`.
+#### Description {#description}
+Returns the number of the hour in the day of the specified date and time `datetime`. When the date is specified without time, it returns `0`.
 
-**Типы аргументов:**
-- `datetime` — `Дата | Дата и время`
+**Argument types:**
+- `datetime` — `Date | Datetime`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 HOUR(#2019-01-23 15:07:47#) = 15
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

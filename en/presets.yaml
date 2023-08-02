@@ -438,6 +438,7 @@ default:
   DS: YDS
   ssms: SQL Server Management Studio
   pgadmin: "pgAdmin\_4"
+  google-looker: Looker Studio
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -645,6 +646,7 @@ default:
   link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=notifications
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
+  link-docs: https://cloud.yandex.com/docs
   link-org-main: https://org.cloud.yandex.com/
   link-org-acl: https://org.cloud.yandex.ru/acl
   link-org-users: https://org.cloud.yandex.ru/users
@@ -784,8 +786,8 @@ default:
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
   k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-regular: 1.23, 1.24
-  k8s-versions-stable: 1.23, 1.24
+  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -4525,6 +4527,7 @@ default:
       ui_components_FilterFieldsSelect:
         applyChanges: Apply
       ui_components_Gantt_IssueActionsCell:
+        choose-color: Choose color
         issue-action-menu-title: Issue actions menu
       ui_components_Gantt:
         color-type-by-manual: manual
@@ -4613,6 +4616,8 @@ default:
         preset_deadline: Deadline approaching
         preset-deadline: Deadline approaching
         show-closed-issues: Show completed issues
+      ui_components_IssueTable2:
+        row-actions: Actions
       ui_components_IssueTabs:
         description-tab: Description
         fields-tab: Parameters
@@ -4769,6 +4774,11 @@ default:
         description-tab: About the project
         gantt-tab: Gantt chart
         issues-tab: Issue list
+      ui_components_projects_hooks:
+        copy-to-clipboard: Copy link
+        delete-from-project: Delete from project
+        issue-actions--move-down: Move to bottom of list
+        issue-actions--move-up: Move to top of list
       ui_components_projects_list_FilterPane:
         preset-author: I'm author
         preset-client: I'm a client

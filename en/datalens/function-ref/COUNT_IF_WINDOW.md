@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF_WINDOW.md
+sourcePath: en/_api-ref/datalens/function-ref/COUNT_IF_WINDOW.md
 ---
 
-# COUNT_IF (оконная)
+# COUNT_IF (window)
 
-_Функция `COUNT_IF` также доступна в следующих категориях: [Агрегатные функции](COUNT_IF.md)._
+_Function `COUNT_IF` is also found in the following categories: [Aggregate functions](COUNT_IF.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   COUNT_IF( expression, condition
@@ -19,10 +19,10 @@ _Функция `COUNT_IF` также доступна в следующих к�
           )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Расширенный
+- Extended
 
   ```
   COUNT_IF( expression, condition
@@ -31,23 +31,23 @@ _Функция `COUNT_IF` также доступна в следующих к�
           )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
+#### Description {#description}
+Returns the number of items in the specified window meeting the `expression` condition.
 
-**Типы аргументов:**
-- `expression` — `Дробное число | Целое число`
-- `condition` — `Логический`
+**Argument types:**
+- `expression` — `Fractional number | Integer`
+- `condition` — `Boolean`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
+**Return type**: Same type as (`expression`)
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 COUNT_IF([Profit], [Category] = 'Office Supplies' TOTAL)
@@ -62,6 +62,6 @@ COUNT_IF([Profit], [Category] = 'Office Supplies' AMONG [Date])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

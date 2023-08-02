@@ -1,46 +1,46 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_MATCH.md
+sourcePath: en/_api-ref/datalens/function-ref/REGEXP_MATCH.md
 ---
 
 # REGEXP_MATCH
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 REGEXP_MATCH( string, pattern )
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если в строке `string` есть подстрока, которая соответствует шаблону регулярного выражения `pattern`.
+#### Description {#description}
+Returns 'TRUE' if the string `string` has a substring that matches the regular expression pattern `pattern`.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `pattern` — `Строка`
+**Argument types:**
+- `string` — `String`
+- `pattern` — `String`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
 {% note info %}
 
-Информацию о синтаксисе регулярных выражений уточняйте в документации к источникам данных.
+See the documentation of the data source to clarify the regular expression syntax.
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
+Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
 
 
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 REGEXP_MATCH("RU 912873","\w\s\d") = TRUE
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

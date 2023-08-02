@@ -1,32 +1,32 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SIGN.md
+sourcePath: en/_api-ref/datalens/function-ref/SIGN.md
 ---
 
 # SIGN
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 SIGN( number )
 ```
 
-#### Описание {#description}
-Возвращает знак числа `number`:
-- `-1` если число отрицательное;
-- `0` если число равно нулю;
-- `1` если число положительное.
+#### Description {#description}
+Returns the sign of the number `number`:
+- `-1` if the number is negative.
+`0` if the number is zero.
+- `1` if the number is positive.
 
-**Типы аргументов:**
-- `number` — `Дробное число | Целое число`
+**Argument types:**
+- `number` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -42,6 +42,6 @@ SIGN( number )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -1,34 +1,29 @@
 ---
-title: Агрегатные функции
-description: Агрегатные функции (агрегации) — это функции, которые вычисляются от группы значений и объединяют их в одно результирующее.
+title: Aggregate functions
+description: Aggregate functions (or aggregations) are functions that combine multiple values from a group of entries into one, thus collapsing the group into a single entry.
 keywords:
-- агрегатные функции
-- агрегации
-- агрегирующие функции
-- агрегированные данные
-- агрегирование данных
-- агрегирование
-- агрегация данных
+- aggregate functions
+- aggregations
+- aggregate data
 - level of detail
 - lod
-- уровень детализации
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/aggregation-functions.md
+sourcePath: en/_api-ref/datalens/function-ref/aggregation-functions.md
 ---
 
-# Агрегатные функции
-Агрегатные функции (агрегации) — это функции, которые вычисляются от группы значений и объединяют их в одно результирующее.
+# Aggregate functions
+Aggregate functions (or aggregations) are functions that combine multiple values from a group of entries into one, thus collapsing the group into a single entry.
 
-Если в поле с измерением добавить агрегацию, то поле становится показателем.
+If you add an aggregation to a dimension, it becomes a measure.
 
-## Синтаксис {#syntax}
+## Syntax {#syntax}
 
-В большинстве случаев у агрегатных функций такой же синтаксис, как и у обычных функций:
+In most cases aggregate functions have the same syntax as regular functions:
 ```
 AGGREGATE_FUNCTION_NAME(arg1, [arg2, ...])
 ```
 
-Для использования нестандартного уровня детализации (LOD) понадобится расширенный вариант:
+For advanced cases, extended syntax may be required to indicate a custom level of detail (LOD):
 ```
 <AGGREGATE_FUNCTION_NAME>(
     arg1, [arg2, ...]
@@ -40,45 +35,45 @@ AGGREGATE_FUNCTION_NAME(arg1, [arg2, ...])
     [ BEFORE FILTER BY filtered_field1, ... ]
 )
 ```
-### Уровень детализации (LOD) {#syntax-lod}
+### Level of Detail (LOD) {#syntax-lod}
 
-Управление уровнем детализации (англ. level of detail - LOD) позволяет создавать вложенные агрегации и агрегации над всеми данными или группами, отличающимися от группировки, заданной на уровне чарта.
+Custom LOD make possible nested aggregations and aggregations over the entire set of rows or groups that are different from the grouping at the chart's level.
 
-Уровень детализации может быть задан с помощью одного из трех ключевых слов:
-- `FIXED` — данные группируются по перечисленным измерениям (`dim1, dim2, ...`) вне зависимости от того, какие измерения используются в чарте;
-- `INCLUDE` — перечисленные измерения (`dim1, dim2, ...`) добавляются к измерениям чарта;
-- `EXCLUDE` — используются все измерения чарта, кроме перечисленных (`dim1, dim2, ...`).
+LOD can be specified using one of three keywords:
+- `FIXED` — data is grouped using the listed dimensions (`dim1, dim2, ...`) regardless of the dimensions used by the chart;
+- `INCLUDE` — the listed dimensions (`dim1, dim2, ...`) are combined with the chart's dimensions;
+- `EXCLUDE` — all of the chart's dimensions are used with the exception of those listed (`dim1, dim2, ...`).
 
-Для любого из этих ключевых слов список может содержать неограниченное количество измерений или быть пустым.
+For any of these keywords the list may have any number of dimensions, or even be empty.
 
-#### Наследование измерений {#syntax-lod-inheritance}
-Вложенные агрегации наследуют измерения от тех агрегаций, внутри которых находятся. Выражение
+#### Dimension Inheritance {#syntax-lod-inheritance}
+Dimensions are inherited by nested aggregations from the ones they are inside of. The expression
 ```
 AVG(MAX(SUM([Sales] INCLUDE [City]) INCLUDE [Category]))
 ```
-в чарте с дополнительным измерением `[Date]` эквивалентно
+in a chart with the additional dimension `[Date]` is equivalent to
 ```
 AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) FIXED [Date])
 ```
-`INCLUDE` или `EXCLUDE` без списка измерений равносильно измерениям внешней агрегации или измерениям чарта, если над текущей агрегацией нет других. `FIXED` без списка означает, что все данные будут агрегированы в одной группе, например, для расчетов итоговых значений.
+`INCLUDE` or `EXCLUDE` without a list of dimensions results in the same dimensions as the aggregation above or dimensions of the chart if it is the topmost aggregation. `FIXED` without a list means that all data is aggregated in a single group, which can be used to calculate total values.
 
-#### Примеры LOD {#syntax-lod-examples}
+#### LOD Examples {#syntax-lod-examples}
 
-- средняя дневная сумма `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`;
-- отношение (дневной) суммы `[Sales]` к общей сумме: `SUM([Sales]) / SUM([Sales] FIXED)`;
-- сумма `[Sales]` всех заказов, которые меньше среднего: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
+- average daily sum of `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`;
+- ratio of the (daily) sum of `[Sales]` to the total sum: `SUM([Sales]) / SUM([Sales] FIXED)`;
+- sum of `[Sales]` of all orders that are smaller than average: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
 
-#### Совместимость измерений {#syntax-lod-compatibility}
+#### Dimension Compatibility {#syntax-lod-compatibility}
 
-Если несколько агрегаций с разными наборами измерений (LOD) находятся внутри другой агрегации, то их наборы измерений должны быть совместимы. То есть один из этих наборов должен содержать все остальные.
+If several aggregations with custom LODs are nested inside another, their sets of dimensions must be compatible, i.e. one of them must contain all of the others.
 
-Некорректное выражение:
+Invalid expression:
 ```
 SUM(AVG([Sales] INCLUDE [City]) - AVG([Sales] INCLUDE [Category]))
 ```
-У одной из вложенных агрегаций измерение `[City]`, а у другой — `[Category]`. При этом нет другой агрегации, которая содержала бы оба эти измерения.
+One of the nested aggregations has dimension `[City]`, while the other has `[Category]`, and there is no other that would contain both of these.
 
-Корректное выражение:
+Valid expression:
 ```
 SUM(
     AVG([Sales] INCLUDE [City], [Category])
@@ -86,297 +81,297 @@ SUM(
 )
 ```
 
-У одной из вложенных агрегаций множество измерений содержит остальные.
+One of the nested aggregations' set of dimensions contains all of the others.
 
-Другое важное ограничение состоит в том, что верхнеуровневые агрегации не должны содержать измерений, которых нет в чарте.
+Another important restriction for LOD is that top-level aggregations must not contain any dimensions not used in the chart.
 
 ### BEFORE FILTER BY {#syntax-before-filter-by}
 
-Если какие-либо поля перечислены в `BEFORE FILTER BY`, то эта агрегатная функция будет рассчитана до фильтрации данных по этим полям.
+If any fields are listed in `BEFORE FILTER BY`, then this aggregate function is calculated before data is filtered using these fields.
 
-`BEFORE FILTER BY` применяется также и ко всем вложенным агрегатным функциям.
-Пример:
-- функция — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`;
-- эквивалент — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
+`BEFORE FILTER BY` applies to all nested aggregate functions too.
+Example:
+- Formula — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`.
+- Equivalent — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
 
-Не используйте конфликтующие `BEFORE FILTER BY` в запросе:
-- корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, и (`[City]`) является подмножеством (`[City], [Category]`);
-- корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, поэтому списки полей комбинируются во второй из функций;
-- корректная формула: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) является подмножеством (`[City], [Category]`);
-- некорректная формула: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — функции не вложены, и ни одно из (`[Category]`) и (`[City]`) не является подмножеством другого.
+Do not use conflicting `BEFORE FILTER BY` clauses:
+- Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — functions are nested and (`[City]`) is a subset of (`[City], [Category]`).
+- Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — functions are nested, so field lists are combined in the second of the two functions.
+- Valid: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) is a subset of (`[City], [Category]`).
+- Not valid: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — functions are not nested and neither of (`[Category]`) and (`[City]`) is a subset of the other.
 
-## Ограничения использования {#usage-restrictions}
+## Usage Restrictions {#usage-restrictions}
 
-Существуют следующие особенности использования агрегаций:
-1. Функция или оператор не может иметь среди своих аргументов одновременно агрегированные и неагрегированные выражения. Выражение `CONCAT([Profit], SUM([Profit]))` не поддерживается.
+There are the following features of using aggregations:
+1. A function or operator cannot have aggregate and non-aggregate expressions as its arguments simultaneously. The following usage is forbidden: `CONCAT([Profit], SUM([Profit]))`.
 
 
 
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
-**Синтаксис:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>или<br/>`ALL_CONCAT( expression [ , separator ]
+**Syntax:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>or<br/>`ALL_CONCAT( expression [ , separator ]
             [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
             [ BEFORE FILTER BY ... ]
           )`
 
-Возвращает строку, которая содержит все уникальные значения `expression`, разделенные `separator` (по умолчанию разделитель — запятая).
+Returns a string that contains all unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
 ## [ANY](ANY.md)
 
-**Синтаксис:**<br/>`ANY( value )`<br/>или<br/>`ANY( value
+**Syntax:**<br/>`ANY( value )`<br/>or<br/>`ANY( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает произвольное значение `value` из группы. Это недетерминированная агрегация — результат может различаться от запроса к запросу на одних и тех же входных данных.
+Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
 
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Синтаксис:**<br/>`ARG_MAX( value, comp )`<br/>или<br/>`ARG_MAX( value, comp
+**Syntax:**<br/>`ARG_MAX( value, comp )`<br/>or<br/>`ARG_MAX( value, comp
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Возвращает значение `value`, соответствующее максимальному значению `comp`. Если есть несколько значений `value`, соответствующих максимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Синтаксис:**<br/>`ARG_MIN( value, comp )`<br/>или<br/>`ARG_MIN( value, comp
+**Syntax:**<br/>`ARG_MIN( value, comp )`<br/>or<br/>`ARG_MIN( value, comp
          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
          [ BEFORE FILTER BY ... ]
        )`
 
-Возвращает значение `value`, соответствующее минимальному значению `comp`. Если есть несколько значений `value`, соответствующих минимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
 ## [AVG](AVG.md)
 
-**Синтаксис:**<br/>`AVG( value )`<br/>или<br/>`AVG( value
+**Syntax:**<br/>`AVG( value )`<br/>or<br/>`AVG( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата`.
+Returns the average of all values. Applicable to numeric data types as well as `Date`.
 
 
 
 ## [AVG_IF](AVG_IF.md)
 
-**Синтаксис:**<br/>`AVG_IF( expression, condition )`<br/>или<br/>`AVG_IF( expression, condition
+**Syntax:**<br/>`AVG_IF( expression, condition )`<br/>or<br/>`AVG_IF( expression, condition
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
+Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
 
 
 ## [COUNT](COUNT.md)
 
-**Синтаксис:**<br/>`COUNT(  [ value ] )`<br/>или<br/>`COUNT(  [ value ]
+**Syntax:**<br/>`COUNT(  [ value ] )`<br/>or<br/>`COUNT(  [ value ]
        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
        [ BEFORE FILTER BY ... ]
      )`
 
-Возвращает количество элементов в группе.
+Returns the number of items in the group.
 
 
 
 ## [COUNT_IF](COUNT_IF.md)
 
-**Синтаксис:**<br/>`COUNT_IF( condition )`<br/>или<br/>`COUNT_IF( condition
+**Syntax:**<br/>`COUNT_IF( condition )`<br/>or<br/>`COUNT_IF( condition
           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
           [ BEFORE FILTER BY ... ]
         )`
 
-Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
+Returns the number of items in the group meeting the `condition` condition.
 
 
 
 ## [COUNTD](COUNTD.md)
 
-**Синтаксис:**<br/>`COUNTD( value )`<br/>или<br/>`COUNTD( value
+**Syntax:**<br/>`COUNTD( value )`<br/>or<br/>`COUNTD( value
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает количество уникальных значений в группе.
+Returns the number of unique values in the group.
 
-См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-**Синтаксис:**<br/>`COUNTD_APPROX( value )`<br/>или<br/>`COUNTD_APPROX( value
+**Syntax:**<br/>`COUNTD_APPROX( value )`<br/>or<br/>`COUNTD_APPROX( value
                [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
                [ BEFORE FILTER BY ... ]
              )`
 
-Возвращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.
+Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.
 
 
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-**Синтаксис:**<br/>`COUNTD_IF( expression, condition )`<br/>или<br/>`COUNTD_IF( expression, condition
+**Syntax:**<br/>`COUNTD_IF( expression, condition )`<br/>or<br/>`COUNTD_IF( expression, condition
            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
            [ BEFORE FILTER BY ... ]
          )`
 
-Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
+Returns the number of unique values in the group that meet the `condition` condition.
 
-См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 
 
 ## [MAX](MAX.md)
 
-**Синтаксис:**<br/>`MAX( value )`<br/>или<br/>`MAX( value
+**Syntax:**<br/>`MAX( value )`<br/>or<br/>`MAX( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает максимальное значение.
+Returns the maximum value.
 
-Если `value`:
-- число — возвращает наибольшее число;
-- дата — возвращает самую позднюю дату;
-- строка — возвращает последнее значение в алфавитном порядке.
+If `value`:
+- number — Returns the largest number.
+- date — Returns the latest date.
+- string — Returns the last value in the alphabetic order.
 
 
 
 
 ## [MEDIAN](MEDIAN.md)
 
-**Синтаксис:**<br/>`MEDIAN( value )`<br/>или<br/>`MEDIAN( value
+**Syntax:**<br/>`MEDIAN( value )`<br/>or<br/>`MEDIAN( value
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Вовзращает медианное значение.
+Returns the median value.
 
 
 
 ## [MIN](MIN.md)
 
-**Синтаксис:**<br/>`MIN( value )`<br/>или<br/>`MIN( value
+**Syntax:**<br/>`MIN( value )`<br/>or<br/>`MIN( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает минимальное значение.
+Returns the minimum value.
 
-Если `value`:
-- число — возвращает наименьшее число;
-- дата — возвращает самую раннюю дату;
-- строка — возвращает первое значение в алфавитном порядке.
+If `value`:
+- number — Returns the smallest number.
+- date — Returns the earliest date.
+- string — Returns the first value in the alphabetic order.
 
 
 
 
 ## [QUANTILE](QUANTILE.md)
 
-**Синтаксис:**<br/>`QUANTILE( value, quant )`<br/>или<br/>`QUANTILE( value, quant
+**Syntax:**<br/>`QUANTILE( value, quant )`<br/>or<br/>`QUANTILE( value, quant
           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
           [ BEFORE FILTER BY ... ]
         )`
 
-Возвращает точный квантиль уровня `quant` (значение от 0 до 1).
+Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-**Синтаксис:**<br/>`QUANTILE_APPROX( value, quant )`<br/>или<br/>`QUANTILE_APPROX( value, quant
+**Syntax:**<br/>`QUANTILE_APPROX( value, quant )`<br/>or<br/>`QUANTILE_APPROX( value, quant
                  [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
                  [ BEFORE FILTER BY ... ]
                )`
 
-Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).
+Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 
 
 ## [STDEV](STDEV.md)
 
-**Синтаксис:**<br/>`STDEV( value )`<br/>или<br/>`STDEV( value
+**Syntax:**<br/>`STDEV( value )`<br/>or<br/>`STDEV( value
        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
        [ BEFORE FILTER BY ... ]
      )`
 
-Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.
+Returns the statistical standard deviation of all values in the expression based on a selection from the population.
 
 
 
 ## [STDEVP](STDEVP.md)
 
-**Синтаксис:**<br/>`STDEVP( value )`<br/>или<br/>`STDEVP( value
+**Syntax:**<br/>`STDEVP( value )`<br/>or<br/>`STDEVP( value
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.
+Returns the statistical standard deviation of all values in the expression based on the biased population.
 
 
 
 ## [SUM](SUM.md)
 
-**Синтаксис:**<br/>`SUM( value )`<br/>или<br/>`SUM( value
+**Syntax:**<br/>`SUM( value )`<br/>or<br/>`SUM( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+Returns the sum of all expression values. Applicable to numeric data types only.
 
 
 
 ## [SUM_IF](SUM_IF.md)
 
-**Синтаксис:**<br/>`SUM_IF( expression, condition )`<br/>или<br/>`SUM_IF( expression, condition
+**Syntax:**<br/>`SUM_IF( expression, condition )`<br/>or<br/>`SUM_IF( expression, condition
         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
         [ BEFORE FILTER BY ... ]
       )`
 
-Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
 
 
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
-**Синтаксис:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>или<br/>`TOP_CONCAT( expression, amount [ , separator ]
+**Syntax:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>or<br/>`TOP_CONCAT( expression, amount [ , separator ]
             [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
             [ BEFORE FILTER BY ... ]
           )`
 
-Возвращает строку, которая содержит `amount` наиболее часто встречающихся уникальных значений из `expression`, разделенных `separator` (по умолчанию разделитель — запятая).
+Returns a string that contains top `amount` unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
 ## [VAR](VAR.md)
 
-**Синтаксис:**<br/>`VAR( value )`<br/>или<br/>`VAR( value
+**Syntax:**<br/>`VAR( value )`<br/>or<br/>`VAR( value
      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
      [ BEFORE FILTER BY ... ]
    )`
 
-Возвращает статистическую дисперсию всех значений в выражении на основе выборки из совокупности.
+Returns the statistical variance of all values in an expression based on a selection from the population.
 
 
 
 ## [VARP](VARP.md)
 
-**Синтаксис:**<br/>`VARP( value )`<br/>или<br/>`VARP( value
+**Syntax:**<br/>`VARP( value )`<br/>or<br/>`VARP( value
       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
       [ BEFORE FILTER BY ... ]
     )`
 
-Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.
+Returns the statistical variance of all values in an expression across the entire population.
 
 

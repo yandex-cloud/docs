@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SUM.md
+sourcePath: en/_api-ref/datalens/function-ref/SUM.md
 ---
 
 # SUM
 
-_Функция `SUM` также доступна в следующих категориях: [Оконные функции](SUM_WINDOW.md)._
+_Function `SUM` is also found in the following categories: [Window functions](SUM_WINDOW.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   SUM( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   SUM( value
@@ -26,27 +26,27 @@ _Функция `SUM` также доступна в следующих кате
      )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+#### Description {#description}
+Returns the sum of all expression values. Applicable to numeric data types only.
 
-**Типы аргументов:**
-- `value` — `Дробное число | Целое число`
-
-
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
-
-#### Пример {#examples}
+**Argument types:**
+- `value` — `Fractional number | Integer`
 
 
+**Return type**: Same type as (`value`)
+
+#### Example {#examples}
 
 
-Исходные данные
+
+
+Source data
 
 | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:------------------|:--------------------|:-------------|:-------------|
@@ -57,11 +57,11 @@ _Функция `SUM` также доступна в следующих кате
 | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
 | `'Detroit'`       | `'Furniture'`       | `5`          | `6205.87`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **SUM([Profit])**   |
 |:------------------|:--------------------|:--------------------|
@@ -73,6 +73,6 @@ _Функция `SUM` также доступна в следующих кате
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS_SUBSEQUENCE.md
+sourcePath: en/_api-ref/datalens/function-ref/CONTAINS_SUBSEQUENCE.md
 ---
 
 # CONTAINS_SUBSEQUENCE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 CONTAINS_SUBSEQUENCE( array_1, array_2 )
 ```
 
-#### Описание {#description}
-Возвращает `TRUE`, если `array_2` является непрерывной подпоследовательностью `array_1`. Другими словами, возвращает `TRUE` исключительно если `array1 = prefix + array2 + suffix`.
+#### Description {#description}
+Returns `TRUE` if `array_2` is a continuous subsequence of `array_1`. In other words, returns `TRUE` if and only if `array1 = prefix + array2 + suffix`.
 
-**Типы аргументов:**
-- `array_1` — `Массив дробных чисел | Массив целых числел | Массив строк`
-- `array_2` — `Массив дробных чисел | Массив целых числел | Массив строк`
+**Argument types:**
+- `array_1` — `Array of fractional numbers | Array of integers | Array of strings`
+- `array_2` — `Array of fractional numbers | Array of integers | Array of strings`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -37,6 +37,6 @@ CONTAINS_SUBSEQUENCE( array_1, array_2 )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`.

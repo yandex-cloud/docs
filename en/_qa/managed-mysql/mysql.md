@@ -20,3 +20,10 @@ A read-only replica is a host in a {{ MY }} DB cluster that can only be read. It
 
 For more information about {{ mmy-short-name }} limits, see [{#T}](../../managed-mysql/concepts/limits.md). Characteristics of clusters that can be created using {{ mmy-short-name }} are given in [{#T}](../../managed-mysql/concepts/instance-types.md).
 
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-mysql/operations/update.md#change-disk-size).
+
+If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-mysql/operations/cluster-backups.md#restore) from a backup.

@@ -29,26 +29,14 @@ If public access is only configured for certain hosts, [automatic primary replic
 
 To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ crt-web-path }}
-   ```
-
-{% endlist %}
+{% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -89,7 +77,7 @@ Settings of rules depend on the connection method you select:
          * **Source**: `CIDR`.
          * **CIDR blocks**: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule allows you to connect to the VM over SSH.
 
       * For outgoing traffic:
 
@@ -98,7 +86,7 @@ Settings of rules depend on the connection method you select:
          * **Source**: `CIDR`.
          * **CIDR blocks**: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 

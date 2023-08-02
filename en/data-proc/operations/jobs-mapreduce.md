@@ -22,60 +22,62 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
         * Main class name.
         * Path to the main JAR file in the following format:
 
-         {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+           {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
     1. Specify job arguments.
 
-      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
     1. (optional) Specify paths to the additional JAR files, if any.
     1. (optional) Configure advanced settings:
-      * Paths to the necessary files and archives.
-      * **Settings** as `key-value` pairs.
+
+        * Specify paths to the necessary files and archives.
+        * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
+
     1. Click **Submit job**.
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a job:
+    To create a job:
 
-   1. View a description of the CLI create command for `Mapreduce` jobs:
+    1. View a description of the CLI create command for `Mapreduce` jobs:
 
-      ```bash
-      {{ yc-dp }} job create-mapreduce --help
-      ```
+        ```bash
+        {{ yc-dp }} job create-mapreduce --help
+        ```
 
-   1. Create a job (the example doesn't show all the available parameters):
+    1. Create a job (the example doesn't show all the available parameters):
 
-      ```bash
-      {{ yc-dp }} job create-mapreduce \
-         --cluster-name=<cluster name> \
-         --name=<job name> \
-         --main-class=<main class name> \
-         --file-uris=<path to file> \
-         --archive-uris=<path to archives> \
-         --properties=<key-value> \
-         --args=<argument>
-      ```
+        ```bash
+        {{ yc-dp }} job create-mapreduce \
+           --cluster-name=<cluster name> \
+           --name=<job name> \
+           --main-class=<main class name> \
+           --file-uris=<path to file> \
+           --archive-uris=<path to archives> \
+           --properties=<key-value> \
+           --args=<argument>
+        ```
 
-      Pass in the paths to the files required for the job in the following format:
+        Pass in the paths to the files required for the job in the following format:
 
-      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
+    You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
 
 - API
 
-   Use the [create](../api-ref/Job/create) API method and include the following information in the request:
+    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 
-   * Cluster ID in the `clusterId` parameter.
-   * Job name in the `name` parameter.
-   * Job properties, in the `mapreduceJob` parameter.
+    * Cluster ID in the `clusterId` parameter.
+    * Job name in the `name` parameter.
+    * Job properties in the `mapreduceJob` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
 
 {% endlist %}
 

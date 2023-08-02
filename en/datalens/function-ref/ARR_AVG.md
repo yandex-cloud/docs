@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ARR_AVG.md
+sourcePath: en/_api-ref/datalens/function-ref/ARR_AVG.md
 ---
 
 # ARR_AVG
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 ARR_AVG( array )
 ```
 
-#### Описание {#description}
-Возвращает среднее значение элементов в массиве `array`.
+#### Description {#description}
+Returns the average of elements in the `array`.
 
-**Типы аргументов:**
-- `array` — `Массив дробных чисел | Массив целых числел`
+**Argument types:**
+- `array` — `Array of fractional numbers | Array of integers`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
 {% note info %}
 
-Функция не работает для массивов с `Nullable` элементами. Чтобы удалить из массива элементы, равные `NULL`, используйте [ARR_REMOVE](ARR_REMOVE.md) или [REPLACE](REPLACE_ARRAY.md).
+This function cannot work with arrays with `Nullable` items. To remove `NULL` items from the array, use [ARR_REMOVE](ARR_REMOVE.md) or [REPLACE](REPLACE_ARRAY.md).
 
 {% endnote %}
 
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -43,6 +43,6 @@ ARR_AVG( array )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`.

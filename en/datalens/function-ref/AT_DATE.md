@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/AT_DATE.md
+sourcePath: en/_api-ref/datalens/function-ref/AT_DATE.md
 ---
 
 # AT_DATE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   AT_DATE( measure, date_dimension, date_expr )
   ```
 
-- Расширенный
+- Extended
 
   ```
   AT_DATE( measure, date_dimension, date_expr
@@ -26,34 +26,34 @@ sourcePath: ru/_api-ref/datalens/function-ref/AT_DATE.md
          )
   ```
 
-  Подробнее:
+  More info:
   - [BEFORE FILTER BY](time-series-functions.md#syntax-before-filter-by)
   - [IGNORE DIMENSIONS](time-series-functions.md#syntax-ignore-dimensions)
 
 {% endlist %}
 
-#### Описание {#description}
-Вычисляет `measure` для даты/времени, заданных выражением `date_expr`.
-Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
+#### Description {#description}
+Re-evaluate `measure` for a date/time specified by `date_expr`.
+The `date_dimension` argument is the dimension along which the offset is made.
 
-См. также [AGO](AGO.md), [LAG](LAG.md).
+See also [AGO](AGO.md), [LAG](LAG.md).
 
-**Типы аргументов:**
-- `measure` — `Любой`
-- `date_dimension` — `Дата | Дата и время`
-- `date_expr` — `Дата | Дата и время`
+**Argument types:**
+- `measure` — `Any`
+- `date_dimension` — `Date | Datetime`
+- `date_expr` — `Date | Datetime`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`measure`)
+**Return type**: Same type as (`measure`)
 
 {% note info %}
 
-Первый аргумент функции должен быть показателем (агрегированным выражением). Отсутствие показателя приведет к ошибке.
+The first argument must be a measure (aggregated expression), otherwise an error will be raised.
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 AT_DATE(SUM([Sales]), [Order Date], #2019-01-01#)
@@ -64,6 +64,6 @@ AT_DATE(SUM([Sales]), [Order Date], DATETRUNC([Order Date], "month"))
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

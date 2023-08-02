@@ -1,35 +1,35 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/WEEK.md
+sourcePath: en/_api-ref/datalens/function-ref/WEEK.md
 ---
 
 # WEEK
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 WEEK( value )
 ```
 
-#### Описание {#description}
-Возвращает номер недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Первой считается неделя, которая содержит первый четверг года и 4.01.
+#### Description {#description}
+The number of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). The first week is the week that contains the first Thursday of the year or January 4th.
 
-**Типы аргументов:**
-- `value` — `Дата | Дата и время`
+**Argument types:**
+- `value` — `Date | Datetime`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 WEEK(#1971-01-14 01:02:03#) = 2
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

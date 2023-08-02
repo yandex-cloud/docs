@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
+sourcePath: en/_api-ref/datalens/function-ref/MMAX.md
 ---
 
-# MMAX (оконная)
+# MMAX (window)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   MMAX( value, rows_1 [ , rows_2 ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   MMAX( value, rows_1 [ , rows_2 ]
@@ -27,56 +27,55 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
       )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [ORDER BY](window-functions.md#syntax-order-by)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
+#### Description {#description}
 
 {% note warning %}
 
-Сортировка осуществляется на основе полей, перечисленных в области сортировки в чарте и в ORDER BY. При этом сначала берутся поля из `ORDER BY`.
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 
-Возвращает скользящий максимум значений по окну записей. Значение определяется порядком сортировки и аргументами:
+Returns the moving maximum of values in a fixed-size window defined by the sort order and arguments:
 
-| `rows_1`      | `rows_2`   | Окно                                                             |
-|:--------------|:-----------|:-----------------------------------------------------------------|
-| положительное | -          | Текущая запись и `rows_1` предшествующих.                        |
-| отрицательное | -          | Текущая запись и -`rows_1` последующих.                          |
-| любой знак    | любой знак | `rows_1` предшествующих записей, текущая и `rows_2` последующих. |
-
-
-
-Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MAVG](MAVG.md).
-
-См. также [MAX](MAX.md), [RMAX](RMAX.md).
-
-**Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
-- `rows_1` — `Целое число`
-- `rows_2` — `Целое число`
+| `rows_1`   | `rows_2`   | Window                                                                |
+|:-----------|:-----------|:----------------------------------------------------------------------|
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
+| any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MAVG](MAVG.md).
+
+See also [MAX](MAX.md), [RMAX](RMAX.md).
+
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
+- `rows_1` — `Integer`
+- `rows_2` — `Integer`
+
+
+**Return type**: Same type as (`value`)
 
 {% note info %}
 
-Значения аргументов (`rows_1`, `rows_2`) должны быть константами.
+Only constant values are accepted for the arguments (`rows_1`, `rows_2`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
-{% cut "Пример с двумя и тремя аргументами" %}
+{% cut "Example with two and three arguments" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -92,11 +91,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1)**   | **MMAX(SUM([Orders]), -2)**   | **MMAX(SUM([Orders]) 1, 1)**   |
 |:------------------|:--------------------|:-----------------------------|:------------------------------|:-------------------------------|
@@ -107,10 +106,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 
 {% endcut %}
 
-{% cut "Пример с ORDER BY" %}
+{% cut "Example with ORDER BY" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -126,11 +125,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1 ORDER BY [City] DESC)**   | **MMAX(SUM([Orders]), 1 ORDER BY [Order Sum])**   |
 |:------------------|:--------------------|:--------------------------------------------------|:--------------------------------------------------|
@@ -141,10 +140,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 
 {% endcut %}
 
-{% cut "Пример с группировкой" %}
+{% cut "Example with grouping" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -160,11 +159,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1 TOTAL)**   | **MMAX(SUM([Orders]), 1 WITHIN [City])**   | **MMAX(SUM([Orders]), 1 AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:-----------------------------------|:-------------------------------------------|:------------------------------------------|
@@ -180,6 +179,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/MMAX.md
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

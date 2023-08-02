@@ -84,16 +84,14 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `user` section to the {{ mkf-name }} cluster description:
+   1. Add the `yandex_mdb_kafka_user` resource:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         user {
-           name     = "<username>"
-           password = "<password>"
-           ...
-         }
-         ...
+      resource "yandex_mdb_kafka_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<password>"
+        ...
       }
       ```
 
@@ -168,16 +166,14 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, find the `user` block for the required user.
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
    1. Change the value of the `password` field:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         user {
-           ...
-           password = "<password>"
-         }
-         ...
+      resource "yandex_mdb_kafka_user" "<username>" {
+        ...
+        password = "<password>"
+        ...
       }
       ```
 
@@ -237,7 +233,18 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, edit the `permission` section in the `user` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions.
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
+   1. Edit the `permission` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions:
+
+      ```hcl
+      resource "yandex_mdb_kafka_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<password>"
+        ...
+      }
+      ```
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -340,19 +347,16 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, add a `permission` section to the `user` block:
+   1. In the file, find the `yandex_mdb_kafka_cluster` resource for the required user.
+   1. Add a `permission` section:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         user {
-           name     = "<username>"
-           password = "<password>"
-           permission {
-             topic_name = "<topic name>"
-             role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER or ACCESS_ROLE_ADMIN>"
-           }
-         }
-         ...
+      resource "yandex_mdb_kafka_user" "<username>" {
+        ...
+        permission {
+          topic_name = "<topic>"
+          role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER, or ACCESS_ROLE_ADMIN>"
+        }
       }
       ```
 
@@ -419,7 +423,8 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, edit or delete the `permission` section in the `user` block.
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
+   1. Edit or delete the `permission` section.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -474,7 +479,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Delete the user block with a description of the required `user` from the {{ mkf-name }} cluster description.
+   1. Delete the `yandex_mdb_kafka_user` resource for the appropriate user.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SUM_IF_WINDOW.md
+sourcePath: en/_api-ref/datalens/function-ref/SUM_IF_WINDOW.md
 ---
 
-# SUM_IF (оконная)
+# SUM_IF (window)
 
-_Функция `SUM_IF` также доступна в следующих категориях: [Агрегатные функции](SUM_IF.md)._
+_Function `SUM_IF` is also found in the following categories: [Aggregate functions](SUM_IF.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   SUM_IF( expression, condition
@@ -19,10 +19,10 @@ _Функция `SUM_IF` также доступна в следующих ка�
         )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Расширенный
+- Extended
 
   ```
   SUM_IF( expression, condition
@@ -31,23 +31,23 @@ _Функция `SUM_IF` также доступна в следующих ка�
         )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+#### Description {#description}
+Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
-**Типы аргументов:**
-- `expression` — `Дробное число | Целое число`
-- `condition` — `Логический`
+**Argument types:**
+- `expression` — `Fractional number | Integer`
+- `condition` — `Boolean`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
+**Return type**: Same type as (`expression`)
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 SUM_IF([Profit], [Category] = 'Office Supplies' TOTAL)
@@ -62,6 +62,6 @@ SUM_IF([Profit], [Category] = 'Office Supplies' AMONG [Date])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
