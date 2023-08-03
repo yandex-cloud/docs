@@ -1,5 +1,11 @@
 # Создание цветовой палитры
 
+{% note warning %}
+
+Для создания палитры пользователю нужна роль [администратора](../../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }}.
+  
+{% endnote %}
+
 Чтобы создать цветовую палитру:
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.

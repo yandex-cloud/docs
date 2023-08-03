@@ -23,3 +23,7 @@
 ## Логи {#logs}
 
 {% include notitle [logs](../../_qa/managed-kubernetes/logs.md) %}
+
+## Решение проблем {#troubleshooting}
+
+{% include notitle [troubleshooting](../../_qa/managed-kubernetes/troubleshooting.md) %}

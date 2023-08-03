@@ -37,9 +37,6 @@ REGEXP_EXTRACT_NTH( string, pattern, match_index )
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
-
-
 
 #### Пример {#examples}
 

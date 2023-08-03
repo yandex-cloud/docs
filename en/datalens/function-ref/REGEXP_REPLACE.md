@@ -33,14 +33,11 @@ See the documentation of the data source to clarify the regular expression synta
 
 {% endnote %}
 
-Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
-
-
 
 #### Example {#examples}
 
 ```
-REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
+REGEXP_REPLACE("123 456", "\s", "-") = "123-456"
 ```
 
 
