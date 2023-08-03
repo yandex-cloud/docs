@@ -132,9 +132,9 @@
               "Prefix": "backup/"
             },
             "Status": "Enabled",
-            "Expiration": [{
+            "Expiration": {
               "Days": 180
-            }]
+            }
           }
         ]
       }
