@@ -35,11 +35,11 @@ Only constant values are accepted for the arguments (`delimiter`).
 #### Examples {#examples}
 
 ```
-SPLIT("RU-MOW-SVO", "-", 1) = "RU"
+SPLIT("192.168.0.1", ".", 1) = "192"
 ```
 
 ```
-SPLIT("RU-MOW-SVO", "-", -1) = "SVO"
+SPLIT("192.168.0.1", ".", -1) = "1"
 ```
 
 

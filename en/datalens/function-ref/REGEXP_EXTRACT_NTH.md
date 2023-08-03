@@ -37,9 +37,6 @@ See the documentation of the data source to clarify the regular expression synta
 
 {% endnote %}
 
-Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
-
-
 
 #### Example {#examples}
 

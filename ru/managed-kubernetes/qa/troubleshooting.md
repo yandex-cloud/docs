@@ -1,0 +1,1 @@
+{% include [troubleshooting](../../_qa/managed-kubernetes/troubleshooting.md) %}

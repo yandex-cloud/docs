@@ -324,6 +324,8 @@ items:
         href: qa/resources.md
       - name: Логи
         href: qa/logs.md
+      - name: Решение проблем
+        href: qa/troubleshooting.md
       - name: Все вопросы на одной странице
         href: qa/all.md
   - name: Обучающие курсы

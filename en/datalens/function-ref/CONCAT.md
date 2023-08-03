@@ -28,7 +28,7 @@ Merges any number of strings. When non-string types are used, they're converted 
 #### Examples {#examples}
 
 ```
-CONCAT("Дата рождения ", #2019-01-23#) = "Дата рождения 2019-01-23"
+CONCAT("Date of birth ", #2019-01-23#) = "Date of birth 2019-01-23"
 ```
 
 ```

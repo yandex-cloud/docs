@@ -35,7 +35,7 @@
   1. Выполните команду, указав имя HTTP-роутера:
 
      ```bash
-     yc alb http-router delete --name <имя HTTP-роутера>
+     yc alb http-router delete --name <имя_HTTP-роутера>
      ```
 
      Чтобы проверить удаление, получите список HTTP-роутеров, выполнив команду:

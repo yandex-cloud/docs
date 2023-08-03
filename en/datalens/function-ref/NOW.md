@@ -21,12 +21,6 @@ Returns the current date and time, depending on the data source and connection t
 
 {% note info %}
 
-On materialization, the function returns the UTC+3 date and time.
-
-{% endnote %}
-
-{% note info %}
-
 On `YQL`, the function always returns the UTC date and time.
 
 {% endnote %}

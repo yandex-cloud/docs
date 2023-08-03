@@ -33,14 +33,11 @@ REGEXP_REPLACE( string, pattern, replace_with )
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
-
-
 
 #### Пример {#examples}
 
 ```
-REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
+REGEXP_REPLACE("123 456", "\s", "-") = "123-456"
 ```
 
 

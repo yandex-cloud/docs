@@ -43,7 +43,11 @@
 
 1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**.
    
-Пользователи, которых вы призвали в комментарии, получат уведомление по почте, и их имена будут добавлены в поле задачи **{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }}**.
+Пользователи, которых пригласили к обсуждению задачи, получат уведомления о призыве:
+* на [почту](notification-settings.md);
+* в ![](../../_assets/tracker/svg/bell_2.svg) **Уведомлениях** {{ tracker-name }} (только если до призыва они хоть раз открывали интерфейс {{ tracker-name }}).
+
+Кроме того, имена этих пользователей будут добавлены в поле задачи **{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }}**.
 
 {% note info %}
 
