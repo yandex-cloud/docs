@@ -28,7 +28,7 @@
 
 В марте 2023 года {{ org-full-name }} будут поддерживать управление группами пользователей в {{ tracker-name }}.
 
-Администратор {{ org-full-name }} будет считаться также администратором в {{ tracker-name }} ([роли](../organization/roles.md#admin) `organization-manager.admin` и `organization-manager.organizations.owner`). Чтобы назначать администраторов, можно будет [выдавать](../organization/roles.md) роль `tracker.admin`.
+Администратор {{ org-full-name }} будет считаться также администратором в {{ tracker-name }} ([роли](../organization/security/index.md#admin) `organization-manager.admin` и `organization-manager.organizations.owner`). Чтобы назначать администраторов, можно будет [выдавать](../organization/security/index.md) роль `tracker.admin`.
 
 {{ org-full-name }} остаются бесплатными.
 

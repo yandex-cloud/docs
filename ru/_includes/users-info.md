@@ -6,5 +6,5 @@
 
    * **Пользователь** — логин пользователя и адрес электронной почты.
    * **ID** — идентификатор пользователя.
-   * **Федерация** — идентификатор [федерации](../organization/add-federation.md).
+   * **Федерация** — идентификатор [федерации](../organization/concepts/add-federation.md).
    * **Права доступа** — [роли](../iam/concepts/access-control/roles.md) пользователя и кнопка ![image](../_assets/horizontal-ellipsis.svg) для настройки прав доступа.

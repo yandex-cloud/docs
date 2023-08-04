@@ -8,6 +8,17 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 {% list tabs %}
 
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the folder where the [bucket](../../concepts/bucket.md) is located.
+  1. Select **{{ objstorage-name }}**.
+  1. Select a bucket from the list.
+  1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab in the left-hand menu.
+  1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+  1. Enter a label in `key: value` format. To edit an existing label, enter its key and a new value.
+  1. Click **Enter**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+
 - AWS CLI
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
@@ -32,7 +43,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
 
-   ### Sample gRPC API call {#api-edit-example}
+   **Sample gRPC API call**
 
    ```bash
    export IAM_TOKEN="<IAM token>"
@@ -72,6 +83,13 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 {% list tabs %}
 
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the folder where the [bucket](../../concepts/bucket.md) is located.
+  1. Select **{{ objstorage-name }}**.
+  1. Select a bucket from the list.
+  1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab in the left-hand menu.
+
 - AWS CLI
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
@@ -109,7 +127,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    To view bucket labels, use the [get](../../api-ref/Bucket/get.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) gRPC API call, or the [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md) S3 API method.
 
-   ### Sample gRPC API call {#api-get-example}
+   **Sample gRPC API call**
 
    ```bash
    export IAM_TOKEN="<IAM token>"
@@ -163,6 +181,15 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 {% list tabs %}
 
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the folder where the [bucket](../../concepts/bucket.md) is located.
+  1. Select **{{ objstorage-name }}**.
+  1. Select a bucket from the list.
+  1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab in the left-hand menu.
+  1. Click ![image](../../../_assets/cross.svg) next to the appropriate label.
+  1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+
 - AWS CLI
 
    If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
@@ -183,7 +210,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
    To delete bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md) S3 API method.
 
-   ### Sample gRPC API call {#api-delete-example}
+   **Sample gRPC API call**
 
    ```bash
    export IAM_TOKEN="<IAM token>"

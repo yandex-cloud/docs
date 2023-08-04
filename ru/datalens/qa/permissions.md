@@ -6,7 +6,7 @@
 
 Чтобы другой пользователь мог открыть ваш дашборд, настройте доступ к {{ datalens-full-name }}:
 
-1. [Пригласите пользователя](../../organization/add-account.md#add-or-invite-user-account) с аккаунтом на Яндексе или [добавьте федеративного пользователя](../../organization/add-account.md#add-user-sso).
+1. [Пригласите пользователя](../../organization/operations/add-account.md#add-or-invite-user-account) с аккаунтом на Яндексе или [добавьте федеративного пользователя](../../organization/operations/add-account.md#add-user-sso).
 1. Убедитесь, что у пользователя есть права доступа на дашборд:
 
    1. Откройте дашборд.

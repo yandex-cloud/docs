@@ -14,7 +14,7 @@ description: "Вы можете запросить детальную инфор
 
 - Консоль управления
 
-  Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
+  Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
 - CLI
 
@@ -52,7 +52,7 @@ description: "Вы можете запросить детальную инфор
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
 
 - CLI
@@ -85,9 +85,9 @@ description: "Вы можете запросить детальную инфор
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/mdb/operations.svg) **Операции**.
+  1. На панели слева выберите ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
 
 - CLI
 

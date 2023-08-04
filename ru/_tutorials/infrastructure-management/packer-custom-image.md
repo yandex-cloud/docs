@@ -59,7 +59,34 @@
 
         {% endnote %}
 
-1. [Установите](../../cli/quickstart.md#install) {{ yandex-cloud }} CLI и [создайте](../../cli/quickstart.md#initialize) профиль. 
+1. Настройте [плагин Yandex Compute Builder](https://developer.hashicorp.com/packer/plugins/builders/yandex):
+
+    1. Создайте файл `config.pkr.hcl` со следующим содержанием:
+        
+        ```hcl
+        packer {
+          required_plugins {
+            yandex = {
+              version = ">= 1.1.2"
+              source  = "{{ packer-source-link }}"
+            }
+          }
+        }
+        ```
+        
+    1. Установите плагин:
+
+        ```bash
+        packer init <путь_к_файлу_config.pkr.hcl>
+        ```
+
+        Результат:
+
+        ```text
+        Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
+        ```
+
+1. [Установите](../../cli/quickstart.md#install) {{ yandex-cloud }} CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
 1. Получите информацию о доступных подсетях и зонах доступности. Если у вас нет подсетей — [создайте](../../vpc/operations/subnet-create.md) новую.
 
     {% list tabs %}
@@ -78,9 +105,9 @@
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
         |          ID          |         NAME         |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
-        | b0c29k6anelkik7jg5v1 | intro2-{{ region-id }}-c | enp45glgitd6e44dn1fj |                | {{ region-id }}-c | [10.130.0.0/24] |
-        | e2ltcj4urgpbsbaq9977 | intro2-{{ region-id }}-b | enp45glgitd6e44dn1fj |                | {{ region-id }}-b | [10.129.0.0/24] |
-        | e9bn57jvjnbujnmk3mba | intro2-{{ region-id }}-a | enp45glgitd6e44dn1fj |                | {{ region-id }}-a | [10.128.0.0/24] |
+        | b0c29k6anelk******** | intro2-{{ region-id }}-c | enp45glgitd6******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+        | e2ltcj4urgpb******** | intro2-{{ region-id }}-b | enp45glgitd6******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+        | e9bn57jvjnbu******** | intro2-{{ region-id }}-a | enp45glgitd6******** |                | {{ region-id }}-a | [10.128.0.0/24] |
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
         ```
 
@@ -313,7 +340,7 @@
     ```bash
     ...
     ==> Builds finished. The artifacts of successful builds are:
-    --> yandex.yc-toolbox: A disk image was created: yc-toolbox (id: fd83j475posvi0ffmi5b) with family name infra-images
+    --> yandex.yc-toolbox: A disk image was created: yc-toolbox (id: fd83j475posv********) with family name infra-images
     ```
 
     Запишите идентификатор собранного образа — параметр `id`. Используйте этот идентификатор в дальнейшем, чтобы создать ВМ.
@@ -336,7 +363,7 @@
       +----------------------+------------+-----------+----------------------+--------+
       |          ID          |    NAME    |  FAMILY   |     PRODUCT IDS      | STATUS |
       +----------------------+------------+-----------+----------------------+--------+
-      | fd83j475posvi0ffmi5b | yc-toolbox | my-images | f2ek1vhoppg2l2afslmq | READY  |
+      | fd83j475posv******** | yc-toolbox | my-images | f2ek1vhoppg2******** | READY  |
       +----------------------+------------+-----------+----------------------+--------+
       ```
 

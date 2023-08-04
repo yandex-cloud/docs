@@ -19,7 +19,7 @@ To add a VM to a target group:
       1. In the **IP address** field, specify the target's IP and select the [subnet](../../vpc/concepts/network.md#subnet).
 
       
-      1. (optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
+      1. (Optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
          For example, specify the IP belonging to your data center connected to {{ yandex-cloud }} via [{{ interconnect-name }}](../../interconnect/). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3).
 

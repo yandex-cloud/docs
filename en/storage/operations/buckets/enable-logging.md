@@ -68,7 +68,7 @@ To log requests to the bucket:
 
          ```hcl
          resource "yandex_storage_bucket" "log_bucket" {
-           access_key = "<static_key_id>"
+           access_key = "<static_key_ID>"
            secret_key = "<private_key>"
            bucket     = "<name_of_bucket_to_store_logs>"
          }

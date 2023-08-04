@@ -39,10 +39,10 @@ To create an L7 load balancer:
 
    1. Click **Add listener** under **Listeners**. Set the listener settings:
       1. Enter the listener name: `test-listener`.
-      1. (optional) Select the **Public IP address** option. Set the **Port** to `80` and the **Type** to
+      1. (Optional) Select the **Public IP address** option. Set the **Port** to `80` and the **Type** to:
          * `Automatically`.
          * `List`: Select an address from the drop-down list of the field that appears on the right.
-      1. (optional) Select the **Internal IP address** option. Specify the **Port** and select a subnet from the drop-down list in the **Subnet** field.
+      1. (Optional) Select the **Internal IP address** option. Specify the **Port** and select a subnet from the drop-down list in the **Subnet** field.
       1. Under **Receiving and processing traffic**, select the listener type: `HTTP` or `Stream`.
 
          For `HTTP`, select:

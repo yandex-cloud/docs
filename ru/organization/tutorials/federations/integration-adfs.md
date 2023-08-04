@@ -1,6 +1,6 @@
 # Аутентификация с помощью Active Directory
 
-С помощью [федерации удостоверений](../../add-federation.md) вы можете использовать [Active Directory Federation Services]({{ link-adfs }}) (AD FS) для аутентификации в облаке.
+С помощью [федерации удостоверений](../../concepts/add-federation.md) вы можете использовать [Active Directory Federation Services]({{ link-adfs }}) (AD FS) для аутентификации в облаке.
 
 Чтобы настроить аутентификацию:
 
@@ -59,7 +59,7 @@
 
      {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-  1. Включите опцию **Автоматически создавать пользователей**, чтобы аутентифицированный пользователь автоматически добавлялся в организацию. Если вы не включите эту опцию, федеративных пользователей потребуется [добавить вручную](../../add-account.md#add-user-sso).
+  1. Включите опцию **Автоматически создавать пользователей**, чтобы аутентифицированный пользователь автоматически добавлялся в организацию. Если вы не включите эту опцию, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
@@ -498,7 +498,7 @@ AD FS требует создавать _отношение доверия с п
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. Как назначить роль пользователю, читайте в разделе [Роли](../../roles.md#admin).
+Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. Как назначить роль пользователю, читайте в разделе [Роли](../../security/index.md#admin).
 
 Чтобы добавить пользователей федерации в организацию:
 

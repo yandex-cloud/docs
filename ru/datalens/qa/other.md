@@ -14,7 +14,7 @@
 
 * {{ datalens-short-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}](/security).
 
-* Для {{ datalens-short-name }} можно [настроить федерацию учетных записей](../../organization/quick-start.md).
+* Для {{ datalens-short-name }} можно [настроить федерацию учетных записей](../../organization/quickstart.md).
 
 ### Почему заблокировано облако с экземпляром {{ datalens-short-name }}? {#datalens-suspended}
 

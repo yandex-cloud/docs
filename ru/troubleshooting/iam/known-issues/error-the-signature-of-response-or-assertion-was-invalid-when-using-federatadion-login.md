@@ -13,7 +13,7 @@
 При изменении сертификата на стороне IdP-провайдера, понадобится заменить его и на стороне облачной федерации.
 
 В качестве примера вы можете использовать инструкцию по ручному добавлению в федерацию сертификата из AD FS.
-Этот процесс описан на странице [«Аутентификация с помощью Active Directory»](../../../organization/operations/federations/integration-adfs.md#add-certificate) в нашей документации.
+Этот процесс описан на странице [«Аутентификация с помощью Active Directory»](../../../organization/tutorials/federations/integration-adfs.md#add-certificate) в нашей документации.
 
 Также вы можете автоматизировать процесс обновления сертификата с помощью [метода `create`](../../../organization/api-ref/Certificate/create.md) для ресурса `Certificate` либо [средствами YC CLI](../../../cli/quickstart.md#install). 
 

@@ -256,10 +256,10 @@
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This parameter is required.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
+         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. Optional parameter.
          * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
 
    1. Check the configuration using this command:
 
@@ -443,10 +443,10 @@
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website home page. This parameter is required.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
+         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. Optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
 
    1. Check the configuration using this command:
 

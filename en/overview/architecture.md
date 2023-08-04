@@ -7,7 +7,7 @@ This approach ensures easy scalability of the platform: at minimal cost, you can
 The {{ yandex-cloud }} architecture looks like this:
 
 
-![Architecture](../_assets/overview/architecture.png "Architecture")
+![Architecture](../_assets/overview/architecture.svg "Architecture")
 
 
 

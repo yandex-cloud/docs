@@ -1,4 +1,4 @@
-The minimum role required to create a bucket is `storage.editor`. For details, see the [role description](../../storage/security/#storage-editor) for details.
+The minimum role required to create a bucket is `storage.editor`. See also the [role description](../../storage/security/#storage-editor) for details.
 
 {% list tabs %}
 
@@ -20,6 +20,11 @@ The minimum role required to create a bucket is `storage.editor`. For details, s
 
       1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
+      1. Add [labels](../../storage/concepts/tags.md), if needed:
+         1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+         1. Enter a label in `key: value` format.
+         1. Click **Enter**.
+
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
 - {{ yandex-cloud }} CLI

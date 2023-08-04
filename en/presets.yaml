@@ -824,6 +824,7 @@ default:
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-iot-broker: iot-broker.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -5081,6 +5082,7 @@ default:
           explore:
             button_execute: Execute
             button_submit-creds: Connect
+            label_offset: Query result offset
             label_password: Password
           switch_datalens: DataLens
           switch_users: Users
@@ -5177,6 +5179,7 @@ default:
           button_add-label: Add label
         mdb:
           settings:
+            button_reset: Reset
             popup_settings-submit: Save
         navigation-menu:
           label_account: Account
@@ -5581,6 +5584,7 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-mongodb: Managed Service for MongoDB
+            label_managed-mysql: Managed Service for MySQL
             label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
@@ -5800,6 +5804,7 @@ default:
           database_field_user-password: Password
           field_assign-public-ip: Public access
           field_cluster-mode: Cluster sharding
+          field_date: Date and time of recovery (UTC)
           field_diagnostics-enabled: Statistics sampling
           field_initialization-action-args: Arguments
           field_initialization-action-uri: URI
@@ -5860,7 +5865,13 @@ default:
         button_open-in-monitoring: Open in Monitoring
       mysql:
         cluster:
+          switch_backups: Backups
+          switch_databases: Databases
           switch_explore: SQL
+          switch_hosts: Hosts
+          switch_operations: Operations
+        field_backup_priority: Backup priority
+        field_priority: Master priority
       opensearch:
         auth:
           button_save: Save
@@ -5883,6 +5894,10 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      postgresql:
+        hosts:
+          dialog:
+            button_choose: Save
       redis:
         cluster:
           switch_backups: Backups

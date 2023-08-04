@@ -39,9 +39,38 @@ Packer создаст и запустит виртуальную машину с
 
 Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
 
-```
+```bash
 export PATH=$PATH:/path/to/packer
 ```
+
+### Настройте плагин Yandex Compute Builder {#configure-plugin}
+
+Чтобы настроить [плагин](https://developer.hashicorp.com/packer/plugins/builders/yandex):
+
+1. Создайте файл `config.pkr.hcl` со следующим содержанием:
+    
+    ```hcl
+    packer {
+      required_plugins {
+        yandex = {
+          version = ">= 1.1.2"
+          source  = "{{ packer-source-link }}"
+        }
+      }
+    }
+    ```
+    
+1. Установите плагин:
+
+    ```bash
+    packer init <путь_к_файлу_config.pkr.hcl>
+    ```
+
+    Результат:
+
+    ```text
+    Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
+    ```
 
 ## Подготовьте конфигурацию образа {#prepare-image-config}
 
@@ -56,7 +85,7 @@ export PATH=$PATH:/path/to/packer
     {
       "type":      "yandex",
       "token":     "<OAuth-токен>",
-      "folder_id": "<идентификатор каталога>",
+      "folder_id": "<идентификатор_каталога>",
       "zone":      "{{ region-id }}-a",
 
       "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",

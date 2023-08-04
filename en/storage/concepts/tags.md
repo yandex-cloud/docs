@@ -39,7 +39,7 @@ Bucket label operation limits:
 
 Object label operation limits:
 
-* Maximum number of labels per object: 64.
+* Maximum number of labels per object: 10.
 * Label key parameters:
    * It may be up to 128 characters long.
    * It may contain Latin letters, numbers, spaces, and the following characters: `+`, `-`, `=`, `.`, `_`, `:`, `/`, and `@`.

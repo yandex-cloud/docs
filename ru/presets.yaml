@@ -818,6 +818,7 @@ default:
   tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
+  packer-source-link: github.com/hashicorp/yandex
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
@@ -828,6 +829,7 @@ default:
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-iot-broker: iot-broker.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -5081,6 +5083,7 @@ default:
           explore:
             button_execute: Выполнить
             button_submit-creds: Подключиться
+            label_offset: Номер первой строки
             label_password: Пароль
           switch_datalens: DataLens
           switch_users: Пользователи
@@ -5177,6 +5180,7 @@ default:
           button_add-label: Добавить метку
         mdb:
           settings:
+            button_reset: Сбросить
             popup_settings-submit: Сохранить
         navigation-menu:
           label_account: Учетная запись
@@ -5581,6 +5585,7 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-mongodb: Managed Service for MongoDB
+            label_managed-mysql: Managed Service for MySQL
             label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
@@ -5800,6 +5805,7 @@ default:
           database_field_user-password: Пароль
           field_assign-public-ip: Публичный доступ
           field_cluster-mode: Шардирование кластера
+          field_date: Дата и время восстановления (UTC)
           field_diagnostics-enabled: Сбор статистики
           field_initialization-action-args: Аргументы
           field_initialization-action-uri: URI
@@ -5860,7 +5866,13 @@ default:
         button_open-in-monitoring: Открыть в Мониторинге
       mysql:
         cluster:
+          switch_backups: Резервные копии
+          switch_databases: Базы данных
           switch_explore: SQL
+          switch_hosts: Хосты
+          switch_operations: Операции
+        field_backup_priority: Приоритет cоздания бэкапа
+        field_priority: Приоритет мастера
       opensearch:
         auth:
           button_save: Сохранить
@@ -5883,6 +5895,10 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      postgresql:
+        hosts:
+          dialog:
+            button_choose: Сохранить
       redis:
         cluster:
           switch_backups: Резервные копии

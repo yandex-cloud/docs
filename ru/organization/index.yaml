@@ -9,23 +9,23 @@ meta:
 links:
   - title: Зарегистрируйте организацию
     description: Чтобы начать работу, зарегистрируйте организацию
-    href: enable-org
+    href: operations/enable-org
   - title: Добавьте пользователей
     description: >-
       Подключите к организации сотрудников с помощью аккаунтов на Яндексе —
       тогда они получат доступ к сервисам организации
-    href: add-account
+    href: operations/add-account
   - title: Настройте федерацию удостоверений
     description: >-
       Настройте федерацию удостоверений, чтобы сотрудники использовали свои
       рабочие аккаунты для доступа к сервисам
-    href: add-federation
+    href: concepts/add-federation
   - title: Подключите сервисы
     description: Подключите сервисы, которыми смогут пользоваться сотрудники организации
-    href: manage-services
+    href: concepts/manage-services
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
-    href: limits
+    href: concepts/limits
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training

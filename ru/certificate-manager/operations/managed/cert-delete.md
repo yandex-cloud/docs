@@ -37,7 +37,7 @@
      +----------------------+----------------------+-------------+-----------+---------+------------+
      |          ID          |         NAME         |   DOMAINS   | NOT AFTER |  TYPE   |   STATUS   |
      +----------------------+----------------------+-------------+-----------+---------+------------+
-     | fpq6gvvm6piuegbb2nol | myupdatedmanagedcert | example.com |           | MANAGED | VALIDATING |
+     | fpq6gvvm6piu******** | myupdatedmanagedcert | example.com |           | MANAGED | VALIDATING |
      +----------------------+----------------------+-------------+-----------+---------+------------+
      ```
 
@@ -45,7 +45,7 @@
 
      ```bash
      yc certificate-manager certificates delete \
-       --id fpq6gvvm6piuegbb2nol
+       --id fpq6gvvm6piu********
      ```
 
      Где `--id` — идентификатор сертификата.
@@ -53,7 +53,7 @@
      Результат выполнения команды:
 
      ```bash
-     id: fpq6gvvm6piuegbb2nol
+     id: fpq6gvvm6piu********
      folder_id: b1g7gvsi89m34qmcm3ke
      created_at: "2020-09-15T08:49:11.533Z"
      ...
@@ -61,6 +61,42 @@
      status: VALIDATING
      updated_at: "2020-09-15T09:10:06.981Z"
      ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием сертификата:
+
+      {% cut "Пример описания сертификата" %}
+
+      ```hcl
+      ...
+      resource "yandex_cm_certificate" "le-certificate" {
+        name        = "managed-certificate-for-dns"
+        description = "this is a certificate for tls"
+        domains     = ["my-domain.ru"]
+
+        managed {
+        challenge_type = "DNS_CNAME"
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+  1. Примените изменения:
+  
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  Проверить удаление сертификата можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc certificate-manager certificate list
+    ```
 
 - API
 

@@ -1,7 +1,7 @@
 # Роли и права доступа в {{ wiki-name }}
 
 
-{{ wiki-full-name }} — один из [сервисов](../organization/manage-services.md), которые можно [подключить](./enable-wiki.md) к организации {{ yandex-cloud }}.
+{{ wiki-full-name }} — один из [сервисов](../organization/concepts/manage-services.md), которые можно [подключить](./enable-wiki.md) к организации {{ yandex-cloud }}.
 
 
 Каждый сотрудник {{ org-full-name }} имеет право создавать и редактировать страницы {{ wiki-name }}. Права доступа к странице или разделу могут быть настроены ее [автором](./page-management/access-setup.md). 

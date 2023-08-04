@@ -32,6 +32,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * {{ mch-full-name }}
 * {{ mgl-full-name }}
 * {{ mmg-full-name }}
+* {{ managed-k8s-name }}
 * {{ mmy-full-name }}
 * {{ mpg-full-name }}
 * {{ mrd-full-name }}

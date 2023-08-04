@@ -32,7 +32,7 @@
 
 К возможностям организации {{ ya-360 }} можно добавить возможности {{ org-full-name }}.
 
-1. Создайте организацию {{ org-full-name }} по [инструкции](../organization/quick-start.md#create).
+1. Создайте организацию {{ org-full-name }} по [инструкции](../organization/quickstart.md#create).
 
    {% note alert %}
 

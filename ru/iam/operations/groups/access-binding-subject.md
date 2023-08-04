@@ -1,6 +1,6 @@
 # Назначение прав группе пользователей
 
-Выдайте [группе](../../../organization/manage-groups.md) права на доступ к какому-либо ресурсу. Чтобы дать [субъекту](../../concepts/access-control/index.md#subject) права на доступ к группе, воспользуйтесь инструкцией [{#T}](access-binding-object.md).
+Выдайте [группе](../../../organization/operations/manage-groups.md) права на доступ к какому-либо ресурсу. Чтобы дать [субъекту](../../concepts/access-control/index.md#subject) права на доступ к группе, воспользуйтесь инструкцией [{#T}](access-binding-object.md).
 
 Управление [доступом](../../concepts/access-control/index.md#how-do-i-perform-access-management) в {{ yandex-cloud }} построено на основе ролей.
 

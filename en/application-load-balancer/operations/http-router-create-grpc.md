@@ -182,8 +182,8 @@ To create an HTTP router and add a route to it:
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-      * [Yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) resource.
-      * [Yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resource.
+      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource.
+      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource.
 
    1. Create resources
 

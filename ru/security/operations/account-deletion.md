@@ -10,7 +10,7 @@
 
 ## Основные действия {#main-steps}
 
-1. Создайте [федерацию](../../organization/add-federation.md).  
+1. Создайте [федерацию](../../organization/concepts/add-federation.md).  
 1. Проверьте работу федерации, войдя от имени одного из федеративных пользователей.
 1. Назначьте роль `organization-manager.organizations.owner` федеративному пользователю:
 

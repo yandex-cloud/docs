@@ -18,19 +18,19 @@
 
 Вы можете настроить федерацию удостоверений для разных поставщиков удостоверений:
 
-* [Active Directory](operations/federations/integration-adfs.md).
-* [Google Workspace](operations/federations/integration-gworkspace.md).
-* [Azure Active Directory](operations/federations/integration-azure.md).
-* [Keycloak](operations/federations/integration-keycloak.md).
-* [Другие SAML-совместимые поставщики удостоверений](operations/federations/integration-common.md).
+* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [Google Workspace](../tutorials/federations/integration-gworkspace.md).
+* [Azure Active Directory](../tutorials/federations/integration-azure.md).
+* [Keycloak](../tutorials/federations/integration-keycloak.md).
+* [Другие SAML-совместимые поставщики удостоверений](../tutorials/federations/integration-common.md).
 
 ## Как происходит аутентификация в федерации {#saml-authentication}
 
-{% include [federated-user-auth](../_includes/iam/federated-user-auth.md) %}
+{% include [federated-user-auth](../../_includes/iam/federated-user-auth.md) %}
 
 Процесс аутентификации показан на диаграмме:
 
-![image](../_assets/iam/federations/saml-authentication.svg)
+![image](../../_assets/iam/federations/saml-authentication.svg)
 
 1. Пользователь открывает в браузере ссылку для входа в консоль.
 

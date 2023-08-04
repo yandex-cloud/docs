@@ -318,7 +318,7 @@
      ```
 
      Где:
-     * `organization_id` — [идентификатор организации](../../organization/org-profile.md). Обязательный параметр.
+     * `organization_id` — [идентификатор организации](../../organization/operations/org-profile.md). Обязательный параметр.
      * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
      * `members` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 

@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Удалить можно только те сообщества, на которые вам [назначена](../../../organization/roles.md#add-role) роль `{{ roles-datasphere-communities-editor }}` или `{{ roles-datasphere-communities-admin }}`.
+Удалить можно только те сообщества, на которые вам [назначена](../../../organization/security/index.md#add-role) роль `{{ roles-datasphere-communities-editor }}` или `{{ roles-datasphere-communities-admin }}`.
 
 {% endnote %}
 

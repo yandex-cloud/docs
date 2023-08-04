@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Время жизни [IAM-токена](../../../iam/concepts/authorization/iam-token.md) — не больше {{ iam-token-lifetime }} и ограничено временем жизни cookie у [федерации](../../../organization/add-federation.md).
+Время жизни [IAM-токена](../../../iam/concepts/authorization/iam-token.md) — не больше {{ iam-token-lifetime }} и ограничено временем жизни cookie у [федерации](../../../organization/concepts/add-federation.md).
 
 {% endnote %}
 

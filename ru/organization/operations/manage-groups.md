@@ -19,31 +19,31 @@
 
 ## Создать группу {#create-group}
 
-{% include [create-group-org](../_includes/organization/create-group-org.md) %}
+{% include [create-group-org](../../_includes/organization/create-group-org.md) %}
 
 ## Добавить участников {#add-member}
 
-{% include [group-add-member.md](../_includes/organization/group-add-member.md) %}
+{% include [group-add-member.md](../../_includes/organization/group-add-member.md) %}
 
 ## Редактировать группу {#edit-group}
 
-{% include [group-edit](../_includes/organization/group-edit.md) %}
+{% include [group-edit](../../_includes/organization/group-edit.md) %}
 
 ## Настроить доступ к управлению группой {#access-manage-group}
 
-Измените права [субъекта](../iam/concepts/access-control/index.md#subject) на доступ к группе как к ресурсу.
+Измените права [субъекта](../../iam/concepts/access-control/index.md#subject) на доступ к группе как к ресурсу.
 
 ### Назначить роль {#set-access-binding}
 
-{% include [accessbinding-group-as-object](../_includes/organization/accessbinding-group-as-object.md) %}
+{% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-object.md) %}
 
 ### Отозвать роль {#remove-access-binding}
 
-{% include [accessbinding-remove](../_includes/organization/accessbinding-remove.md) %}
+{% include [accessbinding-remove](../../_includes/organization/accessbinding-remove.md) %}
 
 ## Настроить доступ группы к работе в {{ yandex-cloud }} {#access}
 
-Чтобы участники группы могли работать с сервисами {{ yandex-cloud }}, назначьте группе соответствующие [роли](../iam/concepts/access-control/roles.md).
+Чтобы участники группы могли работать с сервисами {{ yandex-cloud }}, назначьте группе соответствующие [роли](../../iam/concepts/access-control/roles.md).
 
 ### Назначить роль на отдельный ресурс {#access-services}
 
@@ -51,7 +51,7 @@
 
 Чтобы выдать доступ группе на ресурс:
 
-{% include [accessbinding-group-as-subject](../_includes/organization/accessbinding-group-as-subject.md) %}
+{% include [accessbinding-group-as-subject](../../_includes/organization/accessbinding-group-as-subject.md) %}
 
 ### Назначить роль на всю организацию {#access-organization}
 
@@ -61,6 +61,6 @@
 
 - CLI
 
-    {% include [accessbinding-group-as-subject-org](../_includes/organization/accessbinding-group-as-subject-org.md) %}
+    {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 {% endlist %}
