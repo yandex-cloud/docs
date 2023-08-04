@@ -2,59 +2,73 @@ title: Yandex Cloud Organization
 href: index.yaml
 items:
   - name: Начало работы
-    href: quick-start.md
-  - name: Управление организациями
+    href: quickstart.md
+  - name: Пошаговые инструкции
     items:
-      - name: Создать организацию
-        href: enable-org.md
-      - name: Изменить данные организации
-        href: org-profile.md
-      - name: Управление несколькими организациями
-        href: manage-organizations.md
-  - name: Управление пользователями
+      - name: Управление организациями
+        items:
+          - name: Обзор
+            href: operations/index.md
+          - name: Создать организацию
+            href: operations/enable-org.md
+          - name: Изменить данные организации
+            href: operations/org-profile.md
+          - name: Управление несколькими организациями
+            href: operations/manage-organizations.md
+      - name: Управление пользователями
+        items:
+          - name: Обзор
+            href: operations/manage-users.md
+          - name: Добавить пользователя
+            href: operations/add-account.md
+          - name: Получить идентификатор или почту пользователя
+            href: operations/users-get.md
+          - name: Назначить права доступа
+            href: operations/roles.md
+          - name: Удалить аккаунт пользователя
+            href: operations/edit-account.md
+          - name: Покинуть организацию
+            href: operations/leave-organization.md
+      - name: Управление группами пользователей
+        href: operations/manage-groups.md
+  - name: Практические руководства
     items:
-      - name: Обзор
-        href: manage-users.md
-      - name: Добавить пользователя
-        href: add-account.md
-      - name: Получить идентификатор или почту пользователя
-        href: users-get.md
-      - name: Назначить права доступа
-        href: roles.md
-      - name: Удалить аккаунт пользователя
-        href: edit-account.md
-      - name: Покинуть организацию
-        href: leave-organization.md
-  - name: Управление группами пользователей
-    href: manage-groups.md
-  - name: Управление федерациями удостоверений
+      - name: Управление федерациями удостоверений
+        items:
+          - name: Обзор
+            href: tutorials/federations/index.md
+          - name: Аутентификация с помощью Active Directory
+            href: tutorials/federations/integration-adfs.md
+          - name: Аутентификация с помощью Google Workspace
+            href: tutorials/federations/integration-gworkspace.md
+          - name: Аутентификация с помощью Azure Active Directory
+            href: tutorials/federations/integration-azure.md
+          - name: Аутентификация с помощью Keycloak
+            href: tutorials/federations/integration-keycloak.md
+          - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
+            href: tutorials/federations/integration-common.md
+  - name: Концепции
     items:
-      - name: Настроить федерацию удостоверений
-        href: add-federation.md
-      - name: Аутентификация с помощью Active Directory
-        href: operations/federations/integration-adfs.md
-      - name: Аутентификация с помощью Google Workspace
-        href: operations/federations/integration-gworkspace.md
-      - name: Аутентификация с помощью Azure Active Directory
-        href: operations/federations/integration-azure.md
-      - name: Аутентификация с помощью Keycloak
-        href: operations/federations/integration-keycloak.md
-      - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
-        href: operations/federations/integration-common.md
-  - name: Управление облаками и сервисами
-    href: manage-services.md
+      - name: Облака и сервисы
+        href: concepts/manage-services.md
+      - name: Федерации удостоверений
+        href: concepts/add-federation.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Диагностика ошибок
     items:
       - name: Общие ошибки для федераций
         href: diagnostics.md
       - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
         href: saml-diagnostics.md
-  - name: Квоты и лимиты
-    href: limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация
-        href: api-authentication.md
+        href: api-ref/authentication.md
       - name: gRPC (англ.)
         items:
           - name: Overview
@@ -165,8 +179,6 @@ items:
                 href: api-ref/Certificate/get.md
               - name: delete
                 href: api-ref/Certificate/delete.md
-  - name: Правила тарификации
-    href: pricing.md
   - name: Обучающие курсы
     href: training.md
 base: ru/organization

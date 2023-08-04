@@ -53,7 +53,7 @@
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser` — аккаунт пользователя  [федерации удостоверений](../../../organization/add-federation.md), например из Active Directory.
+* `federatedUser` — аккаунт пользователя  [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory.
 
 * `group` — группа пользователей, созданная в [{{ org-full-name }}](../../../organization/).
 

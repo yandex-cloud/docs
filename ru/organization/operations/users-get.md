@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Получить идентификатор или почту может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin).
+Получить идентификатор или почту может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#admin).
 
 {% endnote %}
 
@@ -16,7 +16,7 @@
 
 - {{ org-name }}
 
-  {% include [users-info](../_includes/users-info.md) %}
+  {% include [users-info](../../_includes/users-info.md) %}
 
 - CLI
 
@@ -40,6 +40,6 @@
 
 - API
 
-  Получите параметры пользователя с помощью [запроса к API](../organization/api-ref/User/listMembers.md).
+  Получите параметры пользователя с помощью [запроса к API](../api-ref/User/listMembers.md).
 
 {% endlist %}

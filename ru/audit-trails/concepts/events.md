@@ -248,15 +248,18 @@
 --- | ---
 `CreateImage` | Создание образа
 `CreateImageTag` | Создание тега образа
+`CreateLifecyclePolicy` | Создание политики жизненного цикла
 `CreateRegistry` | Создание реестра
 `CreateRepository` | Создание репозитория
 `CreateScanPolicy` | Создание политики сканирования
 `DeleteImage` | Удаление образа
 `DeleteImageTag` | Удаление тега образа
+`DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
 `DeleteRepository` | Удаление репозитория
 `ScanImage` | Сканирование образа
 `UpdateIpPermission` | Изменение политики доступа с IP-адресов
+`UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
 `UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение привязок прав доступа на реестр  
@@ -594,6 +597,7 @@
 `BucketHttpsUpdate` | Изменение HTTPS-конфигурации для бакета
 `BucketLifecycleUpdate` | Изменение жизненного цикла объекта в бакете
 `BucketPolicyUpdate` | Изменение политик доступа бакета
+`BucketTagsUpdate` | Изменение тегов бакета
 `BucketUpdate` | Изменение бакета
 `BucketWebsiteUpdate` | Изменение конфигурации веб-сайта
 `ObjectAclUpdate` | Изменение ACL объекта в бакете^*^

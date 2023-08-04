@@ -57,8 +57,8 @@
      
         ```yaml
         access_key:
-          key_id: <идентификатор ключа>
-        secret: <секретный ключ>
+          key_id: <идентификатор_ключа>
+        secret: <секретный_ключ>
         ```
         
   1. Создайте облачную сеть `queue-autoscale-network`:
@@ -95,8 +95,8 @@
      Результат:
      
      ```
-     id: aje6brh817ro8o6vo6tv
-     folder_id: b0g12ga82bcv0cdeferg
+     id: aje6brh817ro********
+     folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:19:10.153346507Z"
      name: queue-autoscale-sa
      ```
@@ -138,11 +138,11 @@
      
      ```
      access_key:
-       id: ajevb6bx51w3wnep9clq
-       service_account_id: aje6brh817ro8o6vo6tv
+       id: ajevb6bx51w3********
+       service_account_id: aje6brh817ro********
        created_at: "2021-10-04T16:25:19.143847764Z"
        description: {{ message-queue-name }}
-       key_id: g3VybpVKdq_YiFEmDIht
+       key_id: g3VybpVKdq_Y********
      secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7VSOeD_mRG
      ```
      
@@ -155,8 +155,8 @@
      Результат:
 
      ```bash
-     id: enpabce123hde4ft1r3t
-     folder_id: b0g12ga82bcv0cdeferg
+     id: enpabce123hd********
+     folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:28:15.905337847Z"
      name: queue-autoscale-network
      ```
@@ -179,11 +179,11 @@
      Результат:
 
      ```bash
-     id: e1lnabc23r1c9d0efoje
-     folder_id: b0g12ga82bcv0cdeferg
+     id: e1lnabc23r1c********
+     folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:29:12.450858436Z"
      name: queue-autoscale-subnet-a
-     network_id: enpabce123hde4ft1r3t
+     network_id: enpabce123hd********
      zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 192.168.1.0/24
@@ -200,8 +200,8 @@
           
         ```yaml
         access_key:
-          key_id: <идентификатор ключа>
-        secret: <секретный ключ>
+          key_id: <идентификатор_ключа>
+        secret: <секретный_ключ>
         ```
         
   1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
@@ -224,8 +224,8 @@
            
       ```
       [default]
-          aws_access_key_id     = <идентификатор ключа>
-          aws_secret_access_key = <секретный ключ>
+          aws_access_key_id     = <идентификатор_ключа>
+          aws_secret_access_key = <секретный_ключ>
       ```
         
    1. Создайте в домашнем каталоге файл `.aws/config` и укажите в нем регион по умолчанию `{{ region-id }}`:
@@ -256,7 +256,7 @@
      1. Вставьте URL в файл `queue` в следующем формате:
      
         ```yaml
-        QueueUrl: <URL очереди>
+        QueueUrl: <URL_очереди>
         ``` 
 
 - AWS CLI
@@ -279,7 +279,7 @@
      Результат:
      
      ```yaml
-     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l5idm9cbj/dj6000000003n58805qi/queue-autoscale-queue
+     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
      ```
      
 - API
@@ -288,21 +288,48 @@
   1. Вставьте URL очереди в файл `queue` в следующем формате:
           
      ```yaml
-     QueueUrl: <URL очереди>
+     QueueUrl: <URL_очереди>
      ```
 
 {% endlist %}
 
 ## Создайте образ с приложением {#create-image}
 
-1. Если у вас еще не установлен Packer, скачайте и установите его по [инструкции](https://learn.hashicorp.com/tutorials/packer/get-started-install-cli) на официальном сайте.
+1. Если у вас еще не установлен Packer, скачайте и установите его по [инструкции](https://learn.hashicorp.com/tutorials/packer/get-started-install-cli) на официальном сайте. Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/).
 
    {% note info %}
    
    Для работы с {{ yandex-cloud }} требуется Packer версии не ниже 1.5.
    
    {% endnote %}
- 
+
+1. Настройте [плагин Yandex Compute Builder](https://developer.hashicorp.com/packer/plugins/builders/yandex):
+
+    1. Создайте файл `config.pkr.hcl` со следующим содержанием:
+        
+        ```hcl
+        packer {
+          required_plugins {
+            yandex = {
+              version = ">= 1.1.2"
+              source  = "{{ packer-source-link }}"
+            }
+          }
+        }
+        ```
+        
+    1. Установите плагин:
+
+        ```bash
+        packer init <путь_к_файлу_config.pkr.hcl>
+        ```
+
+        Результат:
+
+        ```text
+        Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
+        ```
+
 1. Скачайте [архив с файлами для образа](https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
 
    ```bash
@@ -336,8 +363,8 @@
        Результат:
        
        ```
-       id: aje6brh817ro8o6vo6tv
-       folder_id: b0g12ga82bcv0cdeferg
+       id: aje6brh817ro********
+       folder_id: b0g12ga82bcv********
        created_at: "2021-10-04T16:19:10.153346507Z"
        name: queue-autoscale-sa
        ```
@@ -371,8 +398,8 @@
        Результат:
        
        ```
-       id: b1g9hv2loamqfnbul7d9
-       cloud_id: b1g2y61sxwqxrtw34qtq
+       id: b1g9hv2loamq********
+       cloud_id: b1g2y61sxwqx********
        created_at: "2021-10-04T13:21:32.788067492Z"
        name: example-folder
        status: ACTIVE
@@ -410,8 +437,8 @@
        Результат:
        
        ```
-       id: e1lnabc23r1c9d0efoje
-       folder_id: b0g12ga82bcv0cdeferg
+       id: e1lnabc23r1c********
+       folder_id: b0g12ga82bcv********
        created_at: "2021-10-04T16:29:12.450858436Z"
        name: queue-autoscale-subnet-a
        network_id: enpabce123hde4ft1r3t
@@ -450,8 +477,8 @@
      Результат:
        
      ```
-     id: ajevh3a0hrqf65scefug
-     service_account_id: aje6brh817ro8o6vo6tv
+     id: ajevh3a0hrqf********
+     service_account_id: aje6brh817ro********
      created_at: "2021-10-04T16:35:19.057777570Z"
      description: {{ compute-name }}
      key_algorithm: RSA_2048
@@ -478,7 +505,7 @@
    ==> Wait completed after 2 minutes 48 seconds
    
    ==> Builds finished. The artifacts of successful builds are:
-   --> builder: A disk image was created: queue-autoscale-image-v1633354734 (id: fd8hlbuhjc4mssrvknkv) with family name queue-autoscale-image
+   --> builder: A disk image was created: queue-autoscale-image-v1633354734 (id: fd8hlbuhjc4m********) with family name queue-autoscale-image
    ```
 
 ## Создайте группу виртуальных машин {#create-ig}
@@ -557,8 +584,8 @@
      Результат:
      
      ```
-     id: fd8hlbuhjc4mssrvknkv
-     folder_id: b0g12ga82bcv0cdeferg
+     id: fd8hlbuhjc4m********
+     folder_id: b0g12ga82bcv********
      created_at: "2021-10-04T16:38:54.345168059Z"
      name: queue-autoscale-image-v1633354734
      description: Image for autoscaling an instance group based on the size of a queue
@@ -566,7 +593,7 @@
      storage_size: "3858759680"
      min_disk_size: "5368709120"
      product_ids:
-     - f2e6fnj3erf1sropamjr
+     - f2e6fnj3erf1********
      status: READY
      os:
        type: LINUX
@@ -593,8 +620,8 @@
          Результат:
           
          ```
-         id: enpabce123hde4ft1r3t
-         folder_id: b0g12ga82bcv0cdeferg
+         id: enpabce123hd********
+         folder_id: b0g12ga82bcv********
          created_at: "2021-10-04T16:28:15.905337847Z"
          name: queue-autoscale-network
          ```
@@ -655,8 +682,8 @@
          Результат:
           
          ```
-         id: enpabce123hde4ft1r3t
-         folder_id: b0g12ga82bcv0cdeferg
+         id: enpabce123hd********
+         folder_id: b0g12ga82bcv********
          created_at: "2021-10-04T16:28:15.905337847Z"
          name: queue-autoscale-network
          ```

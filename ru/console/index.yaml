@@ -1,6 +1,6 @@
 title: Yandex Cloud Console
 description:
-  - "Сервис Yandex Cloud Console (консоль управления) предоставляет интерфейс для работы в Yandex Cloud, с помощью которого вы можете управлять облачными ресурсами, настраивать <a href=\"/docs/support/notify\">оповещения</a> и обращаться в <a href=\"/docs/support/overview\">службу поддержки</a>. Для доступа к консоли вам потребуется личный аккаунт на Яндексе (<a href=\"https://yandex.ru/support/passport/authorization/registration.html\">Яндекс\_ID</a>) или корпоративный аккаунт, если вы используете <a href=\"/docs/organization/add-federation\">систему единого входа</a> (SSO)."
+  - "Сервис Yandex Cloud Console (консоль управления) предоставляет интерфейс для работы в Yandex Cloud, с помощью которого вы можете управлять облачными ресурсами, настраивать <a href=\"/docs/support/notify\">оповещения</a> и обращаться в <a href=\"/docs/support/overview\">службу поддержки</a>. Для доступа к консоли вам потребуется личный аккаунт на Яндексе (<a href=\"https://yandex.ru/support/passport/authorization/registration.html\">Яндекс\_ID</a>) или корпоративный аккаунт, если вы используете <a href=\"/docs/organization/concepts/add-federation\">систему единого входа</a> (SSO)."
   - >-
     Для сервиса не действует <a href="/docs/overview/sla">соглашение об уровне
     обслуживания</a> (SLA).

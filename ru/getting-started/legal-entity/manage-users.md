@@ -95,7 +95,7 @@
 - CLI
 
   1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
-  1. [Получите идентификатор пользователя](../../organization/users-get.md).
+  1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
   1. Назначьте роль с помощью команды:
 
     ```
@@ -126,7 +126,7 @@
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 
   1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
-  1. [Получите идентификатор пользователя](../../organization/users-get.md).
+  1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
   1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
     **body.json:**

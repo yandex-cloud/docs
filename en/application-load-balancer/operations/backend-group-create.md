@@ -17,7 +17,7 @@ To create a [backend group](../concepts/backend-group.md):
       * `gRPC`: For HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
       * `Stream`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
 
-   1. (optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `HTTP` and `gRPC` backend groups support the following session affinity modes:
+   1. (Optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `HTTP` and `gRPC` backend groups support the following session affinity modes:
 
       * `By IP address`.
       * `By HTTP header`.
@@ -87,12 +87,12 @@ To create a [backend group](../concepts/backend-group.md):
       * `--panic-threshold`: The threshold for panic mode.
       * `--http-healthcheck`: Parameters for checking the resource status:
          * `port`: The port.
-         * `healthy-threshold`: The healthy threshold.
-         * `unhealthy-threshold`: The unhealthy threshold.
-         * `timeout`: The timeout.
-         * `interval`: The interval.
-         * `host`: The host address.
-         * `path`: The path.
+         * `healthy-threshold`: Healthy threshold.
+         * `unhealthy-threshold`: Unhealthy threshold.
+         * `timeout`: Timeout.
+         * `interval`: Interval.
+         * `host`: Host address.
+         * `path`: Path.
 
       Result:
 
@@ -145,12 +145,12 @@ To create a [backend group](../concepts/backend-group.md):
       * `--panic-threshold`: The threshold for panic mode.
       * `--http-healthcheck`: Parameters for checking the resource status:
          * `port`: The port.
-         * `healthy-threshold`: The healthy threshold.
-         * `unhealthy-threshold`: The unhealthy threshold.
-         * `timeout`: The timeout.
-         * `interval`: The interval.
-         * `host`: The host address.
-         * `path`: The path.
+         * `healthy-threshold`: Healthy threshold.
+         * `unhealthy-threshold`: Unhealthy threshold.
+         * `timeout`: Timeout.
+         * `interval`: Interval.
+         * `host`: Host address.
+         * `path`: Path.
 
       Result:
 
@@ -184,7 +184,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
@@ -238,12 +238,12 @@ To create a [backend group](../concepts/backend-group.md):
       * `load_balancing_config`: Load balancing settings:
          * `panic_threshold`: Threshold for panic mode.
       * `healthcheck`: Health check parameters:
-         * `timeout`: The timeout.
-         * `interval`: The interval.
-         * `healthy_threshold`: The healthy threshold.
-         * `unhealthy_threshold`: The unhealthy threshold.
+         * `timeout`: Timeout.
+         * `interval`: Interval.
+         * `healthy_threshold`: Healthy threshold.
+         * `unhealthy_threshold`: Unhealthy threshold.
          * `http_healthcheck`: Parameters for HTTP health checks:
-            * `path`: The path.
+            * `path`: Path.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Create resources:
