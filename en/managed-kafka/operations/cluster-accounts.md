@@ -302,7 +302,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       You can select the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles at the same time to make a user suitable for both producers and consumers.
    1. To grant permissions to other topics, repeat the steps.
-   1. (optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
+   1. (Optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
 
 - CLI
 

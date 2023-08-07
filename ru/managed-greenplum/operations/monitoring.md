@@ -14,8 +14,8 @@
 
 - Консоль управления
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/monitoring.svg) **Мониторинг**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/monitoring.svg) **{{ ui-key.yacloud.common.monitoring }}**.
     1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
     На странице отображаются следующие графики:
@@ -71,8 +71,8 @@
 
 - Консоль управления
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{mgp-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![hosts.svg](../../_assets/mdb/hosts.svg) **Хосты** → **Мониторинги**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![hosts.svg](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
     1. Выберите нужный хост из выпадающего списка.
 
     На этой странице выводятся графики, показывающие нагрузку на отдельный хост кластера (мастер или сегмент):
@@ -98,14 +98,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-  1. В блоке **Сервисные дашборды** выберите:
+  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
       * **{{ mgp-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mgp-name }} — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
-  1. Нажмите кнопку **Создать алерт**.
+  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для оповещения.
+  1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
@@ -120,8 +120,8 @@
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}
 

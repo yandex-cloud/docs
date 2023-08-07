@@ -14,13 +14,13 @@ description: "In this tutorial, you will learn how to manage PySpark jobs in {{ 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Click on the name of the cluster and open the **Jobs** tab.
    1. Click **Submit job**.
-   1. (optional) Enter a name for the job.
+   1. (Optional) Enter a name for the job.
    1. In the **Job type** field, select `PySpark`.
    1. In the **Main python file** field, specify the path to the main PY application file in the following format:
 
       {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   1. (optional) Specify the paths to PY files, if any.
+   1. (Optional) Specify the paths to the PY files, if any.
    1. Specify job arguments.
 
       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}

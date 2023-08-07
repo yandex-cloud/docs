@@ -1,29 +1,30 @@
 # Как начать работать с {{ iam-short-name }}
 
-Сервис {{ iam-short-name }} позволяет вам управлять доступом к ресурсам {{ yandex-cloud }}.
+Сервис {{ iam-short-name }} позволяет управлять доступом к ресурсам {{ yandex-cloud }}. Чтобы начать работу с сервисом, добавьте пользователя в организацию и выдайте ему доступ к ресурсу в одном из ваших облаков. [Подробнее об организациях, ресурсах и пользователях](../overview/roles-and-resources.md).
 
-По этой инструкции вы добавите пользователя в [организацию](../organization/) и дадите ему доступ к ресурсу в одном из ваших [облаков](../resource-manager/concepts/resources-hierarchy.md#cloud).
-
-Для выполнения инструкции потребуются [роли](./concepts/access-control/roles.md):
-
-* владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
-* владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
-
-
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Если вам некого добавить в облако, вы можете [создать новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставить доступ в облако для этого аккаунта.
+1. Убедитесь, что у вас есть нужные [роли](./concepts/access-control/roles.md):
+
+    1. В консоли управления в списке слева выберите нужное облако. Пример:
+
+        ![image](../_assets/resource-manager/switch-cloud-n-n.png)
+
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+    1. В строке поиска введите свою учетную запись.
+    1. Проверьте, что для вашей учетной записи указаны роли:
+
+        * владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
+        * владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
+
+1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Если пока нет пользователей, которых можно добавить в облако, [создайте новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставьте доступ в облако для этого аккаунта.
 
 
 
-## Добавьте пользователя в организацию {#add-organization-member}
-
-Вы можете добавить в организацию пользователя с аккаунтом на Яндексе или [федеративного](../organization/concepts/add-federation.md) пользователя.
-
-Чтобы добавить пользователя с аккаунтом на Яндексе:
+## Добавьте пользователя с аккаунтом на Яндексе в организацию {#add-organization-member}
 
 {% include [add-useraccount](../_includes/organization/add-useraccount.md) %}
 

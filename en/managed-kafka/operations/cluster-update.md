@@ -5,7 +5,7 @@ After creating an {{ mkf-name }} cluster, you can:
 * [{#T}](#enable-api).
 * [{#T}](#change-brokers).
 * [{#T}](#change-zookeeper).
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) from the current folder to another one.

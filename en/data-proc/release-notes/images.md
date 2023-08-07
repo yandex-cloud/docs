@@ -5,7 +5,7 @@ For a complete listing of current and deprecated {{ dataproc-name }} images, ple
 
 ## 2.0.66 {#2.0.66}
 
-* Adding a new YARN Node Manager to a cluster after running initialization scripts.
+* Fixed the issue when YARN NodeManager was run on a new host before the initialization scripts were executed.
 
 ## 2.0.64 {#2.0.64}
 

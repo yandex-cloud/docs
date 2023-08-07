@@ -1,8 +1,8 @@
 # Настройка программного обеспечения
 
-Для [виртуальных машин](../../concepts/vm.md) с [LAMP](https://ru.wikipedia.org/wiki/LAMP), LEMP и Node.js первоначальную настройку выполнять не нужно. Предустановленное ПО готово к использованию.
+Для [виртуальных машин](../../concepts/vm.md) с [LAMP](/marketplace/products/yc/lamp), [LEMP](/marketplace/products/yc/lemp) и [Node.js](/marketplace/products/yc/nodejs) первоначальную настройку выполнять не нужно. Предустановленное ПО готово к использованию.
 
-Для ВМ с системами, требующими развертывания, например, Drupal, {{ GL }}, Joomla и WordPress, для первоначальной настройки используйте [веб-установщик](#web-setup).
+Для ВМ с системами, требующими развертывания, например, [Drupal](/marketplace/products/yc/drupal-8), [{{ GL }}](/marketplace/products/yc/gitlab), [Joomla](/marketplace/products/yc/joomla) и [WordPress](/marketplace/products/yc/wordpress), для первоначальной настройки используйте [веб-установщик](#web-setup).
 
 ## Настройка ПО через веб-установщик {#web-setup}
 

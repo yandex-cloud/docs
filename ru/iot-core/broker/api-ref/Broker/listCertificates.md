@@ -10,7 +10,7 @@ Retrieves the list of broker certificates for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates
 ```
  
 ## Path parameters {#path_params}

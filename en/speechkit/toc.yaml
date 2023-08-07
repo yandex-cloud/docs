@@ -99,8 +99,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Streaming recognition, API v3
+      - name: Audio file streaming recognition, API v3
         href: stt/api/streaming-examples-v3.md
+      - name: Microphone speech streaming recognition, API v3
+        href: stt/api/microphone-streaming.md
       - name: Automatic language detection, API v3
         href: stt/api/stt-language-labels-example.md
       - name: Streaming recognition, API v2
@@ -111,6 +113,8 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Asynchronous recognition of OggOpus format, API v2
         href: stt/api/transcribation-ogg.md
+      - name: Regular asynchronous recognition of audio files, API v2
+        href: stt/api/batch-transcribation.md
       - name: Speech synthesis in API v3
         href: tts/api/tts-examples-v3.md
       - name: Pattern-based speech synthesis

@@ -9,17 +9,17 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 - Management console
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-    1. Click on the name of the cluster and open the **Jobs** tab.
+    1. Click the name of the cluster and open the **Jobs** tab.
     1. Click **Submit job**.
-    1. (optional) Enter a name for the job.
+    1. (Optional) Enter a name for the job.
     1. In the **Job type** field, select `Hive`.
     1. (Optional) In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key:value` pairs.
 
        {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
-    1. (optional) Enable the **Continue on failure** setting.
-    1. Specify **Script variables** as `key-value` pairs
-    1. (optional) Specify the paths to JAR files, if any.
+    1. (Optional) Enable the **Continue on failure** setting.
+    1. Specify **Script variables** as `key-value` pairs.
+    1. (Optional) Specify the paths to the JAR files, if any:
 
        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 

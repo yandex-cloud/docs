@@ -47,9 +47,9 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       When [changing the host class](cluster-update.md#change-brokers) for the {{ mkf-name }} cluster, the configuration of all existing instances changes as well.
    1. Under **Storage**:
       * Select the disk type.
-        
-         
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
+               
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
          You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
@@ -80,12 +80,13 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          When choosing the number of hosts, keep in mind that:
 
          * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
-                  * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+                  
+         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
          * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
          * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
       
-      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster on.
+      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -124,7 +125,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
         --subnet-ids <subnet IDs> \
         --brokers-count <number of brokers per zone> \
         --resource-preset <host class> \
-        --disk-type <disk type> \
+        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --disk-size <storage size, GB> \
         --assign-public-ip <public access> \
         --security-group-ids <list of security group IDs> \

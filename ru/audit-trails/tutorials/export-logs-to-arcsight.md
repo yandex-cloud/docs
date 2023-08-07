@@ -47,7 +47,7 @@
 
 Вы можете использовать готовую ВМ, у которой есть доступ к экземпляру ArcSight, или создать новую:
 
-1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из образа Linux с операционной системой Ubuntu 20.04.
+1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из образа Linux с операционной системой [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по [SSH](../../glossary/ssh-keygen.md).
 
 ### Создайте бакет для аудитных логов {#create-backet}

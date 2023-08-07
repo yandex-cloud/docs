@@ -55,16 +55,16 @@ Technical support includes troubleshooting third-party software that is used in 
    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
    - [{{ mes-full-name }}](../managed-elasticsearch/index.yaml)
    - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
-   - [{{ managed-k8s-full-name }}](../managed-kubernetes)
-   - [{{ mmg-full-name }}](../managed-mongodb)
-   - [{{ mmy-full-name }}](../managed-mysql)
-   - [{{ mos-full-name }}](../managed-opensearch)
-   - [{{ mrd-full-name }}](../managed-redis)
-   - [{{ mpg-full-name }}](../managed-postgresql/)
+   - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
+   - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
+   - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
+   - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
+   - [{{ mrd-full-name }}](../managed-redis/index.yaml)
+   - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 #### What happens if you cannot solve my third-party software problems? {#unresolved-third-party-issues}
 
-If the technical support team can't resolve your third-party software issue, you need to contact the support service of the software vendor. In some cases, contacting a vendor's support service requires a valid contract for technical support with the vendor or their partners.
+If the technical support team cannot resolve your third-party software issue, you need to contact the support service of the software vendor. In some cases, contacting a vendor's support service requires a valid contract for technical support with the vendor or their partners.
 
 
 #### How do I change my technical support service plan? {#change-pricing-plan}

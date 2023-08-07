@@ -230,7 +230,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-a` и `{{ region-id }}-b`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
      
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** выберите `Ubuntu 20.04`.
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** выберите [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите следующие настройки:
        
        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -375,7 +375,7 @@
      * Идентификатор сети `vm-scale-scheduled-network` — с помощью метода REST API [get](../../vpc/api-ref/Network/get.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Get](../../vpc/api-ref/grpc/network_service.md#Get).
      * Идентификаторы подсетей `vm-scale-scheduled-subnet-a` и `vm-scale-scheduled-subnet-b` — с помощью метода REST API [get](../../vpc/api-ref/Subnet/get.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Get](../../vpc/api-ref/grpc/subnet_service.md#Get).
    
-  1. Получите идентификатор последней версии публичного образа `ubuntu-2004-lts` в семействе `standard-images` с помощью метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily).
+  1. Получите идентификатор последней версии публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) в семействе `standard-images` с помощью метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily).
 
   1. Вставьте полученные идентификаторы в файл `specification.yaml` со спецификацией группы виртуальных машин:
 

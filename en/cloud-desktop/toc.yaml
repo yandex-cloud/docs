@@ -4,14 +4,16 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Desktop groups
         items:
           - name: Creating a desktop group
             href: operations/desktop-groups/create.md
+          - name: Updating a desktop group
+            href: operations/desktop-groups/update.md
           - name: Changing permissions to a desktop group
             href: operations/desktop-groups/update-acl.md
           - name: Deleting a desktop group
@@ -24,12 +26,32 @@ items:
             href: operations/desktops/connect.md
           - name: Resetting a desktop user's password
             href: operations/desktops/password-reset.md
+          - name: Starting, restarting, and stopping a desktop
+            href: operations/desktops/start-stop.md
+          - name: Updating a desktop
+            href: operations/desktops/update.md
           - name: Deleting a desktop
             href: operations/desktops/delete.md
+      - name: Images
+        items:
+          - name: Creating an image from a desktop
+            href: operations/images/create-from-desktop.md
+          - name: Creating an image from a Compute Cloud VM
+            href: operations/images/create-from-compute.md
+          - name: Deleting a custom image
+            href: operations/images/delete.md
+      - name: Viewing logs
+        href: operations/logging.md
   - name: Concepts
     items:
       - name: Desktops and their groups
         href: concepts/desktops-and-groups.md
+      - name: Disks
+        href: concepts/disks.md
+      - name: Images
+        href: concepts/images.md
+      - name: User desktop showcase
+        href: concepts/showcase.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Pricing policy
