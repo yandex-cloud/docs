@@ -43,7 +43,7 @@ The cost of the resources required to use Hystax Acura Disaster Recovery include
 * Charge for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Charges for object storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Charge for each protected VM (see [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery-3-7) in {{ marketplace-name }}).
+* Charge for each protected VM (see [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
 
 
 ## Create a service account and authorized key {#create-sa}
@@ -72,7 +72,7 @@ If a security group is available, [add](../../vpc/operations/security-group-add-
 | Incoming | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
 | Incoming | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
 | Incoming | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | TCP | 15,000 | TCP | CIDR | 0.0.0.0/0 |
+| Incoming | TCP | 15000 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | http | 80 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | https | 443 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
@@ -162,7 +162,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
       * `size`: Disk size.
       * `image-id`: Disk image ID.
 
-         For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery-3-7) in {{ marketplace-name }}.
+         For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}.
 
    * `service-account-id`: ID of the [previously created](#create-sa) service account.
 
@@ -210,11 +210,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
       Result:
 
       ```bash
-      +----------------------+------+---------------+----------+------+
-      |          ID          | NAME |    ADDRESS    | RESERVED | USED |
-      +----------------------+------+---------------+----------+------+
-      | e2l46k8conff8n6ru1jl |      | 84.201.177.41 | false    | true |
-      +----------------------+------+---------------+----------+------+
+      +----------------------+------+-----------------+----------+------+
+      |          ID          | NAME |     ADDRESS     | RESERVED | USED |
+      +----------------------+------+-----------------+----------+------+
+      | e2l46k8conff8n6ru1jl |      | {{ external-ip-examples.0 }}  | false    | true |
+      +----------------------+------+-----------------+----------+------+
       ```
 
       The `false` value of the `RESERVED` parameter of the IP address with the `e2l46k8conff8n6ru1jl` `ID` shows that this address is dynamic.
@@ -229,9 +229,9 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
       ```bash
       id: e2l46k8conff8n6ru1jl
       folder_id: b1g7gvsi89m34pipa3ke
-      created_at: "2022-01-14T09:36:46Z"
+      created_at: "2023-06-02T09:36:46Z"
       external_ipv4_address:
-        address: 84.201.177.41
+        address: {{ external-ip-examples.0 }}
         zone_id: {{ region-id }}-b
         requirements: {}
       reserved: true
@@ -264,9 +264,19 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
    * **Service Account id**: ID of your service account.
    * **Key id**: ID of your service account authorized key.
    * **Private Key**: Private part of your service account authorized key.
+
+     {% note info %}
+
+     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+
+     {% endnote %}
+     
    * **Default Folder id**: ID of your folder.
    * **Zone**: Availability zone.
    * **Hystax Service Subnet**: ID of the subnet the `hystax-acura-vm` virtual machine is connected to.
+   * **S3 Host**: `{{ s3-storage-host }}`.
+   * **S3 Port**: `443`.
+   * **Enable HTTPS**: Select the option to enable HTTPS connections.
    * **Hystax Acura Control Panel Public IP**: Public IP address of the Hystax Acura VM. Replace the value in this field with the IP address obtained in step 1.
 1. Click **Next**.
 
@@ -331,7 +341,7 @@ To enable VM replication:
 1. Open the Hystax Acura control panel. Click the Hystax logo.
 1. Under **Machines Groups**, deploy a VM group, such as `Prod-Web`.
 1. Click ![image](../../_assets/options.svg) in the VM list on the right.
-1. Set up a replication schedule and an image lifecycle policy using the **Edit replication schedule** and **Edit retention policies** options. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html?highlight=replication%20schedule#edit-replication-settings-schedule).
+1. Set up a replication schedule and an image lifecycle policy using the **Edit replication schedule** and **Edit retention policies** options. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
 1. Select **Start Protection**.
 
 VM replication will start. Once it is complete, the VMs will change their status to `Protected`.

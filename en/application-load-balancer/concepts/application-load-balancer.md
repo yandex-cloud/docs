@@ -104,13 +104,24 @@ If an HTTPS listener is used, specify a [certificate](../../certificate-manager/
 
 ## Statistics {#stats}
 
-Load balancer statistics are automatically logged in the {{ monitoring-full-name }} metrics. The following metrics are available:
+Load balancer statistics are automatically logged in the {{ monitoring-full-name }} metrics. The following dashboards and measures are available:
 
-* **RPS**: Number of load balancer requests per second.
-* **4XX**, **5XX**: Number of load balancer responses containing HTTP codes 4XX and 5XX and the [corresponding gRPC codes](../../api-design-guide/concepts/errors.md#error-list) per second.
-* **Request size**: Total volume of load balancer requests per second.
-* **Response size**: Total volume of load balancer responses per second.
-* **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
+* **HTTP statistics**:
+
+   * **RPS**: Number of load balancer requests per second.
+   * **4XX**, **5XX**: Number of load balancer responses containing HTTP codes 4XX and 5XX and the [corresponding gRPC codes](../../api-design-guide/concepts/errors.md#error-list) per second.
+   * **Request size**: Total volume of load balancer requests per second.
+   * **Response size**: Total volume of load balancer responses per second.
+   * **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
+
+* **Capacity statistics**:
+
+   * **Active connections**: Number of active connections.
+   * **Connections per second**: Number of connections per second.
+   * **Requests per second**: Number of requests per second.
+   * **Bytes per second**: Amount of data handled per second.
+
+For a full list of metrics delivered to {{ monitoring-full-name }}, see the [reference](../metrics.md).
 
 {{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
 

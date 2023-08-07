@@ -37,11 +37,11 @@
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
         * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
         * Укажите размер диска.
-        * (опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**, чтобы добавить дополнительные диски.
+        * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**, чтобы добавить дополнительные диски.
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
         * Выберите [платформу](../../compute/concepts/vm-platforms.md).
         * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
-        * (опционально) Укажите, что виртуальная машина должна быть [прерываемой](../../compute/concepts/preemptible-vm.md).
+        * (Опционально) Укажите, что виртуальная машина должна быть [прерываемой](../../compute/concepts/preemptible-vm.md).
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
         * Выберите [облачную сеть](../../compute/concepts/vm.md#network) и [подсеть](../../compute/concepts/network.md#subnet). Если подсети нет, создайте ее:
             * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
@@ -50,7 +50,7 @@
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите способ назначения адреса:
             * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
             * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` — чтобы не назначать публичный IP-адрес.
-        * (опционально) Выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если группы безопасности нет, создайте ее:
+        * (Опционально) Выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если группы безопасности нет, создайте ее:
             * Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
             * Введите имя и описание группы безопасности. Правила для группы безопасности вы сможете добавить позже в сервисе **{{ vpc-name }}**.
             * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -89,10 +89,10 @@
     * Если вы выбрали `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed-test-auto }}`, укажите размеры группы и параметры для автоматического масштабирования. Автоматическое масштабирование группы в данном типе работает в экспериментальном режиме.
 1. Если ранее вы выбрали `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}` тип масштабирования, то в блоке **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}** укажите целевой уровень загрузки CPU в процентах.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}**:
-    * (опционально) Нажмите переключатель **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**. [Целевые группы](../../network-load-balancer/concepts/target-resources.md) нужны для распределения нагрузки [сетевым балансировщиком](../../network-load-balancer/concepts/index.md).
+    * (Опционально) Нажмите переключатель **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**. [Целевые группы](../../network-load-balancer/concepts/target-resources.md) нужны для распределения нагрузки [сетевым балансировщиком](../../network-load-balancer/concepts/index.md).
         * Введите имя и описание целевой группы.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_health-check }}**:
-    * (опционально) Нажмите переключатель **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}**.
+    * (Опционально) Нажмите переключатель **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}**.
        * Выберите тип проверки: `HTTP` или `TCP`.
        * Укажите путь, по которому будут выполняться проверки.
        * Укажите порт из диапазона 1-32767.

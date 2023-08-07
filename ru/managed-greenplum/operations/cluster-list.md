@@ -8,7 +8,7 @@
 
 - Консоль управления
 
-    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
+    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
 - CLI
 
@@ -34,7 +34,7 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера.
 
 - CLI
@@ -65,8 +65,8 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![operations.svg](../../_assets/mdb/operations.svg) **Операции**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI
 

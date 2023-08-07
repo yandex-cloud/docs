@@ -10,7 +10,7 @@ Deletes the specified broker.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}
+DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 ```
  
 ## Path parameters {#path_params}

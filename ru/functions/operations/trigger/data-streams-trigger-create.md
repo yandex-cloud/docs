@@ -11,7 +11,7 @@
     * [Создайте функцию](../function/function-create.md).
     * [Создайте версию функции](../function/version-manage.md).
 
-* (опционально) Очередь [Dead Letter Queue](../../concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогла обработать функция. Если у вас нет очереди, [создайте ее](../../../message-queue/operations/message-queue-new-queue.md).
+* (Опционально) Очередь [Dead Letter Queue](../../concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогла обработать функция. Если у вас нет очереди, [создайте ее](../../../message-queue/operations/message-queue-new-queue.md).
 
 * [Сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) с правами:
 

@@ -29,7 +29,7 @@
 
 ## Создайте веб-сервер {#create-web-server}
 
-1. Создайте ВМ `dvwa-server` с ОС Ubuntu:
+1. Создайте ВМ `dvwa-server` с ОС [Ubuntu](/marketplace/products/yc/ubuntu-22-04-lts):
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
    1. В списке сервисов выберите **{{ compute-name }}**.
@@ -37,7 +37,7 @@
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Введите имя `dvwa-server`. 
       * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите Ubuntu 22.04.   
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts).   
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя `ycuser`.
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
@@ -84,7 +84,7 @@
 
 ## Настройте межсетевой экран {#configure-firewall}
 
-1. Создайте ВМ `pt-firewall` из публичного образа `PT Application Firewall`:
+1. Создайте ВМ `pt-firewall` из публичного образа [PT Application Firewall](/marketplace/products/pt/pt-application-firewall):
 
    {% list tabs %}
 
@@ -97,7 +97,7 @@
          * Введите имя `pt-firewall`. 
          * Выберите ту же зону доступности, в которой находится ВМ `dvwa-server`.
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**. 
-      1. Выберите актуальный образ `PT Application Firewall`.
+      1. Выберите актуальный образ [PT Application Firewall](/marketplace/products/pt/pt-application-firewall).
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
          * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя `ycuser`.
          * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.

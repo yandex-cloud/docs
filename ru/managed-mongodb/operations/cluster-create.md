@@ -29,7 +29,7 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
       * Введите название в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
-      * (опционально) Введите **{{ ui-key.yacloud.mdb.forms.base_field_description }}** кластера.
+      * (Опционально) Введите **{{ ui-key.yacloud.mdb.forms.base_field_description }}** кластера.
       * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
 
           * `PRODUCTION` — для стабильных версий ваших приложений.

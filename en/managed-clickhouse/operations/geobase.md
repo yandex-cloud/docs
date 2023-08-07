@@ -44,7 +44,7 @@ To add your own geobase to a {{ CH }} cluster:
 
    1. [Connect a service account to a cluster](s3-access.md#connect-service-account).
    1. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
-   1. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
+   1. In the bucket ACL, [grant](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the account.
 
 1. [Get a link](s3-access.md#get-link-to-object) to the geobase archive.
 

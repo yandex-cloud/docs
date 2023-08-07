@@ -14,6 +14,8 @@ items:
             href: operations/create-vm.md
           - name: Connecting a Windows Server VM
             href: operations/connect-vm-windows.md
+          - name: Updating a VM connection to {{ backup-name }}
+            href: operations/refresh-connection.md
       - name: Backup policies
         items:
           - name: Creating a policy
@@ -26,6 +28,8 @@ items:
         items:
           - name: Restoring a VM from a backup
             href: operations/backup-vm/recover.md
+          - name: Restoring a VM from a backup of another VM
+            href: operations/backup-vm/non-native-recovery.md
           - name: Deleting a backup
             href: operations/backup-vm/delete.md
   - name: Concepts

@@ -10,7 +10,10 @@ You can get a CSV file with your general or per-resource spending details.
 
    {% note alert %}
 
-   Do not make your bucket public; otherwise, anyone will be able to download your expense details from the bucket link.
+   Bucket requirements:
+
+   * Do not make your bucket public; otherwise, anyone will be able to download your expense details from the bucket link.
+   * Do not add [encryption](../../storage/concepts/encryption.md) to the bucket.
 
    {% endnote %}
 
@@ -33,6 +36,12 @@ You can get a CSV file with your general or per-resource spending details.
       * In the **Directory** field, the name of the directory for the file. The last character must be `/`.
       * Select the language for product names: English or Russian. 
       * Select the type of details: **General** or **Resource**.
+
+         {% note tip %}
+
+         If you select the **Resource** type of details for regular export, you can also view {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id` field](#format) (for example, [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+
+         {% endnote %}
    1. Click **Create**.
 
 {% endlist %}
@@ -69,7 +78,7 @@ The table contains the following columns:
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
    * {{ message-queue-name }}: ID of the request.
-   * {{ sf-name }} : ID of the function.
+   * {{ sf-name }}: ID of the function.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.

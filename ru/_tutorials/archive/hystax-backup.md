@@ -24,7 +24,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% note info %}
@@ -231,11 +230,11 @@ Hystax Acura Backup будет выполнять действия от имен
       Результат:
 
       ```bash
-      +----------------------+------+---------------+----------+------+
-      |          ID          | NAME |    ADDRESS    | RESERVED | USED |
-      +----------------------+------+---------------+----------+------+
-      | e2l46k8conff******** |      | 8*.20*.17*.4* | false    | true |
-      +----------------------+------+---------------+----------+------+
+      +----------------------+------+-----------------+----------+------+
+      |          ID          | NAME |     ADDRESS     | RESERVED | USED |
+      +----------------------+------+-----------------+----------+------+
+      | e2l46k8conff******** |      | {{ external-ip-examples.0 }}  | false    | true |
+      +----------------------+------+-----------------+----------+------+
       ```
 
       Значение `false` параметра `RESERVED` для IP-адреса с `ID` `e2l46k8conff********` показывает, что этот адрес динамический.
@@ -250,9 +249,9 @@ Hystax Acura Backup будет выполнять действия от имен
       ```bash
       id: e2l46k8conff********
       folder_id: b1g7gvsi89m3********
-      created_at: "2022-01-14T09:36:46Z"
+      created_at: "2023-05-23T09:36:46Z"
       external_ipv4_address:
-        address: 8*.20*.17*.4*
+        address: {{ external-ip-examples.0 }}
         zone_id: {{ region-id }}-b
         requirements: {}
       reserved: true
@@ -291,6 +290,13 @@ Hystax Acura Backup будет выполнять действия от имен
     * **Service account ID** — идентификатор сервисного аккаунта (получен на шаге [Создайте сервисный аккаунт](#create-sa)).
     * **Key ID** — идентификатор авторизованного ключа сервисного аккаунта (получен на шаге [Создайте сервисный аккаунт](#create-sa)).
     * **Private key** — закрытый ключ сервисного аккаунта (получен на шаге [Создайте сервисный аккаунт](#create-sa)).
+
+      {% note info %}
+
+      {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+ 
+      {% endnote %}
+
     * **Default folder ID** — [идентификатор](../../resource-manager/operations/folder/get-id.md) вашего каталога.
     * **Availability zone** — зона доступности, в которой находится ВМ с Hystax Acura Backup (получена на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm)).
     * **Hystax Service Subnet** — идентификатор подсети, к которой подключена ВМ с Hystax Acura Backup (получен на шаге [Создайте ВМ с Hystax Acura Backup](#create-acura-vm).
@@ -366,7 +372,7 @@ Hystax Acura Backup автоматически проверит доступ к 
 1. В блоке **Machines Groups** разверните группу ВМ, например `Default`.
 1. В списке ВМ справа нажмите кнопку ![image](../../_assets/options.svg).
 1. В меню **Edit replication settings** настройте расписание репликации для группы ВМ по часам, дням, неделям или беспрерывную защиту, в разделе **Volume type** укажите тип диска для восстановления: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`. 
-1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее см. в [документации Hystax](https://hystax.com/documentation/dr/dr_overview.html?highlight=replication%20schedule#edit-replication-settings-schedule).
+1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее см. в [документации Hystax](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
 1. Выберите **Start Protection**.
 
 Начнется процесс репликации ВМ. Реплика ВМ будет включать в себя все данные исходной ВМ, поэтому репликация может занять продолжительное время (зависит от размера диска исходной ВМ). Статус репликации будет отображаться в столбце **Status** блока **Machines Groups**. После окончания процесса они будут переведены в статус `Protected`.

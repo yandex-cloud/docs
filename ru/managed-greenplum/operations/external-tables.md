@@ -127,7 +127,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         * Имя пользователя — `mysqluser`.
         * Пароль — `mysqlpassword`.
-        * В настройках хостов выберите опцию **Публичный доступ**.
+        * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Подключитесь к БД {{ MY }}](../../managed-mysql/operations/connect#connection-string) с помощью утилиты `mysql`.
     1. Создайте тестовую таблицу и наполните ее данными:
@@ -174,7 +174,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         * Имя пользователя — `pguser`;
         * Пароль — `pgpassword`;
-        * В настройках хостов выберите опцию **Публичный доступ**.
+        * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Подключитесь к БД {{ PG }}](../../managed-postgresql/operations/connect.md#bash) с помощью утилиты `psql`.
     1. Создайте тестовую таблицу и наполните ее данными:

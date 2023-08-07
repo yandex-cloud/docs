@@ -24,7 +24,7 @@
       * Выберите [платформу](../concepts/vm-platforms.md).
       * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU и объем RAM.
       * При необходимости сделайте виртуальную машину [прерываемой](../concepts/preemptible-vm.md).
-      * (опционально) Включите [программно-ускоренную сеть](../concepts/software-accelerated-network.md).
+      * (Опционально) Включите [программно-ускоренную сеть](../concepts/software-accelerated-network.md).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Можно выбрать зону поиска: в текущем каталоге или во всех каталогах. Если сети нет, нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
           * В открывшемся окне укажите каталог, в котором будет располагаться новая сеть, и имя сети.
@@ -40,10 +40,10 @@
         {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на виртуальную машину:
-      * (опционально) Выберите или создайте [сервисный аккаунт](../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+      * (Опционально) Выберите или создайте [сервисный аккаунт](../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../operations/vm-connect/ssh.md#creating-ssh-keys).
-      * (опционально) При необходимости в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../operations/index.md#serial-console).
+      * (Опционально) При необходимости в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../operations/index.md#serial-console).
 
       {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 

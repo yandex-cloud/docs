@@ -14,7 +14,7 @@ description: "In this tutorial, you will learn how to manage Spark jobs in {{ da
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Click on the name of the cluster and open the **Jobs** tab.
    1. Click **Submit job**.
-   1. (optional) Enter a name for the job.
+   1. (Optional) Enter a name for the job.
    1. In the **Job type** field, select `Spark`.
    1. In the **Main jar**, specify the path to the main JAR application file in the following format:
 

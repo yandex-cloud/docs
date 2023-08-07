@@ -10,7 +10,7 @@ To get the list of available brokers, make a [list](/docs/iot-core/broker/api-re
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 ```
  
 ## Path parameters {#path_params}

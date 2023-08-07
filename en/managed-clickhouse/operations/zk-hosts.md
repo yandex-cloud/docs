@@ -233,14 +233,14 @@ To learn more, see [Replication](../concepts/replication.md).
    1. Add a `host` block of the `ZOOKEEPER` type to the {{ mch-name }} cluster description:
 
       ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-         ...
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<availability zone>"
-           subnet_id = yandex_vpc_subnet.<subnet in selected availability zone>.id
-         }
-         ...
+      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+        ...
+        host {
+          type      = "ZOOKEEPER"
+          zone      = "<availability zone>"
+          subnet_id = yandex_vpc_subnet.<subnet in selected availability zone>.id
+        }
+        ...
       }
       ```
 
@@ -311,7 +311,7 @@ To learn more, see [Replication](../concepts/replication.md).
 - API
 
    To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
-   * The ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}

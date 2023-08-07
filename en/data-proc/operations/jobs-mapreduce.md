@@ -16,7 +16,7 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
     1. Click on the name of the cluster and open the **Jobs** tab.
     1. Click **Submit job**.
-    1. (optional) Enter a name for the job.
+    1. (Optional) Enter a name for the job.
     1. In the **Job type** field, select `Mapreduce`.
     1. Select one of the driver types and specify which to use to start the job:
         * Main class name.

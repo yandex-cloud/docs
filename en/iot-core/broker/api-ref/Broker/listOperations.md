@@ -10,7 +10,7 @@ Lists operations for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/operations
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/operations
 ```
  
 ## Path parameters {#path_params}

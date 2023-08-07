@@ -10,7 +10,7 @@ As you use resources, the balance automatically decreases. Learn more about [pay
 
 #### How do I increase quotas? / What should I do if the "429 Too Many Requests" error occurs? {#quotas}
 
-The `429 Too Many Requests` error indicates that the quotas set for your folder have been exceeded. The default quota values are specified in the [table](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-quotas).
+The `429 Too Many Requests` error indicates that the quotas set for your folder have been exceeded. The default quota values are specified in this [table](../../{{ speechkit-slug }}/concepts/limits.md#speechkit-quotas).
 
 To increase the quotas, contact support. In your request, specify the **folder ID** and the desired quotas in "Name — Value" format.
 
@@ -37,19 +37,19 @@ Follow the recommendations and examples given in the **API** tab for [Getting an
 
 #### What should I do if the "401 Unauthorized" error is returned? {#auth-err}
 
-Assign the service account the `editor` [role](../../{{ speechkit-slug }}/security/) or a higher role for the folder where it was created.
+Assign the `editor` or a higher [role](../../{{ speechkit-slug }}/security/) to the service account for the folder where it was created.
 
-When using service accounts, don't specify the folder ID in your requests: the service uses the folder where the service account was created.
+When using service accounts, do not specify the folder ID in your requests: the service uses the folder where the service account was created.
 
-Follow the instructions: [Before you start](../../{{ speechkit-slug }}/quickstart/index.md#before-you-begin).
+Follow the [Getting started](../../{{ speechkit-slug }}/quickstart/index.md#before-you-begin) guide.
 
-#### What should I do if HTTP/1.1 "426 Upgrade Required" is returned? {#http-err}
+#### What should I do if I get the 426 Upgrade Required HTTP/1.1 response? {#http-err}
 
-Make sure you're using `HTTP 1.1` and not `HTTP 1.0`.
+Make sure you are using `HTTP 1.1` rather than `HTTP 1.0`.
 
-#### What should I do in the event of a "TLS Handshake error"? {#tls-err}
+#### What should I do if I get a TLS Handshake error? {#tls-err}
 
-Make sure the **TLS** version you're using is not lower than `1.2`.
+Make sure the **TLS** version you are using is not lower than `1.2`.
 
 #### What should I do if the "OAuth token is invalid or expired" error occurs? {#oauth-err}
 

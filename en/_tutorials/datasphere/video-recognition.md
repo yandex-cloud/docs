@@ -2,7 +2,7 @@
 
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the {{ jlab }} Notebook interface.
 
-This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
+This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
 
 To get an idea of how the problem might be solved:
 1. [Prepare your infrastructure](#deploy-infrastructure).
@@ -221,7 +221,7 @@ The packages listed in the cell are already installed in {{ ml-platform-name }} 
 
 Go to the **Connect S3** section. You can use it to:
 
-1. Set up connection to the S3 bucket.
+1. Set up a connection to the S3 bucket.
 1. Load the list of objects, i.e., images of cars and buses. These will be used to train the model.
 1. Define the function to extract an image using a key (name).
 
@@ -365,5 +365,5 @@ There are several practical uses of the model you built:
 To shut down the model and stop paying for the resources created:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the respective bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../datasphere/operations/projects/delete.md) your project.

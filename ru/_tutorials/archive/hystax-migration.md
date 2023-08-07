@@ -33,7 +33,7 @@
 * Плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение образов (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за каждую проведенную миграцию (см. [описание продукта](/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) в {{ marketplace-name }}).
+* Плата за каждую проведенную миграцию (см. [описание продукта](/marketplace/products/hystax/hystax-acura-live-cloud-migration) в {{ marketplace-name }}).
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
@@ -90,7 +90,7 @@
 
       * Перейдите на вкладку **{{ marketplace-name }}**.
       * Нажмите кнопку **Посмотреть больше**.
-      * В списке публичных образов выберите [Hystax Acura Live Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **Использовать**.
+      * В списке публичных образов выберите [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **Использовать**.
 
    1. В блоке **Диски** укажите размер диска 200 ГБ.
 
@@ -149,7 +149,7 @@
      * `size` — размер диска.
      * `image-id` — идентификатор образа диска.
 
-        В данном случае используйте `image_id` из [описания продукта](/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) в {{ marketplace-name }}.
+        В данном случае используйте `image_id` из [описания продукта](/marketplace/products/hystax/hystax-acura-live-cloud-migration) в {{ marketplace-name }}.
 
    * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa).
 
@@ -165,7 +165,7 @@
 
    {% note info %}
 
-   После первоначального запуска ВМ с Hystax Acura Disaster Recovery происходит процесс установки, который может занять более 20 минут.
+   После первоначального запуска ВМ с Hystax Acura Live Cloud Migration происходит процесс установки, который может занять более 20 минут.
 
    {% endnote %}
 
@@ -180,9 +180,19 @@
    * **Service account ID** — идентификатор сервисного аккаунта.
    * **Key ID** — идентификатор авторизованного ключа сервисного аккаунта.
    * **Private key** — приватный ключ сервисного аккаунта.
+
+     {% note info %}
+
+     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+
+     {% endnote %}
+     
    * **Default folder ID** — идентификатор вашего каталога.
    * **Availability zone** — зона доступности, в которой находится ВМ `hystax-acura-vm`.
    * **Hystax Service Subnet** — идентификатор подсети, к которой подключена ВМ `hystax-acura-vm`.
+   * **S3 Host** — `{{ s3-storage-host }}`.
+   * **S3 Port** — `443`.
+   * **Enable HTTPS** — включите опцию HTTPS-соединения.
    * **Hystax Acura Control Panel Public IP** — публичный IP-адрес ВМ `hystax-acura-vm`. Замените значение, установленное в поле, на IP-адрес, полученный на шаге 1.
    * **Additional parameters** — дополнительные параметры. Оставьте поле без изменений.
 1. Нажмите кнопку **Next**.

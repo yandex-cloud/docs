@@ -49,7 +49,7 @@
         * `ACCESS_ROLE_PRODUCER`.
 
 
-1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 20.04 и публичным IP-адресом.
+1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
 
 
 
@@ -364,7 +364,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

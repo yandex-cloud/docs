@@ -5,24 +5,11 @@
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
-If you enable the **Hybrid storage** setting when creating or updating a cluster, you'll be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used "hot" data in cluster storage and rarely used "cold" data in less expensive and slower object storage. For details, see [{#T}](#hybrid-storage-features).
-
-
-## Specifics of local SSD storage {#local-storage-features}
-
-Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
-
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using this disk type, a 2-host fault-tolerant configuration is automatically set up.
-* You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
-
-## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
-
-{% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
-
+If you enable the **Hybrid storage** setting when creating or updating a cluster, you will be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used (_hot_) data in cluster storage and rarely used (_cold_) data in less expensive and slower object storage. For details, see [{#T}](#hybrid-storage-features).
 
 ## Hybrid storage {#hybrid-storage-features}
 
-Hybrid storage provides fault tolerance for data storage and lets you manage data placement for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables: the data is placed either in cluster or object storage depending on the storage policy set for the tables.
+Hybrid storage provides fault tolerance for data storage and allows you to manage data placement for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables; the data is placed either in cluster or object storage depending on the storage policy set for the tables.
 
 {% note warning %}
 
@@ -112,7 +99,7 @@ You can specify hybrid storage settings when [creating](../operations/cluster-cr
 For more information about setting up hybrid storage, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
 
-## Choice of disk type during cluster creation {#storage-type-selection}
+## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created along with a {{ CH }} cluster depends on the selected disk type:
 

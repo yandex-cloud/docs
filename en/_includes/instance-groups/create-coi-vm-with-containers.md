@@ -229,8 +229,8 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
-      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ cos-external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
-      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ cos-external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       ```
 
@@ -249,7 +249,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - CLI
 
       ```bash
-      ssh yc-user@{{ cos-external-ip-examples.0 }}
+      ssh yc-user@{{ external-ip-examples.0 }}
       ```
 
       Result:

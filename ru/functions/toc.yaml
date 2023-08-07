@@ -437,6 +437,8 @@ items:
                 href: functions/api-ref/Function/createVersion.md
               - name: delete
                 href: functions/api-ref/Function/delete.md
+              - name: deleteVersion
+                href: functions/api-ref/Function/deleteVersion.md
               - name: get
                 href: functions/api-ref/Function/get.md
               - name: getVersion

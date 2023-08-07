@@ -691,7 +691,7 @@ To pause a connector:
       You cannot change this parameter after creating the cluster.
 
    * (Optional) **Max records per file**: Maximum number of records that can be written to a single file in an S3-compatible storage.
-   * Under **S3 connection**, specify the storage connection parameters:
+   * Under **S3 connector**, specify the storage connection parameters:
       * **Bucket name**: Storage bucket name.
       * **Endpoint**: Endpoint for storage access (to find out from storage provider).
       * (Optional) **Region**: Region description. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).

@@ -177,4 +177,5 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 * [{#T}](transcribation-api.md)
 * [{#T}](transcribation-lpcm.md)
+* [{#T}](batch-transcribation.md)
 * [{#T}](../../concepts/auth.md)

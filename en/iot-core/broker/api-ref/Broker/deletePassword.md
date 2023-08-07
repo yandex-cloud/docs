@@ -10,7 +10,7 @@ Deletes the specified password.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords/{passwordId}
+DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords/{passwordId}
 ```
  
 ## Path parameters {#path_params}

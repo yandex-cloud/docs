@@ -106,7 +106,7 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
@@ -162,7 +162,7 @@
     * Консоль управления
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. В списке сервисов выберите **{{ ydb-name }}**.
+        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `<имя базы данных кластера-источника>_measurements` с тестовыми данными.
@@ -193,7 +193,7 @@
     * Консоль управления
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. В списке сервисов выберите **{{ ydb-name }}**.
+        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `<имя базы данных кластера-источника>_measurements` добавились новые данные.

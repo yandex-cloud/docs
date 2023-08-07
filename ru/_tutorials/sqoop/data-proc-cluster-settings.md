@@ -4,9 +4,9 @@
 
 * Бакет {{ objstorage-name }}
 
-    * **Сервисный аккаунт** — имя созданного ранее сервисного аккаунта.
-    * **Имя бакета** — имя созданного ранее бакета.
-    * **Сервисы** — `Sqoop`.
+    * **{{ ui-key.yacloud.mdb.cluster.overview.label_service-account }}** — имя созданного ранее сервисного аккаунта.
+    * **{{ ui-key.yacloud.mdb.cluster.overview.label_bucket }}** — имя созданного ранее бакета.
+    * **{{ ui-key.yacloud.mdb.cluster.overview.label_services }}** — `Sqoop`.
 
 * Директория HDFS
 

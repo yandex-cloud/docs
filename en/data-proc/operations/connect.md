@@ -110,7 +110,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To connect to a {{ dataproc-name }} host, make sure the SSH key that you specified when creating the {{ dataproc-name }} cluster is accessible on the local machine or the VM. You can copy the key to the machine from which the connection is performed to the cluster, or connect to it with an SSH agent.
 
-1. (optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the intermediate virtual machine via SSH.
+1. (Optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the intermediate virtual machine via SSH.
 
 1. Launch the SSH agent:
 
@@ -185,7 +185,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
          1. Enable the **Use SSL** setting and specify the SSL connection parameters:
             * **CA file**: Downloaded SSL certificate for the connection.
             * **Client key file**, **Client key password**: File with the private key required to connect to the {{ dataproc-name }} cluster and its password.
-         1. (optional) To connect via an intermediate VM, configure an SSH tunnel:
+         1. (Optional) To connect via an intermediate VM, configure the parameters of the SSH tunnel:
             1. Select **Use SSH tunnel**, create an SSH configuration, and specify the parameters:
                * **Host**: IP address of the VM.
                * **User name**: VM user's name.

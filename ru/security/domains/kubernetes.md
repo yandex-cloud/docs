@@ -254,7 +254,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Требования [Pod Security Standarts](https://kubernetes.io/docs/concepts/security/pod-security-standards/ ) от {{ k8s }} позволяют предотвращать угрозы, которые связаны с объектами {{ k8s }}.
 
-Для реализации требований можно использовать либо встроенный инструмент {{ k8s }} [Pod Security Admission Controller ](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) либо открытое программное обеспечение, например другие Admission Controllers: OPA Gatekeeper, Kyverno.
+Для реализации требований можно использовать либо встроенный инструмент {{ k8s }} [Pod Security Admission Controller ](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) либо открытое программное обеспечение, например другие Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
 
 Примеры, в которых используется Kyverno:
 

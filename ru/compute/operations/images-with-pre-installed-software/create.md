@@ -49,15 +49,15 @@
 
      
 
-     * (опционально) При необходимости в поле **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** выберите опцию [защиты от DDoS-атак](../../../vpc/ddos-protection/index.md).
+     * (Опционально) При необходимости в поле **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** выберите опцию [защиты от DDoS-атак](../../../vpc/ddos-protection/index.md).
 
 
      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md) (если соответствующего поля нет, для ВМ будет разрешен любой входящий и исходящий трафик).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-     * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+     * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../vm-connect/ssh.md#creating-ssh-keys).
-     * (опционально) При необходимости  в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../index.md#serial-console).
+     * (Опционально) При необходимости  в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../index.md#serial-console).
 
      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 

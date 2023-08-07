@@ -24,7 +24,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 {% note info %}
@@ -231,11 +230,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
       Result:
 
       ```bash
-      +----------------------+------+---------------+----------+------+
-      |          ID          | NAME |    ADDRESS    | RESERVED | USED |
-      +----------------------+------+---------------+----------+------+
-      | e2l46k8conff******** |      | 8*.20*.17*.4* | false    | true |
-      +----------------------+------+---------------+----------+------+
+      +----------------------+------+-----------------+----------+------+
+      |          ID          | NAME |     ADDRESS     | RESERVED | USED |
+      +----------------------+------+-----------------+----------+------+
+      | e2l46k8conff******** |      | {{ external-ip-examples.0 }}  | false    | true |
+      +----------------------+------+-----------------+----------+------+
       ```
 
       The `false` value of the `RESERVED` parameter of the IP address with the `e2l46k8conff********` `ID` shows that this address is dynamic.
@@ -250,9 +249,9 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
       ```bash
       id: e2l46k8conff********
       folder_id: b1g7gvsi89m3********
-      created_at: "2022-01-14T09:36:46Z"
+      created_at: "2023-05-23T09:36:46Z"
       external_ipv4_address:
-        address: 8*.20*.17*.4*
+        address: {{ external-ip-examples.0 }}
         zone_id: {{ region-id }}-b
         requirements: {}
       reserved: true
@@ -327,6 +326,13 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
    * **Service account ID**: The service account ID (obtained when [Creating a service account](#create-sa)).
    * **Key ID**: Service account authorized key ID (obtained when [creating a service account](#create-sa)).
    * **Private key**: The service account's private key (obtained when [Creating a service account](#create-sa)).
+
+     {% note info %}
+
+     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+
+     {% endnote %}
+     
    * **Default folder ID**: [ID](../../resource-manager/operations/folder/get-id.md) of your folder.
    * **Availability zone**: The ID of the availability zone hosting the Hystax Acura Backup VM (obtained [When creating a VM with Hystax Acura Backup](#create-acura-vm)).
    * **Hystax Service Subnet**: ID of the subnet that the Hystax Acura Backup VM is connected to (obtained when [Creating a VM with Hystax Acura Backup](#create-acura-vm).
@@ -402,7 +408,7 @@ To enable VM protection:
 1. Under **Machines Groups**, deploy an instance group, such as `Default`.
 1. Click ![image](../../_assets/options.svg) in the VM list on the right.
 1. In the **Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. In the **Volume type** section, specify the type of drive for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
-1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html?highlight=replication%20schedule#edit-replication-settings-schedule).
+1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax documentation](https://hystax.com/documentation/dr/dr_overview.html#edit-replication-settings-schedule).
 1. Select **Start Protection**.
 
 VM replication will start. A VM replica will include all the data of the original VM. Therefore, replication can take a long time (depending on the original VM's disk size). The replication status will be displayed in the **Status** column under **Machines Groups**. Once it is complete, the VMs will change their status to `Protected`.
