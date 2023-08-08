@@ -1,5 +1,7 @@
 # Migrating to {{ mes-full-name }} using the Reindex API
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {{ mes-name }} clusters support _reindexing_ via the [Reindex API]({{ links.es.reindex-api }}). You can specify another {{ ES }} cluster as your data reindexing source. This type of reindexing is referred to as _remote_. It can be used to move existing indexes, aliases, or data streams from a third party _source_ to a {{ mes-name }} _target cluster_.
 
 To migrate data from the source cluster in {{ ES }} to the target cluster in {{ mes-name }}:
@@ -7,7 +9,7 @@ To migrate data from the source cluster in {{ ES }} to the target cluster in {{ 
 1. [Configure the target cluster](#configure-target).
 1. [Start reindexing](#reindex).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 

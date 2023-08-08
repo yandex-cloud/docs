@@ -32,11 +32,11 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. (optional) Under **Repeat request settings**:
+   1. (Optional) Under **Repeat request settings**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (optional) **Under Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 

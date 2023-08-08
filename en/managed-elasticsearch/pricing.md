@@ -4,6 +4,8 @@ editable: false
 
 # Pricing policy for Managed Service for Elasticsearch
 
+{% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Cluster status {#running-stopped}
@@ -34,7 +36,7 @@ The {{ mes-name }} usage cost is based on:
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and {{ ES }} edition used. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
 
-You can select the host class both for the hosts with the `Data node` role and hosts with the `Master node` role.
+You can select host class both for hosts with the `Data node` role and hosts with the `Master node` role.
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ ES }} host is not performing its main functions.
 

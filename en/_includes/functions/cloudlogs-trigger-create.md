@@ -40,7 +40,7 @@ To create a trigger, you need:
 
    1. Under **Cloud Logs settings**, specify what sources the function will process messages from. Log groups are identified automatically.
 
-   1. (optional) Under **Batch message settings**, specify:
+   1. (Optional) Under **Batch message settings**, specify:
 
       * Batch size. Values can be from 1 to 10. The default is 1.
       * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the specified batch size or the maximum waiting time expires.
@@ -58,12 +58,12 @@ To create a trigger, you need:
       * Specify the [function version tag](../../functions/concepts/function.md#tag).
       * Specify the [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
 
-   1. (optional) Under **Repeat request settings**:
+   1. (Optional) Under **Repeat request settings**:
 
       * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. You can specify values from 10 to 60 seconds, 10 being default.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can specify values from 1 to 5, 1 being default.
 
-   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
+   1. (Optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 

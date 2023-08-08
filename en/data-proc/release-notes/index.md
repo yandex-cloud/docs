@@ -1,9 +1,13 @@
 # {{ dataproc-full-name }} releases
 
-This section presents the revision history for {{ dataproc-name }}.
+This section covers the revision history for {{ dataproc-name }}.
 
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
+
+## Q2 2023 {#q2-2023}
+
+* Сreating [{{ metastore-name }}](../concepts/metastore.md) clusters is now available. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 ## Q3 2022 {#q3-2022}
 

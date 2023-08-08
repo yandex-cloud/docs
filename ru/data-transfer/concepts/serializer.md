@@ -1,17 +1,88 @@
 # Сериализация
 
-Сериализация — процесс преобразования объекта данных в битовую последовательность во время передачи в приемники, которые работают с <q>сырыми</q> данными.
+Сериализация — процесс преобразования объекта данных в битовую последовательность во время передачи в приемники, которые работают с <q>сырыми</q> данными. К таким приемникам относятся:
 
-К таким приемникам относится [{{ objstorage-name }}](#serializer-s3), а также приемники, которые используют [очереди сообщений](#serializer-message-queue):
-
-* {{ KF }}
-* {{ yds-full-name }}
+* [{{ objstorage-name }}](#serializer-s3)
+* [Очереди сообщений {{ KF }} и {{ yds-full-name }}](#serializer-message-queue)
 
 Сериализацию можно настроить во время [создания](../operations/endpoint/index.md#create) или [изменения](../operations/endpoint/index.md#update) эндпоинта-приемника.
 
-## Сериализация {{ objstorage-name }} {#serializer-s3}
+## Сериализация при поставке в {{ objstorage-name }} {#serializer-s3}
 
-При сериализации {{ objstorage-name }} вы можете выбрать **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. Для `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}` можно преобразовать комплексные значения в строки.
+При поставке в {{ objstorage-name }} вы можете выбрать **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. Для `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}` доступна настройка **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}**.
+
+Выходной формат данных зависит не только от выбора настройки **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**, но и от типа и настроек правил конвертации эндпоинта-источника.
+
+Ниже представлены различия выходных данных при отсутствии правил конвертации для эндпоинта-источника.
+
+### {{ yds-full-name }} {#yds}
+
+Входные данные — два сообщения:
+
+```text
+Text string
+{"device_id":"iv9,"speed":"5"}
+```
+
+Выходные данные:
+
+{% list tabs %}
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
+
+    ```text
+    <имя потока>,<ключ сегмента>,<порядковый номер сообщения>,<дата и время записи данных>,Text string
+    <имя потока>,<ключ сегмента>,<порядковый номер сообщения>,<дата и время записи данных>,"{""device_id"":""iv9"",""speed"":5}"
+    ```
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
+
+    ```text
+    {"data":"Text string","partition":<ключ сегмента>,"seq_no":<порядковый номер сообщения>,"topic":"<имя потока>","write_time":"<дата и время записи данных>"}
+    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<ключ сегмента>,"seq_no":<порядковый номер сообщения>,"topic":"<имя потока>","write_time":"<дата и время записи данных>"}
+    ```
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
+
+    ```text
+    Text string
+    {"device_id":"iv9,"speed":"5"}
+    ```
+
+{% endlist %}
+
+### {{ mpg-name }} {#pg}
+
+Входные данные — таблица:
+
+| device_id | speed |
+| --------- | ----- |
+| iv9       | 5     |
+| rhi       | 10    |
+
+Выходные данные:
+
+{% list tabs %}
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
+
+    ```text
+    {"device_id":"iv9","speed":5}
+    {"device_id":"rhi","speed":10}
+    ```
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
+
+    ```text
+    iv9,5,
+    rhi,10,
+    ````
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
+
+    Не поддерживается.
+
+{% endlist %}
 
 ## Сериализация при поставке в очереди сообщений {#serializer-message-queue}
 

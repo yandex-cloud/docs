@@ -8,7 +8,7 @@
    1. In the list of services, select **{{ api-gw-name }}**.
    1. Click **Create API gateway**.
    1. In the **Name** field, enter `numbers`.
-   1. (optional) In the **Description** field, enter a description.
+   1. (Optional) In the **Description** field, enter a description.
    1. In the **Specification** section, add a specification:
 
       ```yaml

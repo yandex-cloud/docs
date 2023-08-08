@@ -5,6 +5,8 @@ description: "When saving a document to {{ ES }}, it is indexed and placed in a 
 
 # Indexes
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 When saving a document to {{ ES }}, it is indexed and placed in a user-specified _index_, making it available for search and analysis. An index is an analogue of a data table in a traditional DBMS.
 
 In {{ ES }}, a document is a set of fields where each field is a `key: value` pair. The index stores optimized documents to enable quickly searching documents by field. Optimization is possible because each document field has a specific type. This is how the field data is effectively stored in the index.

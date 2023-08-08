@@ -953,9 +953,9 @@
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The maximum [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) file size in bytes allowed for replication.
+   The maximum size (in bytes) of the files of the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) stored on the master host during replication.
 
-   The minimum and default value is `-1` (unlimited), while the maximum value is `2251799812636672` (2 PB).
+   The minimum value is `67108864` (64 MB). The maximum value is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size. The default value is `-1` (unlimited). The value must be a multiple of 1024.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
@@ -1152,9 +1152,9 @@
 
 - **Shared buffers**{#setting-shared-buffers} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The amount of memory (in blocks of 8KB each) that {{ PG }} can use for shared memory buffers.
+   The amount of memory (in bytes) that {{ PG }} can use for shared memory buffers.
 
-   The minimum value is `16` (128 KB). The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to 80% of the total RAM size of the {{ mpg-name }} cluster host. By default, the value is 25% of the total RAM size, with a maximum of 8 GB.
+   The minimum value is `131072` (128 KB). The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to 80% of the total RAM size of the {{ mpg-name }} cluster host. By default, the value is 25% of the total RAM size, with a maximum of 8 GB.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 

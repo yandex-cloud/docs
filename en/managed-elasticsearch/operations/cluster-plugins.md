@@ -1,5 +1,7 @@
 # Managing {{ ES }} plugins
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 When creating or updating a cluster in {{ mes-short-name }}, you can specify a list of necessary plugins and they will be installed in the cluster automatically. A full list of available plugins is [given below](#elasticsearch).
 
 ## Retrieving a list of installed plugins {#list}

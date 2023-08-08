@@ -2,9 +2,7 @@
 
 Рекомендуемые аппаратные требования для запуска контейнеров {{ sk-hybrid-name }}:
 * CPU: 8 ядер процессора [Intel Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html). При работе с Nvidia Tesla A100 необходимо 14 ядер CPU;
-* GPU: Nvidia Tesla T4, Nvidia Tesla V100 или Nvidia Tesla A100 (16 ГБ или 32 ГБ);
-* RAM: 64 ГБ;
-* HDD: 200 ГБ.
+* GPU: Nvidia Tesla T4, Nvidia Tesla V100 или Nvidia Tesla A100 (16 ГБ или 32 ГБ).
 
 Расчеты характеристик {{ sk-hybrid-name }} приблизительные и могут измениться после обновления контейнеров и появления новых функций.
 

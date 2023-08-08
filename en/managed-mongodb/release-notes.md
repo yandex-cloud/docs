@@ -4,6 +4,10 @@ This section covers the revision history for {{ mmg-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Q1 2023 {#q1-2023}
+
+* You can now create a sharded cluster instead of first creating a non-sharded one and then splitting it into shards.
+
 ## Q4 2022 {#q4-2022}
 
 * Added support for {{ MG }} version 6.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).

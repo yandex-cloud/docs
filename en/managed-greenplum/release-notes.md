@@ -4,6 +4,13 @@ This section covers the revision history for {{ mgp-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Q2 2023 {#q2-2023}
+
+* You can now recover from a backup as of any point in time (Point-in-Time-Recovery, PITR). The feature is enabled by default for new clusters.
+* When recovering a cluster, you can now select the number of hosts and segments.
+* PXF is updated to version 6.6.0.
+* Logs now support PXF-based events.
+
 ## Q4 2022 {#q4-2022}
 
 * You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments. {{ tag-cli }} {{ tag-api }}

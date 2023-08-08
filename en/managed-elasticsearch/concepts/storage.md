@@ -9,6 +9,8 @@ keywords:
 
 # {{ ES }} disk types
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 
 {{ mes-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
@@ -22,7 +24,7 @@ The number of hosts with the _Data node_ role that can be created together with 
 
    This cluster will be fault-tolerant. To ensure fault tolerance, you can also set up index [sharding and replication](scalability-and-resilience.md).
 
-   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. You can find more information in the [pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 

@@ -1,5 +1,7 @@
 # {{ mes-full-name }} releases
 
+{% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
+
 This section covers the revision history for {{ mes-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}

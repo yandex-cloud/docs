@@ -5614,6 +5614,7 @@ default:
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
+            label_managed-kafka: Managed Service for Kafka
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-mongodb: Managed Service for MongoDB
             label_managed-mysql: Managed Service for MySQL
@@ -5654,7 +5655,10 @@ default:
         cluster:
           switch_workloads: Workload
       kafka:
+        button_add-topic: Add topic
+        field_unmanaged-topics: Manage topics via the API
         label_partitions: Number of partitions
+        label_topic: Topic
         label_topic-cleanup-policy: Cleanup policy
       kms:
         symmetric-key:
@@ -5791,6 +5795,7 @@ default:
           switch_backups: Backups
           switch_hosts: Hosts
           switch_monitoring: Monitoring
+          switch_users: Users
           users:
             button_action-password: Change password
             button_action-update: Configure
@@ -6640,7 +6645,6 @@ default:
                       consumer:
                         title: Consumer
                       topics:
-                        array_item_label: Topic
                         title: Topics
                     LogbrokerConnectionType:
                       cluster:

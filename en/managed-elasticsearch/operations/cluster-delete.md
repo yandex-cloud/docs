@@ -9,6 +9,8 @@ keywords:
 
 # Deleting an {{ ES }} cluster
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can delete an {{ ES }} cluster if you no longer need it. All data in the cluster will be deleted.
 
 ## Before deleting a cluster {#before-you-delete}

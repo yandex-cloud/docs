@@ -133,6 +133,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 {{ data-transfer-name }} works with {{ GP }} differently depending on the transfer configuration and the source cluster contents. Detailed information is available in the section on [{{ GP }} source endpoint settings](../operations/endpoint/source/greenplum.md).
 
+
 ### {{ MG }} source {#source-mg}
 
 {% list tabs %}
@@ -857,6 +858,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
       Once started, the transfer will connect to the target on behalf of this user.
 
 {% endlist %}
+
 
 ### {{ MG }} target {#target-mg}
 

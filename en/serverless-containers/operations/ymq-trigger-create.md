@@ -53,7 +53,7 @@ To create a trigger, you need:
 
    1. Under **{{ message-queue-name }} settings**, select a message queue and a service account with rights to read messages from this message queue.
 
-   1. (optional) Under **Batch message settings**, specify:
+   1. (Optional) Under **Batch message settings**, specify:
 
       * Batch size. Values can be from 1 to 10. The default is 1.
       * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds.
@@ -99,7 +99,7 @@ To create a trigger, you need:
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-container-service-account-id`: Service account with rights to invoke the container.
    * `--batch-size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
 
    Result:
 

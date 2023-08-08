@@ -9,6 +9,8 @@ keywords:
 
 # Sharding and replication
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 In an {{ ES }} cluster:
 - You can use sharding to enable the cluster to scale as the amount of index data grows.
 - With replication, you can improve cluster fault tolerance and index data protection (only for multi-host cluster configurations).

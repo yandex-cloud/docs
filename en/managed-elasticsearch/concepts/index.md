@@ -3,7 +3,9 @@ title: "Relationships between {{ mes-full-name }} resources"
 description: "{{ ES }} is a specialized distributed document storage system. When a document is added to {{ ES }}, it gets added to an index. Data from the indexed document becomes available for search and analysis. {{ mes-full-name }} helps you deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure."
 ---
 
-# Relationships between resources in {{ mes-name }}
+# Resource relationships in {{ mes-name }}
+
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 With {{ mes-full-name }}, you can deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure.
 
@@ -17,7 +19,7 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 - _Environment_ where the cluster will be deployed:
    - `PRODUCTION`: For stable versions of your apps.
-   - `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+   - `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
 - `admin` _user password_.
 
@@ -25,12 +27,12 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 - {{ ES }} _version_.
 
-- _Edition_ of {{ ES }}. For a list of available editions and supported features, see [{#T}](es-editions.md).
+- {{ ES }} _edition_. For a list of available editions and supported features, see [{#T}](es-editions.md).
 
 An {{ ES }} cluster created in a folder can be accessed by all VMs connected to the same [cloud network](../../vpc/) as the cluster.
 
 A single-host cluster is not fault tolerant. A multi-host cluster automatically provides fault tolerance for the _Master node_ role. To ensure data safety in such a cluster, you need to configure index [sharding and replication](scalability-and-resilience.md).
 
-Cluster hosts may reside in different availability zones. Learn more about the geo scope of {{ yandex-cloud }} in [{#T}](../../overview/concepts/geo-scope.md).
+Cluster hosts may reside in different availability zones. For more information about the geo scope of {{ yandex-cloud }}, see [{#T}](../../overview/concepts/geo-scope.md).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

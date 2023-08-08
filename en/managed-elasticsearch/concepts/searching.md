@@ -1,5 +1,7 @@
 # Search using {{ ES }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {{ ES }} acts as both document storage and a tool for searching and analyzing data in the documents using:
 1. Structured queries similar to SQL queries: to find documents with a set of fields that meet the specified conditions.
 1. Full text queries: to find a given string in documents and sort the results by relevance. These queries also allow you to use additional search functions, including autocomplete and search for phrases and similar strings. To learn more about full-text search, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-overview.html).

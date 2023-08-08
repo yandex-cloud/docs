@@ -1,4 +1,6 @@
-# Managing extensions {{ ES }}
+# Managing {{ ES }} extensions
+
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 User extensions are any text data (dictionaries of words, word breaks, and so on), keys for integration with other clusters, and other data for cluster performance. For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/cloud/current/ec-plugins-guide.html).
 

@@ -1,13 +1,15 @@
 # Migrating to {{ mes-name }} using snapshots
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {{ mes-name }} clusters support the snapshot mechanism. This lets you migrate data from another {{ ES }} cluster to it. For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in {{ mes-name }}:
 
-1. [{#T}](#before-you-begin).
-1. [{#T}](#create-snapshot).
-1. [{#T}](#restore-snapshot).
-1. [{#T}](#finish-migration).
+1. [{#T}](#before-you-begin)
+1. [{#T}](#create-snapshot)
+1. [{#T}](#restore-snapshot)
+1. [{#T}](#finish-migration)
 
 If you no longer need the resources in use, [delete them](#clear-out).
 
@@ -66,7 +68,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
       * Target cluster version.
       * {{ objstorage-name }} bucket name.
 
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -102,7 +104,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 1. [Install the `repository-s3` plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) on all target cluster hosts.
 
-1. For the `repository-s3` plugin to work, restart the {{ ES }} and Kibana services on all the source cluster hosts.
+1. For the `repository-s3` plugin to work, restart the {{ ES }} and Kibana services on all source cluster hosts.
 
 1. Make sure you can [connect to the {{ mes-name }} target cluster](../operations/cluster-connect.md) using the {{ ES }} API and Kibana.
 1. Make sure the {{ ES }} source cluster can access the internet.
@@ -289,7 +291,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
       If there are any errors in the configuration files, {{ TF }} will point to them.
 
-   1. Confirm the resources have been updated.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

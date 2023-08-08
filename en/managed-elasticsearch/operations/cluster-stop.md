@@ -9,6 +9,8 @@ keywords:
 
 # Stopping and starting {{ ES }} clusters
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can stop and restart {{ ES }} clusters, if required. When a cluster is stopped, all data in it is retained and will be available again when you restart the cluster.
 
 You are not charged for the time when your cluster is stopped; however, you still have to pay for the storage size based on the [pricing policy](../pricing.md#prices-storage).

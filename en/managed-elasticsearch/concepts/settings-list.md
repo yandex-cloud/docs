@@ -1,10 +1,12 @@
 # {{ ES }} settings
 
-For {{ mes-name }} clusters, you can configure settings that relate to {{ ES }}.
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or {{ TF }}. The {{ tag-all }} label indicates that all of the above interfaces are supported.
+For {{ mes-name }} clusters, you can configure {{ ES }} settings.
 
-Depending on the selected interface, the same setting is represented in a different way, for example:
+The label next to the setting name shows which interface can be used to configure this setting: the management console, CLI, API, or {{ TF }}. The {{ tag-all }} label means that all of the above interfaces are supported.
+
+Depending on the selected interface, the same setting may be represented in a different way, e.g.:
 
 * **Fielddata cache size** in the management console corresponds to:
 
@@ -13,7 +15,7 @@ Depending on the selected interface, the same setting is represented in a differ
 
 ## Cluster-level settings
 
-You can use the following settings:
+You can use the following settings at the cluster level:
 
 * **Fielddata cache size**{#setting-fielddata-cache-size} {{ tag-all }}
 

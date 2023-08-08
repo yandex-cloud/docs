@@ -6,6 +6,8 @@ description: "{{ mes-name }} has limits and quotas for the number of clusters, t
 
 # Quotas and limits in {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {{ mes-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

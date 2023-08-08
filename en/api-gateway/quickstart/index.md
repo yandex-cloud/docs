@@ -7,12 +7,12 @@ description: "Using these instructions, you'll create and test different types o
 
 Using these instructions, you'll create and test different types of extensions: first, you'll set up an API gateway for getting [static responses](../concepts/extensions/dummy.md) and then add integration for [invoking functions](../concepts/extensions/cloud-functions.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 To get started in {{ yandex-cloud }}:
-1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
+1. Log in to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have any folders yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an API gateway {#create-api-gw}
 
@@ -20,11 +20,11 @@ To get started in {{ yandex-cloud }}:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ api-gw-name }}**.
    1. Click Create **API gateway**.
    1. In the **Name** field, enter `numbers`.
-   1. (optional) In the **Description** field, enter a description.
+   1. (Optional) In the **Description** field, enter a description.
    1. In the **Specification** section, add a specification:
 
       ```
@@ -66,7 +66,7 @@ To get started in {{ yandex-cloud }}:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
@@ -178,7 +178,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
 
       * `name`: Function name.
       * `description`: Text description of the function.
-      * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
+      * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
       * `runtime`: The function [runtime environment](../../functions/concepts/runtime/index.md).
       * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
       * `memory`: The amount of memory allocated for function execution, in MB.
@@ -190,20 +190,20 @@ Create a function to get a list of numbers. Read more about functions in the [{{
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -211,7 +211,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc serverless function list
@@ -358,20 +358,20 @@ Add function information to the API gateway specification.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+      1. Run the check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Deploy cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration does not contain any errors, run this command:
 
          ```
          terraform apply
@@ -379,7 +379,7 @@ Add function information to the API gateway specification.
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc serverless api-gateway get <API gateway name>

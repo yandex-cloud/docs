@@ -78,6 +78,7 @@ default:
   storage-aws-cli-alias: ycs3
   yagpt-full-name: YandexGPT
   billing-name: Yandex Cloud Billing
+  console-full-name: Yandex Cloud Console
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -161,6 +162,7 @@ default:
   backup-name: Cloud Backup
   search-api-name: Search API
   yagpt-name: YandexGPT
+  console-name: Cloud Console
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -5614,6 +5616,7 @@ default:
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
             label_managed-greenplum: Managed Service for Greenplum
+            label_managed-kafka: Managed Service for Kafka
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-mongodb: Managed Service for MongoDB
             label_managed-mysql: Managed Service for MySQL
@@ -5654,7 +5657,10 @@ default:
         cluster:
           switch_workloads: Рабочая нагрузка
       kafka:
+        button_add-topic: Добавить топик
+        field_unmanaged-topics: Управление топиками через API
         label_partitions: Количество разделов
+        label_topic: Топик
         label_topic-cleanup-policy: Политика очистки лога
       kms:
         symmetric-key:
@@ -5791,6 +5797,7 @@ default:
           switch_backups: Резервные копии
           switch_hosts: Хосты
           switch_monitoring: Мониторинг
+          switch_users: Пользователи
           users:
             button_action-password: Изменить пароль
             button_action-update: Настроить
@@ -6640,7 +6647,6 @@ default:
                       consumer:
                         title: Консьюмер
                       topics:
-                        array_item_label: Топик
                         title: Топики
                     LogbrokerConnectionType:
                       cluster:

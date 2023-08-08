@@ -9,6 +9,8 @@ keywords:
 
 # Connecting to an {{ ES }} cluster
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can connect to the hosts in the {{ mes-name }} cluster with the [_Data node_ role](../concepts/hosts-roles.md#data-node):
 
 * Over the internet, if you configured public access for the appropriate host.
@@ -97,7 +99,7 @@ To use an encrypted connection, get an SSL certificate:
 
 {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
-## Automatic selecting the host to connect to {#automatic-host-selection}
+## Automatic selection of a host for connection {#automatic-host-selection}
 
 When connecting to an {{ ES }} cluster, you can:
 

@@ -15,10 +15,10 @@
       * **Name** of the device. For example, `my-device`.
       * (optional) A **description** with further information about the device.
       * A **password** that you will be using for device access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password - you will need it later.
-   1. (optional) Add [aliases](../../concepts/topic/usage.md#aliases):
+   1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
       1. Click **Add alias**.
       1. Complete the fields: enter an alias (such as, `events`) and topic type after `$devices/<deviceID>` (such as, `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
-   1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
+   1. (Optional) Add [certificates](../../operations/certificates/create-certificates.md):
       * To add a file:
          1. Choose the **File** method.
          1. Click **Select file**.

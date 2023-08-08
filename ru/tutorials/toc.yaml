@@ -419,6 +419,10 @@ items:
           Создание туннеля между двумя подсетями при помощи OpenVPN Access
           Server
         href: routing/site-to-site-openvpn.md
+      - name: >-
+          Защищенный доступ пользователей к облачным ресурсам на основе
+          WireGuard VPN
+        href: routing/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана

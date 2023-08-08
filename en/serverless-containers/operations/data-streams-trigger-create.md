@@ -47,20 +47,20 @@ To create a trigger, you need:
 
    1. Under **{{ yds-name }} settings**, select a data stream and a service account with rights to read data from this data stream and write data to it.
 
-   1. (optional) Under **Batch message settings**, specify:
+   1. (Optional) Under **Batch message settings**, specify:
 
       * Size of the message group in bytes. Valid values range from 1 B to 64 KB. The default is 1 B.
-      * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second.
+      * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
       The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data passed to a container may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. (optional) Under **Repeat request settings**:
+   1. (Optional) Under **Repeat request settings**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (optional) **Under Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -97,7 +97,7 @@ To create a trigger, you need:
 
    * `--stream`: Data stream name.
    * `--batch-size`: Message batch size. This is an optional parameter. Valid values range from 1 B to 64 KB. The default is 1 B.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of data passed to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of data passed to a container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}

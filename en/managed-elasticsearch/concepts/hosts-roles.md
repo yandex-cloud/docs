@@ -9,6 +9,8 @@ keywords:
 
 # Host roles
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Each {{ mes-name }} cluster consists of one or more {{ ES }} hosts with different roles: _Data node_ or _Master node_.
 
 ## Dedicated hosts with the Data node role {#data-node}

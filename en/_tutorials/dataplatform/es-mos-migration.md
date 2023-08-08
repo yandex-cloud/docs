@@ -1,4 +1,15 @@
-# Migrating data from {{ ES }} to {{ mos-full-name }}
+# Migrating databases from {{ ES }} to {{ mos-full-name }}
+
+{% note warning %}
+
+Starting April 11, 2024, support for {{ mes-full-name }} will be discontinued.
+
+Users who have not yet worked with {{ ES }} in the cloud cannot create new clusters starting July 20, 2023. Current service users can use existing clusters and create new ones.
+
+
+You can [create {{ OS }} clusters](../../managed-opensearch/operations/cluster-create.md) in {{ yandex-cloud }} as an alternative to {{ ES }} and transfer data from existing {{ ES }} clusters to {{ mos-name }}.
+
+{% endnote %}
 
 
 There are two mechanisms to move data from a source {{ ES }} cluster to a target {{ mos-full-name }} cluster:
@@ -13,15 +24,15 @@ There are two mechanisms to move data from a source {{ ES }} cluster to a target
 
    You can use this mechanism to move your existing indices, aliases, or data streams. This method is good for all {{ ES }} clusters of version 7.
 
-## Migration using snapshots {#snapshot}
+## Migrating with snapshots {#snapshot}
 
 To migrate data from a source cluster in {{ ES }} to a target cluster in {{ mos-name }} using snapshots:
 
-1. [Create a snapshot in the source cluster](#create-snapshot).
-1. [Restore the snapshot in the target cluster](#restore-snapshot).
+1. [Create a snapshot of the source cluster](#create-snapshot).
+1. [Restore the snapshot on the target cluster](#restore-snapshot).
 1. [Complete your migration](#finish-migration-snapshot).
 
-If you no longer need the resources you are using, [delete them](#clear-out-snapshot).
+If you no longer need the resources in use, [delete them](#clear-out-snapshot).
 
 ### Getting started {#before-you-begin-snapshot}
 
@@ -182,7 +193,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    With the default settings, an attempt to restore an index will fail in a cluster where the same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indices (such as `.apm-custom-link` or `.kibana_*`), which may interfere with the restore operation. To avoid this, use one of the following methods:
 
-   * Migrate only your custom indices. The existing system indices are not migrated. The import process only affects the user-created indices on the source cluster.
+   * Move only your custom indices. The existing system indices are not migrated. The import process only affects the user-created indices on the source cluster.
 
    * Use the `rename_pattern` and `rename_replacement` parameters. Indices will be renamed as they are restored. To learn more, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
@@ -208,7 +219,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
         }'
    ```
 
-   Where `list of indices` is a list of comma-separated indices to be restored, for example, `my_index*, my_index_2.*`.
+   Where a `list of indices` is a list of comma-separated indices to be restored, for example, `my_index*, my_index_2.*`.
 
    Restoring a snapshot may take a long time. To check the restoring status, run this command:
 
@@ -222,32 +233,32 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Make sure all the indices you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
 
-{% list tabs %}
+   {% list tabs %}
 
-- Bash
+   - Bash
 
       Run this command:
 
-   ```bash
-   curl \
-       --user <username in the target cluster>:<user password in the target cluster> \
-       --cacert ~/.opensearch/root.crt \
-       --request GET 'https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
-   ```
+      ```bash
+      curl \
+          --user <username in the target cluster>:<user password in the target cluster> \
+          --cacert ~/.opensearch/root.crt \
+          --request GET 'https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+      ```
 
       The list should contain the indices transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
-- {{ OS }} Dashboards
+   - {{ OS }} Dashboards
 
-   1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
-   1. Select the `Global` tenant.
-   1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
-   1. Under **OpenSearch Plugins**, select **Index Management**.
-   1. Go to **Indices**.
+      1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+      1. Select the `Global` tenant.
+      1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+      1. Under **OpenSearch Plugins**, select **Index Management**.
+      1. Go to **Indices**.
 
-   The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+      The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 
-{% endlist %}
+   {% endlist %}
 
 1. [Disable the snapshot repository]({{ links.es.docs }}/elasticsearch/reference/current/delete-snapshot-repo-api.html) on the source and target clusters, if required.
 
@@ -256,10 +267,10 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Delete the service account](../../iam/operations/sa/delete.md).
-* [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
+* [Delete the snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
 * [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
 
-## Migration using reindexing {#reindex}
+## Migrating by reindexing {#reindex}
 
 
 To migrate data from a source cluster in {{ ES }} to a target cluster in {{ mos-name }} through reindexing:

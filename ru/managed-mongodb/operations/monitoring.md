@@ -116,11 +116,11 @@
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                         | Обозначение                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                  | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                |
-|---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
-| Доступность БД на запись        | `can_write`                     | `Равно 0`                | —                        |
-| Задержка репликации             | `replset_status-replicationLag` | `180`                    | `30`                     |
-| Объем использованного хранилища | `disk.used_bytes`               | 90% от размера хранилища | 70% от размера хранилища |
+| Метрика                         | Обозначение                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
+|---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
+| Доступность БД на запись        | `can_write`                     | `Равно 0`                                            | —                                                   |
+| Задержка репликации             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
+| Объем использованного хранилища | `disk.used_bytes`               | 90% от размера хранилища                             | 70% от размера хранилища                            |
 
 Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
@@ -139,7 +139,7 @@
 
     Для этого создайте запрос в конструкторе запросов:
 
-    `service={{ mmg-name }}` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
+    `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
 
 1. Задайте в параметрах алерта значения порогов для оповещения:
    * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — выберите условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для размера свободного дискового пространства, при котором сработает алерт.
