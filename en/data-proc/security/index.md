@@ -29,6 +29,8 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [data-proc-roles](../../_includes/iam/roles/data-proc-roles.md) %}
 
+{% include [managed-metastore-roles](../../_includes/iam/roles/managed-metastore-roles.md) %}
+
 
 ### {{ roles-mdb-viewer }} {#mdb-viewer}
 

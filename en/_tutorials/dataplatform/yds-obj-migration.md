@@ -21,7 +21,7 @@ Prepare the infrastructure:
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-transfer-yds-obj.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-obj.tf) to the same working directory.
 
       This file describes:
@@ -38,7 +38,7 @@ Prepare the infrastructure:
       * `source_db_name`: {{ ydb-name }} database name.
       * `bucket_name`: {{ objstorage-name }} bucket name.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -63,7 +63,7 @@ Prepare the infrastructure:
 
 ```json
 {
-    "device_id":"iv9a94th6rztooxh5ur2",
+    "device_id":"iv9a94th6rzt********",
     "datetime":"2020-06-05 17:27:00",
     "latitude":"55.70329032",
     "longitude":"37.65472196",
@@ -203,7 +203,7 @@ Prepare the infrastructure:
 
    ```json
    {
-       "device_id": "rhibbh3y08qmz3sdbrbu",
+       "device_id": "rhibbh3y08qm********",
        "datetime": "2020-06-06 09:49:54",
        "latitude": 55.71294467,
        "longitude": 37.66542005,
@@ -230,10 +230,10 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. [Delete](../../storage/operations/objects/delete.md) the objects from the {{ objstorage-name }} bucket:
 
 Delete the other resources, depending on the method used to create them:

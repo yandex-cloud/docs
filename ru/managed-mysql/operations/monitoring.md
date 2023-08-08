@@ -17,8 +17,8 @@ description: "Вы можете отслеживать состояние кла
 
 Для просмотра детальной информации о состоянии кластера {{ mmy-name }}:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -75,9 +75,9 @@ description: "Вы можете отслеживать состояние кла
 
 Для просмотра детальной информации о состоянии отдельных хостов {{ mmy-name }}:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
-1. Перейдите на страницу **Мониторинги**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+1. Перейдите на страницу **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Выберите нужный хост из выпадающего списка.
 
 На этой странице выводятся графики, показывающие нагрузку на отдельный хост кластера:
@@ -149,20 +149,20 @@ description: "Вы можете отслеживать состояние кла
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
 
-    1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+    1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
-    1. В блоке **Сервисные дашборды** выберите:
+    1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
 
         * **{{ mmy-name }} — Cluster Overview** для настройки алертов кластера;
         * **{{ mmy-name }} — Host Overview** для настройки алертов хостов.
 
-    1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
+    1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
 
-    1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
+    1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для срабатывания алерта.
 
-    1. Нажмите кнопку **Создать алерт**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
@@ -170,7 +170,7 @@ description: "Вы можете отслеживать состояние кла
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                             | Обозначение               | `Alarm`                   | `Warning`                 |
+| Метрика                             | Обозначение               | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                 |
 |-------------------------------------|:-------------------------:|:-------------------------:|:-------------------------:|
 | Задержка репликации                 | `mysql_replication_lag`   | `600`                     | `60`                      |
 | Количество работоспособных хостов   | `mysql_is_alive`          | `<количество хостов> - 2` | `<количество хостов> - 1` |
@@ -178,10 +178,10 @@ description: "Вы можете отслеживать состояние кла
 | Размер использованного хранилища    | `disk.used_bytes`         | 90% от размера хранилища  | 80% от размера хранилища  |
 | Утилизация CPU                      | `cpu.idle`                | `10`                      | `20`                      |
 
-Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `96636764160` байтов (90%).
-* `Warning` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байтов (80%).
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-mysql).
 
@@ -192,8 +192,8 @@ description: "Вы можете отслеживать состояние кла
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на страницу каталога и выберите **{{ mmy-name }}**.
-1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+1. Перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}
 

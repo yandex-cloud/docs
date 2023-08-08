@@ -16,7 +16,7 @@
   * [Безопасно храните конфиденциальные данные в {{ lockbox-name }}](../lockbox/quickstart.md).
 * Ресурсы и управление:
   * [Управляйте ресурсами в каталогах и облаках с помощью {{ resmgr-name }}](../resource-manager/quickstart.md).
-  * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quick-start.md).
+  * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quickstart.md).
   * [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../monitoring/quickstart.md).
   * [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).
   * [Собирайте логи работы ресурсов с помощью {{ cloud-logging-name }}](../logging/quickstart.md).

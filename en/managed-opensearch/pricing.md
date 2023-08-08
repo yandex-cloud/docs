@@ -35,13 +35,13 @@ The {{ mos-name }} usage cost is based on:
 ### Using cluster hosts {#rules-hosts-uptime}
 
 
-The cost of operation of the host depends on the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section, while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost of host operation is determined by the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section; vCPUs and RAM prices are quoted in the [Prices](#prices) section.
 
-You can select the host class both for the hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
+You can select host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
 
 
-The cost is calculated for each hour of operation of the host. The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ OS }} host is not performing its main functions.
+You are charged per hour of host operation. The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ OS }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -58,6 +58,20 @@ The following is charged:
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
+
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../_includes/mdb/cvos.md) %}
+
+{{ mos-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+
+{% endnote %}
+
 
 ## Pricing {#prices}
 
@@ -76,7 +90,6 @@ All prices are shown without VAT.
 
 
 
-
 ### Egress traffic {#prices-traffic}
 
 
@@ -84,7 +97,6 @@ All prices are shown without VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
 
 
 

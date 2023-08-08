@@ -99,6 +99,8 @@ items:
     href: resource-manager/index.yaml
   - name: '{{ yandex-cloud }} tutorials'
     href: tutorials/index.yaml
+  - name: Search API
+    href: search-api/index.yaml
   - name: Security in {{ yandex-cloud }}
     href: security/index.yaml
   - name: SmartCaptcha

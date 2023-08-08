@@ -10,6 +10,9 @@
       {% include [name-fqdn](../compute/name-fqdn.md) %}
 
    * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. In {{ ig-name }}, all operations are performed on behalf of a service account.
+
+      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
+
    * Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** if needed. You cannot delete a group with this option enabled.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones and regions](../../overview/concepts/geo-scope.md).
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set up the configuration for a basic instance:

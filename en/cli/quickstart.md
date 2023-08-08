@@ -10,7 +10,17 @@ The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
 ## Creating a profile {#initialize}
 
-{% include notitle [create profile CLI](../_includes/cli/create-profile.md) %}
+{% list tabs %}
+
+- Yandex account
+
+   {% include [include](../_includes/cli/create-profile.md) %}
+
+- Federated account
+
+   {% include [include](../_includes/cli/auth-federated-user.md) %}
+
+{% endlist %}
 
 
 ## Examples of commands {#example}
@@ -54,8 +64,8 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
-   | skesdqhkc6449hbqqar1 | my-ui-network    | my first network via ui |
-   | c6449hbqqar1skesdqhk | my-yc-network    | my first network via yc |
+   | skesdqhkc644******** | my-ui-network    | my first network via ui |
+   | c6449hbqqar1******** | my-yc-network    | my first network via yc |
    +----------------------+------------------+-------------------------+
    ```
 
@@ -68,13 +78,13 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    Result:
 
    ```yaml
-   - id: skesdqhkc6449hbqqar1
+   - id: skesdqhkc644********
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
      name: my-ui-network
      description: "my first network via ui"
      labels: {}
-   - id: c6449hbqqar1skesdqhk
+   - id: c6449hbqqar1********
      folder_id: ijkl9012
      created_at: "2018-09-05T09:55:36Z"
      name: my-yc-network

@@ -118,6 +118,146 @@ Firebase:
 
    1. Click **Create**.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. Save the following specification to `jwt-auth.yaml`:
+
+      ```yaml
+      openapi: 3.0.0
+      info:
+        title: Sample API
+        version: 1.0.0
+
+      paths:
+        /:
+          get:
+            x-yc-apigateway-integration:
+              type: http
+              url: https://oauth2.googleapis.com/tokeninfo
+              method: GET
+              query:
+                id_token: '{token}'
+            parameters:
+              - name: token
+                in: query
+                required: true
+                schema:
+                  type: string
+            security:
+              - OpenIdAuthorizerScheme: [ ]
+
+      components:
+        securitySchemes:
+          OpenIdAuthorizerScheme:
+            type: openIdConnect
+            x-yc-apigateway-authorizer:
+              type: jwt
+              jwksUri: https://www.googleapis.com/oauth2/v3/certs
+              identitySource:
+                in: query
+                name: token
+              issuers:
+                - https://accounts.google.com
+              requiredClaims:
+                - email
+      ```
+
+   1. Run this command:
+
+      ```bash
+      yc serverless api-gateway create \
+        --name jwt-api-gw \
+        --spec=jwt-auth.yaml
+      ```
+
+      Where:
+
+      * `name`: API gateway name.
+      * `spec`: Specification file.
+
+      Result:
+
+      ```text
+      done (29s)
+      id: d5dug9gkmu187i********
+      folder_id: b1g55tflru0ek7********
+      created_at: "2020-06-17T09:20:22.929Z"
+      name: jwt-api-gw
+      status: ACTIVE
+      domain: d5dug9gkmu187i********.apigw.yandexcloud.net
+      log_group_id: ckghq1hm19********
+      ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the API gateway parameters:
+
+      ```hcl
+      resource "yandex_api_gateway" "jwt-api-gateway" {
+        name        = "jwt-api-gw"
+        spec        = <<-EOT
+          openapi: 3.0.0
+          info:
+            title: Sample API
+            version: 1.0.0
+          paths:
+            /:
+              get:
+                x-yc-apigateway-integration:
+                  type: http
+                  url: https://oauth2.googleapis.com/tokeninfo
+                  method: GET
+                  query:
+                    id_token: '{token}'
+                parameters:
+                  - name: token
+                    in: query
+                    required: true
+                    schema:
+                      type: string
+                security:
+                  - OpenIdAuthorizerScheme: [ ]
+          components:
+            securitySchemes:
+              OpenIdAuthorizerScheme:
+                type: openIdConnect
+                x-yc-apigateway-authorizer:
+                  type: jwt
+                  jwksUri: https://www.googleapis.com/oauth2/v3/certs
+                  identitySource:
+                    in: query
+                    name: token
+                  issuers:
+                    - https://accounts.google.com
+                  requiredClaims:
+                    - email
+        EOT
+      }
+      ```
+
+      Where:
+
+      * `name`: API gateway name.
+      * `spec`: API gateway specification.
+
+      For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+   This will create an API gateway in the specified folder.
+
+- API
+
+   To create an API gateway, use the [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 ## Create web app files {#project-prepare}
@@ -181,6 +321,91 @@ Deploy a static website:
          1. In the **Object read access** field, select `Public`.
          1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
+   - CLI
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      1. Run the following command:
+
+         ```bash
+         yc storage bucket create \
+         --name bucket-for-tutorial \
+         --public-read
+         ```
+
+         Where:
+
+         * `--name`: Bucket name.
+         * `--public-read`: Flag to enable public read access to bucket objects.
+
+         Result:
+
+         ```bash
+         name: bucket-for-tutorial
+         folder_id: b1gmit33********
+         anonymous_access_flags:
+           read: false
+           list: false
+         default_storage_class: STANDARD
+         versioning: VERSIONING_DISABLED
+         acl: {}
+         created_at: "2023-06-08T11:57:49.898024Z"
+         ```
+
+   - {{ TF }}
+
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      1. In the configuration file, describe the resource parameters:
+
+         ```hcl
+         ...
+         resource "yandex_iam_service_account" "sa" {
+           name = "<service_account_name>"
+         }
+
+         resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+           folder_id = "<folder_ID>"
+           role      = "storage.editor"
+           member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+         }
+
+         resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+           service_account_id = yandex_iam_service_account.sa.id
+           description        = "static access key for object storage"
+         }
+
+         resource "yandex_storage_bucket" "test" {
+           access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+           secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+           bucket     = "bucket-for-tutorial"
+           acl        = "public-read"
+         }
+         ...
+         ```
+
+         Where:
+
+         * `yandex_iam_service_account` is the description of the service account that will create and use a bucket:
+            * `name`: Service account name.
+         * `yandex_storage_bucket`: Bucket description:
+            * `bucket`: Bucket name.
+            * `acl`: Bucket access settings.
+
+         For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
+
+      1. Create resources:
+
+         {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+      This will create a bucket in the specified folder.
+
+   - API
+
+      To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
+
    {% endlist %}
 
 1. Upload objects to the {{ objstorage-name }} bucket:
@@ -215,6 +440,95 @@ Deploy a static website:
          * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display for 4xx errors: `error.html`.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
       1. In the **Link** field, copy your website's URL.
+
+   - CLI
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      1. Create a hosting configuration file named `setup.json`:
+
+         ```json
+         {
+           "index": "index.html",
+           "error": "error404.html"
+         }
+         ```
+
+         Where:
+
+         * `index`: Absolute path to the file of the website home page.
+         * `error`: Absolute path to the file to display to the user in the event of 4xx errors.
+
+      1. Run this command:
+
+         ```bash
+         yc storage bucket update --name bucket-for-tutorial \
+           --website-settings-from-file setup.json
+         ```
+
+         Where:
+         * `--name`: Bucket name.
+         * `--website-settings-from-file`: Path to the redirect configuration file.
+
+         Result:
+
+         ```text
+         name: my-bucket
+         folder_id: b1gjs8dck********
+         default_storage_class: STANDARD
+         versioning: VERSIONING_SUSPENDED
+         max_size: "10737418240"
+         acl: {}
+         created_at: "2022-12-14T08:42:16.273717Z"
+         ```
+
+   - {{ TF }}
+
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      
+      For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
+      To set up a redirect for all requests:
+
+      1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` parameter to the `yandex_storage_bucket` resource description.
+
+         ```hcl
+         ...
+         resource "yandex_storage_bucket" "test" {
+           access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+           secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_ke
+           bucket     = "bucket-for-tutorial"
+           acl        = "public-read"
+
+           website {
+             index_document = "index.html"
+             error_document = "error.html"
+           }
+         }
+         ...
+         ```
+
+         Where:
+
+         * `website`: Website parameters:
+            * `index_document`: Absolute path to the file of the website home page. This parameter is required.
+            * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
+
+         For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
+
+      1. Create resources:
+
+         {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+      This will set up hosting in the bucket.
+
+   - API
+
+      To set up hosting for a static website, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [upload](../../storage/s3/api-ref/hosting/upload.md) S3 API method.
 
    {% endlist %}
 

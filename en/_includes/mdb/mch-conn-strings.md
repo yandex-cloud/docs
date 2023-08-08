@@ -65,7 +65,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    curl --cacert {{ crt-local-dir }}{{ crt-local-file }} \
         --header "X-ClickHouse-User: <DB username>" \
         --header "X-ClickHouse-Key: <DB user password>" \
-        'https://<Any {{ CH }} host FQDN>:8443/?database=<DB name>&query=SELECT%20version()'
+        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
    ```
 
 {% endlist %}
@@ -481,6 +481,10 @@ node app.js
 
 ### ODBC {#odbc}
 
+Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are different.
+
+#### Linux {#odbc-linux}
+
 **Before connecting:**
 
 1. Install the dependencies:
@@ -564,6 +568,7 @@ node app.js
    Proto = https
    SSLMode = allow
    CertificateFile = {{ crt-local-dir }}{{ crt-local-file }}
+   CALocation = /etc/ssl/certs/ca-certificates.crt
    ```
 
 {% endlist %}
@@ -575,6 +580,40 @@ isql -v ClickHouse
 ```
 
 Once connected to the DBMS, run `SELECT @@version;`.
+
+#### Windows {#odbc-windows}
+
+1. [Install the clickhouse-odbc driver](https://github.com/ClickHouse/clickhouse-odbc#installation) with the appropriate bit depth. For example, if you are using a 32-bit application, install the driver with the same number of bits to connect through ODBC.
+1. [Run the <q>ODBC Data Source Administrator</q>](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/open-the-odbc-data-source-administrator?view=sql-server-ver16).
+1. In the **User DSN** tab, click **Add...**.
+1. Select the {{ CH }} driver with suitable encoding and click **Done**.
+1. Specify the parameters for connecting to the {{ CH }} cluster:
+
+   {% list tabs %}
+
+   * Connecting without using SSL
+
+      * **Name**: Name for the connection.
+      * **Host**: FQDN of any {{ CH }} host.
+      * **Port**: `{{ port-mch-http }}`.
+      * **Database**: DB name.
+      * **User**: DB user name.
+      * **Password**: DB user password.
+
+   * Connecting via SSL
+
+      * **Name**: Name for the connection.
+      * **Host**: FQDN of any {{ CH }} host.
+      * **Port**: `{{ port-mch-http }}`.
+      * **Database**: DB name.
+      * **SSLMode**: `Allow`.
+      * **User**: DB user name.
+      * **Password**: DB user password.
+
+   {% endlist %}
+
+1. Click **OK**.
+1. Connect to the {{ CH }} cluster through ODBC, for example, using Microsoft Excel.
 
 ### PHP {#php}
 

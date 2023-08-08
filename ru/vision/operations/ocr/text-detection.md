@@ -26,6 +26,8 @@
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
+{% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
+
 ### Распознайте текст из PDF-файла {#pdf}
 
 1. В PDF-файле должно быть не больше 8 страниц. Если страниц больше, разбейте его на файлы по 8 страниц.

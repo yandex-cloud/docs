@@ -170,7 +170,7 @@ To create an HTTP router and add a route to it:
           http_route {
             http_route_action {
               backend_group_id = "<backend_group_ID>"
-              timeout          = "3s"
+              timeout          = "60s"
             }
           }
         }
@@ -179,7 +179,7 @@ To create an HTTP router and add a route to it:
 
       Where:
 
-      * `yandex_alb_virtual_host`: HTTP router description:
+      * `yandex_alb_http_router`: HTTP router description:
          * `name`: HTTP router name. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
@@ -191,36 +191,26 @@ To create an HTTP router and add a route to it:
             {% include [name-format](../../_includes/name-format.md) %}
 
          * `http_router_id`: HTTP router ID.
-         * `route`: Description of the HTTP router's route. Specify the route name, backend group ID, and request processing time (defaults to 60 seconds).
+         * `route`: HTTP router route description:
+            * `name`: Route name.
+            * `http_route_action`: Parameter to indicate an action on HTTP traffic.
+               * `backend_group_id`: Backend group ID.
+               * `timeout`: Maximum request idle timeout, seconds.
 
-      For more information about {{ TF }} resource parameters, see the provider documentation ([yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)).
+      For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   1. Make sure the configuration files are valid.
+      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource.
+      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+   1. Create resources
 
-         ```bash
-         terraform plan
-         ```
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {{ TF }} will create all required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
-
-         ```bash
-         yc alb http-router get <HTTP_router_name>
-         ```
+      ```bash
+      yc alb http-router get <HTTP_router_name>
+      ```
 
 - API
 

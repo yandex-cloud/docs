@@ -60,6 +60,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
 * If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
 * If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
 
+
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
 For more information, see [{#T}](../../managed-postgresql/concepts/limits.md).
@@ -180,3 +181,11 @@ No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. 
 
 * To run `VACUUM FULL`, the user must have the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin). The VACUUM FULL command does not affect system views.
 * In {{ PG }} version 14, the functionality of the `INDEX_CLEANUP` parameter is enhanced: it now has the `AUTO` value by default. This means that the `VACUUM` command skips index cleanup if it is considered unfeasible. To ensure backward compatibility with the previous {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
+
+If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-postgresql/operations/cluster-backups.md#restore) from a backup.

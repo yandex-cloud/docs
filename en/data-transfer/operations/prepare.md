@@ -303,6 +303,14 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 ### Oracle source {#source-oracle}
 
+{% note info %}
+
+Some versions of Oracle use `V_$` instead of `V$` as the prefix for system objects. For example, `V_$DATABASE` instead of `V$DATABASE`.
+
+If you get an error like "`can only select from fixed tables/views`" when granting permissions to system objects, try changing the prefixes.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Oracle

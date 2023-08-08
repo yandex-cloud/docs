@@ -57,7 +57,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
 1. Click **Check connection**.
 1. After successfully checking the connection, click **Create**.
-1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there isn't any data, please make sure your current account has podcast access by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).
+1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there isn't any data, please make sure your current account has podcast access by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).
 
 ### 1.3. Review podcast statistics in {{ datalens-short-name }} {#podcasts-in-datalens}
 
@@ -67,8 +67,8 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
    {% cut "Other objects" %}
 
-   * ![image]/../_assets/datalens/solution-10/04-music-connection.png =20x20) A connection is a set of parameters for accessing podcast data. This is the key that the user needs to open the statistics.
-   * ![image]/../_assets/datalens/solution-10/03-datasets.png =20x20) Datasets are sets of dimensions and measures that are used for creating charts.
+   * ![image](../../_assets/datalens/solution-10/04-music-connection.png =20x20) A connection is a set of parameters for accessing podcast data. This is the key that the user needs to open the statistics.
+   * ![image](../../_assets/datalens/solution-10/03-datasets.png =20x20) Datasets are sets of dimensions and measures that are used for creating charts.
       * Dataset **D01. Podcast listens**: A dataset with listening statistics.
       * Dataset **D02. Podcast subscribers**: A dataset with data on subscribers.
    * ![image](../../_assets/datalens/solution-10/01-charts.png =20x20) Charts are sets of individual visualizations in the form of diagrams and tables used on the dashboard.
@@ -103,7 +103,7 @@ You can change the order of charts and selectors, increase or decrease them, dis
 1. In the menu on the left, go to the **Dashboards** section.
 1. Next to the **Yandex Music podcast analytics** dashboard, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) and select **Copy**.
 1. Open the dashboard copy and go to the **Audience** tab.
-1. Click **Edit** in the upper-right corner.
+1. Click **Edit** in the top-right corner.
 1. Let's say you want to delete the **Listening platforms** chart. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) in the upper-right corner of the chart and select **Delete**.
 
    ![image](../../_assets/datalens/solution-10/07-delete-chart.png)
@@ -127,7 +127,7 @@ You can change the order of charts and selectors, increase or decrease them, dis
 
    ![image](../../_assets/datalens/solution-10/10-selector-settings.png)
 
-1. Move the selector to the top. If necessary, resize the charts.
+1. Move the selector to the top. You can resize the charts if necessary.
 1. Place the selectors on the same line, changing their size.
 
    ![image](../../_assets/datalens/solution-10/11-dashboard-selector.png)
@@ -226,7 +226,7 @@ Set up access to {{ datalens-full-name }}:
 1. Go to [Access control]({{ link-console-access-management }}).
 1. In the top right-hand corner, click **Add user**.
 1. Enter the user's Yandex email address. The new user appears in the list of users.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Edit roles**.
+1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Change roles**.
 1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
    After that, you can share a link to the dashboard with the new user.
 1. Make sure that the new user has access rights to the dashboard with podcast statistics. Open the dashboard.
@@ -252,7 +252,7 @@ Set up access to {{ datalens-full-name }}:
 
 The user will be able to view statistics immediately, and you can set up additional permissions for the user's account in a few hours.
 
-Permissions can be set up for each object separately. Learn more about [permissions in DataLens](../../datalens/security/index.md#permissions).
+Permissions can be set up for each object separately. Learn more about [permissions in {{ datalens-short-name }}](../../datalens/security/index.md).
 
 {% endnote %}
 
@@ -334,7 +334,7 @@ To grant a user access to your {{ datalens-short-name }} instance:
 1. Go to [Access control]({{ link-console-access-management }}).
 1. In the top right-hand corner, click **Add user**.
 1. Enter the user's Yandex email address. The new user appears in the list of users.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Edit roles**.
+1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Change roles**.
 1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
 
 {% note info %}
@@ -404,13 +404,12 @@ If necessary, you can revoke a user's permissions:
 1. Select the user to revoke permissions from.
 1. In the window that opens, click **Revoke permissions**.
 1. To completely disable the user's access to your dashboard with podcaster statistics:
-
    1. Go to [Access control]({{ link-console-access-management }}).
    1. Find the user, click the icon next to the new user, and select **Delete**.
 
 ## 4. Make a dashboard or chart public {#publish-dashboard-chart}
 
-Data in {{ datalens-short-name }} is only available to users of a specific instance. If you want to provide unlimited public access to podcast analytics, publish a dashboard or a particular chart in [DataLens Public](../../datalens/concepts/datalens-public.md).
+Data in {{ datalens-short-name }} is only available to users of a specific instance. If you want to provide unlimited public access to podcast analytics, [publish](../../datalens/concepts/datalens-public.md) your dashboard or a particular chart.
 
 {% list tabs %}
 

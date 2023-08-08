@@ -348,7 +348,7 @@ system:  # optional
 ```
 
 ### flow_control section {#flow_control}
-This section contains a configuration for session control. The settings let you configure various session limits and their behavior upon reaching the limits.
+This section contains a configuration for session control. The settings allow you to configure various session limits and their behavior upon reaching the limits.
 
 You can use the `flow_control` section for inputs and storage references (storage_ref).
 
@@ -598,7 +598,7 @@ Parameter descriptions:
         # The output format to convert the incoming set of metrics to.
         # Exactly one of the nested elements must be specified.
         format: # required
-          # Convert the Yandex Monitoring format (https://cloud.yandex.com/docs/monitoring/api-ref/MetricsData/write) to JSON
+          # Convert the {{ monitoring-full-name }} format (https://cloud.yandex.com/docs/monitoring/api-ref/MetricsData/write) to JSON
           json:
               # Indicates whether to merge metrics with the same set of labels.
               # Possible values: default (merging disabled), merge_metrics (merging enabled).
@@ -711,7 +711,7 @@ File storage. Messages are saved in partitions. Partitions are the directories t
 
 {% note warning %}
 
-We don't recommend using the file storage along with the file system mount option `nobarrier`. Data integrity in case of power failure is not guaranteed, so manual intervention might be needed.
+We do not recommend using the file storage with the `nobarrier` file system mount option. Data integrity in case of power failure is not guaranteed, so manual intervention might be needed.
 
 {% endnote %}
 

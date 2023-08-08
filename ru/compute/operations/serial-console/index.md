@@ -59,7 +59,7 @@
      ```
 
      Команда создаст ВМ:
-     * С OC Ubuntu.
+     * С OC [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
      * С именем `first-instance`.
      * В [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
      * С активной серийной консолью.

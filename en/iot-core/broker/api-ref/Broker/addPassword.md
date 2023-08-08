@@ -10,7 +10,7 @@ Adds password for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords
+POST https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords
 ```
  
 ## Path parameters {#path_params}

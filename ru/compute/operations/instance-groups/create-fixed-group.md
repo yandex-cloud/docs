@@ -107,6 +107,10 @@
        allocation_policy:
          zones:
            - zone_id: {{ region-id }}-a
+             instance_tags_pool:
+             - first
+             - second
+             - third
        ```
 
        Где:
@@ -114,36 +118,40 @@
        * `scale_policy` — [политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) ВМ в группе.
        * `allocation_policy` — [политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) ВМ по [зонам доступности](../../../overview/concepts/geo-scope.md) и регионам.
 
-  Полный код файла `specification.yaml`:
+     Полный код файла `specification.yaml`:
 
-  ```yaml
-  name: first-fixed-group
-  service_account_id: ajed6ilf11qg********
-  description: "This instance group was created from YAML config."
-  instance_template:
-    platform_id: standard-v3
-    resources_spec:
-      memory: 2g
-      cores: 2
-    boot_disk_spec:
-      mode: READ_WRITE
-      disk_spec:
-        image_id: fdvk34al8k5n********
-        type_id: network-hdd
-        size: 32g
-    network_interface_specs:
-      - network_id: c64mknqgnd8a********
-        primary_v4_address_spec: {}
-  deploy_policy:
-    max_unavailable: 1
-    max_expansion: 0
-  scale_policy:
-    fixed_scale:
-      size: 3
-  allocation_policy:
-    zones:
-      - zone_id: {{ region-id }}-a
-  ```
+     ```yaml
+     name: first-fixed-group
+     service_account_id: ajed6ilf11qg********
+     description: "This instance group was created from YAML config."
+     instance_template:
+       platform_id: standard-v3
+       resources_spec:
+         memory: 2g
+         cores: 2
+       boot_disk_spec:
+         mode: READ_WRITE
+         disk_spec:
+           image_id: fdvk34al8k5n********
+           type_id: network-hdd
+           size: 32g
+       network_interface_specs:
+         - network_id: c64mknqgnd8a********
+           primary_v4_address_spec: {}
+     deploy_policy:
+       max_unavailable: 1
+       max_expansion: 0
+     scale_policy:
+       fixed_scale:
+         size: 3
+     allocation_policy:
+       zones:
+         - zone_id: {{ region-id }}-a
+           instance_tags_pool:
+           - first
+           - second
+           - third
+     ```
 
   1. Создайте группу ВМ в каталоге по умолчанию:
 

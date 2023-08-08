@@ -5,8 +5,10 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 {% note info %}
 
+
 * The number of hosts you can create together with a {{ MG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
+
 
 {% endnote %}
 
@@ -41,7 +43,9 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       * Select the [disk type](../concepts/storage.md).
 
+                  
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
       * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -73,7 +77,9 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * If the host must be available outside {{ yandex-cloud }}, enable **Public access**.
 
 
+      
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
+      
 
       By default, hosts are created in different availability zones. For details, see about [host management](hosts.md).
 
@@ -123,7 +129,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
          --mongod-resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name> \
-         --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+         --mongod-disk-type <disk type> \
          --mongod-disk-size <storage size in GB> \
          --deletion-protection=<deletion protection for the cluster: true or false>
       ```

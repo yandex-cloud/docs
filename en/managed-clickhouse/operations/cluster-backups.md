@@ -158,7 +158,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
          
          * `network-hdd`
          * `network-ssd`
-         * `local-ssd`
+                  * `local-ssd`
          * `network-ssd-nonreplicated`
 
 

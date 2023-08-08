@@ -1,5 +1,5 @@
 
-В блоке **Класс хоста** выберите:
+В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите:
 
  * Одну из доступных [платформ](../../../compute/concepts/vm-platforms.md).
  * Тип конфигурации: **memory-optimized**, **standard** или **burstable**.

@@ -5,8 +5,10 @@
 
 {% note info %}
 
+
 * Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
+
 
 {% endnote %}
 
@@ -20,14 +22,14 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
 
-  1. Выберите сервис **{{ mmg-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Нажмите кнопку **Создать кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
-  1. В блоке **Базовые параметры**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Введите название в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
-      * (опционально) Введите **Описание** кластера.
+      * Введите название в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
+      * (Опционально) Введите **{{ ui-key.yacloud.mdb.forms.base_field_description }}** кластера.
       * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
 
           * `PRODUCTION` — для стабильных версий ваших приложений.
@@ -37,22 +39,24 @@
 
   1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
 
-  1. В блоке **Размер хранилища**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Выберите [тип диска](../concepts/storage.md).
 
+                
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
       * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
       
-  1. В блоке **База данных** укажите атрибуты БД:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
 
       * Имя БД.
       * Имя пользователя.
       * Пароль пользователя. Минимум 8 символов.
 
   
-  1. В блоке **Сетевые настройки** выберите:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
       * Облачную сеть для размещения кластера.
       * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
@@ -64,16 +68,18 @@
           {% endnote %}
 
 
-  1. В блоке **Хосты** добавьте хосты БД, создаваемые вместе с кластером:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хосты БД, создаваемые вместе с кластером:
 
      
-     * Нажмите кнопку **Добавить хост**.
+     * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
      * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
-     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **Публичный доступ**.
+     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
+          
      Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
   
@@ -85,7 +91,7 @@
 
       {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
-  1. Нажмите кнопку **Создать кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 - CLI
 
@@ -123,7 +129,7 @@
         --mongod-resource-preset <класс хоста> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
-        --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --mongod-disk-type <тип диска> \
         --mongod-disk-size <размер хранилища в гигабайтах> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```

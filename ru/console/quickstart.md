@@ -4,7 +4,7 @@
 
 1. Создайте аккаунт в [Яндекс ID]({{ link-yandex }}/support/passport/authorization/registration.html).
 
-    О том, как настроить доступ к консоли управления через систему единого входа (SSO), см. в [документации {{ org-full-name }}](../organization/add-federation.md).
+    О том, как настроить доступ к консоли управления через систему единого входа (SSO), см. в [документации {{ org-full-name }}](../organization/concepts/add-federation.md).
 
 1. Откройте [консоль управления]({{ link-console-main }}).
 1. Нажмите кнопку **Войти с помощью Яндекс ID** и следуйте указаниям на экране. Подробнее см. в [Справке Яндекс ID]({{ link-yandex }}/support/id/auth.html).

@@ -134,12 +134,12 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
       ...
       resource "yandex_storage_bucket" "test" {
         bucket     = "my-bucket"
-        access_key = "123JE02jKxusnc23ZnUzc"
-        secret_key = "ExamP1eSecReTKeykdokKK38800"
+        access_key = "123JE02jKxusn********"
+        secret_key = "ExamP1eSecReTKeykdo********"
         server_side_encryption_configuration { // Delete this section to disable encryption
           rule {
             apply_server_side_encryption_by_default {
-              kms_master_key_id = "abjbeb2bgg4ljno7aqqo"
+              kms_master_key_id = "abjbeb2bgg4l********"
               sse_algorithm     = "aws:kms"
             }
           }

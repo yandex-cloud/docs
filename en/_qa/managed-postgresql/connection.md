@@ -8,6 +8,10 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
+#### Can I connect to a cluster from a Docker container? {#conn-from-docker}
+
+Yes, you can. To do this, [configure the Dockerfile](../../managed-postgresql/operations/connect.md#connection-docker).
+
 #### How do I obtain an SSL certificate to connect to {{ mpg-name }} on Windows? {#get-ssl}
 
 You can obtain an SSL certificate using PowerShell:
@@ -33,7 +37,7 @@ For more information about obtaining a certificate and connecting to a database,
 
    The certificate will be available at `C:\temp\CA.pfx`.
 
-1. [Place the certificate you received in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+1. [Place the obtained certificate in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
 #### What should I do if I get the "SSL is required" error? {#ssl-req}
 
@@ -44,7 +48,7 @@ The error occurs because you are trying to connect to the cluster with a [public
 
 #### What is the maximum allowed number of concurrent connections to a single host in {{ mpg-name }}? {#host-conn}
 
-The number of concurrent connections is specified at the cluster level in the [**Max connections** setting](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). By default, the maximum value set is calculated by the following formula:
+The number of concurrent connections is specified at the cluster level in the [**Max connections** setting](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). By default, the maximum value is set, which is calculated by the following formula:
 
 ```text
 200 × <number of vCPUs per host>
@@ -63,3 +67,7 @@ too many active clients for user (pool_size for user <username> reached <limit v
 ```
 
 To learn how to update the {{ PG }} settings at the user level, see our [documentation](../../managed-postgresql/operations/cluster-users.md#update-settings).
+
+#### Why does an error occur when trying to connect to a database from {{ google-looker }}? {#google-looker}
+
+To connect from {{ google-looker }}, be sure to generate a client certificate file and a private key and specify them in the connection settings. For more information about how to do this, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).

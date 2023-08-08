@@ -1,7 +1,7 @@
 # Adding selectors to dashboards
 
 
-Before adding a selector, make sure that you have the `Write` or `Admin` permission for a dashboard. For more information, see the [section](../../security/index.md#permissions).
+Before adding a selector, make sure that you have the `Write` or `Admin` permission for a dashboard. For more information, see the [section](../../security/index.md).
 
 
 To add a selector to a dashboard:
@@ -78,4 +78,4 @@ When adding a selector by a certain field to your dashboard, filters added at th
 ## Limitations {#restrictions}
 
 * For measure selectors, only one selector type is available: **Input field**.
-* We recommend making measure selectors independent of other selectors (you must specify the **Ignore** [link](../../concepts/dashboard.md#link) type with other selectors in the **Links** section when editing a dashboard).
+* We recommend making measure selectors independent of other selectors (you must specify the **Ignore** [link](../../dashboard/link.md) type with other selectors in the **Links** section when editing a dashboard).

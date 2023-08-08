@@ -47,6 +47,7 @@ description: "Страница содержит все инструкции дл
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
+* [{#T}](data/s3-connectors.md)
 * [{#T}](data/connect-to-s3.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
@@ -75,3 +76,4 @@ description: "Страница содержит все инструкции дл
 ## Дополнительные возможности {{ ml-platform-name }} {#additional-feature}
 
 * [{#T}](migration.md)
+

@@ -3,7 +3,7 @@
 The host class determines the computing power allocated for each host group with the specific role in the cluster. When you change the host class for a host group in the cluster, the characteristics change for all of the hosts that were created earlier in the group. For more information about host groups, see [{#T}](./host-groups.md).
 
 
-The available storage doesn't depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
+The available storage does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
 
 ## Available host classes {#available-flavors}

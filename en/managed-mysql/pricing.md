@@ -87,7 +87,9 @@ All prices are shown without VAT.
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
+
 The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
+
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

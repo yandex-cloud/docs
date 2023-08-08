@@ -1,4 +1,8 @@
-# View L7 load balancer statistics
+# Viewing L7 load balancer statistics
+
+Load balancer [statistics](../concepts/application-load-balancer.md#stats) are automatically logged in the [{{ monitoring-full-name }}](../../monitoring/) metrics.
+
+For a full list of metrics, see the [reference](../metrics.md).
 
 ## View general statistics {#summary}
 
@@ -12,8 +16,9 @@ To view the statistics:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ alb-name }}**.
-   1. Click on the name of the load balancer you need.
+   1. Click the name of the load balancer you need.
    1. Go to the **Monitoring** tab.
+   1. Select a dashboard: **HTTP statistics** or **Capacity statistics**.
    1. Select the time period to view statistics for: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
 
 {% endlist %}
@@ -30,8 +35,9 @@ To view the statistics:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ alb-name }}**.
-   1. Click on the name of the load balancer you need.
+   1. Click the name of the load balancer you need.
    1. Go to the **Monitoring** tab.
+   1. Select a dashboard: **HTTP statistics** or **Capacity statistics**.
    1. Click **Open in Monitoring**.
    1. Select the resources for which you wish to view statistics:
 

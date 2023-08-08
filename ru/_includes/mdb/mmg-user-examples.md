@@ -8,13 +8,13 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/user.svg) **Пользователи**.
-  1. Нажмите кнопку **Добавить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
   1. Введите имя пользователя `user2` и пароль (от 8 до 128 символов).
-  1. Выберите базу данных `db1` из выпадающего списка **Добавить базу данных**.
+  1. Выберите базу данных `db1` из выпадающего списка **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
   1. Выберите роль `read` из выпадающего списка напротив базы данных `db1`.
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 - CLI
 
@@ -37,12 +37,12 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/mdb/user.svg) **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке пользователя `user1` и выберите пункт **Настроить**.
-  1. Нажмите кнопку **Добавить базу данных** и выберите базу данных `db2`.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) в строке пользователя `user1` и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите базу данных `db2`.
   1. Нажмите ![image](../../_assets/plus-sign.svg) и выберите роль `read` из выпадающего списка напротив базы данных `db2`.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 

@@ -17,7 +17,7 @@ For more information, see [{#T}](../concepts/network.md).
 
 ## Configuring security groups {#configure-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -53,15 +53,15 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -80,23 +80,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 {{ MY }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
-
-   The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
-
-- Windows (PowerShell)
-
-   ```PowerShell
-   mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
-   ```
-
-   The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -192,7 +176,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
-            1. Enable **Verify server certificate**.
+            1. Disable **Verify server certificate**.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

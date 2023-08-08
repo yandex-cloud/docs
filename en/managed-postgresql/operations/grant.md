@@ -17,7 +17,9 @@ The user created with a **{{ mpg-name }}** cluster is the owner of the first dat
 
 ## Updating the list of user roles {#grant-role}
 
-To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.
+To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.
+
+With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. The highest privileges for working with clusters are granted to users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin). For more information, see [{#T}](../concepts/roles.md).
 
 {% list tabs %}
 

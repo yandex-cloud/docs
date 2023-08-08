@@ -6,7 +6,7 @@ You can [create a {{ yandex-cloud }} payment account](../../../billing/operation
 
 {% note warning %}
 
-If the selected billing account is suspended or has an overdue debt, you can't link it to your {{ ml-platform-name }} community. In this case, go to the [billing page]({{ link-console-billing }}) in the {{ yandex-cloud }} management console, select your account, and follow the prompts in the interface. When the billing account is activated, try to link it to {{ ml-platform-name }} again. More about [billing account](../../../billing/concepts/billing-account-statuses.md) statuses.
+If the selected billing account is suspended or has an overdue debt, you can't link it to your {{ ml-platform-name }} community. In this case, go to the [**Billing**]({{ link-console-billing }}) page in the {{ yandex-cloud }} management console, select your account, and follow the prompts in the interface. When the billing account is activated, try to link it to {{ ml-platform-name }} again. More about [billing account](../../../billing/concepts/billing-account-statuses.md) statuses.
 
 {% endnote %}
 

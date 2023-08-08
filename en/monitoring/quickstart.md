@@ -29,11 +29,10 @@ If you don't have any resources, create them (for example, a {{ CH }} VM and clu
    - `resource_id=*`
    - `resource_type=vm`
 1. Click **Save**. The widget is displayed on the dashboard.
-2. Click ![gear](../_assets/monitoring/gear.svg) to open the widget configuration modal window.
-3. In the **Heading** parameter, enter a name for the widget. For example, CPU on all hosts.
-4. Click **Save**. The widget name appears at the top of the widget.
-5. Drag the created widget to the appropriate place on the dashboard.
-
+1. Click ![gear](../_assets/monitoring/gear.svg) to open the widget configuration modal window.
+1. In the **Heading** parameter, enter a name for the widget. For example, CPU on all hosts.
+1. Click **Save**. The widget name appears at the top of the widget.
+1. Drag the created widget to the appropriate place on the dashboard.
 
 ## Add a widget of {{ mch-full-name }} {#add-clickhouse-widget}
 
@@ -50,7 +49,6 @@ If you don't have any resources, create them (for example, a {{ CH }} VM and clu
 1. In the **Heading** parameter, enter a name for the widget. For example, Free space on ClickHouse hosts.
 1. Click **Save**. The widget name appears at the top of the widget.
 1. Drag the created widget to the appropriate place on the dashboard.
-
 
 ## Save the created dashboard {#save-dashboard}
 

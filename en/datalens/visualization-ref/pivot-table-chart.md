@@ -70,28 +70,113 @@ To create a pivot table:
 
 ## Additional settings {#additional-settings}
 
-### Renaming columns {#change-column-names}
+### Renaming table columns and rows {#change-columns-names}
 
-1. Under **Columns**, click the icon to the left of the dimension or measure name.
+1. Under **Columns** or **Rows**, click the icon to the left of the dimension name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
+### Setting up the width of table columns and rows {#set-column-width}
 
-### Adding a row with totals {#add-totals}
+1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/datalens/gear.svg) (the icon appears when you hover over the section).
+1. In the **Column and row width** window that opens, set up the width of columns and rows:
 
-1. In the left part of the screen, click ![image](../../_assets/datalens/gear.svg) next to the chart type.
-1. Enable the **Totals** settings.
+   * `Auto`: Automatic column/row width.
+   * `%`: Column/row width as a percentage of the table's total width.
+   * `px`: Column/row width in pixels.
+
+   The `%` and `px` options let you make a table cell break (by word). This may increase the number of rows in a cell.
+
+   {% note info %}
+
+   The total width of a table always takes up 100% of available space regardless of the specified width of individual columns and rows.
+
+   {% endnote %}
+
 1. Click **Apply**.
 
-The **Total** row is displayed in the table. Values in the row are calculated using the same formulas as [aggregation](../concepts/dataset/data-model.md#aggregation) in the measure.
+To set the width of any column to `Auto`, click **Reset**.
+
+### Adding rows with subtotals {#add-totals}
+
+1. Under **Columns** or **Rows**, click the icon in front of the field name.
+1. In the field settings window, enable **Sub-totals**.
+1. Click **Apply**.
+
+The table will show columns and/or rows with **Total <field name>**.
+
+To output the common **Total** row, enable **Sub-totals** in the settings for the first fields under **Columns** and **Rows**.
+
+{% cut "Pivot table with subtotals" %}
+
+![pivot-table-totals](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-totals.png)
+
+{% endcut %}
 
 {% note info %}
 
-* Values in the row with totals are calculated only for measures. For dimensions, the row is empty.
 * The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
 * Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
 
 {% endnote %}
 
+### Setting up a field fill color {#set-field-colour}
+
+1. Under **Columns**, **Rows**, or **Measures**, click the icon to the left of the field name.
+1. In the window that opens, enable **Column fill color**.
+1. In the **By field** list, select the field whose values the fill will be based on.
+1. Set the **Fill type**:
+
+   {% note info %}
+
+   You can use the **Palette** type for dimensions and the **Gradient** type for measures.
+
+   {% endnote %}
+
+   {% list tabs %}
+
+   - For a dimension
+
+     1. Click the color scheme selection field and set a color for each dimension value.
+     1. Click **Apply**.
+
+   - For a measure
+
+     1. Click the gradient selection field and set up:
+
+        * **Gradient type**: Select 2 or 3 colors.
+
+          * Gradient color: Select a color palette for the gradient from the list.
+          * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
+
+        * **Set threshold values**: Set numeric thresholds for each color.
+
+     1. Click **Apply**.
+
+   {% endlist %}
+
+1. Click **Apply**.
+
+### Adding a linear indicator to a column with a measure {#add-linear-indicator}
+
+1. Under **Measures**, click the icon to the left of the measure name.
+1. In the window that opens, enable **Linear indicator**.
+1. Specify the indicator settings:
+
+   * **Fill type**: Type of fill color for the indicator.
+   * **Positive values**: Indicator color for positive values.
+   * **Negative values**: Indicator color for negative values.
+   * **Show labels**: This option enables displaying measure values in a cell.
+   * **Show in totals**: This option enables displaying the indicator in cells with totals.
+   * **Align**: Left or right alignment of the indicator position in a column. Only applies if all numbers in a column are either positive or negative.
+   * **Scale**: Sets the indicator scale. If you set it manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
+
+   {% cut "Sample linear indicator settings" %}
+
+   ![image](../../_assets/datalens/operations/chart/table-linear-indicator-setting.png)
+
+   {% endcut %}
+
+1. Click **Apply**.
 
 ## Recommendations {#recomendations}
 

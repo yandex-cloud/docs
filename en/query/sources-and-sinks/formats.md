@@ -272,11 +272,6 @@ Query results:
 
 {% endcut %}
 
-{% note warning %}
-
-Currently, Parquet files up to 50 MB in size are supported.
-
-{% endnote %}
 
 ## Example of reading data
 

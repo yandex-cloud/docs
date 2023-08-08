@@ -80,6 +80,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [billing-accounts-admin](../../../_includes/iam/roles/billing-accounts-admin.md) %}
 
+{% include [billing-accounts-var-without-discounts](../../../_includes/iam/roles/billing-accounts-var-without-discounts.md) %}
+
 {% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
@@ -543,3 +545,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
 
+
+## {{ yagpt-full-name }} {#yandexgpt-roles}
+
+{% include [roles-yandexgpt-user](../../../_includes/roles-yandexgpt-user.md) %}

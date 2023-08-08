@@ -24,6 +24,8 @@ For information about managing access to buckets and objects, see [{#T}](../conc
 
 ![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
 
+### Service roles {#service-roles}
+
 {% include [storage-viewer](../../_includes/iam/roles/storage-viewer.md) %}
 
 {% include [storage-config-viewer](../../_includes/iam/roles/storage-config-viewer.md) %}
@@ -36,22 +38,15 @@ For information about managing access to buckets and objects, see [{#T}](../conc
 
 {% include [storage-admin](../../_includes/iam/roles/storage-admin.md) %}
 
-### {{ roles-cloud-member }} {#member}
+#### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#owner}
+#### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
-### {{ roles-viewer }} {#viewer}
 
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+### Primitive roles {#primitive-roles}
 
-### {{ roles-editor }} {#editor}
-
-{% include [roles-editor](../../_includes/roles-editor.md) %}
-
-### {{ roles-admin }} {#admin}
-
-{% include [roles-admin](../../_includes/roles-admin.md) %}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}

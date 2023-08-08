@@ -60,3 +60,11 @@ The thresholds are only set in bytes. For example, here are the recommended valu
 
 * `Alarm`: `96636764160` bytes (90%).
 * `Warning`: `85899345920` bytes (80%).
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../../_qa/throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../operations/cluster-update.md#change-disk-size).
+
+If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../operations/cluster-backups.md#restore) from a backup.

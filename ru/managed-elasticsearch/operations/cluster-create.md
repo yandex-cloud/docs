@@ -39,9 +39,9 @@ keywords:
   Чтобы создать кластер:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-  1. Выберите сервис **{{ mes-name }}**.
-  1. Нажмите кнопку **Создать кластер**.
-  1. В блоке **Базовые параметры**:
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
      1. Введите имя кластера и, при необходимости, его описание. Имя кластера должно быть уникальным в рамках каталога.
      1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
@@ -50,20 +50,22 @@ keywords:
      1. Выберите из списка версию {{ ES }}.
      1. Выберите из списка [редакцию {{ ES }}](../concepts/es-editions.md).
 
-    1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+  
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-  1. В блоке **Пользователь** укажите пароль для пользователя `admin`.
+
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_user }}** укажите пароль для пользователя `admin`.
 
      {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
-  1. Задайте конфигурацию хостов с ролью _Data node_, выбрав вкладку **Data node**:
-     1. В блоке **Класс хоста** выберите платформу, тип хостов и класс хостов.
+  1. Задайте конфигурацию хостов с ролью _Data node_, выбрав вкладку **{{ ui-key.yacloud.opensearch.title_data-node }}**:
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите платформу, тип хостов и класс хостов.
 
         Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ ES }}. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных экземпляров.
 
-     1. В блоке **Хранилище**:
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
         * Выберите [тип диска](../concepts/storage.md).
 
@@ -71,9 +73,9 @@ keywords:
 
         * Выберите объем хранилища, который будет использоваться для данных.
 
-     1. В блоке **Хосты** укажите конфигурацию хостов, создаваемых вместе с кластером:
-        1. Чтобы добавить хост, нажмите кнопку **Добавить хост**.
-        1. Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** укажите конфигурацию хостов, создаваемых вместе с кластером:
+        1. Чтобы добавить хост, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+        1. Чтобы изменить добавленный хост, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
 
             При изменении хоста можно: {#change-data-node-settings}
 
@@ -92,9 +94,9 @@ keywords:
 
   1. При необходимости задайте конфигурацию хостов с ролью _Master node_, выбрав вкладку **Master node**:
 
-     1. В блоке **Класс хоста** выберите платформу, тип хостов и класс хостов.
-     1. В блоке **Хранилище** настройте хранилище по аналогии с хостами с ролью _Data node_.
-     1. В блоке **Хосты** нажмите кнопку **Добавить хосты**. Будут добавлены три хоста. Чтобы изменить один из добавленных хостов, наведите курсор на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите платформу, тип хостов и класс хостов.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** настройте хранилище по аналогии с хостами с ролью _Data node_.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите кнопку **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}**. Будут добавлены три хоста. Чтобы изменить один из добавленных хостов, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
 
         При изменении хоста можно: {#change-master-node-settings}
 
@@ -113,7 +115,7 @@ keywords:
 
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md).
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -191,9 +193,10 @@ keywords:
         
         ```hcl
         resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
-          name        = "<имя кластера>"
-          environment = "<окружение, PRESTABLE или PRODUCTION>"
-          network_id  = "<идентификатор сети>"
+          name                = "<имя кластера>"
+          environment         = "<окружение, PRESTABLE или PRODUCTION>"
+          network_id          = "<идентификатор сети>"
+          deletion_protection = "<защита от удаления: true или false>"
 
           config {
             version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
@@ -224,11 +227,11 @@ keywords:
           security_group_ids = [ "<список групп безопасности>" ]
 
           host {
-            name = "<имя хоста>"
-            zone = "<зона доступности>"
-            type = "<роль хоста: DATA_NODE или MASTER_NODE>"
+            name             = "<имя хоста>"
+            zone             = "<зона доступности>"
+            type             = "<роль хоста: DATA_NODE или MASTER_NODE>"
             assign_public_ip = <публичный доступ к хосту: true или false>
-            subnet_id = "<идентификатор подсети>"
+            subnet_id        = "<идентификатор подсети>"
           }
         }
 
@@ -244,6 +247,8 @@ keywords:
 
 
 
+
+        Включенная защита от удаления кластера не защищает содержимое БД.
 
         1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
@@ -303,7 +308,7 @@ keywords:
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
-    * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
+    * Группа безопасности с идентификатором `enpp2s8l3irh********`.
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
@@ -322,7 +327,7 @@ keywords:
       --datanode-disk-type={{ disk-type-example }} \
       --datanode-disk-size=20 \
       --admin-password=esadminpwd \
-      --security-group-ids enpp2s8l3irhk5eromd7 \
+      --security-group-ids enpp2s8l3irh******** \
       --version {{ versions.cli.latest }} \
       --edition platinum \
       --deletion-protection=true
@@ -331,29 +336,16 @@ keywords:
 
 - {{ TF }}
 
-    Создайте кластер {{ mes-name }} с тестовыми характеристиками:
-
-    * Имя `my-es-clstr`.
-    * Версия `{{ versions.tf.latest }}`.
-    * Редакция `Basic`.
-    * Окружение `PRODUCTION`.
-    * Облако с идентификатором `{{ tf-cloud-id }}`.
-    * Каталог с идентификатором `{{ tf-folder-id }}`.
-    * Новая сеть `mynet`.
-    * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
-    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
-    * Пароль `esadminpwd` для пользователя `admin`.
-
-    Конфигурационный файл для такого кластера выглядит так:
+    Создайте кластер {{ mes-name }}. Конфигурационный файл для кластера выглядит так:
 
     
     
     ```hcl
     resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
-      name        = "my-es-clstr"
-      environment = "PRODUCTION"
-      network_id  = yandex_vpc_network.mynet.id
+      name                = "my-es-clstr"
+      environment         = "PRODUCTION"
+      network_id          = yandex_vpc_network.mynet.id
+      deletion_protection = "true"
 
       config {
         edition = "basic"
@@ -374,11 +366,11 @@ keywords:
       security_group_ids = [ yandex_vpc_security_group.es-sg.id ]
 
       host {
-        name = "node"
-        zone = "{{ region-id }}-a"
-        type = "DATA_NODE"
+        name             = "node"
+        zone             = "{{ region-id }}-a"
+        type             = "DATA_NODE"
         assign_public_ip = true
-        subnet_id = yandex_vpc_subnet.mysubnet.id
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
       }
 
     }
@@ -416,5 +408,20 @@ keywords:
 
 
 
+
+    Где применены тестовые характеристики:
+
+    * Имя `my-es-clstr`.
+    * Версия `{{ versions.tf.latest }}`.
+    * Редакция `Basic`.
+    * Окружение `PRODUCTION`.
+    * Защита кластера от удаления `deletion_protection`. Пока опция включена, кластер удалить невозможно.
+    * Облако с идентификатором `{{ tf-cloud-id }}`.
+    * Каталог с идентификатором `{{ tf-folder-id }}`.
+    * Новая сеть `mynet`.
+    * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
+    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+    * Пароль `esadminpwd` для пользователя `admin`.
 
 {% endlist %}

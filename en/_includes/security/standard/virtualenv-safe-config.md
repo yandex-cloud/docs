@@ -90,7 +90,7 @@ When deploying virtual machines, we recommend:
    1. Run the command below to search for the VM disks that do not contain the ID of your benchmark image:
 
       ```bash
-      export ORG_ID=export ORG_ID=<organization ID>
+      export ORG_ID=<Organization ID>
       export IMAGE_ID=<Your reference image ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');

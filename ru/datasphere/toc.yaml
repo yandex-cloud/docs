@@ -71,9 +71,13 @@ items:
             href: operations/user-images.md
           - name: Работа с датасетами
             href: operations/data/dataset.md
+          - name: Работа с коннекторами S3
+            href: operations/data/s3-connectors.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к хранилищу S3
+            href: operations/data/s3-connectors.md
+          - name: Подключение к S3 с помощью библиотеки boto3
             href: operations/data/connect-to-s3.md
           - name: Подключение к базе данных {{ CH }}
             href: operations/data/connect-to-clickhouse.md
@@ -155,6 +159,8 @@ items:
             href: concepts/dataset.md
           - name: Шаблоны {{ dataproc-name }}
             href: concepts/data-proc-template.md
+          - name: Коннекторы S3
+            href: concepts/s3-connector.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
       - name: Квоты и лимиты
@@ -179,6 +185,8 @@ items:
         href: tutorials/regular-launch.md
       - name: Запуск вычислений с помощью API
         href: tutorials/batch-code-execution.md
+      - name: Обучение модели на данных из {{ objstorage-full-name }}
+        href: tutorials/s3-to-datasphere.md
   - name: Справочник API
     items:
       - name: Обзор

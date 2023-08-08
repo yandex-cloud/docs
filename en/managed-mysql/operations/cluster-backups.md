@@ -249,7 +249,7 @@ For a new cluster, you should set all the parameters that are required at creati
          
          * `network-hdd`.
          * `network-ssd`.
-         * `local-ssd`.
+                  * `local-ssd`.
          * `network-ssd-nonreplicated`.
 
 

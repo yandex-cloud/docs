@@ -39,29 +39,29 @@ description: "Вы можете создавать резервные копии
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) нужной резервной копии и нажмите **Восстановить кластер**.
+  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) нужной резервной копии и нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
+  1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
 
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Имя** содержатся идентификаторы в формате `<идентификатор кластера>:<идентификатор резервной копии>`.
+  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** содержатся идентификаторы в формате `<идентификатор кластера>:<идентификатор резервной копии>`.
 
-  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) нужной резервной копии и нажмите **Восстановить кластер**.
+  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) нужной резервной копии и нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
+  1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
 
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   {{ mmg-name }} запустит операцию создания кластера из резервной копии.
 
@@ -113,7 +113,7 @@ description: "Вы можете создавать резервные копии
                `subnet-id=<идентификатор подсети> \
          --mongod-resource-preset <класс хоста> \
          --mongod-disk-size <размер хранилища в гигабайтах> \
-         --mongod-disk-type <тип диска: network-hdd, network-ssd, local-ssd или network-ssd-nonreplicated>
+         --mongod-disk-type <тип диска: network-hdd или network-ssd>
       ```
 
 
@@ -136,9 +136,9 @@ description: "Вы можете создавать резервные копии
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
-  1. Нажмите кнопку **Создать резервную копию**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -182,13 +182,13 @@ description: "Вы можете создавать резервные копии
 
   Чтобы получить список резервных копий кластера:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   В этих списках содержится следующая информация:
 
@@ -247,12 +247,12 @@ description: "Вы можете создавать резервные копии
 - Консоль управления
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
 - CLI
 

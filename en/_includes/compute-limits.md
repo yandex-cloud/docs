@@ -10,6 +10,7 @@
 | Total HDD storage capacity per cloud | 500 GB |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total non-replicated SSD storage capacity per cloud | 558 GB |
+| Total high-performance SSD storage capacity per cloud | 186 GB |
 | Number of non-replicated disk placement groups per cloud | 5 |
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
@@ -59,7 +60,6 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
 
-
 - Intel Ice Lake
 
    | Type of limit | Value |
@@ -69,6 +69,17 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum number of disks and file stores attached to a single VM^2^ | Up to 32 vCPUs: 8<br>Over 32 vCPUs: 16^3^ |
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
+
+
+- Intel Ice Lake (Compute Optimized)
+
+| Type of limit | Value |
+--- | ---
+| Maximum number of vCPUs per VM | 56 |
+| Maximum virtual memory per VM | 448 GB |
+| Maximum number of disks and file stores attached to a single VM^2^ | Up to 32 vCPUs: 8<br>Over 32 vCPUs: 16^3^ |
+| Maximum number of security groups per interface | 5 |
+| Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
 
 {% endlist %}
 
@@ -99,6 +110,16 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Type of limit | Value |
    --- | ---
    | Total number of non-replicated SSDs per placement group | 8 |
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000 |
+   | Maximum^4^ IOPS per VM | 100,000 |
+   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
+   | Maximum^5^ bandwidth per VM | 1 GB/s |
+
+- High-performance SSD
+
+   | Type of limit | Value |
+   --- | ---
+   | Total number of high-performance SSDs per placement group | 8 |
    | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000 |
    | Maximum^4^ IOPS per VM | 100,000 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
@@ -146,11 +167,26 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Minimum non-replicated disk size | 93 GB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br>(for<br> vhost connections;<br> otherwise, 50,000) |
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br> |
    | Maximum^4^ IOPS for writes per allocation unit | 5,600 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 1 GB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 82 MB/s |
-   | Maximum^4^ IOPS for reads per disk | 75,000<br>(for<br> vhost connections;<br> otherwise, 50,000) |
+   | Maximum^4^ IOPS for reads per disk | 75,000<br> |
+   | Maximum^4^ IOPS for reads per allocation unit | 28,000 |
+   | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
+   | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
+
+- High-performance SSD
+
+   | Type of limit | Value |
+   --- | ---
+   | Minimum high-performance disk size | 93 GB |
+   | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br> |
+   | Maximum^4^ IOPS for writes per allocation unit | 5,600 |
+   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 1 GB/s |
+   | Maximum^5^ bandwidth for writes per allocation unit | 82 MB/s |
+   | Maximum^4^ IOPS for reads per disk | 75,000<br> |
    | Maximum^4^ IOPS for reads per allocation unit | 28,000 |
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |

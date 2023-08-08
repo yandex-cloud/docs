@@ -1,69 +1,67 @@
-# {{ tracker-full-name }} revision history for April 2023
+# {{ tracker-full-name }} revision history for May 2023
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
+### Switching boards to new technologies {#old-to-new}
 
-### Choosing a color for issues on a project's Gantt chart {#issues-colors}
+You can now [switch](../manager/boards-convertor.md) the old boards to our [new technologies](../manager/agile-new.md). When migrating the board, the following is retained:
+* ID.
+* Name.
+* Issues added.
+* Status distribution by column.
+* **Reported by me** and **Assigned to me** filters.
+* Filter for adding issues.
 
-A [Gantt chart for projects](../gantt/project.md) now allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
+You can switch your board back to the old version after migration, if needed. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Switch back to the old version** in the board's top panel and wait until it switches back.
 
-You can edit the list of values by adding and deleting values and choosing their color.
+### Grouping issues by any field {#grouping}
 
-If an issue has two or more color components, the resulting color will be selected from the list of values by priority.
+You can now group issues by any field. This kind of grouping is supported for a [list of project issues](../manager/project-list.md), a project's Gantt chart, and on [new boards](../manager/agile-new.md).
 
-### Retaining settings for a Gantt chart created based on a filter {#save-the-columns}
+To group issues, click ![](../../_assets/tracker/svg/group.svg) and select a field.
 
-The settings of a [Gantt chart created based on a filter](../gantt/search.md) and issue parameters in the list to the left of the chart persist and are not reset when you refresh a page.
+### Setting up an issue color for a Gantt chart based on a queue and filter {#gantt-colours-filter}
 
-### Creating an issue from a comment {#task-from-comment}
+A [Gantt chart](../gantt/project.md) based on a queue and filter allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
 
-The ![](../../_assets/tracker/svg/actions.svg) **Comment actions** menu now contains an item named **Create issue from comment**. This item will create a linked issue with the comment text in its description. You can edit the description, if required.
+### **Collapse** and **Expand** buttons {#new-buttons}
 
-### Limiting the number of issues per column {#column-limits}
+The **Issue list** and **Gantt chart** tabs of the [project](../manager/project-new.md) page now have the **Collapse** and **Expand** buttons. Use them to expand and collapse:
+* All sub-issues in a tree list.
+* All groups in grouping mode.
 
-On [new boards](../manager/agile-new.md), you can set a limit on the number of issues per column. The number of issues and the set limit are displayed next to the column name. If the number of issues exceeds the limit, the column color turns yellow; this will still allow you to continue adding issues.
+### Navigation with arrows {#arrow-buttons}
 
-You can set a limit in the column settings by selecting ![](../../_assets/tracker/svg/actions.svg) → **Edit** → **Maximum number of issues**.
+You can now use the keyboard to move across your issue list:
 
-![](../../_assets/tracker/changelogs/column-limits.png)
+* Arrow keys to navigate the menu.
+* **Enter** or spacebar to follow a link.
 
-### Setting up a transition from _Any status_ {#meta-transition}
 
-The new workflow editor has the **Allow transitions from any status** setting for statuses. In this case, a diagram gets a status called **Any status**. Previously, you could not edit a transition from **Any status**. Now, you can set up its automation, criteria, and transition screens similarly to any other transition on a diagram.
+### Disabling an organization {#no-orgs}
 
-### Canceling the last action in the workflow editor {#hot-keys}
+Now, to work in {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}, you can choose one [organization](../cloud-vs-360.md) and disable another one if you do not need it. To disable an organization, go to ![](../../_assets/tracker/svg/admin.svg) **Administration** → ![](../../_assets/tracker/svg/organizations.svg) [**Organizations**]({{ link-tracker }}admin/orgs). Click ![](../../_assets/tracker/dots.png) and select **Disable**.
 
-The workflow editor allows you to use keyboard shortcuts to cancel and restore the last action.
-* Windows: **Ctrl** + **Z** to cancel an action and **Ctrl** + **Shift** + **Z** to restore the canceled action.
-* Mac OS: **⌘** + **Z** to cancel an action and **⌘** + **Shift** + **Z** to restore the canceled action.
+In this case, it will be disconnected from {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}. Its data will not be lost. However, this organization's users will be marked as dismissed, the groups will be deleted, and the access rights will be revoked. The email aliases set up on the domain in the queues will be deleted.
 
-## Fixes and improvements {#fixes}
 
-### Issue filter for a Gantt chart created based on a list of projects
+### Buttons to navigate through comments {#comment-up-down}
 
-On a [Gantt chart for a list of projects](../gantt/list-of-projects.md), you can set up an additional filter by issue.
+There are new buttons that allow you to move to the first or last comment in issues. To move to an issue description, double-click ![](../../_assets/tracker/to-first-comment.png =12x12).
+You can also use the following keys for navigation:
 
-![](../../_assets/tracker/changelogs/tasks-filter.png =690x112)
+* **Windows**: **Home** or **End**.
+* **Mac OS**: **⌘** + **↑** or **⌘** + **↓**.
 
-### Invitations to comments in projects {#bell-summons}
+### Mandatory comments on the transition screen {#flow-comments}
 
-You can invite users to comment on projects. Notifications of invitations are sent to a user's email address.
+In the [new workflow editor](../manager/workflow.md), you can now make it mandatory to write a comment when changing an issue's status. To make the **Comment** field required, go to the workflow editor and select&nbsp;**Required** in the **Transition screen** section.
 
-### Choosing a color for an issue status {#statuses-color}
+### Displaying completed sprints {#scroll-fixed}
 
-An issue status is additionally highlighted with a color, depending on the status type:
-* ![](../../_assets/tracker/changelogs/status-1-open.png)
-* ![](../../_assets/tracker/changelogs/status-2-in-progress.png)
-* ![](../../_assets/tracker/changelogs/status-3-needs-info.png)
-* ![](../../_assets/tracker/changelogs/status-4-solved.png)
-* ![](../../_assets/tracker/changelogs/status-5-closed.png)
-
-### Updating planning poker on boards {#new-poker-ui}
-
-On [new boards](../manager/agile-new.md), **planning poker** opens to the full height of a board and you can drag an issue to any part of the opened tab.
-It is now more convenient to estimate issues: the drop-down list is replaced with buttons that show estimates, a counter of users who voted for issues, and a button to view the estimates.
-
-![](../../_assets/tracker/changelogs/poker-estimate-buttons.png)
+* Fixed the bug when the list of completed sprints was only displayed in part.
+* Completed sprints are sorted by end date: those completed most recently are shown at the top of the list.
+* There is a new button to switch to the sprint issue list on the filter page.

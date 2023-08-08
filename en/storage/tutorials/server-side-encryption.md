@@ -40,7 +40,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify `example-bucket`.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
 
       The name must meet the following requirements:
 
@@ -68,7 +68,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        bucket_name = "example-bucket" # The name of the bucket being created. If you don't specify a bucket name for the `yandex_storage_bucket` resource, a name is generated automatically.
+        bucket_name = "Bucket name" # The name of the bucket being created. If you don't specify a bucket name for the `yandex_storage_bucket` resource, a name is generated automatically.
       }
 
       terraform {
@@ -140,7 +140,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
          * The `new-buckets-account` service account.
          * The `editor` role for `new-buckets-account`.
          * A static key for the service account.
-         * A bucket named `example-bucket`.
+         * Bucket.
 
          You can use the [management console]({{ link-console-main }}) to check that the resources have been created.
 
@@ -151,13 +151,13 @@ You can create a new bucket or use an existing one. To create a bucket, run:
    1. Run the following command:
 
       ```bash
-      aws s3 mb s3://example-bucket --endpoint-url=https://{{ s3-storage-host }}
+      aws s3 mb s3://<bucket_name> --endpoint-url=https://{{ s3-storage-host }}
       ```
 
       Result:
 
       ```bash
-      make_bucket: example-bucket
+      make_bucket: <bucket_name>
       ```
 
 {% endlist %}
@@ -220,7 +220,7 @@ Create a new key or use an existing one. To create a key:
         key_name    = "key-1" # KMS key name.
         key_desc    = "Bucket encryption key"
 
-        bucket_name = "example-bucket"
+        bucket_name = "Bucket name"
       }
 
       terraform {
@@ -298,7 +298,7 @@ Create a new key or use an existing one. To create a key:
          * The `editor` role for `new-buckets-account`.
          * A static key for the service account.
          * A {{ kms-short-name }} key named `key-1`.
-         * A bucket named `example-bucket`.
+         * Bucket.
 
          You can use the [management console]({{ link-console-main }}) to check that the resources have been created.
 
@@ -318,7 +318,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Select `example-bucket`.
+   1. Select the previously created bucket.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `key-1`.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
@@ -342,7 +342,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
         key_name    = "key-1" # KMS key name.
         key_desc    = "Bucket encryption key"
 
-        bucket_name = "example-bucket" # Bucket name.
+        bucket_name = "Bucket name" # Bucket name.
       }
 
       terraform {
@@ -428,19 +428,19 @@ To enable bucket encryption with a {{ kms-short-name }} key:
          * The `editor` role for `new-buckets-account`.
          * A static key for the service account.
          * A {{ kms-short-name }} key named `key-1`.
-         * The `example-bucket` bucket with encryption.
+         * The bucket with encryption.
 
-         You can use the [management console]({{ link-console-main }}) to check that the resources have been deleted.
+         You can use the [management console]({{ link-console-main }}) to check that the resources have been created.
 
-         As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.
+         As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
 
 - AWS CLI
 
-  Run the following command:
+  Run this command:
 
   ```
   aws s3api put-bucket-encryption \
-    --bucket example-bucket \
+    --bucket <bucket_name> \
     --endpoint-url=https://{{ s3-storage-host }} \
     --server-side-encryption-configuration '{
    	"Rules": [
@@ -450,12 +450,12 @@ To enable bucket encryption with a {{ kms-short-name }} key:
    		  "KMSMasterKeyID": "<KMS key ID>"
    		},
    		"BucketKeyEnabled": true
-	  }
+   	  }
    	]
   }'
   ```
 
-  As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.
+  As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
 
 {% endlist %}
 
@@ -475,7 +475,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Select `example-bucket`.
+   1. Select the previously created bucket.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
@@ -499,7 +499,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         key_name    = "key-1"
         key_desc    = "Bucket encryption key"
 
-        bucket_name = "example-bucket"
+        bucket_name = "Bucket name"
       }
 
       terraform {
@@ -586,20 +586,20 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          * The `editor` role for `new-buckets-account`.
          * A static key for the service account.
          * A {{ kms-short-name }} key named `key-1`.
-         * A bucket named `example-bucket`.
+         * Bucket.
 
-         The `example-bucket` encryption in the specified folder will be disabled. You can check whether the resources and their settings are updated in the [management console]({{ link-console-main }}).
+         Bucket encryption in the specified folder will be disabled. You can check whether the resources and their settings are updated in the [management console]({{ link-console-main }}).
 
 - AWS CLI
 
-   Run the following command:
+   Run this command:
 
    ```bash
    aws s3api delete-bucket-encryption \
-     --bucket example-bucket \
+     --bucket <bucket_name> \
      --endpoint-url=https://{{ s3-storage-host }}
    ```
 
-   As a result of successful execution, the `example-bucket` encryption is disabled.
+   As a result of successful execution, bucket encryption will be disabled.
 
 {% endlist %}

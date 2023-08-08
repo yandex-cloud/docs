@@ -21,7 +21,7 @@
       
       1. (Опционально) Если IP-адрес ресурса находится вне {{ vpc-name }}, выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-          Например, укажите IP-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3).
+          Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
 
 
       1. Нажмите **Добавить целевой ресурс**.
@@ -39,7 +39,7 @@
       yc alb target-group add-targets --help
       ```
 
-  1. Выполните команду, указав имя целевой группы, имя подсети и внутренний IP-адрес ВМ:
+  1. Выполните команду, указав имя целевой группы, имя [подсети](../../vpc/concepts/network.md#subnet) и внутренний IP-адрес ВМ:
 
       ```bash
       yc alb target-group add-targets \
@@ -53,10 +53,36 @@
       done (1s)
       id: a5d751meibht4ev26...
       name: <имя_целевой_группы>
+      folder_id: aoerb349v3h4bupph...
+      targets:
       ...
-      - ip_address: <внутренний_IP-адрес_ВМ>
-        subnet_id: fo2tgfikh3hergif2...
+        - ip_address: <внутренний_IP-адрес_ВМ>
+          subnet_id: fo2tgfikh3hergif2...
       created_at: "2021-02-11T11:16:27.770674538Z"
+      ```
+
+      Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+      
+      Выполните команду, указав в параметрах имя целевой группы и частный IPv4-адрес ресурса:
+    
+      ```bash
+      yc alb target-group add-targets \
+        --name <имя_целевой_группы> \
+        --target private-ip-address=true,ip-address=<частный_IPv4-адрес_ресурса>
+      ```
+
+      Результат:
+
+      ```yaml
+      done (1s)
+      id: a5d751meibht4ev26...
+      name: <имя_целевой_группы>
+      folder_id: aoerb349v3h4bupph...
+      targets:
+      ...
+        - ip_address: <частный_IPv4-адрес_ресурса>
+          private_ipv4_address: true
+      created_at: "2023-07-25T08:55:14.172526884Z"
       ```
 
 - {{ TF }}
@@ -92,13 +118,42 @@
       }
       ```
 
-     Где `yandex_alb_target_group` — параметры целевой группы:
-     * `name` — имя целевой группы.
-     * `target` — параметры целевого ресурса:
-       * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
-       * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
+      Где `yandex_alb_target_group` — параметры целевой группы:
+      * `name` — имя целевой группы.
+      * `target` — параметры целевого ресурса:
+        * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
+        * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+      Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/):
+      
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name                   = "<имя_целевой_группы>"
+
+        target {
+          private_ipv4_address = true
+          ip_address           = "<частный_IPv4-адрес_ресурса_1>"
+        }
+
+        target {
+          private_ipv4_address = true
+          ip_address           = "<частный_IPv4-адрес_ресурса_2>"
+        }
+
+        target {
+          private_ipv4_address = true
+          ip_address           = "<частный_IPv4-адрес_ресурса_3>"
+        }
+      }
+      ```     
+      
+      Где `yandex_alb_target_group` — параметры целевой группы:
+      * `name` — имя целевой группы.
+      * `target` — параметры целевого ресурса:
+        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне {{ vpc-name }}.
+        * `ip_address` — частный IPv4-адрес ресурса. Адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+
+      Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
@@ -158,6 +213,23 @@
       folder_id: aoerb349v3h4bupph...
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
+
+      Чтобы удалить из целевой группы ресурс, который размещен вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/), выполните команду, указав имя целевой группы и частный IPv4-адрес ресурса:
+
+      ```bash
+      yc alb target-group remove-targets \
+        --name <имя_целевой_группы> \
+        --target private-ip-address=true,ip-address=<частный_IPv4-адрес_ресурса>
+      ```
+
+      Результат:
+
+      ```yaml
+      id: ds7urm6dn6cm48ba7...
+      name: <имя_целевой_группы>
+      folder_id: aoerb349v3h4bupph...
+      created_at: "2023-06-10T13:14:55.239094324Z"
+      ``` 
 
 - {{ TF }}
 

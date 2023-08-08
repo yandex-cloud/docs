@@ -2,7 +2,7 @@
 
 {{ objstorage-name }} allows you to limit the maximum size of a bucket.
 
-For example, if you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, limiting the maximum volume allows you to better control user actions and avoid unnecessary costs.
+For example, if you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, then, by limiting the maximum volume, you can better control user actions and avoid unnecessary costs.
 
 {% list tabs %}
 
@@ -41,7 +41,7 @@ For example, if you provide the users of your service with the ability to upload
       +------------------+----------------------+----------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+----------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 0        | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
@@ -62,7 +62,7 @@ For example, if you provide the users of your service with the ability to upload
 
       ```yaml
       name: first-bucket
-      older_id: b1gmit33ngp6cv2mhjmo
+      older_id: b1gmit33ngp6********
       default_storage_class: STANDARD
       versioning: VERSIONING_DISABLED
       max_size: "26843545600"

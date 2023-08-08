@@ -71,20 +71,20 @@ To view detailed information about the status of individual {{ mgp-name }} hosts
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{mgp-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
    1. Click the name of the desired cluster and select ![hosts.svg](../../_assets/mdb/hosts.svg) **Hosts** → **Monitoring**.
    1. Select the host from the drop-down list.
 
    This page displays graphs showing the workload of an individual cluster host (master or segment):
 
    * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
-   * **Disk IOPS in progress**: number of pending disk operations.
-   * **Disk io time**: duration of disk operations.
-   * **Disk read and write**: amount of data (in bytes) in disk operations.
-   * **Disk read and write time**: duration of disk reads and writes.
-   * **Disk usage**: disk space usage (two graphs are displayed: bytes and percent).
-   * **Memory usage**: Use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
-   * **Network**: amount of network traffic (in bytes).
+   * **Disk IOPS in progress**: Number of pending disk operations.
+   * **Disk io time**: Duration of disk operations.
+   * **Disk read and write**: Amount of data (in bytes) in disk operations.
+   * **Disk read and write time**: Duration of disk reads and writes.
+   * **Disk usage**: Disk space usage (two graphs are displayed: bytes and percent).
+   * **Memory usage**: Use of RAM, in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Network**: Amount of network traffic (in bytes).
 
 {% endlist %}
 
@@ -100,8 +100,8 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select:
-      * **{{ mes-name }} — Cluster Overview** to configure cluster alerts.
-      * **{{ mes-name }} — Host Overview** to configure host alerts.
+      * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mgp-name }} — Host Overview** to configure host alerts.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` notification threshold values.

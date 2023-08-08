@@ -295,7 +295,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
       ```
 
    1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
-   1. Run the command below to search for cloud keys in the metadata service represented as plaintext, using the example of a {{ yandex-cloud }} {{ iam-short-name }}token:
+   1. Run the command below to search for cloud keys in the metadata service represented as plaintext, using the example of a {{ yandex-cloud }} {{ iam-short-name }} token:
 
       ```bash
       export ORG_ID=<organization ID>
@@ -320,7 +320,7 @@ Remove the keys from the metadata of the VMs with deviations found.
 
 The cloud has a [metadata service](../../../compute/concepts/vm-metadata.md) that provides information about VM performance.
 
-From inside a VM instance, metadata is available in the following formats:
+From inside a VM, metadata is available in the following formats:
 
 * Google Compute Engine (some fields are not supported).
 * Amazon EC2 (some fields are not supported).
@@ -364,7 +364,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) parameter to `DISABLED` for the VMs found:
 
 ```bash
-yc compute instance update <VM_instance_ID> \                                                                               
+yc compute instance update <VM_instance_ID> \ 
   --metadata-options aws-v1-http-token=DISABLED
 ```
 
@@ -399,7 +399,7 @@ Follow the principle of minimum privileges and [assign to the service account](.
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-      do for SA in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc iam service-account list --folder-id=$FOLDER_ID --format=json  | jq -r '.[].id + ":" + .[].name'
+      do for SA in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id + ":" + .[].name'
       done;
       done;
       done
@@ -419,7 +419,7 @@ Follow the principle of minimum privileges and [assign to the service account](.
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
       done;
       ```
 
@@ -429,7 +429,7 @@ Follow the principle of minimum privileges and [assign to the service account](.
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $FOLDER_ID
+      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $FOLDER_ID
       done;
       done
       ```
@@ -471,7 +471,7 @@ Follow the principle of minimum privileges when granting access to a service acc
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
       done;
       ```
 
@@ -645,7 +645,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
 - Performing a check in the management console
 
-   Checking roles related to billing:
+   Checking roles for the {{ billing-name }} service:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Go to the **Billing** tab.
@@ -881,7 +881,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
       do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc serverless function  list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
+      do yc serverless function list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
       done;
       done;
       done
@@ -961,7 +961,7 @@ Set the **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
 #### 1.19 Tokens for cloud functions and VMs are issued via service accounts {#func-token}
 
-To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function receives an {{ iam-short-name }} token using built-in {{ yandex-cloud }}mechanisms without having to transfer any secrets to the function from outside. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance).
+To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function receives an {{ iam-short-name }} token using built-in {{ yandex-cloud }} mechanisms without having to transfer any secrets to the function from outside. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance).
 
 {% list tabs %}
 

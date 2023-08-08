@@ -88,7 +88,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
   1. Укажите **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-     * (опционально) Отредактируйте настройки хоста.
+     * (Опционально) Отредактируйте настройки хоста.
      * Нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * В поле **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** выберите зону доступности, выберите **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** и включите опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.

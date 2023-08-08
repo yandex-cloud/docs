@@ -7,38 +7,46 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to cluster
-        href: operations/cluster-connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: Changing cluster settings
-        href: operations/cluster-update.md
-      - name: Updating the Elasticsearch version and edition
-        href: operations/cluster-version-update.md
-      - name: Configuring SAML authentication
-        href: operations/saml-authentication.md
-      - name: Configuring access to Object Storage
-        href: operations/s3-access.md
-      - name: Managing Elasticsearch hosts
-        href: operations/cluster-hosts.md
-      - name: Managing Elasticsearch plugins
-        href: operations/cluster-plugins.md
-      - name: Managing Elasticsearch extensions
-        href: operations/cluster-extensions.md
-      - name: Managing Elasticsearch users
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Connection
+            items:
+              - name: Connecting to cluster
+                href: operations/cluster-connect.md
+              - name: Configuring SAML authentication
+                href: operations/saml-authentication.md
+          - name: Updating parameters
+            items:
+              - name: Changing cluster settings
+                href: operations/cluster-update.md
+              - name: Updating the {{ ES }} version and edition
+                href: operations/cluster-version-update.md
+              - name: Managing {{ ES }} plugins
+                href: operations/cluster-plugins.md
+              - name: Managing {{ ES }} extensions
+                href: operations/cluster-extensions.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing {{ ES }} hosts
+            href: operations/cluster-hosts.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Configuring access to Object Storage
+            href: operations/s3-access.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Managing {{ ES }} users
         href: operations/cluster-users.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: All tutorials

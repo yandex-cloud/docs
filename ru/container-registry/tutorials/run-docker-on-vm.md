@@ -146,7 +146,7 @@
           * **Без адреса** — чтобы не назначать публичный IP-адрес.
 
           
-          * (опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
+          * (Опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
 
 
      1. В блоке **Доступ** укажите данные для доступа на ВМ:
@@ -581,7 +581,7 @@ Hi, I'm inside
    * `network_name` — имя облачной сети.
    * `subnet_name` — имя подсети.
    * `vm_name` — имя ВМ.
-   * `image_id` — идентификатор образа, из которого будет создана ВМ, например `fd81hgrcv6lsnkremf32` для Ubuntu 20.04 LTS. Подробнее см. [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+   * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее см. [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}

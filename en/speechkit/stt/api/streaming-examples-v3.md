@@ -1,10 +1,8 @@
-# Example use of streaming recognition with API v3
+# Audio file streaming recognition using API v3
 
-The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/index.md).
+Below, we provide an example of synchronous recognition of speech from an audio file using {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). This example uses the following parameters:
 
-The example uses the following parameters:
-
-* [Language](../index.md#langs): Russian.
+* [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
 * [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
@@ -176,5 +174,6 @@ To implement an example from this section:
 
 #### See also {#see-also}
 
-* [Learn more about the API v3](../../stt-v3/api-ref/grpc/)
+* [{#T}](microphone-streaming.md)
+* [Learn more about the API v3](../../stt-v3/api-ref/grpc/index.md)
 * [{#T}](../../concepts/auth.md)

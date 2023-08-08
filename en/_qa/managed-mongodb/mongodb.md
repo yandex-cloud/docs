@@ -21,7 +21,7 @@ The only way data may be lost is if the cluster's only host fails.
 
 #### Can I deploy a {{ MG }} cluster in multiple availability zones? {#multiple-az}
 
-Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
+Yes, you can. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
 
 #### How do I back up {{ MG }} clusters? {#backup}
@@ -33,7 +33,7 @@ Backups are created every 24 hours and stored for seven days after being created
 
 {{ mmg-short-name }} uses {{ MG }} standard replication: if a cluster has multiple active hosts, one of them is automatically elected as the primary server for handling write queries.
 
-For more information about how replication works in {{ MG }}, read the [DBMS documentation](https://docs.mongodb.com/manual/replication/).
+For more information about how replication works in {{ MG }}, read [its documentation](https://docs.mongodb.com/manual/replication/).
 
 
 #### What limitations are imposed on {{ MG }} database clusters? {#cluster-limitations}
@@ -45,3 +45,10 @@ For more information about how replication works in {{ MG }}, read the [DBMS doc
 
 For more information about {{ mmg-short-name }} limits, see [{#T}](../../managed-mongodb/concepts/limits.md).
 
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-mongodb/operations/update.md#change-disk-size).
+
+If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-mongodb/operations/cluster-backups.md#restore) from a backup.

@@ -169,6 +169,7 @@ placement_group_id | **string**<br>Identifier of placement group
 Field | Description
 --- | ---
 gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy}
@@ -446,6 +447,7 @@ placement_group_id | **string**<br>Identifier of placement group
 Field | Description
 --- | ---
 gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy1}
@@ -704,6 +706,7 @@ placement_group_id | **string**<br>Identifier of placement group
 Field | Description
 --- | ---
 gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -1010,6 +1013,7 @@ placement_group_id | **string**<br>Identifier of placement group
 Field | Description
 --- | ---
 gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
 
 
 ### ScalePolicy {#ScalePolicy3}

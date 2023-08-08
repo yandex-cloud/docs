@@ -5,7 +5,6 @@
 | Maximum query result retention time | 24 hours |
 | Maximum streaming query runtime (preview stage) | 7 days |
 | Maximum analytical query duration | 24 hours |
-| Maximum size of a Parquet file | 50 MB |
 
 #### Quotas {#yq-quotas}
 
@@ -19,6 +18,6 @@
 
 {% note warning %}
 
-The maximum streaming query runtime (preview stage) is 7 days. Once expired, the query is forced to stop. To run streaming queries for an unlimited time, contact {{  yandex-cloud }} support.
+The maximum streaming query runtime (preview stage) is 7 days. Once expired, the query is forced to stop. To run streaming queries for an unlimited time, contact {{ yandex-cloud }} support.
 
 {% endnote %}

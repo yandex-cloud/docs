@@ -33,7 +33,7 @@ The cost of the resources required to use Hystax Acura Live Migration includes:
 * Charge for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Charges for object storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A charge for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) in {{ marketplace-name }}).
+* A charge for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
 
 ## Create a service account and authorized key {#create-sa}
 
@@ -61,7 +61,7 @@ If a security group is available, [add](../../vpc/operations/security-group-add-
 | Incoming | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
 | Incoming | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
 | Incoming | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | TCP | 15,000 | TCP | CIDR | 0.0.0.0/0 |
+| Incoming | TCP | 15000 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | http | 80 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | https | 443 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
@@ -90,7 +90,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
       * Click the **{{ marketplace-name }}** tab.
       * Click **Show more**.
-      * In the public image list, select [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) and click **Use**.
+      * In the public image list, select [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) and click **Use**.
 
    1. Under **Disks**, enter 200 GB as your disk size.
 
@@ -149,7 +149,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
       * `size`: Disk size.
       * `image-id`: Disk image ID.
 
-         For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) in {{ marketplace-name }}.
+         For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}.
 
    * `service-account-id`: ID of the [previously created](#create-sa) service account.
 
@@ -165,7 +165,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
    {% note info %}
 
-   Booting the Hystax Acura Disaster Recovery VM for the first time initiates an installation process which can take over 20 minutes.
+   Booting the Hystax Acura Live Cloud Migration VM for the first time initiates an installation process which can take over 20 minutes.
 
    {% endnote %}
 
@@ -180,9 +180,19 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
    * **Service Account id**: ID of your service account.
    * **Key id**: ID of the authorized key of your service account.
    * **Private key**: Service account private key.
+
+     {% note info %}
+
+     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+
+     {% endnote %}
+     
    * **Default Folder id**: ID of your folder.
    * **Availability zone**: Availability zone for `hystax-acura-vm` VM.
    * **Hystax Service Subnet**: ID of the subnet the `hystax-acura-vm` virtual machine is connected to.
+   * **S3 Host**: `{{ s3-storage-host }}`.
+   * **S3 Port**: `443`.
+   * **Enable HTTPS**: Select the option to enable HTTPS connections.
    * **Hystax Acura Control Panel Public IP**: `hystax-acura-vm` VM's public IP. Replace the value in this field with the IP address obtained in step 1.
    * **Additional parameters**: Advanced settings. Do not edit this field.
 1. Click **Next**.

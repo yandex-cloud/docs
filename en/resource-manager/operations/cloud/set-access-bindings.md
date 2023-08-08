@@ -171,7 +171,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 
 
-      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
+      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
@@ -353,7 +353,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 ## Cloud access for service accounts {#access-to-sa}
 
-A service account can only be assigned roles for the cloud that it belongs to.
+A service account can be [assigned](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) roles for any cloud and folder within the organization it belongs to.
 
 Allow the `test-sa` service account to manage the `my-cloud` cloud and its resources:
 

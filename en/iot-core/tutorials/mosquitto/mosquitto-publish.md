@@ -9,6 +9,8 @@ You can send the following types of messages:
 
 To receive messages, you need to subscribe to the sender. For information about how to do this, see [{#T}](mosquitto-subscribe.md).
 
+To learn how to make sure a message has been sent and delivered, see [{#T}](../message-delivery-check.md).
+
 {% include [registry-and-device-topic-note](../../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
 {% include [iot-before-you-begin-with-mosquitto](../../../_includes/iot-core/iot-before-you-begin-with-mosquitto.md) %}

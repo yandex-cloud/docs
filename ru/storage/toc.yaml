@@ -103,6 +103,10 @@ items:
         href: tutorials/bucket-to-bucket.md
       - name: Регулярное распознавание аудиофайлов в бакете
         href: tutorials/batch-recognition-stt.md
+      - name: >-
+          Обучение модели в {{ ml-platform-full-name }} на данных из {{
+          objstorage-name }}
+        href: tutorials/s3-to-datasphere.md
   - name: Концепции
     items:
       - name: Обзор

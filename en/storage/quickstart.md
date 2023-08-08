@@ -13,11 +13,11 @@ In this section, you will learn how to:
 1. [Get a file download link](#get-link).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. [On the billing page]({{ link-console-billing }}) make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned for the folder where you'll work or the cloud that the folder belongs to.
+1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned to the folder you will be working with or the cloud the folder belongs to.
 
 ## Creating the first bucket {#the-first-bucket}
 
@@ -27,12 +27,12 @@ To create your first bucket in {{ objstorage-name }}:
 1. Click **Create resource** and select **Bucket**.
 1. Enter the name of the bucket.
 
-   The bucket name must be unique across {{ objstorage-name }}. It's used as part of the data access URL and is visible to your data users.
-1. If necessary, limit the maximum bucket size.
+   The bucket name must be unique across {{ objstorage-name }}. It is used as part of the data access URL and is visible to your data users.
+1. Limit the maximum bucket size, if required.
 
    {% include [storage-no-max-limit](_includes_service/storage-no-max-limit.md) %}
 
-1. To make sure that uploaded files are always available from outside {{ yandex-cloud }}, select the public [access type](concepts/bucket.md#bucket-access). Otherwise, you'll need to create a temporary link to provide access to such files.
+1. To make sure the uploaded files are always available from outside {{ yandex-cloud }}, select the public [access type](concepts/bucket.md#bucket-access). Otherwise, you will need to create a temporary link to provide access to such files.
 1. Choose the default [storage class](concepts/storage-class.md) to be used when uploading objects:
    * _Standard storage_ is designed for storing frequently used objects.
    * _Cold storage_ is designed for long-term storage of objects that are rarely read.
@@ -43,9 +43,9 @@ To create your first bucket in {{ objstorage-name }}:
 
 To upload an object to a bucket:
 
-1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. Select **{{ objstorage-short-name }}**.
-1. Click the name of the desired bucket.
+1. Click the name of the bucket you need.
 1. To upload files to the bucket, drag them to the bucket screen or click **Upload**.
 
 ## Getting a file download link {#get-link}

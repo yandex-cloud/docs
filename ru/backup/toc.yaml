@@ -12,8 +12,12 @@ items:
         items:
           - name: Создать и подключить ВМ Linux
             href: operations/create-vm.md
+          - name: Подключить ВМ Linux
+            href: operations/connect-vm-linux.md
           - name: Подключить ВМ Windows Server
             href: operations/connect-vm-windows.md
+          - name: Обновить подключение ВМ к {{ backup-name }}
+            href: operations/refresh-connection.md
       - name: Политики резервного копирования
         items:
           - name: Создать политику
@@ -26,6 +30,8 @@ items:
         items:
           - name: Восстановить ВМ из копии
             href: operations/backup-vm/recover.md
+          - name: Восстановить ВМ из копии другой ВМ
+            href: operations/backup-vm/non-native-recovery.md
           - name: Удалить копию
             href: operations/backup-vm/delete.md
   - name: Концепции

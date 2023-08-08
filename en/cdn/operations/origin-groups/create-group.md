@@ -47,7 +47,7 @@ To create an [origin group](../../concepts/origins.md):
 
       ```
       id: "89018"
-      folder_id: b1g86q4m5vej8lkljme5
+      folder_id: b1g86q4m5vej********
       name: test-group
       use_next: true
       origins:

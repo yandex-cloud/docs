@@ -58,7 +58,6 @@ The following is charged:
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
@@ -114,6 +113,18 @@ Where:
 * $0.473928: Cost per hour of dedicated host operation.
 * 50: Amount of local SSD storage (in GB) for dedicated hosts.
 * $0.104080: Cost of using 1 GB of local SSD storage per month.
+
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../../_includes/mdb/cvos.md) %}
+
+{{ mgp-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage, web traffic or computing resources for dedicated hosts this way.
+
+{% endnote %}
 
 ## Pricing {#prices}
 

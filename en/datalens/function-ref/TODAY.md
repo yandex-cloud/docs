@@ -19,13 +19,6 @@ Returns the current date, depending on the data source and connection type.
 
 **Return type**: `Date`
 
-{% note info %}
-
-On materialization, the function returns the UTC+3 date and time.
-
-{% endnote %}
-
-
 #### Example {#examples}
 
 ```

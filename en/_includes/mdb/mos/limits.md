@@ -18,6 +18,6 @@
 | Number of `DASHBOARDS` host groups | 1 | 1 |
 | Number of hosts in a group of the `DASHBOARDS` type | 1 | 2 |
 | Amount of data on the host when using HDD or SSD network storage | 10 GB | 4096 GB |
-| Amount of data on the host when using non-replicated SSD storage | 93 GB | 8184 GB |
-| Amount of data on the host when using local SSD storage (for the Intel Cascade Lake) | 100 GB | 1500 GB |
+| Amount of data on the host when using non-replicated SSD storage | 93 GB | 8184 GB |
+| Amount of data on the host when using local SSD storage (for Intel Cascade Lake) | 100 GB | 1500 GB |
 | Amount of data on the host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |

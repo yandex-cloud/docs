@@ -14,11 +14,11 @@ You can only upgrade to a version that immediately follows the current one, such
 
 ## Before updating the version {#before-update}
 
-Prior to upgrading a cluster, make sure this does not affect your applications:
+Make sure this does not affect your applications:
 
 1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
 1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Upgrading a cluster {#start-update}
 
