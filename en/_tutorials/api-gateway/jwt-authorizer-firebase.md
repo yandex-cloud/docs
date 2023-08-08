@@ -246,7 +246,7 @@ Firebase:
       * `name`: API gateway name.
       * `spec`: API gateway specification.
 
-      For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+      For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
    1. Create resources:
 
@@ -394,7 +394,7 @@ Deploy a static website:
             * `bucket`: Bucket name.
             * `acl`: Bucket access settings.
 
-         For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
+         For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
       1. Create resources:
 
@@ -518,7 +518,7 @@ Deploy a static website:
             * `index_document`: Absolute path to the file of the website home page. This parameter is required.
             * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
 
-         For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
+         For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
 
       1. Create resources:
 

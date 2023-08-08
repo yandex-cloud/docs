@@ -16,7 +16,7 @@ Prior to installing {{unified-agent-full-name}}, follow these steps:
 
 1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), for example, Ubuntu 14.04 or older.
 
-1. (optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{unified-agent-short-name}}.
+1. (Optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{unified-agent-short-name}}.
    - Set up a public IPv4 address (recommended).
    - [Configure Docker to work with IPv6](https://docs.docker.com/config/daemon/ipv6) and [enable network address translation](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2) if you can't use a public IPv4 address.
 
@@ -26,7 +26,7 @@ Prior to installing {{unified-agent-full-name}}, follow these steps:
    - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. In that case, the agent will automatically receive the service account's IAM token from the metadata service.
    - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authorized-key/create.md) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
 
-## Installation {#setup}
+## Installing {#setup}
 
 Install {{unified-agent-short-name}} using one of the following methods:
 
@@ -34,7 +34,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
 - Docker image
 
-  {{unified-agent-short-name}} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent for [Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{monitoring-full-name}}.
+  {{unified-agent-short-name}} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent [for Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{monitoring-full-name}}.
 
   {% note warning %}
 
@@ -58,19 +58,28 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
   Where `FOLDER_ID` is the ID of the folder to write metrics to.
 
-  To launch a container with its own configuration file, add `-v` to the container start command and specify the _full path_ to the configuration file. For example:
+  To launch a container with its own configuration file, add `-v` to the container start command and specify the _full path_ to the configuration file. Before running a container, delete the following lines from the configuration file:
+
+  ```yaml
+  import:
+  - /etc/yandex/unified_agent/conf.d/*.yml
+  ```
+
+  Sample run container command using a custom configuration file:
 
   ```bash
     docker run \
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v /proc:/ua_proc \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+      -v `pwd`/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       --entrypoint="" \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
       {{ registry }}/yc/unified-agent
   ```
+
+  By default, the [status](configuration.md#status) section of the agent's configuration file specifies `host: null`. Please keep this in mind if you are using your own configuration file.
 
   For more information about agent configuration, see [{#T}](./configuration.md).
 
@@ -85,10 +94,10 @@ Install {{unified-agent-short-name}} using one of the following methods:
   ```
 
    Supported values for the `ubuntu_name` parameter:
-    - `ubuntu-14.04-trusty`.
-    - `ubuntu-16.04-xenial`.
-    - `ubuntu-18.04-bionic`.
-    - `ubuntu-20.04-focal`.
+  - `ubuntu-14.04-trusty`
+  - `ubuntu-16.04-xenial`
+  - `ubuntu-18.04-bionic`
+  - `ubuntu-20.04-focal`
 
   To find out all the available versions of the agent, run this command:
   ```(bash)
@@ -101,7 +110,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
   sudo dpkg -i yandex-unified-agent_21.02.03_amd64.deb
   ```
 
-  To make sure {{unified-agent-short-name}} is successfully installed and running, run the command `systemctl status unified-agent`. Sample command output:
+  To make sure {{unified-agent-short-name}} is successfully installed and running, run the `systemctl status unified-agent` command. Sample command output:
 
   ```bash
   user@my-vm:~$ systemctl status unified-agent
@@ -134,7 +143,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
   Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
-  To run the agent, execute the command below:
+  To run the agent, run the following command:
 
   ```bash
   ./unified_agent --config unified_agent.yml

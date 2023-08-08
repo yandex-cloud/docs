@@ -22,7 +22,7 @@
 
 ^1^ quotas can be increased after you deposit at least $10 to your billing account or upon request to the support team.
 
-^2^ quotas can be increased only for legal entities and are considered individually upon request to technical support.
+^2^ quotas can only be increased for businesses and upon individual request to the support team.
 
 #### Limits {#datasphere-limits}
 

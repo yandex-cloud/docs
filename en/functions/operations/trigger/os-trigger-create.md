@@ -6,7 +6,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* [Bucket](../../../storage/concepts/bucket.md) whose object events will fire the trigger. If you don't have a bucket, [create one](../../../storage/operations/buckets/create.md).
+* [Bucket](../../../storage/concepts/bucket.md) whose object events will fire the trigger. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -41,11 +41,11 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-   1. (optional) Under **Repeat request settings**:
+   1. (Optional) Under **Repeat request settings**:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -85,8 +85,8 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
    Result:
 
    ```text
-   id: a1s92agr8mpgeo3kjt48
-   folder_id: b1g88tflru0ek1omtsu0
+   id: a1s92agr8mpg********
+   folder_id: b1g88tflru0e********
    created_at: "2019-12-18T09:47:50.079103Z"
    name: os-trigger
    rule:
@@ -99,15 +99,15 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
        prefix: dev
        suffix: 12.jpg
        invoke_function:
-         function_id: d4eofc7n0m03lmudsk7y
+         function_id: d4eofc7n0m03********
          function_tag: $latest
-         service_account_id: aje3932acd0c5ur7drte
+         service_account_id: aje3932acd0c********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:dlq
-           service-account-id: aje3932acd0c5ur7dagp
+           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknn********:dlq
+           service-account-id: aje3932acd0c********
    status: ACTIVE
    ```
 
@@ -181,7 +181,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>

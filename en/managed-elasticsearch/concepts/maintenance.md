@@ -1,5 +1,7 @@
 # Maintenance in {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Maintenance means:
 
 * Automatic installation of {{ ES }} updates and revisions for hosts (including disabled clusters).
@@ -13,10 +15,10 @@ Maintenance includes changes within one {{ ES }} major version. For more informa
 You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/cluster-update.md):
 
 * **Unspecified time** (default): Maintenance is possible at any time.
-* **By schedule**: Set the preferred maintenance start time: desired day of the week and UTC hour. For example, you can choose a time when cluster load is lightest.
+* **On schedule**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time when the cluster is least loaded.
 
 ## Maintenance procedure {#maintenance-order}
 
 In single-host {{ mes-name }} clusters, a single host with the [_Data node_ role](./hosts-roles.md#data-node) undergoes maintenance. So, such a cluster becomes unavailable if a single host needs to be restarted during maintenance.
 
-In multi-host clusters, hosts with the _Data node_ role undergo maintenance consecutively. The hosts are queued randomly. If a host needs to be restarted during maintenance, it becomes unavailable while it's being restarted. If you access the cluster using the FQDN or IP address of the {{ ES }} host, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/cluster-connect.md#automatic-host-selection) always pointing to the available host.
+In multi-host clusters, hosts with the _Data node_ role undergo maintenance consecutively. The hosts are queued randomly. If a host needs to be restarted during maintenance, it becomes unavailable while it is being restarted. If you access the cluster using the FQDN or IP address of the {{ ES }} host, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/cluster-connect.md#automatic-host-selection) always pointing to the available host.

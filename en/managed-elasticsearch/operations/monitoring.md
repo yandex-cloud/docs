@@ -1,5 +1,7 @@
 # Monitoring the state of {{ ES }} clusters and hosts
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 New data for charts is received every {{ graph-update }}.

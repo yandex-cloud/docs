@@ -9,17 +9,19 @@ keywords:
 
 # Changing {{ ES }} cluster settings
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 After creating a cluster, you can:
 
 
-* [{#T}](#change-service-account).
+* [{#T}](#change-service-account)
 
 
-* [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size).
-* [{#T}](#change-elasticsearch-config).
-* [{#T}](#change-admin-password).
-* [{#T}](#change-additional-settings).
+* [{#T}](#change-resource-preset)
+* [{#T}](#change-disk-size)
+* [{#T}](#change-elasticsearch-config)
+* [{#T}](#change-admin-password)
+* [{#T}](#change-additional-settings)
 
 You can also update the {{ ES }} version or edition. For more information, see [{#T}](./cluster-version-update.md).
 
@@ -86,9 +88,11 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * ID of the service account used for cluster operations in the `serviceAccountId` parameter.
 
@@ -182,9 +186,12 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * Host class in the following parameters:
       * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId`: For hosts with the *Data node* role.
       * `configSpec.elasticsearchSpec.masterNode.resources.resourcePresetId`: For hosts with the *Master node* role.
@@ -287,9 +294,12 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-   To increase a cluster's storage size, use the [update](../api-ref/Cluster/update.md) method and provide the following in in the call:
+   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * Required storage size (in bytes) in the following parameters:
       * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`: For hosts with the *Data node* role.
       * `configSpec.elasticsearchSpec.masterNode.resources.diskSize`: For hosts with the *Master node* role.
@@ -351,9 +361,12 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To change {{ ES }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * Required DBMS values in the `configSpec.elasticsearchSpec.dataNode.elastcsearchConfig_7` parameter.
    * List of settings to update in the `updateMask` parameter. If you skip this parameter, the API method will reset any cluster settings that are not explicitly specified in the request to their default values.
 
@@ -443,9 +456,12 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * New password in the `configSpec.adminPassword` parameter. The maximum password length is 128 characters.
    * List of settings to update (in this case, `configSpec.adminPassword`) in the `updateMask` parameter.
 
@@ -554,9 +570,11 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) in the `plugins` parameter.
 

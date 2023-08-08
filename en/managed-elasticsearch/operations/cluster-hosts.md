@@ -9,6 +9,8 @@ keywords:
 
 # Managing hosts
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can get a list of {{ ES }} cluster hosts and add or delete them.
 
 {% note info %}

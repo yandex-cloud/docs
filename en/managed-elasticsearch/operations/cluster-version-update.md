@@ -1,5 +1,7 @@
 # Updating the {{ ES }} version and edition
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 In the {{ mes-name }} cluster, you can [update the version](#version-update) and [update the edition](#start-edition-update) of {{ ES }}.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).

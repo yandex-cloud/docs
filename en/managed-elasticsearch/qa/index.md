@@ -5,6 +5,8 @@ description: "How do I get the logs of my activity in Yandex Managed Service for
 
 # Questions and answers about {{ mes-short-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 ## General questions {#general}
 
 #### How are {{ ES }} clusters maintained? {#service-window}

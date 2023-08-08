@@ -98,6 +98,10 @@ items:
         href: tutorials/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: tutorials/openvpn.md
+      - name: >-
+          Защищенный доступ пользователей к облачным ресурсам на основе
+          WireGuard VPN
+        href: tutorials/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: tutorials/usergate-proxy.md
       - name: Настройка сети для {{ dataproc-full-name }}

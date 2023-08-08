@@ -1,5 +1,7 @@
 # Configuring SAML authentication
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Security Assertion Markup Language (SAML) is used for exchanging authentication and authorization data between two parties. With SAML, you can implement a single sign-on system (SSO) to switch between applications without re-authentication.
 
 When using SAML and SSO, a {{ mes-name }} cluster gets information from an identity provider (IdP).
@@ -108,12 +110,17 @@ Incorrect settings may cause the cluster to fail.
 
       * Cluster ID in the `clusterId` parameter.
 
-   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
-      * Cluster ID in the `clusterId` parameter.
-
          {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-      * A file with the provider's configuration.
+      * The `SAML` value, in the `type` parameter.
+      * Provider name, in the `name` parameter.
+      * The `true` value, in the `enabled` parameter.
+      * Provider description, in the `description` parameter.
+      * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
+      * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
+      * URI of the SP Entity ID (Audience URI) parameter, in the `spEntityId` application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+      * URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), in the `kibanaUrl` parameter. Same as the `spEntityId`.
+      * Format of `nameid` parameter, for example, `nameid:persistent`, in the `attributePrincipal` parameter. Same as the **Name ID Format** of the IdP.
 
 {% endlist %}
 

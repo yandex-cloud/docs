@@ -1,5 +1,7 @@
 # Managing {{ ES }} users
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can manage cluster users as an `admin` user. You can specify a password for this user when [creating](cluster-create.md#create-cluster) or [updating](cluster-update.md#change-admin-password) a cluster.
 
 Interfaces available for user management:

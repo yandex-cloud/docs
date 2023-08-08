@@ -68,6 +68,10 @@ items:
         href: tutorials/vipnet-to-yc.md
       - name: Настройка и тестирование PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: >-
+          Защищенный доступ пользователей к облачным ресурсам на основе
+          WireGuard VPN
+        href: tutorials/remote-wireguard-vpn.md
   - name: Инструкции
     items:
       - name: Удаление паспортного аккаунта из {{ org-full-name }}

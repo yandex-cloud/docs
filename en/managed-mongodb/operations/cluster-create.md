@@ -104,7 +104,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
    
    1. Check whether the folder has any subnets for the cluster hosts:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
@@ -113,7 +113,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    1. View a description of the create cluster CLI command:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} cluster create --help
       ```
 
@@ -129,7 +129,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
          --mongod-resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name> \
-         --mongod-disk-type <disk type> \
+         --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --mongod-disk-size <storage size in GB> \
          --deletion-protection=<deletion protection for the cluster: true or false>
       ```
@@ -217,11 +217,11 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
 
-   2. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   3. Create a cluster.
+   1. Create a cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -320,7 +320,10 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Availability zone: `{{ region-id }}-a`.
       * Range: `10.5.0.0/24`.
 
-      * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+   
+   * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+
+
    * SSD network storage: `{{ disk-type-example }}`.
    * Storage size: 20 GB.
    * User: `user1`.
@@ -545,7 +548,7 @@ Cluster test characteristics:
 * Storage size: 10 GB.
 * Number of `host` blocks: 6. For each of them, set the host type: `mongod`, `mongos`, or `mongocfg`.
 
-Network specifications:
+Network characteristics:
 
 * Network: `mynet`.
 * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.

@@ -18,7 +18,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../concepts/log-group.md).
    1. Select **{{ cloud-logging-name }}**.
    1. Click **Create group**.
-   1. (optional) Enter a name and description for the log group using the following format:
+   1. (Optional) Enter a name and description for the log group The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

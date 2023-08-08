@@ -9,6 +9,8 @@ keywords:
 
 # Information about existing {{ ES }} clusters
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can request detailed information about each {{ mes-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
@@ -89,7 +91,7 @@ The operation list shows operations with clusters and related resources (for exa
    To get a list of cluster operations, run the command:
 
    ```bash
-   {{ yc-mdb-es }} cluster list-operations <cluster name and ID>
+   {{ yc-mdb-es }} cluster list-operations <cluster name or ID>
    ```
 
    You can request a cluster name and ID with a [list of clusters in the folder](#list-clusters).

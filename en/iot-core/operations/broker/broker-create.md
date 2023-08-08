@@ -15,7 +15,7 @@
       * (optional) **Description**: Additional information about the broker.
       * (optional) **Password** that you will use to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Make sure to save your password, as you will need it later.
       * (optional) To assign a label to the broker, fill in the **Key** and **Value** fields and click **Add label**.
-   1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
+   1. (Optional) Add [certificates](../../operations/certificates/create-certificates.md):
       * To add a file:
          1. Choose the **File** method.
          1. Click **Select file**.
