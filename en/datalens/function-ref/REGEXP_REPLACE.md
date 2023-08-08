@@ -1,49 +1,46 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_REPLACE.md
+sourcePath: en/_api-ref/datalens/function-ref/REGEXP_REPLACE.md
 ---
 
 # REGEXP_REPLACE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 REGEXP_REPLACE( string, pattern, replace_with )
 ```
 
-#### Описание {#description}
-Ищет подстроку в строке `string` по шаблону регулярного выражения `pattern` и заменяет ее строкой `replace_with`.
+#### Description {#description}
+Searches for a substring in the string `string` using the regular expression pattern `pattern` and replaces it with the string `replace_with`.
 
-Если подстрока не найдена, то строка не будет изменена.
+If the substring is not found, the string is not changed.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `pattern` — `Строка`
-- `replace_with` — `Строка`
+**Argument types:**
+- `string` — `String`
+- `pattern` — `String`
+- `replace_with` — `String`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
 {% note info %}
 
-Информацию о синтаксисе регулярных выражений уточняйте в документации к источникам данных.
+See the documentation of the data source to clarify the regular expression syntax.
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
 
-
-
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
-REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
+REGEXP_REPLACE("123 456", "\s", "-") = "123-456"
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

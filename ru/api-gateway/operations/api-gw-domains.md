@@ -33,7 +33,7 @@
 
     1. В списке сервисов выберите **Certificate Manager** и в нем:
 
-        1. Создайте [сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [пользовательский сертификат](../../certificate-manager/operations/import/cert-create.md).
+        1. Добавьте [сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [пользовательский сертификат](../../certificate-manager/operations/import/cert-create.md).
 
             {% note info %}
 

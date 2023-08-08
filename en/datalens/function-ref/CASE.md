@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CASE.md
+sourcePath: en/_api-ref/datalens/function-ref/CASE.md
 ---
 
 # CASE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Как блок
+- As a block
 
   ```
   CASE expression
@@ -22,7 +22,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/CASE.md
   END
   ```
 
-- Как функция
+- As a function
 
   ```
   CASE(
@@ -36,57 +36,56 @@ sourcePath: ru/_api-ref/datalens/function-ref/CASE.md
 
 {% endlist %}
 
-#### Описание {#description}
-Сравнивает выражение `expression` с последовательностью значений `value_1`, `value_2`, ... и возвращает результат для первого совпадения.
-Если совпадений не найдено, то возвращает `default_result`.
+#### Description {#description}
+Compares `expression` to `value_1`, `value_2`, ... consecutively and returns the corresponding result for the first match. If no match is found, it returns `default_result`.
 
-**Типы аргументов:**
-- `expression` — `Любой`
-- `value_1` — `Любой`
-- `result_1` — `Любой`
-- `value_2` — `Любой`
-- `result_2` — `Любой`
-- `default_result` — `Любой`
+**Argument types:**
+- `expression` — `Any`
+- `value_1` — `Any`
+- `result_1` — `Any`
+- `value_2` — `Any`
+- `result_2` — `Any`
+- `default_result` — `Any`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`result_1`, `result_2`, `default_result`)
+**Return type**: Same type as (`result_1`, `result_2`, `default_result`)
 
 {% note info %}
 
-Тип аргументов (`result_1`, `result_2`, `default_result`) должен совпадать.
+Arguments (`result_1`, `result_2`, `default_result`) must be of the same type.
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 CASE (
     [country],
-    "BY", "Белоруссия",
-    "KZ", "Казахстан",
-    "RU", "Россия",
-    "TR", "Турция",
-    "UZ", "Узбекистан",
-    "Другая страна"
+    "AO", "Angola",
+    "AU", "Australia",
+    "BY", "Belarus",
+    "CA", "Canada",
+    "TT", "Trinidad and Tobago",
+    "Other Country"
 )
 ```
 
 ```
 CASE [country]
-    WHEN "BY" THEN "Белоруссия"
-    WHEN "KZ" THEN "Казахстан"
-    WHEN "RU" THEN "Россия"
-    WHEN "TR" THEN "Турция"
-    WHEN "UZ" THEN "Узбекистан"
-    ELSE "Другая страна"
+    WHEN "AO" THEN "Angola"
+    WHEN "AU" THEN "Australia"
+    WHEN "BY" THEN "Belarus"
+    WHEN "CA" THEN "Canada"
+    WHEN "TT" THEN "Trinidad and Tobago"
+    ELSE "Other Country"
 END
 ```
 
-{% cut "Пример с таблицей данных" %}
+{% cut "Example with data table" %}
 
 
-Формулы:
+Formulas:
 
 - **unit**: `[unit]` ;
 - **case_function**: `CASE([unit], "s", 1, "m", 60, "h", 3600, 0)` ;
@@ -101,6 +100,6 @@ END
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

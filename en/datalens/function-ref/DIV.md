@@ -1,31 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/DIV.md
+sourcePath: en/_api-ref/datalens/function-ref/DIV.md
 ---
 
 # DIV
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 DIV( number_1, number_2 )
 ```
 
-#### Описание {#description}
-Возвращает результат деления `number_1` на `number_2`.
-Результат будет округлен до целого числа.
+#### Description {#description}
+Divides `number_1` by `number_2`. The result is rounded down to the nearest integer.
 
-**Типы аргументов:**
-- `number_1` — `Дробное число | Целое число`
-- `number_2` — `Дробное число | Целое число`
+**Argument types:**
+- `number_1` — `Fractional number | Integer`
+- `number_2` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Целое число`
+**Return type**: `Integer`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -39,6 +38,6 @@ DIV( number_1, number_2 )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

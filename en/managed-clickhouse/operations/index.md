@@ -1,25 +1,43 @@
 # Step-by-step guides for {{ mch-name }}
 
-- [Information about existing clusters](cluster-list.md)
-- [Creating clusters](cluster-create.md)
-- [Connecting to a database](connect.md)
-- [Stopping and starting clusters](cluster-stop.md)
-- [SQL queries in the management console](web-sql-query.md)
-- [Changing cluster and database settings](update.md)
-- [Setting up access to {{ objstorage-name }}](s3-access.md)
-- [Connecting external dictionaries](dictionaries.md)
-- [Adding your own geobase](geobase.md)
-- [Managing machine learning models](ml-models.md)
-- [Managing data format schemas](format-schemas.md)
-- [Connecting to {{ datalens-name }}](datalens-connect.md)
-- [Switching {{ CH }} versions](cluster-version-update.md)
-- [Managing {{ ZK }} hosts](zk-hosts.md)
-- [Managing {{ CH }} hosts](hosts.md)
-- [Managing databases](databases.md)
-- [Managing database users](cluster-users.md)
-- [Managing backups](cluster-backups.md)
-- [Managing shards](shards.md)
-- [Managing shard groups](shard-groups.md)
-- [Viewing cluster logs](cluster-logs.md)
-- [Deleting clusters](cluster-delete.md)
-- [Monitoring the state of clusters and hosts](monitoring.md)
+## Clusters
+
+* [{#T}](cluster-list.md)
+* [{#T}](cluster-create.md)
+* [{#T}](update.md)
+* [{#T}](cluster-version-update.md)
+* [{#T}](cluster-stop.md)
+* [{#T}](zk-hosts.md)
+* [{#T}](hosts.md)
+* [{#T}](cluster-backups.md)
+* [{#T}](cluster-delete.md)
+
+## Databases
+
+* [{#T}](connect.md)
+* [{#T}](web-sql-query.md)
+* [{#T}](databases.md)
+* [{#T}](cluster-users.md)
+
+## Storing and processing data
+
+* [{#T}](geobase.md)
+* [{#T}](dictionaries.md)
+* [{#T}](format-schemas.md)
+* [{#T}](ml-models.md)
+
+
+* [{#T}](s3-access.md)
+
+
+## Sharding
+
+* [{#T}](shards.md)
+* [{#T}](shard-groups.md)
+
+## Logs and monitoring
+
+* [{#T}](cluster-logs.md)
+* [{#T}](monitoring.md)
+* [{#T}](datalens-connect.md)
+

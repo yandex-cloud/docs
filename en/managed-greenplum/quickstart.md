@@ -25,7 +25,7 @@ To get started with the service:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-1. Install the necessary dependencies and the PostgreSQL client:
+1. Install the required dependencies and the PostgreSQL client:
 
    ```bash
    sudo apt update && sudo apt install postgresql-client --yes
@@ -62,5 +62,6 @@ To get started with the service:
 
 * Read about [service concepts](./concepts/index.md).
 * Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to a cluster](./operations/connect.md).
+* Install the [auxiliary utilities](./operations/greenplum-db.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

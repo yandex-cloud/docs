@@ -101,7 +101,8 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups
       "podMtu": "string"
     },
     "gpuSettings": {
-      "gpuClusterId": "string"
+      "gpuClusterId": "string",
+      "gpuEnvironment": "string"
     }
   },
   "scalePolicy": {
@@ -240,6 +241,7 @@ nodeTemplate.<br>containerNetworkSettings | **object**
 nodeTemplate.<br>containerNetworkSettings.<br>podMtu | **string** (int64)
 nodeTemplate.<br>gpuSettings | **object**<br><p>GPU settings</p> 
 nodeTemplate.<br>gpuSettings.<br>gpuClusterId | **string**<br><p>GPU cluster id, that mk8s node will join.</p> 
+nodeTemplate.<br>gpuSettings.<br>gpuEnvironment | **string**<br><p>GPU environment configured on node.</p> <ul> <li>GPU_ENVIRONMENT_UNSPECIFIED: Use one of the values below, depending on the default for the specific Cloud installation. - RUNC_DRIVERS_CUDA: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li> <li>RUNC: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li> </ul> 
 scalePolicy | **object**<br><p>Required. Scale policy of the node group.</p> 
 scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

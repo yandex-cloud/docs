@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SUM_IF.md
+sourcePath: en/_api-ref/datalens/function-ref/SUM_IF.md
 ---
 
 # SUM_IF
 
-_Функция `SUM_IF` также доступна в следующих категориях: [Оконные функции](SUM_IF_WINDOW.md)._
+_Function `SUM_IF` is also found in the following categories: [Window functions](SUM_IF_WINDOW.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   SUM_IF( expression, condition )
   ```
 
-- Расширенный
+- Extended
 
   ```
   SUM_IF( expression, condition
@@ -26,29 +26,29 @@ _Функция `SUM_IF` также доступна в следующих ка�
         )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+#### Description {#description}
+Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
-**Типы аргументов:**
-- `expression` — `Дробное число | Целое число`
-- `condition` — `Логический`
+**Argument types:**
+- `expression` — `Fractional number | Integer`
+- `condition` — `Boolean`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
+**Return type**: Same type as (`expression`)
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 SUM_IF([Profit], [Profit] > 15)
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

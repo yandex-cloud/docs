@@ -4,7 +4,7 @@
 
 Чтобы работать над задачами вместе с коллегами, добавьте их в {{ tracker-name }}. Это можно сделать несколькими способами:
 - [Пригласить в {{ tracker-name }} пользователей](#invite_user), у которых есть аккаунты на Яндексе.
-- [Добавить пользователей](../organization/add-account.md) в сервис {{ org-full-name }}.
+- [Добавить пользователей](../organization/operations/add-account.md) в сервис {{ org-full-name }}.
 - [Создать новые аккаунты](#create_users) на домене организации.
 - [Настроить федерацию удостоверений](#federation). С помощью федерации удостоверений сотрудники смогут использовать для входа в {{ tracker-name }} свои рабочие аккаунты в Active Directory, Google Workspace или других системах управления учетными записями пользователей.
 
@@ -43,7 +43,7 @@
 
 Пользователи с корпоративными аккаунтами смогут [войти в {{ tracker-name }}](user/login.md) с помощью кнопки **Войти через SSO**.
 
-Подробнее о создании федерации читайте в документации [{{ org-full-name }}](../organization/add-federation.md).
+Подробнее о создании федерации читайте в документации [{{ org-full-name }}](../organization/concepts/add-federation.md).
 
 ## Создать аккаунты пользователей {#create_users}
 
@@ -69,7 +69,7 @@
 
 Чтобы удалить аккаунт пользователя из {{ tracker-name }}, исключите сотрудника из организации, в которой он состоит:
 
-- [{{ org-full-name }}](../organization/edit-account.md).
+- [{{ org-full-name }}](../organization/operations/edit-account.md).
 
 - [{{ ya-360 }}](https://yandex.ru/support/business/users.html#sec_delete).
 

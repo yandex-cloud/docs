@@ -14,7 +14,7 @@
 - Витрина пользовательских рабочих столов
 
   1. Откройте [Витрину пользовательских рабочих столов]({{ link-cloud-desktop-showcase }}).
-  1. Аутентифицируйтесь с помощью [Яндекс ID](https://yandex.ru/support/id/index.html) или через [систему единого входа (SSO)](../../organization/add-federation.md).
+  1. Аутентифицируйтесь с помощью [Яндекс ID](https://yandex.ru/support/id/index.html) или через [систему единого входа (SSO)](../../organization/concepts/add-federation.md).
   1. Если рабочий стол, к которому вы хотите подключиться, находится в статусе `Stopped`, запустите его — нажмите ![image](../../_assets/cloud-desktop/play.svg) и подтвердите запуск.
 
       Дождитесь перехода рабочего стола в статус `Active`.

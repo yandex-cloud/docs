@@ -32,7 +32,12 @@ clusterId | <p>Required. ID of the OpenSearch cluster resource to update. To get
     "opensearchSpec": {
       "plugins": [
         "string"
-      ]
+      ],
+      "opensearchConfig_2": {
+        "maxClauseCount": "integer",
+        "fielddataCacheSize": "string",
+        "reindexRemoteWhitelist": "string"
+      }
     },
     "dashboardsSpec": {},
     "access": {
@@ -71,6 +76,10 @@ configSpec.<br>version | **string**<br><p>OpenSearch version.</p>
 configSpec.<br>adminPassword | **string**<br><p>Required. OpenSearch admin password.</p> 
 configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration.</p> 
 configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Names of the cluster plugins.</p> 
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2 | **object**
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>reindexRemoteWhitelist | **string**
 configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration.</p> <p>Dashboards configuration.</p> 
 configSpec.<br>access | **object**<br><p>Access policy for external services.</p> <p>Access policy for external services.</p> 
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Determines whether the access to Data Transfer is allowed.</p> 

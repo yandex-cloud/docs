@@ -1,29 +1,29 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/FLOOR.md
+sourcePath: en/_api-ref/datalens/function-ref/FLOOR.md
 ---
 
 # FLOOR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 FLOOR( number )
 ```
 
-#### Описание {#description}
-Округляет значение до ближайшего целого числа в меньшую сторону.
+#### Description {#description}
+Rounds the value down to the nearest integer.
 
-**Типы аргументов:**
-- `number` — `Дробное число | Целое число`
+**Argument types:**
+- `number` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 
 
@@ -39,6 +39,6 @@ FLOOR( number )
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

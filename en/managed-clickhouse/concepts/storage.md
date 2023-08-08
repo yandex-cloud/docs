@@ -1,28 +1,15 @@
 # Disk types in {{ mch-name }}
 
 
-{{ mch-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.  Local disks are physically located in the database host servers.
+{{ mch-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
-If you enable the **Hybrid storage** setting when creating or updating a cluster, you'll be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used "hot" data in cluster storage and rarely used "cold" data in less expensive and slower object storage. For details, see [{#T}](#hybrid-storage-features).
-
-
-## Specifics of local SSD storage {#local-storage-features}
-
-Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
-
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using this disk type, a 2-host fault-tolerant configuration is automatically set up.
-* You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
-
-## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
-
-{% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
-
+If you enable the **Hybrid storage** setting when creating or updating a cluster, you will be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used (_hot_) data in cluster storage and rarely used (_cold_) data in less expensive and slower object storage. For details, see [{#T}](#hybrid-storage-features).
 
 ## Hybrid storage {#hybrid-storage-features}
 
-Hybrid storage provides fault tolerance for data storage and lets you manage data placement for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables: the data is placed either in cluster or object storage depending on the storage policy set for the tables.
+Hybrid storage provides fault tolerance for data storage and allows you to manage data placement for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables; the data is placed either in cluster or object storage depending on the storage policy set for the tables.
 
 {% note warning %}
 
@@ -32,7 +19,7 @@ Data in tables other than MergeTree tables is stored only in cluster storage.
 
 To start using hybrid storage:
 
-1. Create a cluster of the appropriate type with {{ CH }} version {{ mch-ck-version }} or higher. You don't need to configure object storage.
+1. Create a cluster of the appropriate type with {{ CH }} version {{ mch-ck-version }} or higher. You do not need to configure object storage.
 
 1. Add databases and tables to the cluster. If the default storage policy is not suitable for some tables, set the appropriate policies for these tables:
 
@@ -112,13 +99,21 @@ You can specify hybrid storage settings when [creating](../operations/cluster-cr
 For more information about setting up hybrid storage, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
 
-## Choice of disk type during cluster creation {#storage-type-selection}
+## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created along with a {{ CH }} cluster depends on the selected disk type:
 
-* If you use local SSD storage (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
-* With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
-* If you use non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (a minimum of three hosts is required to ensure fault tolerance).
+* With local SSD (`local-ssd`) storage, you can create a cluster with two or more hosts.
+
+   This cluster will be fault-tolerant.
+
+   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+
+* With non-replicated network SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
+
+   This cluster will be fault-tolerant.
+
+* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 

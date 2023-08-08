@@ -167,7 +167,7 @@
   1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
       * Доменное имя хоста, на который будут перенаправляться все запросы к бакету.
-      * (опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
+      * (Опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI

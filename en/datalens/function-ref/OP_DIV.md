@@ -1,30 +1,30 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OP_DIV.md
+sourcePath: en/_api-ref/datalens/function-ref/OP_DIV.md
 ---
 
-# Деление (/)
+# Division (/)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 number_1 / number_2
 ```
 
-#### Описание {#description}
-Делит число `number_1` на число `number_2`.
+#### Description {#description}
+Divides the number `number_1` by the number `number_2`.
 
-**Типы аргументов:**
-- `number_1` — `Дробное число | Целое число`
-- `number_2` — `Дробное число | Целое число`
+**Argument types:**
+- `number_1` — `Fractional number | Integer`
+- `number_2` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 4 / 2 = 2.0
@@ -43,6 +43,6 @@ number_1 / number_2
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

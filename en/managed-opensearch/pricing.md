@@ -35,13 +35,13 @@ The {{ mos-name }} usage cost is based on:
 ### Using cluster hosts {#rules-hosts-uptime}
 
 
-The cost of operation of the host depends on the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section, while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost of host operation is determined by the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section; vCPUs and RAM prices are quoted in the [Prices](#prices) section.
 
-You can select the host class both for the hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
+You can select host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
 
 
-The cost is calculated for each hour of operation of the host. The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ OS }} host is not performing its main functions.
+You are charged per hour of host operation. The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ OS }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -97,7 +97,6 @@ All prices are shown without VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
 
 
 

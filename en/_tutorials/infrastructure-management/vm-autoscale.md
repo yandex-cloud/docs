@@ -1,8 +1,27 @@
 # Running instance groups with auto scaling
 
-To create an [instance group with auto scaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and a [network load balancer](../../network-load-balancer/concepts/index.md), follow these steps.
+In this guide, you will deploy an [instance group with an automatic scaling policy](../../compute/concepts/instance-groups/scale.md#auto-scale) applied if the allowed load is exceeded.
 
-## Getting started {#before-you-begin}
+VM instances will be deployed in two availability zones and their load will be balanced by a {{ network-load-balancer-name }} [network load balancer](../../network-load-balancer/concepts/index.md).
+
+To create an instance group:
+
+1. [Prepare your cloud](#before-begin).
+1. [Prepare the environment](#prepare).
+1. [Create an instance group with auto scaling and network load balancer](#create-vm-group).
+1. [Add a network load balancer with a target group](#connect-balancer) .
+1. [Test your instance group and network load balancer](#check-service).
+1. [Test auto scaling](#check-highload).
+
+If you no longer need the resources you created, [delete them](#delete-infrastructure).
+
+
+You can also deploy an infrastructure for scaling your instance group via {{ TF }} using a [ready-made configuration file](#terraform).
+
+
+## Prepare your cloud {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
@@ -15,11 +34,12 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-      1. Go to the **Service accounts** tab.
-      1. Click **Create service account**.
-      1. Enter the name `for-autoscale`.
-      1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
-      1. Click **Create**.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. In the window that opens:
+         * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
+         * To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+         * Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI
 
@@ -48,9 +68,15 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
            --subject serviceAccount:ajelabcde12f33nol1v5
          ```
 
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
    - API
 
-      Use the [Create](../../iam/api-ref/ServiceAccount/create.md) method for the `ServiceAccount` resource.
+      Use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
 
    {% endlist %}
 
@@ -61,11 +87,11 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
-      1. Select **{{ vpc-name }}**.
-      1. Click **Create network**.
-      1. Enter the network name `yc-auto-network`.
-      1. Select the additional option **Create subnets**.
-      1. Click **Create network**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `yc-auto-network` as the network name.
+      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+      1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI
 
@@ -126,16 +152,73 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
          - 192.168.2.0/24
          ```
 
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
    - API
 
-      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
-      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnet` resource.
+      1. Create a network:
+         Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
+         Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+
+   {% endlist %}
+
+1. Create a security group:
+
+   {% note info %}
+
+   {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+   {% endnote %}
+
+   {% list tabs %}
+
+   - Management console
+
+      1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
+      1. Open the **Security groups** tab.
+      1. Create a security group for the load balancer:
+
+      1. Click **Create group**.
+      1. Enter the **Name** of the group: `sg-autoscale`.
+      1. Select the **Network**: `yc-auto-network`.
+      1. Under **Rules**, create rules using the instructions below the table:
+
+         | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+         | --- | --- | --- | --- | --- | --- |
+         | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
+         | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
+         | Incoming | healthchecks | 80 | TCP | Load balancer health checks | N/A |
+
+         1. Select the **Outgoing traffic** or **Incoming traffic** tab.
+         1. Click **Add rule**.
+         1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+         1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
+         1. In the **Purpose** or **Source** field, select the purpose of the rule:
+
+         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+         * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
+
+         1. Click **Save**. Repeat the steps to create all rules from the table.
+
+      1. Click **Save**.
+
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
    {% endlist %}
 
 ## Create an instance group with auto scaling and network load balancer {#create-vm-group}
 
-1. All instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
+1. All instance groups are created from [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
@@ -143,7 +226,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
    ```yaml
    name: auto-group
-   service_account_id: <service account ID>
+   service_account_id: <service_account_ID>
    scale_policy:
      auto_scale:
        min_zone_size: 1
@@ -164,7 +247,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
      target_group_spec:
        name: auto-group-tg
    instance_template:
-     service_account_id: <service account ID>
+     service_account_id: <service_account_ID>
      platform_id: standard-v3
      resources_spec:
        memory: 2G
@@ -183,10 +266,10 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
        mode: READ_WRITE
        disk_spec:
          type_id: network-hdd
-         size: 10G
+         size: 30G
          image_id: fd8iv792kirahcnqnt0q # ID of the public Container Optimized Image.
      network_interface_specs:
-       - network_id: <cloud network ID>
+       - network_id: <cloud_network_ID>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
    ```
 
@@ -210,14 +293,22 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       id: cl0hmabc1nd2hdefgb7k
       folder_id: b0g12ga82bcv0cdeferg
       ...
+        target_group_id: enpoi5jhfps37opefgus
+      ...
           name: auto-group-tg
       service_account_id: ajelabcde12f33nol1v5
       status: ACTIVE
       ```
 
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
    - API
 
-      Use the method [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) for the resource `InstanceGroup`.
+      Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 
@@ -228,9 +319,9 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-      1. Select **{{ compute-short-name }}**.
-      1. Go to **Instance groups**.
-      1. Click the `auto-group` instance group name.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. Select the `auto-group` instance group.
 
    - CLI
 
@@ -249,9 +340,15 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       ```
 
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
    - API
 
-      See the list of the instance groups you created using the method [List](../../compute/api-ref/InstanceGroup/list.md) for the resource `InstanceGroup`.
+      To view the list of created instance groups, use the [list](../../compute/api-ref/InstanceGroup/list.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/List](../../compute/api-ref/grpc/instance_group_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -264,22 +361,22 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-      1. Select **{{ network-load-balancer-short-name }}**.
-      1. Click **Create load balancer**.
-      1. **Name** it `group-balancer`.
-      1. In the **Public address** field, select the value **Auto**.
-      1. Click **Add listener** under **Listeners**.
-         * In the window that opens, enter `http` as the **Listener name**.
-         * In the **Port** field, enter `80`: the balancer will use this port to accept the incoming traffic.
-         * In the **Target port** field, enter `80`: the balancer will redirect traffic to this port.
-         * Click **Add**.
-      1. Under **Target groups**, click **Add target group**.
-      1. In the **Target group** field, select the instance group `auto-group` and click **Configure**:
-         * In the **Health check settings** window that opens, specify `tcp` in the **Name** field.
-         * In the **Type** field, select **TCP**.
-         * In the **Port** field, enter `80`.
-         * Click **Apply**.
-      1. Click **Create**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+      1. Name it `group-balancer`.
+      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, specify `{{ ui-key.yacloud.common.label_auto }}`.
+      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. In the window that opens, specify:
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**: `http`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (the load balancer will use this port to accept incoming traffic): `80`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (the load balancer will redirect traffic to this port): `80`.
+         * Click **{{ ui-key.yacloud.common.add }}**.
+      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
+      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select the `auto-group-tg` instance group and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify:
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `tcp`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — `80`.
+         * Click **{{ ui-key.yacloud.common.apply }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI
 
@@ -287,27 +384,33 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       yc load-balancer network-load-balancer create \
         --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
         --name group-balancer \
-        --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=cl0hmabc1nd2hdefgb7k
+        --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=enpoi5jhfps3********
       ```
 
       Command result:
 
       ```bash
       done (16s)
-      id: b0rbabc1m2edfu2ss579
-      folder_id: b0g12ga82bcv0cdeferg
+      id: b0rbabc1m2ed********
+      folder_id: b0g12ga82bcv********
       ...
           healthy_threshold: "2"
           tcp_options:
             port: "80"
       ```
 
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
    - API
 
-      1. Create a load balancer using the method [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
-      1. Add a listener to the balancer using the method [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the `NetworkLoadBalancer` resource.
-      1. Attach the target group to the balancer using the method [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the `NetworkLoadBalancer` resource.
-      1. Add the balancer to the instance group using the method [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the `TargetGroup` resource.
+      1. Create a load balancer using the [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create) gRPC API call.
+      1. Add a listener to the load balancer using the [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener) gRPC API call.
+      1. Attach the target group to the load balancer using the [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the `NetworkLoadBalancer` resource or the [NetworkLoadBalancerService/AttachTargetGroup](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AttachTargetGroup) gRPC API call.
+      1. Add the load balancer to the instance group using the [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#AddTargets) gRPC API call.
 
    {% endlist %}
 
@@ -318,8 +421,8 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
-      1. Select **{{ network-load-balancer-short-name }}**.
-      1. Click the load balancer name `group-balancer`.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. Select `group-balancer` as your load balancer.
 
    - CLI
 
@@ -340,9 +443,15 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
 
 
+   
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+
    - API
 
-      Use the [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) method for the `NetworkLoadBalancer` resource.
+      Use the [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/List](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -383,10 +492,10 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-      1. Select **{{ compute-short-name }}**.
-      1. Go to **Instance groups**.
-      1. Click the `auto-group` instance group name.
-      1. Select the **Monitoring** tab.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. Select the `auto-group` instance group.
+      1. Click the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
          The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the chart **Average CPU utilization in zone**).
 
    {% endlist %}
@@ -435,12 +544,12 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
-      1. Select **{{ compute-short-name }}**.
-      1. Go to **Instance groups**.
-      1. Click the `auto-group` instance group name.
-      1. Select the **Monitoring** tab.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. Select the `auto-group` instance group.
+      1. Click the **{{ ui-key.yacloud.compute.group.switch_monitoring }}** tab.
          The chart **Number of instances in zone** shows how the number of instances changed in each availability zone. The chart **Average CPU utilization in zone** shows average CPU utilization in each availability zone.
-      1. Click the **Logs** tab.
+      1. Click the **{{ ui-key.yacloud.compute.group.switch_logs }}** tab.
          The page displays messages relating to auto scaling of the instance group.
 
       The total utilization of 240% CPU was evenly distributed between two instances in two availability zones and exceeded the target utilization of 40% CPU. {{ ig-name }} created one instance more in each availability zone to result in four instances in the group. When the script stopped utilizing the CPU, {{ ig-name }} automatically decreased the number of instances in the group to two.
@@ -456,10 +565,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `group-balancer` load balancer.
-      1. Select **{{ network-load-balancer-short-name }}**.
-      1. Click ![image](../../_assets/vertical-ellipsis.svg) in the `group-balancer` row.
-      1. In the resulting menu, click **Delete**.
-      1. In the **Delete load balancer** window that opens, click **Delete**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. In the `group-balancer` line, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI
 
@@ -475,7 +583,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - API
 
-      Use the [Delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) method for the `NetworkLoadBalancer` resource.
+      Use the [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Delete) gRPC API call.
 
    {% endlist %}
 
@@ -486,11 +594,10 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the `auto-group` instance group.
-      1. Select **{{ compute-short-name }}**.
-      1. Go to **Instance groups**.
-      1. Click ![image](../../_assets/vertical-ellipsis.svg) for the `auto-group` instance group.
-      1. In the resulting menu, click **Delete**.
-      1. In the **Delete instance group** window that opens, click **Delete**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the left-hand panel, click ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. In the `auto-group` instance group line, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
    - CLI
 
@@ -506,7 +613,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - API
 
-      Use the method [Delete](../../compute/api-ref/InstanceGroup/delete.md) for the resource `InstanceGroup`.
+      Use the [delete](../../compute/api-ref/InstanceGroup/delete.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete) gRPC API call.
 
    {% endlist %}
 
@@ -517,11 +624,10 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the subnets.
-      1. Open the **{{ vpc-name }}** section.
-      1. Click the name of the subnets' network.
-      1. Click ![image](../../_assets/options.svg) in the line of the subnet to delete.
-      1. In the resulting menu, click **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section.
+      1. Select the network with the appropriate subnets.
+      1. In the line of the subnet you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
       1. Repeat the previous three steps to delete the remaining subnets.
 
    - CLI
@@ -566,7 +672,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - API
 
-      Use the method [Delete](../../vpc/api-ref/Subnet/delete.md) for the resource `Subnet`.
+      Use the [delete](../../vpc/api-ref/Subnet/delete.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../../vpc/api-ref/grpc/subnet_service.md#Delete) gRPC API call.
 
    {% endlist %}
 
@@ -577,10 +683,9 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network.
-      1. Open the **{{ vpc-name }}** section.
-      1. Click ![image](../../_assets/options.svg) in the line of the network to delete.
-      1. In the resulting menu, click **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section.
+      1. In the line of the network you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI
 
@@ -599,7 +704,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - API
 
-      Use the method [Delete](../../vpc/api-ref/Network/delete.md) for the resource `Network`.
+      Use the [delete](../../vpc/api-ref/Network/delete.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete) gRPC API call.
 
    {% endlist %}
 
@@ -610,8 +715,8 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-      1. Go to the **Service accounts** tab.
-      1. Click ![image](../../_assets/options.svg) next to the service account and select **Delete service account**.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. In the line of the service account you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. Confirm the deletion.
 
    - CLI
@@ -628,6 +733,121 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - API
 
-      Use the method [Delete](../../iam/api-ref/ServiceAccount/delete.md) for the resource `ServiceAccount`.
+      Use the [delete](../../iam/api-ref/ServiceAccount/delete.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete) gRPC API call.
 
    {% endlist %}
+
+
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+To set up scaling for your instance group using {{ TF }}:
+
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+
+1. Prepare files with the infrastructure description:
+
+   {% list tabs %}
+
+   - Ready-made archive
+
+      1. Clone the repository with configuration files:
+
+         ```bash
+         git clone https://github.com/yandex-cloud-examples/yc-terraform-vm-autoscale.git
+         ```
+
+      1. Go to the directory with the repository. Make sure it contains the following files:
+         * `vm-autoscale.tf`: Configuration of the infrastructure you create.
+         * `declaration.yaml`: Description of the Docker container with a web server that will be run on a VM instance to simulate the service load.
+         * `config.tpl`: Description of VM user parameters.
+         * `vm-autoscale.auto.tfvars`: User data.
+
+         {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+   - Creating files manually
+
+      1. Create a directory for configuration files.
+
+      1. In the directory, create:
+
+         1. The `vm-autoscale.tf` configuration file:
+
+            {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+            {% cut "vm-autoscale.tf" %}
+
+            {% include [vm-autoscale-tf-config](../../_includes/instance-groups/vm-autoscale-tf-config.md) %}
+
+            {% endcut %}
+
+         1. The `declaration.yaml` file with a description of the Docker container with a web server that will be run on a VM instance to simulate the service load:
+
+            {% cut "declaration.yaml" %}
+
+            ```yaml
+            spec:
+            containers:
+            - image: cr.yandex/yc/demo/web-app:v1
+              securityContext:
+                privileged: false
+              tty: false
+              stdin: false
+            ```
+
+            {% endcut %}
+
+         1. The `config.tpl` file with VM user parameters:
+
+            {% cut "config.tpl" %}
+
+            ```yaml
+            users:
+              - name: "${VM_USER}"
+                groups: sudo
+                shell: /bin/bash
+                sudo: ['ALL=(ALL) NOPASSWD:ALL']
+                ssh_authorized_keys:
+                  - "${SSH_KEY}"
+            ```
+
+            {% endcut %}
+
+         1. The `vm-autoscale.auto.tfvars` file with user data:
+
+            {% cut "vm-autoscale.auto.tfvars" %}
+
+            ```hcl
+            folder_id = "<folder_ID>"
+            vm_user   = "<VM_username>"
+            ssh_key   = "<public_SSH_key_contents>"
+            ```
+
+            {% endcut %}
+
+   {% endlist %}
+
+   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+
+   * [yandex_iam_service_account]({{ tf-provider-link }}Resources/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}Resources/resourcemanager_folder_iam_member)
+   * [yandex_vpc_network]({{ tf-provider-link }}Resources/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-link }}Resources/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-link }}Resources/vpc_security_group)
+   * [yandex_compute_instance_group]({{ tf-provider-link }}Resources/compute_instance_group)
+   * [yandex_lb_network_load_balancer]({{ tf-provider-link }}Resources/lb_network_load_balancer)
+
+1. In the `vm-autoscale.auto.tfvars` file, set the user-defined parameters:
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `vm_user`: VM username.
+   * `ssh_key`: Contents of the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+1. Create resources:
+
+   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Test your instance group and network load balancer](#check-service).
+
+1. [Test auto scaling](#check-highload).
+

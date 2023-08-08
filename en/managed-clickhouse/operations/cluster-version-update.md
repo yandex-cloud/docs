@@ -41,7 +41,7 @@ Make sure this does not affect your applications:
 
 1. See the {{ CH }} [changelog](https://clickhouse.com/docs/category/changelog) to check how updates might affect your applications.
 1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only recover MergeTree tables.
-1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Updating the version {#start-update}
 

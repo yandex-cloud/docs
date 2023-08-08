@@ -1,16 +1,18 @@
 # Getting started with {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
+
 To get started with the service:
 
-1. [{#T}](#cluster-create).
+1. [{#T}](#cluster-create)
 
 
-1. [{#T}](#configuring-security-groups).
+1. [{#T}](#configuring-security-groups)
 
 
-1. [{#T}](#connect).
+1. [{#T}](#connect)
 
-1. [{#T}](#connect-kibana).
+1. [{#T}](#connect-kibana)
 
 
 ## Getting started {#before-you-begin}

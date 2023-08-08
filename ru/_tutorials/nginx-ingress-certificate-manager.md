@@ -1,6 +1,6 @@
 Управляйте TLS-сертификатом для Ingress-контроллера NGINX через {{ certificate-manager-name }}.
 
-[External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: загрузить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt<sup>®</sup>, который будет обновляться автоматически.
+[External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt<sup>®</sup>, который будет обновляться автоматически.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -37,9 +37,9 @@
 * использование публичных IP-адресов (см. [тарифы {{ vpc-name }}](../vpc/pricing.md));
 * входящий трафик, обработанный балансировщиком, и использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-short-name }}](../network-load-balancer/pricing.md)).
 
-## Создайте сертификат в {{ certificate-manager-name }}
+## Добавьте сертификат в {{ certificate-manager-name }}
 
-1. [Создайте](../certificate-manager/operations/managed/cert-create.md) сертификат Let's Encrypt<sup>®</sup> или загрузите собственный сертификат.
+1. Выпустите и [добавьте](../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt<sup>®</sup> или [загрузите](../certificate-manager/operations/import/cert-create.md) собственный сертификат.
 1. Для сертификата Let's Encrypt<sup>®</sup> пройдите [проверку прав](../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
 1. Назначьте роль `certificate-manager.certificates.downloader` сервисному аккаунту `eso-service-account`, чтобы он мог читать содержимое сертификата:
 

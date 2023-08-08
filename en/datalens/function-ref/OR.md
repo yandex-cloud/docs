@@ -1,43 +1,43 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OR.md
+sourcePath: en/_api-ref/datalens/function-ref/OR.md
 ---
 
 # OR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 value_1 OR value_2
 ```
 
-#### Описание {#description}
-Выполняет логическое соединение двух выражений по условию `ИЛИ`.
+#### Description {#description}
+Performs a Boolean join of two expressions with the `OR` condition.
 
-**Типы аргументов:**
-- `value_1` — `Логический`
-- `value_2` — `Логический`
+**Argument types:**
+- `value_1` — `Boolean`
+- `value_2` — `Boolean`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value_1`, `value_2`)
+**Return type**: Same type as (`value_1`, `value_2`)
 
 {% note info %}
 
-Тип аргументов (`value_1`, `value_2`) должен совпадать.
+Arguments (`value_1`, `value_2`) must be of the same type.
 
 {% endnote %}
 
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 [Month] = "January" OR [Year] < 2019
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

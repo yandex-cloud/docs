@@ -438,6 +438,7 @@ default:
   DS: YDS
   ssms: SQL Server Management Studio
   pgadmin: "pgAdmin\_4"
+  google-looker: Looker Studio
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -645,6 +646,7 @@ default:
   link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=notifications
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
+  link-docs: https://cloud.yandex.com/docs
   link-org-main: https://org.cloud.yandex.com/
   link-org-acl: https://org.cloud.yandex.ru/acl
   link-org-users: https://org.cloud.yandex.ru/users
@@ -653,6 +655,7 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
   link-support-mail: cloud@support.yandex.ru
+  link-cloud-desktop-showcase: https://console.cloud.yandex.com/showcase/cloud-desktop
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.com
   links:
@@ -784,8 +787,8 @@ default:
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
   k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-regular: 1.23, 1.24
-  k8s-versions-stable: 1.23, 1.24
+  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -822,6 +825,7 @@ default:
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-iot-broker: iot-broker.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -866,7 +870,7 @@ default:
       - Other
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
   registry: cr.yandex
-  cos-external-ip-examples:
+  external-ip-examples:
     - 84.201.155.117
     - 84.252.131.221
   api-url-prefix: /docs
@@ -3247,11 +3251,17 @@ default:
           view:
             label_connector-ch_billing_analytics: Yandex Cloud Billing
             label_connector-clickhouse: ClickHouse
+        file:
+          view:
+            label_action-delete: Delete
         form:
           button_add-connection: Create connection
           button_create: Create
           button_create-connection: Create connection
           button_create-dataset: Create dataset
+          button_create-mdb-cluster: Create new
+          button_remove: Delete
+          button_save-connection: Save
           button_specify-manually: Specify manually
           button_verify: Check connection
           field_cache-ttl-sec: "Cache TTL in\_seconds"
@@ -3264,6 +3274,10 @@ default:
           field_raw-sql-level: Raw SQL level
           field_username: Username
           value_default: Default
+          value_fill-mode-cloud: Select in folder
+          value_fill-mode-manually: Specify manually
+          value_permission-explicit: Available to the company
+          value_permission-owner-only: Available only to me
           value_raw-sql-level-off: Forbid
       dash:
         action-panel:
@@ -3324,6 +3338,10 @@ default:
         billing:
           column_cost: Cost
           column_credit: Credit
+        kafka:
+          topics:
+            value_cleanup-policy-compact: Compact
+            value_cleanup-policy-delete: Delete
         mdb:
           section_resource: Resources
       main:
@@ -4525,10 +4543,12 @@ default:
       ui_components_FilterFieldsSelect:
         applyChanges: Apply
       ui_components_Gantt_IssueActionsCell:
+        choose-color: Choose color
         issue-action-menu-title: Issue actions menu
       ui_components_Gantt:
         color-type-by-manual: manual
         color-type-by-parameter: by task parameters
+        color-type-monochrome: monochrome
         delete-link: Remove link
         scale-days: Week
         scale-month: Month
@@ -4613,6 +4633,8 @@ default:
         preset_deadline: Deadline approaching
         preset-deadline: Deadline approaching
         show-closed-issues: Show completed issues
+      ui_components_IssueTable2:
+        row-actions: Actions
       ui_components_IssueTabs:
         description-tab: Description
         fields-tab: Parameters
@@ -4769,6 +4791,11 @@ default:
         description-tab: About the project
         gantt-tab: Gantt chart
         issues-tab: Issue list
+      ui_components_projects_hooks:
+        copy-to-clipboard: Copy link
+        delete-from-project: Delete from project
+        issue-actions--move-down: Move to bottom of list
+        issue-actions--move-up: Move to top of list
       ui_components_projects_list_FilterPane:
         preset-author: I'm author
         preset-client: I'm a client
@@ -4859,6 +4886,9 @@ default:
       dialog:
         confirm:
           button_continue: Continue
+      header:
+        title:
+          mx-mode: Metric Explorer
       homepage:
         title_service-dashboards: Service dashboards
       monitoring-alerts:
@@ -4870,6 +4900,7 @@ default:
           function: Aggregation function
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
+        label_mysql: Managed Service for MySQL
     yacloud_org:
       entity:
         invitation:
@@ -5033,6 +5064,7 @@ default:
           purchase:
             button_purchase: Purchase commitment
         label_accounts: Accounts
+        label_service: Billing
         switch_accounts: List of accounts
       cdn:
         button_add-domain: Add domain name
@@ -5071,6 +5103,7 @@ default:
           explore:
             button_execute: Execute
             button_submit-creds: Connect
+            label_offset: Query result offset
             label_password: Password
           switch_datalens: DataLens
           switch_users: Users
@@ -5092,6 +5125,7 @@ default:
         id: ID
         import: Import
         label_auto: Auto
+        label_create-new_female: Create new
         label_https: HTTPS
         label_key: Key
         label_list: List
@@ -5167,6 +5201,7 @@ default:
           button_add-label: Add label
         mdb:
           settings:
+            button_reset: Reset
             popup_settings-submit: Save
         navigation-menu:
           label_account: Account
@@ -5201,6 +5236,8 @@ default:
           button_attach: Attach
           field_auto-delete: Delete automatically
           field_instance: VM
+        disk-form:
+          field_size: Size
         disks:
           button_action-attach: Attach
           button_action-delete: Delete
@@ -5481,9 +5518,13 @@ default:
         label_endpoint-type-KAFKA: Kafka
         label_endpoint-type-MONGO_V2: MongoDB
         label_endpoint-type-MYSQL: MySQL
+        label_endpoint-type-OBJECT_STORAGE: Object Storage
         label_endpoint-type-POSTGRES: PostgreSQL
+        label_endpoint-type-YDB: YDB
         label_endpoints: Endpoints
         label_monitoring: Monitoring
+      datalens:
+        label_init: Activate DataLens
       dataproc:
         jobs:
           field_main-python-file: Main python file
@@ -5530,6 +5571,8 @@ default:
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
+        section_resource-master: Master
+        section_resource-segment: Segment
         wizard:
           action_open-wizard: Open wizard
       iam:
@@ -5558,6 +5601,8 @@ default:
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
+            label_data-streams: Data Streams
+            label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_kms: Key Management Service
@@ -5571,6 +5616,7 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-mongodb: Managed Service for MongoDB
+            label_managed-mysql: Managed Service for MySQL
             label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
@@ -5580,6 +5626,7 @@ default:
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
+            label_ydb: Managed Service for YDB
             value_compute: Virtual machine instance
             value_data-proc: Data Proc cluster
             value_data-transfer: Data Transfer
@@ -5606,6 +5653,9 @@ default:
       k8s:
         cluster:
           switch_workloads: Workload
+      kafka:
+        label_partitions: Number of partitions
+        label_topic-cleanup-policy: Cleanup policy
       kms:
         symmetric-key:
           create:
@@ -5694,11 +5744,18 @@ default:
             button_add: Add
           diagnostics:
             label_indexes: Suggested indexes
+            label_interval-first: Interval 1
+            label_interval-second: Interval 2
             label_profiling: Profiling
+            label_queries: Queries
+            label_sessions: Sessions
           hosts:
             button_add-host: Add host
+            button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
             button_rebalance-cluster-short: Rebalance
+            host_column_public-ip: Public access
+            host_column_role: Role
             label_title: Hosts
             popup-confirm_button: Confirm
             switch_monitoring: Monitoring
@@ -5711,8 +5768,17 @@ default:
             button_action-edit: Edit cluster
             button_action-start: Start cluster
             button_action-stop: Stop cluster
+            label_access-datalens: DataLens access
             label_anytime-maintenance-warning-value: Arbitrary time
+            label_bucket: Bucket name
+            label_hdd: Storage
+            label_health: State
             label_mongodb-pitr: Point-in-time recovery
+            label_network: Cloud network
+            label_service-account: Service account
+            label_services: Services
+            label_status: Status
+            section_resource: Resources
           shards:
             button_action-remove: Remove
             button_add: Add shard
@@ -5722,6 +5788,7 @@ default:
             popup-confirm_button: Start
           stop-dialog:
             popup-confirm_button: Stop
+          switch_backups: Backups
           switch_hosts: Hosts
           switch_monitoring: Monitoring
           users:
@@ -5732,19 +5799,23 @@ default:
             button_remove: Remove
             popup-add_button_add: Add
             popup-button_save: Save
+            popup-password_button_change: Edit
         clusters:
           button_action-delete: Delete
           button_action-move: Move
           button_action-start: Start
           button_action-stop: Stop
           button_create: Create cluster
+          column_availability: Availability
         datalens:
           button-action_activate: Activate
           button-action_new-connection: Create connection
+          label_activate-datalens-title: DataLens not activated
         dialogs:
           button_add-database: Add database
           popup_button_move-cluster: Move
           popup_button_save: Save
+          popup_field_roles: Roles
           popup-add-db_button_add: Add
           popup-confirm-delete-cluster_button: Delete
           popup-confirm-switch-master_button: Switch
@@ -5790,7 +5861,10 @@ default:
           database_field_user-password: Password
           field_assign-public-ip: Public access
           field_cluster-mode: Cluster sharding
+          field_date: Date and time of recovery (UTC)
           field_diagnostics-enabled: Statistics sampling
+          field_diagnostics-sessions-interval: Sessions sampling interval
+          field_diagnostics-statements-interval: Statements sampling interval
           field_initialization-action-args: Arguments
           field_initialization-action-uri: URI
           field_security-group: Security groups
@@ -5799,6 +5873,9 @@ default:
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
           label_deletion-protection: Deletion protection
+          label_greenplum_pool_client-idle-timeout: Client Idle Timeout
+          label_greenplum_pool_mode: Mode
+          label_greenplum_pool_size: Size
           label_master-subcluster: Master
           label_max-size-units: GB
           label_network: Network
@@ -5815,6 +5892,7 @@ default:
           section_host: Hosts
           section_network: Network settings
           section_network-settings: Network settings
+          section_pooler: Connection pooler
           section_resource: Host class
           section_service-settings: Service settings
           section_settings: DBMS settings
@@ -5850,7 +5928,18 @@ default:
         button_open-in-monitoring: Open in Monitoring
       mysql:
         cluster:
+          switch_backups: Backups
+          switch_databases: Databases
+          switch_datalens: DataLens
+          switch_diagnostics: Performance diagnostics
           switch_explore: SQL
+          switch_hosts: Hosts
+          switch_logs: Logs
+          switch_monitoring: Monitoring
+          switch_operations: Operations
+          switch_users: Users
+        field_backup_priority: Backup priority
+        field_priority: Master priority
       opensearch:
         auth:
           button_save: Save
@@ -5873,6 +5962,10 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      postgresql:
+        hosts:
+          dialog:
+            button_choose: Save
       redis:
         cluster:
           switch_backups: Backups

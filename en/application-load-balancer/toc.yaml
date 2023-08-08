@@ -245,6 +245,8 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
+  - name: Metric reference
+    href: metrics.md
   - name: '{{ managed-k8s-name }} tool references'
     items:
       - name: Overview

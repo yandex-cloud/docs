@@ -56,10 +56,10 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
          * YARN NodeManager.
          * Spark libraries.
    1. Select the other subcluster settings:
-      * The [host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
+      * [Host class](../concepts/instance-types.md): Platform and computing resources available to the host.
       * Type and size of storage.
       * Format to specify the network.
-      * The subnet of the network where the cluster is located.
+      * Subnet of the network where the cluster is located.
       * (Optional) Enable **Public access** for online access to subcluster hosts.
 
          This setting cannot be edited after the subcluster is created.
@@ -140,7 +140,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -193,7 +193,7 @@ You cannot delete data storage subclusters.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

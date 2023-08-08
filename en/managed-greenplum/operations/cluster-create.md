@@ -16,7 +16,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Select **{{ mgp-name }}**.
    1. Click **Create cluster**.
    1. Enter a name for the cluster. It must be unique within the folder.
-   1. (optional) Enter a cluster description.
+   1. (Optional) Enter a cluster description.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mgp-full-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -45,7 +45,7 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Specify the administrative user's settings. This is a special user that is needed to manage clusters and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
 
-      * **Username** may contain Latin letters, numbers, hyphens, and underscores, but can't begin with a hyphen. It can be between 1 and 32 characters long.
+      * **Username** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It may be up to 32 characters long.
 
          {% note info %}
 
@@ -157,7 +157,7 @@ For more information, see [{#T}](../concepts/index.md).
       * `--greenplum-version`: {{ GP }} version.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ GP }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ GP }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
       * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It can be up to 32 characters long.
       * `--user-password`: Password, which must be from 8 to 128 characters long.
@@ -248,7 +248,7 @@ For more information, see [{#T}](../concepts/index.md).
       ```hcl
       resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
 
-      resource "yandex_vpc_subnet" "<name of subnet in {{ TF }}>" {
+      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
         network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
@@ -302,7 +302,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       Cluster deletion protection will not prevent a manual connection to delete the contents of a database.
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mgp }}).
 
    1. Check the {{ TF }} configuration files for errors:
 
@@ -335,7 +335,7 @@ For more information, see [{#T}](../concepts/index.md).
    * Backup window settings in the `config.backupWindowStart` parameter.
    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/), in the `config.access.dataTransfer` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in the `configSpec.greenplumConfig_<version>` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
@@ -377,7 +377,7 @@ For more information, see [{#T}](../concepts/index.md).
    ```bash
    {{ yc-mdb-gp }} cluster create \
       --name=gp-cluster \
-      --sqlserver-version={{ versions.cli.latest }} \
+      --greenplum-version={{ versions.cli.latest }} \
       --environment=PRODUCTION \
       --network-name=default \
       --user-name=user1 \

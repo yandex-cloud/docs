@@ -171,3 +171,18 @@ The thresholds are only set in bytes. For example, here are the recommended valu
 {% include [logs](../../_qa/logs.md) %}
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+Perhaps, the maximum storage [IOPS and bandwidth](../../compute/concepts/storage-read-write.md) values are insufficient for processing the current number of requests. In this case, [throttling](../../compute/concepts/storage-read-write.md#throttling) is triggered and the performance of the entire cluster degrades.
+
+The maximum IOPS and bandwidth values increase by a fixed value when the storage size increases by a certain step. The step and increment values depend on the disk type:
+
+| Disk type | Step, GB | Max IOPS increase (read/write) | Max bandwidth increase (read/write), MB/s |
+|-----------------------------|---------|------------------------------------|-----------------------------------------------|
+| `network-ssd` | 32 | 1,000/1,000 | 15/15 |
+| `network-ssd-nonreplicated` | 93 | 28,000/5,600 | 110/82 |
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../operations/update.md#change-disk-size).
+
+Consider switching to a faster disk type by [restoring the cluster](../operations/cluster-backups.md#restore) from a backup.

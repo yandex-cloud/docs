@@ -35,7 +35,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
      +----------------------+-------+-------------------+---------+----------------------------------+-------------+
      |          ID          | NAME  |      ZONE ID      | STATUS  |           EXTERNAL IP            | INTERNAL IP |
      +----------------------+-------+-------------------+---------+----------------------------------+-------------+
-     | epdbf646ge5qgutfvh43 | my-vm | {{ region-id }}-b | RUNNING | {{ cos-external-ip-examples.0 }} | 172.18.0.21 |
+     | epdbf646ge5qgutfvh43 | my-vm | {{ region-id }}-b | RUNNING | {{ external-ip-examples.0 }} | 172.18.0.21 |
      +----------------------+-------+-------------------+---------+----------------------------------+-------------+
      ```
 

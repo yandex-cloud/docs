@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ARG_MAX.md
+sourcePath: en/_api-ref/datalens/function-ref/ARG_MAX.md
 ---
 
 # ARG_MAX
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   ARG_MAX( value, comp )
   ```
 
-- Расширенный
+- Extended
 
   ```
   ARG_MAX( value, comp
@@ -26,29 +26,29 @@ sourcePath: ru/_api-ref/datalens/function-ref/ARG_MAX.md
          )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает значение `value`, соответствующее максимальному значению `comp`. Если есть несколько значений `value`, соответствующих максимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
+#### Description {#description}
+Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
-**Типы аргументов:**
-- `value` — `Любой`
-- `comp` — `Любой`
+**Argument types:**
+- `value` — `Any`
+- `comp` — `Any`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+**Return type**: Same type as (`value`)
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 ARG_MAX([Sales], [Profit])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `YDB`.

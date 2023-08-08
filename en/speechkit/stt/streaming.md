@@ -36,7 +36,13 @@ To use the service, create an application that will send audio fragments and pro
 
 For the application to access the service, clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) repository and generate the client interface code for the used programming language from the [API v2](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) or [API v3](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v3/stt_service.proto) specification file.
 
-For client application examples, see [{#T}](api/streaming-examples-v3.md) and [{#T}](api/streaming-examples.md). See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
+Client application examples:
+
+* [{#T}](api/streaming-examples-v3.md).
+* [{#T}](api/microphone-streaming.md).
+* [{#T}](api/streaming-examples.md).
+
+See also the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and implement client apps in various programming languages.
 
 ### Authorization in the service {#auth}
 

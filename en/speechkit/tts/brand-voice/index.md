@@ -17,7 +17,7 @@ To create a unique voice for your business, [fill out the form](#contact-form).
 
 ## {{ brand-voice-premium-name }} {#premium}
 
-{{ brand-voice-premium-name }} will cover any business scenario:
+{{ brand-voice-premium-name }} is suitable for any business task:
 
 * Voice assistants.
 * Call center robot operators.
@@ -48,14 +48,14 @@ When using pattern-based synthesis with {{ brand-voice-full-name }} voices, mak
 
 ## {{ brand-voice-cc-name }} {#cc}
 
-{{ brand-voice-cc-name }} is purpose-designed for call center automation and other business scenarios involving phone calls:
+{{ brand-voice-cc-name }} is purpose-designed for call center automation and other business scenarios involving phone calls:
 
 * Telemarketing.
 * Managing calls to level 1 technical support.
 * Surveys.
 * Call center automation.
 
-With {{ brand-voice-cc }}, you do not have to train a special model based on your artist's voice, as the voice will be copied directly from the patterns you provide for phrase generation. Speech is synthesized integrally rather than glued together from a pre-recorded pattern and a generated variable part.
+With {{ brand-voice-cc }}, you do not have to train a special model based on your artist's voice, as the voice will be copied directly from the patterns you provide for phrase generation. The speech is synthesized integrally rather than glued together from a pre-recorded pattern and a generated variable part.
 
 You can use {{ brand-voice-cc-name }} to automate your standard dialogs.
 

@@ -1,37 +1,37 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/MARKUP.md
+sourcePath: en/_api-ref/datalens/function-ref/MARKUP.md
 ---
 
 # MARKUP
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 MARKUP( arg_1, arg_2, arg_3 [ , ... ] )
 ```
 
-#### Описание {#description}
-Объединяет размеченный текст. Также может быть использован для конвертации обычных строк в размеченный текст.
+#### Description {#description}
+Merges marked up text pieces. Can also be used for converting strings to marked up text.
 
-**Типы аргументов:**
-- `arg_1` — `Разметка | Строка`
-- `arg_2` — `Разметка | Строка`
-- `arg_3` — `Разметка | Строка`
+**Argument types:**
+- `arg_1` — `Markup | String`
+- `arg_2` — `Markup | String`
+- `arg_3` — `Markup | String`
 
 
-**Возвращаемый тип**: `Разметка`
+**Return type**: `Markup`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 MARKUP(BOLD([a]), ': ', [b])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

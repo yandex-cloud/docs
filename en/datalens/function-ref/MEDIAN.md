@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/MEDIAN.md
+sourcePath: en/_api-ref/datalens/function-ref/MEDIAN.md
 ---
 
 # MEDIAN
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   MEDIAN( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   MEDIAN( value
@@ -26,28 +26,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/MEDIAN.md
         )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Вовзращает медианное значение.
+#### Description {#description}
+Returns the median value.
 
-**Типы аргументов:**
-- `value` — `Дата | Дата и время | Дробное число | Целое число`
+**Argument types:**
+- `value` — `Date | Datetime | Fractional number | Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+**Return type**: Same type as (`value`)
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 MEDIAN([Profit])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.4`, `YDB`.

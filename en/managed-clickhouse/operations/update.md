@@ -2,7 +2,9 @@
 
 After creating a cluster, you can:
 
+
 * [Change service account settings](#change-service-account).
+
 
 * [{#T}](#change-resource-preset).
 
@@ -20,6 +22,7 @@ After creating a cluster, you can:
 * [Change cluster security groups](#change-sg-set).
 
 
+
 ## Change service account settings {#change-service-account}
 
 {% list tabs %}
@@ -28,13 +31,12 @@ After creating a cluster, you can:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-   
    1. Under **Service settings**, select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
-
-        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+      {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
+
 
 ## Changing the host class {#change-resource-preset}
 
@@ -529,7 +531,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
    * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -614,7 +617,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
       * Settings for access from other  services and access to SQL queries from the  management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

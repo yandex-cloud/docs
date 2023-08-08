@@ -1,9 +1,3 @@
-* **Interval duration**{#setting-quota-interval-duration} {{ tag-all }}
-
-    Quota interval in milliseconds. The value must be a multiple of 1000.
-
-    The minimum value is `1000` (one second).
-
 * **Errors**{#setting-quota-errors} {{ tag-all }}
 
     Limits the total number of failed queries.
@@ -15,6 +9,12 @@
     Limits the total query execution time in milliseconds.
 
     The minimum value is `0` (no limitations).
+
+* **Interval duration**{#setting-quota-interval-duration} {{ tag-all }}
+
+    Quota interval in milliseconds. The value must be a multiple of 1000.
+
+    The minimum value is `1000` (one second).
 
 * **Queries**{#setting-quota-queries} {{ tag-all }}
 

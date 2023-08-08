@@ -6,7 +6,7 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сертификат.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
     1. В списке сервисов выберите **{{ certificate-manager-name }}**.
     1. Выберите в списке сертификат, для которого необходимо пройти процедуру проверки и нажмите на него.
     1. В открывшемся окне в блоке **Проверка прав на домены** будет указана информация для прохождения процедуры проверки прав. Подробнее читайте в разделе [{#T}](../../concepts/challenges.md).
@@ -29,7 +29,7 @@
 
         ```bash
         yc certificate-manager certificate get \
-          --id fpq6gvvm6piuegbb2nol \
+          --id fpq6gvvm6piu******** \
           --full
         ```
 
@@ -41,8 +41,8 @@
         Результат:
 
         ```bash
-        id: fpq6gvvm6piuegbb2nol
-        folder_id: b1g7gvsi89m34qmcm3ke
+        id: fpq6gvvm6piu********
+        folder_id: b1g7gvsi89m3********
         created_at: "2020-09-15T08:49:11.533771Z"
         name: mymanagedcert
         type: MANAGED
@@ -67,7 +67,7 @@
     1. После успешного прохождения проверки прав на домен, статус проверки изменится на `Valid`:
 
         ```bash
-        yc certificate-manager certificate get --id fpq6gvvm6piuegbb2nol --full
+        yc certificate-manager certificate get --id fpq6gvvm6piu******** --full
         ...
         domains:
         - example.com
@@ -85,6 +85,83 @@
         status: ISSUED
         ...
         ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  С помощью {{ TF }} можно создать DNS-запись, необходимую для прохождения проверки прав на домен. Для этого:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      resource "yandex_cm_certificate" "le-certificate" {
+        name    = "<имя_сертификата>"
+        domains = ["<домен>"]
+
+        managed {
+        challenge_type = "DNS_CNAME"
+        }
+      }
+
+      resource "yandex_dns_recordset" "validation-record" {
+        zone_id = "<идентификатор_зоны>"
+        name    = yandex_cm_certificate.le-certificate.challenges[0].dns_name
+        type    = yandex_cm_certificate.le-certificate.challenges[0].dns_type
+        data    = [yandex_cm_certificate.le-certificate.challenges[0].dns_value]
+        ttl     = <время_жизни_записи_секунд>
+      }
+
+      data "yandex_cm_certificate" "example" {
+        depends_on      = [yandex_dns_recordset.example]
+        certificate_id  = yandex_cm_certificate.example.id
+        wait_validation = true
+      }
+
+      # Use data.yandex_cm_certificate.example.id to get validated certificate
+
+      output "cert-id" {
+        description = "Certificate ID"
+        value       = data.yandex_cm_certificate.example.id
+      }
+      ```
+
+      Где:
+
+      * Параметры ресурса `yandex_cm_certificate`:
+
+          * `domains` — домен, для которого нужно создать сертификат.
+          * `challenge_type` — способ проверки владельца домена. Возможные значения:
+
+            * `DNS_CNAME` — необходимо создать DNS-запись в формате CNAME с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
+            * `DNS_TXT` — необходимо создать DNS-запись в формате TXT с указанным значением.
+
+      * Параметры ресурса `yandex_dns_recordset`:
+
+          * `zone_id` — идентификатор DNS-зоны, в которой будет находиться запись для проверки владельца.
+          * `name` — имя записи.
+          * `type` — тип DNS-записи.
+          * `data` — значение записи.
+          * `ttl` — время жизни записи (TTL, Time to live) в секундах до актуализации информации о значении записи.
+
+      * Параметры источника данных `yandex_dns_recordset`:
+          * `depends_on` — указывает зависимость от другого ресурса {{ TF }}.
+          * `certificate_id` — идентификатор сертификата.
+          * `wait_validation` — флаг ожидания валидация сертификата. Если значение `true`, то операция не будет завершена, пока сертификат находится в статусе `VALIDATING`. Значение по умолчанию `false`.
+
+      Подробную информацию о параметрах ресурсов см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}).
+
+  1. Создайте ресурсы:
+  
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будут созданы сертификат и DNS-запись. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc certificate-manager certificate get <имя_сертификата>
+    ```
 
 - API
 

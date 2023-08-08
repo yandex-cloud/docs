@@ -29,13 +29,13 @@
 | `ru-RU` | русский | `madirus` | M | — | v1, v3 |
 | `ru-RU` | русский | `omazh` | Ж  | (по умолчанию) нейтральная — `neutral` </br> раздраженная — `evil` | v1, v3 |
 | `ru-RU` | русский | `zahar` | M | (по умолчанию) нейтральный — `neutral` </br> радостный — `good` | v1, v3 |
-| `ru-RU` | русский | `dasha`  | Ж | — | v1, v3 |
-| `ru-RU` | русский | `julia`  | Ж | — | v1, v3 |
-| `ru-RU` | русский | `lera`  | Ж | — | v1, v3 |
-| `ru-RU` | русский | `marina`  | Ж | — | v1, v3 |
-| `ru-RU` | русский | `alexander` | M | — | v1, v3 |
-| `ru-RU` | русский | `kirill` | M | — | v1, v3 |
-| `ru-RU` | русский | `anton` | M | — | v1, v3 |
+| `ru-RU` | русский | `dasha`  | Ж | — | v3 |
+| `ru-RU` | русский | `julia`  | Ж | — | v3 |
+| `ru-RU` | русский | `lera`  | Ж | — | v3 |
+| `ru-RU` | русский | `marina`  | Ж | — | v3 |
+| `ru-RU` | русский | `alexander` | M | — | v3 |
+| `ru-RU` | русский | `kirill` | M | — | v3 |
+| `ru-RU` | русский | `anton` | M | — | v3 |
 | `uz-UZ` | узбекский | `nigora` | Ж | — | v1, v3 |
 
 

@@ -1,0 +1,1 @@
+If you obtained the key ID and the private key in a JSON file, for example when creating the authorized key using the CLI, remove newline characters (`\n`) from the key ID and the private key.

@@ -6,11 +6,22 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
-### Release on 13/06/23 {#130623}
+### Release 20/07/23 {#200723}
 
-Fixed switching to English during Russian speech recognition in `general:rc`.
+Resampling fixed, new dialog metrics now available in the `general` model.
 
 ## Previous versions {#previous}
+
+### Release 07/07/23 {#070723}
+
+New changes to `general:rc`:
+
+* Two-channel audio resampling bug fixed in [API v3](stt-v3/api-ref/grpc/).
+* Dialog metrics can now be calculated for speech analytics. Metric calculation is set up using the `speech_analysis` option in the [`StreamingOptions`](stt-v3/api-ref/grpc/stt_service#StreamingOptions) message.
+
+### Release 13/06/23 {#130623}
+
+Fixed switching to English during Russian speech recognition in `general:rc`.
 
 ### Release 07/06/23 {#070623}
 
@@ -20,36 +31,36 @@ New changes to `general:rc`:
 * Added number [normalization](stt/normalization.md) for Uzbek.
 * Added support for [splitting text into phrases](stt/eou.md) using [`eou_update`](stt-v3/api-ref/grpc/stt_service.md#StreamingResponse) in FullData mode.
 
-### Release on 25/05/23 {#250523}
+### Release 25/05/23 {#250523}
 
 Upgrades to the [May 17, 2023 release](#170523) are now available in the `general` model.
 
-### Release on 17/05/23 {#170523}
+### Release 17/05/23 {#170523}
 
 New changes to `general:rc`:
 
 * Improved the general quality of recognition for Russian.
-* Improved the recognition accuracy for the Russian model as per user requests.
-* Improved the recognition accuracy for Uzbek, German, French, Dutch, Italian, and Polish.
+* Improved recognition quality for the Russian model as per user requests.
+* Improved recognition quality for Uzbek, German, French, Dutch, Italian, and Polish.
 * Added support for a [new recognition language](stt/models.md): Hebrew (`he-HE`).
 
 
-### Release on 14/04/2023 {#140423}
+### Release 14/04/2023 {#140423}
 
 Improved recognition quality for abbreviations in Russian on client scenarios for the `general:rc` model.
 
-### Release on 16/03/23 {#070323}
+### Release 16/03/23 {#070323}
 
 Upgrades to the [release on March 7, 2023](#070323) are now available in the `general` model.
 
-### Release on 07/03/23 {#070323}
+### Release 07/03/23 {#070323}
 
 For the `general:rc` model:
 
-1. Improved the accuracy of recognition for Uzbek.
+1. Improved recognition quality for Uzbek.
 1. Added support for number normalization when recognizing speech in English, German, French, Italian, Spanish, and Turkish. Number normalization is also available for Kazakh speech recognition in test mode.
 
-### Release on 08/02/23 {#080223}
+### Release 08/02/23 {#080223}
 
 1. The first version of Uzbek speech recognition is now available in the `general:rc` model for all API versions. Under some acoustic conditions, Uzbek can be recognized as Kazakh. The issue will be fixed in future model releases.
 1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/stt_service#RecognitionModelOptions).
@@ -58,14 +69,14 @@ For the `general:rc` model:
 
 In the `general:rc` model:
 1. Based on user requests, we improved recognition quality for the names of medications and first, last, and middle names.
-1. Slightly improved the accuracy of recognition for Kazakh and Turkish.
+1. Slightly improved recognition quality for Kazakh and Turkish.
 
-### Release on 20/10/2022 {#201022}
+### Release 20/10/2022 {#201022}
 
 In the `general:rc` model:
 1. Added recognition of Brazilian Portuguese, the language code is `pt-BR`.
 1. Improved speech recognition quality for all languages in auto recognition mode.
-1. Slightly improved the accuracy of recognition for Russian and Kazakh.
+1. Slightly improved recognition quality for Russian and Kazakh.
 
 ### Release 05.10.22 {#051022}
 
@@ -136,7 +147,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
    * Italian
    * Spanish
 
-1. New languages are also available under their codes. The `general:rc` model uses indication as a hint for language recognition. If a language is specifically indicated, the model uses it as a hint to improve recognition quality. Currently, the hint only affects quality recognition for Russian.
+1. New languages are also available under their codes. The `general:rc` model uses indication as a hint for language recognition. If a language is specifically indicated, the model uses it as a hint to improve recognition quality. Currently, the hint only affects recognition quality for Russian.
 
 When using `general:rc`, we recommend enabling [auto-tuning](stt/additional-training.md#autotuning).
 

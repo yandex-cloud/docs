@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/COUNT_WINDOW.md
+sourcePath: en/_api-ref/datalens/function-ref/COUNT_WINDOW.md
 ---
 
-# COUNT (оконная)
+# COUNT (window)
 
-_Функция `COUNT` также доступна в следующих категориях: [Агрегатные функции](COUNT.md)._
+_Function `COUNT` is also found in the following categories: [Aggregate functions](COUNT.md)._
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   COUNT(  [ value ]
@@ -19,10 +19,10 @@ _Функция `COUNT` также доступна в следующих кат
        )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
 
-- Расширенный
+- Extended
 
   ```
   COUNT(  [ value ]
@@ -31,27 +31,27 @@ _Функция `COUNT` также доступна в следующих кат
        )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает количество элементов в заданном окне.
+#### Description {#description}
+Returns the number of items in the specified window.
 
-**Типы аргументов:**
-- `value` — `Любой`
-
-
-**Возвращаемый тип**: `Целое число`
-
-#### Пример {#examples}
+**Argument types:**
+- `value` — `Any`
 
 
+**Return type**: `Integer`
+
+#### Example {#examples}
 
 
-Исходные данные
+
+
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -67,11 +67,11 @@ _Функция `COUNT` также доступна в следующих кат
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **COUNT(SUM([Orders]) TOTAL)**   | **COUNT(SUM([Orders]) WITHIN [City])**   | **COUNT(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:---------------------------------|:-----------------------------------------|:----------------------------------------|
@@ -87,6 +87,6 @@ _Функция `COUNT` также доступна в следующих кат
 
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

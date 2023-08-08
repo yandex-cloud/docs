@@ -1,31 +1,31 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ISTRUE.md
+sourcePath: en/_api-ref/datalens/function-ref/ISTRUE.md
 ---
 
 # IS TRUE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 value IS [ NOT ] TRUE
 ```
 
-#### Описание {#description}
-Проверяет, является ли значение `value` истинным (`TRUE`).
+#### Description {#description}
+Checks whether the value of `value` is true (`TRUE`).
 
-Вариант `value IS NOT TRUE` возвращает противоположное значение.
+The `value IS NOT TRUE` option returns the opposite value.
 
-**Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка`
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String`
 
 
-**Возвращаемый тип**: `Логический`
+**Return type**: `Boolean`
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 "qwerty" IS TRUE = TRUE
@@ -56,6 +56,6 @@ FALSE IS NOT TRUE = TRUE
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -19,8 +19,8 @@ description: "После удаления кластера баз данных M
 - Консоль управления
   
   1. Откройте [страницу каталога]({{ link-console-main }}) в консоли управления.
-  1. Выберите сервис **{{ mmy-name }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
   

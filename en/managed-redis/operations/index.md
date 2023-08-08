@@ -1,17 +1,28 @@
-# Step-by-step guides for {{ mrd-name }}^®^
+# Step-by-step instructions for {{ mrd-name }}^®^
+
+## Clusters
 
 * [{#T}](cluster-list.md)
 * [{#T}](cluster-create.md)
 * [{#T}](update.md)
+* [{#T}](cluster-version-update.md)
+* [{#T}](cluster-stop.md)
+* [{#T}](hosts.md)
+* [{#T}](cluster-backups.md)
+* [{#T}](cluster-delete.md)
+
+## Databases
+
 * [{#T}](connect/index.md)
 * [{#T}](connect/non-sharded.md)
 * [{#T}](connect/sharded.md)
-* [{#T}](cluster-stop.md)
-* [{#T}](cluster-version-update.md)
-* [{#T}](hosts.md)
+
+## Sharding and fault-tolerance
+
 * [{#T}](shards.md)
-* [{#T}](cluster-backups.md)
 * [{#T}](failover.md)
-* [{#T}](monitoring.md)
+
+## Logs and monitoring
+
 * [{#T}](cluster-logs.md)
-* [{#T}](cluster-delete.md)
+* [{#T}](monitoring.md)

@@ -1,5 +1,11 @@
 # Restoring a VM from a backup
 
+{% note info %}
+
+If the current VM is down, [create](../#connect-vm) a new one with a connection to {{ backup-name }} and [restore](non-native-recovery.md) a backup to it.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -8,7 +14,8 @@
    1. Select **{{ backup-name }}**.
    1. Go to the ![backups](../../../_assets/backup/backups.svg) **Backups** tab.
    1. Next to the backup to restore the VM from, click ![image](../../../_assets/options.svg) and select **Restore VM**.
-   1. Confirm the restore operation.
+   1. In the **Target VM** field, select the VM you created the backup from. In the list, this VM is marked as `(current)`.
+   1. Click **Restore**.
 
 - CLI
 
@@ -55,4 +62,4 @@
 
 #### See also {#see-also}
 
-* [{#T}](delete.md)
+* [{#T}](non-native-recovery.md)

@@ -790,8 +790,8 @@ default:
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
   k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-regular: 1.23, 1.24
-  k8s-versions-stable: 1.23, 1.24
+  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -818,6 +818,7 @@ default:
   tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
+  packer-source-link: github.com/hashicorp/yandex
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
@@ -828,6 +829,7 @@ default:
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-iot-broker: iot-broker.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -868,7 +870,7 @@ default:
       - Другое
   link-saml: https://ru.wikipedia.org/wiki/SAML
   registry: cr.yandex
-  cos-external-ip-examples:
+  external-ip-examples:
     - 84.201.155.117
     - 84.252.131.221
   api-url-prefix: /docs
@@ -3249,11 +3251,17 @@ default:
           view:
             label_connector-ch_billing_analytics: Yandex Cloud Billing
             label_connector-clickhouse: ClickHouse
+        file:
+          view:
+            label_action-delete: Удалить
         form:
           button_add-connection: Создать подключение
           button_create: Создать
           button_create-connection: Создать подключение
           button_create-dataset: Создать датасет
+          button_create-mdb-cluster: Создать новый
+          button_remove: Удалить
+          button_save-connection: Сохранить
           button_specify-manually: Указать вручную
           button_verify: Проверить подключение
           field_cache-ttl-sec: "Время жизни кeша в\_секундах"
@@ -3266,6 +3274,10 @@ default:
           field_raw-sql-level: Уровень доступа SQL запросов
           field_username: Имя пользователя
           value_default: По умолчанию
+          value_fill-mode-cloud: Выбрать в каталоге
+          value_fill-mode-manually: Указать вручную
+          value_permission-explicit: Доступно для компании
+          value_permission-owner-only: Доступно только мне
           value_raw-sql-level-off: Запретить
       dash:
         action-panel:
@@ -3326,6 +3338,10 @@ default:
         billing:
           column_cost: Cost
           column_credit: Credit
+        kafka:
+          topics:
+            value_cleanup-policy-compact: Compact
+            value_cleanup-policy-delete: Delete
         mdb:
           section_resource: Resources
       main:
@@ -4527,10 +4543,12 @@ default:
       ui_components_FilterFieldsSelect:
         applyChanges: Применить
       ui_components_Gantt_IssueActionsCell:
+        choose-color: Выбрать цвет
         issue-action-menu-title: Меню действий задачи
       ui_components_Gantt:
         color-type-by-manual: назначать вручную
         color-type-by-parameter: по параметрам задачи
+        color-type-monochrome: однотонный
         delete-link: Удалить связь
         scale-days: Неделя
         scale-month: Месяц
@@ -4615,6 +4633,8 @@ default:
         preset_deadline: Скоро дедлайн
         preset-deadline: Скоро дедлайн
         show-closed-issues: Показывать завершённые задачи
+      ui_components_IssueTable2:
+        row-actions: Действия
       ui_components_IssueTabs:
         description-tab: Описание
         fields-tab: Параметры
@@ -4771,6 +4791,11 @@ default:
         description-tab: О проекте
         gantt-tab: Диаграмма Ганта
         issues-tab: Список задач
+      ui_components_projects_hooks:
+        copy-to-clipboard: Скопировать ссылку
+        delete-from-project: Удалить из проекта
+        issue-actions--move-down: Перенести вниз списка
+        issue-actions--move-up: Перенести наверх списка
       ui_components_projects_list_FilterPane:
         preset-author: Я автор
         preset-client: Я заказчик
@@ -4861,6 +4886,9 @@ default:
       dialog:
         confirm:
           button_continue: Продолжить
+      header:
+        title:
+          mx-mode: Обзор метрик
       homepage:
         title_service-dashboards: Сервисные дашборды
       monitoring-alerts:
@@ -4872,6 +4900,7 @@ default:
           function: Функция агрегации
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
+        label_mysql: Managed Service for MySQL
     yacloud_org:
       entity:
         invitation:
@@ -5035,6 +5064,7 @@ default:
           purchase:
             button_purchase: Зарезервировать потребление
         label_accounts: Аккаунты
+        label_service: Биллинг
         switch_accounts: Список аккаунтов
       cdn:
         button_add-domain: Добавить доменное имя
@@ -5073,6 +5103,7 @@ default:
           explore:
             button_execute: Выполнить
             button_submit-creds: Подключиться
+            label_offset: Номер первой строки
             label_password: Пароль
           switch_datalens: DataLens
           switch_users: Пользователи
@@ -5094,6 +5125,7 @@ default:
         id: Идентификатор
         import: Импортировать
         label_auto: Автоматически
+        label_create-new_female: Создать новую
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
@@ -5169,6 +5201,7 @@ default:
           button_add-label: Добавить метку
         mdb:
           settings:
+            button_reset: Сбросить
             popup_settings-submit: Сохранить
         navigation-menu:
           label_account: Учетная запись
@@ -5203,6 +5236,8 @@ default:
           button_attach: Подключить
           field_auto-delete: Автоматическое удаление
           field_instance: ВМ
+        disk-form:
+          field_size: Размер
         disks:
           button_action-attach: Присоединить
           button_action-delete: Удалить
@@ -5483,9 +5518,13 @@ default:
         label_endpoint-type-KAFKA: Kafka
         label_endpoint-type-MONGO_V2: MongoDB
         label_endpoint-type-MYSQL: MySQL
+        label_endpoint-type-OBJECT_STORAGE: Object Storage
         label_endpoint-type-POSTGRES: PostgreSQL
+        label_endpoint-type-YDB: YDB
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
+      datalens:
+        label_init: Активировать DataLens
       dataproc:
         jobs:
           field_main-python-file: Main python файл
@@ -5532,6 +5571,8 @@ default:
         field_expand-add-segments-per-host-count: Добавить сегментов на хост
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов
+        section_resource-master: Master
+        section_resource-segment: Segment
         wizard:
           action_open-wizard: Открыть визард
       iam:
@@ -5560,6 +5601,8 @@ default:
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
+            label_data-streams: Data Streams
+            label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_kms: Key Management Service
@@ -5573,6 +5616,7 @@ default:
             label_managed-greenplum: Managed Service for Greenplum
             label_managed-kubernetes: Managed Service for Kubernetes
             label_managed-mongodb: Managed Service for MongoDB
+            label_managed-mysql: Managed Service for MySQL
             label_managed-opensearch: Managed Service for OpenSearch
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
@@ -5582,6 +5626,7 @@ default:
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
+            label_ydb: Managed Service for YDB
             value_compute: Виртуальная машина
             value_data-proc: Кластер Data Proc
             value_data-transfer: Data Transfer
@@ -5608,6 +5653,9 @@ default:
       k8s:
         cluster:
           switch_workloads: Рабочая нагрузка
+      kafka:
+        label_partitions: Количество разделов
+        label_topic-cleanup-policy: Политика очистки лога
       kms:
         symmetric-key:
           create:
@@ -5696,11 +5744,18 @@ default:
             button_add: Добавить
           diagnostics:
             label_indexes: Предлагаемые индексы
+            label_interval-first: Интервал 1
+            label_interval-second: Интервал 2
             label_profiling: Профайлинг
+            label_queries: Запросы
+            label_sessions: Сессии
           hosts:
             button_add-host: Добавить хост
+            button_manual-failover: Переключить мастер
             button_rebalance-cluster: Ребалансировать кластер
             button_rebalance-cluster-short: Ребалансировать
+            host_column_public-ip: Публичный доступ
+            host_column_role: Роль
             label_title: Хосты
             popup-confirm_button: Подтвердить
             switch_monitoring: Мониторинги
@@ -5713,8 +5768,17 @@ default:
             button_action-edit: Изменить кластер
             button_action-start: Запустить кластер
             button_action-stop: Остановить кластер
+            label_access-datalens: Доступ из DataLens
             label_anytime-maintenance-warning-value: Произвольное время
+            label_bucket: Имя бакета
+            label_hdd: Хранилище
+            label_health: Состояние
             label_mongodb-pitr: Point-in-time recovery
+            label_network: Облачная сеть
+            label_service-account: Сервисный аккаунт
+            label_services: Сервисы
+            label_status: Статус
+            section_resource: Ресурсы
           shards:
             button_action-remove: Удалить
             button_add: Добавить шард
@@ -5724,6 +5788,7 @@ default:
             popup-confirm_button: Запустить
           stop-dialog:
             popup-confirm_button: Остановить
+          switch_backups: Резервные копии
           switch_hosts: Хосты
           switch_monitoring: Мониторинг
           users:
@@ -5734,19 +5799,23 @@ default:
             button_remove: Удалить
             popup-add_button_add: Добавить
             popup-button_save: Сохранить
+            popup-password_button_change: Изменить
         clusters:
           button_action-delete: Удалить
           button_action-move: ' Переместить'
           button_action-start: Запустить
           button_action-stop: Остановить
           button_create: Создать кластер
+          column_availability: Доступность
         datalens:
           button-action_activate: Активировать
           button-action_new-connection: Создать подключение
+          label_activate-datalens-title: DataLens ещё не активирован
         dialogs:
           button_add-database: Добавить базу данных
           popup_button_move-cluster: Переместить
           popup_button_save: Сохранить
+          popup_field_roles: Роли
           popup-add-db_button_add: Добавить
           popup-confirm-delete-cluster_button: Удалить
           popup-confirm-switch-master_button: Переключить
@@ -5792,7 +5861,10 @@ default:
           database_field_user-password: Пароль
           field_assign-public-ip: Публичный доступ
           field_cluster-mode: Шардирование кластера
+          field_date: Дата и время восстановления (UTC)
           field_diagnostics-enabled: Сбор статистики
+          field_diagnostics-sessions-interval: Интервал сбора сессий
+          field_diagnostics-statements-interval: Интервал сбора запросов
           field_initialization-action-args: Аргументы
           field_initialization-action-uri: URI
           field_security-group: Группы безопасности
@@ -5801,6 +5873,9 @@ default:
           host_column_subnetwork: Подсеть
           host_column_zone: Зона доступности
           label_deletion-protection: Защита от удаления
+          label_greenplum_pool_client-idle-timeout: Тайм-аут ожидания клиента
+          label_greenplum_pool_mode: Режим
+          label_greenplum_pool_size: Размер
           label_master-subcluster: Мастер
           label_max-size-units: ГБ
           label_network: Сеть
@@ -5817,6 +5892,7 @@ default:
           section_host: Хосты
           section_network: Сетевые настройки
           section_network-settings: Сетевые настройки
+          section_pooler: Менеджер подключений
           section_resource: Класс хоста
           section_service-settings: Сервисные настройки
           section_settings: Настройки СУБД
@@ -5852,7 +5928,18 @@ default:
         button_open-in-monitoring: Открыть в Мониторинге
       mysql:
         cluster:
+          switch_backups: Резервные копии
+          switch_databases: Базы данных
+          switch_datalens: DataLens
+          switch_diagnostics: Диагностика производительности
           switch_explore: SQL
+          switch_hosts: Хосты
+          switch_logs: Логи
+          switch_monitoring: Мониторинг
+          switch_operations: Операции
+          switch_users: Пользователи
+        field_backup_priority: Приоритет cоздания бэкапа
+        field_priority: Приоритет мастера
       opensearch:
         auth:
           button_save: Сохранить
@@ -5875,6 +5962,10 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      postgresql:
+        hosts:
+          dialog:
+            button_choose: Сохранить
       redis:
         cluster:
           switch_backups: Резервные копии

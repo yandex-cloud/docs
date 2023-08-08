@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
+sourcePath: en/_api-ref/datalens/function-ref/RCOUNT.md
 ---
 
-# RCOUNT (оконная)
+# RCOUNT (window)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   RCOUNT( value [ , direction ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   RCOUNT( value [ , direction ]
@@ -27,55 +27,55 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
         )
   ```
 
-  Подробнее:
+  More info:
   - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
   - [ORDER BY](window-functions.md#syntax-order-by)
   - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
+#### Description {#description}
 
 {% note warning %}
 
-Сортировка осуществляется на основе полей, перечисленных в области сортировки в чарте и в ORDER BY. При этом сначала берутся поля из `ORDER BY`.
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 
-Возвращает количество значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
+Returns the count of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
-| `direction`   | Окно                            |
-|:--------------|:--------------------------------|
-| `"asc"`       | От первой записи до текущей.    |
-| `"desc"`      | От текущей записи до последней. |
+| `direction`   | Window                                                 |
+|:--------------|:-------------------------------------------------------|
+| `"asc"`       | Starts from the first row and ends at the current row. |
+| `"desc"`      | Starts from the current row and ends at the last row.  |
 
-По умолчанию используется значение `"asc"`.
-
-
-Аналогичное поведение у оконных функций [RSUM](RSUM.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
-
-См. также [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
-
-**Типы аргументов:**
-- `value` — `Любой`
-- `direction` — `Строка`
+By default `"asc"` is used.
 
 
-**Возвращаемый тип**: `Целое число`
+Window functions with a similar behavior: [RSUM](RSUM.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
+
+See also [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
+
+**Argument types:**
+- `value` — `Any`
+- `direction` — `String`
+
+
+**Return type**: `Integer`
 
 {% note info %}
 
-Значения аргументов (`direction`) должны быть константами.
+Only constant values are accepted for the arguments (`direction`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
-{% cut "Пример с группировкой" %}
+{% cut "Example with grouping" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -91,11 +91,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`, `[Category]`.
+Grouped by `[City]`, `[Category]`.
 
-Сортировка по `[City]`, `[Category]`.
+Sorted by `[City]`, `[Category]`.
 
-Результат
+Result
 
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RCOUNT(SUM([Orders]) TOTAL)**   | **RCOUNT(SUM([Orders]) WITHIN [City])**   | **RCOUNT(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:----------------------------------|:------------------------------------------|:-----------------------------------------|
@@ -110,10 +110,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 
 {% endcut %}
 
-{% cut "Пример с ORDER BY" %}
+{% cut "Example with ORDER BY" %}
 
 
-Исходные данные
+Source data
 
 | **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:---------------|:------------------|:--------------------|:-------------|:-------------|
@@ -129,11 +129,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 | `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
 | `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-Группировка по `[City]`.
+Grouped by `[City]`.
 
-Сортировка по `[City]`.
+Sorted by `[City]`.
 
-Результат
+Result
 
 | **[City]**        | **SUM([Orders])**   | **RCOUNT(SUM([Orders]), "desc")**   | **RCOUNT(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RCOUNT(SUM([Orders]) ORDER BY [Order Sum])**   |
 |:------------------|:--------------------|:------------------------------------|:--------------------------------------------------------|:-------------------------------------------------|
@@ -145,6 +145,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 {% endcut %}
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

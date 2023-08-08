@@ -22,11 +22,11 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 ### Before updating the version {#before-version-update}
 
-Before updating the {{ ES }} version, make sure this does not affect your apps:
+Make sure this does not affect your applications:
 
 1. See the {{ ES }} [changelog](https://www.elastic.co/downloads/past-releases#elasticsearch) to check how updates might affect your applications.
 1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ### Updating the {{ ES }} version {#start-version-update}
 

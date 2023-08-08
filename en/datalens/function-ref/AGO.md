@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/AGO.md
+sourcePath: en/_api-ref/datalens/function-ref/AGO.md
 ---
 
 # AGO
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   AGO( measure, date_dimension [ , unit [ , number ] ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   AGO( measure, date_dimension [ , unit [ , number ] ]
@@ -26,51 +26,51 @@ sourcePath: ru/_api-ref/datalens/function-ref/AGO.md
      )
   ```
 
-  Подробнее:
+  More info:
   - [BEFORE FILTER BY](time-series-functions.md#syntax-before-filter-by)
   - [IGNORE DIMENSIONS](time-series-functions.md#syntax-ignore-dimensions)
 
 {% endlist %}
 
-#### Описание {#description}
-Вычисляет `measure` для даты/времени с указанным смещением.
-Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
-Аргумент `number` задается целым числом. Может принимать отрицательные значения.
-Аргумент `unit` принимает следующие значения:
-- `"year"` — год;
-- `"month"` — месяц;
-- `"day"` — день;
-- `"hour"` — час;
-- `"minute"` — минута;
-- `"second"` — секунда.
+#### Description {#description}
+Re-evaluate `measure` for a date/time with a given offset.
+The `date_dimension` argument is the dimension along which the offset is made.
+The `number` argument is an integer. It can be negative.
+The `unit` argument takes the following values:
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
+- `"second"`.
 
-Возможен вариант использования `AGO( measure, date_dimension, number )`. В этом случае аргумент `unit` — количество дней.
+Can also be used as `AGO( measure, date_dimension, number )`. In this case, the third argument is interpreted as the number of days.
 
-См. также [AT_DATE](AT_DATE.md), [LAG](LAG.md).
+See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
-**Типы аргументов:**
-- `measure` — `Любой`
-- `date_dimension` — `Дата | Дата и время`
-- `unit` — `Целое число | Строка`
-- `number` — `Целое число`
+**Argument types:**
+- `measure` — `Any`
+- `date_dimension` — `Date | Datetime`
+- `unit` — `Integer | String`
+- `number` — `Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`measure`)
+**Return type**: Same type as (`measure`)
 
 {% note info %}
 
-Значения аргументов (`unit`, `number`) должны быть константами.
+Only constant values are accepted for the arguments (`unit`, `number`).
 
 {% endnote %}
 
 {% note info %}
 
-Первый аргумент функции должен быть показателем (агрегированным выражением). Отсутствие показателя приведет к ошибке.
+The first argument must be a measure (aggregated expression), otherwise an error will be raised.
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 AGO(SUM([Sales]), [Order Date], "month", 3)
@@ -85,6 +85,6 @@ AGO(SUM([Sales]), [Order Date], 1)
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

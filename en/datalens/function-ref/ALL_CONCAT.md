@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ALL_CONCAT.md
+sourcePath: en/_api-ref/datalens/function-ref/ALL_CONCAT.md
 ---
 
 # ALL_CONCAT
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   ALL_CONCAT( expression [ , separator ] )
   ```
 
-- Расширенный
+- Extended
 
   ```
   ALL_CONCAT( expression [ , separator ]
@@ -26,30 +26,30 @@ sourcePath: ru/_api-ref/datalens/function-ref/ALL_CONCAT.md
             )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает строку, которая содержит все уникальные значения `expression`, разделенные `separator` (по умолчанию разделитель — запятая).
+#### Description {#description}
+Returns a string that contains all unique values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
-**Типы аргументов:**
-- `expression` — `Массив дробных чисел | Массив целых числел | Массив строк | Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
-- `separator` — `Строка`
+**Argument types:**
+- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `separator` — `String`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
 {% note info %}
 
-Значения аргументов (`separator`) должны быть константами.
+Only constant values are accepted for the arguments (`separator`).
 
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 ALL_CONCAT([Profit])
@@ -60,6 +60,6 @@ ALL_CONCAT([Profit], '; ')
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `PostgreSQL 9.3`, `YDB`.

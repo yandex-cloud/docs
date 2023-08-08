@@ -35,7 +35,7 @@
 
     1. (Опционально) [Создайте промежуточную виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md) в {{ compute-full-name }} в той же сети, что и кластер {{ mrd-name }} в следующей конфигурации:
 
-        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → `Ubuntu 20.04`.
+        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите **{{ ui-key.yacloud.compute.instances.create.image_value_os-products }}** → [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
@@ -327,7 +327,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
 {% list tabs %}
 

@@ -20,6 +20,7 @@ A set of methods for managing serverless functions.
 | [GetFunctionVersionByTag](#GetFunctionVersionByTag) | Deprecated. |
 | [ListVersions](#ListVersions) | Retrieves the list of versions for the specified function, or of all function versions in the specified folder. |
 | [ListFunctionVersions](#ListFunctionVersions) | Deprecated. |
+| [DeleteVersion](#DeleteVersion) | Deletes the specified version of a function. |
 | [SetTag](#SetTag) | Set a tag for the specified version of a function. |
 | [RemoveTag](#RemoveTag) | Remove a tag from the specified version of a function. |
 | [ListTagHistory](#ListTagHistory) | Returns the log of tags assigned to versions of the specified function. |
@@ -799,11 +800,52 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
+## DeleteVersion {#DeleteVersion}
+
+Deletes the specified version of a function. <br>NOTE: old untagged function versions are deleted automatically.
+
+**rpc DeleteVersion ([DeleteFunctionVersionRequest](#DeleteFunctionVersionRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteFunctionVersionMetadata](#DeleteFunctionVersionMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteFunctionVersionRequest {#DeleteFunctionVersionRequest}
+
+Field | Description
+--- | ---
+function_version_id | **string**<br>Required. ID of the function's version to delete. 
+force | **bool**<br>Forces deletion of the version tags. <br>If the value equals false and the function has tags with the selected version then request returns an error. 
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteFunctionVersionMetadata](#DeleteFunctionVersionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteFunctionVersionMetadata {#DeleteFunctionVersionMetadata}
+
+Field | Description
+--- | ---
+function_version_id | **string**<br>ID of the function's version is being deleted. 
+
+
 ## SetTag {#SetTag}
 
 Set a tag for the specified version of a function.
 
-**rpc SetTag ([SetFunctionTagRequest](#SetFunctionTagRequest)) returns ([operation.Operation](#Operation3))**
+**rpc SetTag ([SetFunctionTagRequest](#SetFunctionTagRequest)) returns ([operation.Operation](#Operation4))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetFunctionTagMetadata](#SetFunctionTagMetadata)<br>
@@ -817,7 +859,7 @@ function_version_id | **string**<br>Required. ID of the version to set the tag f
 tag | **string**<br>Tag to set for the version. Value must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
-### Operation {#Operation3}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -916,7 +958,7 @@ read_only | **bool**<br>Is mount read only.
 
 Remove a tag from the specified version of a function.
 
-**rpc RemoveTag ([RemoveFunctionTagRequest](#RemoveFunctionTagRequest)) returns ([operation.Operation](#Operation4))**
+**rpc RemoveTag ([RemoveFunctionTagRequest](#RemoveFunctionTagRequest)) returns ([operation.Operation](#Operation5))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveFunctionTagMetadata](#RemoveFunctionTagMetadata)<br>
@@ -930,7 +972,7 @@ function_version_id | **string**<br>Required. ID of the version to remove a tag 
 tag | **string**<br>Tag to remove from the specified version. Value must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
-### Operation {#Operation4}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -1101,7 +1143,7 @@ effective_to | **[google.protobuf.Timestamp](https://developers.google.com/proto
 
 Creates a version for the specified function.
 
-**rpc CreateVersion ([CreateFunctionVersionRequest](#CreateFunctionVersionRequest)) returns ([operation.Operation](#Operation5))**
+**rpc CreateVersion ([CreateFunctionVersionRequest](#CreateFunctionVersionRequest)) returns ([operation.Operation](#Operation6))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)<br>
@@ -1187,7 +1229,7 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
-### Operation {#Operation5}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -1239,7 +1281,7 @@ storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by
 
 Deprecated. Use [CreateVersion](#CreateVersion).
 
-**rpc CreateFunctionVersion ([CreateFunctionVersionRequest](#CreateFunctionVersionRequest)) returns ([operation.Operation](#Operation6))**
+**rpc CreateFunctionVersion ([CreateFunctionVersionRequest](#CreateFunctionVersionRequest)) returns ([operation.Operation](#Operation7))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)<br>
@@ -1325,7 +1367,7 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
-### Operation {#Operation6}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -1403,18 +1445,18 @@ Field | Description
 function_id | **string**<br>Required. ID of the function to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation7), [operation.Operation.created_by](#Operation7) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter: `done=false`, `created_by='John.Doe'`. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation8), [operation.Operation.created_by](#Operation8) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter: `done=false`, `created_by='John.Doe'`. The maximum string length in characters is 1000.
 
 
 ### ListFunctionOperationsResponse {#ListFunctionOperationsResponse}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified function. 
+operations[] | **[operation.Operation](#Operation8)**<br>List of operations for the specified function. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListFunctionOperationsRequest.page_size](#ListFunctionOperationsRequest), use `nextPageToken` as the value for the [ListFunctionOperationsRequest.page_token](#ListFunctionOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
-### Operation {#Operation7}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -1473,7 +1515,7 @@ type | **string**<br>Required. Type of the subject. <br>It can contain one of th
 
 Sets access bindings for the function.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation8))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation9))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -1503,7 +1545,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation8}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -1530,7 +1572,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the specified function.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation9))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation10))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -1568,7 +1610,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation9}
+### Operation {#Operation10}
 
 Field | Description
 --- | ---
@@ -1631,7 +1673,7 @@ zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0
 
 Set scaling policy for specified function and tag
 
-**rpc SetScalingPolicy ([SetScalingPolicyRequest](#SetScalingPolicyRequest)) returns ([operation.Operation](#Operation10))**
+**rpc SetScalingPolicy ([SetScalingPolicyRequest](#SetScalingPolicyRequest)) returns ([operation.Operation](#Operation11))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetScalingPolicyMetadata](#SetScalingPolicyMetadata)<br>
@@ -1648,7 +1690,7 @@ zone_instances_limit | **int64**<br>Upper limit for instance count in each zone.
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
 
 
-### Operation {#Operation10}
+### Operation {#Operation11}
 
 Field | Description
 --- | ---
@@ -1688,7 +1730,7 @@ zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0
 
 Remove scaling policy for specified function and tag
 
-**rpc RemoveScalingPolicy ([RemoveScalingPolicyRequest](#RemoveScalingPolicyRequest)) returns ([operation.Operation](#Operation11))**
+**rpc RemoveScalingPolicy ([RemoveScalingPolicyRequest](#RemoveScalingPolicyRequest)) returns ([operation.Operation](#Operation12))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveScalingPolicyMetadata](#RemoveScalingPolicyMetadata)<br>
@@ -1702,7 +1744,7 @@ function_id | **string**<br>Required. ID of the function to remove scaling polic
 tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 
 
-### Operation {#Operation11}
+### Operation {#Operation12}
 
 Field | Description
 --- | ---

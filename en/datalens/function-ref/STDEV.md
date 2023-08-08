@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/STDEV.md
+sourcePath: en/_api-ref/datalens/function-ref/STDEV.md
 ---
 
 # STDEV
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   STDEV( value )
   ```
 
-- Расширенный
+- Extended
 
   ```
   STDEV( value
@@ -26,28 +26,28 @@ sourcePath: ru/_api-ref/datalens/function-ref/STDEV.md
        )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.
+#### Description {#description}
+Returns the statistical standard deviation of all values in the expression based on a selection from the population.
 
-**Типы аргументов:**
-- `value` — `Дробное число | Целое число`
+**Argument types:**
+- `value` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: `Дробное число`
+**Return type**: `Fractional number`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 STDEV([Profit])
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

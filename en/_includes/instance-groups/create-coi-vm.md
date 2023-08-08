@@ -46,7 +46,7 @@ To create an instance group based on a {{ coi }}:
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8avp6edhbt
+     service_account_id: aje3932acd8a********
      description: "This instance group was created from YAML config."
      ```
 
@@ -70,11 +70,11 @@ To create an instance group based on a {{ coi }}:
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: <ID of latest COI version>
+           image_id: <ID_of_latest_COI_version>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
-         - network_id: c64mknqgnd8avp6edhbt
+         - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
        metadata:
          docker-container-declaration: |-
@@ -100,7 +100,7 @@ To create an instance group based on a {{ coi }}:
         * `READ_WRITE`: Read/write access.
      * `image_id`: ID of the public {{ coi }}.
      * `type_id`: Disk type.
-     * `size`: Disk size.
+     * `size`: Disk size. It must be at least 30 GB.
      * `network_id`: ID of `default-net`.
      * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
      * `metadata`: Values to send to the VM metadata.
@@ -118,6 +118,10 @@ To create an instance group based on a {{ coi }}:
      allocation_policy:
        zones:
          - zone_id: {{ region-id }}-a
+           instance_tags_pool:
+           - first
+           - second
+           - third
      ```
 
      Where:
@@ -130,10 +134,10 @@ To create an instance group based on a {{ coi }}:
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8avp6edhbt
+     service_account_id: aje3932acd8a********
      description: "This instance group was created from YAML config."
      instance_template:
-       service_account_id: aje3932acd8avp6edhbt # ID of the service account to access private Docker images.
+       service_account_id: aje3932acd8a******** # ID of the service account to access private Docker images.
        platform_id: standard-v3
        resources_spec:
          memory: 2G
@@ -141,11 +145,11 @@ To create an instance group based on a {{ coi }}:
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: <ID of latest COI version>
+           image_id: <ID_of_latest_COI_version>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
-         - network_id: c64mknqgnd8avp6edhbt
+         - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
        metadata:
          docker-container-declaration: |-
@@ -166,6 +170,10 @@ To create an instance group based on a {{ coi }}:
      allocation_policy:
        zones:
          - zone_id: {{ region-id }}-a
+            instance_tags_pool:
+            - first
+            - second
+            - third
      ```
 
      {% note info %}

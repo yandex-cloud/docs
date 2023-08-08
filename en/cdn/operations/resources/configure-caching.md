@@ -29,7 +29,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
          * Enable **Browser caching**.
 
-   1. (optional) Under **Additional**:
+   1. (Optional) Under **Additional**:
 
       * Select the option to ignore Cookies.
       * Select the option to ignore the Query parameters.
@@ -158,16 +158,16 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `cname`: Primary domain name used for content distribution. Required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
+      * `origin_protocol`: Origin protocol. Optional parameter, the default value is `http`.
+      * `secondary_hostnames`: Additional domain names. Optional parameter.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `browser_cache_settings`: Browser cache lifetime in seconds. Optional parameter, defaults to `0`.
-         * `edge_cache_settings`: Cache lifetime for response codes in seconds. Optional parameter, defaults to `345600`.
-         * `ignore_query_params`: Ignore query parameters. Optional parameter, defaults to `false`.
-         * `ignore_cookie`: Ignore cookies. Optional parameter, defaults to `false`.
+         * `browser_cache_settings`: Browser cache lifetime in seconds. Optional parameter, the default value is `0`.
+         * `edge_cache_settings`: Cache lifetime for response codes in seconds. Optional parameter, the default value is `345600`.
+         * `ignore_query_params`: Ignore query parameters. Optional parameter, the default value is `false`.
+         * `ignore_cookie`: Ignore cookies. Optional parameter, the default value is `false`.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 

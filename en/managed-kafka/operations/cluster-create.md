@@ -44,22 +44,22 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       The host class defines the technical specifications of the [VMs](../../compute/concepts/vm.md) that {{ KF }} brokers will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
-      When [changing the host class](cluster-update.md#change-brokers) for the {{ mkf-name }} cluster, the characteristics of all existing instances change, too.
+      When [changing the host class](cluster-update.md#change-brokers) for the {{ mkf-name }} cluster, the configuration of all existing instances changes as well.
    1. Under **Storage**:
       * Select the disk type.
-        
-         
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
+               
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-         You can't change the disk type for {{ mkf-name }} clusters after creation.
+         You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
       * Select the size of storage to be used for data.
 
    
    1. Under **Network settings**:
       1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and brokers in the future.
-      1. Select the [network](../../vpc/concepts/network.md#network).
-      1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
+      1. Select a [network](../../vpc/concepts/network.md#network).
+      1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** next to the availability zone in question.
 
          {% note info %}
 
@@ -80,12 +80,13 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          When choosing the number of hosts, keep in mind that:
 
          * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
-                  * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+                  
+         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
          * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
          * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
       
-      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster on.
+      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -121,12 +122,13 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
         --environment <environment: prestable or production> \
         --version <{{ KF }} version: {{ versions.cli.str }}> \
         --network-name <network name> \
-        --brokers-count <number of brokers in zone> \
+        --subnet-ids <subnet IDs> \
+        --brokers-count <number of brokers per zone> \
         --resource-preset <host class> \
-        --disk-type <disk type> \
+        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --disk-size <storage size, GB> \
         --assign-public-ip <public access> \
-        --security-group-ids <security group ID list> \
+        --security-group-ids <list of security group IDs> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
@@ -139,12 +141,12 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating the cluster:
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
       ...
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
+        --maintenance-window type=<maintenance type: anytime or weekly>,`
                              `day=<day of week for weekly>,`
                              `hour=<hour for weekly>
       ```
@@ -206,6 +208,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         name                = "<cluster name>"
         network_id          = "<network ID>"
+        subnet_ids          = ["<list of subnet IDs>"]
         security_group_ids  = ["<list of cluster security group IDs>"]
         deletion_protection = <cluster deletion protection: true or false>
 
@@ -220,6 +223,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
               disk_type_id       = "<disk type>"
               resource_preset_id = "<host class>"
             }
+            kafka_config {}
           }
 
           zones = [
@@ -277,10 +281,10 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-   1. Pass `true` for the `unmanagedTopics` parameter. You cannot edit this setting after you create a {{ mkf-name }} cluster.
+   1. Set the `unmanagedTopics` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
    1. After creating your {{ mkf-name }} cluster, [create an admin user](./cluster-accounts.md#create-user).
 
-   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter. You cannot edit this setting after you create a {{ mkf-name }} cluster.
+   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -315,6 +319,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
    * In the `production` environment.
    * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
+   * In the subnet with the `{{ subnet-id }}` ID.
    * In the security group `{{ security-group }}`.
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
@@ -332,6 +337,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
      --environment production \
      --version {{ versions.cli.latest }} \
      --network-name {{ network-name }} \
+     --subnet-ids {{ subnet-id }} \
      --zone-ids {{ region-id }}-a \
      --brokers-count 1 \
      --resource-preset {{ host-class }} \
@@ -372,6 +378,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
      environment         = "PRODUCTION"
      name                = "mykf"
      network_id          = yandex_vpc_network.mynet.id
+     subnet_ids          = yandex_vpc_subnet.mysubnet.id
      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
      deletion_protection = true
 
@@ -385,6 +392,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
            disk_type_id       = "{{ disk-type-example }}"
            resource_preset_id = "{{ host-class }}"
          }
+         kafka_config {}
        }
 
        zones = [

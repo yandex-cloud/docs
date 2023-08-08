@@ -59,11 +59,15 @@ Under synchronous and asynchronous recognition, a response is sent once: after p
 
 In streaming recognition mode, you can configure the server behavior. By default, the server returns a response only after the received utterance is fully recognized. You can use the [partialResults](../../{{ speechkit-slug }}/stt/api/streaming-api.md#specification-msg) parameter to set up recognition so that the server also returns intermediate recognition results.
 
-Intermediate results let you quickly respond to the recognized speech without waiting for the end of the utterance.
+Intermediate results allow you to quickly respond to the recognized speech without waiting for the end of the utterance.
 
-#### Sample script for recognizing audio files {#script}
+#### Where can I find an example of audio file recognition? {#audiofile}
 
-You can find examples of asynchronous recognition of [LPCM](../../{{ speechkit-slug }}/stt/api/transcribation-lpcm.md) and [OggOpus](../../{{ speechkit-slug }}/stt/api/transcribation-ogg.md) files in the documentation.
+You can find examples of asynchronous recognition of [LPCM](../../{{ speechkit-slug }}/stt/api/transcribation-lpcm.md) and [OggOpus](../../{{ speechkit-slug }}/stt/api/transcribation-ogg.md) files in the [Tutorials](../../{{ speechkit-slug }}/tutorials/index.md) section.
+
+#### Where can I find an example of microphone speech recognition? {#microphone}
+
+[Example of streaming recognition of microphone-recorded speech](../../{{ speechkit-slug }}/stt/api/microphone-streaming.md).
 
 #### Can I use POST for streaming recognition? {#post}
 
@@ -85,7 +89,7 @@ The end of an utterance is determined automatically by the "silence" after the u
 
 #### What should I do if {{ speechkit-name }} does not listen to a conversation to the end or, conversely, it takes too long to wait until it ends? {#eou-tune}
 
-Interruptions or delays during [streaming recognition](../../speechkit/stt/streaming.md) may occur due to detecting the end of utterance (EOU). For EOU setup recommendations, see [{#T}](../../speechkit/stt/eou.md).
+Interruptions or delays during [streaming recognition](../../{{ speechkit-slug }}/stt/streaming.md) may occur due to detecting the end of utterance (EOU). For EOU setup recommendations, see [{#T}](../../{{ speechkit-slug }}/stt/eou.md).
 
 #### Error: OutOfRange desc = Exceeded maximum allowed stream duration {#duration-exceeded}
 

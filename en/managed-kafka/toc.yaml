@@ -7,32 +7,38 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to cluster
-        href: operations/connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: Upgrading the Apache Kafka® version
-        href: operations/cluster-version-update.md
-      - name: Changing cluster settings
-        href: operations/cluster-update.md
-      - name: Managing Apache Kafka® hosts
-        href: operations/cluster-hosts.md
-      - name: Working with topics and partitions
-        href: operations/cluster-topics.md
-      - name: Managing Apache Kafka® users
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing cluster settings
+            href: operations/cluster-update.md
+          - name: Updating the {{ KF }} version
+            href: operations/cluster-version-update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing {{ KF }} hosts
+            href: operations/cluster-hosts.md
+          - name: Managing connectors
+            href: operations/cluster-connector.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Topics
+        items:
+          - name: Connecting to cluster topics
+            href: operations/connect.md
+          - name: Working with topics and partitions
+            href: operations/cluster-topics.md
+      - name: Managing {{ KF }} users
         href: operations/cluster-accounts.md
-      - name: Managing connectors
-        href: operations/cluster-connector.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -65,10 +71,16 @@ items:
         href: tutorials/cdc/data-transfer-ydb.md
       - name: Delivering data to {{ mch-name }}
         href: tutorials/send-data-to-mch.md
+      - name: Data delivery in ksqlDB
+        href: tutorials/use-ksqldb-with-mkf.md
       - name: >-
           Delivering data to {{ mch-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-to-mch-migration.md
+      - name: >-
+          Delivering data to {{ mgp-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/managed-kafka-to-greenplum.md
       - name: >-
           Delivering data to {{ mes-full-name }} using {{
           data-transfer-full-name }}
@@ -77,8 +89,6 @@ items:
         href: tutorials/use-ksqldb-with-mkf.md
       - name: Delivering data from {{ mkf-name }} to {{ mpg-full-name }}
         href: tutorials/mkf-to-mpg.md
-      - name: Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
-        href: tutorials/managed-kafka-to-greenplum.md
       - name: >-
           Delivering data to {{ ydb-full-name }} using {{
           data-transfer-full-name }}

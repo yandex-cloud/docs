@@ -1,23 +1,23 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE.md
+sourcePath: en/_api-ref/datalens/function-ref/QUANTILE.md
 ---
 
 # QUANTILE
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 {% list tabs %}
 
-- Стандартный
+- Standard
 
   ```
   QUANTILE( value, quant )
   ```
 
-- Расширенный
+- Extended
 
   ```
   QUANTILE( value, quant
@@ -26,22 +26,22 @@ sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE.md
           )
   ```
 
-  Подробнее:
+  More info:
   - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
   - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
-#### Описание {#description}
-Возвращает точный квантиль уровня `quant` (значение от 0 до 1).
+#### Description {#description}
+Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
-**Типы аргументов:**
-- `value` — `Дата | Дата и время | Дробное число | Целое число`
-- `quant` — `Дробное число | Целое число`
+**Argument types:**
+- `value` — `Date | Datetime | Fractional number | Integer`
+- `quant` — `Fractional number | Integer`
 
 
-**Возвращаемый тип**: Совпадает с типом аргументов (`value`)
+**Return type**: Same type as (`value`)
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.4`, `YDB`.

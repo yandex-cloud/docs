@@ -1,39 +1,39 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SUBSTR.md
+sourcePath: en/_api-ref/datalens/function-ref/SUBSTR.md
 ---
 
 # SUBSTR
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 SUBSTR( string, from_index [ , length ] )
 ```
 
-#### Описание {#description}
-Возвращает подстроку `string`, начиная с индекса `from_index`.
+#### Description {#description}
+Returns the substring `string` starting from the index `from_index`.
 
-Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
+If an additional argument `length` is specified, a substring of the specified length is returned.
 
-**Типы аргументов:**
-- `string` — `Строка`
-- `from_index` — `Целое число`
-- `length` — `Целое число`
+**Argument types:**
+- `string` — `String`
+- `from_index` — `Integer`
+- `length` — `Integer`
 
 
-**Возвращаемый тип**: `Строка`
+**Return type**: `String`
 
-#### Пример {#examples}
+#### Example {#examples}
 
 ```
 SUBSTR("Computer", 3) = "mputer"
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

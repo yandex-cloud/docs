@@ -1,47 +1,47 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OP_PLUS.md
+sourcePath: en/_api-ref/datalens/function-ref/OP_PLUS.md
 ---
 
-# Сложение и конкатенация (+)
+# Addition and concatenation (+)
 
 
 
-#### Синтаксис {#syntax}
+#### Syntax {#syntax}
 
 
 ```
 value_1 + value_2
 ```
 
-#### Описание {#description}
+#### Description {#description}
 
 {% note warning %}
 
-`Yandex Metrica` не поддерживает конкатенацию строк.
+`Yandex Metrica` does not support string concatenation.
 
 {% endnote %}
 
-Имеет различное поведение в зависимости от типов аргументов. Возможные варианты приведены в таблице:
+Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Тип `value_1`                                                                    | Тип `value_2`                                                                    | Возвращаемое значение                                                                                                                                                               |
-|:---------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Дробное число &#124; Целое число</code>                                    | <code>Дробное число &#124; Целое число</code>                                    | Сумма чисел `value_1` и `value_2`.                                                                                                                                                  |
-| `Дата`                                                                           | <code>Дробное число &#124; Целое число</code>                                    | Дата, на `value_2` дней большая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
-| `Дата и время`                                                                   | <code>Дробное число &#124; Целое число</code>                                    | Дата со временем, на `value_2` дней большая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
-| `Строка`                                                                         | `Строка`                                                                         | Объединение (конкатенация) строк `value_1` и `value_2`.                                                                                                                             |
-| <code>Массив дробных чисел &#124; Массив целых числел &#124; Массив строк</code> | <code>Массив дробных чисел &#124; Массив целых числел &#124; Массив строк</code> | Объединение (конкатенация) массивов `value_1` и `value_2`.                                                                                                                          |
+| Type of `value_1`                                                                         | Type of `value_2`                                                                         | Return value                                                                                                                                                                     |
+|:------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>                                             | <code>Fractional number &#124; Integer</code>                                             | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
+| `Date`                                                                                    | <code>Fractional number &#124; Integer</code>                                             | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
+| `Datetime`                                                                                | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `String`                                                                                  | `String`                                                                                  | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | The merging (concatenation) of arrays `value_1` and `value_2`.                                                                                                                   |
 
-Изменение порядка аргументов не влияет на результат.
+Changing the order of arguments does not affect the result.
 
-**Типы аргументов:**
-- `value_1` — `Массив дробных чисел | Массив целых числел | Массив строк | Дата | Дата и время | Дробное число | Целое число | Разметка | Строка`
-- `value_2` — `Массив дробных чисел | Массив целых числел | Массив строк | Дата | Дата и время | Дробное число | Целое число | Разметка | Строка`
+**Argument types:**
+- `value_1` — `Array of fractional numbers | Array of integers | Array of strings | Date | Datetime | Fractional number | Integer | Markup | String`
+- `value_2` — `Array of fractional numbers | Array of integers | Array of strings | Date | Datetime | Fractional number | Integer | Markup | String`
 
 
-**Возвращаемый тип**: Зависит от типов аргументов
+**Return type**: Depends on argument types
 
-#### Примеры {#examples}
+#### Examples {#examples}
 
 ```
 2 + 3 = 5
@@ -68,6 +68,6 @@ value_1 + value_2
 ```
 
 
-#### Поддержка источников данных {#data-source-support}
+#### Data source support {#data-source-support}
 
 `ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

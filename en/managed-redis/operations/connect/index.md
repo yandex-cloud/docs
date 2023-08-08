@@ -96,3 +96,5 @@ For more information about security groups, see [{#T}](../../concepts/network.md
 To use an encrypted SSL connection, get an SSL certificate:
 
 {% include [install-certificate](../../../_includes/mdb/mrd/install-certificate.md) %}
+
+{% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
