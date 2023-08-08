@@ -126,7 +126,7 @@
 1. Убедитесь, что в файл `/data/out.txt` попадают записи даты и времени. Для этого [выполните команду](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) на поде:
 
    ```bash
-   kubectl exec pod -- tail /data/out.txt
+   kubectl exec pod-source -- tail /data/out.txt
    ```
 
    Результат:
@@ -143,7 +143,7 @@
 
    ```yaml
    ---
-   apiVersion: snapshot.storage.k8s.io/v1beta1
+   apiVersion: snapshot.storage.k8s.io/v1
    kind: VolumeSnapshot
    metadata:
      name: new-snapshot-test
