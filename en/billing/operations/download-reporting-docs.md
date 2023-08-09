@@ -1,6 +1,6 @@
 # View your expense history and download reporting documents through the console
 
-Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of  can download closing documents in the {{ yandex-cloud }} management console.
+Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of Russia and Kazakhstan can download reporting documents in the {{ yandex-cloud }} management console.
 
 {% list tabs %}
 
@@ -9,7 +9,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
   ## View your expense history {#expense-history}
 
-  Individuals who are residents of  can view their monthly spending history in the {{ yandex-cloud }} management console.
+  Individuals who are residents of Russia and Kazakhstan can view their monthly spending history in the {{ yandex-cloud }} management console.
 
   To view your expense history:
     1. In the management console, go to [Billing]({{ link-console-billing }}).

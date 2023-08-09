@@ -254,7 +254,7 @@ Using the management console or YC CLI, you can:
    1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
    1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
    1. Under **Network**, configure network settings:
-      1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
+      1. (Optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
 
          {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
@@ -378,7 +378,7 @@ Using the management console or YC CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will create all required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
 
    ```bash
    yc ydb database list
