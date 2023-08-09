@@ -1,4 +1,4 @@
-Billing and {{ yq-name }} are integrated with each other. You can use preset queries to enable standard tasks for analyzing billing details or write custom [YQL queries](../yql-tutorials/index.md).
+{{ billing-name }} and {{ yq-name }} are integrated with each other. You can use preset queries to enable standard tasks for analyzing details of payments for resources or write custom [YQL queries](../yql-tutorials/index.md).
 
 ![](../../_assets/query/billing-query.png)
 
@@ -16,20 +16,20 @@ Billing and {{ yq-name }} are integrated with each other. You can use preset que
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Set up integration between Billing and {{ yq-name }} {#integration}
+## Set up integration between {{ billing-name }} and {{ yq-name }} {#integration}
 
 To set up integration:
 
-1. Open the list of billing detail exports in the {{ yandex-cloud }} console.
-1. Select the desired details and click **Process in YQ**.
-1. When switching from Billing to {{ yq-full-name }} for the first time, set up integration:
-   1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **Create**.
-   1. In the {{ yq-name }} interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **Create** to complete the integration process.
+1. Open the list of expense detail exports in the {{ yandex-cloud }} console.
+1. Select the required details and click **{{ ui-key.yacloud.billing.account.exports.button_open-yandex-query }}**.
+1. When switching from {{ billing-name }} to {{ yq-full-name }} for the first time, set up integration:
+   1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **{{ ui-key.yacloud.common.create }}**.
+   1. In the {{ yq-name }} interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **{{ ui-key.yacloud.common.create }}** to complete the integration process.
    1. Once the integration settings are configured, you will be redirected to the **Billing** section automatically.
 
 ## Run a data query {#query}
 
-To query Billing analytical data stored in {{ objstorage-name }}:
+To query {{ billing-name }} analytical data stored in {{ objstorage-name }}:
 
 1. Under **Billing** in the {{ yq-name }} interface, select the [data binding](../../query/concepts/glossary.md#binding) you need from the list.
 1. Select the desired query to data from {{ objstorage-name }} in the list and click **Run**.

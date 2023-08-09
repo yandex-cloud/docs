@@ -272,7 +272,6 @@ Query results:
 
 {% endcut %}
 
-
 ## Example of reading data
 
 Sample query for reading data from {{ objstorage-full-name }}.

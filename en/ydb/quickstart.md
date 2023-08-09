@@ -112,19 +112,19 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. Under **Computing resources**, select the type and amount of [computing resources](concepts/resources.md#resource-presets).
   1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/resources.md#storage-groups) that determines the total amount of storage.
   1. Under **Network**, configure network settings:
-     1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
+     1. (Optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
 
         {% include [traffic_metering](_includes/traffic_metering.md) %}
 
      1. Select an existing network from the **Cloud network** list or create a new one:
         1. Click **Create new**.
         1. In the window that opens, enter a **Name** for the new network.
-        1. (optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
+        1. (Optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
         1. Click **Create**.
      1. Under **Subnets**, select a network or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
         1. Click **Create new**.
         1. In the window that opens, enter a **Name** for the new subnet.
-        1. (optional) Enter a **Description** of the subnet.
+        1. (Optional) Enter a **Description** of the subnet.
         1. Select the availability zone you need from the **Availability zone** list.
         1. Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
         1. Click **Create**.
