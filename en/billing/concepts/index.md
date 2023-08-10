@@ -5,7 +5,7 @@ description: "The {{ yandex-cloud }} billing uses the following key terms: a gra
 
 # All concepts
 
-{{ yandex-cloud }} Billing uses the following basic concepts:
+{{ billing-name }} uses the following concepts:
 * [{#T}](promo-code.md)
 * [{#T}](billing-threshold.md)
 * [{#T}](billing-account.md)

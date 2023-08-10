@@ -4,7 +4,7 @@
 
     По умолчанию настройка выключена (временные файлы не сжимаются).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_compression).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
 * **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-api }}
 
@@ -12,7 +12,7 @@
 
     Максимальное значение — `1099511627776` (1 ТБ), минимальное — `0` (объем не ограничен), по умолчанию — `0`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
 * **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-api }}
 
@@ -20,7 +20,7 @@
 
     Максимальное значение — `100000`, минимальное — `0` (количество временных файлов не ограничено), по умолчанию — `10000`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
 * **Gp workfile limit per segment**{#setting-gp-workfile-limit-per segment} {{ tag-con }} {{ tag-api }}
 
@@ -28,7 +28,7 @@
 
     Максимальное значение — `1099511627776` (1 ТБ), минимальное — `0` (объем не ограничен), по умолчанию — `0`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
 * **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }}
 
@@ -43,7 +43,7 @@
 
     Выражения `PREPARE` и `EXPLAIN ANALYZE` также записываются в лог, если содержат команды соответствующего типа.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#log_statement).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
 
 * **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }}
 
@@ -53,7 +53,7 @@
 
     При увеличении значения этой настройки рекомендуется увеличить также [Max prepared transactions](#setting-max-prepared-transactions).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_connections).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
 * **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }}
 
@@ -63,7 +63,7 @@
 
     Для настройки не рекомендуется выбирать значение ниже, чем у [Max connections](#setting-max-connections).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_prepared_transactions).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
 * **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }}
 
@@ -71,7 +71,7 @@
 
     Минимальное значение — `0` (лог не ведется), максимальное — `214748364800` (200 ГБ), по умолчанию — `0`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
 * **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-api }}
 
@@ -79,4 +79,4 @@
 
     Минимальное значение — `134217728` (128 МБ), максимальное — `1099511627776` (1 ТБ), по умолчанию — `2097152000` (2000 МБ).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_statement_mem).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).

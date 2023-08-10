@@ -172,7 +172,7 @@ _NAT-инстанс_ — специальная виртуальная маши�
    1. Привяжите таблицу маршрутизации к подсети, где находится тестовая ВМ, например `private-subnet`:
       1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. Нажмите ![image](../../_assets/options.svg) в строке подсети с тестовой ВМ и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-      1. В открывшемся окне в поле **Таблица маршрутизации** выберите таблицу `nat-instance-route` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+      1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.subnet.add-route-table.popup-route-table_field_route-table-id }}** выберите таблицу `nat-instance-route` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - {{ TF }}
 

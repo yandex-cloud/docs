@@ -1,6 +1,6 @@
-# All questions about Billing
+# All questions about {{ billing-name }}
 
-## General questions about Billing
+## General questions about the service
 
 {% include notitle [common](../../_qa/billing/common.md) %}
 

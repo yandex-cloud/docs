@@ -47,7 +47,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the topic you need.
 
-   1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+   1. (Optional) To use username and password authorization, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -246,7 +246,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Enable full binary logging](../../managed-mysql/operations/update.md#change-mysql-config) on the source by setting the [**Binlog row image** parameter](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) to `FULL` or `NOBLOB`.
 
-   1. (optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
+   1. (Optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
 
    1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
@@ -280,7 +280,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       In both cases, this lets replication continue even after changing the master host.
 
-   1. (optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
+   1. (Optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
 
    1. Create a user to connect to the source and grant them the required privileges:
 
@@ -359,7 +359,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
 
       1. Grant privileges to the created user:
 
-           ```sql
+            ```sql
             GRANT SELECT ON V$DATABASE TO <username>;
             GRANT SELECT ON V$LOG TO <username>;
             GRANT SELECT ON V$LOGFILE TO <username>;
@@ -373,7 +373,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
             GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO <username>;
             GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO <username>;
             GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO <username>;
-           ```
+            ```
 
         1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
         1. Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
@@ -638,7 +638,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `yds.editor` role.
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
+1. (Optional) [Create a processing function](../../functions/operations/function/function-create.md).
 
    {% cut "Processing function example" %}
 
@@ -699,7 +699,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    {% endcut %}
 
-1. (optional) Prepare a data schema file in JSON format.
+1. (Optional) Prepare a data schema file in JSON format.
 
    Sample file with a data schema:
 

@@ -26,3 +26,6 @@ links:
   - title: Request for search results
     description: Request for search results
     href: concepts/index
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

@@ -143,6 +143,8 @@ items:
             href: tutorials/yds-to-clickhouse.md
           - name: Delivering data from {{ DS }} to {{ objstorage-name }}
             href: tutorials/yds-to-objstorage.md
+          - name: Delivering {{ at-name }} logs from {{ DS }} to {{ OS }}
+            href: tutorials/trails-to-os.md
       - name: Uploading data to data marts
         items:
           - name: Uploading data from {{ GP }} to {{ CH }}
@@ -161,8 +163,6 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: Uploading data from {{ PG }} to {{ objstorage-name }}
             href: tutorials/mpg-to-objstorage.md
-          - name: Uploading data from {{ at-name }} to {{ objstorage-name }}
-            href: tutorials/trails-to-os.md
   - name: Concepts
     items:
       - name: Relationships between service resources

@@ -1,0 +1,42 @@
+title: Search API
+href: index.yaml
+stage: preview
+noIndex: true
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: Registration
+        href: operations/registration.md
+      - name: General procedure for activation
+        href: operations/workaround.md
+      - name: Testing requests
+        href: operations/test-request.md
+      - name: Authentication in the API
+        href: operations/auth.md
+      - name: Request for limits for the next day
+        href: operations/request-limits.md
+  - name: Concepts
+    items:
+      - name: About {{ search-api-name }}
+        href: concepts/index.md
+      - name: GET requests
+        href: concepts/get-request.md
+      - name: POST requests
+        href: concepts/post-request.md
+      - name: Response format
+        href: concepts/response.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Applications
+    items:
+      - name: Error codes
+        href: reference/error-codes.md
+      - name: Search regions
+        href: reference/regions.md
+base: en/search-api

@@ -17,7 +17,7 @@
 * {% include [Field Included Tables](../../fields/oracle/ui/included-tables.md) %}
 * {% include [Field Excluded Tables](../../fields/oracle/ui/excluded-tables.md) %}
 
-    Для обоих списков поддерживаются выражения вида:
+  Списки включают имя [схемы]({{oracle.docs}}/admqs/managing-schema-objects.html) (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
 
     * `<имя схемы>.<имя таблицы>` — полное имя таблицы;
     * `<имя схемы>.*` — все таблицы в указанной схеме;

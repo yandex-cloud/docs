@@ -14,6 +14,6 @@
    Где:
 
    * `name` — имя пользователя ВМ.
-   * `ssh-authorized-keys` — список публичных SSH-ключей для доступа к ВМ.
+   * `ssh-authorized-keys` (также допустим вариант `ssh_authorized_keys`) — список публичных SSH-ключей для доступа к ВМ.
       
      Пример ключа: `ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop`.

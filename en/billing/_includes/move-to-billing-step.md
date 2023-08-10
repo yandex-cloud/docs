@@ -1,2 +1,1 @@
-In the management console, go to [Billing]({{ link-console-billing }}).
-
+In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).

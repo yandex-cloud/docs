@@ -99,6 +99,22 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
+  - name: SDK
+    items:
+      - name: О Python SDK
+        href: sdk/python/index.md
+      - name: Установка Python SDK
+        href: sdk/python/install.md
+      - name: Аутентификация в Python SDK
+        href: sdk/python/auth.md
+      - name: Синхронное распознавание Python SDK
+        href: sdk/python/request.md
+      - name: Синтез Python SDK
+        href: sdk/python/synthesis.md
+      - name: Синтез по шаблонам Python SDK
+        href: sdk/python/templates-bvp-bvss.md
+      - name: Синтез по шаблонам {{ brand-voice-cc }} Python SDK
+        href: sdk/python/templates-bvcc.md
   - name: Практические руководства
     items:
       - name: Все руководства

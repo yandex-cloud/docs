@@ -15,10 +15,10 @@ A billing cycle runs automatically for [individuals](../payment/billing-cycle-in
 ## Individuals {#individuals}
 
 To top up your personal account:
-1. In the top left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **Billing**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
 1. Select a billing account.
-1. Click **Top up account**.
-1. Enter your payment amount and click **Top up account**.
+1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
+1. Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Enter your card details and click **Pay**.
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
@@ -29,16 +29,16 @@ Payment is processed in real time and completed within 15 minutes.
 
 
 To top up your personal account:
-1. In the top left-hand corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **Billing**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
 1. Select a billing account.
-1. Click **Top up account**.
+1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Select a payment method:
 
 {% list tabs %}
 
 - Bank card transfer
 
-   Enter your payment amount and click **Top up account**. Then enter your card details and click **Pay**.
+   Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
 
    {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
@@ -46,7 +46,7 @@ To top up your personal account:
 
 - Bank transfer from your account
 
-   Enter your payment amount and click **Issue receipt**.
+   Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
    The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
 

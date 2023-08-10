@@ -1,1 +1,1 @@
-On the **Accounts** page, click **Create account**.
+On the **{{ ui-key.yacloud.billing.label_accounts }}** page, click **{{ ui-key.yacloud.billing.accounts.button_create }}**.

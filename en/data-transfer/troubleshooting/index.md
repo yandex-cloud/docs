@@ -19,6 +19,8 @@ Key features about preparing sources and targets for a transfer are described in
 
 Limitations on sources and targets while a transfer is running are described in [{#T}](../operations/db-actions.md).
 
+You can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
+
 ## General {#common}
 
 {% include [long-time](../../_includes/data-transfer/troubles/long-time.md) %}

@@ -32,10 +32,10 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
       {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-   - Business or sole proprietor
+   - Business or individual entrepreneur
 
       7.1. Select a payment method (bank card or bank transfer):
-      - **Bank card**.
+      - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**.
       <br/>Link your corporate bank card:
 
          {% include [pin-card-data](../_includes/pin-card-data.md) %}
@@ -45,7 +45,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
          {% include [pin-card-note](../_includes/pin-card-note.md) %}
 
          {% include [yandex-account](../_includes/payment-card-validation.md) %}
-      - **Bank transfer**.
+      - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**.
 
       7.1. Enter the legal information of your organization.
 
