@@ -33,6 +33,30 @@ items:
       - name: Устранение ошибки Unauthorized при создании платежного аккаунта
         href: >-
           billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
+      - name: Платежный аккаунт находится в статусе SUSPENDED
+        href: billing/known-issues/account-blocked-due-to-debt.md
+      - name: Закончился пробный период
+        href: billing/known-issues/trial-expired-issue.md
+      - name: Платежный аккаунт создался в статусе «Платный» после регистрации
+        href: billing/known-issues/account-created-in-paid-status.md
+      - name: >-
+          На привязанную к платежному аккаунту почту неожиданно пришел чек на
+          сумму, отсутствующую в истории платежей
+        href: billing/known-issues/unexpected-cheque-received-to-email.md
+      - name: >-
+          Устранение ошибки INVALID_PERSON_TYPE при регистрации платежного
+          аккаунта
+        href: billing/known-issues/invalid-person-type.md
+      - name: Устранение проблем с оплатой
+        href: billing/known-issues/payment-problems.md
+      - name: Устранение проблем со списанием средств с банковской карты
+        href: billing/known-issues/unable-to-charge-funds-from-linked-card.md
+      - name: Устранение проблем с привязкой банковской карты к платежному аккаунту
+        href: billing/known-issues/couldnt-link-card.md
+      - name: >-
+          Устранение проблем с привязкой номера телефона для SMS-уведомлений к
+          платежному аккаунту
+        href: billing/known-issues/sms-alerts-are-not-arriving.md
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
@@ -40,14 +64,30 @@ items:
         href: billing/how-to/promocodes-and-grants-features-in-billing.md
       - name: Как посмотреть стоимость потребления отдельных ресурсов
         href: billing/how-to/how-to-view-separate-resource-consumption.md
+      - name: Смена типа платежного аккаунта
+        href: billing/how-to/changing-billing-account-type.md
+      - name: Смена тарифного плана поддержки
+        href: billing/how-to/changing-support-plan.md
+      - name: Как подключиться к ЭДО
+        href: billing/how-to/edi-system-connection.md
+      - name: Формирование счета на оплату
+        href: billing/how-to/generating-invoice.md
+      - name: Перевод денежных средств между разными платежными аккаунтами
+        href: billing/how-to/transfer-funds-between-billing-accounts.md
       - name: Особенности работы с грантами и промокодами в биллинге Yandex Cloud
         href: billing/how-to/promocodes-and-grants-features-in-billing.md
-      - name: Как посмотреть стоимость потребления отдельных ресурсов
-        href: billing/how-to/how-to-view-separate-resource-consumption.md
+      - name: Как изменить информацию, указанную в свойствах платежного аккаунта
+        href: billing/how-to/change-payer-info-or-requisites.md
+      - name: Кастомизация и изменение данных в счетах на оплату
+        href: billing/how-to/edit-invoice-template-or-content.md
+      - name: >-
+          Восстановление доступа к платежному аккаунту, созданному на основе
+          упрощенной регистрации в Яндекс ID
+        href: billing/how-to/recover-access-to-billing-account-via-lite-account.md
   - name: Certificate Manager
     items:
       - name: Все решения для Certificate Manager
-        href: cdn/index.md
+        href: certificate-manager/index.md
       - name: Решения для известных проблем Certificate Manager
         href: certificate-manager/known-issues/index.md
         hidden: true
@@ -135,10 +175,12 @@ items:
         href: compute/known-issues/not-enough-resources.md
       - name: Восстановление доступа к ВМ с утерянным SSH-ключом
         href: compute/known-issues/restore-access-to-vm.md
+      - name: Устранение проблем с созданием снимков дисков
+        href: compute/known-issues/shapshots-creation-issue.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
-      - name: Варианты миграции образа виртуальной машины в Яндекс Облако
+      - name: Варианты миграции образа виртуальной машины в Yandex Cloud
         href: compute/how-to/possible-vm-migration-scenarios.md
       - name: Изменение типа загрузочного диска виртуальной машины на SSD
         href: compute/how-to/migrate-data-from-hdd-to-ssd.md
@@ -156,6 +198,8 @@ items:
         href: compute/how-to/transfer-vm-between-clouds.md
       - name: Настройка GUI и графического окружения на ВМ с Linux
         href: compute/how-to/access-gui-and-xorg-on-linux-vm.md
+      - name: Использование ISO-образа для развертывания виртуальных машин
+        href: compute/how-to/using-iso-to-deploy-vm-is-not-supported.md
   - name: Container Registry
     items:
       - name: Все решения для Container Registry
@@ -178,6 +222,8 @@ items:
         hidden: true
       - name: Подключение к Яндекс Директ из DataLens
         href: datalens/how-to/access-yandex-direct-data.md
+      - name: Получение токена для подключения к БД Битрикс24 из DataLens
+        href: datalens/how-to/get-bitrix24-token-connector.md
       - name: Решения для известных проблем DataLens
         href: datalens/known-issues/index.md
         hidden: true
@@ -254,9 +300,29 @@ items:
           datasphere/known-issues/toc-extension-is-missing-in-jupyterlab-extensions-catalog.md
       - name: Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere
         href: datasphere/known-issues/getting-access-go-g1-1-config.md
+      - name: >-
+          Устранение проблем с долгим запуском кода внутри ячеек проекта
+          DataSphere
+        href: datasphere/known-issues/project-cells-dont-load-for-a-long-time.md
+      - name: >-
+          Устранение ошибки Servant not allocated при запуске кода внутри ячеек
+          проекта DataSphere
+        href: datasphere/known-issues/servant-not-allocated-issue.md
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
+  - name: Cloud DNS
+    items:
+      - name: Все решения для Cloud DNS
+        href: dns/index.md
+      - name: Решения для известных проблем Cloud DNS
+        href: dns/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Cloud DNS
+        href: dns/how-to/index.md
+        hidden: true
+      - name: Делегирование домена на DNS-сервера Yandex Cloud
+        href: dns/how-to/delegate-public-zone.md
   - name: Data Transfer
     items:
       - name: Все решения для Data Transfer
@@ -354,6 +420,47 @@ items:
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
       - name: Выдача нодам Kubernetes доступа в Интернет
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
+  - name: Managed GitLab
+    items:
+      - name: Все решения для Managed Service for Kubernetes
+        href: managed-gitlab/index.md
+      - name: Решения для известных проблем Managed Service for Kubernetes
+        href: managed-gitlab/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
+        href: managed-gitlab/how-to/index.md
+        hidden: true
+      - name: Изменение типа инстанса Managed Service for GitLab
+        href: managed-gitlab/how-to/change-gitlab-instance-flavour.md
+      - name: Обновление ПО на инстансе Managed Service for GitLab
+        href: managed-gitlab/how-to/update-gitlab-software-version.md
+  - name: Managed YDB
+    items:
+      - name: Все решения для Managed Service for YDB
+        href: managed-ydb/index.md
+      - name: Решения для известных проблем Managed Service for YDB
+        href: managed-ydb/known-issues/index.md
+        hidden: true
+      - name: Устранение ошибки RESOURCE_EXHAUSTED
+        href: managed-ydb/known-issues/resource-exhausted.md
+      - name: Примеры конфигураций и сценариев Managed Service for YDB
+        href: managed-ydb/how-to/index.md
+        hidden: true
+  - name: Network Level Balancer
+    items:
+      - name: Все решения для Network Level Balancer
+        href: kms/index.md
+      - name: Решения для известных проблем Network Level Balancer
+        href: network-load-balancer/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Network Level Balancer
+        href: network-load-balancer/how-to/index.md
+        hidden: true
+      - name: >-
+          Устранение ошибки Permission denied to create UDP listener in folder
+          при создании NLB-балансировщика
+        href: >-
+          network-load-balancer/known-issues/permission-denied-to-create-udp-listener-in-folder.md
   - name: Object Storage
     items:
       - name: Все решения для Object Storage
@@ -424,6 +531,14 @@ items:
           сразу после создания
         href: >-
           managed-postgresql/known-issues/cluster-with-b1-nano-flavor-goes-into-unknown-status-after-creation.md
+      - name: >-
+          Устранение проблем с изменением конфигурации кластера с дисками
+          local-ssd
+        href: >-
+          managed-postgresql/known-issues/unproсessable-entity-issue-when-enlarging-local-disk.md
+      - name: Устранение последствий переполнения хранилища кластера WAL-журналами
+        href: >-
+          managed-postgresql/known-issues/cluster-in-readonly-due-to-wal-overflow.md
       - name: Примеры конфигураций и сценариев Managed PostgreSQL
         href: managed-postgresql/how-to/index.md
         hidden: true
@@ -501,4 +616,32 @@ items:
         hidden: true
       - name: Отключение защиты от DDoS
         href: vpc/how-to/disable-ddos-protection-on-external-ip.md
+      - name: Перенос внешнего статического IP-адреса в другое облако
+        href: vpc/how-to/move-external-ip-between-cloud.md
+  - name: Консоль управления
+    items:
+      - name: Все решения для Консоли управления
+        href: console/index.md
+      - name: Решения для известных проблем Консоли управления
+        href: console/known-issues/index.md
+        hidden: true
+      - name: Примеры сценариев использования Консоли управления
+        href: console/how-to/index.md
+        hidden: true
+      - name: Как увеличить квоту
+        href: console/how-to/increase-quota.md
+  - name: Terraform-провайдер Yandex Cloud
+    items:
+      - name: Все решения по Terraform-провайдеру для Yandex Cloud
+        href: console/index.md
+      - name: Решения для известных проблем c провайдером Terraform для Yandex Cloud
+        href: terraform/known-issues/index.md
+        hidden: true
+      - name: >-
+          Устранение ошибки Failed to query available provider packages при
+          использовании Terraform
+        href: terraform/known-issues/failed-to-quety-available-provider-packages.md
+      - name: Примеры конфигураций и сценариев провайдера Terraform для Yandex Cloud
+        href: terraform/how-to/index.md
+        hidden: true
 base: ru/troubleshooting

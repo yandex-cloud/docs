@@ -2,13 +2,62 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.109.0 (10.08.23) {#version0.109.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ sf-name }} {#cloud-functions}
+
+* В команду `yc serverless trigger create mail` добавлена возможность настройки бакета для сохранения вложений письма.
+* В команды `yc serverless trigger create iot-devices`, `yc serverless trigger create iot-broker`, `yc serverless trigger create object-storage`, `yc serverless trigger create container-registry` и `yc serverless trigger create mail`:
+  * Добавлен параметр `--batch-size` для указания размера группы сообщений.
+  * Добавлен параметр `--batch-cutoff` для указазания максимального времени формирования группы.
+* В команду `yc serverless trigger create logging` добавлен параметр `--stream-names` для фильтрации по имени потока логов.
+* Добавлена команда `yc serverless function version delete` для удаления версий функций.
+
+##### {{ kms-name }} {#kms}
+
+*  В команды ассиметричного шифрования и подписи `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` добавлены параметры `--inform` и `--outform` для указания формата входных и выходных данных.
+*  В командах подписи `yc kms asymmetric-signature-crypto sign` и `yc kms asymmetric-signature-crypto sign-hash` параметр `--signature-file`, указывающий на файл, в который надо сохранить полученное значение подписи, переименован в `--signature-output-file`.
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* В команду `yc k8s node-group create` добавлен параметр `--gpu-cluster-id` для добавления узла из группы узлов в кластер с GPU.
+* В команду `yc k8s node-group create` добавлен параметр `--gpu-environment` для настройки предустановленного окружения для узлов с GPU.
+
+##### {{ compute-name }} {#compute}
+
+* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--strategy` для указания стартегии размещения. Может принимать значения `SPREAD` или `PARTITION`.
+* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен флаг `--partition-count`. Задает количество разделов для группы со стратегией `PARTITION`.
+* В команду создания диска `yc compute disk create` добавлен флаг `--disk-placement-group-partition` для указания номера раздела в группе размещения.
+* Добавлена колонка `PLACEMENT GROUP` в таблице со списком дисков, получаемых командой `yc compute disk list`.
+* Добавлена колонка `STRATEGY` в таблице со списком групп размещения дисков, получаемых командой `yc compute disk-placement-group list`.
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Добавлена группа `yc logging sink`.
+
+##### {{ ig-name }} {#instance-groups}
+
+* Добавлены команды `yc compute instance-group rolling-restart` и `yc compute instance-group rolling-recreate` для перезапуска и пересоздания ВМ в группе с учетом ограничений группы.
+
+##### {{ dns-name }} {#dns}
+
+* Добавлена команда `yc dns zone update-private-networks` для атомарного изменения списка сетей для приватных зон.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+* Добавлена команда `yc managed-mongodb backup delete` для удаления резервных копий.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.108.1 (06.07.23) {#version0.108.1}
 
 #### Изменения в CLI {#cli}
 
 * Команда `oslogin` временно удалена.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.108.0 (04.07.23) {#version0.108.0}
 

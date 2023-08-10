@@ -5,7 +5,11 @@
          "event_metadata":{
             "event_id":"cce76685-5828-4304-a83d-95643c0507a0",
             "event_type":"yandex.cloud.events.messagequeue.QueueMessage",
-            "created_at":"2019-09-24T00:54:28.980441Z"
+            "created_at":"2019-09-24T00:54:28.980441Z",
+            "cloud_id": "b1gvlrnl************",
+            "folder_id": "b1g88tfl************",
+            "tracing_context": {
+            }
          },
          "details":{
             "queue_id": "yrn:yc:ymq:{{ region-id }}:21i6v06sqmsaoeon7nus:event-queue",
@@ -30,7 +34,11 @@
          "event_metadata":{
             "event_id":"1f32fd25-11fc-4c08-88e7-d871d6ffb91d",
             "event_type":"yandex.cloud.events.messagequeue.QueueMessage",
-            "created_at":"2019-09-24T00:54:28.980492Z"
+            "created_at":"2019-09-24T00:54:28.980492Z",
+            "cloud_id": "b1gvlrnl************",
+            "folder_id": "b1g88tfl************",
+            "tracing_context": {
+            }
          },
          "details":{
             "queue_id": "yrn:yc:ymq:{{ region-id }}:21i6v06sqmsaoeon7nus:event-queue",

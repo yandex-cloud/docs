@@ -33,7 +33,7 @@ In the beginning of the transfer, one or more [replication slots]({{ pg-docs }}/
      WHERE pid = <locking transaction PID>;
    ```
 
-1. (optional) Stop the transaction by the command:
+1. (Optional) Stop the transaction by the command:
 
    ```sql
    SELECT pg_terminate_backend(<locking transaction PID>);

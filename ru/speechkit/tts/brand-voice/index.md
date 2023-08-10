@@ -80,4 +80,5 @@
 * [API {{ brand-voice-name }} (англ.)](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
+* [{#T}](../../sdk/python/templates-bvcc.md)
 

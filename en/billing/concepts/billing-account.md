@@ -25,8 +25,8 @@ To go to the list of billing accounts:
 - Management console
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
-   1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
+   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
 {% endlist %}
 
@@ -43,10 +43,10 @@ To go to the list of billing accounts:
 
 - Business account
 
-   * Intended for residents and non-residents of Russia and Kazakhstan.
-   * Consumed resources are paid for by bank transfer from the [business's bank account](../payment/payment-methods-business.md) or a [corporate bank card](../payment/payment-methods-card-business.md).
+   * For residents and non-residents of Russia or Kazakhstan.
+   * Consumed resources are paid for by bank transfer from the [business's bank account](../payment/payment-methods-business.md) or a [bank card](../payment/payment-methods-card-business.md).
    * Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
-   * A statement of the services rendered (for residents of Russia and Kazakhstan) and an invoice (Russian residents only) are sent to your email address at the beginning of the next billing cycle. Invoices for residents of the Republic of Kazakhstan are generated electronically. For more information, see [Reporting documents](../payment/documents.md).
+   * A statement of the services rendered (for residents of Russia or Kazakhstan) and an invoice (Russian residents only) are sent to your email address at the beginning of the next billing cycle. Invoices for residents of the Republic of Kazakhstan are generated electronically. For more information, see [Reporting documents](../payment/documents.md).
 
 {% endlist %}
 

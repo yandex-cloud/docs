@@ -26,7 +26,7 @@
 > Текстовый шаблон должен выглядеть так: `Давайте проверим бронирование. Ваш рейс {date} по маршруту {route}. Аэропорт вылета {source}, аэропорт прилета {destination}. Все верно?`
 > Список переменных: `variable_name = '{date}', variable_value = 'восьмого сентября в одиннадцать двадцать'`, `variable_name = '{route}', variable_value = 'Москва Санкт-Петербург'`, `variable_name = '{source}', variable_value = 'Домодедово'`, `variable_name = '{destination}', variable_value = 'Пулково'`.
 
-Пример реализации синтеза по шаблонам см. на странице [{#T}](api/tts-templates.md).
+Подробнее о [примерах реализации синтеза по шаблонам](#templates-implementation).
 
 ### Требования к аудиозаписям шаблонов {#requirements-audio}
 
@@ -36,6 +36,7 @@
 | Глубина аудио (audio bit depth) |  16 бит PCM |
 | Количество каналов |  1 (моно) |
 | Формат | [WAV](https://ru.wikipedia.org/wiki/WAV) |
+| Минимальная длительность аудиозаписи шаблона | 1 секунда |
 
 Аудиозаписи шаблонов не должны содержать посторонние шумы и эхо. Допускается минимальная обработка аудиозаписи. Длительность тишины в начале и в конце записи — не более 1 секунды.
 
@@ -63,7 +64,12 @@
 
 ## Использование синтеза по шаблонам {#templates-implementation}
 
-Синтез по шаблону работает только для [API v3](../tts-v3/api-ref/grpc/). Примеры реализации:
+* API v3:
 
-* [{{ brand-voice-premium }} и {{ brand-voice-core }}](api/tts-templates.md).
-* [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
+   * [{{ brand-voice-premium }} и {{ brand-voice-core }}](api/tts-templates.md).
+   * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
+
+* Python SDK:
+
+   * [{{ brand-voice-premium }} и {{ brand-voice-core }}](../sdk/python/templates-bvp-bvss.md).
+   * [{{ brand-voice-cc-name }}](../sdk/python/templates-bvcc.md).

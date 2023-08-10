@@ -8,7 +8,7 @@ To perform operations via the API, you need to get an [IAM token](../iam/concept
 
 {% note info %}
 
-You cannot use a [service account](../iam/concepts/users/service-accounts.md) to access the Billing API.
+You cannot use a [service account](../iam/concepts/users/service-accounts.md) to access the {{ billing-name }} API.
 
 {% endnote %}
 

@@ -5006,6 +5006,7 @@ default:
             label_service: Services
             label_to: To
             label_total: Total
+            tab_product: By product
             value_cost: Consumption
           exports:
             button_open-yandex-query: Process in YQ
@@ -5537,8 +5538,12 @@ default:
         label_auto-select-zone: Detect automatically
         label_dns-internal-settings: DNS settings for internal addresses
         label_form-ttl: TTL (in seconds)
+        label_networks: Networks
+        label_private: Internal
         label_public: Public
+        label_records: Data
         label_zone: Zone
+        label_zone-record-sets: Records
       elasticsearch:
         auth:
           auth-providers: Access control
@@ -5678,11 +5683,15 @@ default:
             button_create-target-group: Create target group
             field_listener-name: Name
             field_listener-port: Port
+            field_listener-protocol: Protocol
+            field_listener-subnet-id: Subnet
             field_listener-target-port: Target port
+            field_network-load-balancer-type: Type
             label_add-listener: Add listener
             label_add-target-group: Add target group
             label_address-type: Public address
             label_edit-health-check: Configure
+            label_internal: Internal
             label_target-group-id: Target group
             section_listeners: Listeners
             section_target-groups: Target groups
@@ -6247,6 +6256,7 @@ default:
         subnet:
           add-route-table:
             button_add: Link
+            popup-route-table_field_route-table-id: Route table
           add-toute-table:
             button_add: Link
         subnetworks:
@@ -6287,6 +6297,9 @@ default:
           label_database: Database
           label_endpoint: Endpoint
       ylb:
+        balancer:
+          add-listener:
+            value_UDP: UDP
         health-check:
           label_http: HTTP
           label_tcp: TCP

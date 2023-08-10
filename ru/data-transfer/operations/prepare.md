@@ -359,7 +359,7 @@
 
         1. Выдайте права созданному пользователю:
 
-           ```sql
+            ```sql
             GRANT SELECT ON V$DATABASE TO <имя пользователя>;
             GRANT SELECT ON V$LOG TO <имя пользователя>;
             GRANT SELECT ON V$LOGFILE TO <имя пользователя>;

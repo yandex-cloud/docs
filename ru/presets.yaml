@@ -434,6 +434,7 @@ default:
   TF: Terraform
   TF-full: Hashicorp Terraform
   TF-version: '0.90'
+  grpcio-tools-version: 1.46.3
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   DS: YDS
@@ -687,7 +688,7 @@ default:
     docs:
       org: https://docs.greenplum.org
       pivotal: https://gpdb.docs.pivotal.io
-      vmware: https://docs.vmware.com/en/VMware-Tanzu-Greenplum
+      vmware: https://docs.vmware.com/en/VMware-Greenplum
   kf:
     docs: https://kafka.apache.org/documentation/
   k8s-docs: https://kubernetes.io/ru/docs
@@ -708,17 +709,17 @@ default:
     versions:
       tf:
         latest: '15'
-        latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c или 15
+        latest-1c: 15-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15 или 15-1c
       cli:
         latest: '15'
-        latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c или 15
+        latest-1c: 15-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15 или 15-1c
       console:
         latest: '15'
-        latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c и 15
-        str-1c: 11-1c, 12-1c, 13-1c и 14-1c
+        latest-1c: 15-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15 и 15-1c
+        str-1c: 11-1c, 12-1c, 13-1c, 14-1c и 15-1c
   rd:
     docs: https://redis.io/docs
   ydb:
@@ -739,6 +740,8 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     version-cdc: 22.5
+  oracle:
+    docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   yq-full-name: Yandex Query
   yq-name: Query
   yq-short-name: YQ
@@ -5008,6 +5011,7 @@ default:
             label_service: Сервисы
             label_to: До
             label_total: Итого
+            tab_product: По продуктам
             value_cost: Потребление
           exports:
             button_open-yandex-query: Обработать в YQ
@@ -5539,8 +5543,12 @@ default:
         label_auto-select-zone: Определять автоматически
         label_dns-internal-settings: Настройки DNS для внутренних адресов
         label_form-ttl: TTL (в секундах)
+        label_networks: Сети
+        label_private: Внутренняя
         label_public: Публичная
+        label_records: Значение
         label_zone: Зона
+        label_zone-record-sets: Записи
       elasticsearch:
         auth:
           auth-providers: Контроль доступа
@@ -5680,11 +5688,15 @@ default:
             button_create-target-group: Создать целевую группу
             field_listener-name: Имя
             field_listener-port: Порт
+            field_listener-protocol: Протокол
+            field_listener-subnet-id: Подсеть
             field_listener-target-port: Целевой порт
+            field_network-load-balancer-type: Тип
             label_add-listener: Добавить обработчик
             label_add-target-group: Добавить целевую группу
             label_address-type: Публичный адрес
             label_edit-health-check: Настроить
+            label_internal: Внутренний
             label_target-group-id: Целевая группа
             section_listeners: Обработчики
             section_target-groups: Целевые группы
@@ -6249,6 +6261,7 @@ default:
         subnet:
           add-route-table:
             button_add: Привязать
+            popup-route-table_field_route-table-id: Таблица маршрутизации
           add-toute-table:
             button_add: Привязать
         subnetworks:
@@ -6289,6 +6302,9 @@ default:
           label_database: Размещение базы данных
           label_endpoint: Эндпоинт
       ylb:
+        balancer:
+          add-listener:
+            value_UDP: UDP
         health-check:
           label_http: HTTP
           label_tcp: TCP

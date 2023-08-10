@@ -328,6 +328,8 @@ items:
         href: qa/troubleshooting.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: История изменений
+    href: changelog.md
   - name: Обучающие курсы
     href: training.md
 base: ru/managed-kubernetes

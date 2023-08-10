@@ -1,4 +1,4 @@
-Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/)), то можно интегрировать корпоративный DNS с [{{ dns-name }}](../../dns). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
+Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/), то можно интегрировать корпоративный DNS с [{{ dns-name }}](../../dns). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
 
 Делегировать управление DNS-записями во [внутренних зонах](../../dns/concepts/dns-zone.md#private-zones) {{ yandex-cloud }} вашим DNS-серверам в корпоративной сети не получится, так как NS-записи для внутренней DNS-зоны игнорируются. Чтобы распознавание имен сервисов и ресурсов в облачных сетях выполнялось при использовании внутренних зон, настройте отдельные DNS-форвардеры в облачных подсетях. _DNS-форвардеры_ — серверы DNS, которые по-разному перенаправляют запросы в зависимости от имени, указанного в запросе.
 
@@ -57,21 +57,21 @@
 
 1. Для установки DNS-форвардеров в каждой из облачных подсетей `subnet3` и `subnet4` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
 
-    * **Имя**:
+    * **{{ ui-key.yacloud.compute.instances.create.field_name }}**:
         * `forwarder1` — для ВМ в подсети `subnet3`;
         * `forwarder2` — для ВМ в подсети `subnet4`.
-    * В блоке **Сетевые настройки**:
-      * **Публичный адрес**: без адреса.
-      * **Внутренний адрес**: выберите **Вручную** и укажите:
+    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` и укажите:
         * 172.16.3.5 — для ВМ `forwarder1`;
         * 172.16.4.5 — для ВМ `forwarder2`.
 
 1. Для подключения из интернета и проверки сервиса в подсети `subnet4` создайте еще одну ВМ из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
 
-   * **Имя**: `test1`.
-   * В блоке **Сетевые настройки**:
-     * **Публичный адрес**: Автоматически.
-     * **Внутренний адрес**: Автоматически.
+    * **{{ ui-key.yacloud.compute.instances.create.field_name }}**: `test1`.
+    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
   
 1. Для установки ПО из интернета в подсетях `subnet3` и `subnet4` [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
 
@@ -240,28 +240,28 @@
 
 Создайте [внутренний сетевой балансировщик](../../network-load-balancer/operations/internal-lb-create.md) с параметрами:
 
-* **Тип**: **Внутренний**.
+* **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
 
-* В блоке **Обработчики**:
-  * **Подсеть**: выберите `subnet3` из списка.
-  * **Протокол**: **UDP**.
-  * **Порт**: `53`.
-  * **Целевой порт**: `53`.
+* В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: выберите `subnet3` из списка.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.ylb.balancer.add-listener.value_UDP }}`.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`.
 
-* В блоке **Целевые группы**:
+* В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
   * Создайте группу, состоящую из хостов `forwarder1` и `forwarder2`.
-  * В блоке **Проверка состояния** укажите параметры:
+  * В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** укажите параметры:
 
     {% list tabs %}
 
     * CoreDNS
-      * Тип: `HTTP`.
-      * Путь: `/health`.
-      * Порт: `8080`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.ylb.health-check.label_http }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`.
 
     * Unbound
-      * Тип: `TCP`.
-      * Порт: `53`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`.
 
     {% endlist %}
 
@@ -277,8 +277,8 @@
 
 Чтобы хосты в облачной сети автоматически использовали корпоративный сервис DNS, в [настройках DHCP](../../vpc/concepts/dhcp-options.md) для подсетей `subnet3` и `subnet4` укажите:
 
-1. **Адрес DNS-сервера**: IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
-1. (Опционально) **Доменное имя**: `corp.example.net`.
+1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}**: IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
+1. (Опционально) **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}**: `corp.example.net`.
 
 Чтобы обновить сетевые настройки на хостах `forwarder1`, `forwarder2` и `test1`, выполните команду:
 

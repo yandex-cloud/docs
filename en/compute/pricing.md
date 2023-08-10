@@ -227,6 +227,8 @@ The price with a CVoS is only available for regular VMs.
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
 
+^1^ Using high performance disks (SSDs) will be charged starting September 1, 2023.
+
 
 
 

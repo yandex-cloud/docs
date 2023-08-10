@@ -1,14 +1,14 @@
-# Activating the paid version
+# Activate the paid version
 
 You need to activate the paid version within thirty days after the trial period ends. Otherwise, all of your resources are deleted automatically.
 
-If you didn't spend the entire amount of the [initial grant](../concepts/bonus-account.md) in the trial period, you can use the remaining amount in the future to pay for resources consumed.
+If you have not spent the full amount of the [initial grant](../concepts/bonus-account.md) during the trial period, you can use its balance to pay for the resources you will consume in the future.
 
 To upgrade to the paid version:
-1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
-1. Select an account on the **Accounts** page.
-1. On the **Account info** page, click **Upgrade to paid version**.
-1. Confirm the action by clicking **Upgrade to the paid version** again.
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
+1. On the **{{ ui-key.yacloud.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+1. Confirm the action by clicking **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}** again.
 
 
 Once you activate the paid version, your [personal account balance](../concepts/personal-account.md#balance) is set to zero by default. We recommend monitoring and [topping up](../operations/pay-the-bill.md) your personal account balance so that it is always positive.

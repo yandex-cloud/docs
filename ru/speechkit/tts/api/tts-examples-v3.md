@@ -146,3 +146,4 @@
 
 * [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)
+* [{#T}](../../sdk/python/synthesis.md)

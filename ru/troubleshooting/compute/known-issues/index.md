@@ -6,3 +6,4 @@
 * [Поддержка UEFI и загрузка с дисков, размеченных в формате GPT](uefi-support-and-booting-from-disks-with-gpt-layout.md)]
 * [Восстановление доступа к ВМ с утерянным SSH-ключом](restore-access-to-vm.md)
 * [Устранение ошибки Not enough resources при запуске виртуальной машины](not-enough-resources.md)
+* [ Устранение проблем с созданием снимков дисков](shapshots-creation-issue.md)

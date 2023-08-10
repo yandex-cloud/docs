@@ -6,7 +6,15 @@
 1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Нажмите на имя нужного аккаунта и выберите ![image](../../_assets/billing/detalization.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
-1. Выберите глубину детализации:
+1. Выберите глубину детализации. 
+
+В зависимости от выбранной глубины детализации, вы сможете просматривать разные данные:
+
+{% note info %}
+
+По умолчанию в детализации отображается стоимость потребленных ресурсов. Детализация в единицах потребления доступна на вкладке **{{ ui-key.yacloud.billing.account.detail.tab_product }}**.
+
+{% endnote %}
 
 {% list tabs %}
 

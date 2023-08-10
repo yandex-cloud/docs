@@ -5,9 +5,9 @@ description: "Billing has some limits and quotas. For more information about the
 editable: false
 ---
 
-# Quotas and limits in Billing
+# Quotas and limits in {{ billing-name }}
 
-{{ yandex-cloud }} Billing has the following limits:
+{{ billing-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

@@ -40,7 +40,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
    1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** or **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
    1. Enter a name for the endpoint. Use lowercase Latin letters and numbers.
-   1. (optional) Enter a description of the endpoint.
+   1. (Optional) Enter a description of the endpoint.
    1. Select the appropriate value in the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field. This will create an endpoint of the relevant type.
    1. Set the endpoint parameters:
 

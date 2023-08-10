@@ -1,4 +1,4 @@
-# Устранение ошибки Bucket not empty при удалении бакета из Object Storage
+# Устранение ошибки Bucket not empty при удалении бакета
 
 
 ## Описание проблемы {#issue-description}
@@ -21,9 +21,9 @@
 
 - Консоль управления
 
-  Недавно мы добавили возможность посмотреть и удалить незавершённые загрузки в веб-консоли. Инструкция здесь: <https://cloud.yandex.ru/docs/storage/operations/objects/deleting-multipart>
+  Вы можетепосмотреть и удалить незавершённые загрузки из Консоли управления [по этой инструкции](../../../storage/operations/objects/deleting-multipart.md)
 
-  Удаление всех объектов описано тут: <https://cloud.yandex.ru/docs/storage/operations/objects/delete-all>
+  Удаление всех объектов из бакета средствами консоли управления описано в материале [по этой ссылке](../../../storage/operations/objects/delete-all.md)
 
 - AWS CLI
 

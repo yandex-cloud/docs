@@ -1,4 +1,4 @@
-# Решения для Cloud Billing
+# Решения для Application Load Balancer
 
 {% include [how-to-index](how-to/index.md) %}
 
