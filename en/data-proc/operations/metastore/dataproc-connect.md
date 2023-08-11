@@ -18,7 +18,7 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
    1. When [creating](../cluster-create.md) or [updating](../cluster-update.md) a {{ dataproc-name }} cluster, specify the following [property](../../concepts/settings-list.md):
 
       ```text
-      spark:spark.hive.metastore.uris=thrift://<{{ metastore-name }} IP address>:{{ port-metastore }}
+      spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }} IP address>:{{ port-metastore }}
       ```
 
       To find out the {{ metastore-name }} cluster IP address, in the [management console]({{ link-console-main }}), select **{{ dataproc-name }}**, then in the left panel, select the ![image](../../../_assets/data-proc/metastore.svg) **Metastore server** page. You will see the cluster's IP address under **{{ ui-key.yacloud.common.section-base }}**.

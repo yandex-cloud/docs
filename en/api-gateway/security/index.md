@@ -22,9 +22,11 @@ To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles {#roles}
+## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ api-gw-name }} service.
+
+### Service roles {#service-roles}
 
 {% include [api-gateway-viewer](../../_includes/roles-api-gateway-viewer.md) %}
 
@@ -36,18 +38,6 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### Primitive roles {#primitive-roles}
 
-Users with the `{{ roles-viewer }}` role can view information about resources, such as a list of API gateways.
-
-### {{ roles-editor }} {#editor}
-
-Users with the `{{ roles-editor }}` role can manage API gateways, for example, create and delete them.
-
-The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
-
-### {{ roles-admin }} {#admin}
-
-Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to edit API gateways.
-
-The `{{ roles-admin }}` role includes all permissions of the `{{ roles-editor }}` role.
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}

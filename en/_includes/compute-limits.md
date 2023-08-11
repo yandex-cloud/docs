@@ -60,6 +60,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
 
+
 - Intel Ice Lake
 
    | Type of limit | Value |
@@ -80,6 +81,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
 | Maximum number of disks and file stores attached to a single VM^2^ | Up to 32 vCPUs: 8<br>Over 32 vCPUs: 16^3^ |
 | Maximum number of security groups per interface | 5 |
 | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
+
 
 {% endlist %}
 
@@ -115,6 +117,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
    | Maximum^5^ bandwidth per VM | 1 GB/s |
 
+
 - High-performance SSD
 
    | Type of limit | Value |
@@ -124,6 +127,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^4^ IOPS per VM | 100,000 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
    | Maximum^5^ bandwidth per VM | 1 GB/s |
+
 
 {% endlist %}
 
@@ -176,6 +180,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
 
+
 - High-performance SSD
 
    | Type of limit | Value |
@@ -190,6 +195,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^4^ IOPS for reads per allocation unit | 28,000 |
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
+
 
 {% endlist %}
 

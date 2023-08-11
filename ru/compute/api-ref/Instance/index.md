@@ -134,8 +134,11 @@ A set of methods for managing Instance resources.
           "string"
         ]
       }
-    ]
-  }
+    ],
+    "placementGroupPartition": "string"
+  },
+  "hostGroupId": "string",
+  "hostId": "string"
 }
 ```
  
@@ -227,6 +230,9 @@ placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rule
 placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
+hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
+hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
 
 ## Methods {#methods}
 Method | Description

@@ -826,6 +826,7 @@ default:
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
+  api-host-iot-data: iot-data.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -6229,6 +6230,7 @@ default:
               value_sg-rule-sg-type-self: Current
               value_tcp: TCP
               value_udp: UDP
+            label_destination-type-cidr: CIDR
             label_egress: Egress
             label_ingress: Ingress
           switch_overview: Overview

@@ -6,6 +6,8 @@
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
+{% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
+
 Чтобы создать группу ВМ фиксированного размера:
 
 {% list tabs %}

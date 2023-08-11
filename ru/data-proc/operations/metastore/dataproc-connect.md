@@ -18,7 +18,7 @@
     1. При [создании](../cluster-create.md) или [изменении](../cluster-update.md) кластера {{ dataproc-name }} задайте следующее [свойство](../../concepts/settings-list.md):
 
         ```text
-        spark:spark.hive.metastore.uris=thrift://<IP-адрес кластера {{ metastore-name }}>:{{ port-metastore }}
+        spark:spark.hive.metastore.uris : thrift://<IP-адрес кластера {{ metastore-name }}>:{{ port-metastore }}
         ```
 
         Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ dataproc-name }}** и на левой панели выберите страницу ![image](../../../_assets/data-proc/metastore.svg) **Metastore-сервер**. IP-адрес кластера указан в блоке **{{ ui-key.yacloud.common.section-base }}**.

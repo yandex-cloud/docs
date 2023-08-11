@@ -120,12 +120,12 @@
 		         * **vCPU** — 2.
 		         * **Гарантированная доля vCPU** — 100%.
 		         * **RAM** — 4 ГБ.
-		      * При необходимости сделайте виртуальную машину [прерываемой](../../compute/concepts/preemptible-vm).
+		      * При необходимости сделайте виртуальную машину [прерываемой](../../compute/concepts/preemptible-vm.md).
 		1. В блоке **Сетевые настройки** выберите из списка подсеть `ad-network / test-subnet-1`.
-		1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-		      * В поле **Пароль** укажите ваш пароль.
 		1. Нажмите кнопку **Создать ВМ**.
-	
+
+	  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+
 	- CLI
 	
 		{% include [include](../../_includes/cli-install.md) %}

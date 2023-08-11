@@ -1,6 +1,6 @@
 # Управление пользователями
 
-{{ tracker-name }} поддерживает организации из {{ ya-360 }} и {{ yandex-cloud }}. Пользователи и группы из {{ ya-360 }} добавляются и отображаются в {{ tracker-name }}. Для организаций {{ yandex-cloud }} создается специальная организация в {{ ya-360 }}, с помощью которой происходит синхронизация пользователей и предоставляется возможность создавать группы.
+{{ tracker-name }} поддерживает организации из {{ ya-360 }} и [{{ yandex-cloud }}]({{ link-org-main }}). Дополнительную организацию можно [подключить](https://tracker.yandex.ru/admin/orgs) на странице администрирования {{ tracker-name }}. При подключении второй организации пользователи и группы синхронизируются в {{ tracker-name }} автоматически.
 
 Чтобы работать над задачами вместе с коллегами, добавьте их в {{ tracker-name }}. Это можно сделать несколькими способами:
 - [Пригласить в {{ tracker-name }} пользователей](#invite_user), у которых есть аккаунты на Яндексе.
@@ -17,33 +17,55 @@
 
 ## Пригласить пользователей в организацию {#invite_user}
 
-Вы можете пригласить в организацию пользователей, у которых есть аккаунт на Яндексе (например, `{{ example-account }}`). Для пользователей с учетными записями другого типа этот способ добавления пока не поддерживается.
+Чтобы пригласить пользователей в организацию:
 
-1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
+{% list tabs %}
 
-1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-head.add-user }}**.
+- {{ org-full-name }}
 
-1. В появившемся окне перечислите через запятую почтовые адреса сотрудников (например, `{{ example-account }}`) и нажмите кнопку **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Каждый пользователь получит письмо с предложением вступить в организацию.
+  1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-Чтобы войти в {{ tracker-name }}, приглашенным сотрудникам нужно будет перейти по ссылке [{{ link-tracker }}]({{ link-tracker }}) и [войти в свой аккаунт на Яндексе](user/login.md).
+  1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/add-user.svg) **{{ ui-key.startrek.blocks-desktop_b-head.add-user }}**.
+
+  1. В появившемся окне перечислите через запятую почтовые адреса сотрудников (например, `{{ example-account }}`) и нажмите кнопку **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Каждый пользователь получит письмо с предложением вступить в организацию.
+  
+  Чтобы войти в {{ tracker-name }}, приглашенным сотрудникам нужно будет перейти по ссылке из письма.
+
+  Также пригласить пользователей можно в сервисе {{ org-full-name }}, подробнее в [документации](../organization/operations/add-account.md).
+
+- {{ ya-360 }}
+
+  Добавление пользователей в организацию доступно только в самом сервисе [{{ ya-360 }}]((https://admin.yandex.ru/)), на странице управления организацией. Подробнее о добавлении пользователей в {{ ya-360 }} в [документации](https://yandex.ru/support/business/users.html#add-users).
+
+{% endlist %}
 
 ## Настроить федерацию удостоверений {#federation}
 
 Федерация удостоверений — это технология, которая позволяет реализовать систему единого входа (Single Sign-On, SSO) и использовать для авторизации в {{tracker-full-name}} корпоративные аккаунты в Active Directory, Google Workspace или других SAML-совместимых системах управления учетными записями пользователей.
 
-Чтобы создать федерацию удостоверений:
+Чтобы создать федерацию удостоверений для организации:
 
-1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
+{% list tabs %}
 
-1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
+- {{ org-full-name }}
 
-1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. Откроется страница сервиса {{ org-full-name }}.
+  1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. Задайте настройки федерации и нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+  1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 
-Пользователи с корпоративными аккаунтами смогут [войти в {{ tracker-name }}](user/login.md) с помощью кнопки **Войти через SSO**.
+  1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. Откроется страница сервиса {{ org-full-name }}.
 
-Подробнее о создании федерации читайте в документации [{{ org-full-name }}](../organization/concepts/add-federation.md).
+  1. Задайте настройки федерации и нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+  
+  Пользователи с корпоративными аккаунтами смогут [войти в {{ tracker-name }}](user/login.md) с помощью кнопки **Войти через SSO**.
+
+  Подробнее о создании федерации читайте в документации [{{ org-full-name }}](../organization/concepts/add-federation.md).
+
+- {{ ya-360 }}
+
+  Следуйте [инструкции](https://yandex.ru/support/business/sso/setup.html) в документации {{ ya-360 }}.
+
+{% endlist %}
 
 ## Создать аккаунты пользователей {#create_users}
 
@@ -75,7 +97,7 @@
 
 {% note info %}
 
-Чтобы удалить аккаунт пользователя, который зарегистрирован одновременно в {{ org-full-name }} и {{ ya-360 }}, удалите его из организации в сервисе {{ org-full-name }}.
+Чтобы удалить аккаунт пользователя, который зарегистрирован одновременно в {{ org-full-name }} и {{ ya-360 }}, удалите его из обеих организаций.
 
 {% endnote %}
 

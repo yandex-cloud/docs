@@ -10,19 +10,20 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-{% include [create-sa](../../_includes/iam/create-sa-via-console.md %}
+{% include [create-sa](../../_includes/iam/create-sa-via-console.md) %}
 
 ### Назначьте роль {#grant-role}
 
 Чтобы сервисный аккаунт мог отправлять запросы, ему понадобится [роль](../../iam/concepts/access-control/roles.md) работы с сервисом {{ search-api-name }}. Назначьте сервисному аккаунту роль `{{ roles-search-api-executor }}`:
 
-{% include [create-sa](../../_includes/grant-role-console-sa.md %}
+{% include [create-sa](../../_includes/grant-role-console-sa.md) %}
 
 ### Создайте API-ключ {#create-api-key}
 
 Для аутентификации в сервисе {{ search-api }} сервисному аккаунту понадобится [API-ключ](../../iam/concepts/authorization/api-key.md). Создайте API-ключ для сервисного аккаунта:
 
 {% include [create-console](../../_includes/iam/create-api-key-console.md) %}  
+
 Для подключения и использования сервиса {{ search-api }} выполните следующие действия:
 
 ## Регистрация {#registration}

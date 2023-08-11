@@ -162,6 +162,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_21)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_22)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_17}
@@ -276,6 +277,38 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum)**<br> 
+
+
+### TableSizes {#TableSizes}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt1)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
 ## List {#List}
@@ -424,6 +457,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_211)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_221)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet1)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig1)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_171}
@@ -540,6 +574,38 @@ size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buf
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
 
 
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig1}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes1)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum1)**<br> 
+
+
+### TableSizes {#TableSizes1}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt1)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt1}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum1}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt2)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
 ## Create {#Create}
 
 Creates a Greenplum® cluster in the specified folder.
@@ -650,6 +716,7 @@ greenplum_config | **oneof:** `greenplum_config_6_17`, `greenplum_config_6_19`, 
 &nbsp;&nbsp;greenplum_config_6_21 | **[GreenplumConfig6_21](#GreenplumConfig6_212)**<br> 
 &nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_222)**<br> 
 pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig2)**<br> 
 
 
 ### GreenplumConfig6_17 {#GreenplumConfig6_172}
@@ -719,6 +786,38 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig2}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes2)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum2)**<br> 
+
+
+### TableSizes {#TableSizes2}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt2)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt2}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum2}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt3)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
 ### Operation {#Operation}
@@ -815,6 +914,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_212)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_222)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet2)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig3)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_172}
@@ -966,6 +1066,7 @@ greenplum_config | **oneof:** `greenplum_config_6_17`, `greenplum_config_6_19`, 
 &nbsp;&nbsp;greenplum_config_6_21 | **[GreenplumConfig6_21](#GreenplumConfig6_213)**<br> 
 &nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_223)**<br> 
 pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig3)**<br> 
 
 
 ### GreenplumConfig6_17 {#GreenplumConfig6_173}
@@ -1035,6 +1136,38 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig3}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes3)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum3)**<br> 
+
+
+### TableSizes {#TableSizes3}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt3)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt3}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum3}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt4)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
 ### Operation {#Operation1}
@@ -1131,6 +1264,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_213)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_223)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet3)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig4)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_173}
@@ -1343,6 +1477,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_214)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_224)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet4)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig4)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_174}
@@ -1457,6 +1592,38 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig4}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes4)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum4)**<br> 
+
+
+### TableSizes {#TableSizes4}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt4)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt4}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum4}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt5)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
 ## Delete {#Delete}
@@ -1661,6 +1828,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_215)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_225)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet5)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig5)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_175}
@@ -1775,6 +1943,38 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig5}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes5)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum5)**<br> 
+
+
+### TableSizes {#TableSizes5}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt5)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt5}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum5}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt6)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
 ## Stop {#Stop}
@@ -1939,6 +2139,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_216)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_226)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet6)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig6)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_176}
@@ -2053,6 +2254,38 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig6}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes6)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum6)**<br> 
+
+
+### TableSizes {#TableSizes6}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt6)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt6}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum6}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt7)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
 ## ListOperations {#ListOperations}
@@ -2484,6 +2717,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_217)**<br> 
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_227)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet7)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig7)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_177}
@@ -2598,5 +2832,37 @@ Field | Description
 mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig7}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes7)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum7)**<br> 
+
+
+### TableSizes {#TableSizes7}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt7)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt7}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum7}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt8)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 

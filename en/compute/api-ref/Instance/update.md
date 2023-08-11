@@ -55,7 +55,8 @@ instanceId | <p>Required. ID of the Instance resource to update. To get the inst
           "string"
         ]
       }
-    ]
+    ],
+    "placementGroupPartition": "string"
   },
   "schedulingPolicy": {
     "preemptible": true
@@ -91,6 +92,7 @@ placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rule
 placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
  

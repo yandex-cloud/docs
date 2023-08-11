@@ -1,7 +1,6 @@
 title: Search API
 href: index.yaml
 stage: preview
-noIndex: true
 items:
   - name: Начало работы
     href: quickstart.md

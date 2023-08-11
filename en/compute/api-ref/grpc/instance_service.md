@@ -73,6 +73,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling poli
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources}
@@ -189,6 +191,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule}
@@ -252,6 +255,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings1)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources1}
@@ -368,6 +373,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule1)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule1}
@@ -551,6 +557,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule2)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule2}
@@ -612,6 +619,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources2}
@@ -753,6 +762,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule3)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule3}
@@ -821,6 +831,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources3}
@@ -1016,6 +1028,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources4}
@@ -1132,6 +1146,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule4}
@@ -1271,6 +1286,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources5}
@@ -1387,6 +1404,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule5}
@@ -1542,6 +1560,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources6}
@@ -1658,6 +1678,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule6}
@@ -1740,6 +1761,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources7}
@@ -1856,6 +1879,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule7}
@@ -1945,6 +1969,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources8}
@@ -2061,6 +2087,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule8}
@@ -2143,6 +2170,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources9}
@@ -2259,6 +2288,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule9}
@@ -2359,6 +2389,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources10}
@@ -2475,6 +2507,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule10}
@@ -2555,6 +2588,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources11}
@@ -2671,6 +2706,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule11}
@@ -2784,6 +2820,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources12}
@@ -2900,6 +2938,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule12}
@@ -3020,6 +3059,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources13}
@@ -3136,6 +3177,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule13}
@@ -3217,6 +3259,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy14)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings14)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy14)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources14}
@@ -3333,6 +3377,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule14)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule14}

@@ -131,7 +131,7 @@ To update the list of VMs whose backups are created under the current backup pol
    1. Go to the ![policies](../../../_assets/backup/policies.svg) **Backup policies** tab.
    1. Select the policy for which to update the list of VMs.
    1. Update the list of VMs:
-   
+
       * To add a new VM, click ![image](../../../_assets/plus-sign.svg) **Attach VM** under **Virtual machines**. In the window that opens, choose the VM to link to the policy and click **Save**.
       * To remove a VM, under **virtual machines**, click ![options](../../../_assets/options.svg) next to the VM to be unlinked from the policy and select **Detach from policy**.
 
@@ -151,7 +151,7 @@ To update the list of VMs whose backups are created under the current backup pol
 
    1. Edit the list of VMs included in the backup policy:
 
-      * To link an instance to a backup policy:
+      * To link a VM to a backup policy:
 
          View a description of the CLI command:
 

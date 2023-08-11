@@ -58,6 +58,8 @@
 
 {% endlist %}
 
+{% include [How to connect from a Dockerfile](../../../_includes/mdb/mmg/docker-and-mongodb.md) %}
+
 ## Примеры строк подключения {#connection-string}
 
 {% include [conn-strings-environment](../../../_includes/mdb/mdb-conn-strings-env.md) %}

@@ -284,8 +284,6 @@ items:
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
-      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
-        href: dataplatform/dp-mch-data-exchange.md
       - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop

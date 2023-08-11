@@ -19,6 +19,7 @@ To create an HTTP router and add a route to it:
          To specify the FQMN, you can use the following options:
          * `Matches` to route all requests that match the specified FQMN.
          * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+
          {% note warning %}
 
          The FQMN must start with a slash `/` and contain part of the name of the service that the procedure call is redirected to.
@@ -189,7 +190,7 @@ To create an HTTP router and add a route to it:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check if the resources are there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb http-router get <HTTP_router_name>

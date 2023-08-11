@@ -39,6 +39,38 @@
     * `Value` — значение метки, тип: `string`.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
+- {{ TF }}
+
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `tags` во фрагмент с описанием бакета:
+
+      ```hcl
+      resource "yandex_storage_bucket" "test-bucket" {
+        bucket           = "<имя_бакета>"
+        ...
+        tags             = {
+          <ключ_метки_1> = "<значение_метки_1>"
+          <ключ_метки_2> = "<значение_метки_2>"
+        }
+        ...
+      }
+      ```
+
+      Где `tags` — массив меток бакета в формате `<ключ> = "<значение>"`.
+
+      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого к бакету будут добавлены метки. Проверить появление меток и настройки бакета можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+  ```bash
+  yc storage bucket get <имя_бакета> --full
+  ```
+
 - API
 
   Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
@@ -205,6 +237,38 @@
   Где:
   * `--bucket` — имя бакета.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+
+- {{ TF }}
+
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `tags` из фрагмента с описанием бакета.
+
+     {% cut "Пример описания тегов бакета в конфигурации {{ TF }}" %}
+
+      ```hcl
+      resource "yandex_storage_bucket" "test-bucket" {
+        bucket           = "<имя_бакета>"
+        ...
+        tags             = {
+          <ключ_метки_1> = "<значение_метки_1>"
+          <ключ_метки_2> = "<значение_метки_2>"
+        }
+        ...
+      }
+      ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого метки бакета будут удалены. Проверить удаление меток и настройки бакета можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+  ```bash
+  yc storage bucket get <имя_бакета> --full
+  ```
 
 - API
 

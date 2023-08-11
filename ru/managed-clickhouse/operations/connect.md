@@ -134,6 +134,33 @@
 
 {% endlist %}
 
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mch-name }} добавьте в Dockerfile строки:
+
+```bash
+# Подключить DEB-репозиторий.
+RUN apt-get update && \
+    apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+    echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+    /etc/apt/sources.list.d/clickhouse.list && \
+    # Установить зависимости.
+    apt-get update && \
+    apt-get install wget clickhouse-client --yes && \
+    # Загрузить файл конфигурации для clickhouse-client.
+    mkdir -p ~/.clickhouse-client && \
+    wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+         --output-document ~/.clickhouse-client/config.xml && \
+    # Получить SSL-сертификат.
+    mkdir -p {{ crt-local-dir }} && \
+    wget "{{ crt-web-path }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+```
+
 
 ## Подключение из браузера {#browser-connection}
 

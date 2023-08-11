@@ -3,7 +3,7 @@
 Common labels for all {{ mes-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `managed-elasticsearch` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster ID |
@@ -241,7 +241,7 @@ Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/
 | `elasticsearch_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized. |
 | `elasticsearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
 | `elasticsearch_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated. |
-| `elasticsearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): The cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): The cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): The cluster is healthy. All cluster shards are available. |
+| `elasticsearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
 | `elasticsearch_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned. |
 
 Read more about the service in the [{{ mes-full-name }}](../../../managed-elasticsearch/) documentation.

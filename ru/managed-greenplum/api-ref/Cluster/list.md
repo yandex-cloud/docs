@@ -121,6 +121,24 @@ filter | <p>A filter expression that filters resources listed in the response.</
             "clientIdleTimeout": "integer"
           }
         },
+        "backgroundActivities": {
+          "tableSizes": {
+            "starts": [
+              {
+                "hours": "string",
+                "minutes": "string"
+              }
+            ]
+          },
+          "analyzeAndVacuum": {
+            "start": {
+              "hours": "string",
+              "minutes": "string"
+            },
+            "analyzeTimeout": "integer",
+            "vacuumTimeout": "integer"
+          }
+        },
 
         // `clusters[].clusterConfig` includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`
         "greenplumConfigSet_6_17": {
@@ -343,6 +361,17 @@ clusters[].<br>clusterConfig.<br>pool.<br>defaultConfig | **object**<br><p>Defau
 clusters[].<br>clusterConfig.<br>pool.<br>defaultConfig.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 clusters[].<br>clusterConfig.<br>pool.<br>defaultConfig.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 
 clusters[].<br>clusterConfig.<br>pool.<br>defaultConfig.<br>clientIdleTimeout | **integer** (int64)<br><p>Server pool idle timeout, in seconds.</p> <p>A server connection closes after being idle for the specified time.</p> <p>Set to zero to disable the limit.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities | **object**
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>tableSizes | **object**
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[] | **object**<br><p>The maximum number of elements is 4.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>tableSizes.<br>starts[].<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum | **object**
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start | **object**
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>hours | **string** (int64)<br><p>Acceptable values are 0 to 23, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_17 | **object** <br>`clusters[].clusterConfig` includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`<br><br><p>Configuration settings version 6.17</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_17.<br>effectiveConfig | **object**<br><p>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_17.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment.</p> 

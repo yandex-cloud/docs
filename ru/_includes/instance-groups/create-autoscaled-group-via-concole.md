@@ -34,7 +34,6 @@
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
      * Выберите сервисный аккаунт, который следует привязать к ВМ.
      * Если выбран [образ](../../compute/concepts/image.md) на основе Linux, заполните поля **{{ ui-key.yacloud.compute.instances.create.field_user }}** и **{{ ui-key.yacloud.compute.instances.create.field_key }}**. В качестве ключа укажите содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * Если выбран образ на основе Windows, укажите пароль пользователя `Administrator`.
      * При необходимости выберите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
    * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:

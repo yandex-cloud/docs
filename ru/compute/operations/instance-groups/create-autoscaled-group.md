@@ -295,3 +295,5 @@
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
+
+{% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}

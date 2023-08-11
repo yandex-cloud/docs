@@ -85,7 +85,7 @@ runtime | **string**<br><p>Required. Runtime environment for the version.</p>
 description | **string**<br><p>Description of the version</p> <p>The string length in characters must be 0-256.</p> 
 entrypoint | **string**<br><p>Required. Entrypoint of the version.</p> 
 resources | **object**<br>Required. Resources allocated to the version.
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
 executionTimeout | **string**<br><p>Required. Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to associate with the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> <p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 

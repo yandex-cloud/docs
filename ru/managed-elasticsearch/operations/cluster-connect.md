@@ -111,6 +111,21 @@ keywords:
 
   Этот способ подходит только в том случае, если все хосты с ролью _Data node_ имеют публичный IP-адрес или же подключение осуществляется только с виртуальных машин {{ yandex-cloud }}. Это связано с тем, что хост для подключения, на который указывает этот FQDN, выбирается случайным образом среди все хостов с ролью _Data node_. 
 
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mes-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget curl --yes && \
+    mkdir -p ~/.elasticsearch && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.elasticsearch/root.crt && \
+    chmod 0600 ~/.elasticsearch/root.crt
+```
+
 ## Примеры строк подключения {#connection-string}
 
 {% include [conn-strings-environment](../../_includes/mdb/mes-conn-strings-env.md) %}

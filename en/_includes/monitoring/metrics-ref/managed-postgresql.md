@@ -129,6 +129,7 @@ The load on processor cores.
 | `pooler-avg_xact_time`<br/>`DGAUGE`, ms | Average execution time per transaction per DB host. |
 | `pooler-bytes_recieved`<br/>`DGAUGE`, bytes | Bytes received. |
 | `pooler-bytes_sent`<br/>`DGAUGE`, bytes | Bytes sent. |
+| `pooler-db_name_tcp_connections`<br/>`DGAUGE`, pcs | Number of TCP connections to the database. |
 | `pooler-free_clients`<br/>`DGAUGE`, pcs | Number of client connections available in the connection pooler. |
 | `pooler-free_servers`<br/>`DGAUGE`, pcs | Number of server connections available in the connection pooler. |
 | `pooler-is_alive`<br/>`DGAUGE`, 0/1 | Pooler health for each host either as a master or as a replica. |
@@ -141,8 +142,10 @@ The load on processor cores.
 | `pooler-query_0.99`<br/>`DGAUGE`, seconds | Query execution time, 0.99 percentile. |
 | `pooler-query_0.999`<br/>`DGAUGE`, seconds | Query execution time, 0.999 percentile. |
 | `pooler-query_count`<br/>`DGAUGE`, pcs | Number of queries executed on each DB host. |
+| `pooler-tcp_conn_count`<br/>`DGAUGE`, pcs | Number of TCP connections to each database host. |
+| `pooler-tcp_conn_count-db_name-username`<br/>`DGAUGE`, pcs | Number of TCP connections to the database per user. |
 | `pooler-total_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL and PgBouncer TCP connections. |
-| `pooler-transaction_0.5`<br/>`DGAUGE`, seconds | Transaction handling time, median value |
+| `pooler-transaction_0.5`<br/>`DGAUGE`, seconds | Transaction handling time, median value. |
 | `pooler-transaction_0.75`<br/>`DGAUGE`, seconds | Transaction handling time, 0.75 percentile. |
 | `pooler-transaction_0.9`<br/>`DGAUGE`, seconds | Transaction handling time, 0.9 percentile. |
 | `pooler-transaction_0.95`<br/>`DGAUGE`, seconds | Transaction handling time, 0.95 percentile. |
