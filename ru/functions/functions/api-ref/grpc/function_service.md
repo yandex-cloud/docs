@@ -304,7 +304,7 @@ storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by 
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity}
@@ -389,7 +389,7 @@ storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity1}
@@ -475,7 +475,7 @@ storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity2}
@@ -561,7 +561,7 @@ storage_mounts[] | **[StorageMount](#StorageMount3)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity3}
@@ -659,7 +659,7 @@ storage_mounts[] | **[StorageMount](#StorageMount4)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity4}
@@ -757,7 +757,7 @@ storage_mounts[] | **[StorageMount](#StorageMount5)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity5}
@@ -911,7 +911,7 @@ storage_mounts[] | **[StorageMount](#StorageMount6)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity6}
@@ -1024,7 +1024,7 @@ storage_mounts[] | **[StorageMount](#StorageMount7)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity7}
@@ -1177,7 +1177,7 @@ storage_mounts[] | **[StorageMount](#StorageMount8)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Package {#Package}
@@ -1315,7 +1315,7 @@ storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Package {#Package1}

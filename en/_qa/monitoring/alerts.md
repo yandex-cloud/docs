@@ -10,23 +10,17 @@ The threshold value is set in the units of the selected metric.
 
 For example, the value of a database cluster's free disk space threshold is specified in bytes. It is convenient to set a threshold by moving the slider on the chart with real data. Make sure the threshold value for a **Warning** does not exceed that for an **Alarm**.
 
-
 #### How do I set an alert recipient? {#alert-recipient}
 
 In the [notification channel](../../monitoring/concepts/alerting.md#channel-parameters), the following methods are supported:
-* email.
-* SMS.
-* push notifications in the [mobile app](../../overview/mobile-app/index.md) {{ yandex-cloud }}.
+* Email
+* Text message (SMS)
+* Push notifications in the {{ yandex-cloud }} [mobile app](../../overview/mobile-app/index.md).
 
-Specify a {{ yandex-cloud }} account as the recipient of email notifications. This can be the owner's account or an [additional account](https://yandex.ru/support/id/authorization/lite.html) created specifically for this purpose.
+{% include [account-info](../../_includes/monitoring/account-info.md) %}
 
-
-If the SMS method is selected, the phone number must be linked to the account.
-
-
-
-#### A user doesn't receive alerts. Why? {#alert-receive-failed}
+#### A user does not receive any alerts. Why is that? {#alert-receive-failed}
 
 Check the mailbox and phone number settings in the user's account [notification channel](../../monitoring/concepts/alerting.md#channel-parameters).
 
-Check the management console [settings]({{ link-console-main }}/settings). Make sure the `Monitoring` option is enabled in the **Phone number settings** and **Email settings** sections.
+{% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}

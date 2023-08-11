@@ -152,6 +152,21 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 
 При работе с другими вкладками в {{ pgadmin }} эта ошибка не возникает.
 
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mgp-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget postgresql-client --yes && \
+    mkdir -p ~/.postgresql && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.postgresql/root.crt && \
+    chmod 0600 ~/.postgresql/root.crt
+```
+
 ## Примеры строк подключения {#connection-string}
 
 {% include [conn-strings-environment](../../_includes/mdb/mgp/conn-strings-env.md) %}

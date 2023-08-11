@@ -278,9 +278,9 @@ storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by 
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
-cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
-core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 2, inclusive.
+core_fraction | **int64**<br>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1. Acceptable values are 0 to 100, inclusive.
 
 
 ### ImageSpec {#ImageSpec}
@@ -541,9 +541,9 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
-cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
-core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 2, inclusive.
+core_fraction | **int64**<br>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1. Acceptable values are 0 to 100, inclusive.
 
 
 ### Secret {#Secret1}
@@ -679,9 +679,9 @@ args[] | **string**<br>Arguments that will override CMD of an image. <br>Argumen
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the revision, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
-cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 1, inclusive.
-core_fraction | **int64**<br>Specifies baseline performance for a core in percent. Acceptable values are 0 to 100, inclusive.
+memory | **int64**<br>Amount of memory available to the revision, specified in bytes, multiple of 128MB. Acceptable values are 134217728 to 4294967296, inclusive.
+cores | **int64**<br>Number of cores available to the revision. Acceptable values are 0 to 2, inclusive.
+core_fraction | **int64**<br>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1. Acceptable values are 0 to 100, inclusive.
 
 
 ### Secret {#Secret2}

@@ -57,10 +57,10 @@ Devices and registries interact using X.509 certificates:
    1. Select **{{ iot-short-name }}**.
    1. Click **Create registry**.
    1. Under **General information**, add:
-      * A **name** for the registry, e.g., `my-registry`.
-      * (optional) A **description** with further information about the registry.
-      * A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password: you will need it later.
-      * (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
+      * **Name** for the registry, e.g., `my-registry`.
+      * (Optional) **Description** with further information about the registry.
+      * **Password** you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
+      * (Optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (Optional) Add [certificates](operations/certificates/create-certificates.md):
       * To add a file:
          1. Choose the **File** method.
@@ -94,7 +94,6 @@ Devices and registries interact using X.509 certificates:
       created_at: "2019-05-27T13:40:06.923Z"
       name: my-registry
       ```
-
    1. Add a certificate to the registry:
 
       ```
@@ -172,7 +171,6 @@ Devices and registries interact using X.509 certificates:
       created_at: "2019-05-27T13:44:35.164Z"
       name: my-device
       ```
-
    1. Add a certificate to the device:
 
       ```
@@ -192,7 +190,6 @@ Devices and registries interact using X.509 certificates:
         -----END CERTIFICATE-----
       created_at: "2019-05-27T13:45:23.306Z"
       ```
-
 
 {% endlist %}
 

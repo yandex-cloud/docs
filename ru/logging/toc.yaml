@@ -37,7 +37,7 @@ items:
         href: tutorials/vm-fluent-bit-logging.md
       - name: Передача логов с COI в Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
-      - name: Репликация логов в Object Storage с помощью Fluent Bit
+      - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
       - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md

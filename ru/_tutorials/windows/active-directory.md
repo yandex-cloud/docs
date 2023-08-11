@@ -167,10 +167,11 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
       * **Публичный адрес** — **Без адреса**.
       * **Внутренний адрес** — выберите **Вручную** и укажите `10.1.0.3`.
 
-  1. В блоке **Доступ** в поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
-  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний адрес `10.2.0.3`.
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+
+  Повторите шаги для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний адрес `10.2.0.3`.
 
 - CLI
 
@@ -220,8 +221,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
          * **RAM** — 4 ГБ.
 
   1. В блоке **Сетевые настройки** выберите подсеть `ad-subnet-c`. В блоке **Публичный адрес** выберите вариант **Автоматически**.
-  1. В блоке **Доступ** в поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
+
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 

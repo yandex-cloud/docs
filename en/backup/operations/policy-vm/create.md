@@ -51,7 +51,7 @@ To create a [backup policy](../../concepts/policy.md):
       ```
 
       Where:
-      
+
       * `--name`: Name of the backup policy being created.
       * `--settings-from-file`: Path to the backup policy configuration file in JSON format.
 

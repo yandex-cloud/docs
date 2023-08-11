@@ -454,6 +454,12 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
 
+## {{ search-api-full-name }} {#search-api-roles}
+
+{% include [roles-search-api](../../../_includes/roles-search-api-executor.md) %}
+
+
+
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}

@@ -268,14 +268,14 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
 
-Для подключения к кластеру {{ mpg-name }} добавьте в Dockerfile следующие строки:
+Для подключения к кластеру {{ mpg-name }} добавьте в Dockerfile строки:
 
 ```bash
 RUN apt-get update && \
     apt-get install wget postgresql-client --yes && \
     mkdir -p ~/.postgresql && \
     wget "{{ crt-web-path }}" \
-        --output-document ~/.postgresql/root.crt && \
+         --output-document ~/.postgresql/root.crt && \
     chmod 0600 ~/.postgresql/root.crt
 ```
 

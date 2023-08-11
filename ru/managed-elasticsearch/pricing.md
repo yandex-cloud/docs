@@ -6,6 +6,10 @@ editable: false
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
+В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mes-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
+
+Чтобы рассчитать стоимость пользования сервисом, воспользуйтесь [калькулятором]({{ link-calc }}) на сайте {{ yandex-cloud }}.
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Статус кластера {#running-stopped}

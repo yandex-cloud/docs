@@ -10,19 +10,20 @@ To send requests to the Yandex search database using {{ search-api-full-name }},
 
 ### Create a service account {#create-sa}
 
-{% include [create-sa](../../_includes/iam/create-sa-via-console.md %}
+{% include [create-sa](../../_includes/iam/create-sa-via-console.md) %}
 
 ### Assign the required role {#grant-role}
 
 For your service account to send requests, it needs a [role](../../iam/concepts/access-control/roles.md) that allows using {{ search-api-name }}. Assign the service account the `{{ roles-search-api-executor }}` role:
 
-{% include [create-sa](../../_includes/grant-role-console-sa.md %}
+{% include [create-sa](../../_includes/grant-role-console-sa.md) %}
 
 ### Create an API key {#create-api-key}
 
 For {{ search-api }} authentication, the service account needs an [API key](../../iam/concepts/authorization/api-key.md). Create an API key for your service account:
 
 {% include [create-console](../../_includes/iam/create-api-key-console.md) %}
+
 To enable {{ search-api }} and use it, follow these steps:
 
 ## Registration {#registration}

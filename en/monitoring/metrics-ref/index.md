@@ -8,6 +8,12 @@ This section describes the {{ yandex-cloud }} service metrics that are automatic
 
 The name of the metric is written in the `name` label.
 
+## Service: {{ alb-full-name }} {#alb}
+
+{% include [alb](../../_includes/monitoring/metrics-ref/alb.md) %}
+
+Read more about the service in the [{{ alb-name }}](../../application-load-balancer/) documentation.
+
 {% include [compute.md](../../_includes/monitoring/metrics-ref/compute.md) %}
 
 

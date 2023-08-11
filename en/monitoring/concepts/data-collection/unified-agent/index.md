@@ -3,6 +3,7 @@
 {{unified-agent-full-name}}: The agent for delivering metrics for virtual machines and user applications.
 
 The agent supports:
+
 - Collecting Linux system metrics (CPU, RAM, disk).
 - Collecting metrics in the [Prometheus](https://prometheus.io/) format.
 - Delivering metrics to {{monitoring-full-name}}.
@@ -28,6 +29,7 @@ For other examples of how to use the agent, see [{#T}](../../../operations/index
 
 {{unified-agent-full-name}} is distributed under Apache License 2.0.
 To learn more about the license, run these commands:
+
 - `unified_agent --license`: Displays the full text of the license.
 - `unified_agent --credits`: Displays the list of and licenses for libraries used by the agent.
 
@@ -68,7 +70,7 @@ Sample input definition in the configuration file:
     ...
 ```
 
-For details, see also:
+See also:
 
 - [List of implemented inputs](configuration.md#inputs).
 - [Session infrastructure settings](configuration.md#flow_control).
@@ -84,7 +86,7 @@ Sample output definition in the configuration file:
     id: ... # A recommended output ID that's used in metrics and agent operation logs
 ```
 
-For details, see also the [list of available outputs](configuration.md#outputs).
+See also the [list of available outputs](configuration.md#outputs).
 
 ### Filters {#filters}
 
@@ -105,7 +107,7 @@ Sample filter definition in the configuration file:
         ...
 ```
 
-For details, see also the [list of available filters](configuration.md#filters).
+See also the [list of available filters](configuration.md#filters).
 
 ### Storages {#storages}
 Storages are intended to store messages on an interim basis.
@@ -119,7 +121,7 @@ Sample storage definition in the configuration file:
     ...
 ```
 
-For details, see also the [list of available storages](configuration.md#storages).
+See also the [list of available storages](configuration.md#storages).
 
 ### Routing {#routing}
 
@@ -209,7 +211,7 @@ channels:
          ...
 ```
 
-For details, see also a [sample named channel configuration](configuration.md#channels).
+See also a [sample named channel configuration](configuration.md#channels).
 
 #### Routes {#routes}
 

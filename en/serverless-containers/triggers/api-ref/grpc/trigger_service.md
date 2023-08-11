@@ -208,9 +208,18 @@ Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Batch settings for processing events. 
+attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings)**<br>Bucket settings for saving attachments. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+
+
+### ObjectStorageBucketSettings {#ObjectStorageBucketSettings}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Bucket for saving. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+service_account_id | **string**<br>Required. SA which has write permission on storage. The maximum string length in characters is 50.
 
 
 ### InvokeFunctionOnce {#InvokeFunctionOnce}
@@ -492,9 +501,18 @@ Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings1)**<br>Batch settings for processing events. 
+attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings1)**<br>Bucket settings for saving attachments. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+
+
+### ObjectStorageBucketSettings {#ObjectStorageBucketSettings1}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Bucket for saving. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+service_account_id | **string**<br>Required. SA which has write permission on storage. The maximum string length in characters is 50.
 
 
 ### InvokeFunctionOnce {#InvokeFunctionOnce1}
@@ -796,9 +814,18 @@ Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings2)**<br>Batch settings for processing events. 
+attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings2)**<br>Bucket settings for saving attachments. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+
+
+### ObjectStorageBucketSettings {#ObjectStorageBucketSettings2}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Bucket for saving. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+service_account_id | **string**<br>Required. SA which has write permission on storage. The maximum string length in characters is 50.
 
 
 ### InvokeFunctionOnce {#InvokeFunctionOnce2}
@@ -1100,9 +1127,18 @@ Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings3)**<br>Batch settings for processing events. 
+attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings3)**<br>Bucket settings for saving attachments. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+
+
+### ObjectStorageBucketSettings {#ObjectStorageBucketSettings3}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Bucket for saving. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+service_account_id | **string**<br>Required. SA which has write permission on storage. The maximum string length in characters is 50.
 
 
 ### InvokeFunctionOnce {#InvokeFunctionOnce3}
@@ -1440,9 +1476,18 @@ Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings4)**<br>Batch settings for processing events. 
+attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings4)**<br>Bucket settings for saving attachments. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+
+
+### ObjectStorageBucketSettings {#ObjectStorageBucketSettings4}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Bucket for saving. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+service_account_id | **string**<br>Required. SA which has write permission on storage. The maximum string length in characters is 50.
 
 
 ### InvokeFunctionOnce {#InvokeFunctionOnce4}
@@ -1740,9 +1785,18 @@ Field | Description
 --- | ---
 email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
 batch_settings | **[BatchSettings](#BatchSettings5)**<br>Batch settings for processing events. 
+attachments_bucket | **[ObjectStorageBucketSettings](#ObjectStorageBucketSettings5)**<br>Bucket settings for saving attachments. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+
+
+### ObjectStorageBucketSettings {#ObjectStorageBucketSettings5}
+
+Field | Description
+--- | ---
+bucket_id | **string**<br>Bucket for saving. The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+service_account_id | **string**<br>Required. SA which has write permission on storage. The maximum string length in characters is 50.
 
 
 ### InvokeFunctionOnce {#InvokeFunctionOnce5}

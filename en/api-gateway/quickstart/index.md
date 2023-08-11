@@ -5,7 +5,7 @@ description: "Using these instructions, you'll create and test different types o
 
 # Getting started with {{ api-gw-name }}
 
-Using these instructions, you'll create and test different types of extensions: first, you'll set up an API gateway for getting [static responses](../concepts/extensions/dummy.md) and then add integration for [invoking functions](../concepts/extensions/cloud-functions.md).
+This guide will show you how to create and test different types of extensions. First, you will set up an API gateway for getting [static responses](../concepts/extensions/dummy.md) and then add integration for [invoking functions](../concepts/extensions/cloud-functions.md).
 
 ## Getting started {#before-you-begin}
 

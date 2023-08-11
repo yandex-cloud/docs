@@ -67,6 +67,8 @@ items:
         href: hybrid-speechkit/index.md
       - name: Системные требования
         href: hybrid-speechkit/system-requirements.md
+      - name: Документация {{ sk-hybrid-name }}
+        href: ../speechkit-hybrid/
   - name: Справочники API
     items:
       - name: Аутентификация в API

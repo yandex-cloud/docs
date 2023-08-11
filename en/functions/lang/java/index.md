@@ -5,7 +5,13 @@ description: "With {{ sf-name }}, you can run applications written in Java. The 
 
 # Developing in Java. Overview
 
-With {{ sf-name }}, you can run applications written in [Java](https://docs.oracle.com/en/java/javase/11/docs/api/index.html). The service provides the [runtime environment](../../concepts/runtime/index.md) with R-11 and Ubuntu 18.04 LTS.
+With {{ sf-name }}, you can run applications written in [Java](https://docs.oracle.com/en/java/javase/11/docs/api/index.html). The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:
+
+#|
+|| **Name** | **Java version** | **OS** | **Preloaded** ||
+|| java11 | 11 | Ubuntu 18.04 LTS | no ||
+|| java17 | 17 | Ubuntu 18.04 LTS | no ||
+|#
 
 You can connect the [SDK library](https://github.com/yandex-cloud/java-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 

@@ -14,6 +14,8 @@
 
 ### Сервисные роли {#service-roles}
 
+{% include [roles-search-api](../../_includes/roles-search-api-executor.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

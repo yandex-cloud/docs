@@ -1,10 +1,15 @@
 # Using the SDK for Java functions
 
-The runtime environment doesn't have a pre-installed library for working with the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk).
+The runtime environment doesn't have a pre-installed library for working with the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on the language version:
 
-The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
+* `java-sdk-functions`: Only for Java 11.
+* `java-sdk-serverless`: Java 17 and higher.
 
-### Example:
+Other modules are available for any version of Java.
+
+[SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) lets you manage resources {{ yandex-cloud }} on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
+
+### Example {#example}
 
 The following function receives the `folderId` as an input, authorizes in the SDK, gets a list of all {{ compute-name }} instances in the specified folder, and restarts stopped instances. As a result, it returns a message with the number of running instances.
 

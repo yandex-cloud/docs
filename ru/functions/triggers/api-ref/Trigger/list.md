@@ -429,6 +429,10 @@ filter | <p>A filter expression that filters triggers listed in the response.</p
             "size": "string",
             "cutoff": "string"
           },
+          "attachmentsBucket": {
+            "bucketId": "string",
+            "serviceAccountId": "string"
+          },
 
           // `triggers[].rule.mail` includes only one of the fields `invokeFunction`, `invokeContainer`
           "invokeFunction": {
@@ -742,6 +746,9 @@ triggers[].<br>rule.<br>mail.<br>email | **string**<br><p>Address to receive ema
 triggers[].<br>rule.<br>mail.<br>batchSettings | **object**<br>Batch settings for processing events.
 triggers[].<br>rule.<br>mail.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
 triggers[].<br>rule.<br>mail.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches ``size``, or the ``cutoff`` time has passed.</p> 
+triggers[].<br>rule.<br>mail.<br>attachmentsBucket | **object**<br>Bucket settings for saving attachments.
+triggers[].<br>rule.<br>mail.<br>attachmentsBucket.<br>bucketId | **string**<br><p>Bucket for saving.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+triggers[].<br>rule.<br>mail.<br>attachmentsBucket.<br>serviceAccountId | **string**<br><p>Required. SA which has write permission on storage.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>mail.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`triggers[].rule.mail` includes only one of the fields `invokeFunction`, `invokeContainer`<br>
 triggers[].<br>rule.<br>mail.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>mail.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 

@@ -8,7 +8,7 @@ description: "Для выполнения операций через API в м�
 Вы можете работать с {{ objstorage-name }} с помощью следующих типов API:
 
 * [AWS S3 API](#aws-s3-api);
-* [{{ yandex-cloud }} gRPC API и REST API](#yandex-api).
+* [{{ yandex-cloud }} gRPC и REST API](#yandex-api).
 
 ## AWS S3 API {#aws-s3-api}
 
@@ -16,10 +16,10 @@ description: "Для выполнения операций через API в м�
 
 Полный перечень методов S3 API см. в [Справочнике S3 API](../s3/api-ref/).
 
-## {{ yandex-cloud }} gRPC API и REST API {#yandex-api}
+## {{ yandex-cloud }} gRPC и REST API {#yandex-api}
 
 
-Для выполнения операций через API получите [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена для разных типов аккаунтов:
+Для аутентификации в {{ yandex-cloud }} gRPC и REST API получите [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена для разных типов аккаунтов:
 
 * [Аккаунт на Яндексе](../../iam/operations/iam-token/create.md).
 * [Федеративный аккаунт](../../iam/operations/iam-token/create-for-federation.md).
@@ -37,7 +37,7 @@ description: "Для выполнения операций через API в м�
 
 {% list tabs %}
 
-- gRPC API
+- gRPC
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -85,7 +85,7 @@ description: "Для выполнения операций через API в м�
   }
   ```
 
-- REST API
+- REST
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"

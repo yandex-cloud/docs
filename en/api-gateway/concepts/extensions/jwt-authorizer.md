@@ -37,7 +37,7 @@ The `IdentitySource` object may contain the following parameters:
 | `RSASSA-PKCS1-v1_5` and `SHA-512` | `RS512` |
 | `ECDSA` with `P-256` and `SHA-256` functions | `ES256` |
 | `ECDSA` with `P-384` and `SHA-384` functions | `ES384` |
-| `ECDSA` with `P-512` and `SHA-512` functions | `ES512` |
+| `ECDSA` with `P-521` and `SHA-512` functions | `ES512` |
 
 ## API call authorization algorithm {#authorizing-alg}
 

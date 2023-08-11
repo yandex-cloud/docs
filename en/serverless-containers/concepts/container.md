@@ -33,6 +33,11 @@ A _provisioned instance_ is a container instance that, when started, is guarante
 
 If the number of container invocations exceeds the number of provisioned instances, {{ serverless-containers-name }} scales the container within the [quotas](limits.md#functions-quotas), but unprovisioned instances have a cold start when they are first started.
 
+Provisioned instances count towards the following [quotas](limits.md) even when they are not running:
+* Number of container instances per availability zone.
+* Total RAM for all running container instances per availability zone.
+* Number of provisioned container instances per cloud.
+
 #### See also
 
 * [Creating a container revision.](../operations/manage-revision.md#create)

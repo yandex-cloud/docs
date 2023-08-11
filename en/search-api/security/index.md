@@ -14,6 +14,8 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
+{% include [roles-search-api](../../_includes/roles-search-api-executor.md) %}
+
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

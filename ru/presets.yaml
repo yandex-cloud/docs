@@ -639,6 +639,7 @@ default:
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
   link-pci-dss-ru: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
+  link-calc: https://cloud.yandex.ru/prices#calculator
   link-cloud-oauth: >-
     https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
@@ -835,6 +836,7 @@ default:
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
+  api-host-iot-data: iot-data.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -6234,6 +6236,7 @@ default:
               value_sg-rule-sg-type-self: Текущая
               value_tcp: TCP
               value_udp: UDP
+            label_destination-type-cidr: CIDR
             label_egress: Исходящий трафик
             label_ingress: Входящий трафик
           switch_overview: Обзор

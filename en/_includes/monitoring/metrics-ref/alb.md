@@ -28,7 +28,7 @@ HTTP metrics:
 | Metric name<br>Type, units of measurement | Description<br>Labels |
 | --- | --- |
 | `load_balancer.scaling.active_connections`<br>`DGAUGE`, pieces | Number of active connections. |
-| `load_balancer.scaling.bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data handled per second. |
+| `load_balancer.scaling.bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data processed per second. |
 | `load_balancer.scaling.connections_per_second`<br>`DGAUGE`, connections/s | Number of connections per second. |
 | `load_balancer.scaling.http_received_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data received per second. |
 | `load_balancer.scaling.http_transmitted_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data transmitted per second. |

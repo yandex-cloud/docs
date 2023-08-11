@@ -160,8 +160,11 @@ filter | <p>Filter support is not currently implemented. Any filters are ignored
               "string"
             ]
           }
-        ]
-      }
+        ],
+        "placementGroupPartition": "string"
+      },
+      "hostGroupId": "string",
+      "hostId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -258,4 +261,7 @@ instances[].<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+instances[].<br>placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
+instances[].<br>hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
+instances[].<br>hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

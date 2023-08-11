@@ -112,9 +112,9 @@ image.<br>args.<br>args[] | **string**<br><p>Arguments that will override CMD of
 image.<br>environment | **object**<br><p>Additional environment for the container.</p> <p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 image.<br>workingDir | **string**<br><p>Override for the image's WORKDIR.</p> 
 resources | **object**<br><p>Resources allocated to the revision.</p> <p>Resources allocated to a revision.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the revision, specified in bytes.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
-resources.<br>cores | **string** (int64)<br><p>Number of cores available to the revision.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
-resources.<br>coreFraction | **string** (int64)<br><p>Specifies baseline performance for a core in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the revision, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
+resources.<br>cores | **string** (int64)<br><p>Number of cores available to the revision.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
+resources.<br>coreFraction | **string** (int64)<br><p>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores &gt; 1.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 executionTimeout | **string**<br><p>Timeout for the execution of the revision.</p> <p>If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.</p> 
 concurrency | **string** (int64)<br><p>The number of concurrent requests allowed per container instance.</p> 
 serviceAccountId | **string**<br><p>ID of the service account associated with the revision.</p> 

@@ -63,6 +63,8 @@ items:
         href: hybrid-speechkit/index.md
       - name: System requirements
         href: hybrid-speechkit/system-requirements.md
+      - name: '{{ sk-hybrid-name }} documentation'
+        href: ../speechkit-hybrid/
   - name: API Reference
     items:
       - name: Authentication in the API

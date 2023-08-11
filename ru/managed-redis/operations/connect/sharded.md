@@ -48,6 +48,8 @@
 
 {% endlist %}
 
+{% include [How to connect from a Dockerfile](../../../_includes/mdb/mrd/connect/docker-and-redis.md) %}
+
 ## Примеры строк подключения {#connection-string}
 
 {% include [Environment settings](../../../_includes/mdb/mdb-conn-strings-env.md) %}
