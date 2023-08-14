@@ -39,9 +39,9 @@ Content-Type: multipart/form-data
     ```
 
 
-- **X-Org-ID**
+- **X-Org-ID** или **X-Cloud-Org-ID**
 
-    Идентификатор организации.
+    Идентификатор организации. Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`.
 
 
 - **Content-Type**

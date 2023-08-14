@@ -44,7 +44,7 @@
 
         1. Выберите способ передачи данных: **{{ ui-key.yacloud.load-testing.label_local-source }}**.
         1. Нажмите **Прикрепить файл** и загрузите файл с тестовыми данными с вашего компьютера.
-        1. Включите опцию **{{ ui-key.yacloud.load-testing.label_save-source }}**.
+        1. Включите опцию **Сохранить в {{ objstorage-name }}**.
         1. Выберите или [создайте](../../storage/operations/buckets/create.md) бакет, в который хотите сохранить данные.
 
 1. В зависимости от выбранного способа настройки задайте параметры в блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}**:

@@ -16,7 +16,7 @@ The amount of the guaranteed discount depends on the amount of service resources
 
 You can view the available offers and purchase a CVoS in the management console under **{{ ui-key.yacloud.billing.account.switch_offers }}**.
 
-When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the following on your own:
+When [purchasing a CVoS](../operations/purchase-cvos.md), you yourself should choose the following:
 * Validity period: 6 months or 1 year.
 * Start date: The next calendar day or desired date.
 

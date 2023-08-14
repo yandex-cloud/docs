@@ -10,6 +10,10 @@ description: "Следуя данной инструкции вы сможете
 
 - Консоль управления
 
+  
+  @[youtube](https://www.youtube.com/watch?v=XQuExHP1rCI&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=1&pp=iAQB)
+
+
   {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
 
 - CLI

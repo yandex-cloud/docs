@@ -15,11 +15,12 @@ sourcePath: ru/tracker/api-ref/concepts/access.md
 
   `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе помощи [IAM-токена](#iam-token).
 
-* `ID: <идентификатор организации>`
-  * `X-Org-Id` — идентификатор организации {{ yandex-360 }}, привязанной к {{ tracker-name }}.
-  * `X-Cloud-Org-Id` — идентификатор организации {{ yandex-cloud }}, привязанной к {{ tracker-name }}.
- 
-   Скопировать идентификатор организации можно на [странице источников организаций {{ tracker-name }}]({{ link-tracker }}admin/orgs).
+* `X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>`
+
+   Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`.
+
+  
+   Скопировать идентификатор организации можно на [странице организаций {{ tracker-name }}]({{ link-tracker }}admin/orgs).
     
 
 ## Получить доступ к API по протоколу OAuth 2.0 {#section_about_OAuth}

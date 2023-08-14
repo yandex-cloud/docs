@@ -35,6 +35,7 @@ Access can only be granted to a user whose billing account has a cloud linked in
   * `billing.accounts.viewer` is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, and export reconciliation reports and reporting documents.
   * `billing.accounts.editor` is assigned for a billing account. It enables you to get payment invoices, activate promo codes, link clouds and services to your billing account, create details export and budgets, generate reconciliation reports, and reserve resources. This role includes the `billing.accounts.viewer` role.
   * `billing.accounts.admin` is assigned for a billing account. It enables you to manage billing account access permissions (except for the `billing.accounts.owner` role). It includes the `billing.accounts.editor` role.
+  * `billing.accounts.varWithoutDiscounts` is assigned for a billing account. This role grants partner accounts all administrator privileges, except the permission to get information about discounts. This role includes the `billing.partners.editor` role.
   * `billing.partners.editor` is assigned for a billing account. It grants permission to edit information about a partner and their products in the partner product catalog.
 
 - Primitive roles

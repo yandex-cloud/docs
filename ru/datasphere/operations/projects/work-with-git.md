@@ -1,6 +1,6 @@
 # Работа с Git
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

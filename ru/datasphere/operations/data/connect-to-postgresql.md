@@ -2,7 +2,7 @@
 
 В инфраструктуре {{ yandex-cloud }} разворачивать и поддерживать кластеры серверов [{{ PG }}](https://www.postgresql.org/) позволяет сервис {{ mpg-short-name }}.
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 1. [Создайте](../../../managed-postgresql/operations/cluster-create.md) новый кластер {{ mpg-short-name }} с публичным доступом для хоста. Вы можете использовать существующий кластер, содержащий хосты в публичном доступе.
 1. [Настройте](../../../managed-postgresql/operations/connect.md#configuring-security-groups) группы безопасности кластера.

@@ -1,8 +1,8 @@
 # {{ CH }} versioning policy
 
-{{ CH }} has a frequent release policy. In {{ mch-name }}, a limited set of {{ CH }} versions are available, which is continually updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes obsolete, it gets updated.
+{{ CH }} uses the frequent release policy. In {{ mch-name }}, a limited set of {{ CH }} versions are available, which is continually updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes obsolete, it gets updated.
 
-Updating to current versions allows you to get new functionality, patches, and security fixes, which improves the overall stability of the cluster.
+Updating to current versions allows you to get new features, patches, and security fixes, which improves the overall stability of the cluster.
 
 
 Each {{ CH }} version supported by {{ mch-name }} undergoes comprehensive testing.
@@ -13,13 +13,13 @@ After updating to a new supported version of {{ CH }}, your data remains safe an
 ## Version support policy for {#versioning-policy}
 
 {{ mch-name }} uses two types of {{ CH }} versions:
-- **LTS** (versions with extended support period, Long-Term Support).
+- **LTS** (Long-Term Support).
 
-   The LTS version support period is 1 year, with new versions released every 6 months.
+   The LTS version support period is 12 months, with new versions released every 6 months.
 
    Two LTS versions are supported: the current one and the previous one.
 
-   When a new LTS version is released in {{ mch-name }}, the oldest available LTS version stops being supported.
+   When a new LTS version is released in {{ mch-name }}, the oldest available one stops being supported.
 
 - **Interim**.
 
@@ -31,7 +31,7 @@ You can manually [change the cluster version](../operations/cluster-version-upda
 
 {% note warning %}
 
-* You can't create new hosts in clusters on a deprecated version of {{ CH }}.
+* You cannot create new hosts in clusters on a deprecated version of {{ CH }}.
 * Clusters on a deprecated version of {{ CH }} are automatically updated according to the [update policy](#update-policy).
 
 {% endnote %}
@@ -49,7 +49,7 @@ You can manually [change the cluster version](../operations/cluster-version-upda
 
    {% note warning %}
 
-   Notifications about the scheduled update of clusters using a deprecated LTS version are sent to users **2 months** and **1 week** before the update.
+   Notifications about the scheduled update of clusters using a deprecated LTS version are sent to users **two months** and **one week** before the update.
 
    {% endnote %}
 
@@ -61,8 +61,8 @@ You can manually [change the cluster version](../operations/cluster-version-upda
 
    {% note warning %}
 
-   * Notifications about the scheduled update of clusters using a deprecated interim version are sent to users **1 week** before the update.
-   * If you upgrade to the LTS version, the corresponding update policy is applied to the cluster.
+   * Notifications about the scheduled update of clusters using a deprecated interim version are sent to users **one week** before the update.
+   * If you upgrade to the LTS version, the appropriate update policy will apply to the cluster.
 
    {% endnote %}
 

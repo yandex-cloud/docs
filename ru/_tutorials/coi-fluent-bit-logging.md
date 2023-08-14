@@ -6,7 +6,7 @@
 1. [Настройте Fluent Bit](#fluent-bit).
 1. [Создайте виртуальную машину из образа {{ coi }}](#create-vm).
 
-## Перед началом работы
+## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с ролями `logging.writer` и `container-registry.images.puller` на каталог.
 1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.

@@ -35,6 +35,10 @@
 
 - Консоль управления
 
+  
+  @[youtube](https://www.youtube.com/watch?v=M_RXJfOoEFE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=4&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
     1. Выберите сервис **{{ mch-name }}**.
   1. Нажмите кнопку **Создать кластер**.

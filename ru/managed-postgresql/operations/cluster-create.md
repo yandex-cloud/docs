@@ -20,6 +20,10 @@
 
 - Консоль управления
 
+  
+  @[youtube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер БД.
   1. Выберите сервис **{{ mpg-name }}**.
   1. Нажмите кнопку **Создать кластер**.

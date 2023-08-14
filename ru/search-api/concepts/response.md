@@ -34,7 +34,7 @@
 </request>
 <response date="20120928T103130">
    <error code="15">Искомая комбинация слов нигде не встречается</error>
-   <reqid>1348828873568466-1289158387737177180255457-3-011-XML</reqid>   
+   <reqid>1348828873568466-1289158387737177180255457-3-011-XML</reqid>
    <found priority="phrase">206775197</found>
    <found priority="strict">206775197</found>
    <found priority="all">206775197</found>
@@ -48,7 +48,7 @@
       <rule>Misspell</rule>
       <source-text><hlword>yn</hlword>dex</source-text>
       <text-to-show>yandex</text-to-show>
-      <text>yandex</text> 
+      <text>yandex</text>
    </reask>
    <results>
       <grouping attr="d" mode="deep" groups-on-page="10" docs-in-group="3" curcateg="-1">

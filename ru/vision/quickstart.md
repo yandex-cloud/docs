@@ -2,7 +2,7 @@
 
 Этот раздел описывает, как начать использовать {{ vision-short-name }} API для анализа изображений.
 
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [curl](../_includes/curl.md) %}
 

@@ -68,7 +68,7 @@ To recognize text in your document, use the `model` parameter of the `text_detec
 
 ## Example {#example}
 
-### Request to recognize the main double page spread of a passport {#example-query}
+### Recognition request {#example-query}
 
 `body.json` file:
 
@@ -97,7 +97,7 @@ Where:
 
 ### Response to a request {#example-answer}
 
-For the `passport`, `driver-license-front`, and `driver-license-back` models, an `entities` array is added in the response.
+For the `passport`, `driver-license-front`, `driver-license-back`, `vehicle-registration-front`, and `vehicle-registration-back` models, an `entities` array is added in the response.
 
 For the `license-plates` model, the response doesn't contain an `entities` array. This model recognizes all the license plate numbers in the image and doesn't recognize any other text. In this case, the completeness and accuracy that license plate numbers are recognized for this model are much higher than for the general OCR model. The recognition results are shown in the [standard text_detection response](../ocr/index.md#response).
 
@@ -107,7 +107,7 @@ The `license-plates` model doesn't support [automatic language detection](../../
 
 {% endnote %}
 
-Example of the `entities` array returned in the service response:
+Example of the `entities` array returned in the service response for the `passport` model:
 
 ```json
 {         "entities": [
@@ -187,6 +187,25 @@ List of fields in the `entities` array:
    * `issue_date`: Date of issue.
    * `expiration_date`: Date of expiration.
    * `prev_number`: Driver's previous license number.
+* `vehicle-registration-front`
+   * `stsfront_car_number`: License plate number.
+   * `stsfront_vin_number`: Vehicle identification number (VIN).
+   * `stsfront_car_brand`: Vehicle brand.
+   * `stsfront_car_model`: Vehicle model.
+   * `stsfront_car_year`: Vehicle manufacture year.
+   * `stsfront_car_chassis_number`: Chassis number.
+   * `stsfront_car_trailer_number`: Vehicle body, compartment, or trailer number.
+   * `stsfront_car_color`: Vehicle color.
+   * `stsfront_sts_number`: Vehicle registration certificate (VRC) number.
+* `vehicle-registration-back`
+   * `stsback_car_owner`: Vehicle owner's full name or legal entity name.
+   * `stsback_sts_number`: Vehicle registration certificate (VRC) number.
+
+{% note info %}
+
+If the [recognition confidence](./index.md#confidence) is low, some fields may be missing from recognition results.
+
+{% endnote %}
 
 #### What's next {#what-is-next}
 

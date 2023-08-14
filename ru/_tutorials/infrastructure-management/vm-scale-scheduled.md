@@ -404,7 +404,7 @@
   1. Справа сверху нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item-form.field_name }}** укажите `vm-scale-scheduled-function`.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
-  1. Выберите среду выполнения **{{ ui-key.yacloud.serverless-functions.item.editor.label_lang-bash }}**.
+  1. Выберите среду выполнения **Bash**.
   1. Включите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите файл `handler.sh`.

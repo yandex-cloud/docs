@@ -36,7 +36,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
 
       {% include [translate-file](../translate/translate-file.md) %}
 
-      Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+      Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
 
       The response from the service will contain translated text:
       ```json
@@ -101,6 +101,8 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
    Create a file with the request body (for example, `body.php`).
 
    ```php
+   <?php
+
    $IAM_TOKEN = '<IAM token>';
    $folder_id = '<Folder ID>';
    $target_language = 'ru';
@@ -134,6 +136,8 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
    curl_close($curl);
 
    var_dump($result);
+
+   ?>
    ```
 
    Where:

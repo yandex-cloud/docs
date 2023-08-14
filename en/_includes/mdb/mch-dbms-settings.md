@@ -61,7 +61,7 @@
 
    You can add multiple compression rules. {{ CH }} will check **Min part size** and **Min part size ratio** and apply the rules to tables that meet both conditions. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the [LZ4](https://lz4.github.io/lz4/) compression method.
 
-   For more information, see the [documentation for {{ CH }}]({{ ch.docs }}/operations/settings/settings).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings).
 
 * **Default database**{#setting-default-database} {{ tag-con }} {{ tag-api }}
 

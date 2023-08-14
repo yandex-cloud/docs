@@ -32,12 +32,6 @@ Once created, the {{ brand-voice-premium-name }} voice can be enhanced by vari
 
 If you have pre-recorded audios for training the model, you can create a {{ brand-voice-core-name }} voice based on them. With a voice like this, you can easily convert texts of any length into spoken language and synthesize speech using patterns. Based on such a voice, you can create voice assistants or robots for your call center.
 
-{% note warning %}
-
-The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-core-name }} voice, you are in charge of the entire process of training data preparation.
-
-{% endnote %}
-
 You can add diverse emotions to your {{ brand-voice-core-name }} voice using [pattern-based synthesis](../templates.md). In pattern-based synthesis, intonations are copied from your audio recordings.
 
 {% note info %}
@@ -45,6 +39,10 @@ You can add diverse emotions to your {{ brand-voice-core-name }} voice using [pa
 When using pattern-based synthesis with {{ brand-voice-full-name }} voices, make sure your patterns are recorded by the same artist who made recordings for your {{ brand-voice-full-name }} voice.
 
 {% endnote %}
+
+The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-core-name }} voice, you are in charge of the entire process of training data preparation.
+
+For more information about training, see [{#T}](bv-full-data-upload.md).
 
 ## {{ brand-voice-cc-name }} {#cc}
 
@@ -76,3 +74,4 @@ By default, {{ brand-voice-cc-name }} logs your transmitted patterns (both text 
 * [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
+

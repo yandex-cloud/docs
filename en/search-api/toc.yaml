@@ -14,8 +14,6 @@ items:
         href: operations/test-request.md
       - name: Authentication in the API
         href: operations/auth.md
-      - name: Request for limits for the next day
-        href: operations/request-limits.md
   - name: Concepts
     items:
       - name: About {{ search-api-name }}

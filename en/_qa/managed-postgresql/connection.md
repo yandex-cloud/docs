@@ -71,3 +71,13 @@ To learn how to update the {{ PG }} settings at the user level, see our [documen
 #### Why does an error occur when trying to connect to a database from {{ google-looker }}? {#google-looker}
 
 To connect from {{ google-looker }}, be sure to generate a client certificate file and a private key and specify them in the connection settings. For more information about how to do this, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).
+
+#### Why does a connection fail? {#connection-error}
+
+A {{ mpg-name }} cluster connection may be terminated with the following message:
+
+```text
+FATAL: terminating connection due to administrator command
+```
+
+This message does not indicate an error, it means that the session/transaction duration has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) setting value (default value: 12 hours).

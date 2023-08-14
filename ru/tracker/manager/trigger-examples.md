@@ -468,8 +468,8 @@
     >}
     >```
     Подробнее о запросе: [{#T}](../concepts/issues/create-issue.md), [{#T}](../concepts/issues/link-issue.md). ||
-    || Заголовки | Заголовок: `X-Org-ID`.
-    Значение: Идентификатор организации. Идентификатор указан в поле **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}** на странице [настроек {{ tracker-name }}]({{ link-settings }}). ||
+    || Заголовки | Заголовок: `X-Org-ID` или `X-Cloud-Org-ID`.
+    Значение: Идентификатор организации. Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`. Идентификатор указан в поле **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}** на странице [настроек {{ tracker-name }}]({{ link-settings }}). ||
     |#
 
     {% note info %}

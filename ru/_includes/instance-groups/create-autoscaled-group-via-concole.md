@@ -60,7 +60,7 @@
      * [{{ ui-key.yacloud.compute.groups.create.metric-type-cpu }}](../../compute/concepts/instance-groups/scale.md#cpu-utilization) — укажите средний уровень загрузки CPU, который должен поддерживать {{ ig-name }}.
      * [{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}](../../compute/concepts/instance-groups/scale.md#custom-metrics) — укажите имя пользовательской метрики и целевое значение, которое должен поддерживать {{ ig-name }}.
 1. При необходимости активируйте опцию **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
-   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите протокол проверок состояния: `{{ ui-key.yacloud.ylb.health-check.label_http }}` или `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите протокол проверок состояния: `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
    * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** (для типа HTTP) укажите URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.
    * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** укажите номер порта от 1 до 32767, на который {{ ig-name }} будет отправлять запросы проверки.
    * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** укажите время ожидания ответа от 1 до 60 секунд.

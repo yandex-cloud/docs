@@ -1,15 +1,15 @@
-# {{ mch-name }} host classes before June 1, 2020
+# {{ mch-name }} host classes prior to June 1, 2020
 
-The host class in {{ mch-name }} determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+A host class in {{ mch-name }} determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
-The available storage does not depend on the host class. For storage limitations, see [Quotas and limits](../limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](../limits.md).
 
 
 ## Available host classes {#available-flavors}
 
 
-Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../../compute/concepts/vm-platforms.md).
+Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../../compute/concepts/vm-platforms.md) for a detailed description.
 The full list of possible host configurations on each platform is provided below.
 
 {% include [instance-types-code](../../../_includes/mdb/instance-types-code-deprecated-m1.md) %}

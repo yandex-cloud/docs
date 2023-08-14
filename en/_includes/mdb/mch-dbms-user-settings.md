@@ -125,13 +125,13 @@
 
    Connection timeout in milliseconds.
 
-   Minimum value is `1`. Default value is `10000` (10 seconds).
+   The minimum value is `1`, while the default one is `10000` (10 seconds).
 
 * **Connect timeout with failover**{#setting-connect-timeout-with-failover} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    Remote server connect timeout (ms) for `Distributed` table engines if a cluster uses sharding and replication.
 
-   If unable to connect to the server, attempts are made to connect to its replicas.
+   If unable to connect to the server, the system will attempt to connect to its replicas.
 
    The default value is `50`.
 
@@ -165,7 +165,7 @@
    * `iso`: ISO format.
    * `unix_timestamp`: Unix format.
 
-   Defaults to `simple`.
+   The default value is `simple`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-date_time_output_format).
 
@@ -197,12 +197,12 @@
 
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
 
-   Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query isn't executed on all hosts, a response contains the timeout error and the query is run in asynchronous mode. Possible values:
-   * A positive integer: The timeout is equal to this integer (in seconds).
+   Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query is not run on all hosts, the response will contain the timeout error and the query will be run in asynchronous mode. Possible values:
+   * Positive integer: Timeout is equal to this integer (in seconds).
    * `0`: Asynchronous mode.
-   * A negative number: Infinite timeout.
+   * Negative number: Infinite timeout.
 
-   By default, `180`.
+   The default value is `180`.
 
 * **Distributed product mode**{#setting-distributed-product-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -253,8 +253,8 @@
 
    Possible values:
 
-   * `0`: A nested column is converted into an array of tuples.
-   * `1`: A nested column is converted into individual arrays.
+   * `0`: Nested column is converted into an array of tuples.
+   * `1`: Nested column is converted into individual arrays.
 
    The default value is `1`.
 
@@ -262,7 +262,7 @@
 
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Disables queries if you can't use an index by date. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
+   Disables queries if you cannot use an index by date. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
 
    By default, this setting is disabled, which means query execution is enabled.
 
@@ -270,7 +270,7 @@
 
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Disables queries if you can't use an index by primary key. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
+   Disables queries if you cannot use an index by primary key. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
 
    By default, this setting is disabled, which means query execution is enabled.
 
@@ -278,7 +278,7 @@
 
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
-   Sets a regular expression in [re2 format](https://github.com/google/re2/wiki/Syntax) to be applied to each row of imported data. The number of subtemplates (parenthetical groups) in the expression must be equal to the number of columns in the table the data is imported to. Use the `\n` or `\r\n` line break characters as delimiters, line breaks can't be escaped. If a row doesn't match the regular expression, it's skipped.
+   Sets a regular expression in [re2 format](https://github.com/google/re2/wiki/Syntax) to be applied to each row of imported data. The number of subtemplates (parenthetical groups) in the expression must be equal to the number of columns in the table the data is imported to. Use the `\n` or `\r\n` line break characters as delimiters; line breaks cannot be escaped. If a row does not match the regular expression, it is skipped.
 
    No value is set by default.
 
@@ -292,11 +292,11 @@
    * `Raw`
    * `XML`
 
-   Defaults to `Raw` (no escaping).
+   The default value is `Raw` (no escaping).
 
 * **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} {{ tag-con }} {{ tag-sql }}
 
-   Outputs an error message if a row in imported data can't be split by the template specified in the [Format regexp](#setting-format-regexp) setting.
+   Outputs an error message if a row in imported data cannot be split by the template specified in the [Format regexp](#setting-format-regexp) setting.
 
    By default, no message is output (`0`).
 
@@ -355,7 +355,7 @@
 
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
-   Defines if `NULL` cells should be filled in with the default values if the cell data type doesn't allow storing `NULL`.
+   Defines if `NULL` cells should be filled in with the default values if the cell data type does not allow storing `NULL`.
 
    Enabled by default (`NULL` cells are filled in with the defaults).
 
@@ -387,7 +387,7 @@
 
    Possible values:
 
-   * `0`: Inserting `NULL` in a column that doesn't allow `NULL` will throw an exception.
+   * `0`: Inserting `NULL` in a column that does not allow `NULL` will throw an exception.
    * `1`: The default column value is inserted instead of `NULL`.
 
    The default value is `1`.
@@ -546,7 +546,7 @@
 
    Data accumulated during the `GROUP BY` aggregation are stored in RAM for a certain period of time. This parameter sets a threshold (in bytes) which, when exceeded, will cause data to be flushed to disk to save RAM.
 
-   It is useful if queries fail because there isn't enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
+   It is useful if queries fail because there is not enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
 
    Minimum value is `0` (`GROUP BY` in external memory disabled). Default is `0`.
 
@@ -606,7 +606,7 @@
 
    The maximum number of concurrently processed user queries to a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table.
 
-   The minimum value is `0` (no limit), defaults to `450`.
+   The minimum value is `0` (no limit), while the default one is `450`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max-concurrent-queries-for-user).
 
@@ -656,7 +656,7 @@
 
    The maximum amount of RAM (in bytes) to execute a query on a single server. This setting does not account for the amount of free memory or the total amount of a machine's memory. It applies to a single query on a single server.
 
-   Minimum value is `0` (no limit). Default is `10737418240` (10 GB). The maximum value is limited to the Max server memory usage setting value, which can't be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md).
+   Minimum value is `0` (no limit). Default is `10737418240` (10 GB). The maximum value is limited to the Max server memory usage setting value, which cannot be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md).
 
    If you are using [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort), we recommend setting their values to half of Max memory usage.
 
@@ -686,7 +686,7 @@
 
    Limits the maximum number of partitions per insert block.
 
-   The minimum value is `0` (no limit), defaults to `100`.
+   The minimum value is `0` (no limit), while the default one is `100`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity/#max-partitions-per-insert-block).
 
@@ -788,7 +788,7 @@
 
 * **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-   The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability doesn't depend on the size of memory allocated/released.
+   The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability does not depend on the size of the allocated or released memory.
 
    Possible values are from `0` to `1`. The default value is `0`.
 
@@ -796,7 +796,7 @@
 
    Memory profiler step in bytes. If, at the next query execution step, memory usage increases by the number of bytes specified in this setting, the profiler saves the allocated stack trace. A value less than several MB slows down query processing.
 
-   Defaults to `4194304` (4 MB). If `0`, the memory profiler is disabled.
+   The default value is `4194304` (4 MB). If `0`, the memory profiler is disabled.
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -830,7 +830,7 @@
 
    The amount of data (in bytes) required for direct reading (Direct I/O) from disk.
 
-   By default, {{ CH }} doesn't read data directly from a disk, relying on the filesystem and its cache instead. This reading strategy is effective for small amounts of data. If a reading operation involves large amounts of data, it is more efficient to read the data directly from the disk and bypassing the filesystem cache.
+   By default, {{ CH }} does not read data directly from a disk, relying on the file system and its cache instead. This reading strategy is effective for small amounts of data. If a reading operation involves large amounts of data, it is more efficient to read the data directly from the disk and bypassing the filesystem cache.
 
    If the total amount of data stored for reading is greater than the value of this parameter, {{ CH }} will fetch the data directly from the disk.
 
@@ -842,19 +842,19 @@
 
    Sets the minimum count of structurally identical queries to start [compilation](#setting-compile) from.
 
-   For a value of `0`, compilation is performed in synchronous mode: a query waits for compilation to finish then continues to run. It is recommended to set this value only for testing purposes.
+   For a value of `0`, compilation is performed in synchronous mode: a query waits for the compilation to finish, and then continues running. We recommend setting this value only for testing purposes.
 
-   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it's available, including by currently running queries.
+   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
-   Minimum value is `0`. Default is `3`.
+   The minimum value is `0`, while the default one is `3`.
 
 * **Min count to compile expression**{#setting-min-count-to-compile-expression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the minimum count of identical expressions to start [expression compilation](#setting-compile-expressions) with.
 
-   For a value of `0`, compilation is performed in synchronous mode: an expression waits for compilation to finish then query execution continues. It is recommended to set this value only for testing purposes.
+   For a value of `0`, compilation is performed in synchronous mode: an expression waits for the compilation to finish, after which the query continues running. We recommend setting this value only for testing purposes.
 
-   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it's available, including by currently running queries.
+   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
    Minimum value is `0`. Default is `3`.
 
@@ -898,7 +898,7 @@
 
 * **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Defines the format of numbers in the JSON output. If this setting is enabled, 64-bit integers (`UInt64` and `Int64`) are put in quotes when output in JSON to maintain compatibility with most JavaScript engines, otherwise quotes aren't used.
+   Defines the format of numbers in the JSON output. If this setting is enabled, 64-bit integers (`UInt64` and `Int64`) are put in quotes when output in JSON to maintain compatibility with most JavaScript engines; otherwise, no quotes are used.
 
    By default, using quotes around 64-bit integers is disabled.
 
@@ -913,7 +913,7 @@
 
    If {{ CH }} receives a query with a higher priority, execution of lower-priority queries is suspended until this incoming query is completed.
 
-   The minimum value is `0` (default).
+   The minimum and default value is `0`.
 
 * **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -941,7 +941,7 @@
    * `1`: Only read data queries are allowed.
    * `2`: Read data and edit settings queries are allowed.
 
-   This setting doesn't affect running DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting.
+   This setting does not affect running DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting.
 
    See the [example of creating a user with read-only access](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
 

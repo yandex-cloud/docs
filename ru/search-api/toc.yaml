@@ -14,8 +14,6 @@ items:
         href: operations/test-request.md
       - name: Аутентификация в API
         href: operations/auth.md
-      - name: Запрос лимитов на ближайшие сутки
-        href: operations/request-limits.md
   - name: Концепции
     items:
       - name: О сервисе {{ search-api-name }}

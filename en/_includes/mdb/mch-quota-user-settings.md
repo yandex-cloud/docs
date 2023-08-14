@@ -2,13 +2,13 @@
 
     Limits the total number of failed queries.
 
-    The minimum value is `0` (no limitations).
+    The minimum value is `0` (no limit).
 
 * **Execution time**{#setting-quota-execution-time} {{ tag-all }}
 
     Limits the total query execution time in milliseconds.
 
-    The minimum value is `0` (no limitations).
+    The minimum value is `0` (no limit).
 
 * **Interval duration**{#setting-quota-interval-duration} {{ tag-all }}
 
@@ -20,16 +20,16 @@
 
     Limits the total number of queries.
 
-    The minimum value is `0` (no limitations).
+    The minimum value is `0` (no limit).
 
 * **Read rows**{#setting-quota-read-rows} {{ tag-all }}
 
     Limits the total number of source rows read from tables for executing the query (including rows read from remote servers).
 
-    The minimum value is `0` (no limitations).
+    The minimum value is `0` (no limit).
 
 * **Result rows**{#setting-quota-result-rows} {{ tag-all }}
 
     Limits the total number of rows in query results.
 
-    The minimum value is `0` (no limitations).
+    The minimum value is `0` (no limit).

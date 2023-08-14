@@ -1,12 +1,12 @@
 ---
 title: "{{ datalens-full-name }}. Service overview"
-description: "{{ datalens-full-name }} is a business analytics service. Allows you to connect to various data sources, visualize data, create dashboards, and share your results. This article will help you understand the relationship between entities and the difference between a workbook and collection."
+description: "{{ datalens-full-name }} is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results. This article will help you understand the relationship between entities and the difference between a workbook and collection."
 ---
 
 
 # About
 
-{{ datalens-full-name }} is a business analytics service. allows you to connect to various data sources, visualize data, create dashboards, and share your results.
+{{ datalens-full-name }} is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results.
 With {{ datalens-full-name }}, you can track your product and business metrics directly from data sources to make data-based decisions.
 
 {% note warning %}
