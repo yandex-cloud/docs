@@ -373,7 +373,7 @@
      1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
      1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите группу ВМ `auto-group-tg` и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне укажите:
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}** — `tcp`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — `80`.
         * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

@@ -953,6 +953,7 @@
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
+
    The maximum size (in bytes) of the files of the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) stored on the master host during replication.
 
    The minimum value is `67108864` (64 MB). The maximum value is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size. The default value is `-1` (unlimited). The value must be a multiple of 1024.
@@ -1150,6 +1151,18 @@
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
 
+- **Session duration timeout**{#setting-session-duration-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+   The maximum TTL of the longest active session or transaction (in seconds). Only applies to sessions in the `active` and `idle in transaction` status.
+
+   To make sure the setting does not impact cluster performance, the longest transaction/session is checked on a regular basis. The interval between checks is selected randomly and ranges from 5 to 10 minutes. For example, if you set the setting to `1000`, a session will terminate within 1 second + 5-10 minutes.
+
+   If the value you set is larger than the default one, this may increase the DB size and slow down the OS.
+
+   The minimum value is `0` (active session/transaction TTL is unlimited). The maximum value is `2147483647`. The default value is `43200` (12 hours).
+
+   For more information about possible session statuses, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+
 - **Shared buffers**{#setting-shared-buffers} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
    The amount of memory (in bytes) that {{ PG }} can use for shared memory buffers.
@@ -1176,7 +1189,7 @@
 
    The maximum statement duration (in milliseconds) after which the command is aborted.
 
-   The minimum value is `0`, while the maximum one is `2147483647` (2 GB). The default value is `0`.
+   The minimum value is `0`, while the maximum one is `2147483647`. The default value is `0`.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 

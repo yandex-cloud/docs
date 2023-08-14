@@ -6,7 +6,10 @@
 
 - Консоль управления
 
-  Чтобы создать виртуальную машину:
+  
+  @[youtube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.

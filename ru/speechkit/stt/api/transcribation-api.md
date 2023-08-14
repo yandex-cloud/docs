@@ -1,6 +1,6 @@
 # API асинхронного распознавания
 
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 1. Запрос на распознавание необходимо отправлять от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) с ролью `{{ roles-speechkit-stt }}` на каталог, в котором он создан. Для доступа к бакету {{ objstorage-name }} понадобится роль `storage.uploader`.
 

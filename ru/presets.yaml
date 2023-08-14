@@ -3404,6 +3404,8 @@ default:
         blocks_integration-group:
           title-email: Почта
           title-wiki: Вики
+        blocks_need-auth:
+          login: Войти
         blocks_quiz-result:
           correct-answers: Посмотреть правильные ответы
         blocks_share:
@@ -4142,7 +4144,7 @@ default:
         my-settings: Персональные настройки
         new-issue: Создать задачу
       blocks-desktop_migration-button:
-        migrate-button: Миграция на новые технологии
+        migrate-button: Обновить доску
       blocks-desktop_onboarding-form:
         template-1: Скрам
       blocks-desktop_page-admin-tab_type_fields:
@@ -4860,7 +4862,10 @@ default:
         section_persons: Плательщики
     yacloud_components:
       settings:
+        field_theme: Тема интерфейса
         field_theme-contrast: Контрастность
+      usermenu:
+        label_login: Войти
     yacloud_monitoring:
       actions:
         common:
@@ -5121,6 +5126,7 @@ default:
         apply: Применить
         availability: Доступность
         button_cron-day: Каждый день
+        button_logout: Выйти
         clone: Клонировать
         continue: Продолжить
         create: Создать
@@ -5134,10 +5140,13 @@ default:
         import: Импортировать
         label_auto: Автоматически
         label_create-new_female: Создать новую
+        label_http: HTTP
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
         label_seconds_many: секунд
+        label_tcp: TCP
+        label_udp: UDP
         label_value: Значение
         labels: Метки
         logs: Логи
@@ -5224,9 +5233,6 @@ default:
           label_no-symmetric-key: Не выбрано
         table-input:
           popup_title: Добавить строку
-        user-account:
-          label_link-login: Войти
-          label_logout: Выйти
         vpc-security-group-select:
           label_add-security-group: Добавить группу безопасности
         vpc:
@@ -5531,8 +5537,6 @@ default:
         label_endpoint-type-YDB: YDB
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
-      datalens:
-        label_init: Активировать DataLens
       dataproc:
         jobs:
           field_main-python-file: Main python файл
@@ -5731,7 +5735,6 @@ default:
         label_local-source: С компьютера
         label_monitoring-report: Мониторинг
         label_rps: Запросов в секунду
-        label_save-source: Сохранить в Object Storage
         label_settings-type-config: Конфигурационный файл
         label_settings-type-form: Форма
         label_test-config: Конфигурация
@@ -6004,15 +6007,13 @@ default:
           editor:
             button_action-continue: Продолжить
             button_create: Создать версию
-            button_deploy-version: Создать версию
+            button_deploy-version: Сохранить изменения
             create-file: Создать файл
             field_entry: Точка входа
             field_environment-variables: Переменные окружения
             field_method: Способ
             field_resources-memory: Память
             field_timeout: Таймаут, c
-            label_lang-bash: Bash
-            label_lang-python: Python
             label_lockbox-secret: Секреты Yandex Lockbox
             label_title: Редактор
             label_title-params: Параметры
@@ -6020,9 +6021,8 @@ default:
             label_with-template: Добавить файлы с примерами кода
             value_method-editor: Редактор кода
             value_method-zip-file: ZIP-архив
-          logs:
-            button_editor-create: Создать в редакторе
           overview:
+            button_editor-create: Создать в редакторе
             label_latest-memory: Память
             label_latest-timeout: Таймаут
             label_title-environment-vars: Переменные окружения
@@ -6063,13 +6063,7 @@ default:
           list:
             button_create: Создать триггер
       settings:
-        appearance:
-          field_theme: Тема интерфейса
-        experiments:
-          label_title: Эксперименты
         label_settings: Настройки
-        lang:
-          label_title: Язык и регион
         switch_appearance: Оформление
         switch_experiments: Эксперименты
         switch_lang: Язык и регион
@@ -6265,8 +6259,6 @@ default:
           add-route-table:
             button_add: Привязать
             popup-route-table_field_route-table-id: Таблица маршрутизации
-          add-toute-table:
-            button_add: Привязать
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации
           button_action-egress-nat-enable: Включить NAT в интернет
@@ -6304,13 +6296,6 @@ default:
         overview:
           label_database: Размещение базы данных
           label_endpoint: Эндпоинт
-      ylb:
-        balancer:
-          add-listener:
-            value_UDP: UDP
-        health-check:
-          label_http: HTTP
-          label_tcp: TCP
       ymq:
         queue:
           overview:
@@ -7455,6 +7440,7 @@ default:
         template-name: Имя шаблона
       docker:
         build-path: Путь к образу внутри проекта
+        credentials-switcher-label: Данные для аутентификации в Docker Hub
         docker-template: Шаблон Docker-образа
         dockerfile: Файл Docker
         repository: Имя образа

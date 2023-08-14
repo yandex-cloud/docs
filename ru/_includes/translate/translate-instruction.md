@@ -1,4 +1,4 @@
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 {% include [curl](../curl.md) %}
 

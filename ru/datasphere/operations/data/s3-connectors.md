@@ -6,7 +6,7 @@
 
 {% include [fuse-disclaimer](../../../_includes/datasphere/fuse-disclaimer.md) %}
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 1. Получите ключ доступа у вашего S3-провайдера. Чтобы сделать это в [{{ objstorage-full-name }}](../../storage/):
   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).

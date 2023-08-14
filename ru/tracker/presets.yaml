@@ -4,7 +4,7 @@ default:
   api-short-name: Tracker API
   host: https://api.tracker.yandex.net
   ver: v2
-  org-id: 'X-Org-ID: <идентификатор организации>'
+  org-id: 'X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>'
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
   link-admin-fields: https://tracker.yandex.ru/admin/fields

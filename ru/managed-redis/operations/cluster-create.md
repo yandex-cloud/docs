@@ -17,6 +17,10 @@
 
 - Консоль управления
 
+  
+  @[youtube](https://www.youtube.com/watch?v=ZFTa9O-NR_U&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=7&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно создать кластер БД.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.

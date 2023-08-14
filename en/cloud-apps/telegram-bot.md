@@ -47,7 +47,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl \
         --request POST \
-        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo\
+        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
       ```
 
    - Windows (cmd)
@@ -55,7 +55,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl ^
         --request POST ^
-        --url "https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo\"
+        --url "https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo"
       ```
 
    - Windows (PowerShell)
@@ -63,7 +63,7 @@ Your Telegram bot's token will be displayed.
       ```powershell
       curl.exe `
         --request POST `
-        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo\
+        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
       ```
 
    {% endlist %}

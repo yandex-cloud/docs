@@ -4,7 +4,7 @@ In response to a search query, {{ search-api }} returns a UTF-8 encoded XML file
 
 {% note alert %}
 
-Up to 1,000 search results can be returned per search query. Depending on the [docs-in-group](post-request.md#post-docs-in-group) attribute value, each result may contain one to three documents. The maximum number of pages with search results depends on the number of groups of documents returned per page (the [groups-on-page](post-request.md#post-groups-on-page) attribute value). If the provided `groups-on-page` attribute is set to `10`, a maximum of 100 pages with search results can be generated.
+Up to 1,000 search results can be returned to each search query. Depending on the [docs-in-group](post-request.md#post-docs-in-group) attribute value, each result may contain one to three documents. The maximum number of pages with search results depends on the number of groups of documents returned per page (the [groups-on-page](post-request.md#post-groups-on-page) attribute value). If the provided `groups-on-page` attribute is set to `10`, a maximum of 100 pages with search results can be generated.
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ It is given for informative purposes only and contains mutually exclusive elemen
       <rule>Misspell</rule>
       <source-text><hlword>yn</hlword>dex</source-text>
       <text-to-show>yandex</text-to-show>
-      <text>yandex</text> 
+      <text>yandex</text>
    </reask>
    <results>
       <grouping attr="d" mode="deep" groups-on-page="10" docs-in-group="3" curcateg="-1">
@@ -207,7 +207,7 @@ Possible values:
 
 * `Misspell`: Typo.
 * `KeyboardLayout`: Incorrect keyboard layout.
-* `Volapyuk`: Query is made with Russian transliterated into English. Used if the <q>Russian (yandex.ru)</q> value is selected as the [search type](../operations/registration.md#search-type).
+* `Volapyuk`: Query is made in Russian and transliterated into English. Used if the <q>Russian (yandex.ru)</q> value is selected as the [search type](../operations/registration.md#search-type).
 | Missing.
 ||
 || source-text |
@@ -294,7 +294,7 @@ Each `group` tag contains information about the document group found.
 || doccount |
 An estimate of the number of documents used to create the group.
 
-Documents that may be included in the group are ranked based on the query criteria (the `sortby` parameter). Depending on the [docs-in-group](post-request.md#post-docs-in-group) parameter value, from one to three of the first documents are included in the group.
+Documents that qualify to be included into the group are ranked based on the query conditions (the `sortby` parameter). Depending on the [docs-in-group](post-request.md#post-docs-in-group) parameter value, from one to three of the first documents are included into the group.
 | Missing.
 ||
 || relevance | Service | `priority`: Service. ||
@@ -336,8 +336,8 @@ The tag is optional and may be missing in some cases.
 
 | Missing.
 ||
-|| size | Size of the found document in bytes | Missing. ||
-|| charset | Encoding of the found document | Missing. ||
+|| size | Size of the document found in bytes | Missing. ||
+|| charset | Encoding of the document found | Missing. ||
 || passages | Grouping tag with a list of document passages | Missing. ||
 || passage |
 Passage with a document annotation.

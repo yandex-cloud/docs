@@ -2,7 +2,7 @@
 
 Вы можете подключиться к сервису хранения файлов [Яндекс Диск](https://disk.yandex.ru) из интерфейса {{ ml-platform-name }}. Чтобы загрузить файл или каталог в {{ ml-platform-name }}, откройте к нему доступ по ссылке.
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

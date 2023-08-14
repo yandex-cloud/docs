@@ -59,7 +59,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 To use the service, you need the `{{ roles.mkf.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where a cluster is created. The `{{ roles.mkf.viewer }}` role only enables you to view the cluster list.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mkf.admin }}` instead of `{{ roles.mkf.editor` }}.
+You can always assign a role with more permissions. For instance, you can assign `{{ roles.mkf.admin }}` instead of `{{ roles.mkf.editor }}`.
 
 ## What's next {#whats-next}
 

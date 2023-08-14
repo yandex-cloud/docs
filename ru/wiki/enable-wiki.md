@@ -32,7 +32,7 @@
 
 1. Перейдите на главную страницу {{ wiki-name }}: [{{ link-wiki }}]({{ link-wiki }}).
 
-1. Примите условия использования {{ yandex-cloud }} и нажмите кнопку **{{ ui-key.yacloud.component.user-account.label_link-login }}**.
+1. Примите условия использования {{ yandex-cloud }} и нажмите кнопку **{{ ui-key.yacloud_components.usermenu.label_login }}**.
 
    Для вас будет автоматически создана новая организация и активирован сервис {{ wiki-full-name }}.
 

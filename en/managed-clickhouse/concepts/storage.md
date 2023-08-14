@@ -1,7 +1,7 @@
 # Disk types in {{ mch-name }}
 
 
-{{ mch-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
+{{ mch-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
@@ -9,7 +9,7 @@ If you enable the **Hybrid storage** setting when creating or updating a cluster
 
 ## Hybrid storage {#hybrid-storage-features}
 
-Hybrid storage provides fault tolerance for data storage and allows you to manage data placement for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables; the data is placed either in cluster or object storage depending on the storage policy set for the tables.
+Hybrid storage provides fault tolerance for data storage and allows you to manage data placement for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables, the data is placed either in cluster or object storage depending on the storage policy set for the tables.
 
 {% note warning %}
 
@@ -33,7 +33,7 @@ To start using hybrid storage:
       SETTINGS storage_policy = '<storage policy type>';
       ```
 
-   * To create or update the policy for an existing table, run the request:
+   * To create or update the policy for an existing table, run the following query:
 
       ```sql
       ALTER TABLE table_with_non_default_policy
@@ -46,7 +46,7 @@ See an example in the [Using hybrid storage](../tutorials/hybrid-storage.md) tut
 
 {% note info %}
 
-You can't create new storage policies or update existing ones.
+You cannot create new storage policies or update the existing ones.
 
 {% endnote %}
 
@@ -57,18 +57,18 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
    * [Hybrid storage settings](#hybrid-storage-settings).
    * Table [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time-to-live) settings.
 
-   If there's enough free space in cluster storage, only the rows with the expired TTL are moved to object storage. This operation allows some data to be moved to object storage before cluster storage becomes full.
+   If there is enough free space in the cluster storage, only the rows with the expired TTL are moved to object storage. This operation allows you to move part of the data to object storage before the cluster storage becomes full.
 
-   You can configure the moving of expired rows to object storage and set the TTL value when creating a table or later.
+   You can configure moving the expired rows to object storage and set the TTL value when creating a table or later.
 
-* `local`: In tables with this policy, rows are placed only in cluster storage. Data is not transferred between storages.
+* `local`: In tables with this policy, rows are placed only in cluster storage. There is no data transfer between storages.
 
-* `object storage`: In tables with this policy, rows are placed only in object storage. Data is not transferred between storages.
+* `object storage`: In tables with this policy, rows are placed only in object storage. There is no data transfer between storages.
 
-Storage policies don't affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks:
+Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks:
 
 * Merging data chunks in storage (the `prefer_not_to_merge` policy setting) is permitted.
-* Doesn't restrict the maximum size of the resulting data chunk (the `max_data_part_size_bytes` value setting), which you may get after merging smaller chunks.
+* This does not restrict the maximum size of the resulting data chunk (the `max_data_part_size_bytes` value setting), which you may get after merging smaller chunks.
 
 However, you can configure the behavior of these operations using the [ClickHouse settings](./settings-list.md) available in the cluster.
 
@@ -85,14 +85,14 @@ For more information about storage policies and their settings, see the [{{ CH }
 
 A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
-* `data_cache_enabled`: Lets you cache data requested from object storage in cluster storage. Defaults to `true` (enabled).
+* `data_cache_enabled`: Allows you to cache data requested from object storage in cluster storage. This setting is enabled by default (set to `true`).
 
    In this case, <q>cold</q> data requested from object storage is written to fast drives where data processing takes less time.
 
 * `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for data requested from object storage. The default value is `1073741824` (1 GB).
-* `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0` and the maximum value is `1`. Defaults to `0.01`.
+* `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0`, the maximum one is `1`, and the default one is `0.01`.
 
-   Data chunks to move are enqueued from the largest to the smallest value. Next, the amount of data chunks is moved that is equal to the value at which the `move_factor` condition is met.
+   Data chunks to move are enqueued from the largest to the smallest value. Next, the amount of data chunks that is equal to the value at which the `move_factor` condition is met, is moved.
 
 You can specify hybrid storage settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-hybrid-storage) a cluster.
 
@@ -107,7 +107,7 @@ The number of hosts that can be created along with a {{ CH }} cluster depends on
 
    This cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage impacts the cost of a cluster: it is charged even if not running. You can find more information in the [pricing policy](../pricing.md).
 
 * With non-replicated network SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 

@@ -16,6 +16,10 @@ editable: false
 
 Во время пробного периода техническая поддержка предоставляется в полном объеме. Подробнее читайте в разделе [Порядок оказания технической поддержки](../../../support/overview.md).
 
+## {{ billing-name }} {#billing}
+
+{% include [pin-cloud-trial](../../../billing/_includes/pin-cloud-trial.md) %}
+
 ## {{ marketplace-full-name }} {#marketplace}
 
 

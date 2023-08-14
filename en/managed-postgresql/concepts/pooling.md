@@ -41,9 +41,9 @@ Odyssey supports three modes of connection management:
 
 You can [change](../operations/update.md#change-pooler-config) the pooler mode once the cluster is created.
 
-{% note warning %}
+{% note info %}
 
-{{ mpg-name }} clusters have a connection time-to-live quota of 12 hours. To have it increased, contact [technical support](../../support/overview.md).
+TTL of the longest active session/transaction is set in the cluster-level [Session duration timeout](./settings-list.md#setting-session-duration-timeout) DB setting.
 
 {% endnote %}
 

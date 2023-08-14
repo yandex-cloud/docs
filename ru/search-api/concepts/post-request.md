@@ -89,14 +89,14 @@ https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh
 Тело запроса:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<request>   
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
 <query>%3Ctable%3E</query>
       <sortby>tm</sortby>
       <maxpassages>2</maxpassages>
-      <page>2</page> 
+      <page>2</page>
       <groupings>
-      <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" /> 
-</groupings>        
+      <groupby attr="d" mode="deep" groups-on-page="10" docs-in-group="3" />
+</groupings>
 </request>
 ```

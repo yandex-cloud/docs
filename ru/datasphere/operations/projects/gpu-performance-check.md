@@ -4,7 +4,7 @@
 
 Вы можете проверить работу, уровень загрузки и статистику потребления ресурсов GPU с помощью библиотеки [TensorFlow](https://www.tensorflow.org/) и утилиты `nvidia-smi`.
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 

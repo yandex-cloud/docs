@@ -6,9 +6,9 @@
 
 1. Установите параметры:
 
-     * **{{ ui-key.yacloud.settings.lang.label_title }}**. Язык интерфейса: русский или английский.
+     * **{{ ui-key.yacloud.settings.switch_lang }}**. Язык интерфейса: русский или английский.
      * **Внешний вид**:
-       * **{{ ui-key.yacloud.settings.appearance.field_theme }}**: светлая, темная или системная;
+       * **{{ ui-key.yacloud_components.settings.field_theme }}**: светлая, темная или системная;
        * **{{ ui-key.yacloud_components.settings.field_theme-contrast }}**: стандартная и высокая (beta).
      
 

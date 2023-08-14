@@ -244,7 +244,7 @@
 
 * В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: выберите `subnet3` из списка.
-  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.ylb.balancer.add-listener.value_UDP }}`.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`.
   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`.
 
@@ -255,12 +255,12 @@
     {% list tabs %}
 
     * CoreDNS
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.ylb.health-check.label_http }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`.
       * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`.
       * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`.
 
     * Unbound
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
       * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`.
 
     {% endlist %}

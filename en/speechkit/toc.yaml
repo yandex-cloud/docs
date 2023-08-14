@@ -54,9 +54,13 @@ items:
           - name: List of SSML supported phonemes
             href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
-        href: tts/brand-voice/index.md
-      - name: Pattern-based synthesis
-        href: tts/templates.md
+        items:
+          - name: Overview
+            href: tts/brand-voice/index.md
+          - name: Data for {{ brand-voice-core }}
+            href: tts/brand-voice/bv-full-data-upload.md
+          - name: Data for {{ brand-voice-cc-name }}
+            href: tts/templates.md
   - name: '{{ sk-hybrid-name }}'
     items:
       - name: About the technology

@@ -1,6 +1,26 @@
 # Подключиться к виртуальной машине Linux по SSH
 
-Рекомендуемый способ подключения к [ВМ](../../concepts/vm.md) по [SSH](../../../glossary/ssh-keygen.md) основан на использовании пары ключей: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя. Подключение с помощью пары ключей более безопасно, чем подключение по логину и паролю.
+Рекомендуемый способ подключения к [ВМ](../../concepts/vm.md) по [SSH](../../../glossary/ssh-keygen.md) основан на использовании пары ключей: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя. Чтобы другой пользователь мог подключится к ВМ, добавьте для него SSH-ключ по [инструкции](#vm-authorized-keys). Подключение с помощью пары ключей более безопасно, чем подключение по логину и паролю.
+
+
+Обучающее видео поможет вам подключиться к ВМ Linux по SSH:
+
+{% list tabs %}
+
+- Linux/macOS
+
+  @[youtube](https://www.youtube.com/watch?v=0Q4kivQo0g4&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=10&pp=iAQB)
+
+- Windows 10
+
+  @[youtube](https://www.youtube.com/watch?v=M7m75y80VFM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=11&pp=iAQB)
+
+- Windows 7/8
+
+  @[youtube](https://www.youtube.com/watch?v=rNA-bEbSHZ8&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=12&pp=iAQB)
+
+{% endlist %}
+
 
 ## Создание пары ключей SSH {#creating-ssh-keys}
 

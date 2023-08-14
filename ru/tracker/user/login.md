@@ -60,7 +60,7 @@
 
 1. На панели слева внизу нажмите на фото профиля.
 
-1. Напротив своего логина нажмите кнопку ![](../../_assets/tracker/svg/logout.svg) **{{ ui-key.yacloud.component.user-account.label_logout }}**.
+1. Напротив своего логина нажмите кнопку ![](../../_assets/tracker/svg/logout.svg) **{{ ui-key.yacloud.common.button_logout }}**.
 
 1. Выберите другого пользователя из списка или нажмите **Войти в другой аккаунт**. 
 	

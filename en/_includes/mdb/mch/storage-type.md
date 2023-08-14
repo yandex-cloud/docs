@@ -8,6 +8,6 @@ When creating a cluster, you can select the following disk types for data storag
 
 * **Local SSD storage** (`local-ssd`): Disks with the fastest performance.
 
-  The size of this kind of storage can be increased:
-    * For **Intel Broadwell** and **Intel Cascade Lake**: Only in increments of 100 GB.
-    * For **Intel Ice Lake**: Only in increments of {{ local-ssd-v3-step }}.
+   The size of such storage can be increased:
+   * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments only.
+   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.

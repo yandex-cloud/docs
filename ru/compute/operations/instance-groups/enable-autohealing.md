@@ -15,7 +15,7 @@
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.compute.groups.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** включите опцию **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}**.
   1. Задайте настройки проверок состояния:
-     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.ylb.health-check.label_http }}` или `{{ ui-key.yacloud.ylb.health-check.label_tcp }}`.
+     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** (для HTTP) — URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.
      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — порт из диапазона 1-32767, на который {{ ig-name }} будет отправлять запросы проверки.
 

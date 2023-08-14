@@ -2,7 +2,7 @@
 
 Для работы с проектом через API вам могут понадобиться идентификаторы ноутбуков и их ячеек.
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 

@@ -3398,6 +3398,8 @@ default:
         blocks_integration-group:
           title-email: Mail
           title-wiki: Wiki
+        blocks_need-auth:
+          login: Login
         blocks_quiz-result:
           correct-answers: See correct answers
         blocks_share:
@@ -4136,7 +4138,7 @@ default:
         my-settings: Personal settings
         new-issue: Create issue
       blocks-desktop_migration-button:
-        migrate-button: Switch to our new technologies
+        migrate-button: Update your board
       blocks-desktop_onboarding-form:
         template-1: Scrum
       blocks-desktop_page-admin-tab_type_fields:
@@ -4854,7 +4856,10 @@ default:
         section_persons: Payers
     yacloud_components:
       settings:
+        field_theme: Interface theme
         field_theme-contrast: Contrast
+      usermenu:
+        label_login: Log in
     yacloud_monitoring:
       actions:
         common:
@@ -5115,6 +5120,7 @@ default:
         apply: Apply
         availability: Availability
         button_cron-day: Every day
+        button_logout: Log out
         clone: Clone
         continue: Continue
         create: Create
@@ -5128,10 +5134,13 @@ default:
         import: Import
         label_auto: Auto
         label_create-new_female: Create new
+        label_http: HTTP
         label_https: HTTPS
         label_key: Key
         label_list: List
         label_seconds_many: seconds
+        label_tcp: TCP
+        label_udp: UDP
         label_value: Value
         labels: Labels
         logs: Logs
@@ -5218,9 +5227,6 @@ default:
           label_no-symmetric-key: Not selected
         table-input:
           popup_title: Add row
-        user-account:
-          label_link-login: Login
-          label_logout: Log out
         vpc-security-group-select:
           label_add-security-group: Add security group
         vpc:
@@ -5525,8 +5531,6 @@ default:
         label_endpoint-type-YDB: YDB
         label_endpoints: Endpoints
         label_monitoring: Monitoring
-      datalens:
-        label_init: Activate DataLens
       dataproc:
         jobs:
           field_main-python-file: Main python file
@@ -5725,7 +5729,6 @@ default:
         label_local-source: From computer
         label_monitoring-report: Monitoring
         label_rps: Responses per second
-        label_save-source: Save to Object Storage
         label_settings-type-config: Config
         label_settings-type-form: Form
         label_test-config: Config
@@ -5968,12 +5971,12 @@ default:
           section_auth: Authorization sources
         cluster:
           node-groups:
-            action_add-node-group: Add host group
-            action_add-virtual-node-group: Add virtual host group
-            action_create-node-group: Create host group
+            action_add-node-group: Add node group
+            action_add-virtual-node-group: Add virtual node group
+            action_create-node-group: Create node group
             action_delete: Delete
             title_node-groups: Node groups
-            title_virtual-node-group: Virtual host group
+            title_virtual-node-group: Virtual node group
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
@@ -5998,15 +6001,13 @@ default:
           editor:
             button_action-continue: Continue
             button_create: Create version
-            button_deploy-version: Create version
+            button_deploy-version: Save changes
             create-file: Create file
             field_entry: Entrypoint
             field_environment-variables: Environment variables
             field_method: Method
             field_resources-memory: Memory
             field_timeout: Timeout, sec
-            label_lang-bash: Bash
-            label_lang-python: Python
             label_lockbox-secret: Yandex Lockbox secrets
             label_title: Editor
             label_title-params: Parameters
@@ -6014,9 +6015,8 @@ default:
             label_with-template: Add files with code examples
             value_method-editor: Code editor
             value_method-zip-file: ZIP archive
-          logs:
-            button_editor-create: Create in editor
           overview:
+            button_editor-create: Сreate in editor
             label_latest-memory: Memory
             label_latest-timeout: Timeout
             label_title-environment-vars: Environment variables
@@ -6057,13 +6057,7 @@ default:
           list:
             button_create: Create trigger
       settings:
-        appearance:
-          field_theme: Interface theme
-        experiments:
-          label_title: Experiments
         label_settings: Settings
-        lang:
-          label_title: Language and region
         switch_appearance: Appearance
         switch_experiments: Experiments
         switch_lang: Language and region
@@ -6259,8 +6253,6 @@ default:
           add-route-table:
             button_add: Link
             popup-route-table_field_route-table-id: Route table
-          add-toute-table:
-            button_add: Link
         subnetworks:
           button_action-add-route-table: Link routing table
           button_action-egress-nat-enable: Enable egress NAT
@@ -6298,13 +6290,6 @@ default:
         overview:
           label_database: Database
           label_endpoint: Endpoint
-      ylb:
-        balancer:
-          add-listener:
-            value_UDP: UDP
-        health-check:
-          label_http: HTTP
-          label_tcp: TCP
       ymq:
         queue:
           overview:
@@ -7451,6 +7436,7 @@ default:
         template-name: Template name
       docker:
         build-path: Build path
+        credentials-switcher-label: Docker Hub authentication data
         docker-template: Docker template
         dockerfile: Docker file
         repository: Docker name

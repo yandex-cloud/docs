@@ -6,7 +6,7 @@
 
 ## Примеры {#examples}
 
-### Перед началом {#before-you-begin}
+### Перед началом работы {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 

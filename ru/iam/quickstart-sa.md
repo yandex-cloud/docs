@@ -10,7 +10,7 @@
 * [Выполнять операции в CLI](#run-operation-from-sa).
 * [Удалять сервисные аккаунты](#delete-sa).
 
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
