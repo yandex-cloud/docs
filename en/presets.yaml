@@ -4855,6 +4855,11 @@ default:
         section_person-type: Payer type
         section_persons: Payers
     yacloud_components:
+      acl:
+        action:
+          add-role: Add role
+        label:
+          title: Configuring access bindings
       settings:
         field_theme: Interface theme
         field_theme-contrast: Contrast
@@ -5156,7 +5161,9 @@ default:
         resource-acl:
           button_add-federation-user: Add federation user
           button_assign-binding: Edit roles
+          button_new-bindings: Assign bindings
           label_access-bindings: Access bindings
+          label_bindings: Roles
         save: Save
         section-base: General information
         select: Select
@@ -5174,6 +5181,9 @@ default:
       component:
         acl-dialog:
           label_select-placeholder: Select a user
+        acl:
+          update-dialog:
+            button_select-subject: Select subject
         compute:
           network-select:
             field_address: IP address
@@ -5246,6 +5256,7 @@ default:
           field_instance: VM
         disk-form:
           field_size: Size
+          field_type: Type
         disks:
           button_action-attach: Attach
           button_action-delete: Delete
@@ -5606,8 +5617,10 @@ default:
         folder:
           dashboard:
             button_add: Create resource
+            label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
             label_cdn: Cloud CDN
+            label_certificate-manager: Certificate Manager
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
@@ -5629,6 +5642,7 @@ default:
             label_managed-mongodb: Managed Service for MongoDB
             label_managed-mysql: Managed Service for MySQL
             label_managed-opensearch: Managed Service for OpenSearch
+            label_managed-postgresql: Managed Service for PostgreSQL
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
@@ -5641,6 +5655,7 @@ default:
             value_compute: Virtual machine instance
             value_data-proc: Data Proc cluster
             value_data-transfer: Data Transfer
+            value_serverless-functions: Function
             value_vpc: Network
           service-account:
             label_add-role: Add role
@@ -5819,6 +5834,7 @@ default:
             popup-button_save: Save
             popup-password_button_change: Edit
         clusters:
+          button_action-connect: Connect
           button_action-delete: Delete
           button_action-move: Move
           button_action-start: Start
@@ -5995,6 +6011,28 @@ default:
       serverless-functions:
         create:
           button_create: Create
+        gateways:
+          domains:
+            button_add: Attach
+          form:
+            button_create-gateway: Create
+            button_update-gateway: Save
+            field_description: Description
+            field_name: Name
+            field_spec: Specification
+          item:
+            switch_domains: Domains
+            switch_logs: Logs
+            switch_monitoring: Monitoring
+          list:
+            button_action-delete: Delete
+            button_action-edit: Edit
+            button_create: Create API gateway
+            popup-confirm_button_delete: Delete
+          overview:
+            button_action-edit: Edit
+            label_domain: Default domain
+            section_base: General information
         item-form:
           field_name: Name
         item:
@@ -6007,6 +6045,7 @@ default:
             field_environment-variables: Environment variables
             field_method: Method
             field_resources-memory: Memory
+            field_runtime: Runtime environment
             field_timeout: Timeout, sec
             label_lockbox-secret: Yandex Lockbox secrets
             label_title: Editor
@@ -6194,6 +6233,7 @@ default:
           button_move-gateway: Move
           field_type: Type
           value_gateway-type-egress-nat: Egress NAT
+        label_network: Network
         network:
           overview:
             button_create_subnetwork: Add subnet
