@@ -25,7 +25,7 @@ To create a target group:
       
       1. (Optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-         For example, specify the IP belonging to your data center connected to {{ yandex-cloud }} via [{{ interconnect-name }}](../../interconnect/). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3).
+         For example, specify the IP belonging to your data center connected to {{ yandex-cloud }} via [{{ interconnect-name }}](../../interconnect/index.yaml). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3).
 
 
       1. Click **Add target resource**.

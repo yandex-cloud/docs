@@ -234,6 +234,7 @@ default:
   roles-data-transfer-admin: data-transfer.admin
   roles-data-transfer-private-admin: data-transfer.privateAdmin
   roles-data-transfer-viewer: data-transfer.viewer
+  roles-data-transfer-auditor: data-transfer.auditor
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
   roles-datasphere-project-viewer: datasphere.community-projects.viewer
@@ -4861,6 +4862,11 @@ default:
         section_person-type: Тип плательщика
         section_persons: Плательщики
     yacloud_components:
+      acl:
+        action:
+          add-role: Добавить роль
+        label:
+          title: Настройка прав доступа
       settings:
         field_theme: Тема интерфейса
         field_theme-contrast: Контрастность
@@ -5162,7 +5168,9 @@ default:
         resource-acl:
           button_add-federation-user: Добавить федеративного пользователя
           button_assign-binding: Изменить роли
+          button_new-bindings: Назначить роли
           label_access-bindings: Права доступа
+          label_bindings: Роли
         save: Сохранить
         section-base: Общая информация
         select: Выбрать
@@ -5180,6 +5188,9 @@ default:
       component:
         acl-dialog:
           label_select-placeholder: Выберите пользователя
+        acl:
+          update-dialog:
+            button_select-subject: Выбрать пользователя
         compute:
           network-select:
             field_address: IP-адрес
@@ -5252,6 +5263,7 @@ default:
           field_instance: ВМ
         disk-form:
           field_size: Размер
+          field_type: Тип
         disks:
           button_action-attach: Присоединить
           button_action-delete: Удалить
@@ -5612,8 +5624,10 @@ default:
         folder:
           dashboard:
             button_add: Создать ресурс
+            label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
             label_cdn: Cloud CDN
+            label_certificate-manager: Certificate Manager
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
@@ -5635,6 +5649,7 @@ default:
             label_managed-mongodb: Managed Service for MongoDB
             label_managed-mysql: Managed Service for MySQL
             label_managed-opensearch: Managed Service for OpenSearch
+            label_managed-postgresql: Managed Service for PostgreSQL
             label_managed-redis: Managed Service for Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
@@ -5647,6 +5662,7 @@ default:
             value_compute: Виртуальная машина
             value_data-proc: Кластер Data Proc
             value_data-transfer: Data Transfer
+            value_serverless-functions: Функция
             value_vpc: Сеть
           service-account:
             label_add-role: Добавить роль
@@ -5825,6 +5841,7 @@ default:
             popup-button_save: Сохранить
             popup-password_button_change: Изменить
         clusters:
+          button_action-connect: Подключиться
           button_action-delete: Удалить
           button_action-move: ' Переместить'
           button_action-start: Запустить
@@ -6001,6 +6018,28 @@ default:
       serverless-functions:
         create:
           button_create: Создать
+        gateways:
+          domains:
+            button_add: Подключить
+          form:
+            button_create-gateway: Создать
+            button_update-gateway: Сохранить
+            field_description: Описание
+            field_name: Имя
+            field_spec: Спецификация
+          item:
+            switch_domains: Домены
+            switch_logs: Логи
+            switch_monitoring: Мониторинг
+          list:
+            button_action-delete: Удалить
+            button_action-edit: Редактировать
+            button_create: Создать API-шлюз
+            popup-confirm_button_delete: Удалить
+          overview:
+            button_action-edit: Редактировать
+            label_domain: Служебный домен
+            section_base: Общая информация
         item-form:
           field_name: Имя
         item:
@@ -6013,6 +6052,7 @@ default:
             field_environment-variables: Переменные окружения
             field_method: Способ
             field_resources-memory: Память
+            field_runtime: Среда выполнения
             field_timeout: Таймаут, c
             label_lockbox-secret: Секреты Yandex Lockbox
             label_title: Редактор
@@ -6200,6 +6240,7 @@ default:
           button_move-gateway: Переместить
           field_type: Тип
           value_gateway-type-egress-nat: NAT в интернет
+        label_network: Сеть
         network:
           overview:
             button_create_subnetwork: Добавить подсеть

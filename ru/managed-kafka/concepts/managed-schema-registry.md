@@ -13,9 +13,11 @@
 
 ## Как работает реестр схем форматов данных {#how-sr-works}
 
-Производители и потребители используют реестр следующим образом:
+1. Производитель передает схемы форматов данных в реестр. Поддерживаются следующие форматы схем данных:
 
-1. Производитель передает схемы форматов данных в реестр.
+    * [Avro](https://avro.apache.org/).
+    * [JSON Schema](https://json-schema.org/).
+    * [Protobuf](https://protobuf.dev/).
 
     При помещении схемы в реестр:
 
@@ -26,26 +28,16 @@
 1. При получении сообщения потребитель извлекает из него номер версии схемы формата данных.
 1. Если нужной схемы формата данных нет в локальном кеше, потребитель обращается за ней в реестр. Получив нужную схему, он корректно интерпретирует полученное сообщение.
 
-Подробнее о работе реестра см. в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/index.html).
-
 ## {{ mkf-msr }} {#msr}
 
 В кластер {{ mkf-name }} уже интегрирован реестр схем формата данных {{ mkf-msr }}. Реестр разворачивается на каждом хосте-брокере кластера и доступен по протоколу HTTPS на порту 443.
 
 Для работы с реестром предоставляется JSON REST [API](../../glossary/rest-api.md), полностью совместимое с [API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Для выполнения запросов необходима [авторизация](#msr-auth).
 
-Поддерживаются следующие форматы схем данных:
-
-* [Avro](https://avro.apache.org/).
-* [JSON Schema](https://json-schema.org/).
-* [Protobuf](https://protobuf.dev/).
-
 Сведения о схемах помещаются в [служебный топик](./topics.md#service-topics) `__schema_registry`. В этот топик нельзя писать данные стандартными средствами.
 
 Чтобы воспользоваться этим реестром, включите соответствующую опцию при [создании кластера](../operations/cluster-create.md).
 
-
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 Для работы с {{ mkf-msr }} требуется дополнительная [настройка групп безопасности](../operations/connect.md#configuring-security-groups).
 
@@ -69,6 +61,14 @@
     * В дополнение к этому пользователю с ролью `ACCESS_ROLE_ADMIN` для топика доступны любые операции над субъектами, связанными с этим топиком. Для такого пользователя можно разрешить доступ к любым топикам.
 
 Подробнее о ролях см. в разделе [{#T}](../operations/cluster-accounts.md).
+
+## Confluent Schema Registry {#confluent-sr}
+
+[Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) — один из вариантов программного обеспечения, решающий проблему синхронизации схем форматов данных между производителями и потребителями.
+
+Confluent Schema Registry помещает схемы форматов данных на хранение в служебный топик {{ KF }} с именем `_schemas`.
+
+Подробнее о работе реестра см. в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/index.html).
 
 ## См. также {#see-also}
 

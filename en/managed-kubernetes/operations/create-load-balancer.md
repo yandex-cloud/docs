@@ -12,7 +12,7 @@ To publish an app, use a `LoadBalancer` service. The following options are suppo
 
   The application will be available:
   * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
-  * From the company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/).
+    * From the company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
 

@@ -193,6 +193,8 @@ items:
         href: tutorials/batch-code-execution.md
       - name: Обучение модели на данных из {{ objstorage-full-name }}
         href: tutorials/s3-to-datasphere.md
+      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+        href: tutorials/mlflow-datasphere.md
   - name: Справочник API
     items:
       - name: Обзор

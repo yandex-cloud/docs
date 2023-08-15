@@ -722,7 +722,7 @@ items:
         items:
           - name: Права доступа
             href: security/manage-access.md
-          - name: Назначение прав доступа
+          - name: Назначение и изменение прав доступа
             href: operations/permission/grant.md
           - name: Удаление прав доступа
             href: operations/permission/revoke.md

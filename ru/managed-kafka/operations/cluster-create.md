@@ -144,18 +144,14 @@
 
      ```bash
      {{ yc-mdb-kf }} cluster create \
-     ...
-       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                            `day=<день недели для типа weekly>,`
-                            `hour=<час дня для типа weekly>
+       ...
+       --maintenance-window type=<тип>[,day=<день недели>,hour=<час дня>]
      ```
 
      Где:
-     * `type` — тип технического обслуживания:
-       * `anytime` — в любое время.
-       * `weekly` — по расписанию.
-     * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
-     * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
+
+     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
   1. Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
      1. Задайте значение `true` для параметра `--unmanaged-topics` при создании кластера {{ mkf-name }}:
 

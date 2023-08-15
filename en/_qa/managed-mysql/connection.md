@@ -6,7 +6,7 @@ View the connection examples in the [documentation](../../managed-mysql/operatio
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
 
-There are also [{#T}](../../managed-mysql/operations/connect.md#special-fqdns) pointing to the **Current master** and the **Least lagging replica** in the cluster.
+There are also [{#T}](../../managed-mysql/operations/connect.md#special-fqdns) pointing to the **current master** and the **most recent replica** (the one most up-to-date with the master) in the cluster.
 
 #### Why can't I connect from the internet? {#from-internet}
 

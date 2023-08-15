@@ -1,6 +1,6 @@
 # Создание сетевого балансировщика с помощью Ingress-контроллера NGINX
 
-При установке [Ingress-контроллера NGINX](https://kubernetes.github.io/ingress-nginx/) вы можете создать как [внешний](../../network-load-balancer/concepts/index.md), так и [внутренний сетевой балансировщик](../../network-load-balancer/concepts/internal-load-balancer.md) нагрузки.
+При установке [Ingress-контроллера NGINX](https://kubernetes.github.io/ingress-nginx/) вы можете создать как [внешний](../../network-load-balancer/concepts/index.md), так и [внутренний сетевой балансировщик](../../network-load-balancer/concepts/nlb-types.md) нагрузки.
 
 ## Перед началом работы {#before-you-begin}
 

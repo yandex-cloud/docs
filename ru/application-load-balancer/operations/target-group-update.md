@@ -21,7 +21,7 @@
       
       1. (Опционально) Если IP-адрес ресурса находится вне {{ vpc-name }}, выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-          Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+          Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/index.yaml). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
 
 
       1. Нажмите **Добавить целевой ресурс**.
@@ -61,7 +61,7 @@
       created_at: "2021-02-11T11:16:27.770674538Z"
       ```
 
-      Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+      Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/index.yaml). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
       
       Выполните команду, указав в параметрах имя целевой группы и частный IPv4-адрес ресурса:
     
@@ -124,7 +124,7 @@
         * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
         * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
 
-      Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/):
+      Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/index.yaml):
       
       ```hcl
       resource "yandex_alb_target_group" "foo" {
@@ -214,7 +214,7 @@
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
 
-      Чтобы удалить из целевой группы ресурс, который размещен вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/), выполните команду, указав имя целевой группы и частный IPv4-адрес ресурса:
+      Чтобы удалить из целевой группы ресурс, который размещен вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/index.yaml), выполните команду, указав имя целевой группы и частный IPv4-адрес ресурса:
 
       ```bash
       yc alb target-group remove-targets \

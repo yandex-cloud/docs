@@ -20,7 +20,7 @@
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка в {{ yandex-cloud }} ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
-* Схема Router-on-a-Stick на основе [{{ interconnect-name }}](../../interconnect/): вы можете подключить собственный файрвол к инфраструктуре {{ yandex-cloud }} по выделенному каналу и маршрутизировать трафик в облачные сети через этот файрвол.
+* Схема Router-on-a-Stick на основе [{{ interconnect-name }}](../../interconnect/index.yaml): вы можете подключить собственный файрвол к инфраструктуре {{ yandex-cloud }} по выделенному каналу и маршрутизировать трафик в облачные сети через этот файрвол.
 
 Для доставки трафика в приложение, находящееся в облачной инфраструктуре, рекомендуется использовать сетевой балансировщик нагрузки, например [{{ alb-full-name }}](../../application-load-balancer/), который пропускает трафик только по заданным портам. Сетевой балансировщик нагрузки рекомендуется использовать совместно с группами безопасности для ограничения списка IP-адресов, имеющих доступ к приложению.
 
@@ -42,7 +42,7 @@
   * ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
 * Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}. См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
-* Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} с помощью сервиса [{{ interconnect-name }}](../../interconnect/).
+* Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} с помощью сервиса [{{ interconnect-name }}](../../interconnect/index.yaml).
 {#gost-vpn}
 * VPN на сертифицированных СКЗИ:
 

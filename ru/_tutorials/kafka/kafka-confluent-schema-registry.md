@@ -1,17 +1,25 @@
-Чтобы использовать [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) совместно с {{ mkf-name }}:
+
+{% note info %}
+
+В {{ mkf-name }} вы можете использовать интегрированный реестр схем формата данных [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
+
+{% endnote %}
+
+Чтобы использовать Confluent Schema Registry совместно с {{ mkf-name }}:
 
 1. [Создайте топик для уведомлений об изменении схем форматов данных](#create-schemas-topic).
 1. [Установите и настройте Confluent Schema Registry на виртуальной машине](#configure-vm).
 1. [Создайте скрипты производителя и потребителя](#create-scripts).
 1. [Проверьте правильность работы Confluent Schema Registry](#check-schema-registry).
-1. [Удалите созданные ресурсы](#clear-out).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
-    1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
@@ -45,11 +53,11 @@
 
     {% endnote %}
 
-1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `registry` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `_schemas`:
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `registry` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `_schemas`:
     * `ACCESS_ROLE_CONSUMER`,
     * `ACCESS_ROLE_PRODUCER`.
 
-    От имени этой учетной записи Confluent Schema Registry будет работать со служебным топиком `_schemas`.
+    От имени этого пользователя Confluent Schema Registry будет работать со служебным топиком `_schemas`.
 
 ## Установите и настройте Confluent Schema Registry на виртуальной машине {#configure-vm}
 
@@ -91,7 +99,7 @@
     KafkaClient {
       org.apache.kafka.common.security.scram.ScramLoginModule required
       username="registry"
-      password="<пароль учетной записи registry>";
+      password="<пароль пользователя registry>";
     };
     ```
 
@@ -191,7 +199,7 @@
             "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<пароль учетной записи user>",
+            "sasl.password": "<пароль пользователя user>",
             "schema.registry.url": "http://<FQDN или IP-адрес сервера Confluent Schema Registry>:8081",
         }
     )
@@ -285,7 +293,7 @@
             "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<пароль учетной записи user>",
+            "sasl.password": "<пароль пользователя user>",
             "on_delivery": delivery_report,
             "schema.registry.url": "http://<FQDN или IP-адрес сервера Schema Registry>:8081",
         },
@@ -296,7 +304,6 @@
     avroProducer.produce(topic="messages", key=key, value=value)
     avroProducer.flush()
     ```
-
 
 ## Проверьте правильность работы Confluent Schema Registry {#check-schema-registry}
 

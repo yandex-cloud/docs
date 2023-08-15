@@ -59,9 +59,12 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 You can find viable options for using encrypted communication channels in [{#T}](network.md#remote-access).
 
-Please note: [{{ interconnect-full-name }}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
+
+Please note: [{{ interconnect-full-name }}](../../interconnect/index.yaml) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
 - Deploying encrypted VPN gateways in the cloud, such as VMs running [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}.
-- Using application-level encryption- Using [GOST VPN](network.md#gost-vpn).
+- Using application-level encryption.
+- Using [GOST VPN](network.md#gost-vpn).
+
 
 
 

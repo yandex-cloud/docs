@@ -41,24 +41,26 @@ items:
             href: operations/target-group-delete.md
   - name: Концепции
     items:
-      - name: Сетевой балансировщик нагрузки
+      - name: Обзор
         href: concepts/index.md
-      - name: Внутренний сетевой балансировщик
-        href: concepts/internal-load-balancer.md
-      - name: Обработчик
+      - name: Типы сетевых балансировщиков
+        href: concepts/nlb-types.md
+      - name: Обработчик трафика
         href: concepts/listener.md
-      - name: Целевые ресурсы и группы
+      - name: Целевые группы и ресурсы
         href: concepts/target-resources.md
-      - name: Проверка состояния ресурсов
+      - name: Проверка доступности ресурсов
         href: concepts/health-check.md
+      - name: Особенности реализации
+        href: concepts/specifics.md
+      - name: Сценарии использования
+        href: concepts/scenarios.md
+      - name: Рекомендации по применению
+        href: concepts/best-practices.md
+      - name: Мониторинг
+        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Рекомендации по использованию сетевого балансировщика
-    items:
-      - name: Общие рекомендации
-        href: best-practices/index.md
-      - name: Особенности внутреннего балансировщика
-        href: best-practices/internal-balancer-features.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

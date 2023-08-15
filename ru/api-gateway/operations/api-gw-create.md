@@ -5,11 +5,11 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
-    1. В списке сервисов выберите **{{ api-gw-name }}**.
-    1. Нажмите кнопку **Создать API-шлюз**.
-    1. В поле **Имя** введите `numbers`.
-    1. (Опционально) В поле **Описание** введите описание.
-    1. В блок **Спецификация** добавьте спецификацию:
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `numbers`.
+    1. (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** введите описание.
+    1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
     
         ```yaml
         openapi: "3.0.0"
@@ -44,7 +44,7 @@
                 content:
                   'text/plain': "Hello, {user}!\n"
         ```
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
     
 - CLI
 

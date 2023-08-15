@@ -137,9 +137,6 @@
        --backup-window-start <время начала резервного копирования> \
        --backup-retain-period-days=<срок хранения автоматических резервных копий, дней> \
        --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false> \
-       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                           `day=<день недели для типа weekly>,`
-                           `hour=<час дня для типа weekly> \
        --websql-access=<запросы из консоли управления: true или false> \
        --deletion-protection=<защита от удаления кластера: true или false>
      ```
@@ -149,6 +146,12 @@
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+
+     {% note info %}
+
+     По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
+
+     {% endnote %}
 
 - {{ TF }}
 

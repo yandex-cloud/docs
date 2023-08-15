@@ -1,4 +1,4 @@
-### data-transfer.admin {#data-transfer-admin}
+### {{ roles-data-transfer-admin }} {#data-transfer-admin}
 
 Роль `{{ roles-data-transfer-admin }}` позволяет создавать, изменять и удалять [эндпоинты](../../../data-transfer/concepts/index.md#endpoint), а также создавать, активировать и деактивировать [трансферы](../../../data-transfer/concepts/index.md#transfer) с передачей данных и через интернет, и в сетях {{ yandex-cloud }}.
 

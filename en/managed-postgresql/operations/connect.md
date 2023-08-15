@@ -6,7 +6,7 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 {% note warning %}
 
-If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#replication-auto) may result in the master not being accessible from the internet.
+If only some cluster hosts have public access configured, the master may not be accessible from the internet when it [changes automatically](../concepts/replication.md#replication-auto).
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ If only some of a cluster's hosts have public access configured, [automatically 
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Settings of rules depend on the connection method you select:
+Rule settings depend on the connection method you select:
 
 {% list tabs %}
 
@@ -78,13 +78,13 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](hos
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
 
 {% endnote %}
 
 ### Current master {#fqdn-master}
 
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -105,16 +105,16 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
       target_session_attrs=read-write"
 ```
 
-### The least lagging replica {#fqdn-replica}
+### Most recent replica {#fqdn-replica}
 
-FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
-An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9ulc8j9nm` ID:
 
 ```bash
 psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
@@ -129,12 +129,12 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 To guarantee a connection to the master host:
 
-1. Specify in the `host` argument either:
+1. In the `host` argument, provide one of the following:
 
-   * A [special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-   * The FQDNs of all the cluster hosts.
+   * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
+   * FQDNs of all cluster hosts.
 
-1. Pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 To upgrade the library version used by the `psql` utility:
 
@@ -193,7 +193,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
          * **Port**: `{{ port-mpg }}`.
-         * **Database**: Name of the DB to connect to.
+         * **Database**: DB you want to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
@@ -217,8 +217,8 @@ Create a new server connection:
 
    * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
    * **Port**: `{{ port-mpg }}`.
-   * **Maintenance database**: Name of the DB to connect to.
-   * **Username**: Name of the user to connect under.
+   * **Maintenance database**: DB you want to connect to.
+   * **Username**: Username for connection.
    * **Password**: User password.
 
 1. In the **Parameters** tab:

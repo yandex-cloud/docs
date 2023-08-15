@@ -1,9 +1,9 @@
-1. {% include [grant-role-console-first-steps](iam/grant-role-console-first-steps.md) %}
-1. Откройте список ролей пользователя:
-   
-   {% include [configure-roles-console](iam/configure-roles-console.md) %}
-
-1. Для добавления роли на облако нажмите значок ![image](../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
-
-   Для добавления роли на каталог выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
-1. Выберите [роль](../iam/concepts/access-control/roles.md) из списка.
+1. При необходимости [добавьте](../iam/operations/users/create.md) нужного пользователя.
+1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако.
+1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+1. Нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
+1. Выберите роль в облаке.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

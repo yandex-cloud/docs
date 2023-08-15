@@ -11,7 +11,7 @@ To establish a quorum, at least 50% of the cluster replicas must be part of it. 
 
 The quorum is established over again when the cluster topology changes, i.e., after [adding](../operations/hosts.md#add) and [deleting](../operations/hosts.md#remove) hosts, their failure, during their maintenance, return to service, etc. The host added to the cluster is first synchronized with the master host and only then can become part of the quorum.
 
-For more information about how replication works in {{ PG }}, read the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
+For more information about how replication works in {{ PG }}, read the [relevant documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
 ## Managing replication {#replication}
 
@@ -21,7 +21,7 @@ In a cluster, you can combine automatic and manual management of replication str
 
 ### Automatic management of replication streams {#replication-auto}
 
-Once a {{ PG }} cluster with multiple hosts is created, it contains one master host and replicas. Replicas use the master host as a replication source.
+Once you create a {{ PG }} cluster with multiple hosts, it contains one master host and replicas. Replicas use the master host as a replication source.
 
 Specifics of automatic replication in {{ mpg-name }}:
 
@@ -46,7 +46,7 @@ Replicas, for which the replication source is specified manually, cannot:
 * Become a master host when the previous one is changed automatically or [manually](../operations/update.md#start-manual-failover).
 * Automatically switch to a new replication source when the current replication source fails.
 * Be part of quorum replication.
-* Be selected as [least lagging](../operations/connect.md#fqdn-replica) replicas when using a special FQDN.
+* Be selected as [most recent replicas](../operations/connect.md#fqdn-replica) when using a special FQDN.
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 

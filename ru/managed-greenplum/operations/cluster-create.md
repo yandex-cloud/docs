@@ -204,18 +204,12 @@
         ```bash
         {{ yc-mdb-gp }} cluster create <имя кластера> \
            ...
-           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                               `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly>
+           --maintenance-window type=<тип>[,day=<день недели>,hour=<час дня>]
         ```
 
         Где:
 
-        * `type` — тип технического обслуживания:
-            * `anytime` — в любое время.
-            * `weekly` — по расписанию.
-        * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
-        * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/), передайте значение `true` в соответствующих параметрах при создании кластера:
 

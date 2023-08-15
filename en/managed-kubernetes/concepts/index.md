@@ -140,7 +140,7 @@ If a pod needs access to resources outside the cluster, its IP address will be r
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
