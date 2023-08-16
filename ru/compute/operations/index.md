@@ -98,6 +98,7 @@ description: "Пошаговые инструкции по работе и уп�
 ## Группы размещения дисков {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
+* [{#T}](disk-placement-groups/add-disk.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
 

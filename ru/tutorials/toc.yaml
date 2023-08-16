@@ -5,10 +5,6 @@ items:
     items:
       - name: Все руководства
         href: web/index.md
-      - name: Статический сайт в {{ objstorage-name }}
-        href: web/static.md
-      - name: Сайт на LAMP- или LEMP-стеке
-        href: web/lamp-lemp.md
       - name: >-
           Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
           network-load-balancer-name }}
@@ -17,34 +13,12 @@ items:
           Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
           }}
         href: web/application-load-balancer-website.md
-      - name: Сайт на базе Joomla с БД {{ PG }}
-        href: web/joomla-postgresql.md
-      - name: Создание сайта на WordPress
-        href: web/wordpress.md
-      - name: Сайт на WordPress с БД {{ MY }}
-        href: web/wordpress-mysql.md
-      - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
-        href: web/wordpress-transfer.md
-      - name: Сайт на базе 1С-Битрикс
-        href: web/bitrix-website.md
-      - name: Организация виртуального хостинга
-        href: web/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
-      - name: Публикация обновлений для игр с помощью {{ cdn-name }}
-        href: web/prefetch.md
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
-  - name: Интернет-магазины
-    items:
-      - name: Все руководства
-        href: internet-store/index.md
-      - name: Интернет-магазин на 1С-Битрикс
-        href: internet-store/bitrix-shop.md
-      - name: Интернет-магазин на OpenCart
-        href: internet-store/opencart.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -113,12 +87,56 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
+  - name: Прикладные решения
+    items:
+      - name: Все руководства
+        href: applied/index.md
+      - name: Создание сайта
+        items:
+          - name: Статический сайт в {{ objstorage-name }}
+            href: web/static.md
+          - name: Сайт на LAMP- или LEMP-стеке
+            href: web/lamp-lemp.md
+          - name: Сайт на базе Joomla с БД {{ PG }}
+            href: web/joomla-postgresql.md
+          - name: Создание сайта на WordPress
+            href: web/wordpress.md
+          - name: Сайт на WordPress с БД {{ MY }}
+            href: web/wordpress-mysql.md
+          - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
+            href: web/wordpress-transfer.md
+          - name: Сайт на базе 1С-Битрикс
+            href: web/bitrix-website.md
+          - name: Интернет-магазин на OpenCart
+            href: internet-store/opencart.md
+          - name: Организация виртуального хостинга
+            href: web/virtual-hosting.md
+      - name: 1С
+        items:
+          - name: Интернет-магазин на 1С-Битрикс
+            href: internet-store/bitrix-shop.md
+          - name: >-
+              Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
+              mpg-name }}
+            href: infrastructure-management/1c-postgresql-linux.md
+      - name: Интернет вещей (IoT)
+        items:
+          - name: Мониторинг состояния географически распределенных устройств
+            href: iot/datalens.md
+          - name: Мониторинг показаний датчиков и уведомления о событиях
+            href: iot/monitoring.md
+          - name: Эмуляция множества IoT-устройств
+            href: testing/iot-emulation.md
+      - name: Прочее
+        items:
+          - name: Публикация обновлений для игр с помощью {{ cdn-name }}
+            href: web/prefetch.md
+          - name: Создание SAP-программы в {{ yandex-cloud }}
+            href: infrastructure-management/sap.md
   - name: Тестовая среда
     items:
       - name: Все руководства
         href: testing/index.md
-      - name: Эмуляция множества IoT-устройств
-        href: testing/iot-emulation.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad
         href: testing/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
@@ -141,10 +159,6 @@ items:
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: infrastructure-management/packer-custom-image.md
-      - name: >-
-          Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
-          mpg-name }}
-        href: infrastructure-management/1c-postgresql-linux.md
       - name: Настройка синхронизации часов с помощью NTP
         href: infrastructure-management/ntp.md
       - name: Работа с группой ВМ с автомасштабированием
@@ -161,8 +175,6 @@ items:
         href: infrastructure-management/vm-fluent-bit-logging.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
-      - name: Создание SAP-программы в {{ yandex-cloud }}
-        href: infrastructure-management/sap.md
       - name: Настройка локального кеширующего DNS-резолвера
         href: infrastructure-management/local-dns-cache.md
       - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
@@ -277,8 +289,8 @@ items:
       - name: Шардирование таблиц {{ mch-name }}
         href: dataplatform/clickhouse-sharding.md
       - name: >-
-          Настройка {{ dns-name }} для доступа к кластерам управляемых баз
-          данных из других облачных сетей
+          Настройка {{ dns-name }} для доступа к кластерам управляемых БД из
+          других облачных сетей
         href: dataplatform/mdb-dns-peering.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
@@ -467,14 +479,6 @@ items:
           Визуализация данных из {{ tracker-name }} при помощи {{ datalens-name
           }}
         href: datalens/data-from-tracker.md
-  - name: Интернет вещей
-    items:
-      - name: Руководства по работе с интернетом вещей
-        href: iot/index.md
-      - name: Мониторинг состояния географически распределенных устройств
-        href: iot/datalens.md
-      - name: Мониторинг показаний датчиков и уведомления о событиях
-        href: iot/monitoring.md
   - name: Бессерверные технологии
     items:
       - name: Сокращатель ссылок

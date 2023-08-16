@@ -1,1 +1,1 @@
-{% include [joomla-postgresql](../../_tutorials/web/joomla-postgresql.md) %}
+{% include [joomla-postgresql](../../_tutorials/applied/joomla-postgresql.md) %}

@@ -22,6 +22,9 @@
 * Вручную
 
     1. [Создайте базу данных источника {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+
+    1. Если для источника вы выбрали режим БД {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации для потока данных приемника {{ yds-name }}.
 
 * С помощью {{ TF }}

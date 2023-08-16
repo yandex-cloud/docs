@@ -4104,11 +4104,14 @@ default:
         common--header--settings--title: Настройки
         queue--tabs--gantt--title: Диаграмма Ганта
         ticket--buttons--workflow_buttons--content-link: Подробнее
+        ticket--main--action_new--title: Создать задачу
         ticket--tabs--invites--title: Призыв в комментарии
       blocks-desktop_i-autocomplete-control:
         assign-me: Я
       blocks-desktop_i-ticket-subscription:
         worklogs: Затрачено времени
+      blocks-desktop_i-typed-field:
+        assign-to-me: Назначить меня
       blocks-desktop_issue-reminder:
         save-btn: Сохранить
       blocks-desktop_issue-reply-form:
@@ -4340,6 +4343,7 @@ default:
         sidebar-add-status: Добавить статус
         sidebar-title: Статусы и переходы
       components_Checklist:
+        header-title: Чеклист
         new-item-button-caption: Добавить пункт
       components_ChecklistItem_ChecklistItemForm:
         button-submit: Сохранить
@@ -4499,6 +4503,9 @@ default:
         write-comment: Написать комментарий
       ui_components_Confirm:
         ok-button-text: Да
+      ui_components_create-issue-popup_NewIssueForm:
+        create: Создать
+        issue-name: Название задачи
       ui_components_CreateIssueForm:
         create-issue: Создать задачу
       ui_components_CreateIssueLinkButton:
@@ -4616,7 +4623,6 @@ default:
         filter-waiting: Ждут ответа
         filters: Фильтры
         issues-list: Задачи
-        queue: Очередь
         queues: Очереди
       ui_components_IssueMenu:
         add-notification: Добавить напоминание
@@ -4761,7 +4767,9 @@ default:
         change-title-and-description: Изменить название и описание
         create-new: Создать форму
         create-new-template: Создать новую форму
-        empty-template: Без формы
+        description-placeholder: >-
+          Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
+          этой задаче
         switch-to-admin-panel: Перейти в админку
       ui_components_PageCreateIssueForm:
         continue: Продолжить
@@ -5223,6 +5231,11 @@ default:
           button_add-domain: Создать запись
         docs:
           label_title: Документация
+        file-content-dialog:
+          button_submit: Добавить
+          field_content: Содержимое
+          value_manual: Текст
+          value_upload: Файл
         image-field:
           button_custom-image: Укажите ссылку
         label-set:
@@ -5467,6 +5480,8 @@ default:
           label_attached-instances: Виртуальные машины
           label_filesystems: Файловые хранилища
         placement-group:
+          disks:
+            button_add-disk: Добавить диск
           switch_disks: Список дисков
         placement-groups:
           button_create: Создать
@@ -5635,6 +5650,7 @@ default:
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
+            label_iot-core: IoT Core
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
             label_load-testing: Load Testing
@@ -5683,6 +5699,13 @@ default:
             popup-confirm_button_delete: Удалить
           switch_incident-notifications: Уведомления
           switch_service-accounts: Сервисные аккаунты
+      iot:
+        button_add-device: Добавить устройство
+        button_create-broker: Создать брокер
+        button_create-registry: Создать реестр
+        label_brokers: Брокеры
+        label_devices: Устройства
+        label_registries: Реестры
       k8s:
         cluster:
           switch_workloads: Рабочая нагрузка

@@ -4,4 +4,4 @@ author: { "name": "Роман Горбенко", "url": "https://github.com/basi
 
 # Создание SAP-программы в {{ yandex-cloud }}
 
-{% include [sap.md](../../_tutorials/sap.md) %}
+{% include [sap.md](../../_tutorials/applied/sap.md) %}

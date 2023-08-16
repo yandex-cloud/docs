@@ -1,1 +1,1 @@
-{% include [bitrix-website](../../_tutorials/web/bitrix-website.md) %}
+{% include [bitrix-website](../../_tutorials/applied/bitrix-website.md) %}

@@ -153,6 +153,8 @@ items:
         items:
           - name: Создать группу размещения дисков
             href: operations/disk-placement-groups/create.md
+          - name: Добавить диск в группу размещения
+            href: operations/disk-placement-groups/add-disk.md
           - name: Удалить диск из группы размещения
             href: operations/disk-placement-groups/remove-disk.md
       - name: Создание образа

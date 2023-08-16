@@ -8,8 +8,8 @@ meta:
   title: Yandex IoT Core
 links:
   - title: Начало работы
-    description: Создайте первый реестр и добавьте в него устройство
-    href: quickstart
+    description: Создайте первый реестр устройств или брокер
+    href: quickstart-overview
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

@@ -4097,11 +4097,14 @@ default:
         common--header--settings--title: Settings
         queue--tabs--gantt--title: Gantt chart
         ticket--buttons--workflow_buttons--content-link: More
+        ticket--main--action_new--title: Create issue
         ticket--tabs--invites--title: Invitation to comments
       blocks-desktop_i-autocomplete-control:
         assign-me: Me
       blocks-desktop_i-ticket-subscription:
         worklogs: Time spent
+      blocks-desktop_i-typed-field:
+        assign-to-me: Assign to me
       blocks-desktop_issue-reminder:
         save-btn: Save
       blocks-desktop_issue-reply-form:
@@ -4333,6 +4336,7 @@ default:
         sidebar-add-status: Add status
         sidebar-title: Statuses and transitions
       components_Checklist:
+        header-title: Checklist
         new-item-button-caption: Add item
       components_ChecklistItem_ChecklistItemForm:
         button-submit: Save
@@ -4492,6 +4496,9 @@ default:
         write-comment: Write a comment
       ui_components_Confirm:
         ok-button-text: 'Yes'
+      ui_components_create-issue-popup_NewIssueForm:
+        create: Create
+        issue-name: Issue name
       ui_components_CreateIssueForm:
         create-issue: Create issue
       ui_components_CreateIssueLinkButton:
@@ -4609,7 +4616,6 @@ default:
         filter-waiting: Waiting for response
         filters: Filters
         issues-list: Issues
-        queue: Queue
         queues: Queues
       ui_components_IssueMenu:
         add-notification: Add reminder
@@ -4754,7 +4760,7 @@ default:
         change-title-and-description: Change title and description
         create-new: Create form
         create-new-template: Create new form
-        empty-template: No form
+        description-placeholder: Add a description of the issue so the assignee knows what to do
         switch-to-admin-panel: Switch to admin panel
       ui_components_PageCreateIssueForm:
         continue: Continue
@@ -5216,6 +5222,11 @@ default:
           button_add-domain: Create record
         docs:
           label_title: Documentation
+        file-content-dialog:
+          button_submit: Add
+          field_content: Content
+          value_manual: Text
+          value_upload: File
         image-field:
           button_custom-image: Enter link
         label-set:
@@ -5460,6 +5471,8 @@ default:
           label_attached-instances: Virtual machines
           label_filesystems: File storages
         placement-group:
+          disks:
+            button_add-disk: Add disk
           switch_disks: List of disks
         placement-groups:
           button_create: Create
@@ -5628,6 +5641,7 @@ default:
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
+            label_iot-core: IoT Core
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
             label_load-testing: Load Testing
@@ -5676,6 +5690,13 @@ default:
             popup-confirm_button_delete: Delete
           switch_incident-notifications: Notifications
           switch_service-accounts: Service accounts
+      iot:
+        button_add-device: Add device
+        button_create-broker: Create broker
+        button_create-registry: Create registry
+        label_brokers: Brokers
+        label_devices: Devices
+        label_registries: Registries
       k8s:
         cluster:
           switch_workloads: Workload

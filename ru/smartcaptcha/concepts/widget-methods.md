@@ -267,6 +267,11 @@
 {% cut "Пример встраивания виджета" %}
 
 ```html
+<form>
+  <div id="captcha-container"></div>
+  <button id="smartcaptcha-demo-submit" disabled="1">Submit</button>
+</form>
+
 <script
   src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=smartCaptchaInit"
   defer

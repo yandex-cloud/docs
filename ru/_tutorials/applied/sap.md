@@ -13,14 +13,14 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость установки SAP входят:
-* Плата за постоянно запущенную [виртуальную машину](../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../compute/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../vpc/pricing.md)).
+* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Создайте ВМ для SAP {#vm-sap}
@@ -31,24 +31,24 @@
 
 - Консоль управления
 
-  1. На странице [каталога](../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ: `vhcalnplci`. На этот hostname завязан скрипт установки SAP.
-  1. Выберите [зону доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2).
-  1. В блоке **Диски** выберите тип загрузочного [диска](../compute/concepts/disk.md) `SSD` и укажите размер — 40 ГБ.
+  1. В блоке **Диски** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `SSD` и укажите размер — 40 ГБ.
   1. Нажмите **Добавить диск**, чтобы добавить дополнительный диск.
      1. Задайте имя диска.
      1. Выберите тип `HDD`.
      1. Укажите размер — 90 ГБ.
      1. Нажмите **Добавить**.
   1. В блоке **Вычислительные ресурсы**:
-     * Выберите [платформу](../compute/concepts/vm-platforms.md): Intel Ice Lake.
+     * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
      * Укажите необходимое количество vCPU и объем RAM:
        * **vCPU** — 2.
        * **Гарантированная доля vCPU** — 100%.
        * **RAM** — 8 ГБ.
   1. В блоке **Сетевые настройки**:
-     * Укажите идентификатор [подсети](../vpc/concepts/network.md#subnet) или выберите [облачную сеть](../vpc/concepts/network.md#network) из списка.
+     * Укажите идентификатор [подсети](../../vpc/concepts/network.md#subnet) или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
        Если сети нет, нажмите **Создать сеть** и создайте ее:
        * В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
@@ -59,7 +59,7 @@
      * В поле **Публичный адрес** выберите способ назначения адреса **Автоматически**.
   1. В блоке **Доступ** укажите данные для доступа на ВМ:
      * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** введите открытую часть [SSH-ключа](../glossary/ssh-keygen.md). Создать пару SSH-ключей для подключения к ВМ можно по [инструкции](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * В поле **SSH-ключ** введите открытую часть [SSH-ключа](../../glossary/ssh-keygen.md). Создать пару SSH-ключей для подключения к ВМ можно по [инструкции](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
   1. Нажмите **Создать ВМ**.
 
  {% endlist %} 
@@ -67,7 +67,7 @@
 ## Подготовьте файловую систему ВМ {#fs-settings}
 
 Подготовьте файловую структуру созданной ВМ к установке SAP.
-1. [Подключитесь по протоколу SSH](../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ с помощью [PuTTY](https://www.putty.org/).
+1. [Подключитесь по протоколу SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ с помощью [PuTTY](https://www.putty.org/).
 1. Переключитесь в режим root, чтобы получить привилегии суперпользователя:
 
    ```bash
@@ -82,7 +82,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    vda    254:0    0  40G  0 disk
    ├─vda1 254:1    0   4M  0 part
    └─vda2 254:2    0  40G  0 part /
@@ -115,7 +115,7 @@
 
       Результат:
 
-      ```bash
+      ```text
       Welcome to fdisk (util-linux 2.33.1).
       Changes will remain in memory only, until you decide to write them.
       Be careful before using the write command.
@@ -163,7 +163,7 @@
 
       Результат:
 
-      ```bash        
+      ```text       
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
       vda    254:0    0  40G  0 disk
       ├─vda1 254:1    0   4M  0 part
@@ -182,7 +182,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    mke2fs 1.43.8 (1-Jan-2018)
    Creating filesystem with 5242880 4k blocks and 1310720 inodes
    Filesystem UUID: e878b21b-da84-42f9-ba9f-b6ad3c6edab6
@@ -269,7 +269,7 @@
    ```
 
    В ответе будут указаны версии библиотек, которые предустановлены на дистрибутиве.
-1. Узнайте [внутренний IP-адрес](../vpc/concepts/address.md#internal-addresses) ВМ:
+1. Узнайте [внутренний IP-адрес](../../vpc/concepts/address.md#internal-addresses) ВМ:
 
    ```bash
    ip addr show
@@ -277,7 +277,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
      inet 127.0.0.1/8 scope host lo
@@ -322,7 +322,7 @@
 
    Результат:
 
-   ```bash
+   ```text
    vhcalnplci
    ```
 
@@ -404,7 +404,7 @@
 1. Назовите программу `ZTEST`.
 1. Добавьте код:
 
-   ```
+   ```text
    TYPE-POOLS: slis.
 
    *&---------------------------------------------------------------------*
@@ -449,7 +449,7 @@
 
    Результат:
 
-   ```
+   ```text
    | MANDT| USER        |
    | -----| ----------- |
    | 001  | BWDEVELOPER |
@@ -461,5 +461,5 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* [Удалите ВМ](../compute/operations/vm-control/vm-delete.md).
-* [Удалите статический публичный IP-адрес](../vpc/operations/address-delete.md), если вы его зарезервировали специально для этого проекта.
+* [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md).
+* [Удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы его зарезервировали специально для этого проекта.
