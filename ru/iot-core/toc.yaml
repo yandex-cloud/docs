@@ -2,7 +2,13 @@ title: Yandex IoT Core
 href: index.yaml
 items:
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart-overview.md
+      - name: Реестр устройств
+        href: quickstart.md
+      - name: Брокер
+        href: quickstart-broker.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

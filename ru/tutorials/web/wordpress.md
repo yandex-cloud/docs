@@ -6,4 +6,4 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
 
 ---
 
-{% include [wordpress](../../_tutorials/web/wordpress.md) %}
+{% include [wordpress](../../_tutorials/applied/wordpress.md) %}

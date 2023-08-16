@@ -1,9 +1,8 @@
 # Статический веб-сайт в {{ objstorage-full-name }}
 
-С помощью этой инструкции вы научитесь загружать [статические файлы](../../storage/concepts/hosting.md) вашего веб-сайта в [{{ objstorage-full-name }}](../../storage/) и привязывать к [бакету](../../storage/concepts/bucket.md) доменное имя.
+С помощью этой инструкции вы научитесь загружать [статические файлы](../../storage/concepts/hosting.md) вашего веб-сайта в [{{ objstorage-name }}](../../storage/) и привязывать к [бакету](../../storage/concepts/bucket.md) доменное имя.
 
-Чтобы разместить статический веб-сайт в Object Storage:
-
+Чтобы разместить статический веб-сайт в {{ objstorage-name }}:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте публичный бакет](#create-public-bucket).
 1. [Включите веб-сайт для бакета](#turn-on-hosting).
@@ -23,11 +22,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки статического сайта входит:
-
-* плата за хранение данных статического сайта (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
-* стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-traffic)).
-* плата за публичные DNS-запросы и зоны (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
+* Плата за хранение данных статического сайта (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
+* Плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
+* Стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-traffic)).
+* Плата за публичные DNS-запросы и [зоны](../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
 
 
 ## Создайте публичный бакет {#create-public-bucket}
@@ -37,11 +35,9 @@
 - Консоль управления
 
   Чтобы создать бакет для файлов статического сайта:
-
-  1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
+  1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
   1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
   1. В поле **Имя** введите имя бакета, например, `www.example.com`. Имя бакета станет частью доменного имени сайта. После настройки бакет будет доступен по двум адресам:
-
      * `http(s)://<имя_бакета>.{{ s3-web-host }}`
      * `http(s)://{{ s3-web-host }}/<имя_бакета>`
 
@@ -56,7 +52,7 @@
      {% endnote %}
 
   1. Укажите максимальный размер бакета в ГБ.
-  1. Включите **Публичный** доступ на чтение объектов.
+  1. Включите **Публичный** доступ на чтение [объектов](../../storage/concepts/object.md).
   1. Нажмите кнопку **Создать бакет**.
 
 - {{ TF }}
@@ -72,12 +68,13 @@
 - Консоль управления
 
   Необходимо загрузить и настроить индексную страницу и страницу ошибки. Для этого:
-
   1. Создайте на компьютере файлы:
-      * `index.html` с текстом `Hello, world!`.
-         Содержимое файла будет показываться при обращении к главной странице веб-сайта.
-      * `error.html` с текстом `Error!`.
-         Содержимое файла будет показываться при ответах веб-сайта с ошибками `4xx`.
+     * `index.html` с текстом `Hello, world!`.
+
+       Содержимое файла будет показываться при обращении к главной странице веб-сайта.
+     * `error.html` с текстом `Error!`.
+
+       Содержимое файла будет показываться при ответах веб-сайта с ошибками `4xx`.
   1. На вкладке **Объекты** на странице вашего бакета нажмите кнопку **Загрузить**. В открывшемся окне выберите созданные файлы и нажмите кнопку подтверждения.
   1. Нажмите кнопку **Загрузить**.
   1. Откройте вкладку **Веб-сайт** на странице вашего бакета.
@@ -102,7 +99,7 @@
 
 ## Настройте DNS {#configure-dns}
 
-Если у вас есть зарегистрированное доменное имя, назначьте его бакету. Для этого создайте в DNS запись [типа CNAME](../../dns/concepts/resource-record.md#cname).
+Если у вас есть зарегистрированное доменное имя, назначьте его бакету. Для этого создайте в [DNS-запись](../../dns/concepts/resource-record.md) [типа CNAME](../../dns/concepts/resource-record.md#cname).
 
 Вы можете воспользоваться сервисом {{ dns-name }} для управления доменом.
 
@@ -121,12 +118,12 @@
 - Консоль управления
 
   Чтобы добавить публичную зону:
-  1. Откройте раздел **{{ dns-name }}** в каталоге, где требуется создать [зону DNS](../../dns/concepts/dns-zone.md).
+  1. Откройте раздел **{{ dns-name }}** в каталоге, где требуется создать зону DNS.
   1. Нажмите кнопку **Создать зону**.
   1. Задайте настройки зоны:
-	  * **Имя** зоны: `example-zone-1`.
-	  * **Зона**: `example.com.`. Укажите ваш зарегистрированный домен.
-	  * **Тип** — **Публичная**.
+	 * **Имя** зоны: `example-zone-1`.
+	 * **Зона**: `example.com.`. Укажите ваш зарегистрированный домен.
+	 * **Тип** — **Публичная**.
   1. Нажмите кнопку **Создать**.
 
 - {{ TF }}
@@ -142,14 +139,13 @@
 - Консоль управления
 
   Создайте в публичной зоне запись DNS [типа CNAME](../../dns/concepts/resource-record.md#cname):
-
   1. Выберите зону `example.com` из списка.
   1. Нажмите кнопку **Создать запись**.
   1. Задайте параметры записи:
-	  * **Имя**: `www`.
-	  * **Тип записи**: выберите значение `CNAME`.
-	  * **TTL** (время кеширования записи): оставьте значение по умолчанию.
-	  * **Значение**: введите `www.example.com.{{ s3-web-host }}.`.
+	 * **Имя**: `www`.
+	 * **Тип записи**: выберите значение `CNAME`.
+	 * **TTL** (время кеширования записи): оставьте значение по умолчанию.
+	 * **Значение**: введите `www.example.com.{{ s3-web-host }}.`.
   1. Нажмите кнопку **Создать**.
 
 - {{ TF }}
@@ -164,7 +160,7 @@
 
 Чтобы делегировать домен, укажите для него DNS-серверы в личном кабинете регистратора.
 
-Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи до 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кешируются записи для доменов.
+Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи до 24 часов (86400 секунд). Это обусловлено значением [TTL](https://ru.wikipedia.org/wiki/Time_to_live), в течение которого кешируются записи для доменов.
 
 Проверить делегирование домена можно с помощью [сервиса Whois](https://www.reg.ru/whois/check_site) или утилиты `dig`:
 
@@ -197,7 +193,6 @@ ns1.{{ dns-ns-host-sld }}.
 ## Проверьте работу сайта {#test-site}
 
 Чтобы проверить работу сайта, используйте один из стандартных адресов {{ objstorage-name }}:
-
 * `http://www.example.com.{{ s3-web-host }}`
 * `http://{{ s3-web-host }}/www.example.com`
 
@@ -206,7 +201,6 @@ ns1.{{ dns-ns-host-sld }}.
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за ресурсы:
-
 * [Удалите загруженные файлы](../../storage/operations/objects/delete.md).
 * [Удалите зону DNS](../../dns/operations/zone-delete.md).
 
@@ -215,14 +209,13 @@ ns1.{{ dns-ns-host-sld }}.
 {% include [terraform-definition](../terraform-definition.md) %}
 
 Чтобы разместить статический веб-сайт в {{ objstorage-name }} с помощью {{ TF }}:
-
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
-   
+
    {% list tabs %}
-   
+
    - Готовый архив
- 
+
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/static.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `static.tf`, файлы `index.html` и `error.html`.
@@ -231,46 +224,42 @@ ns1.{{ dns-ns-host-sld }}.
 
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `static.tf`:
-  
-          {% cut "static.tf" %}
-     
-          {% include [static-tf-config](../../_includes/web/static-tf-config.md) %}
-     
-          {% endcut %}
+
+        {% cut "static.tf" %}
+
+        {% include [static-tf-config](../../_includes/web/static-tf-config.md) %}
+
+        {% endcut %}
 
      1. Создайте в папке файл `index.html` с текстом `Hello world!`:
-  
-          {% cut "index.html" %}
-     
-          {% include [static-tf-config](../../_includes/web/index-html-config.md) %}
-     
-          {% endcut %}
+
+        {% cut "index.html" %}
+
+        {% include [static-tf-config](../../_includes/web/index-html-config.md) %}
+
+        {% endcut %}
 
      1. Создайте в папке файл `error.html` с текстом `Error!`:
-  
-          {% cut "error.html" %}
-     
-          {% include [static-tf-config](../../_includes/web/error-html-config.md) %}
-     
-          {% endcut %}
+
+        {% cut "error.html" %}
+
+        {% include [static-tf-config](../../_includes/web/error-html-config.md) %}
+
+        {% endcut %}
 
    {% endlist %}
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-
-   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
-   * [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)
-   * [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
-   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
-   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
-
+    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+    * [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)
+    * [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
+    * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+    * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 1. В файле `static.tf` вставьте в блок `locals` следующие значения:
-
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) (если вы используете [аккаунт на Яндексе](../../iam/concepts/index.md#passport)) или [IAM-токен](../../iam/concepts/authorization/iam-token.md) (если вы используете аккаунт на Яндексе или [федеративный аккаунт](../../iam/concepts/index.md#saml-federation)) для доступа к {{ yandex-cloud }}. Время жизни IAM-токена — максимум 12 часов, но не больше времени жизни cookie у федерации. 
+   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) (если вы используете [аккаунт на Яндексе](../../iam/concepts/index.md#passport)) или [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md) (если вы используете аккаунт на Яндексе или [федеративный аккаунт](../../iam/concepts/index.md#saml-federation)) для доступа к {{ yandex-cloud }}. Время жизни {{ iam-name }}-токена — максимум 12 часов, но не больше времени жизни cookie у федерации. 
    * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будут создаваться ресурсы.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
- 
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}

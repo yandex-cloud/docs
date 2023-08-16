@@ -4,13 +4,16 @@
 
 Перед началом работы установите [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/reference/ydb-cli/install). Для подключения к БД {{ ydb-full-name }} из {{ ydb-short-name }} CLI необходимо указать [эндпоинт и путь](#endpoint-and-path), а также [выбрать и настроить](#auth) режим аутентификации.
 
-{% note warning %}
-
-Для подключения к БД в Dedicated-режиме снаружи {{ yandex-cloud }} необходимо разрешить входящий и исходящий трафик по протоколу TCP на порте `2135`. Убедитесь, что в назначенной [группе безопасности](../../vpc/concepts/security-groups.md) есть соответствующее правило, или добавьте его.
-
-{% endnote %}
+## Настройка групп безопасности {#configuring-security-groups}
 
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+Для подключения к БД в {{ dd }}-режиме нужно разрешить входящий и исходящий трафик по протоколу TCP на порте `{{ ydb.port-dedicated }}`. Убедитесь, что в назначенной [группе безопасности](../../vpc/concepts/security-groups.md) есть соответствующее правило, или добавьте его:
+
+* Диапазон портов — `{{ ydb.port-dedicated }}`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — `0.0.0.0/0`.
 
 ## Получите реквизиты для подключения {#endpoint-and-path}
 

@@ -3,6 +3,9 @@
 * {% include [Field CLI User](../../fields/common/cli/username.md) %}
 * {% include [Field CLI Security Group](../../fields/common/cli/security-group.md) %}
 
+    Убедитесь, что указанные группы безопасности [настроены](../../../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+
 * Чтобы задать пароль пользователя для доступа к базе данных, используйте один из параметров:
 
     * {% include [Field CLI Raw Password](../../fields/common/cli/raw-password.md) %}

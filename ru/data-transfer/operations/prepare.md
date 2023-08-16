@@ -735,6 +735,10 @@
     * `utf8`
 
 
+### Источник {{ ydb-full-name }} {#source-ydb}
+
+Если вы выбрали режим базы данных {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+
 ## Подготовка приемника {#target}
 
 ### Приемник {{ CH }} {#target-ch}
@@ -750,6 +754,10 @@
     1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md#adduser) с доступом к базе приемника.
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
+
+    1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) и [настройте ее](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+    1. Назначьте кластеру {{ mch-name }} созданную группу безопасности.
 
 - {{ CH }}
 
@@ -1161,9 +1169,8 @@
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
-
-[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
-
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
+1. Для базы данных в {{ dd }}-режиме [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

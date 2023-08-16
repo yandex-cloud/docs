@@ -52,6 +52,7 @@ description: "Вы можете запросить детальную инфор
   1. Нажмите на имя нужного кластера.
 
   {% note tip %}
+
   
   Чтобы запросить доступ к технологии [Point-in-Time-Recovery](../concepts/backup.md) (PITR) в режиме [Preview](../../overview/concepts/launch-stages.md), нажмите на ссылку **Запросить доступ** в строке **{{ ui-key.yacloud.mdb.cluster.overview.label_mongodb-pitr }}** и заполните форму.
 
