@@ -1,9 +1,9 @@
 ---
-title: "How to configure a {{ PG }} source endpointt in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a source {{ PG }} endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a source {{ PG }} endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ PG }} source endpoint
+# Configuring {{ PG }} source endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -140,9 +140,9 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}**: If necessary, select the DB schema elements to be transferred when activating or deactivating a transfer.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}**: If required, select the DB schema elements to transfer when activating or deactivating a transfer.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
@@ -165,7 +165,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * `--service-schema`: Name of the DB schema for service tables.
 
@@ -189,7 +189,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * `service_schema`: DB schema name for housekeeping tables.
 
@@ -235,7 +235,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
+   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
 
    * `serviceSchema`: Name of the DB schema for service tables.
 

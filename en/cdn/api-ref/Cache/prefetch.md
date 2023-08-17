@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/Cache/prefetch.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/Cache/prefetch.md
 ---
 
 # Cloud CDN API, REST: Cache.prefetch

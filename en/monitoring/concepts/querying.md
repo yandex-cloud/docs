@@ -8,12 +8,17 @@ description: "This section describes the\_query language used in {{ monitoring-f
 
 This section describes the {{monitoring-full-name}} query language. It's used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
-
 ## Uploading metrics {#selectors}
 
 Select a set of metrics using the metric name and a set of _selectors_ filtering label values (for more information, see [{#T}](./data-model.md#label)). You can use the resulting sets of metrics in alerts or pass them to a function as an argument.
 
 > Specify the name of a metric and required labels such as `folderId` and `service`. Then the `cpu_usage{folderId="zoeu2rgjpqakq377q1h6", service="compute"}` query returns metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqakq377q1h6` ID.
+
+{% note warning %}
+
+The `folderId` label value must always match the selected folder. It is not allowed to query data from other folders. This restriction applies to any query language use case: when building charts in Metric Explorer or on dashboards, creating alerts, or calling API methods.
+
+{% endnote %}
 
 _Selector_ consists of a label name, a statement, and an expression that describes a set of label values.
 
@@ -36,17 +41,59 @@ The {{monitoring-full-name}} query language supports the following expressions f
 
       > `name="metric1|metric2"` returns two metrics with the `name=metric1` and `name=metric2` label values.
 
+## Using query names as variables {#query-name-as-variable}
+
+The query language supports links to the results of executing other queries as to names of variables.
+
+E.g.:
+
+A: `"temperature"{folderId="my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
+
+B: `"temperature"{folderId="my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor2" }`
+
+C: `(A + B) / 2`
+
+These links can only refer by name in text mode, and only to higher-level queries in the same alert or chart. You can apply any supported arithmetic operations and query language [functions](#functions) to variables.
 
 ## Data types {#data-types}
+
 The {{monitoring-full-name}} query language supports the following data types:
 
-* _timeseries_vector_: A set of time series (metrics).
-* _number_: A real number.
-* _string_: A string in single or double quotes.
-* _duration_: A time period in the format `15s, 10m, 3h, 7d, 2w`. (without quotation marks).
+* _timeseries_vector_: Set of timeseries (metrics).
+* _number_: Real number.
+* _string_: String in single or double quotes.
+* _duration_: Time period in the format `15s, 10m, 3h, 7d, 2w`. (without quotation marks).
+* _bool_: Boolean type which is either `true` or `false`.
+* _scalar_: Real double-precision floating point number based on the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), including the special `NaN` value.
+
+{% note info %}
+
+The real number type supports scientific notation with the fraction and power of ten and the following suffixes:
+
+* `k`: 10^3^
+* `M`: 10^6^
+* `G`: 10^9^
+* `T`: 10^12^
+* `P`: 10^15^
+* `E`: 10^18^
+
+{% endnote %}
 
 ## Functions {#functions}
 
+- [Aggregation](#aggregation-functions)
+   - [avg](#avg)
+   - [count](#count)
+   - [integrate](#integrate)
+   - [iqr](#iqr)
+   - [last](#last)
+   - [max](#max)
+   - [median](#median)
+   - [min](#min)
+   - [percentile](#percentile)
+   - [random](#random)
+   - [std](#std)
+   - [sum](#sum)
 - [Combine](#combine-functions)
    - [histogram_avg](#histogram_avg)
    - [histogram_cdfp](#histogram_cdfp)
@@ -88,6 +135,7 @@ The {{monitoring-full-name}} query language supports the following data types:
    - [log](#log)
    - [moving_avg](#moving_avg)
    - [moving_percentile](#moving_percentile)
+   - [moving_sum](#moving_sum)
    - [non_negative_derivative](#non_negative_derivative)
    - [pow](#pow)
    - [ramp](#ramp)
@@ -99,7 +147,139 @@ The {{monitoring-full-name}} query language supports the following data types:
    - [trunc](#trunc)
 - [Other](#other-functions)
    - [alias](#alias)
+   - [constant_line](#constant_line)
    - [drop_empty_series](#drop_empty_series)
+
+### Aggregation {#aggregation-functions}
+
+Aggregation functions aggregate values of a timeseries in the current time range.
+
+{% note warning %}
+
+As an input argument, aggregation functions accept a vector of metrics (_timeseries_vector_). It must only include a single timeseries. Otherwise, the function returns a runtime error.
+
+When using aggregation functions, make sure that the selector returns a single timeseries. Use [combining functions](#combine-functions) if needed.
+
+{% endnote %}
+
+#### avg
+
+Returns an average value (for timeseries, a weighted average) or `NaN` for an empty timeseries.
+
+The **avg** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **avg**(_arg0_: _scalar[]_): _scalar_
+* **avg**(_arg0_: _timeseries_vector_): _scalar_
+
+#### count
+
+Returns the number of points in a metric or the number of items in a vector of numbers.
+
+The **count** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **count**(_arg0_: _scalar[]_): _scalar_
+* **count**(_arg0_: _timeseries_vector_): _scalar_
+
+#### integrate
+
+Returns an integrated sum of values or 0 for an empty timeseries.
+
+The **integrate** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **integrate**(_arg0: scalar[]_): _scalar_
+* **integrate**(_arg0_: _timeseries_vector_): _scalar_
+
+#### iqr
+
+Returns the [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range) for a set of values.
+
+The **iqr** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **iqr**(_arg0_: _scalar[]_): _scalar_
+* **iqr**(_arg0_: _timeseries_vector_): _scalar_
+
+#### last
+
+Returns the last value different from `NaN` or `NaN` for an empty timeseries.
+
+The **last** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **last**(_arg0_: _scalar[]_): _scalar_
+* **last**(_arg0_: _timeseries_vector_): _scalar_
+
+#### max
+
+Returns the maximum value (or `NaN` for an empty timeseries).
+
+The **max** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **max**(_arg0_: _scalar[]_): _scalar_
+* **max**(_arg0_: _timeseries_vector_): _scalar_
+
+#### median
+
+Returns the median of values (or `NaN` for an empty timeseries).
+
+The **median** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **median**(_arg0_: _scalar[]_): _scalar_
+* **median**(_arg0_: _timeseries_vector_): _scalar_
+
+#### min
+
+Returns the minimum value (or `NaN` for an empty timeseries).
+
+The **min** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **min**(_arg0_: _scalar[]_): _scalar_
+* **min**(_arg0_: _timeseries_vector_): _scalar_
+
+#### percentile
+
+Returns the percentile value for a set of values. The percentile level is set in the required _level_ parameter as a number between 0 and 100.
+
+The **percentile** function has the following function overloading options depending on the type of the input *values* parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **percentile**(_level_: _scalar_, _values: scalar[]_): _scalar_
+* **percentile**(_level_: _scalar_, _values: timeseries_vector_): _scalar_
+
+#### random
+
+Returns a random item from a set of values.
+
+The **random** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **random**(_arg0_: _scalar[]_): _scalar_
+* **random**(_arg0_: _timeseries_vector_): _scalar_
+
+#### std
+
+Returns an unbiased estimation of standard deviation for a set of values (or `NaN` for an empty timeseries). The calculation is made by the following formula:
+
+$$\begin{array}{c}
+s=\sqrt{\frac{1}{n-1}\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}
+\end{array}{}
+,
+$$
+
+Where:
+* $x_i$: A value from the vector of values (or points in a timeseries).
+* $\bar{x}$: Average value.
+* $n$: Number of values.
+
+The **std** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **std**(_arg0_: _scalar[]_): _scalar_
+* **std**(_arg0_: _timeseries_vector_): _scalar_
+
+#### sum
+
+Returns a sum of all values of a set (or 0 for an empty timeseries).
+
+The **sum** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
+
+* **sum**(_arg0_: _scalar[]_): _scalar_
+* **sum**(_arg0_: _timeseries_vector_): _scalar_
 
 ### Combine {#combine-functions}
 
@@ -115,7 +295,7 @@ Calculates the average value of the distribution set by the histogram. The optio
 
 The **histogram_cdfp** function has the following use cases (function overloading) depending on the type of _from_ and _to_ input parameters (a number or an array of numbers):
 
-- **histogram_cdfp**(*[from: number*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
+- **histogram_cdfp**(*from: number*, *to: number*, *bucketLabel: string***, source: timeseries_vector): timeseries_vector
 - **histogram_cdfp**(*[from: number*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **histogram_cdfp**(*[from: number[]*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **histogram_cdfp**(*[from: number[]*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
@@ -155,7 +335,7 @@ The **series_avg** function has the following use cases (function overloading) d
 - **series_avg**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_avg**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates time series into one (or multiple ones) by applying the avg (average) aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by.
+Aggregates timeseries into one (or multiple ones) by applying the avg (average) aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by.
 
 For example, the `series_avg({...})` query calculates the average value among all uploaded metrics at each point.
 
@@ -171,7 +351,7 @@ The **series_max** function has the following use cases (function overloading) d
 - **series_max**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_max**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates time series into one (or multiple ones) by applying the max aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+Aggregates timeseries into one (or multiple ones) by applying the max aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 #### series_min
 
@@ -180,7 +360,7 @@ The **series_min** function has the following use cases (function overloading) d
 - **series_min**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_min**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates time series into one (or multiple ones) by applying the min aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+Aggregates timeseries into one (or multiple ones) by applying the min aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 #### series_percentile
 
@@ -189,7 +369,7 @@ The **series_percentile** function has the following use cases (function overloa
 - **series_percentile**(*rank: number*, *source: timeseries_vector*): *timeseries_vector*
 - **series_percentile**(*rank: number[]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates time series into one (or multiple ones) by applying the percentile aggregation function for each time point.
+Aggregates timeseries into one (or multiple ones) by applying the percentile aggregation function for each time point.
 
 #### series_sum
 
@@ -198,12 +378,12 @@ The **series_sum** function has the following use cases (function overloading) d
 - **series_sum**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **series_sum**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
 
-Aggregates time series into one (or multiple ones) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
+Aggregates timeseries into one (or multiple ones) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 
 ### Rank {#rank-functions}
 
-The rank functions order a metric vector by the aggregation function value in the current time window and return some of the first (upper) or last (lower) time series from it. The _limit_ parameter specifies how many metrics a function returns.
+The rank functions order a metric vector by the aggregation function value in the current time window and return some of the first (upper) or last (lower) timeseries from it. The _limit_ parameter specifies how many metrics a function returns.
 
 #### bottom_avg
 
@@ -280,7 +460,7 @@ Returns the _limit_ of metrics with the top sum value.
 
 ### Transform {#transform-functions}
 
-The transform metric functions calculate a new value in each point for each time series from a set of metrics.
+The transform metric functions calculate a new value in each point for each timeseries from a set of metrics.
 
 #### abs
 
@@ -292,8 +472,8 @@ Calculates the absolute value.
 
 **asap**(*source: timeseries_vector*): *timeseries_vector*
 
-Smooths time series based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
-Time series points are averaged using a moving average with a dynamic window. The window width is automatically selected so as to remove as much noise as possible while retaining important information.
+Smooths timeseries based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
+Timeseries points are averaged using a moving average with a dynamic window. The window width is automatically selected so as to remove as much noise as possible while retaining important information.
 
 #### ceil
 
@@ -381,6 +561,14 @@ Calculates the moving percentile: the percentile of the _rank_ level (from 0 to 
 
 For example, the `moving_percentile({...}, 1h, 99.9)` query returns the moving 99.9 percentile with a window of 1 hour.
 
+#### moving_sum
+
+**moving_sum**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
+
+Calculates the moving sum across a _window_ window width.
+
+For example, the `moving_sum({...}, 1d)` query will return a moving sum with a window of 1 day.
+
 #### non_negative_derivative
 
 **non_negative_derivative**(*source: timeseries_vector*): *timeseries_vector*
@@ -446,10 +634,26 @@ Truncates the real part of point values.
 
 Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in the `not_var{{label}}` format to substitute a label value in a new metric name.
 
+#### constant_line
+
+Returns a constant line consisting of two points in the beginning and end of the interval equal to *value*
+
+**constant_line**(*value: scalar*): *timeseries_vector*
+
+When you specify an optional *grid* parameter, the function populates the current time interval with points with the value of *value* and the step of *grid* between the points.
+
+**constant_line**(*value: scalar*, *grid: duration*): *timeseries_vector*
+
+{% note warning %}
+
+Use the **constant_line** function only to show lines on charts. The use of this function in calculations will produce an incorrect result, because the function returns a timeseries of only two points: at the beginning and end of the definition interval.
+
+{% endnote %}
+
 #### drop_empty_series
 
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
-Drops time series where either there are no points in the specified time range or all points have the `NaN` value.
+Drops timeseries where either there are no points in the specified time range or all points have the `NaN` value.
 
 

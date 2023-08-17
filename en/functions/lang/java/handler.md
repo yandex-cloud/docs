@@ -1,6 +1,6 @@
-# Java function request handler
+# Java function call handler
 
-A _request handler_ is a method used to handle each Java function invocation. When creating a function version, you should specify the entry point. It consists of the name of the class that contains the handler (for example, `org.example.Handler`).
+A _call handler_ is a method used to handle each Java function call. When creating a function version, you should specify the entry point. It consists of the name of the class that contains the handler (for example, `org.example.Handler`).
 
 {% note info %}
 

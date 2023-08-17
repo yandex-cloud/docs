@@ -1,10 +1,10 @@
-# Поставка данных из {{ ydb-full-name }} в {{ yds-full-name }} с помощью {{ data-transfer-full-name }}
+# Захват изменений из {{ ydb-short-name }} и поставка в {{ DS }}
 
 В поток {{ yds-name }} можно в реальном времени поставлять данные из базы данных {{ ydb-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
 
 {% include [CDC-YDB](../../_includes/data-transfer/note-ydb-cdc.md) %}
 
-Чтобы запустить поставку данных:
+Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте базу данных источника {{ ydb-name }}](#prepare-source-ydb).
 1. [Создайте поток данных приемника {{ yds-name }}](#create-target-yds).
@@ -22,6 +22,9 @@
 * Вручную
 
     1. [Создайте базу данных источника {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+
+    1. Если для источника вы выбрали режим БД {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации для потока данных приемника {{ yds-name }}.
 
 * С помощью {{ TF }}
@@ -128,13 +131,15 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.array_item_label }} 1** — `test`.
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ yds-full-name }}`](../../data-transfer/operations/endpoint/source/data-streams.md):
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ yds-full-name }}`](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} для потока данных приемника из списка.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} для потока данных приемника из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_auto.title }}`.
 
 1. Создайте трансфер:
 
@@ -200,11 +205,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% note info %}
-
-Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
-
-{% endnote %}
+{% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 

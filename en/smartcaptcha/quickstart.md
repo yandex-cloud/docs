@@ -8,10 +8,10 @@ To get started with the service:
 1. [Check the user response](#check-answer).
 
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
 ## Create a CAPTCHA {#creat-captcha}
@@ -88,9 +88,7 @@ After the check, the user is given a unique token. The token is loaded to the `<
 
 To validate the token, send a GET request to `https://smartcaptcha.yandexcloud.net/validate` with the following parameters:
 
-* `secret`: The key for the server part.
-* `token`: The token received after the check has been passed.
-* `ip`: The IP address of the user that originated the request to validate the token.
+{% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
 Example of the token validation function:
 
@@ -198,8 +196,8 @@ Example of the token validation function:
            {
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
-               "ip": "<user IP>" # Method for retrieving the IP depends on your framework and proxy.                                   
-                                                # For example, in Flask, this can be request.remote_addr
+               "ip": "<user IP>" # Method for retrieving the IP depends on your framework and proxy. 
+                                 # For example, in Flask, this can be request.remote_addr
            },
            timeout=1
        )
@@ -208,7 +206,7 @@ Example of the token validation function:
            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
            return True
        return json.loads(server_output)["status"] == "ok"
-   token = "<token>" # Fоr example, request.form["smart-token"]
+   token = "<token>" # For example, request.form["smart-token"]
    if check_captcha(token):
        print("Passed")
    else:

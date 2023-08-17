@@ -31,7 +31,7 @@
 
 * [{{ dataproc-full-name }}](../data-proc/qa/index.md)
 * [{{ yds-full-name }}](../data-streams/qa/index.md)
-* [{{ data-transfer-full-name }}](../data-transfer/qa/index.md)
+* [{{ data-transfer-full-name }}](../data-transfer/troubleshooting/index.md)
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
@@ -89,7 +89,7 @@
 ### Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ speechkit-full-name }}](../speechkit/qa/all.md)
+* [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
 

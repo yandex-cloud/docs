@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listLogs.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listLogs.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.listLogs
@@ -24,7 +24,7 @@ clusterId | <p>Required. ID of the ClickHouse cluster to request logs for. To ge
 Parameter | Description
 --- | ---
 columnFilter | <p>Columns from logs table to request. If no columns are specified, entire log records are returned.</p> 
-serviceType | <p>Type of the service to request logs about.</p> <ul> <li>CLICKHOUSE: Logs of ClickHouse activity.</li> </ul> 
+serviceType | <p>Required. Type of the service to request logs about.</p> <ul> <li>CLICKHOUSE: Logs of ClickHouse activity.</li> </ul> 
 fromTime | <p>Start timestamp for the logs request, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 toTime | <p>End timestamp for the logs request, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params">pageSize</a>, the service returns a <a href="/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 

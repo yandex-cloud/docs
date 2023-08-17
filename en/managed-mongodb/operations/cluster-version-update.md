@@ -12,13 +12,13 @@ You can only upgrade to a version that immediately follows the current one, such
 
 {% endnote %}
 
-## Before upgrading {#before-update}
+## Before updating the version {#before-update}
 
-Prior to upgrading a cluster, make sure this doesn't affect your applications:
+Make sure this does not affect your applications:
 
-1. Review the [change log](https://docs.mongodb.com/manual/release-notes/) for the {{ MG }} versions that you are upgrading your cluster to, and make sure that changes do not affect your application.
-1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
-1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
+1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Upgrading a cluster {#start-update}
 
@@ -54,7 +54,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
          --mongodb-version=<new version number>
       ```
 
-      When the upgrade starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+      When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
    1. After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, run this command:
 
@@ -86,17 +86,17 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
-   To upgrade to a new {{ MG }} version, use the [update](../api-ref/Cluster/update.md) API method and provide the following in the call:
+   To update the {{ MG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ MG }} version which you are upgrading to, in the `configSpec.version` parameter.
@@ -104,7 +104,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-   After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method and provide the new version number in the request using the `configSpec.featureCompatibilityVersion` property.
+   After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method and provide the new version number in the call using the `configSpec.featureCompatibilityVersion` property.
 
    Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 

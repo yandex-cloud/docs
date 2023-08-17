@@ -1,8 +1,27 @@
 # Работа с группой виртуальных машин с автоматическим масштабированием
 
-Чтобы создать [группу ВМ с автоматическим масштабированием](../../compute/concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
+В этом руководстве вы развернете [группу ВМ с политикой автоматического масштабирования](../../compute/concepts/instance-groups/scale.md#auto-scale) при превышении допустимой нагрузки.
 
-## Перед началом работы {#before-you-begin}
+ВМ будут развернуты в двух зонах доступности, а нагрузка на них будет регулироваться с помощью [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md) {{ network-load-balancer-name }}.
+
+Чтобы создать группу ВМ:
+
+1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте окружение](#prepare).
+1. [Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки](#create-vm-group).
+1. [Подключите сетевой балансировщик нагрузки с целевой группой](#connect-balancer).
+1. [Проверьте работу группы ВМ и сетевого балансировщика](#check-service).
+1. [Проверьте работу автоматического масштабирования](#check-highload).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#delete-infrastructure).
+
+
+Также инфраструктуру для масштабирования группы ВМ можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+
+
+## Подготовьте облако к работе {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
@@ -15,11 +34,12 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
-     1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
-     1. Введите имя `for-autoscale`.
-     1. Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите **Добавить роль** и выберите роль `editor`.
-     1. Нажмите кнопку **Создать**.
+     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. В открывшемся окне:
+         * В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-autoscale`.
+         * Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите ![image](../../_assets/plus-sign.svg)  **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+         * Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI
 
@@ -48,6 +68,12 @@
           --subject serviceAccount:ajelabcde12f33nol1v5
         ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
@@ -61,11 +87,11 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
-     1. Выберите сервис **{{ vpc-name }}**.
-     1. Нажмите кнопку **Создать сеть**.
-     1. Задайте имя сети `yc-auto-network`.
-     1. Выберите дополнительную опцию **Создать подсети**.
-     1. Нажмите кнопку **Создать сеть**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** задайте имя сети `yc-auto-network`.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI
 
@@ -126,6 +152,12 @@
         - 192.168.2.0/24
         ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      1. Создайте сеть:
@@ -134,6 +166,55 @@
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
    {% endlist %}
+
+1. Создайте группу безопасности:
+
+    {% note info %}
+
+    {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+    {% endnote %}
+
+    {% list tabs %}
+
+    - Консоль управления 
+
+      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
+      1. Откройте вкладку **Группы безопасности**.
+      1. Создайте группу безопасности для балансировщика:
+        
+        1. Нажмите кнопку **Создать группу**.
+        1. Укажите **Имя** группы: `sg-autoscale`.
+        1. Выберите **Сеть** `yc-auto-network`.
+        1. В блоке **Правила** создайте правила по инструкции под таблицей:
+          
+            | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
+            | --- | --- | --- | --- | --- | --- |
+            | Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0 |
+            | Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
+            | Входящий | healthchecks | 80 | TCP | Проверки состояния балансировщика | — |
+
+            1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
+            1. Нажмите кнопку **Добавить правило**.
+            1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+            1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
+            1. В поле **Назначение** или **Источник** выберите назначение правила:
+          
+              * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
+              * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+              * **Проверки состояния балансировщика** — правило, которое позволяет балансировщику проверять состояние ВМ.  
+
+            1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
+
+        1. Нажмите кнопку **Сохранить**.
+
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
+    {% endlist %}
 
 ## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
 
@@ -145,7 +226,7 @@
 
    ```yaml
    name: auto-group
-   service_account_id: <идентификатор сервисного аккаунта>
+   service_account_id: <идентификатор_сервисного_аккаунта>
    scale_policy:
      auto_scale:
        min_zone_size: 1
@@ -166,7 +247,7 @@
      target_group_spec:
        name: auto-group-tg
    instance_template:
-     service_account_id: <идентификатор сервисного аккаунта>
+     service_account_id: <идентификатор_сервисного_аккаунта>
      platform_id: standard-v3
      resources_spec:
        memory: 2G
@@ -188,7 +269,7 @@
          size: 30G
          image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
      network_interface_specs:
-       - network_id: <идентификатор облачной сети>
+       - network_id: <идентификатор_облачной_сети>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
    ```
 
@@ -219,6 +300,12 @@
      status: ACTIVE
      ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
@@ -232,9 +319,9 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **{{ compute-short-name }}**.
-     1. Перейдите в раздел **Группы виртуальных машин**.
-     1. Нажмите на имя группы ВМ `auto-group`.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. Выберите группу ВМ `auto-group`.
 
    - CLI
 
@@ -253,6 +340,12 @@
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
      ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      Чтобы посмотреть список созданных групп ВМ, воспользуйтесь методом REST API [list](../../compute/api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../compute/api-ref/grpc/instance_group_service.md#List).
@@ -268,22 +361,22 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
-     1. Выберите сервис **{{ network-load-balancer-short-name }}**.
-     1. Нажмите кнопку **Создать балансировщик**.
-     1. Задайте **Имя** `group-balancer`.
-     1. В поле **Публичный адрес** выберите значение **Автоматически**.
-     1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**:
-        * В открывшемся окне введите **Имя обработчика** `http`.
-        * В поле **Порт** укажите `80`, на нем балансировщик будет принимать входящий трафик.
-        * В поле **Целевой порт** укажите `80`, на него балансировщик будет направлять трафик.
-        * Нажмите кнопку **Добавить**.
-     1. В блоке **Целевые группы** нажмите кнопку **Добавить целевую группу**.
-     1. В поле **Целевая группа** выберите группу ВМ `auto-group-tg` и нажмите кнопку **Настроить**:
-        * В открывшемся окне **Настройка проверки состояния** введите **Имя** `tcp`.
-        * Выберите **Тип** **TCP**.
-        * В поле **Порт** укажите `80`.
-        * Нажмите кнопку **Применить**.
-     1. Нажмите кнопку **Создать**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+     1. Укажите имя — `group-balancer`.
+     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** укажите `{{ ui-key.yacloud.common.label_auto }}`.
+     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. В открывшемся окне укажите:
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}** — `http`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (на нем балансировщик будет принимать входящий трафик) — `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (на него балансировщик будет направлять трафик) — `80`.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
+     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите группу ВМ `auto-group-tg` и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне укажите:
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}** — `tcp`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — `80`.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI
 
@@ -306,6 +399,12 @@
            port: "80"
      ```
 
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+
    - API
 
      1. Создайте балансировщик нагрузки с помощью метода REST API [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызова gRPC API [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create).
@@ -322,8 +421,8 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик.
-     1. Выберите сервис **{{ network-load-balancer-short-name }}**.
-     1. Нажмите на имя балансировщика `group-balancer`.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. Выберите балансировщик `group-balancer`.
 
    - CLI
 
@@ -343,6 +442,12 @@
      ```
      
      
+
+    
+    - {{ TF }}
+
+      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
    - API
 
@@ -387,10 +492,10 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **{{ compute-short-name }}**.
-     1. Перейдите в раздел **Группы виртуальных машин**.
-     1. Нажмите на имя группы ВМ `auto-group`.
-     1. Выберите вкладку **Мониторинг**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. Выберите группу ВМ `auto-group`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_monitoring }}**.
         Балансировщик направил запрос на одну из ВМ группы. В зоне доступности этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
 
    {% endlist %}
@@ -439,12 +544,12 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
-     1. Выберите сервис **{{ compute-short-name }}**.
-     1. Перейдите в раздел **Группы виртуальных машин**.
-     1. Нажмите на название группы ВМ `auto-group`.
-     1. Выберите вкладку **Мониторинг**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. Выберите группу ВМ `auto-group`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_monitoring }}**.
         На графике **Number of instance in zone** отображены изменения количества ВМ в каждой зоне доступности. На графике **Average CPU utilization in zone** — средняя CPU-нагрузка в каждой зоне доступности.
-     1. Перейдите на вкладку **Логи**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_logs }}**.
         На странице отображены сообщения о действиях в рамках автоматического масштабирования группы ВМ.
 
      Суммарная нагрузка в 240% CPU равномерно распределилась между двумя ВМ в двух зонах доступности и превысила целевой уровень нагрузки в 40% CPU. {{ ig-name }} создал по дополнительной ВМ в каждой зоне доступности и в группе стало четыре ВМ. Когда скрипт перестал создавать CPU-нагрузку, {{ ig-name }} автоматически уменьшил количество ВМ в группе до двух.
@@ -460,10 +565,9 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик `group-balancer`.
-     1. Выберите сервис **{{ network-load-balancer-short-name }}**.
-     1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке балансировщика `group-balancer`.
-     1. В открывшемся меню нажмите кнопку **Удалить**.
-     1. В открывшемся окне **Удаление балансировщика** нажмите кнопку **Удалить**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. В строке балансировщика `group-balancer` нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI
 
@@ -490,11 +594,10 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
-     1. Выберите сервис **{{ compute-short-name }}**.
-     1. Перейдите в раздел **Группы виртуальных машин**.
-     1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) для группы ВМ `auto-group`.
-     1. В открывшемся меню нажмите кнопку **Удалить**.
-     1. В открывшемся окне **Удаление группы виртуальных машин** нажмите кнопку **Удалить**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. В строке группы ВМ `auto-group` нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
+     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
    - CLI
 
@@ -521,11 +624,10 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали подсети.
-     1. Откройте раздел **{{ vpc-name }}**.
-     1. Нажмите на имя сети, в которой находятся подсети.
-     1. Нажмите значок ![image](../../_assets/options.svg) в строке подсети, которую требуется удалить.
-     1. В открывшемся меню нажмите кнопку **Удалить**.
-     1. В открывшемся окне нажмите кнопку **Удалить**.
+     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Выберите сеть, в которой находятся нужные подсети.
+     1. В строке нужной подсети нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
      1. Повторите три предыдущих шага, чтобы удалить остальные подсети.
 
    - CLI
@@ -581,10 +683,9 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сеть.
-     1. Откройте раздел **{{ vpc-name }}**.
-     1. Нажмите значок ![image](../../_assets/options.svg) в строке сети, которую требуется удалить.
-     1. В открывшемся меню нажмите кнопку **Удалить**.
-     1. В открывшемся окне нажмите кнопку **Удалить**.
+     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. В строке нужной сети нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI
 
@@ -614,8 +715,8 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-     1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-     1. Нажмите значок ![image](../../_assets/options.svg) напротив сервисного аккаунта и выберите **Удалить сервисный аккаунт**.
+     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. В строке нужного сервисного аккаунта нажмите значок ![image](../../_assets/options.svg)  и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
      1. Подтвердите удаление.
 
    - CLI
@@ -635,3 +736,118 @@
      Воспользуйтесь методом REST API [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete).
 
    {% endlist %}
+
+
+## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+Чтобы настроить масштабирование группы ВМ с помощью {{ TF }}:
+
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+
+1. Подготовьте файлы с описанием инфраструктуры:
+   
+    {% list tabs %}
+   
+    - Готовый архив
+
+      1. Склонируйте репозиторий с конфигурационными файлами:
+        
+          ```bash
+          git clone https://github.com/yandex-cloud-examples/yc-terraform-vm-autoscale.git
+          ```
+
+      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+          * `vm-autoscale.tf` — конфигурация создаваемой инфраструктуры;
+          * `declaration.yaml` — описание Docker-контейнера с веб-сервером, который будет запущен на ВМ для имитации нагрузки на сервис;
+          * `config.tpl` — описание параметров пользователя ВМ;
+          * `vm-autoscale.auto.tfvars` — пользовательские данные.
+
+          {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+    - Создание вручную
+
+      1. Создайте папку для конфигурационных файлов.
+
+      1. Создайте в папке:
+
+          1. Конфигурационный файл `vm-autoscale.tf`:
+
+              {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+              {% cut "vm-autoscale.tf" %}
+
+              {% include [vm-autoscale-tf-config](../../_includes/instance-groups/vm-autoscale-tf-config.md) %}
+
+              {% endcut %}
+
+          1. Файл `declaration.yaml` с описанием Docker-контейнера с веб-сервером, который будет запущен на ВМ для имитации нагрузки на сервис:
+
+              {% cut "declaration.yaml" %}
+
+              ```yaml
+              spec:
+              containers:
+              - image: cr.yandex/yc/demo/web-app:v1
+                securityContext:
+                  privileged: false
+                tty: false
+                stdin: false
+              ```
+
+              {% endcut %}
+
+          1. Файл `config.tpl` с параметрами пользователя ВМ:
+
+              {% cut "config.tpl" %}
+           
+              ```yaml
+              users:
+                - name: "${VM_USER}"
+                  groups: sudo
+                  shell: /bin/bash
+                  sudo: ['ALL=(ALL) NOPASSWD:ALL']
+                  ssh_authorized_keys:
+                    - "${SSH_KEY}"
+              ```
+
+              {% endcut %}
+
+          1. Файл с пользовательскими данными `vm-autoscale.auto.tfvars`:
+
+              {% cut "vm-autoscale.auto.tfvars" %}
+             
+              ```hcl
+              folder_id = "<идентификатор_каталога>"
+              vm_user   = "<имя_пользователя_ВМ>"
+              ssh_key   = "<содержимое_публичного_SSH-ключа>"
+              ```
+
+              {% endcut %}
+
+    {% endlist %}
+
+    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+    * [yandex_iam_service_account]({{ tf-provider-link }}Resources/iam_service_account)
+    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}Resources/resourcemanager_folder_iam_member)
+    * [yandex_vpc_network]({{ tf-provider-link }}Resources/vpc_network)
+    * [yandex_vpc_subnet]({{ tf-provider-link }}Resources/vpc_subnet)
+    * [yandex_vpc_security_group]({{ tf-provider-link }}Resources/vpc_security_group)
+    * [yandex_compute_instance_group]({{ tf-provider-link }}Resources/compute_instance_group)
+    * [yandex_lb_network_load_balancer]({{ tf-provider-link }}Resources/lb_network_load_balancer)
+
+1. В файле `vm-autoscale.auto.tfvars` задайте пользовательские параметры:
+    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+    * `vm_user` — имя пользователя ВМ.
+    * `ssh_key` — содержимое файла с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+1. Создайте ресурсы:
+
+    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Проверьте работу группы ВМ и сетевого балансировщика](#check-service).
+
+1. [Проверьте работу автоматического масштабирования](#check-highload).
+

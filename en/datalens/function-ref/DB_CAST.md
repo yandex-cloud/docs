@@ -21,6 +21,8 @@ The following type casts are supported:
 
 | Data source   | Data type                     | Native data type      | Parameters for native type   | Comment                       |
 |:--------------|:------------------------------|:----------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`  | `Date`                        | `Date`                |                              |                               |
+| `ClickHouse`  | `Date`                        | `Date32`              |                              |                               |
 | `ClickHouse`  | `Fractional number`           | `Float32`             |                              |                               |
 | `ClickHouse`  | `Fractional number`           | `Float64`             |                              |                               |
 | `ClickHouse`  | `Fractional number`           | `Decimal`             | `Integer`, `Integer`         |                               |
@@ -56,7 +58,7 @@ The following type casts are supported:
 
 
 **Argument types:**
-- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Fractional number | Integer | String`
+- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Date | Fractional number | Integer | String`
 - `native_type` — `String`
 - `param_1` — `Any`
 - `param_2` — `Any`
@@ -88,4 +90,4 @@ DB_CAST([float_value], "numeric", 10, 5)
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `PostgreSQL 9.3`.

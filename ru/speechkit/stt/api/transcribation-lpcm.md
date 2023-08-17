@@ -1,6 +1,6 @@
-# Распознавание речи в формате LPCM
+# Асинхронное распознавание аудиофайлов в формате LPCM
 
-Пример показывает, как с помощью [API v2](transcribation-api.md) распознать речь, записанную в аудиофайле формата LPCM, в режиме асинхронного распознавания.
+Пример показывает, как с помощью [API v2](transcribation-api.md) распознать речь, записанную в аудиофайле формата LPCM, в режиме [асинхронного распознавания](../transcribation.md).
 
 
 В примере заданы следующие параметры:
@@ -20,6 +20,12 @@
 Формирование и отправка запроса к серверу, выполняющему распознавание, происходит с помощью утилиты [cURL](https://curl.haxx.se).
 
 Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об [аутентификации в API {{speechkit-name}}](../../concepts/auth.md).
+
+## Перед началом работы {#before-you-begin}
+
+{% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
+
+## Выполните распознавание с помощью API {#recognize-using-api}
 
 {% list tabs %}
 
@@ -118,4 +124,5 @@
 
 * [{#T}](transcribation-api.md)
 * [{#T}](transcribation-ogg.md)
+* [{#T}](batch-transcribation.md)
 * [{#T}](../../concepts/auth.md)

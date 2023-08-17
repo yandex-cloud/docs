@@ -17,28 +17,28 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    To create a route table and add [static routes](../concepts/static-routes.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
-   1. Click **Create**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Enter a name for the route table.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. (optional) Add a description of a route table.
    1. Select the network to create the route table in.
-   1. Click **Add route**.
+   1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
    1. In the window that opens, enter the prefix of the destination subnet in CIDR notation.
-   1. Specify the **next hop**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet).
-   1. Click **Add**.
-   1. Click **Create route table**.
+   1. Specify the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet).
+   1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+   1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
    To use static routes, link the route table to a subnet:
 
-   1. On the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
-   1. In the menu that opens, select **Link route table**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
-   1. Click **Link**.
+   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI
 
@@ -76,11 +76,11 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       Where:
 
-      * `name`: The name of the route table.
-      * `network-id`: The ID of the network where the table will be created.
-      * `route`: The route settings with two parameters:
-         * `destination`: The destination subnet prefix in CIDR notation.
-         * `next-hop`: The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+      * `name`: Name of the route table.
+      * `network-id`: ID of the network where the table will be created.
+      * `route`: Route settings with two parameters:
+         * `destination`: Destination subnet prefix in CIDR notation.
+         * `next-hop`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
 
       Result:
       ```
@@ -147,11 +147,11 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Name of the route table. Use this name format:
+      * `name`: Name of the route table. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `network-id`: The ID of the network where the table will be created.
+      * `network-id`: ID of the network where the table will be created.
       * `static_route`: Static route description:
          * `destination_prefix`: Destination subnet prefix in CIDR notation.
          * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
@@ -171,7 +171,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify the network in the `netword id` field (such as `network_id = "${yandex_vpc_network.lab-net.id}"`).
 
-      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_route_table).
+      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
    1. Make sure the configuration files are valid.
 
@@ -194,7 +194,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc route-table list

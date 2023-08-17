@@ -105,23 +105,24 @@
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
-  ```
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
 
 Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mkf-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget kafkacat --yes && \
+    mkdir -p {{ crt-local-dir }} && \
+    wget "{{ crt-web-path }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+```
 
 ## Примеры строк подключения {#connection-string}
 

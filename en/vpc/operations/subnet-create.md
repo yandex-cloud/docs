@@ -6,26 +6,27 @@
 
 - Management console
 
-   To create a subnet:
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a subnet.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click on the name of the cloud network.
-   1. Click **Add subnet**.
-   1. Enter the subnet name.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}** at the top right.
+   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify the subnet name.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. (optional) Enter a description.
-   1. Select an availability zone from the drop-down list.
-   1. Enter the subnet CIDR: the IP address and mask. For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
-      If you need to enter more CIDRs, click **Add CIDR**.
-   1. (optional) Specify **DHCP settings**. To do this:
-      1. Specify a DNS domain to search for unqualified names.
-      1. In the **DNS servers** field, click **Add DNS server** and enter the address of your DNS server. You can specify multiple DNS servers.
-      1. In the **NTP servers** field, click **Add NTP server** and specify the address of your NTP server. You can specify multiple NTP servers.
+   1. (Optional) In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** field, add a description.
+   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select an availability zone from the drop-down list.
+   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, specify a cloud network. Make sure to create it in advance.
+   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, enter the subnet IP address and mask.
+      For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
+      If you need to enter more CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+   1. (optional) Configure **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**: To do this:
+      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** field, specify a DNS domain to search for unqualified names.
+      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** and enter the address of your DNS server. You can specify multiple DNS servers.
+      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** and enter the address of your NTP server. You can specify multiple NTP servers.
 
 
-   1. Click **Create subnet**.
+   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 - CLI
 
@@ -141,7 +142,7 @@
 
    1. In the configuration file, describe the subnet parameters:
 
-      * `name`: Name of the subnet. Name format:
+      * `name`: Name of the subnet. Use this name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -164,7 +165,7 @@
 
       To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource with the network specified in the `network_id` field (see an [example](#examples)).
 
-      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
    1. Make sure the configuration files are valid.
 
@@ -187,7 +188,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc subnet list
@@ -246,7 +247,7 @@
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
    1. Make sure the configuration files are valid.
 
@@ -269,7 +270,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc subnet list

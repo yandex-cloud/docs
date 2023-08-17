@@ -11,11 +11,11 @@ _Image classification is currently in the [Preview stage](../../../overview/conc
 
 To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md).
 
-In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality) model.
+In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality).
 
 ## Examples {#examples}
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 
@@ -37,7 +37,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 
-1. Create a file with the request body (for example, `body.json`):
+1. Create a file with the request body, e.g., `body.json`:
 
    **body.json:**
 

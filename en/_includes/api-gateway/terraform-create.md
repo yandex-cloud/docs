@@ -2,15 +2,15 @@ To create an API gateway:
 
 1. Describe the parameters of the `yandex_api_gateway` resource in the configuration file:
 
-   * `name`: API gateway name. Name format:
+   * `name`: API gateway name. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description`: API gateway description.
-   * `labels`: [Labels](../../overview/concepts/services#labels) for the API gateway. Set a key-value pair.
+   * `labels`: [Labels](../../resource-manager/concepts/labels.md) for the API gateway. Set a key-value pair.
    * `spec`: API gateway specification.
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    ```hcl
    resource "yandex_api_gateway" "test-api-gateway" {
@@ -56,22 +56,22 @@ To create an API gateway:
    }
    ```
 
-   For more information about the resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+   For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
-1. Make sure that the configuration files are correct.
+1. Make sure the configuration files are valid.
 
    1. In the command line, go to the directory where you created the configuration file.
-   1. Run the check using the command:
+   1. Run the check using this command:
 
       ```
       terraform plan
       ```
 
-   If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+   If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-1. Deploy the cloud resources.
+1. Deploy cloud resources.
 
-   1. If the configuration doesn't contain any errors, run the command:
+   1. If the configuration does not contain any errors, run this command:
 
       ```
       terraform apply
@@ -79,7 +79,7 @@ To create an API gateway:
 
    1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
       ```
       yc serverless api-gateway get <API gateway name>

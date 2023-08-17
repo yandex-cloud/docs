@@ -2,9 +2,22 @@
 
 [Метки бакетов](../../concepts/tags.md) — это пары ключ-значение для логической маркировки бакетов.
 
+{% include [labels-tags](../../../_includes/storage/labels-tags.md) %}
+
 ## Добавить или изменить метки {#add-edit-tag}
 
 {% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите бакет в списке.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+  1. Введите метку в формате `ключ: значение`. Чтобы изменить существующую метку, введите ее ключ и новое значение.
+  1. Нажмите **Enter**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - AWS CLI
 
@@ -22,15 +35,47 @@
   Где:
   * `--bucket` — имя бакета.
   * `--tagging` — массив меток бакета, где:
-    * `Key` — ключ метки, тип: string.
-    * `Value` — значение метки, тип: string.
+    * `Key` — ключ метки, тип: `string`.
+    * `Value` — значение метки, тип: `string`.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+
+- {{ TF }}
+
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `tags` во фрагмент с описанием бакета:
+
+      ```hcl
+      resource "yandex_storage_bucket" "test-bucket" {
+        bucket           = "<имя_бакета>"
+        ...
+        tags             = {
+          <ключ_метки_1> = "<значение_метки_1>"
+          <ключ_метки_2> = "<значение_метки_2>"
+        }
+        ...
+      }
+      ```
+
+      Где `tags` — массив меток бакета в формате `<ключ> = "<значение>"`.
+
+      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого к бакету будут добавлены метки. Проверить появление меток и настройки бакета можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+  ```bash
+  yc storage bucket get <имя_бакета> --full
+  ```
 
 - API
 
   Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
 
-  ### Пример вызова gRPC API {#api-edit-example}
+  **Пример вызова gRPC API**
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -70,6 +115,13 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите бакет в списке.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+
 - AWS CLI
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -101,14 +153,13 @@
           }
       ]
   }
-  (END)
   ```  
 
 - API
 
   Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
 
-  ### Пример вызова gRPC API {#api-get-example}
+  **Пример вызова gRPC API**
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -162,6 +213,15 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите бакет в списке.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
+  1. Напротив нужной метки нажмите значок ![image](../../../_assets/cross.svg).
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
+
 - AWS CLI
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -178,11 +238,43 @@
   * `--bucket` — имя бакета.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
+- {{ TF }}
+
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `tags` из фрагмента с описанием бакета.
+
+     {% cut "Пример описания тегов бакета в конфигурации {{ TF }}" %}
+
+      ```hcl
+      resource "yandex_storage_bucket" "test-bucket" {
+        bucket           = "<имя_бакета>"
+        ...
+        tags             = {
+          <ключ_метки_1> = "<значение_метки_1>"
+          <ключ_метки_2> = "<значение_метки_2>"
+        }
+        ...
+      }
+      ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого метки бакета будут удалены. Проверить удаление меток и настройки бакета можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+  ```bash
+  yc storage bucket get <имя_бакета> --full
+  ```
+
 - API
 
   Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
 
-  ### Пример вызова gRPC API {#api-delete-example}
+  **Пример вызова gRPC API**
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"

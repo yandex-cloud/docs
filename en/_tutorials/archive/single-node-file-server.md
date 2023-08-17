@@ -290,11 +290,11 @@ To create a single-node file server using {{ TF }}:
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
 
 1. Under `metadata`, enter your username and the contents of your SSH key. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
 

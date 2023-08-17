@@ -5,14 +5,14 @@ To work with the {{ speechkit-name }} API, you need to authenticate using your:
 - Yandex account
 
    1. [Get an IAM token](../../iam/operations/iam-token/create.md).
-   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-speechkit-stt }}` role or higher for.
+   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}`, or higher roles.
    1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 
 - Federated account
 
 
    1. [Get an IAM token](../../iam/operations/iam-token/create-for-federation.md).
-   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-speechkit-stt }}` role or higher for.
+   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}`, or higher roles.
    1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 
 - Service account

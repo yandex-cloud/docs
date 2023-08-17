@@ -13,9 +13,13 @@ The user created with a **{{ mpg-name }}** cluster is the owner of the first dat
 - [Granting a privilege to a user](#grant-privilege).
 - [Revoking a privilege from a user](#revoke-privilege).
 
+{% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
+
 ## Updating the list of user roles {#grant-role}
 
-To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.
+To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.
+
+With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. The highest privileges for working with clusters are granted to users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin). For more information, see [{#T}](../concepts/roles.md).
 
 {% list tabs %}
 
@@ -53,7 +57,7 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} i
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
    1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
    1. Add an attribute named `grants` with a list of required roles:

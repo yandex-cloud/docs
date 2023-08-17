@@ -1,6 +1,6 @@
 # Working with {{ iot-full-name }} from an Android device in Java
 
-In this scenario, you'll learn how to connect to {{ iot-full-name }} from an Android device using the [Paho](https://www.eclipse.org/paho/) library and Java programming language. It assumes that you know how to develop Android apps in Java using Android Studio.
+In this scenario, you will learn how to connect to {{ iot-full-name }} from an Android device using the [Paho](https://www.eclipse.org/paho/) library and Java programming language. It assumes that you know how to develop Android apps in Java using Android Studio.
 
 {% note info %}
 
@@ -13,7 +13,6 @@ Once connected, you can exchange messages between your device and registry:
 * [Subscribe a device or registry to receive messages](../operations/subscribe.md).
 
 To connect to {{ iot-full-name }} and start messaging:
-* [Get started](#before-you-begin)
 * [Create the required {{ iot-full-name }} resources](#resources)
     * [Create a registry and add a certificate to it](#registry)
     * [Create a device and add a certificate to it](#device)

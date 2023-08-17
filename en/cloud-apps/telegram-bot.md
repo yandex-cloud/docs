@@ -11,6 +11,7 @@ The cost of resources for the application includes:
 * Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
 * Fee for standard queue requests (see [{{ message-queue-full-name }} pricing](../message-queue/pricing.md)).
+* Secret storage and request fees (see [{{ lockbox-full-name }} pricing](../lockbox/pricing.md)).
 
 ## Getting started {#before-begin}
 
@@ -46,9 +47,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl \
         --request POST \
-        --url https://api.telegram.org/bot<bot token>/setWebhook \
-        --header 'content-type: application/json' \
-        --data '{"url": "https://<API gateway domain>/echo"}'
+        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
       ```
 
    - Windows (cmd)
@@ -56,9 +55,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl ^
         --request POST ^
-        --url https://api.telegram.org/bot<bot token>/setWebhook ^
-        --header "content-type: application/json" ^
-        --data "{\"url\": \"https://<API gateway domain>/echo\"}"
+        --url "https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo"
       ```
 
    - Windows (PowerShell)
@@ -66,9 +63,7 @@ Your Telegram bot's token will be displayed.
       ```powershell
       curl.exe `
         --request POST `
-        --url https://api.telegram.org/bot<bot token>/setWebhook `
-        --header '"content-type: application/json"' `
-        --data '"{ \"url\": \"https://<API gateway domain>/echo\" }"'
+        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
       ```
 
    {% endlist %}

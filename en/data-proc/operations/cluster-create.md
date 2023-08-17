@@ -9,9 +9,7 @@ In the subnet the subcluster with master host will connect to, [set up an NAT ga
 
 ## Configure security groups {#change-security-groups}
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% note warning %}
 
@@ -22,7 +20,7 @@ Security groups must be created and configured before creating a cluster. If the
 1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for cluster service traffic.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
 
-   * One rule for inbound and outbound service traffic:
+   * One rule for inbound and another one for outbound service traffic:
 
       * Port range: `{{ port-any }}`.
       * Protocol: `Any`.
@@ -64,7 +62,7 @@ Security groups must be configured correctly for all subnets that will include c
 
 {% endnote %}
 
-You can set up security groups for [connections to cluster hosts](connect.md) via an intermediate VM after creating a cluster.
+You can set up security groups for [connections to cluster hosts](connect.md) through an intermediate VM and [connections to {{ metastore-name }}](./metastore/dataproc-connect.md) after creating a cluster.
 
 
 ## Create a cluster {#create}
@@ -144,7 +142,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
          {% note warning %}
 
-         After you create your cluster, you cannot request or disable public access to the subcluster. However, you can delete a data processing subcluster and then create it again with the relevant public access setting.
+         After you create your cluster, you cannot request or disable public access to the subcluster. However, you can delete a data processing subcluster and then create it again with a relevant public access setting.
 
          {% endnote %}
 
@@ -227,7 +225,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% note info %}
 
-      The cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may not be longer than 63 characters.
+      It must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may not be longer than 63 characters.
 
       {% endnote %}
 
@@ -496,7 +494,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```hcl
       resource "yandex_dataproc_cluster" "<cluster name in {{ TF }}>" {
         ...
-        ui_proxy            = <enable UI Proxy: true or false>
+        ui_proxy = <enable UI Proxy: true or false>
         ...
       }
       ```
@@ -520,7 +518,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
    1. Check the {{ TF }} configuration files for errors:
 

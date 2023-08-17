@@ -14,4 +14,4 @@ Possible cause:
 
    Parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-   **Solution:** specify the number of instances and processes in the **Runtime environment** → **{{ yandex-cloud }}** → **Sharded copying parameters** [transfer parameter](../../../../data-transfer/operations/transfer.md#update) and [reactivate](../../../../data-transfer/operations/transfer.md#activate) the transfer.
+   **Solution:** Set up [parallel copy](../../../../data-transfer/concepts/sharded.md) and [reactivate the transfer](../../../../data-transfer/operations/transfer.md#activate).

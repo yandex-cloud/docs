@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/listNodes.md
+sourcePath: en/_api-ref/k8s/v1/api-ref/NodeGroup/listNodes.md
 ---
 
 # Managed Services for Kubernetes API, REST: NodeGroup.listNodes
@@ -81,7 +81,7 @@ pageToken | <p>Page token. To get the next page of results, set ``page_token`` t
 Field | Description
 --- | ---
 nodes[] | **object**<br><p>List of nodes.</p> 
-nodes[].<br>status | **string**<br><p>Computed node status.</p> <p>Computed node status.</p> <ul> <li>PROVISIONING: Node instance is not yet created (e.g. in progress).</li> <li>NOT_CONNECTED: Node instance is created but not registered (e.g. is still initializing).</li> <li>NOT_READY: Node has connected but is not ready for workload (see conditions for details).</li> <li>READY: Node has connected and ready for workload.</li> <li>MISSING: Node is still registered but its instance is deleted (this is our bug).</li> </ul> 
+nodes[].<br>status | **string**<br><p>Computed node status.</p> <p>Computed node status.</p> <ul> <li>PROVISIONING: Node instance is not yet created (e.g. in progress).</li> <li>NOT_CONNECTED: Node instance is created but not registered (e.g. is still initializing).</li> <li>NOT_READY: Node has connected but is not ready for workload (see conditions for details).</li> <li>READY: Node has connected and ready for workload.</li> <li>MISSING: Node is still registered but its instance is deleted (this is our bug).</li> <li>STOPPED: Node is stopped</li> <li>UNKNOWN: Backend request to kubernetes api was unsuccessful.</li> </ul> 
 nodes[].<br>spec | **object**<br><p>Node specificaion.</p> <p>Node specification.</p> 
 nodes[].<br>spec.<br>resources | **object**<br><p>Node group specified resources.</p> 
 nodes[].<br>spec.<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the node, specified in bytes.</p> <p>The minimum value is 0.</p> 

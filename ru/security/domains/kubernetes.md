@@ -212,7 +212,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 Сканер безопасности в [{{ container-registry-name }}](../../container-registry/concepts/vulnerability-scanner.md).
 
 
-Чтобы защитить уровень хостов контейнеризации, можно использовать различные платные и бесплатные решения классов «Runtime security» и «Antivirus engine». Примеры бесплатных решений:
+Чтобы защитить уровень хостов [контейнеризации](../../glossary/containerization.md#containers-apps), можно использовать различные платные и бесплатные решения классов «Runtime security» и «Antivirus engine». Примеры бесплатных решений:
 
 * [{{ k8s }} ClamAV](https://cloud.google.com/community/tutorials/gcp-cos-clamav)
 * [Sysdig Falco](https://falco.org/) (дополнительно может выступать в роли Intrusion Detection System)
@@ -254,7 +254,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Требования [Pod Security Standarts](https://kubernetes.io/docs/concepts/security/pod-security-standards/ ) от {{ k8s }} позволяют предотвращать угрозы, которые связаны с объектами {{ k8s }}.
 
-Для реализации требований можно использовать либо встроенный инструмент {{ k8s }} [Pod Security Admission Controller ](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) либо открытое программное обеспечение, например другие Admission Controllers: OPA Gatekeeper, Kyverno.
+Для реализации требований можно использовать либо встроенный инструмент {{ k8s }} [Pod Security Admission Controller ](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) либо открытое программное обеспечение, например другие Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
 
 Примеры, в которых используется Kyverno:
 

@@ -1,9 +1,5 @@
 # Как начать работать с {{ mgp-short-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 Чтобы начать работу с сервисом:
 
 1. [Создайте кластер](#cluster-create).
@@ -39,9 +35,9 @@
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
-1. Выберите сервис **{{ mgp-name }}**.
-1. Нажмите кнопку **Создать кластер**.
-1. Задайте параметры кластера и нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.common.create }}**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mgp-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 ## Подключитесь к кластеру {#connect}
@@ -66,5 +62,6 @@
 
 * Изучите [концепции сервиса](./concepts/index.md).
 * Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect.md).
+* Установите [вспомогательные утилиты](./operations/greenplum-db.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

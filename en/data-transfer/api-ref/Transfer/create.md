@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/create.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/create.md
 ---
 
 # Data Transfer API, REST: Transfer.create

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/SnapshotSchedule/listDisks.md
+sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listDisks.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.listDisks
@@ -51,7 +51,8 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
         "string"
       ],
       "diskPlacementPolicy": {
-        "placementGroupId": "string"
+        "placementGroupId": "string",
+        "placementGroupPartition": "string"
       },
 
       // `disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`
@@ -84,6 +85,7 @@ disks[].<br>status | **string**<br>Current status of the disk.<br><ul> <li>CREAT
 disks[].<br>instanceIds[] | **string**<br><p>Array of instances to which the disk is attached.</p> 
 disks[].<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
 disks[].<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+disks[].<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 disks[].<br>sourceImageId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 disks[].<br>sourceSnapshotId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

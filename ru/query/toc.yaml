@@ -4,11 +4,13 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
-      - name: Пример анализа данных из {{objstorage-full-name}}
-        href: quickstart/yellow-taxi.md
-      - name: Пример анализа потоковых данных
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Аналитическая обработка
+        href: quickstart/batch-example.md
+      - name: Потоковая обработка
         href: quickstart/streaming-example.md
-      - name: Пример единого анализа потоковых и аналитических данных
+      - name: Единый анализ потоковых и аналитических данных
         href: quickstart/unified-example.md
   - name: Концепции
     items:
@@ -70,17 +72,15 @@ items:
         href: sources-and-sinks/monitoring.md
   - name: Сценарии использования
     items:
-      - name: Анализ логов Cloud Logging
+      - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
-      - name: Анализ потока изменений Debezium
+      - name: Обработка потока изменений Debezium
         href: tutorials/debezium.md
-      - name: >-
-          Просмотр отчетов {{datalens-full-name}} на данных из
-          {{objstorage-full-name}}
+      - name: Визуализация данных из {{ datalens-name }} в {{ objstorage-name }}
         href: tutorials/datalens.md
-      - name: Анализ аудитных логов {{at-full-name}}
+      - name: Обработка аудитных логов {{ at-name }}
         href: tutorials/audit-trails.md
-      - name: Анализ файлов детализации Биллинга
+      - name: Обработка файлов детализации биллинга
         href: tutorials/billing.md
   - name: Работа с YQL
     items:

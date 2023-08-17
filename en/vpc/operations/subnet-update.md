@@ -1,19 +1,17 @@
 # Updating a subnet
 
-After creating a subnet, you can change its name, description, and DCHP settings.
+After creating a [subnet](../concepts/network.md#subnet), you can change its name, description, and DCHP settings.
 
 {% list tabs %}
 
 - Management console
 
-   To update a [subnet](../concepts/network.md#subnet):
    1. In the [management console]({{ link-console-main }}), change to the folder where you need to update a subnet.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click on the name of the subnet's cloud network.
-   1. Click ![image](../../_assets/options.svg) in the line of the subnet to edit.
-   1. In the menu that opens, click **Edit**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. Click ![image](../../_assets/options.svg) next to the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
    1. Configure as appropriate.
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
 - CLI
 
@@ -76,7 +74,7 @@ After creating a subnet, you can change its name, description, and DCHP settings
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -94,21 +92,21 @@ After creating a subnet, you can change its name, description, and DCHP settings
       ...
       ```
 
-      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan

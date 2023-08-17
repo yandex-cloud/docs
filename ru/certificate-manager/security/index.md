@@ -22,16 +22,18 @@ description: "Управление доступом в сервисе для п�
 
 ![image](../../_assets/certificate-manager/service-roles-hierarchy-with-admin.svg)
 
+### Сервисные роли {#service-roles}
+
 Роли, действующие в сервисе:
-* Сервисные роли:
-    * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
-    * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+
+* {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
+* {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли мне необходимы {#choosing-roles}
 
@@ -42,9 +44,9 @@ description: "Управление доступом в сервисе для п�
 **Certificate Manager** | | 
 Получение списков сертификатов или доменов | `list` | `viewer` на каталог
 Получение информации о сертификате или домене | `get` | `viewer` на сертификат или каталог
-[Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt | `requestNew` | `editor` на каталог
+[Добавление](../operations/managed/cert-create.md) сертификата от Let's Encrypt | `requestNew` | `editor` на каталог
 [Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` на сертификат или каталог
-[Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
+[Добавление](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
 [Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог
 Получение содержимого сертификата: [пользовательского](../operations/import/cert-get-content.md) или [сертификата от Let's Encrypt](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` на сертификат или каталог
 [Создание домена](../operations/domain/domain-create.md) | `create` | `editor` на каталог

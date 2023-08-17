@@ -7,11 +7,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS из которой требуется удалить запись.
-  1. Выберите сервис **{{ dns-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону из списка.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке записи, которую требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -93,5 +93,9 @@
      ```
      yc dns zone list-records <имя зоны DNS>
      ```
+
+- API
+
+  Чтобы удалить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 
 {% endlist %}

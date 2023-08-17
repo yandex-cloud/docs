@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/deleteCertificate.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/deleteCertificate.md
 ---
 
 # IoT Core Broker Service, REST: Broker.deleteCertificate
@@ -10,7 +10,7 @@ Deletes the specified broker certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
+DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
 ```
  
 ## Path parameters {#path_params}

@@ -1,6 +1,8 @@
 # PutBucketTagging method
 
-Adds [tags](../../../../resource-manager/concepts/labels.md) to a bucket. This overwrites any existing bucket tags.
+Adds [labels](../../../concepts/tags.md) to a bucket. This overwrites any existing bucket labels.
+
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
 ## Query {#request}
 
@@ -37,13 +39,13 @@ PUT /{bucket}?tagging HTTP/2
 | Element | Description |
 --- | ---
 | `Tagging` | Root element. |
-| `TagSet` | Array of tags. |
-| `Tag` | Container for tags. |
-| `Key` | Tag key.<br>Type: String. |
-| `Value` | Tag value.<br>Type: String. |
+| `TagSet` | Array of labels. |
+| `Tag` | Container for labels. |
+| `Key` | Label key.<br>Type: String. |
+| `Value` | Label value.<br>Type: String. |
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in requests.
+Use only [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 

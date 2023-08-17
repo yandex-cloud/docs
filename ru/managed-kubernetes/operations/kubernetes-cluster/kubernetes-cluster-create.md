@@ -13,7 +13,7 @@
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 
   
-  1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+  1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
 
 
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
@@ -75,6 +75,9 @@
      Где:
      * `--name` — имя кластера {{ managed-k8s-name }}.
      * `--network-name` — имя [сети](../../../vpc/concepts/network.md#network).
+
+        {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
      * `--subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet).
      * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
@@ -90,7 +93,7 @@
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (5m47s)
@@ -115,8 +118,8 @@
      ```bash
      {{ yc-k8s }} cluster create \
      ...
-       --kms-key-name <имя ключа шифрования> \
-       --kms-key-id <идентификатор ключа шифрования>
+       --kms-key-name <имя_ключа_шифрования> \
+       --kms-key-id <идентификатор_ключа_шифрования>
      ```
 
      {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
@@ -126,12 +129,12 @@
      ```bash
      {{ yc-k8s }} cluster create \
      ...
-       --master-logging enabled=<отправка логов: true или false>,`
-         `log-group-id=<идентификатор лог-группы>,`
-         `folder-id=<идентификатор каталога>,`
-         `kube-apiserver-enabled=<отправка логов kube-apiserver: true или false>,`
-         `cluster-autoscaler-enabled=<отправка логов cluster-autoscaler: true или false>,`
-         `events-enabled=<отправка событий {{ k8s }}: true или false>
+       --master-logging enabled=<отправка_логов:_true_или_false>,`
+         `log-group-id=<идентификатор_лог-группы>,`
+         `folder-id=<идентификатор_каталога>,`
+         `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
+         `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
+         `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>
      ```
 
      Где:
@@ -147,54 +150,57 @@
   Чтобы создать кластер {{ managed-k8s-name }}:
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
      * Кластер {{ managed-k8s-name }} — описание кластера.
-     * Сеть — описание [облачной сети](../../../vpc/concepts/network.md#network), в которой будет расположен кластер {{ managed-k8s-name }}. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-     * Подсети — описание [подсетей](../../../vpc/concepts/network.md#subnet), к которым будут подключены хосты кластера {{ managed-k8s-name }}. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
-     * [Сервисный аккаунт](#before-you-begin) для кластера {{ managed-k8s-name }} и [узлов](../../concepts/index.md#node-group) и [настройки роли]({{ tf-provider-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для кластера {{ managed-k8s-name }} и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
+     * [Сеть](../../../vpc/concepts/network.md#network) — описание облачной сети, в которой будет расположен кластер {{ managed-k8s-name }}. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+
+        {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+
+     * [Подсети](../../../vpc/concepts/network.md#subnet) — описание подсетей, к которым будут подключены хосты кластера {{ managed-k8s-name }}. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+     * [Сервисный аккаунт](#before-you-begin) для кластера {{ managed-k8s-name }} и [узлов](../../concepts/index.md#node-group) и [настройки роли]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для кластера {{ managed-k8s-name }} и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
 
      >Пример структуры конфигурационного файла:
      >
      >```hcl
-     >resource "yandex_kubernetes_cluster" "<имя кластера {{ managed-k8s-name }}>" {
-     >  network_id = yandex_vpc_network.<имя сети>.id
+     >resource "yandex_kubernetes_cluster" "<имя_кластера_{{ managed-k8s-name }}>" {
+     >  network_id = yandex_vpc_network.<имя_сети>.id
      >  master {
      >    zonal {
-     >      zone      = yandex_vpc_subnet.<имя подсети>.zone
-     >      subnet_id = yandex_vpc_subnet.<имя подсети>.id
+     >      zone      = yandex_vpc_subnet.<имя_подсети>.zone
+     >      subnet_id = yandex_vpc_subnet.<имя_подсети>.id
      >    }
      >  }
-     >  service_account_id      = yandex_iam_service_account.<имя сервисного аккаунта>.id
-     >  node_service_account_id = yandex_iam_service_account.<имя сервисного аккаунта>.id
+     >  service_account_id      = yandex_iam_service_account.<имя_сервисного_аккаунта>.id
+     >  node_service_account_id = yandex_iam_service_account.<имя_сервисного_аккаунта>.id
      >    depends_on = [
      >      yandex_resourcemanager_folder_iam_member.editor,
      >      yandex_resourcemanager_folder_iam_member.images-puller
      >    ]
      > }
      >
-     >resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+     >resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
      >
-     >resource "yandex_vpc_subnet" "<имя подсети>" {
-     >  v4_cidr_blocks = ["<диапазон адресов подсети>"]
-     >  zone           = "<зона доступности>"
-     >  network_id     = yandex_vpc_network.<имя сети>.id
+     >resource "yandex_vpc_subnet" "<имя_подсети>" {
+     >  v4_cidr_blocks = ["<диапазон_адресов_подсети>"]
+     >  zone           = "<зона_доступности>"
+     >  network_id     = yandex_vpc_network.<имя_сети>.id
      >}
      >
-     >resource "yandex_iam_service_account" "<имя сервисного аккаунта>" {
-     >  name        = "<имя сервисного аккаунта>"
-     >  description = "<описание сервисного аккаунта>"
+     >resource "yandex_iam_service_account" "<имя_сервисного_аккаунта>" {
+     >  name        = "<имя_сервисного_аккаунта>"
+     >  description = "<описание_сервисного_аккаунта>"
      >}
      >
      >resource "yandex_resourcemanager_folder_iam_member" "editor" {
      >  # Сервисному аккаунту назначается роль "editor".
-     >  folder_id = "<идентификатор каталога>"
+     >  folder_id = "<идентификатор_каталога>"
      >  role      = "editor"
-     >  member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта> id}"
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта> id}"
      >}
      >
      >resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
      >  # Сервисному аккаунту назначается роль "container-registry.images.puller".
-     >  folder_id = "<идентификатор каталога>"
+     >  folder_id = "<идентификатор_каталога>"
      >  role      = "container-registry.images.puller"
-     >  member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта>.id}"
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта>.id}"
      >}
      >```
 
@@ -218,6 +224,8 @@
 - API
 
   Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
+
+  {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
@@ -334,10 +342,10 @@
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
-    symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
-    role             = "viewer"
-    member          = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+  resource "yandex_resourcemanager_folder_iam_member" "viewer" {
+    folder_id = local.folder_id
+    role      = "viewer"
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-public-services" {
@@ -361,7 +369,7 @@
     ingress {
       protocol          = "ANY"
       description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера {{ managed-k8s-name }} и сервисов."
-      v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-c.v4_cidr_blocks)
+      v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
     }
@@ -379,7 +387,7 @@
     }
     egress {
       protocol          = "ANY"
-      description       = "Правило разрешает весь исходящий трафик. Узлы могут связаться с Yandex Container Registry, Yandex Object Storage, Docker Hub и т. д."
+      description       = "Правило разрешает весь исходящий трафик. Узлы могут связаться с {{ container-registry-full-name }}, {{ objstorage-full-name }}, Docker Hub и т. д."
       v4_cidr_blocks    = ["0.0.0.0/0"]
       from_port         = 0
       to_port           = 65535
@@ -525,10 +533,10 @@
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_kms_symmetric_key_iam_member" "viewer" {
-    symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
-    role             = "viewer"
-    member           = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+  resource "yandex_resourcemanager_folder_iam_member" "viewer" {
+    folder_id = local.folder_id
+    role      = "viewer"
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {

@@ -112,7 +112,7 @@
 
    {% endnote %}
 
-1. [Создайте](../../certificate-manager/operations/managed/cert-create.md) [сертификат](../../certificate-manager/concepts/managed-certificate.md) от `Let's Encrypt®`.
+1. [Добавьте](../../certificate-manager/operations/managed/cert-create.md) [сертификат](../../certificate-manager/concepts/managed-certificate.md) от `Let's Encrypt®`.
 1. [Пройдите](../../certificate-manager/operations/managed/cert-validate.md) процедуры проверки прав на домен.
 
 ## Установите Ingress {#install-ingress}
@@ -301,21 +301,27 @@
      api_address: loadtesting.{{ api-host }}:443
    ```
 
-   Где `target` — название вашего сайта и порт (для HTTPS: 443).
-1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
+   Где:
+
+   * `target` — название вашего сайта и порт (для HTTPS: 443).
+   
+6. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
+
    * В блоке настроек **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `ammo.json`.
    * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
      * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `load.yaml`.
-1. Наблюдайте за прохождением теста:
+
+7. Наблюдайте за прохождением теста:
+
    1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
-   1. Выберите ваш тестовый кластер {{ managed-k8s-name }}.
+   1. Выберите ваш тестовый кластер.
    1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-   1. Наблюдайте за изменением количества [подов](../../managed-kubernetes/concepts/index.md#pod) приложения по мере увеличения и уменьшения нагрузки.
+   1. Наблюдайте за изменением количества подов приложения по мере увеличения и уменьшения нагрузки.
    1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.
    1. Выберите созданный L7-балансировщик.
    1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
-   1. Просмотрите графики нагрузки за время работы теста.
+   1. Просмотрите графики нагрузки за время работы теста. 
 
 ## Удалите созданные ресурсы {#clear-out}
 

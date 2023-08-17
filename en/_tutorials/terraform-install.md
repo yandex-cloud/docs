@@ -1,12 +1,19 @@
 
-### From a mirror {#from-yc-mirror}
+### From mirror {#from-yc-mirror}
+
+
+{% note alert %}
+
+The mirror may be unavailable.
+
+{% endnote %}
+
 
 You can download a {{ TF }} distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
 
 ```
 export PATH=$PATH:/path/to/terraform
 ```
-
 
 ### From the Hashicorp website {#from-hashicorp-site}
 
@@ -28,7 +35,7 @@ export PATH=$PATH:/path/to/terraform
 
    [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
-- macOS
+- MacOS
 
    Use one of the following methods:
 

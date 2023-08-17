@@ -1,46 +1,47 @@
-
-Billing and {{ yq-full-name }} are integrated with each other to enable standard tasks for analyzing billing details and run a custom search in YQL.
+{{ billing-name }} and {{ yq-name }} are integrated with each other. You can use preset queries to enable standard tasks for analyzing details of payments for resources or write custom [YQL queries](../yql-tutorials/index.md).
 
 ![](../../_assets/query/billing-query.png)
 
-## Standard tasks for searching data in Billing details
+{{ yq-name }} provides ready-made queries to obtain the following information:
 
-{{ yq-full-name }} provides ready-made queries to implement standard scenarios for searching data in Billing details.
+* Consumption by month.
+* Consumption in the current month broken down by service and product.
+* Consumption in the current month broken down by cloud and folder.
+* Top 10 most expensive resources.
+* Payment for fixed consumption.
+* Utilization of fixed consumption.
+* Details by {{ managed-k8s-name }} cluster.
 
-Examples of standard search tasks:
-- Consumption by month.
-- Consumption in the current month broken down by service and product.
-- Consumption in the current month broken down by cloud and folder.
-- Top 10 most expensive resources.
-- Payment for fixed consumption.
-- Utilization of fixed consumption.
-- Details by K8S clusters.
+## Getting started {#before-you-begin}
 
-## Setting up integration between Billing and {{ yq-full-name }}
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+
+## Set up integration between {{ billing-name }} and {{ yq-name }} {#integration}
 
 To set up integration:
-1. Open the list of billing detail exports in the {{ yandex-cloud }} console.
-1. Select the desired details and click **Process in YQ**.
-1. When switching from Billing to {{ yq-full-name }} for the first time, set up integration:
-   1. In the **{{ yq-full-name }}** interface, select the service account to be used to read data from {{ objstorage-full-name }} in the connection creation dialog and click **Create**.
-   1. In the **{{ yq-full-name }}** interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **Create** to complete the integration process.
+
+1. Open the list of expense detail exports in the {{ yandex-cloud }} console.
+1. Select the required details and click **{{ ui-key.yacloud.billing.account.exports.button_open-yandex-query }}**.
+1. When switching from {{ billing-name }} to {{ yq-full-name }} for the first time, set up integration:
+   1. In the {{ yq-name }} interface, select the service account to be used to read data from {{ objstorage-name }} in the connection creation dialog box and click **{{ ui-key.yacloud.common.create }}**.
+   1. In the {{ yq-name }} interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **{{ ui-key.yacloud.common.create }}** to complete the integration process.
    1. Once the integration settings are configured, you will be redirected to the **Billing** section automatically.
 
-## Running queries to data stored in {{ objstorage-full-name }}
-To query Billing analytical data stored in {{ objstorage-full-name }}:
-1. Under **Billing** in the **{{ yq-full-name }}** interface, select the desired [data binding](../../query/concepts/glossary.md#binding) from the list if there are multiple bindings.
-1. Select the desired query to data from {{ objstorage-full-name }} in the list and click **Run**.
+## Run a data query {#query}
 
+To query {{ billing-name }} analytical data stored in {{ objstorage-name }}:
 
-## Handling results
+1. Under **Billing** in the {{ yq-name }} interface, select the [data binding](../../query/concepts/glossary.md#binding) you need from the list.
+1. Select the desired query to data from {{ objstorage-name }} in the list and click **Run**.
 
 You can do the following with data processing results:
-1. Download them through the {{ yq-full-name }} GUI by clicking **Export**.
-1. [Save them to a {{ objstorage-full-name }} bucket](../../query/sources-and-sinks/object-storage-write.md).
-1. [Visualize them](../../query/tutorials/datalens.md) in {{ datalens-full-name }}.
-1. Get and process them via the [{{ yq-full-name }} HTTP API](../api/index.md).
 
+* Download them through the {{ yq-full-name }} UI by clicking **Export**.
+* [Save them to an {{ objstorage-name }} bucket](../../query/sources-and-sinks/object-storage-write.md).
+<!-- * [визуализировать](../../query/tutorials/datalens.md) в {{ datalens-full-name }}; -->
+* Get and process them via the [{{ yq-name }} HTTP API](../api/index.md).
 
-## See also
-* [{{ objstorage-full-name }}](../../storage/).
-* [{{ datalens-full-name }}](../../datalens/).
+## See also {#see-also}
+
+* [{{objstorage-full-name}}](../../storage/).
+* [{{datalens-full-name}}](../../datalens/).

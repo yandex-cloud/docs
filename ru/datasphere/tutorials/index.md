@@ -11,3 +11,6 @@ description: "Различные сценарии использования {{ 
 * [{#T}](node-from-docker.md)
 * [{#T}](stable-diffusion.md)
 * [{#T}](regular-launch.md)
+* [{#T}](batch-code-execution.md)
+* [{#T}](s3-to-datasphere.md)
+* [{#T}](mlflow-datasphere.md)

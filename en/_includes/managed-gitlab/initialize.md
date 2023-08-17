@@ -1,13 +1,15 @@
+## Configure {{ GL }} {#configure-gitlab}
+
 To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI authorization parameters:
 
 {% list tabs %}
 
 - {{ mgl-name }} instance
 
-  1. Log in to the {{ mgl-name }} instance web interface.
+  1. Log in to the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) web interface.
   1. Click **Create a project**.
   1. Click **Create blank project**.
-  1. Complete the fields below:
+  1. Fill out the fields below:
      * **Project name**: `gitlab-test`.
      * **Project URL**: Select the administrator user in the field next to the {{ mgl-name }} instance FQDN.
 
@@ -31,7 +33,7 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
      * **Password**: The previously copied password.
 
      If you are unable to log in, [reset the administrator account password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
-  1. [Change the administrator account password](https://docs.gitlab.com/ee/user/profile/#change-your-password).
+  1. [Change the administrator account password](https://docs.gitlab.com/ee/user/profile/user_passwords.html#change-your-password).
   1. Log in to the system again using the administrator account and the new password.
   1. Select **Create a project**.
   1. Set the project name: `gitlab-test`.

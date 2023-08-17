@@ -1,4 +1,4 @@
-### smart-captcha.editor {#smart-captcha-editor}
+#### smart-captcha.editor {#smart-captcha-editor}
 
 The `smart-captcha.editor` role includes the following permissions:
 * Viewing CAPTCHA settings.

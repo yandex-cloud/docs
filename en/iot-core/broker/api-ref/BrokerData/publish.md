@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/BrokerData/publish.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/BrokerData/publish.md
 ---
 
 # IoT Core Broker Service, REST: BrokerData.publish
@@ -10,7 +10,7 @@ Publishes message on behalf of specified broker
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/publish
+POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/publish
 ```
  
 ## Path parameters {#path_params}

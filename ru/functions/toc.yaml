@@ -401,8 +401,12 @@ items:
         href: tutorials/bucket-to-bucket.md
       - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
         href: tutorials/regular-launch-datasphere.md
-      - name: Интерактивная отладка функций {{sf-name}}
+      - name: Интерактивная отладка функций
         href: tutorials/serverless-live-debug.md
+      - name: Авторизация с помощью функции в сервисе Ory Kratos
+        href: tutorials/ory-kratos-authorization.md
+      - name: Регулярное распознавание аудиофайлов в бакете {{ objstorage-name }}
+        href: tutorials/batch-recognition-stt.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом
@@ -433,6 +437,8 @@ items:
                 href: functions/api-ref/Function/createVersion.md
               - name: delete
                 href: functions/api-ref/Function/delete.md
+              - name: deleteVersion
+                href: functions/api-ref/Function/deleteVersion.md
               - name: get
                 href: functions/api-ref/Function/get.md
               - name: getVersion

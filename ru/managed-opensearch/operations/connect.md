@@ -35,23 +35,7 @@ keywords:
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
-
-  Сертификат будет сохранен в каталоге `$HOME/.opensearch/root.crt`.
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
-  ```
-
-  Сертификат будет сохранен в каталоге `$HOME\.opensearch\root.crt`.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
 ## Подключение к {{ OS }} Dashboards {#dashboards}
 
@@ -66,7 +50,7 @@ keywords:
 - Через интернет
 
     1. Установите [SSL-сертификат](#ssl-certificate) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
-    1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор кластера>.rw.{{ dns-zone }}>`.
+    1. На странице кластера в консоли управления нажмите кнопку **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** или перейдите в браузере по адресу `https://c-<идентификатор кластера>.rw.{{ dns-zone }}>`.
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -147,6 +131,21 @@ keywords:
 * Добавьте путь к SSL-сертификату в конфигурацию вашего приложения для работы с [API](../../glossary/rest-api.md).
 
 {% endnote %}
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#ssl-certificate).
+
+Для подключения к кластеру {{ mos-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget curl --yes && \
+    mkdir -p ~/.opensearch && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.opensearch/root.crt && \
+    chmod 0600 ~/.opensearch/root.crt
+```
 
 ## Примеры строк подключения {#code-examples}
 

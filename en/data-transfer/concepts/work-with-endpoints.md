@@ -20,7 +20,7 @@ If replication is enabled on a {{ CH }} target, the engines for recreating table
 
 ## {{ GP }} {#greenplum}
 
-Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support transfers of a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`]({{ gp.docs.pivotal }}/6-19/utility_guide/ref/pg_dump.html).
+Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support moving a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`]({{ gp.docs.pivotal }}/6-19/utility_guide/ref/pg_dump.html).
 
 The source treats `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` objects when handling them.
 
@@ -42,7 +42,7 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 The source never transfers data from a `MATERIALIZED VIEW`, even during transfers from {{ PG }} to a different database. In transfers _from {{ PG }} to {{ PG }}_, a `MATERIALIZED VIEW` is treated as a regular view and handled using the general algorithm for `VIEW` objects.
 
-The source treats a `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
+The source treats `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
 
 If the source of a transfer _from {{ PG }} to {{ PG }}_ has a non-empty "List of included tables" specified, user-defined data types that are present in these tables aren't transferred. If this is the case, please transfer your custom data types manually.
 
@@ -52,7 +52,7 @@ When transferring [partitioned tables](https://www.postgresql.org/docs/current/d
 
    * The user needs access to the master table and all its partitions on the source.
    * The transfer is performed based on the <q>as is</q> principle: all partitions and the master table will be created on the target.
-   * At the copying stage, partitions are transferred to the target independently of each other. This enables the user to speed up the transfer by enabling sharding in the [transfer settings](../operations/transfer#create).
+   * At the copying stage, partitions are transferred to the target independently of each other. To speed up their transfer, configure [parallel copy](sharded.md).
    * At the replication stage, data will automatically be placed into the required partitions.
    * If new partitions are created on the source after the transfer has entered the replication stage, you need to transfer them to the target manually.
    * The user can only transfer a part of the partitions to the target. To do this, the user must add these partitions to the [List of included tables](../operations/endpoint/source/postgresql#additional-settings) or close access to unnecessary partitions on the source.
@@ -61,14 +61,14 @@ When transferring [partitioned tables](https://www.postgresql.org/docs/current/d
 
    * The user needs access to the parent table and all child tables.
    * At the copying stage, data from the child tables is not duplicated in the parent table. To transfer data from the child tables, they must be explicitly specified in the list of tables to be transferred.
-   * At the copying stage, the child tables are transferred to the target independently of each other. This enables the user to speed up the transfer by enabling sharding in the [transfer settings](../operations/transfer#create).
+   * At the copying stage, the child tables are transferred to the target independently of each other. To speed up their transfer, configure [parallel copy](sharded.md).
    * At the replication stage, data will automatically be placed into the required child tables or the parent table if inheritance is not used for partitioning.
    * If the child tables are created on the source after the transfer has entered the replication stage, you need to transfer them to the target manually.
 
    When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql#additional-settings) option in the source endpoint. In this case:
 
    * Only the parent table will be transferred to the target, and it will contain the data of those child tables which were explicitly specified in the list of tables to be transferred.
-   * The user can still speed up the transfer by enabling sharding in the [transfer settings](../operations/transfer#create), because child tables from the source are concurrently copied to the common table on the target.
+   * The user can still speed up the transfer because child tables from the source are concurrently copied to the common table on the target. To speed up the transfer, enable [parallel copy](sharded.md).
 
 
 

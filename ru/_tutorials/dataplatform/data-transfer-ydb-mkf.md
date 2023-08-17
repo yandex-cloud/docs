@@ -21,6 +21,9 @@
    * Вручную
 
        1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+
+       1. Если вы выбрали режим БД {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+
        1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
        
@@ -113,7 +116,7 @@
 
    Добавьте в таблицу колонки вручную:
 
-    | {{ ui-key.yacloud.ydb.browse.info.column_name }}                 | {{ ui-key.yacloud.ydb.browse.info.column_type }}      | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
+    | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.browse.dialogs.tooltip_create_pk }} |
     |:--------------------|:---------|:---------------|
     | `device_id`         | `String` | Да             |
     | `datetime`          | `String` |                |

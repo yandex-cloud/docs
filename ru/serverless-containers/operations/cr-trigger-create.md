@@ -34,16 +34,16 @@
 
         * В поле **Реестр** выберите реестр, для событий с образами в котором необходимо создать триггер.
         * В поле **Типы событий** выберите [события](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер будет запускаться.
-        * (опционально) В поле **Имя Docker-образа** введите имя образа для [фильтрации](../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
-        * (опционально) В поле **Тег Docker-образа** введите тег образа для фильтрации.
+        * (Опционально) В поле **Имя Docker-образа** введите имя образа для [фильтрации](../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../container-registry/operations/docker-image/docker-image-list.md).
+        * (Опционально) В поле **Тег Docker-образа** введите тег образа для фильтрации.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. (опционально) В блоке **Настройки повторных запросов**:
+    1. (Опционально) В блоке **Настройки повторных запросов**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+    1. (Опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
     1. Нажмите кнопку **Создать триггер**.
 

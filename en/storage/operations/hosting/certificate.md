@@ -8,24 +8,9 @@ If you are using a bucket to [host a static website](../../concepts/hosting.md),
 
 Access to the bucket over HTTPS is granted within thirty minutes of uploading the certificate.
 
+{% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
 {% endnote %}
-
-## Upload your own security certificate {#own}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click the name of the bucket you need.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
-   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
-   1. Add the certificate and secret key.
-   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
-
-{% endlist %}
 
 ## Select a certificate from {{ certificate-manager-name }} {#cert-manager}
 
@@ -74,7 +59,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
      ```text
      source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
-     certificate_id: fpqe2g0hfr0ejvksjdbs
+     certificate_id: fpqe2g0hfr0e********
      ```
 
 - {{ TF }}
@@ -104,7 +89,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
       Where:
       * `certificate_id` is the ID of the certificate in {{ certificate-manager-name }} to be used for the bucket.
 
-      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-https-certificate).
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
    1. Check the configuration using this command:
 

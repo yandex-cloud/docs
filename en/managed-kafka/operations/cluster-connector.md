@@ -16,13 +16,13 @@ You can:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -47,9 +47,9 @@ You can:
 
    You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* API
+- API
 
-   Use the [list](../api-ref/Connector/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of connectors, use the [list](../api-ref/Connector/list.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/List](../api-ref/grpc/connector_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -59,20 +59,20 @@ You can:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
    1. Click the name of the desired connector.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get detailed information about a connector, run the command:
+   To get detailed information about a connector, run this command:
 
    ```bash
    {{ yc-mdb-kf }} connector get <connector name>\
@@ -90,11 +90,11 @@ You can:
 
    You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* API
+- API
 
-   Use the [get](../api-ref/Connector/get.md) API method and pass the following in the request:
+   To get connector details, use the [get](../api-ref/Connector/get.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the  [ConnectorService/Get](../api-ref/grpc/connector_service.md#Get) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list).
 
 {% endlist %}
@@ -103,7 +103,7 @@ You can:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
@@ -134,7 +134,7 @@ You can:
 
    1. Click **Create**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -203,7 +203,7 @@ You can:
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* {{ TF }}
+- {{ TF }}
 
    1. Check the list of [Mirrormaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
@@ -273,15 +273,15 @@ You can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_connect).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect).
 
-* API
+- API
 
-   Use the [create](../api-ref/Connector/create.md) API method and pass the following information in the request:
+   To create a connector, use the [create](../api-ref/Connector/create.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Create](../api-ref/grpc/connector_service.md#Create) gRPC API call and provide the following in the request:
 
    * In the `clusterId` parameter, the ID of the cluster where you want to create a connector. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector settings in the `connectorSpec` parameter.
@@ -292,7 +292,7 @@ You can:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
@@ -301,7 +301,7 @@ You can:
    1. Edit the connector properties as needed.
    1. Click **Save**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -344,7 +344,7 @@ You can:
 
       You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* {{ TF }}
+- {{ TF }}
 
    1. Check the list of [Mirrormaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
@@ -415,15 +415,15 @@ You can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_connect).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect).
 
-* API
+- API
 
-   Use the [update](../api-ref/Connector/update.md) API method and pass the following in the request:
+   To update a connector, use the [update](../api-ref/Connector/update.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Update](../api-ref/grpc/connector_service.md#Update) gRPC API call and provide the following in the request:
 
    * ID of the cluster where you wish to create a connector in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector settings in the `connectorSpec` parameter.
@@ -441,14 +441,14 @@ To pause a connector:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Pause**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -461,11 +461,11 @@ To pause a connector:
       --cluster-name=<cluster name>
    ```
 
-* API
+- API
 
-   Use the [pause](../api-ref/Connector/pause.md) API method and pass the following in the request:
+   To pause a connector, use the [pause](../api-ref/Connector/pause.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Pause](../api-ref/grpc/connector_service.md#Pause) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector name in the `connectorName` parameter. To find out the name, [retrieve a list of cluster connectors](#list-connectors).
 
 {% endlist %}
@@ -474,14 +474,14 @@ To pause a connector:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Resume**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -494,11 +494,11 @@ To pause a connector:
       --cluster-name=<cluster name>
    ```
 
-* API
+- API
 
-   Use the [resume](../api-ref/Connector/resume.md) API method and pass the following in the request:
+   To resume a connector, use the [resume](../api-ref/Connector/resume.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Resume](../api-ref/grpc/connector_service.md#Resume) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector name in the `connectorName` parameter. To find out the name, [retrieve a list of cluster connectors](#list-connectors).
 
 {% endlist %}
@@ -507,7 +507,7 @@ To pause a connector:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
@@ -515,7 +515,7 @@ To pause a connector:
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Delete**.
    1. Click **Delete**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -528,7 +528,7 @@ To pause a connector:
       --cluster-name <cluster name>
    ```
 
-* {{ TF }}
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -539,17 +539,17 @@ To pause a connector:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_connect).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect).
 
-* API
+- API
 
-   Use the [delete](../api-ref/Connector/delete.md) API method and pass the following in the request:
+   To delete a connector, use the [delete](../api-ref/Connector/delete.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Delete](../api-ref/grpc/connector_service.md#Delete) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector name in the `connectorName` parameter. To find out the name, [retrieve a list of cluster connectors](#list-connectors).
 
 {% endlist %}
@@ -560,7 +560,7 @@ To pause a connector:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    * **Topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
    * **Replication factor** — the number of topic copies stored in the cluster.
@@ -608,7 +608,7 @@ To pause a connector:
 
       For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-* CLI
+- CLI
 
    * `--cluster-name` is the name of a cluster.
    * `--direction`: Connector direction:
@@ -641,7 +641,7 @@ To pause a connector:
       * `sasl-password`: A user password for connecting the connector to the external cluster.
       * `ssl-truststore-certificates`: A list of PEM certificates.
 
-* {{ TF }}
+- {{ TF }}
 
    * **properties**: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
@@ -678,20 +678,20 @@ To pause a connector:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    * **Topics**: Template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
    * **Compression type**: Select the codec to compress messages:
 
       * `none` (default): No compression.
-      * `gzip`: The [gzip](https://www.gzip.org) codec.
-      * `snappy`: The [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
+      * `gzip`: [gzip](https://www.gzip.org) codec.
+      * `snappy`: [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
 
       You cannot change this parameter after creating the cluster.
 
    * (Optional) **Max records per file**: Maximum number of records that can be written to a single file in an S3-compatible storage.
-   * Under **S3 connection**, specify the storage connection parameters:
+   * Under **S3 connector**, specify the storage connection parameters:
       * **Bucket name**: Storage bucket name.
       * **Endpoint**: Endpoint for storage access (to find out from storage provider).
       * (Optional) **Region**: Region description. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
@@ -709,7 +709,7 @@ To pause a connector:
 
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-* CLI
+- CLI
 
    * `--cluster-name` is the name of a cluster.
    * `--tasks-max`: The number of concurrent processes. A value of at least `2` is recommended for even replication load distribution.
@@ -723,14 +723,14 @@ To pause a connector:
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
    * `--topics`: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * `--file-compression-type`: Codec for message compression. You can't change this parameter after creating the cluster. Acceptable values:
+   * `--file-compression-type`: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values:
 
       * `none` (default): No compression.
-      * `gzip`: The [gzip](https://www.gzip.org) codec.
-      * `snappy`: The [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
+      * `gzip`: [gzip](https://www.gzip.org) codec.
+      * `snappy`: [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
 
-   * `--file-max-records`: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * `--file-max-records`: Maximum number of records that can be written to a single file in S3-compatible storage.
    * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
    * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
    * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
@@ -739,7 +739,7 @@ To pause a connector:
    * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
-* {{ TF }}
+- {{ TF }}
 
    * **properties**: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
@@ -751,14 +751,14 @@ To pause a connector:
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
    * **topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * **file_compression_type**: Codec for message compression. You can't change this parameter after creating the cluster. Acceptable values:
+   * **file_compression_type**: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values:
 
       * `none` (default): No compression.
-      * `gzip`: The [gzip](https://www.gzip.org) codec.
-      * `snappy`: The [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
+      * `gzip`: [gzip](https://www.gzip.org) codec.
+      * `snappy`: [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
 
-   * **file-max-records**: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * **file_max_records**: Maximum number of records that can be written to a single file in S3-compatible storage.
    * **s3_connection**: S3-compatible storage connection parameters:
 
       * **bucket_name**: The name of the bucket to write data to.

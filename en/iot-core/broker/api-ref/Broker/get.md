@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/get.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/get.md
 ---
 
 # IoT Core Broker Service, REST: Broker.get
@@ -10,7 +10,7 @@ To get the list of available brokers, make a [list](/docs/iot-core/broker/api-re
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 ```
  
 ## Path parameters {#path_params}

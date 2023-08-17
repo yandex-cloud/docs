@@ -14,7 +14,6 @@
         yc logging write \
           --group-name=default \
           --message="My message" \
-          --timestamp="2023-06-08T19:10:40.000Z" \
           --level=INFO \
           --json-payload='{"request_id": "1234"}'
         ```
@@ -23,7 +22,6 @@
         yc logging write ^
           --group-name=default ^
           --message="My message" ^
-          --timestamp="2023-06-08T19:10:40.000Z" ^
           --level=INFO ^
           --json-payload="{"request_id": "1234"}"
         ```
@@ -32,7 +30,6 @@
         yc logging write `
           --group-name=default `
           --message="My message" `
-          --timestamp="2023-06-08T19:10:40.000Z" `
           --level=INFO `
           --json-payload='"{ \"request_id\": \"1234\" }"'
         ```
@@ -43,7 +40,6 @@
 
         * `--group-name` — имя лог-группы, в которую вы хотите добавить записи. Если параметр не указан, записи добавляются в [лог-группу по умолчанию](../../logging/concepts/log-group.md) текущего каталога.
         * `--message` — сообщение.
-        * `--timestamp` — время отправки записи.
         * `--level` — уровень логирования.
         * `--json-payload` — дополнительная информация в формате JSON.
 

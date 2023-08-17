@@ -1,10 +1,12 @@
-# Trigger for {{ iot-short-name }} that passes messages to the {{ serverless-containers-name }} container
+# Trigger for {{ iot-short-name }} that sends messages to the {{ serverless-containers-name }} container
 
 The [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from them and passes those copies to the {{serverless-containers-name }} container for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
 A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the container.
+
+For more information about creating a trigger for {{ iot-short-name }}, see [{#T}](../../operations/iot-core-trigger-create.md).
 
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
@@ -21,4 +23,4 @@ Before the message is copied to a container, the trigger converts it to the foll
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that passes messages to the {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md).
+* [Trigger for {{ iot-name }} that sends messages to the {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md).

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Disk/update.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Disk/update.md
 ---
 
 # Compute Cloud API, REST: Disk.update
@@ -29,7 +29,8 @@ diskId | <p>Required. ID of the Disk resource to update. To get the disk ID use 
   "labels": "object",
   "size": "string",
   "diskPlacementPolicy": {
-    "placementGroupId": "string"
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
   }
 }
 ```
@@ -44,6 +45,7 @@ labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>Existin
 size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
 diskPlacementPolicy | **object**<br><p>Placement policy configuration.</p> 
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

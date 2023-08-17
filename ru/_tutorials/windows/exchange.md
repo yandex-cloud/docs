@@ -147,11 +147,11 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
          * **RAM** — 8 ГБ.
 
   1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-a`. В поле **Публичный адрес** выберите вариант **Без адреса**.
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      * В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
-  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b` и подключите ее к подсети `exchange-subnet-b`.
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+
+  Повторите шаги для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b` и подключите ее к подсети `exchange-subnet-b`.
 
 - CLI
 
@@ -200,9 +200,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
          * **RAM** — 4 ГБ.
 
   1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-c`. В поле **Публичный адрес** выберите вариант **Автоматически**.
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      * В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
+
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
@@ -417,9 +417,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
             * **RAM** — 32 ГБ.
 
      1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-a`. В поле **Публичный адрес** выберите вариант **Без адреса**.
-     1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-         * В поле **Пароль** укажите ваш пароль.
      1. Нажмите кнопку **Создать ВМ**.
+
+     {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
    - CLI
 
@@ -501,9 +501,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
             * **RAM** — 32 ГБ.
 
      1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-b`. В поле **Публичный адрес** выберите вариант **Без адреса**.
-     1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-         * В поле **Пароль** укажите ваш пароль.
      1. Нажмите кнопку **Создать ВМ**.
+
+     {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
    - CLI
 
@@ -832,9 +832,9 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
          * **RAM** — 8 ГБ.
 
   1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-a`. В поле **Публичный адрес** выберите вариант **Автоматически** или выберите адрес из списка зарезервированных.
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      * В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
+
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
@@ -873,9 +873,9 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
          * **RAM** — 8 ГБ.
 
   1. В блоке **Сетевые настройки** выберите подсеть `exchange-subnet-b`. В поле **Публичный адрес** выберите вариант **Автоматически** или выберите адрес из списка зарезервированных.
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      * В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
+
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 

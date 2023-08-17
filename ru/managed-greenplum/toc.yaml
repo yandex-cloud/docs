@@ -7,31 +7,43 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Расчет конфигурации кластера
-        href: operations/calculate-specs.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к базе данных
-        href: operations/connect.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Управление хостами кластера
+      - name: Кластеры
         items:
-          - name: Просмотр хостов кластера
-            href: operations/hosts/cluster-hosts.md
-          - name: Расширение кластера
-            href: operations/hosts/cluster-expand.md
-      - name: Изменение настроек кластера
-        href: operations/update.md
-      - name: Управление ролями и пользователями
-        href: operations/roles-and-users.md
-      - name: Управление клиентскими процессами и сессиями пользователей
-        href: operations/cluster-process.md
-      - name: Использование внешних таблиц
-        href: operations/external-tables.md
-      - name: Расширения Greenplum
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Расчет конфигурации кластера
+            href: operations/calculate-specs.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение настроек кластера
+            href: operations/update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами кластера
+            items:
+              - name: Просмотр хостов кластера
+                href: operations/hosts/cluster-hosts.md
+              - name: Расширение кластера
+                href: operations/hosts/cluster-expand.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Базы данных
+        items:
+          - name: Подключение к базе данных
+            href: operations/connect.md
+          - name: Использование внешних таблиц
+            href: operations/external-tables.md
+      - name: Пользователи и сессии
+        items:
+          - name: Управление ролями и пользователями
+            href: operations/roles-and-users.md
+          - name: Управление ресурсными группами
+            href: operations/resource-groups.md
+          - name: Управление клиентскими процессами и сессиями пользователей
+            href: operations/cluster-process.md
+      - name: Расширения {{ GP }}
         items:
           - name: Управление расширениями
             href: operations/extensions/cluster-extensions.md
@@ -39,18 +51,16 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Диагностика производительности
-        href: operations/performance-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
-      - name: Управление ресурсными группами
-        href: operations/resource-groups.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Диагностика производительности
+            href: operations/performance-diagnostics.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
+      - name: Вспомогательные утилиты
+        href: operations/greenplum-db.md
   - name: Практические руководства
     items:
       - name: Миграция базы данных в {{ mgp-name }}

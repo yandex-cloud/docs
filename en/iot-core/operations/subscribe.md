@@ -1,6 +1,6 @@
 # Subscribing to messages
 
-With the broker, you can subscribe to a random topic that does not start with `$` using a certificate or a username and password.
+With a broker, you can subscribe to a random topic that does not start with `$` using a certificate or a username and password.
 
 For registries and devices, the selection of topics is limited. You can subscribe:
 
@@ -14,7 +14,7 @@ To learn about messaging, see [{#T}](publish.md).
 
 {% include [registry-and-device-topic-note](../../_includes/iot-core/registry-and-device-topic-note.md) %}
 
-{% include [iot-before-begin](../../_includes/iot-core/iot-before-begin.md) %}
+{% include [iot-before-you-begin](../../_includes/iot-core/iot-before-you-begin.md) %}
 
 ## Subscribing a registry to device topics {#sub-events}
 
@@ -300,7 +300,7 @@ When using a broker, you can subscribe to a random topic using your username and
       Where:
 
       - `--username` and `--password`: Parameters for authorization using a username and password.
-      - `--topic`: A random topic name that conforms to the MQTT specification and does not start with `$`.
+      - `--topic`: Random topic name that conforms to the MQTT specification and does not start with `$`.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
    - Send a message using certificate-based authorization:

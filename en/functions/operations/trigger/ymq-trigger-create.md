@@ -53,7 +53,7 @@ To create a trigger, you need:
 
    1. Under **{{ message-queue-short-name }} settings**, select a message queue and a service account with rights to read messages from this message queue.
 
-   1. (optional) Under **Batch message settings**, specify:
+   1. (Optional) Under **Batch message settings**, specify:
 
       * Batch size. Values can be from 1 to 10. The default is 1.
       * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds.
@@ -101,7 +101,7 @@ To create a trigger, you need:
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
    * `--batch-size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. At the same time, the number of messages does not exceed `batch-size`.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
 
    Result:
    ```text
@@ -150,7 +150,7 @@ To create a trigger, you need:
 
          * `service_account_id`: ID of the service account with rights to invoke a function.
          * `batch_size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
-         * `batch_cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
+         * `batch_cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. The number of messages cannot exceed `batch-size`.
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
 
@@ -172,7 +172,7 @@ To create a trigger, you need:
       }
       ```
 
-      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 
@@ -195,7 +195,7 @@ To create a trigger, you need:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>

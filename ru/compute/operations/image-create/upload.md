@@ -30,7 +30,7 @@ keywords:
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
 Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
-1. Если у вас еще нет [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его.
+1. Если у вас еще нет [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его с ограниченным доступом.
 1. Загрузите образ в ваш бакет, например, [через консоль управления](../../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../../storage/tools/aws-cli.md) или [WinSCP](../../../storage/tools/winscp.md). В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ compute-name }}.
 
@@ -43,17 +43,17 @@ keywords:
 - Консоль управления
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **Образы**.
-  1. Нажмите кнопку **Загрузить образ**.
-  1. Введите имя образа:
-     * Длина — от 2 до 63 символов.
-     * Может содержать строчные буквы латинского алфавита, цифры и дефисы.
-     * Первый символ — буква. Последний символ — не дефис.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.button_upload }}**.
+  1. Введите имя образа.
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
   1. Если требуется, добавьте произвольное описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
-  1. Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment), включите опцию **Оптимизировать для развертывания**.
-  1. Нажмите кнопку **Загрузить**.
+  1. Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment), включите опцию **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
 
 - CLI
 

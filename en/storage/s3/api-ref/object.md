@@ -10,3 +10,6 @@
 | [deleteMultipleObjects](object/deletemultipleobjects.md) | Deletes objects based on a list. |
 | [options](object/options.md) | Checks whether a [CORS request](../../concepts/cors.md) to an object can be made. |
 | [selectObjectContent](object/select.md) | Filters and returns the contents of an object based on an SQL query. |
+| [putObjectTagging](object/putobjecttagging.md) | Adds [labels](../../concepts/tags.md) to an object. |
+| [getObjectTagging](object/getobjecttagging.md) | Returns object labels. |
+| [deleteObjectTagging](object/deleteobjecttagging.md) | Deletes object labels. |

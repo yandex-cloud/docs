@@ -167,7 +167,7 @@ You can change the computing power of hosts in a separate subcluster:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -234,10 +234,10 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
       * `--max-hosts-count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
       * `--enable-preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used.
       * `--warmup-duration`: The time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
-      * `--stabilization-duration`: The interval, in seconds, during which the required number of instances can't be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
+      * `--stabilization-duration`: Interval in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
       * `--measurement-duration`: The period, in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
       * `--cpu-utilization-target`: Target CPU utilization level, %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
-      * `--autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24h).
+      * `--autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
       You can request a subcluster name or ID with a [list of cluster subclusters](#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
 
@@ -280,7 +280,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -378,7 +378,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -420,12 +420,12 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up security groups](./connect.md#configuring-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](./connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/setPrimaryVersion.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/setPrimaryVersion.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.setPrimaryVersion

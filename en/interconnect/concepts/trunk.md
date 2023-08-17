@@ -17,7 +17,7 @@ All physical ports on the {{ yandex-cloud }} equipment have the following defaul
 
 * No auto negotiation of the transmission rate is supported on physical ports. Be sure to explicitly set the transmission rate and disable auto negotiation on your equipment.
 * On the {{ yandex-cloud }} equipment, a physical port always works in trunk mode with 802.1Q tagging. No connection in access port mode (without tagging) is supported.
-* The default MTU size is 8910 bytes. This size is selected to transfer jumbo frames.
+* The default MTU size supports transfer of jumbo frames.
 
 {% note warning %}
 
@@ -54,11 +54,11 @@ One may outline this connection as follows:
 
 The client equipment is located at a [point of presence](./pops.md) and connected to the {{ yandex-cloud }} equipment directly through an optical cross-connection routed within the point of presence.
 
-The transceiver transmitting side (Tx) on the {{ yandex-cloud }} equipment is connected to the transceiver receiving side (Rx) on the client equipment using an optical fiber. The transceiver transmitting side (Tx) on the client equipment is connected to the transceiver receiving side (Rx) on the {{ yandex-cloud }} equipment with an optical fiber. A pair of these optical fibers makes up an optical cross-connect.
+The transceiver transmitting side (Tx) on the {{ yandex-cloud }} equipment is connected to the transceiver receiving side (Rx) on the client equipment using an optical fiber. The transceiver transmitting side (Tx) on the client equipment is connected to the transceiver receiving side (Rx) on the {{ yandex-cloud }} equipment with optical fiber. A pair of these optical fibers makes up an optical cross-connect.
 
 ### Connecting using telecom provider services{#sp-link}
 
-If a client does not have their own equipment at the [point of presence](./pops.md), then, to connect to the {{ yandex-cloud }} equipment, the client will need to use the services of a telecom provider that has equipment at the point of presence.
+If a client does not have their own equipment at the appropriate [point of presence](./pops.md), to connect to the {{ yandex-cloud }} equipment, the client uses the services of a telecom provider that has equipment at the appropriate point of presence.
 
 One may outline this connection as follows:
 
@@ -81,6 +81,7 @@ The telecom provider has to set up a connection between the client equipment and
 
 {% endnote %}
 
+
 ## Connection multiplexing (802.1Q) {#mux}
 
 ### VLAN-ID {#vlan-id}
@@ -99,15 +100,7 @@ You can combine different types of connections in a trunk:
 
 * One [private connection](./priv-con.md).
 * One [public connection](./pub-con.md).
-* Multiple private connections.
-* One private connection and one public connection.
-* Multiple private connections and one public connection.
-
-{% note info %}
-
-Multiple public connections in a single trunk are not supported.
-
-{% endnote %}
+* Multiple private connections and/or public connections.
 
 The following multiplexing options (schemes) are possible:
 
@@ -154,7 +147,6 @@ This method is used when the client does not have their own equipment at the poi
 
 ## Bandwidth and rate limit {#policer}
 
-At the trunk level, the {{ yandex-cloud }} equipment uses a rate limit for receiving and sending data from or to the external equipment in bits per second and in packets per second according to the [traffic package](./bandwidth.md) (bandwidth) selected by the client.
+At the trunk level, the {{ yandex-cloud }} equipment uses a rate limit for receiving and sending data from or to the external equipment in bits per second and in packets per second according to the [traffic package](./capacity.md) (bandwidth) selected by the client.
 
 To limit the rate of receiving and sending data on the {{ yandex-cloud }} equipment, the **RateLimit (Policing)** mechanism is used. When the data transfer speed in bits per second or packets per second is exceeded, the data may be rejected. As a result, uniform traffic may be transmitted at a faster speed than the traffic transmitted in sudden bursts.
-

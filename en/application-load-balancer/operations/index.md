@@ -1,9 +1,9 @@
 ---
-title: "Working with {{ alb-full-name }} Step-by-step guide"
+title: "Working with {{ alb-full-name }} Step-by-step guides"
 description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-cloud }}. In this article, you will learn how to create L7 load balancers and manage them, and how to use HTTP routers and target groups."
 ---
 
-# Step-by-step guide for {{ alb-name }}
+# Step-by-step guides for {{ alb-name }}
 
 ## Target groups {#target-group-operations}
 
@@ -20,6 +20,7 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 ## HTTP routers {#http-router-operations}
 
 * [{#T}](http-router-create.md)
+* [{#T}](http-router-create-grpc.md)
 * [{#T}](http-router-update.md)
 * [{#T}](http-router-delete.md)
 
@@ -27,6 +28,10 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 
 * [{#T}](application-load-balancer-create.md)
 * [{#T}](application-load-balancer-update.md)
+* [{#T}](application-load-balancer-get-stats.md)
+* [{#T}](application-load-balancer-get-logs.md)
+* [{#T}](application-load-balancer-manage-logs.md)
+* [{#T}](application-load-balancer-get-log-group-id.md)
 * [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
 

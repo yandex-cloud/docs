@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/listAccessBindings.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.listAccessBindings

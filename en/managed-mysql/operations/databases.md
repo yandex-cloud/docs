@@ -30,7 +30,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - API
 
-   To get a list of cluster databases, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -106,7 +106,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_database).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - API
 
@@ -160,7 +160,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_database).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - API
 
@@ -237,7 +237,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

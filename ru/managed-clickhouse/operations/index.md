@@ -1,25 +1,43 @@
 # Пошаговые инструкции для {{ mch-name }}
 
-- [Информация об имеющихся кластерах](cluster-list.md)
-- [Создание кластера](cluster-create.md)
-- [Подключение к базе данных](connect.md)
-- [Остановка и запуск кластера](cluster-stop.md)
-- [SQL-запросы в консоли управления](web-sql-query.md)
-- [Изменение настроек кластера и базы данных](update.md)
-- [Настройка доступа к {{ objstorage-name }}](s3-access.md)
-- [Подключение внешних словарей](dictionaries.md)
-- [Подключение собственной геобазы](geobase.md)
-- [Управление моделями машинного обучения](ml-models.md)
-- [Управление схемами формата данных](format-schemas.md)
-- [Подключение к {{ datalens-name }}](datalens-connect.md)
-- [Изменение версии {{ CH }}](cluster-version-update.md)
-- [Управление хостами {{ ZK }}](zk-hosts.md)
-- [Управление хостами {{ CH }}](hosts.md)
-- [Управление базами данных](databases.md)
-- [Управление пользователями БД](cluster-users.md)
-- [Управление резервными копиями](cluster-backups.md)
-- [Управление шардами](shards.md)
-- [Управление группами шардов](shard-groups.md)
-- [Просмотр логов кластера](cluster-logs.md)
-- [Удаление кластера](cluster-delete.md)
-- [Мониторинг состояния кластера и хостов](monitoring.md)
+## Кластеры
+
+* [{#T}](cluster-list.md)
+* [{#T}](cluster-create.md)
+* [{#T}](update.md)
+* [{#T}](cluster-version-update.md)
+* [{#T}](cluster-stop.md)
+* [{#T}](zk-hosts.md)
+* [{#T}](hosts.md)
+* [{#T}](cluster-backups.md)
+* [{#T}](cluster-delete.md)
+
+## Базы данных
+
+* [{#T}](connect.md)
+* [{#T}](web-sql-query.md)
+* [{#T}](databases.md)
+* [{#T}](cluster-users.md)
+
+## Хранение и обработка данных
+
+* [{#T}](geobase.md)
+* [{#T}](dictionaries.md)
+* [{#T}](format-schemas.md)
+* [{#T}](ml-models.md)
+
+
+* [{#T}](s3-access.md)
+
+
+## Шардирование
+
+* [{#T}](shards.md)
+* [{#T}](shard-groups.md)
+
+## Логи и мониторинг
+
+* [{#T}](cluster-logs.md)
+* [{#T}](monitoring.md)
+* [{#T}](datalens-connect.md)
+

@@ -1,4 +1,4 @@
-# {{ managed-k8s-name }} practical guidelines
+# {{ managed-k8s-name }} tutorials
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](container-registry.md)
@@ -28,6 +28,8 @@
 * [{#T}](gitlab-containers.md)
 * [{#T}](metrics-server.md)
 
+
+* [{#T}](ci-cd-serverless.md)
 
 ## Using {{ marketplace-full-name }} products {#marketplace-tutorials}
 

@@ -108,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `Yandex Managed Service for Kafka cluster`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
          Select a target cluster from the list and specify its connection settings.
 
@@ -119,7 +119,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**: `Yandex Managed Service for Kafka cluster`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
          Select a source cluster from the list and specify its connection settings.
 
@@ -243,7 +243,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 Delete the other resources, depending on the method used to create them:
 

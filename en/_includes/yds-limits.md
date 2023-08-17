@@ -9,9 +9,9 @@
 
 | Type of limit | Value |
 --- | ---
-| Maximum number of data write requests per second for a single data stream | 1000 RPS |
+| Maximum number of data write requests per second for a single data stream | 1,000 RPS |
 | Maximum data write speed for a single segment | 1 MB/s |
-| Maximum single-segment data read speed for all the standard consumers | 2 MB/s |
+| Maximum single-segment data read speed for all standard consumers | 2 MB/s |
 | Maximum number of dedicated data consumers per data stream | 5 consumers |
 | Maximum size per message | 1 MB |
-| Number of shards in a serverless {{ ydb-short-name }} database | 100 |
+| Number of shards in a {{ ydb-short-name }} serverless database | 100 |

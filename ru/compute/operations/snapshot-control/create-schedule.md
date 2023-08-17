@@ -1,5 +1,7 @@
 # Создать расписание, по которому будут создаваться снимки дисков
 
+## Настроить автоматическое создание снимков дисков по расписанию {#set-schedule}
+
 Чтобы настроить автоматическое создание [снимков дисков](../../concepts/snapshot.md) по [расписанию](../../concepts/snapshot-schedule.md):
 
 {% list tabs %}
@@ -7,9 +9,9 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **Снимки дисков**.
-  1. На вкладке **Расписания снимков** нажмите кнопку **Создать**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры расписания снимков:
       * Введите имя расписания:
 
@@ -20,11 +22,11 @@
       
         {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
         
-      * В поле **Создавать снимки** выберите периодичность создания снимков: **По часам**, **По дням**, **По неделям** или [**По cron-выражению**](../../concepts/snapshot-schedule.md#cron). Время создания снимка указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
-      * В поле **Начиная с** укажите дату, начиная с которой будет работать расписание.
+      * В поле **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** выберите периодичность создания снимков: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}` [или `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). Время создания снимка указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+      * В поле **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** укажите дату, начиная с которой будет работать расписание.
       * Выберите политику хранения снимков:
-        * **Хранить все снимки** — будут храниться все снимки, созданные по этому расписанию. 
-        * **Только последние** — укажите количество последних снимков, которые нужно хранить, или количество дней, снимки за которые нужно хранить. Остальные снимки, созданные по этому расписанию, будут удаляться автоматически.
+        * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}** — будут храниться все снимки, созданные по этому расписанию. 
+        * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}** — укажите количество последних снимков, которые нужно хранить, или количество дней, снимки за которые нужно хранить. Остальные снимки, созданные по этому расписанию, будут удаляться автоматически.
 
         {% note info %}
 
@@ -32,7 +34,7 @@
 
         {% endnote %}
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -128,6 +130,55 @@
       snapshot_count: "3"
       snapshot_spec: {}
       ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
+
+      ```hcl
+      resource "yandex_compute_snapshot_schedule" "default" {
+        name = "<название_расписания>"
+
+        schedule_policy {
+          expression = "<cron-выражение>"
+        }
+
+        snapshot_count = <количество_снимков_для_каждого_диска>
+
+        snapshot_spec {
+            description = "<описание_снимка>"
+            labels = {
+              <ключ_метки_снимка> = "<_значение_метки_снимка>"
+            }
+        }
+
+        disk_ids = ["<идентификатор_диска_1>", "<идентификатор_диска_2>"]
+      }
+      ```
+
+      Где:
+
+      * `name` — название расписания. Обязательный параметр.
+      * `schedule_policy` — блок с параметрами расписания. Содержит поле `expression` с [cron-выражением](../../concepts/snapshot-schedule.md#cron). Обязательный параметр.
+      * `snapshot_count` — максимальное количество снимков для каждого диска. Необязательный параметр.
+      * `snapshot_spec` — блок с дополнительными параметрами снимка. Необязательный параметр. Может содержать поля:
+        * `description` — описание снимка.
+        * `labels` — [метка](../../../overview/concepts/services.md#labels) снимка в формате `<ключ> = "<значение>"`.
+      * `disk_ids`— идентификаторы дисков, для которых будут создаваться снимки. Обязательный параметр.
+      
+      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном каталоге будет создано расписание. Проверить появление расписания и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc compute snapshot-schedule get <имя_расписания>
+    ```
 
 - API
 

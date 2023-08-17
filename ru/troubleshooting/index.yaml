@@ -1,0 +1,92 @@
+title: Готовые решения для известных сценариев
+description:
+  - >-
+    Известные решения и советы для оптимального использования сервисов Yandex
+    Cloud.
+meta:
+  title: Troubleshooting
+links:
+  - title: Application Load Balancer
+    description: Решения для Application Load Balancer
+    href: application-load-balancer/
+  - title: Billing
+    description: Решения для Cloud Billing
+    href: billing/
+  - title: CDN
+    description: Решения для Cloud CDN
+    href: cdn/
+  - title: Certificate Manager
+    description: Решения для Certificate Manager
+    href: certificate-manager/
+  - title: DNS
+    description: Решения для Cloud DNS
+    href: dns/
+  - title: Cloud Functions
+    description: Решения для Cloud Functions
+    href: functions/
+  - title: Cloud Logging
+    description: Решения для Cloud Logging
+    href: cloud-logging/
+  - title: Compute
+    description: Решения для Compute Cloud
+    href: compute/
+  - title: Container Registry
+    description: Решения для Container Registry
+    href: container-registry/
+  - title: DataLens
+    description: Решения для DataLens
+    href: datalens/
+  - title: DataProc
+    description: Решения для DataProc
+    href: dataproc/
+  - title: DataSphere
+    description: Решения для DataSphere
+    href: datasphere/
+  - title: Data Transfer
+    description: Решения для Data Transfer
+    href: data-transfer/
+  - title: IAM
+    description: Решения для Identity and Access Management
+    href: iam/
+  - title: KMS
+    description: Решения для Key Management Service
+    href: kms/
+  - title: Managed Service for GitLab
+    description: Решения для Managed Service for GitLab
+    href: managed-gitlab/
+  - title: Managed Service for Kubernetes
+    description: Решения для Managed Service for Kubernetes
+    href: managed-kubernetes/
+  - title: Object Storage
+    description: Решения для Object Storage
+    href: storage/
+  - title: Managed MySQL
+    description: Решения для Managed Service for MySQL
+    href: managed-mysql/
+  - title: Managed PostgreSQL
+    description: Решения для Managed Service for PostgreSQL
+    href: managed-postgresql/
+  - title: Managed Service for YDB
+    description: Решения для Managed Service for YDB
+    href: managed-ydb/
+  - title: Monitoring
+    description: Решения для Yandex Monitoring
+    href: monitoring/
+  - title: Network load Balancer
+    description: Решения для Network load Balancer
+    href: network-load-balancer/
+  - title: Serverless Containers
+    description: Решения для Serverless Containers
+    href: serverless-containers/
+  - title: SpeechKit
+    description: Решения для SpeechKit
+    href: speechkit/
+  - title: VPC
+    description: Решения для Virtual Private Cloud
+    href: vpc/
+  - title: Консоль управления
+    description: Решения для Консоли управления
+    href: terraform/
+  - title: Terraform-провайдер для Yandex Cloud
+    description: Решения по Terraform-провайдеру для Yandex Cloud
+    href: terraform/

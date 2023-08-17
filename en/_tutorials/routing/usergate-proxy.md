@@ -110,7 +110,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
       }
       ```
 
-      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
+      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
    1. Make sure the configuration files are valid.
 
@@ -142,7 +142,11 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 ## Create a security group {#create-security-group}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -308,7 +312,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
       }
       ```
 
-      For more information about the `yandex_vpc_security_group` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about the `yandex_vpc_security_group` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
    1. Make sure the configuration files are valid.
 
@@ -428,7 +432,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc compute instance create \
@@ -509,7 +513,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         }
       ```
 
-      To learn more, see the [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
+      To learn more, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
    1. Make sure the configuration files are valid.
 
@@ -665,7 +669,7 @@ To add a certificate:
 
       To implement SSL inspection, you can also use the rule: `Decrypt all for unknown users`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 

@@ -7,6 +7,8 @@ items:
         href: enable-tracker.md
       - name: Войти в Tracker
         href: user/login.md
+      - name: Типы пользователей
+        href: user-types.md
       - name: Управление пользователями
         href: add-users.md
       - name: Настроить доступ в Tracker
@@ -29,8 +31,6 @@ items:
         href: import.md
       - name: Отключить платные услуги
         href: disable-tracker.md
-  - name: Мобильное приложение Tracker
-    href: mobile.md
   - name: Практические руководства
     items:
       - name: Настроить Tracker для команды разработки
@@ -71,6 +71,8 @@ items:
             href: support-process-dashboards.md
           - name: Настроить интеграцию со сторонними системами
             href: support-process-integration.md
+      - name: Визуализация данных с помощью {{ datalens-name }}
+        href: tutorials/visualisation-in-datalens.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -183,42 +185,50 @@ items:
         href: manager/create-project.md
       - name: Список задач проекта
         href: manager/project-list.md
-      - name: Диаграмма Ганта
-        href: manager/gantt-project.md
       - name: Доска задач
         href: manager/boards-project.md
-  - name: Инструменты гибкой разработки
-    items:
-      - name: Обзор
-        href: manager/agile.md
-      - name: Создать доску
-        href: manager/create-agile-board.md
-      - name: Работать с доской
-        href: user/agile.md
-      - name: Изменить и удалить доску
-        href: manager/edit-agile-board.md
-      - name: Бэклог
-        href: manager/backlog.md
-      - name: Спринты
-        href: manager/create-agile-sprint.md
-      - name: Эпики
-        href: manager/epic.md
-      - name: Командная оценка задач
-        href: manager/planning-poker.md
-      - name: Диаграмма сгорания задач
-        href: manager/burndown.md
-      - name: Миграция на новые технологии
-        href: manager/boards-convertor.md
-  - name: Доски задач (бета)
+  - name: Доски задач
     items:
       - name: Обзор
         href: manager/agile-new.md
-      - name: Создать доску
+      - name: Как создать доску
         href: manager/agile-new-create.md
-      - name: Работать с доской
-        href: manager/agile-new-use.md
-      - name: Настроить доску
-        href: manager/agile-new-set.md
+      - name: Как настроить доску
+        href: manager/agile-new-set-board.md
+      - name: Как работать с задачами на доске
+        href: manager/agile-new-issues.md
+      - name: Как настроить колонки
+        href: manager/agile-new-columns.md
+      - name: Инструменты на досках с бэклогом и спринтами
+        items:
+          - name: Обзор
+            href: manager/boards-instruments.md
+          - name: Бэклог
+            href: manager/backlog.md
+          - name: Спринты
+            href: manager/create-agile-sprint.md
+          - name: Покер планирования
+            href: manager/poker.md
+          - name: Диаграмма сгорания задач
+            href: manager/burndown-diagram.md
+      - name: Старые доски
+        items:
+          - name: Обзор
+            href: manager/agile.md
+          - name: Миграция на новые технологии
+            href: manager/boards-convertor.md
+          - name: Создать доску
+            href: manager/create-agile-board.md
+          - name: Работать с доской
+            href: user/agile.md
+          - name: Изменить и удалить доску
+            href: manager/edit-agile-board.md
+          - name: Эпики
+            href: manager/epic.md
+          - name: Командная оценка задач
+            href: manager/planning-poker.md
+          - name: Диаграмма сгорания задач
+            href: manager/burndown.md
   - name: Найти задачи
     items:
       - name: Найти задачу по ключу или названию
@@ -231,8 +241,6 @@ items:
         href: user/create-filter.md
       - name: Язык запросов
         href: user/query-filter.md
-      - name: Диаграмма Ганта для фильтра задач
-        href: manager/gantt-search.md
   - name: Уведомления и подписки
     items:
       - name: Обзор
@@ -271,8 +279,18 @@ items:
             href: user/startpage-dashboard.md
       - name: Статистика очереди
         href: manager/statistics.md
-      - name: Диаграмма Ганта
-        href: manager/gantt.md
+  - name: Диаграмма Ганта
+    items:
+      - name: Обзор
+        href: gantt/overview.md
+      - name: Диаграмма Ганта для фильтра
+        href: gantt/search.md
+      - name: Диаграмма Ганта для очереди
+        href: gantt/queue.md
+      - name: Диаграмма Ганта для проекта
+        href: gantt/project.md
+      - name: Диаграмма Ганта для списка проектов
+        href: gantt/list-of-projects.md
   - name: Автоматизация и шаблоны
     items:
       - name: Обзор
@@ -363,6 +381,38 @@ items:
         href: user/python.md
       - name: Подключить репозиторий
         href: manager/add-repository.md
+  - name: Мобильное приложение Tracker
+    items:
+      - name: Обзор возможностей
+        href: mobile.md
+      - name: Как подключить {{ tracker-name }}
+        href: mobile/enable-tracker.md
+      - name: Как войти в мобильное приложение
+        href: mobile/login.md
+      - name: Мои задачи
+        href: mobile/my-tickets.md
+      - name: Создание задачи
+        href: mobile/create-ticket.md
+      - name: Редактирование задачи
+        href: mobile/edit-ticket.md
+      - name: Комментарии к задаче
+        href: mobile/comments.md
+      - name: Чеклист
+        href: mobile/checklist.md
+      - name: Загрузка изображений и файлов
+        href: mobile/attach-file.md
+      - name: Связи в задачах
+        href: mobile/ticket-links.md
+      - name: Затраченное время
+        href: mobile/time-spent.md
+      - name: Поиск задачи
+        href: mobile/search-task.md
+      - name: Системные фильтры
+        href: mobile/default-filters.md
+      - name: Создание фильтра
+        href: mobile/create-filter.md
+      - name: Сортировка и группировка задач
+        href: mobile/sort-and-group.md
   - name: Правила тарификации
     items:
       - name: Тарифы
@@ -629,8 +679,14 @@ items:
         href: organizations.md
   - name: История изменений
     items:
-      - name: Апрель 2023
+      - name: Июль 2023
         href: changelogs/index.md
+      - name: Июнь 2023
+        href: changelogs/2306.md
+      - name: Май 2023
+        href: changelogs/2305.md
+      - name: Апрель 2023
+        href: changelogs/2304.md
       - name: Март 2023
         href: changelogs/2303.md
       - name: Февраль 2023

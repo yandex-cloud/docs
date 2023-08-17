@@ -7,31 +7,31 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать шлюз.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите **Шлюзы**.
-  1. Нажмите кнопку **Создать**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте имя шлюза:
 
       {% include [name-format](../../_includes/name-format.md) %}
    
-  1. (опционально) Добавьте описание шлюза.
-  1. По умолчанию выбран тип шлюза **NAT-шлюз**.
-  1. Нажмите кнопку **Создать**.
-  1. На панели слева выберите **Таблицы маршрутизации**.
-  1. Нажмите кнопку **Создать**, чтобы создать новую таблицу, или выберите одну из существующих.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. В открывшемся окне в поле **Next hop** выберите **Шлюз**.
-  1. В поле **Шлюз** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
-  1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Сохранить**. 
+  1. (Опционально) Добавьте описание шлюза.
+  1. По умолчанию выбран тип шлюза `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новую таблицу, или выберите одну из существующих.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** выберите `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
+  1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
 
   Затем привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
-  1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **Подсети**.
+  1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
-  1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. В открывшемся окне выберите созданную таблицу в списке.
-  1. Нажмите кнопку **Привязать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI
 
@@ -41,24 +41,25 @@
   
   1. Посмотрите описание команды CLI для создания шлюза:
 
-      ```
+      ```bash
       yc vpc gateway create --help
       ```
 
   1. Создайте шлюз в каталоге по умолчанию:
 
-     ```
-     yc vpc gateway create --name test-gateway
+     ```bash
+     yc vpc gateway create \
+        --name test-gateway
      ```
   1. Получите идентификатор шлюза:
 
-     ```
+     ```bash
      yc vpc gateway list
      ```
 
      Результат выполнения команды:
 
-     ```
+     ```text
      +----------------------+--------------+-------------+
      |          ID          |     NAME     | DESCRIPTION |
      +----------------------+--------------+-------------+
@@ -68,15 +69,19 @@
 
   1. Создайте таблицу маршрутизации со шлюзом в качестве next hop и префиксом назначения `0.0.0.0/0`:
 
-     ```
-     yc vpc route-table create --name=test-route-table --network-name=<имя сети, в которой создается таблица> --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0cmr7e2s0
+     ```bash
+     yc vpc route-table create \
+        --name=test-route-table \
+        --network-name=<имя сети, в которой создается таблица> \
+        --route destination=0.0.0.0/0,`
+                gateway-id=enpkq1v2e7p0cmr7e2s0
      ```
 
   1. Привяжите таблицу к подсети:
 
-     ```
-     yc vpc subnet update <имя подсети> --route-table-name=test-route-table
-
+     ```bash
+     yc vpc subnet update <имя подсети> \
+        --route-table-name=test-route-table
      ```
 
 - API
@@ -91,7 +96,7 @@
   
   Чтобы создать NAT-шлюз, указать его в качестве next hop в таблице [маршрутизации](../concepts/static-routes.md) и привязать таблицу к подсети используйте следующую конфигурацию:
   
-  ```
+  ```hcl
   data "yandex_vpc_network" "net" {
     folder_id = "<идентификатор каталога>"
     name      = "<имя облачной сети>"

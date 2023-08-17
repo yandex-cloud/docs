@@ -1,24 +1,25 @@
 ---
 title: "{{ dataproc-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
+description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage does not depend on the host class."
 ---
 
-# Host classes in {{ dataproc-name }}
+# {{ dataproc-name }} host classes
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
-The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
-Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
+
+{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
 | **Intel Broadwell** |
-| b1.small | 2 | 20% | 4 | 20 - 8184 |
 | g1.small | 8 | 100% | 96 | 20 - 8184 |
 | m1.micro | 2 | 100% | 16 | 20 - 8184 |
 | m1.small | 4 | 100% | 32 | 20 - 8184 |
@@ -35,7 +36,6 @@ The full list of possible host configurations on each platform is provided below
 | s1.large | 16 | 100% | 64 | 20 - 8184 |
 | s1.xlarge | 32 | 100% | 128 | 20 - 8184 |
 | **Intel Cascade Lake** |
-| b2.small | 2 | 20% | 4 | 20 - 8184 |
 | b2.medium | 2 | 50% | 4 | 20 - 8184 |
 | m2.micro | 2 | 100% | 16 | 20 - 8184 |
 | m2.small | 4 | 100% | 32 | 20 - 8184 |

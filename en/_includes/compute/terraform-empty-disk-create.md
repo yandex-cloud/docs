@@ -23,7 +23,7 @@ To create an empty disk:
    * `size`: Disk size in GB. The maximum disk size depends on the chosen block size.
    * `block_size`: Block size in bytes (the minimum storage size for information on the disk). By default, the block size of all created disks is 4 KB, but that's not enough for disks larger than 8 TB. For more information, see [{#T}](../../compute/operations/disk-create/empty-disk-blocksize.md).
 
-   For more information about the `yandex_compute_disk` resource, see the [provider documentation]({{ tf-provider-link }}/compute_disk).
+   For more information about the `yandex_compute_disk` resource, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk).
 
 1. Make sure that the configuration files are valid.
 

@@ -7,46 +7,54 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к базе данных
+      - name: Кластеры
         items:
-          - name: Обзор способов подключения к базе данных
-            href: operations/connect/index.md
-          - name: Подключение к нешардированному кластеру
-            href: operations/connect/non-sharded.md
-          - name: Подключение к шардированному кластеру
-            href: operations/connect/sharded.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Изменение настроек кластера и базы данных
-        href: operations/update.md
-      - name: Переключение первичной реплики
-        href: operations/stepdown.md
-      - name: Обновление версии MongoDB
-        href: operations/cluster-version-update.md
-      - name: Управление базами данных
-        href: operations/databases.md
-      - name: Управление хостами кластера
-        href: operations/hosts.md
-      - name: Управление пользователями БД
-        href: operations/cluster-users.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Управление шардами
-        href: operations/shards.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
-      - name: Диагностика производительности
-        href: operations/performance-diagnostics.md
-      - name: Инструменты для анализа производительности
-        href: operations/tools.md
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение настроек кластера
+            href: operations/update.md
+          - name: Обновление версии MongoDB
+            href: operations/cluster-version-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами кластера
+            href: operations/hosts.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Базы данных
+        items:
+          - name: Подключение к базе данных
+            items:
+              - name: Обзор способов подключения к базе данных
+                href: operations/connect/index.md
+              - name: Подключение к нешардированному кластеру
+                href: operations/connect/non-sharded.md
+              - name: Подключение к шардированному кластеру
+                href: operations/connect/sharded.md
+          - name: Управление базами данных
+            href: operations/databases.md
+          - name: Управление пользователями БД
+            href: operations/cluster-users.md
+      - name: Шардирование и репликация
+        items:
+          - name: Управление шардами
+            href: operations/shards.md
+          - name: Переключение первичной реплики
+            href: operations/stepdown.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Диагностика производительности
+            href: operations/performance-diagnostics.md
+          - name: Инструменты для анализа производительности
+            href: operations/tools.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Все сценарии
@@ -75,6 +83,8 @@ items:
             items:
               - name: До 1 июня 2020 года
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
       - name: Сеть в Managed Service for MongoDB

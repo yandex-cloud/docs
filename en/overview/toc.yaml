@@ -1,18 +1,47 @@
 title: Yandex Cloud overview
 href: index.yaml
 items:
-  - name: '{{ yandex-cloud }} services'
-    href: concepts/services.md
   - name: Getting started
     href: quickstart.md
-  - name: Mobile app
+  - name: '{{ yandex-cloud }}'
+    expanded: true
     items:
-      - name: Overview
+      - name: Platform architecture
+        href: architecture.md
+      - name: Availability zones
+        items:
+          - name: Overview
+            href: concepts/geo-scope.md
+          - name: Deprecation of the {{ region-id }}-c zone
+            href: concepts/ru-central1-c-deprecation.md
+      - name: User interaction with resources
+        href: roles-and-resources.md
+      - name: Deleting user data
+        href: concepts/data-deletion.md
+  - name: '{{ yandex-cloud }} services'
+    expanded: true
+    items:
+      - name: Service list
+        href: concepts/services.md
+      - name: Release stages
+        href: concepts/launch-stages.md
+      - name: SLA
+        href: sla.md
+      - name: Quotas and limits
+        href: concepts/quotas-limits.md
+      - name: Releases
+        href: release-notes.md
+      - name: Troubleshooting
+        href: qa.md
+  - name: Service interfaces
+    expanded: true
+    items:
+      - name: Mobile app
         href: mobile-app/index.md
-      - name: For Android
-        href: mobile-app/android.md
-      - name: For iOS
-        href: mobile-app/ios.md
+      - name: API
+        href: api.md
+      - name: Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows
+        href: concepts/console-syntax-guide.md
   - name: Equivalent services on other platforms
     items:
       - name: Overview
@@ -23,28 +52,4 @@ items:
         href: platform-comparison/gcp.md
       - name: Equivalents for Microsoft Azure
         href: platform-comparison/azure.md
-  - name: Availability zones
-    items:
-      - name: Overview
-        href: concepts/geo-scope.md
-      - name: Deprecation of the {{ region-id }}-c zone
-        href: concepts/ru-central1-c-deprecation.md
-  - name: Release stages
-    href: concepts/launch-stages.md
-  - name: Quotas and limits
-    href: concepts/quotas-limits.md
-  - name: API
-    href: api.md
-  - name: Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows
-    href: concepts/console-syntax-guide.md
-  - name: Platform architecture
-    href: architecture.md
-  - name: Deleting user data
-    href: concepts/data-deletion.md
-  - name: SLA
-    href: sla.md
-  - name: Revision history
-    href: release-notes.md
-  - name: Troubleshooting
-    href: qa.md
 base: en/overview

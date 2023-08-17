@@ -98,6 +98,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources}
@@ -127,7 +128,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
@@ -217,6 +218,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources1)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access1)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources1}
@@ -246,7 +248,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
@@ -307,6 +309,7 @@ redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_
 resources | **[Resources](#Resources2)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy to DB 
+redis | **[config.RedisConfig](#RedisConfig)**<br>Unified configuration of a Redis cluster 
 
 
 ### Resources {#Resources2}
@@ -407,6 +410,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -420,7 +424,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
@@ -478,6 +482,7 @@ redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_
 resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
+redis | **[config.RedisConfig](#RedisConfig)**<br>Unified configuration of a Redis cluster 
 
 
 ### Resources {#Resources3}
@@ -507,7 +512,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
@@ -588,6 +593,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -726,6 +732,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources4}
@@ -755,7 +762,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
@@ -861,6 +868,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources5)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access5)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources5}
@@ -890,7 +898,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
@@ -999,6 +1007,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources6)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access6)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources6}
@@ -1028,7 +1037,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
@@ -1134,6 +1143,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources7)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access7)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources7}
@@ -1163,7 +1173,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
@@ -1224,6 +1234,7 @@ redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_
 resources | **[Resources](#Resources8)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access8)**<br>Access policy to DB 
+redis | **[config.RedisConfig](#RedisConfig)**<br>Unified configuration of a Redis cluster 
 
 
 ### Resources {#Resources8}
@@ -1325,6 +1336,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access9)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1338,7 +1350,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
@@ -1447,6 +1459,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access9)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources9}
@@ -1476,7 +1489,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
@@ -1584,6 +1597,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources10)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access10)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources10}
@@ -1613,7 +1627,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 
@@ -2224,6 +2238,7 @@ redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_
 resources | **[Resources](#Resources12)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access11)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
 
 
 ### Resources {#Resources12}
@@ -2253,7 +2268,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
 

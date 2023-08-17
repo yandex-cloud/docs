@@ -77,7 +77,7 @@
         * `target_group_id` — идентификатор целевой группы.
         * `healthcheck` — описание параметров проверки состояния. Укажите имя, порт из диапазона от `1` до `32767` и путь, по которому будут выполняться проверки.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 
@@ -89,7 +89,7 @@
 
 - API
 
-  Воспользуйтесь методом API [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) и передайте в запросе:
+  Чтобы подключить целевую группу к сетевому балансировщику, воспользуйтесь методом REST API [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AttachTargetGroup](../api-ref/grpc/network_load_balancer_service.md#AttachTargetGroup) и передайте в запросе:
 
   * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
   * Идентификатор целевой группы в параметре `attachedTargetGroup.targetGroupId`.

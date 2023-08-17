@@ -5,6 +5,10 @@ description: "How do I get the logs of my activity in Yandex Managed Service for
 
 # General questions about {{ mkf-name }}
 
+#### How do I ensure my cluster is fault tolerant?
+
+Make sure it meets all [fault tolerance conditions](../concepts/index.md#fault-tolerance).
+
 #### What do I do if I get an error like "disk size must be at least ... according to topics partitions number and replication factor but size is ..."? {#disk-size}
 
 The error results from the fact that your topics' log segments take up more space than is available in broker storage. For more information about calculating the required space, see [{#T}](../concepts/storage.md#minimal-storage-size).
@@ -37,3 +41,9 @@ The thresholds are only set in bytes. For example, here are the recommended valu
 
 * `Alarm`: `96636764160` bytes (90%).
 * `Warning`: `85899345920` bytes (80%).
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../../_qa/throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../operations/cluster-update.md#change-disk-size).

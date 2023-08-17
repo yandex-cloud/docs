@@ -9,6 +9,8 @@ keywords:
 
 # Creating {{ ES }} clusters
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
@@ -44,7 +46,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Give your cluster a name and add a descritpion, if required. It must be unique within the folder.
       1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -67,7 +69,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
             {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-         * Select the size of storage to be used for data.
+         * Select the storage size to use for data.
 
       1. Under **Hosts**, select the configuration of hosts created together with the cluster.
          1. To add a host, click **Add host**.
@@ -259,7 +261,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 - API
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and include the following in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
 
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
@@ -272,7 +274,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    * Network ID in the `networkId` parameter.
    * Security group identifiers in the `securityGroupIds` parameter.
    * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 
 {% endlist %}
 

@@ -18,11 +18,11 @@ To enable log export for a [resource](../../concepts/resource.md):
 
    1. Go to the **Export logs** tab.
 
-   1. In the upper-right corner, click **Enable**.
+   1. In the top-right corner, click **Enable**.
 
    1. Select **Bucket**.
 
-   1. (optional) Specify a **Prefix** for log file names.
+   1. (Optional) Specify a **Prefix** for log file names.
 
    1. Click **Enable**.
 

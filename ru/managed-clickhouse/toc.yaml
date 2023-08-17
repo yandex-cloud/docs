@@ -7,52 +7,62 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к базе данных
-        href: operations/connect.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: SQL-запросы в консоли управления
-        href: operations/web-sql-query.md
-      - name: Изменение настроек кластера и базы данных
-        href: operations/update.md
-      - name: Настройка доступа к {{ objstorage-name }}
-        href: operations/s3-access.md
-      - name: Подключение внешних словарей
-        href: operations/dictionaries.md
-      - name: Подключение собственной геобазы
-        href: operations/geobase.md
-      - name: Управление моделями машинного обучения
-        href: operations/ml-models.md
-      - name: Управление схемами формата данных
-        href: operations/format-schemas.md
-      - name: Подключение к {{ datalens-name }}
-        href: operations/datalens-connect.md
-      - name: Изменение версии {{ CH }}
-        href: operations/cluster-version-update.md
-      - name: Управление хостами {{ ZK }}
-        href: operations/zk-hosts.md
-      - name: Управление хостами {{ CH }}
-        href: operations/hosts.md
-      - name: Управление базами данных
-        href: operations/databases.md
-      - name: Управление пользователями БД
-        href: operations/cluster-users.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Управление шардами
-        href: operations/shards.md
-      - name: Управление группами шардов
-        href: operations/shard-groups.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение настроек кластера
+            href: operations/update.md
+          - name: Обновление версии {{ CH }}
+            href: operations/cluster-version-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами {{ ZK }}
+            href: operations/zk-hosts.md
+          - name: Управление хостами {{ CH }}
+            href: operations/hosts.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Базы данных
+        items:
+          - name: Подключение к базе данных
+            href: operations/connect.md
+          - name: SQL-запросы в консоли управления
+            href: operations/web-sql-query.md
+          - name: Управление базами данных
+            href: operations/databases.md
+          - name: Управление пользователями БД
+            href: operations/cluster-users.md
+      - name: Хранение и обработка данных
+        items:
+          - name: Подключение собственной геобазы
+            href: operations/geobase.md
+          - name: Подключение внешних словарей
+            href: operations/dictionaries.md
+          - name: Управление схемами формата данных
+            href: operations/format-schemas.md
+          - name: Управление моделями машинного обучения
+            href: operations/ml-models.md
+          - name: Настройка доступа к {{ objstorage-name }}
+            href: operations/s3-access.md
+      - name: Шардирование
+        items:
+          - name: Управление шардами
+            href: operations/shards.md
+          - name: Управление группами шардов
+            href: operations/shard-groups.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
+          - name: Подключение из {{ datalens-name }}
+            href: operations/datalens-connect.md
   - name: Практические руководства
     items:
       - name: Все сценарии
@@ -101,6 +111,8 @@ items:
             items:
               - name: До 1 июня 2020 года
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
       - name: Сеть в {{ mch-name }}

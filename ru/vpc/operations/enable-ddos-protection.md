@@ -11,7 +11,7 @@
 
 	В момент настройки сети на новой виртуальной машине выберите автоматически назначаемый публичный IP-адрес или выберите адрес из списка зарезервированных. 
 
-	После выбора адреса выберите опцию **Защита от DDoS**.
+	После выбора адреса выберите опцию **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}**.
 
 {% endlist %}
 
@@ -24,12 +24,12 @@
 	Чтобы зарезервировать защищенный статический IP-адрес:
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется зарезервировать адрес.
-	1. В списке сервисов выберите **{{ vpc-name }}**.
-	1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-	1. Нажмите кнопку **Зарезервировать адрес**.
+	1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+	1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+	1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 	1. Выберите зону доступности, в которой нужно зарезервировать адрес.
-	1. Выберите опцию **Защита от DDoS**.
-	1. Нажмите кнопку **Зарезервировать**.
+	1. Выберите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+	1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }}
 
@@ -51,7 +51,7 @@
 
      Где `ddos_protection_provider` — параметр, включающий защиту от DDoS-атак. Возможные значения: `qrator`.
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
 
   1. Проверьте конфигурацию командой:
 

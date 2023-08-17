@@ -88,12 +88,6 @@ You pay for the actual number of invocations. For instance, 1000 calls over the 
 
 ### Provisioned instances {#provisioned-instances}
 
-{% note info %}
-
-The prices are in effect as of October 17, 2022.
-
-{% endnote %}
-
 
 
 

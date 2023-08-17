@@ -80,35 +80,9 @@
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, получите SSL-сертификат.
+Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  Выполните команды:
-
-  {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-  1. Скачайте и импортируйте сертификат:
-      ```powershell
-      mkdir -Force $HOME\.clickhouse; `
-      (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
-        | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
-      Import-Certificate `
-        -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
-        -CertStoreLocation cert:\CurrentUser\Root
-      ```
-
-  1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
-
-  Сертификат будет сохранен в файле `$HOME\.clickhouse\{{ crt-local-file }}`.
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -159,6 +133,33 @@
   1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mch-name }} добавьте в Dockerfile строки:
+
+```bash
+# Подключить DEB-репозиторий.
+RUN apt-get update && \
+    apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+    echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+    /etc/apt/sources.list.d/clickhouse.list && \
+    # Установить зависимости.
+    apt-get update && \
+    apt-get install wget clickhouse-client --yes && \
+    # Загрузить файл конфигурации для clickhouse-client.
+    mkdir -p ~/.clickhouse-client && \
+    wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+         --output-document ~/.clickhouse-client/config.xml && \
+    # Получить SSL-сертификат.
+    mkdir -p {{ crt-local-dir }} && \
+    wget "{{ crt-web-path }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+```
 
 
 ## Подключение из браузера {#browser-connection}
@@ -215,9 +216,9 @@ https://<FQDN любого хоста {{ CH }}>:8443/play
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
-
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ CH }}.
+
+{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
 
 ## Автоматический выбор доступного хоста {#auto}
 

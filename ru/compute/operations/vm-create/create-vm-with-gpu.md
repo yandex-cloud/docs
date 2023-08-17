@@ -8,10 +8,13 @@
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
-
 {% list tabs %}
 
 - Консоль управления
+
+  
+  @[youtube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB)
+
 
   {% include [create-vm-with-gpu](../../../_includes/compute/create/create-vm-with-gpu-console.md) %}
 
@@ -58,25 +61,25 @@
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * `zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
-     * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
 
        
-       * `gpu-standard-v1` для платформы {{ v100-broadwell }}.
-       * `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
-       * `standard-v3-t4` для платформы {{ t4-ice-lake }}.
+       {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
+ 
 
-       * `gpu-standard-v3` для платформы {{ a100-epyc }}.
+     * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
+       
+       {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
+       
      * `cores` – [количество vCPU](../../concepts/gpus.md).
      * `memory` – размер RAM.
      * `gpus` – количество GPU.
      * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
 
        
-       * `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с драйверами CUDA.
+     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
 
-
+       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
      * `nat-ip-version=ipv4` – [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP-адреса, исключите параметр.
 
@@ -112,20 +115,20 @@
 
      ```hcl
      resource "yandex_compute_instance" "vm-1" {
-
-       name        = "vm-with-gpu"
-       platform_id = "gpu-standard-v3"
-       zone        = "<зона доступности>"
+       name                      = "vm-with-gpu"
+       allow_stopping_for_update = true
+       platform_id               = "standard-v3"
+       zone                      = "<зона_доступности>"
 
        resources {
-         cores  = <количество ядер vCPU>
-         memory = <объем RAM в ГБ>
-         gpus   = <количество GPU>
+         cores  = <количество_ядер_vCPU>
+         memory = <объем_RAM_в_ГБ>
+         gpus   = <количество_GPU>
        }
 
        boot_disk {
          initialize_params {
-           image_id = "<идентификатор образа>"
+           image_id = "<идентификатор_образа>"
          }
        }
 
@@ -135,7 +138,7 @@
        }
 
        metadata = {
-         ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>"
+         ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
        }
      }
 
@@ -145,7 +148,7 @@
 
      resource "yandex_vpc_subnet" "subnet-1" {
        name       = "subnet1"
-       zone       = "<зона доступности>"
+       zone       = "<зона_доступности>"
        network_id = "${yandex_vpc_network.network-1.id}"
      }
      ```
@@ -153,16 +156,20 @@
      Где:
      * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
+       * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
+       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
+       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+
+             
+         {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+    
+    
+         
        * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
 
-         
-         * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
-         * `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.
-         * `standard-v3-t4` для платформы Intel Ice Lake with NVIDIA® Tesla® T4.
+         {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
 
-         * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
-       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md). Укажите идентификатор выбранного [образа](../../concepts/image.md). Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 
@@ -180,23 +187,10 @@
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
 
-        ```bash
-        terraform plan
-        ```
+  1. Создайте ресурсы:
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

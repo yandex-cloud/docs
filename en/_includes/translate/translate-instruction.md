@@ -4,15 +4,17 @@
 
 {% include [ai-before-beginning](../translate/ai-before-beginning.md) %}
 
+{% include [bash-windows-note-single](bash-windows-note-single.md) %}
+
 ## Translate text from any language {#any-language}
 
 To translate a text, pass it using the [translate](../../translate/api-ref/Translation/translate) method:
 
 {% list tabs %}
 
-- CLI
+- Bash
 
-   This example shows how to translate the following two lines of text into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
+   We will translate two text strings into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
 
    1. Create a file with the request body (for example, `body.json`).
 
@@ -34,7 +36,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
 
       {% include [translate-file](../translate/translate-file.md) %}
 
-      Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+      Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
 
       The response from the service will contain translated text:
       ```json
@@ -99,6 +101,8 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
    Create a file with the request body (for example, `body.php`).
 
    ```php
+   <?php
+
    $IAM_TOKEN = '<IAM token>';
    $folder_id = '<Folder ID>';
    $target_language = 'ru';
@@ -132,6 +136,8 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
    curl_close($curl);
 
    var_dump($result);
+
+   ?>
    ```
 
    Where:

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/Database/list.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/Database/list.md
 ---
 
 # Managed Service for YDB API, REST: Database.list
@@ -110,6 +110,7 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
       },
       "documentApiEndpoint": "string",
       "kinesisApiEndpoint": "string",
+      "kafkaApiEndpoint": "string",
       "monitoringConfig": {
         "alerts": [
           {
@@ -294,6 +295,7 @@ databases[].<br>backupConfig.<br>backupSettings[].<br>type | **string**
 databases[].<br>backupConfig.<br>backupSettings[].<br>storageClass | **string**
 databases[].<br>documentApiEndpoint | **string**
 databases[].<br>kinesisApiEndpoint | **string**
+databases[].<br>kafkaApiEndpoint | **string**
 databases[].<br>monitoringConfig | **object**
 databases[].<br>monitoringConfig.<br>alerts[] | **object**
 databases[].<br>monitoringConfig.<br>alerts[].<br>alertId | **string**<br><p>output only field.</p> 

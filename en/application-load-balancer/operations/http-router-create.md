@@ -16,6 +16,11 @@ To create an HTTP router and add a route to it:
    1. Click **Add route**.
    1. Enter **Name**: `test-route`.
    1. In the **Path** field, select `Matches` and specify the path `/`.
+
+      To specify the path, you can use the following options:
+      * `Starts with` to route all requests with a specific beginning.
+      * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+
    1. In the **HTTP methods** list, select `GET`.
    1. In the **Action** field, leave the `Routing` value.
    1. In the **Backend group**, select the backend group name from the same folder where you create the router.
@@ -28,17 +33,20 @@ To create an HTTP router and add a route to it:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command to create an HTTP router:
-      ```
+
+      ```bash
       yc alb http-router create --help
       ```
 
    1. Run the following command:
-      ```
-      yc alb http-router create <HTTP router name>
+
+      ```bash
+      yc alb http-router create <HTTP_router_name>
       ```
 
       Result:
-      ```
+
+      ```text
       id: a5dcsselagj4o2v4a6e7
       name: test-http-router
       folder_id: aoerb349v3h4bupphtaf
@@ -46,19 +54,21 @@ To create an HTTP router and add a route to it:
       ```
 
    1. View a description of the CLI command for creating a virtual host:
-      ```
+
+      ```bash
       yc alb virtual-host create --help
       ```
 
    1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
 
       
-      ```
-      yc alb virtual-host create <virtual host name> \
-        --http-router-name <HTTP router name> \
+      ```bash
+      yc alb virtual-host create <virtual_host_name> \
+        --http-router-name <HTTP_router_name> \
         --authority your-domain.foo.com \
         --modify-request-header name=Accept-Language,append=ru-RU
       ```
+
 
 
       Where:
@@ -71,7 +81,7 @@ To create an HTTP router and add a route to it:
       Result:
 
       
-      ```
+      ```text
       name: test-virtual-host
       authority:
       - your-domain.foo.com
@@ -83,23 +93,39 @@ To create an HTTP router and add a route to it:
 
 
    1. View a description of the CLI command for adding a host:
-      ```
+
+      ```bash
       yc alb virtual-host append-http-route --help
       ```
 
    1. Add a route, indicating the router ID or name and the routing parameters:
-      ```
-      yc alb virtual-host append-http-route <route name> \
-        --virtual-host-name <virtual host name> \
-        --http-router-name <HTTP router name> \
+
+      ```bash
+      yc alb virtual-host append-http-route <route_name> \
+        --virtual-host-name <virtual_host_name> \
+        --http-router-name <HTTP_router_name> \
         --prefix-path-match / \
         --backend-group-name <backend group name> \
-        --request-timeout <request timeout>s \
-        --request-idle-timeout <request idle timeout>s
+        --request-timeout <request_timeout>s \
+        --request-idle-timeout <request_idle_timeout>s
       ```
 
+      Where:
+
+      * `--virtual-host-name`: Virtual host name.
+      * `--http-router-name`: HTTP router name.
+      * `--prefix-path-match`: Parameter for routing all requests with a given prefix. The parameter should be followed with `/`.
+
+         To specify a condition for routing, you can also use the following parameters:
+         * `--exact-path-match` to route all requests that match the specified path. The parameter should be followed with `/<path>/`.
+         * `--regex-path-match` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). The parameter should be followed with `/<regular_expression>`.
+      * `--backend-group-name`: Name of the backend group.
+      * `--request-timeout`: Request timeout, seconds.
+      * `--request-max-timeout`: Maximum request idle timeout, seconds.
+
       Result:
-      ```
+
+      ```text
       done (1s)
       name: test-virtual-host
       authority:
@@ -129,7 +155,7 @@ To create an HTTP router and add a route to it:
 
       ```hcl
       resource "yandex_alb_http_router" "tf-router" {
-        name   = "<HTTP router name>"
+        name   = "<HTTP_router_name>"
         labels = {
           tf-label    = "tf-label-value"
           empty-label = ""
@@ -137,14 +163,14 @@ To create an HTTP router and add a route to it:
       }
 
       resource "yandex_alb_virtual_host" "my-virtual-host" {
-        name           = "<virtual host name>"
+        name           = "<virtual_host_name>"
         http_router_id = yandex_alb_http_router.tf-router.id
         route {
-          name = "<route name>"
+          name = "<route_name>"
           http_route {
             http_route_action {
-              backend_group_id = "<backend group ID>"
-              timeout          = "3s"
+              backend_group_id = "<backend_group_ID>"
+              timeout          = "60s"
             }
           }
         }
@@ -153,48 +179,38 @@ To create an HTTP router and add a route to it:
 
       Where:
 
-      * `yandex_alb_virtual_host`: HTTP router description:
+      * `yandex_alb_http_router`: HTTP router description:
          * `name`: HTTP router name. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
          * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Set a key-value pair.
-      * `yandex_alb_virtual_host` is the virtual host description:
+      * `yandex_alb_virtual_host`: Virtual host description:
          * `name`: Virtual host name. The name format is as follows:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
          * `http_router_id`: HTTP router ID.
-         * `route`: Description of the HTTP router's route. Specify the route name, backend group ID, and request processing time (defaults to 60 seconds).
+         * `route`: HTTP router route description:
+            * `name`: Route name.
+            * `http_route_action`: Parameter to indicate an action on HTTP traffic.
+               * `backend_group_id`: Backend group ID.
+               * `timeout`: Maximum request idle timeout, seconds.
 
-      For more information about {{ TF }} resource parameters, see the provider documentation ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) and [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+      For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   1. Make sure the configuration files are valid.
+      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource.
+      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+   1. Create resources
 
-         ```
-         terraform plan
-         ```
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      {{ TF }} will create all required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc alb http-router get <HTTP router ID>
-         ```
+      ```bash
+      yc alb http-router get <HTTP_router_name>
+      ```
 
 - API
 

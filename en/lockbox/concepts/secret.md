@@ -20,12 +20,12 @@ You can set up access to versions of a secret in addition to access to the secre
 
 With [{{ kms-full-name }}](../../kms/index.yaml), you can create and manage encryption keys that are used to secure secrets in {{ lockbox-full-name }}.
 
-By default, all secrets are encrypted with a common key. However, when [creating a secret](../operations/secret-create.md), you can specify your own {{ kms-full-name }} [key](../../kms/concepts/key.md) for encrypting the secret. Using your own key has the following benefits:
+By default, all secrets are encrypted with a common key. However, when [creating a secret](../operations/secret-create.md), you can specify a custom {{ kms-full-name }} [key](../../kms/concepts/key.md) to encrypt the secret with. Using your own key has the following benefits:
 
-* It mitigates the risk of the common key being compromised.
-* You can [rotate](../../kms/operations/key.md#rotate) your key on your own and manage its versions.
-* You can delete your key, if needed, to block access to your encrypted data.
-* You can get audit logs of events connected to encryption key usage. To do this, use [{{ at-full-name }}](../../audit-trails/concepts/index.md).
+* This mitigates the risk of compromising the common key.
+* You can perform a custom key's [rotation](../../kms/operations/key.md#rotate) on your own and manage its versions.
+* You can delete your key, if needed, to make sure access to your encrypted data is blocked.
+* You can get audit logs of encryption key usage events. To do this, use [{{ at-full-name }}](../../audit-trails/concepts/index.md).
 
 {% include [lockbox-and-kms-roles](../../_includes/lockbox/lockbox-and-kms-roles.md) %}
 

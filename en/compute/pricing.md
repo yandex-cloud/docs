@@ -18,7 +18,7 @@ To calculate the cost of using {{ compute-name }}, use [our calculator]({{ link-
 The {{ compute-name }} usage cost is based on:
 * Computing resources
    * Type and number of cores (vCPUs)
-   * Number of graphics accelerators (GPUs)
+   * Number of graphics accelerators ([GPUs](concepts/gpus.md))
    * Amount of memory (RAM)
 * Operating systems
 * Type and size of storage:
@@ -157,9 +157,9 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 | Resource | Cost per hour | Available | Total |
 | --- | --- | --- | ---: |
-| vCPU | $0.009462/vCPU | 108 vCPU | $1.021896 |
-| RAM | $0.002506/GB | 704 GB | $1.764224 |
-| Disk | $0.000098/GB | 19200 GB | $1.881600 |
+| vCPU | $0.009462/vCPU | 108 vCPU | $1,021896 |
+| RAM | $0.002506/GB | 704 GB | $1,764224 |
+| Disk | $0.000098/GB | 19200 GB | $1,881600 |
 | | | **Total** | **$4.667720** |
 
 
@@ -199,6 +199,11 @@ The price with a CVoS is only available for regular VMs.
 
 
 
+{% note info %}
+
+[Intel Ice Lake (Compute Optimized)](concepts/vm-platforms.md#compute-optimized-platforms) will be available and you will be charged for it starting July 1, 2023.
+
+{% endnote %}
 
 ### Operating systems {#prices-os}
 
@@ -222,13 +227,15 @@ The price with a CVoS is only available for regular VMs.
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
 
+^1^ Using high performance disks (SSDs) will be charged starting September 1, 2023.
+
 
 
 
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
-The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19200 GB of storage on local SSDs. See the example of cost calculation [above](#dedicated-hosts).
+The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19200 GB of storage on local SSDs. For details, see the example of cost calculation [above](#dedicated-hosts).
 
 
 

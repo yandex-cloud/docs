@@ -73,6 +73,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings)**<br> 
 container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings)**<br> 
+gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 
 
 ### NetworkSettings {#NetworkSettings}
@@ -163,6 +164,14 @@ Field | Description
 placement_group_id | **string**<br>Identifier of placement group 
 
 
+### GpuSettings {#GpuSettings}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
+
+
 ### ScalePolicy {#ScalePolicy}
 
 Field | Description
@@ -242,7 +251,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow}
 
@@ -342,6 +351,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>
 network_settings | **[NetworkSettings](#NetworkSettings1)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings1)**<br> 
 container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings1)**<br> 
+gpu_settings | **[GpuSettings](#GpuSettings1)**<br>GPU settings 
 
 
 ### NetworkSettings {#NetworkSettings1}
@@ -432,6 +442,14 @@ Field | Description
 placement_group_id | **string**<br>Identifier of placement group 
 
 
+### GpuSettings {#GpuSettings1}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
+
+
 ### ScalePolicy {#ScalePolicy1}
 
 Field | Description
@@ -511,7 +529,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
@@ -592,6 +610,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings2)**<br> 
 container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings2)**<br> 
+gpu_settings | **[GpuSettings](#GpuSettings2)**<br>GPU settings 
 
 
 ### NetworkSettings {#NetworkSettings2}
@@ -682,6 +701,14 @@ Field | Description
 placement_group_id | **string**<br>Identifier of placement group 
 
 
+### GpuSettings {#GpuSettings2}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
+
+
 ### ScalePolicy {#ScalePolicy2}
 
 Field | Description
@@ -751,7 +778,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
@@ -890,6 +917,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
 container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings3)**<br> 
 container_network_settings | **[ContainerNetworkSettings](#ContainerNetworkSettings3)**<br> 
+gpu_settings | **[GpuSettings](#GpuSettings3)**<br>GPU settings 
 
 
 ### NetworkSettings {#NetworkSettings3}
@@ -980,6 +1008,14 @@ Field | Description
 placement_group_id | **string**<br>Identifier of placement group 
 
 
+### GpuSettings {#GpuSettings3}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>GPU cluster id, that mk8s node will join. 
+gpu_environment | enum **GpuEnvironment**<br>GPU environment configured on node. <ul><li>`GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.</li><li>`RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li><li>`RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li></ul>
+
+
 ### ScalePolicy {#ScalePolicy3}
 
 Field | Description
@@ -1058,7 +1094,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 
@@ -1257,7 +1293,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li></ul>
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><li>`STOPPED`: Node is stopped</li><li>`UNKNOWN`: Backend request to kubernetes api was unsuccessful.</li></ul>
 spec | **[Spec](#Spec)**<br>Node specificaion. 
 cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
 kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 

@@ -4,9 +4,15 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## II квартал 2023 {#q2-2023}
+
+* Доступны новые версии {{ MY }} [5.7](https://docs.percona.com/percona-server/5.7/release-notes/release-notes_index.html) и [8.0](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html).
+* В версии {{ MY }} 5.7 добавлена возможность анализа запросов при помощи `query_response_time_stats`. Подробнее см. в [документации Percona](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
+* Добавлены новые глобальные разрешения для пользователей `FLUSH_OPTIMIZER_COSTS` и `SHOW_ROUTINE`.
+
 ## IV квартал 2022 {#q4-2022}
 
-* Состояние хоста на странице **Хосты** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи. {{ tag-con }}
+* Состояние хоста на странице **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи. {{ tag-con }}
 * Добавлена возможность [переместить кластер](operations/update.md#move-cluster) в другой каталог с помощью {{ TF }}.
 * Добавлены новые настройки СУБД:
 
@@ -26,7 +32,7 @@
 * В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_mysql_database` и `yandex_mdb_mysql_user`. {{ tag-tf }}
 * Добавлена настройка [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level).
 * Ускорен процесс восстановления реплики из резервной копии за счет использования инструмента WAL-G с последующей синхронизацией данных с мастера.
-* Исправлено отображение длинных запросов на вкладке **Диагностика производительности**. {{ tag-con }}
+* Исправлено отображение длинных запросов на вкладке **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}**. {{ tag-con }}
 
 ## I квартал 2022 {#q1-2022}
 

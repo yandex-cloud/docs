@@ -96,7 +96,15 @@ items:
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг
-        href: concepts/alerting.md
+        items:
+          - name: Обзор
+            href: concepts/alerting.md
+          - name: Алерт
+            href: concepts/alerting/alert.md
+          - name: Аннотация
+            href: concepts/alerting/annotation.md
+          - name: Канал уведомлений
+            href: concepts/alerting/notification-channel.md
       - name: Прореживание данных
         href: concepts/decimation.md
       - name: Удаление устаревших метрик (TTL)

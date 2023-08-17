@@ -12,5 +12,4 @@ Transfers are aborted due to the cloud [quota]({{ link-console-quotas }}) on the
 
 **Solution:**
 
-1. Increase the **Number of schema transactions per minute** property in the [{{ ydb-name }} quotas](../../../ydb/concepts/limits.md) for the cloud with the required database.
-1. [Restart](../../../data-transfer/operations/transfer.md#reupload) the transfer.
+1. Increase the **Number of schema transactions per minute** property in the [{{ ydb-name }} quotas](../../../ydb/concepts/limits.md) for the cloud with the required database and [reactivate](../../../data-transfer/operations/transfer.md#activate) the transfer.

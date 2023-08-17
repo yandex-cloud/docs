@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Sending messages
         href: operations/publish.md
@@ -99,7 +99,7 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -117,6 +117,8 @@ items:
         href: tutorials/java.md
       - name: Writing data from a device to Managed Service for PostgreSQL
         href: tutorials/data-recording.md
+      - name: Testing message delivery
+        href: tutorials/message-delivery-check.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

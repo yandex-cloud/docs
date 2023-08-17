@@ -10,7 +10,17 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 ## Создание профиля {#initialize}
 
-{% include notitle [Создание профиля CLI](../_includes/cli/create-profile.md) %}
+{% list tabs %}
+
+- Аккаунт на Яндексе
+
+  {% include [include](../_includes/cli/create-profile.md) %}
+
+- Федеративный аккаунт
+
+  {% include [include](../_includes/cli/auth-federated-user.md) %}
+
+{% endlist %}
 
 
 ## Примеры команд {#example}
@@ -54,8 +64,8 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
-   | skesdqhkc6449hbqqar1 | my-ui-network    | my first network via ui |
-   | c6449hbqqar1skesdqhk | my-yc-network    | my first network via yc |
+   | skesdqhkc644******** | my-ui-network    | my first network via ui |
+   | c6449hbqqar1******** | my-yc-network    | my first network via yc |
    +----------------------+------------------+-------------------------+
    ```
 
@@ -68,13 +78,13 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
    Результат:
 
    ```yaml
-   - id: skesdqhkc6449hbqqar1
+   - id: skesdqhkc644********
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
      name: my-ui-network
      description: "my first network via ui"
      labels: {}
-   - id: c6449hbqqar1skesdqhk
+   - id: c6449hbqqar1********
      folder_id: ijkl9012
      created_at: "2018-09-05T09:55:36Z"
      name: my-yc-network

@@ -24,10 +24,6 @@
 
 {% include notitle [pxf](../../_qa/managed-greenplum/pxf.md) %}
 
-## Managing users {#users}
-
-{% include notitle [users](../../_qa/managed-greenplum/users.md) %}
-
 ## Monitoring {#monitoring}
 
 {% include notitle [monitoring](../../_qa/managed-greenplum/monitoring.md) %}

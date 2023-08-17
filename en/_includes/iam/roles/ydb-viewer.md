@@ -1,4 +1,4 @@
-### ydb.viewer {#ydb-viewer}
+#### ydb.viewer {#ydb-viewer}
 
 A user with the `ydb.viewer` role can perform the following actions:
 * Establish DB connections.

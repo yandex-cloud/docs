@@ -33,17 +33,14 @@ See the documentation of the data source to clarify the regular expression synta
 
 {% endnote %}
 
-Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
-
-
 
 #### Example {#examples}
 
 ```
-REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
+REGEXP_REPLACE("123 456", "\s", "-") = "123-456"
 ```
 
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

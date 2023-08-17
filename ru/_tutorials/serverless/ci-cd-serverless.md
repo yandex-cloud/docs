@@ -2,7 +2,7 @@
 
 Вы можете построить пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](/blog/posts/2022/10/ci-cd) с использованием serverless-продуктов.
 
-В качестве примера проекта будет использовано веб-приложение, реализованное на [Django](https://www.djangoproject.com/), которое имитирует корзину товаров интернет-магазина. В базе данных хранятся описания товаров, а состояние корзины товаров сервис хранит в сессии пользователя. Django-приложение разворачивается в [serverless-контейнере](../../serverless-containers/concepts/container.md), при этом секреты безопасно доставляются в приложение с помощью сервиса [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) принимает запросы от пользователей и перенаправляет их в контейнер приложения.
+В качестве примера проекта будет использовано веб-приложение, реализованное на [Django](https://www.djangoproject.com/), которое имитирует корзину товаров интернет-магазина. В базе данных хранятся описания товаров, а состояние корзины товаров сервис хранит в сессии пользователя. Django-приложение разворачивается в [serverless-контейнере](../../serverless-containers/concepts/container.md), при этом секреты безопасно доставляются в приложение с помощью сервиса [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) принимает запросы от пользователей и перенаправляет их в [контейнер приложения](../../glossary/containerization.md#containers-apps).
 
 {% note info %}
 
@@ -96,8 +96,6 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
   {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
 {% endlist %}
-
-## Настройте {{ GL }} {#configure-gitlab}
 
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 

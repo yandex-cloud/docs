@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/createVersion.md
+sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/createVersion.md
 ---
 
 # Cloud Functions Service, REST: Function.createVersion
@@ -55,7 +55,7 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/versions
     // end of the list of possible fields`logOptions`
 
   },
-  "s3Mounts": [
+  "storageMounts": [
     {
       "bucketId": "string",
       "prefix": "string",
@@ -85,7 +85,7 @@ runtime | **string**<br><p>Required. Runtime environment for the version.</p>
 description | **string**<br><p>Description of the version</p> <p>The string length in characters must be 0-256.</p> 
 entrypoint | **string**<br><p>Required. Entrypoint of the version.</p> 
 resources | **object**<br>Required. Resources allocated to the version.
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes, multiple of 128MB.</p> <p>Acceptable values are 134217728 to 4294967296, inclusive.</p> 
 executionTimeout | **string**<br><p>Required. Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to associate with the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> <p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
@@ -104,11 +104,11 @@ logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from function d
 logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
 logOptions.<br>logGroupId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
-s3Mounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
-s3Mounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
-s3Mounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
-s3Mounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
-s3Mounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
+storageMounts[] | **object**<br><p>S3 mounts to be used by the version.</p> 
+storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mounting.</p> <p>The string length in characters must be 3-63. Value must match the regular expression ``[-.0-9a-zA-Z]*``.</p> 
+storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
+storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
+storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br>
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

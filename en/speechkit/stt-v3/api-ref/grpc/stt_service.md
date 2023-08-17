@@ -36,17 +36,19 @@ Field | Description
 --- | ---
 recognition_model | **[RecognitionModelOptions](#RecognitionModelOptions)**<br>Configuration for speech recognition model. 
 eou_classifier | **[EouClassifierOptions](#EouClassifierOptions)**<br>Configuration for end of utterance detection model. 
+recognition_classifier | **[RecognitionClassifierOptions](#RecognitionClassifierOptions)**<br>Configuration for classifiers over speech recognition. 
+speech_analysis | **[SpeechAnalysisOptions](#SpeechAnalysisOptions)**<br>Configuration for speech analysis over speech recognition. 
 
 
 ### RecognitionModelOptions {#RecognitionModelOptions}
 
 Field | Description
 --- | ---
-model | **string**<br>Reserved for future, do not use. 
+model | **string**<br>Sets the recognition model for the cloud version of SpeechKit. Possible values: 'general', 'general:rc', 'general:deprecated'. The model is ignored for SpeechKit Hybrid. 
 audio_format | **[AudioFormatOptions](#AudioFormatOptions)**<br>Specified input audio. 
 text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<br>Text normalization options. 
 language_restriction | **[LanguageRestrictionOptions](#LanguageRestrictionOptions)**<br>Possible languages in audio. 
-audio_processing_type | enum **AudioProcessingType**<br>How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME. 
+audio_processing_type | enum **AudioProcessingType**<br>How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME. <ul><li>`REAL_TIME`: Process audio in mode optimized for real-time recognition, i.e. send partials and final responses as soon as possible</li><li>`FULL_DATA`: Process audio after all data was received</li></ul>
 
 
 ### AudioFormatOptions {#AudioFormatOptions}
@@ -88,8 +90,8 @@ phone_formatting_mode | enum **PhoneFormattingMode**<br>Define phone formatting 
 
 Field | Description
 --- | ---
-restriction_type | enum **LanguageRestrictionType**<br> <ul><li>`WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.</li><li>`BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages.</li></ul>
-language_code[] | **string**<br> 
+restriction_type | enum **LanguageRestrictionType**<br>Language restriction type <ul><li>`WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.</li><li>`BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages.</li></ul>
+language_code[] | **string**<br>The list of language codes to restrict recognition in the case of an auto model 
 
 
 ### EouClassifierOptions {#EouClassifierOptions}
@@ -111,7 +113,31 @@ max_pause_between_words_hint_ms | **int64**<br>Hint for max pause between words.
 
 ### ExternalEouClassifier {#ExternalEouClassifier}
 
-Empty
+Empty.
+
+### RecognitionClassifierOptions {#RecognitionClassifierOptions}
+
+Field | Description
+--- | ---
+classifiers[] | **[RecognitionClassifier](#RecognitionClassifier)**<br>List of classifiers to use 
+
+
+### RecognitionClassifier {#RecognitionClassifier}
+
+Field | Description
+--- | ---
+classifier | **string**<br>Classifier name 
+triggers[] | enum **TriggerType**<br>Describes the types of responses to which the classification results will come 
+
+
+### SpeechAnalysisOptions {#SpeechAnalysisOptions}
+
+Field | Description
+--- | ---
+enable_speaker_analysis | **bool**<br>Analyse speech for every speaker 
+enable_conversation_analysis | **bool**<br>Analyse conversation of two speakers 
+descriptive_statistics_quantiles[] | **double**<br>Quantile levels in range (0, 1) for descriptive statistics 
+
 
 ### AudioChunk {#AudioChunk}
 
@@ -129,7 +155,7 @@ duration_ms | **int64**<br>Duration of silence chunk in ms.
 
 ### Eou {#Eou}
 
-Empty
+Empty.
 
 ### StreamingResponse {#StreamingResponse}
 
@@ -138,12 +164,16 @@ Field | Description
 session_uuid | **[SessionUuid](#SessionUuid)**<br>Session identifier 
 audio_cursors | **[AudioCursors](#AudioCursors)**<br>Progress bar for stream session recognition: how many data we obtained; final and partial times; etc. 
 response_wall_time_ms | **int64**<br>Wall clock on server side. This is time when server wrote results to stream 
-Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement` or `status_code`<br>
+Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis` or `conversation_analysis`<br>
 &nbsp;&nbsp;partial | **[AlternativeUpdate](#AlternativeUpdate)**<br>Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation from final_time_ms to partial_time_ms. Could change after new data will arrive. 
 &nbsp;&nbsp;final | **[AlternativeUpdate](#AlternativeUpdate)**<br>Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases. 
 &nbsp;&nbsp;eou_update | **[EouUpdate](#EouUpdate)**<br>After EOU classifier, send the message with final, send the EouUpdate with time of EOU before eou_update we send final with the same time. there could be several finals before eou update. 
 &nbsp;&nbsp;final_refinement | **[FinalRefinement](#FinalRefinement)**<br>For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing). Final normalization will introduce additional latency. 
 &nbsp;&nbsp;status_code | **[StatusCode](#StatusCode)**<br>Status messages, send by server with fixed interval (keep-alive). 
+&nbsp;&nbsp;classifier_update | **[RecognitionClassifierUpdate](#RecognitionClassifierUpdate)**<br>Result of the triggered classifier 
+&nbsp;&nbsp;speaker_analysis | **[SpeakerAnalysis](#SpeakerAnalysis)**<br>Speech statistics for every speaker 
+&nbsp;&nbsp;conversation_analysis | **[ConversationAnalysis](#ConversationAnalysis)**<br>Conversation statistics 
+channel_tag | **string**<br>Tag for distinguish audio channels. 
 
 
 ### SessionUuid {#SessionUuid}
@@ -171,7 +201,7 @@ eou_time_ms | **int64**<br>Estimated time of EOU. Cursor is updated after each n
 Field | Description
 --- | ---
 alternatives[] | **[Alternative](#Alternative)**<br>List of hypothesis for timeframes. 
-channel_tag | **string**<br>Tag for distinguish audio channels. 
+channel_tag | **string**<br> 
 
 
 ### Alternative {#Alternative}
@@ -225,5 +255,113 @@ Field | Description
 --- | ---
 code_type | enum **CodeType**<br>Code type. 
 message | **string**<br>Human readable message. 
+
+
+### RecognitionClassifierUpdate {#RecognitionClassifierUpdate}
+
+Field | Description
+--- | ---
+window_type | enum **WindowType**<br>Response window type 
+start_time_ms | **int64**<br>Start time of the audio segment used for classification 
+end_time_ms | **int64**<br>End time of the audio segment used for classification 
+classifier_result | **[RecognitionClassifierResult](#RecognitionClassifierResult)**<br>Result for dictionary-based classifier 
+
+
+### RecognitionClassifierResult {#RecognitionClassifierResult}
+
+Field | Description
+--- | ---
+classifier | **string**<br>Name of the triggered classifier 
+highlights[] | **[PhraseHighlight](#PhraseHighlight)**<br>List of highlights, i.e. parts of phrase that determine the result of the classification 
+labels[] | **[RecognitionClassifierLabel](#RecognitionClassifierLabel)**<br>Classifier predictions 
+
+
+### PhraseHighlight {#PhraseHighlight}
+
+Field | Description
+--- | ---
+text | **string**<br>Text transcription of the highlighted audio segment 
+start_time_ms | **int64**<br>Start time of the highlighted audio segment 
+end_time_ms | **int64**<br>End time of the highlighted audio segment 
+
+
+### RecognitionClassifierLabel {#RecognitionClassifierLabel}
+
+Field | Description
+--- | ---
+label | **string**<br>The label of the class predicted by the classifier 
+confidence | **double**<br>The prediction confidence 
+
+
+### SpeakerAnalysis {#SpeakerAnalysis}
+
+Field | Description
+--- | ---
+speaker_tag | **string**<br>Speaker tag 
+window_type | enum **WindowType**<br>Response window type 
+speech_boundaries | **[AudioSegmentBoundaries](#AudioSegmentBoundaries)**<br>Audio segment boundaries 
+total_speech_ms | **int64**<br>Total speech duration 
+speech_ratio | **double**<br>Speech ratio within audio segment 
+total_silence_ms | **int64**<br>Total silence duration 
+silence_ratio | **double**<br>Silence ratio within audio segment 
+words_count | **int64**<br>Number of words in recognized speech 
+letters_count | **int64**<br>Number of letters in recognized speech 
+words_per_second | **[DescriptiveStatistics](#DescriptiveStatistics)**<br>Descriptive statistics for words per second distribution 
+letters_per_second | **[DescriptiveStatistics](#DescriptiveStatistics)**<br>Descriptive statistics for letters per second distribution 
+words_per_utterance | **[DescriptiveStatistics](#DescriptiveStatistics)**<br>Descriptive statistics for words per utterance distribution 
+letters_per_utterance | **[DescriptiveStatistics](#DescriptiveStatistics)**<br>Descriptive statistics for letters per utterance distribution 
+utterance_count | **int64**<br>Number of utterances 
+utterance_duration_estimation | **[DescriptiveStatistics](#DescriptiveStatistics)**<br>Descriptive statistics for utterance duration distribution 
+
+
+### AudioSegmentBoundaries {#AudioSegmentBoundaries}
+
+Field | Description
+--- | ---
+start_time_ms | **int64**<br>Audio segment start time 
+end_time_ms | **int64**<br>Audio segment end time 
+
+
+### DescriptiveStatistics {#DescriptiveStatistics}
+
+Field | Description
+--- | ---
+min | **double**<br>Minimum observed value 
+max | **double**<br>Maximum observed value 
+mean | **double**<br>Estimated mean of distribution 
+std | **double**<br>Estimated standard deviation of distribution 
+quantiles[] | **[Quantile](#Quantile)**<br>List of evaluated quantiles 
+
+
+### Quantile {#Quantile}
+
+Field | Description
+--- | ---
+level | **double**<br>Quantile level in range (0, 1) 
+value | **double**<br>Quantile value 
+
+
+### ConversationAnalysis {#ConversationAnalysis}
+
+Field | Description
+--- | ---
+conversation_boundaries | **[AudioSegmentBoundaries](#AudioSegmentBoundaries1)**<br>Audio segment boundaries 
+total_simultaneous_silence_duration_ms | **int64**<br>Total simultaneous silence duration 
+total_simultaneous_silence_ratio | **double**<br>Simultaneous silence ratio within audio segment 
+simultaneous_silence_duration_estimation | **[DescriptiveStatistics](#DescriptiveStatistics1)**<br>Descriptive statistics for simultaneous silence duration distribution 
+total_simultaneous_speech_duration_ms | **int64**<br>Total simultaneous speech duration 
+total_simultaneous_speech_ratio | **double**<br>Simultaneous speech ratio within audio segment 
+simultaneous_speech_duration_estimation | **[DescriptiveStatistics](#DescriptiveStatistics1)**<br>Descriptive statistics for simultaneous speech duration distribution 
+speaker_interrupts[] | **[InterruptsEvaluation](#InterruptsEvaluation)**<br>Interrupts description for every speaker 
+
+
+### InterruptsEvaluation {#InterruptsEvaluation}
+
+Field | Description
+--- | ---
+speaker_tag | **string**<br>Speaker tag 
+interrupts_count | **int64**<br>Number of interrupts made by the speaker 
+interrupts_duration_ms | **int64**<br>Total duration of all interrupts 
+interrupts[] | **[AudioSegmentBoundaries](#AudioSegmentBoundaries1)**<br>Boundaries for every interrupt 
 
 

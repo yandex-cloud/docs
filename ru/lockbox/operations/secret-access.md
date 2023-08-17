@@ -31,7 +31,7 @@
       +----------------------+-------------+------------+---------------------+----------------------+--------+
       |          ID          |    NAME     | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
       +----------------------+-------------+------------+---------------------+----------------------+--------+
-      | e6qtoqv06f1bbjs38sqc | test-secret |            | 2022-09-12 08:10:11 | e6qtpq6a9k7qskiruuq4 | ACTIVE |
+      | e6qtoqv06f1b******** | test-secret |            | 2022-09-12 08:10:11 | e6qtpq6a9k7q******** | ACTIVE |
       +----------------------+-------------+------------+---------------------+----------------------+--------+
       ```
 
@@ -64,6 +64,42 @@
         * `id` — идентификатор секрета.
         * `service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
         * `role` — назначаемая [роль](../security/index.md#roles-list).
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры прав доступа к секрету:
+
+      ```hcl
+      resource "yandex_lockbox_secret_iam_binding" "secret-viewer" {
+        secret_id = "<идентификатор_секрета>"
+        role      = "<роль>"
+
+        members = [
+          "serviceAccount:<идентификатор_сервисного_аккаунта_1>",
+          "serviceAccount:<идентификатор_сервисного_аккаунта_2>"
+        ]
+      }
+      ```
+
+      Где:
+
+      * `secret_id` — идентификатор секрета.
+      * `role` — назначаемая [роль](../security/index.md#roles-list).
+      * `members` — идентификаторы [пользователей](../../iam/operations/users/get), групп или [сервисных аккаунтов](../../iam/operations/sa/get-id.md), которым будет присвоена роль.
+
+      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding).
+
+  1. Создайте ресурсы
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+      
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc lockbox secret list-access-binding <идентификатор_секрета>
+      ```
 
 - API
 

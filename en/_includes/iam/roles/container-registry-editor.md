@@ -1,4 +1,4 @@
-### container-registry.editor {#cr-editor}
+#### container-registry.editor {#cr-editor}
 
 The `{{ roles-cr-editor }}` role is assigned for a cloud or folder.
 It grants permission to create, edit, and delete registries, Docker images, and repositories.

@@ -1,8 +1,6 @@
 # Delete a security group
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% note warning %}
 
@@ -17,11 +15,11 @@ To delete a security group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the security group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Click ![image](../../_assets/options.svg) in the line of the group to delete.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -65,7 +63,7 @@ To delete a security group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a security group created with {{ TF }}:
 

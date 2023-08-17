@@ -24,13 +24,13 @@ In multi-host clusters, upgrades follow the procedure below:
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
-## Before upgrading {#before-update}
+## Before updating the version {#before-update}
 
-Prior to upgrading a cluster, make sure this does not affect your applications:
+Make sure this does not affect your applications:
 
-1. Review the [change log](https://www.postgresql.org/docs/release/) for the {{ PG }} versions that you are upgrading your cluster to, and make sure they do not affect your applications or the [{{ PG }} extensions](./extensions/cluster-extensions.md) installed.
-1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
-1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
+1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to check how updates might affect your applications or installed [extensions](./extensions/cluster-extensions.md).
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Upgrading a cluster {#start-update}
 
@@ -117,7 +117,7 @@ Prior to upgrading a cluster, make sure this does not affect your applications:
    To upgrade a cluster to a specific {{ PG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The {{ PG }} version number in the `configSpec.version` parameter.
+   * {{ PG }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

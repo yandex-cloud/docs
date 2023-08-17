@@ -82,7 +82,7 @@
 
 
 
-      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
    1. Make sure the configuration files are valid.
 
@@ -105,7 +105,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/) command:
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/) command:
 
       ```
       yc serverless container list

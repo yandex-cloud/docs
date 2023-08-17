@@ -8,15 +8,15 @@ In addition to the cloud network in the default folder, you can create cloud net
 
    To create a [cloud network](../concepts/network.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click **Create network**.
-   1. Enter the network name:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. (optional) Add a network description.
-   1. The default option is [Create subnets](subnet-create.md). If you need to create subnets later, disable the option.
-   1. Click **Create network**.
+   1. (Optional) In the **{{ ui-key.yacloud.vpc.networks.create.field_description }}** field, add a network description.
+   1. The default option is **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. If you want to [create](subnet-create.md) the subnets later, disable this option.
+   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 
@@ -111,7 +111,7 @@ In addition to the cloud network in the default folder, you can create cloud net
       }
       ```
 
-      For more information about the parameters of the `vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
+      For more information about the parameters of the `vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
    1. Make sure the configuration files are valid.
 
@@ -134,7 +134,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list
@@ -167,7 +167,7 @@ Create a cloud network with a name and description in the selected folder:
       }
       ```
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
    1. Make sure the configuration files are valid.
 
@@ -190,7 +190,7 @@ Create a cloud network with a name and description in the selected folder:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list

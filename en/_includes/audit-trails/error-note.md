@@ -1,0 +1,1 @@
+The retention period of audit logs in a trail with the `error` status is limited. There is no guarantee that logs that are older than 28 days will be delivered once the trail returns to the `active` status.

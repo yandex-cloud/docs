@@ -5,11 +5,11 @@ description: "Bucket versioning makes it possible to store object history throug
 
 # Managing bucket versioning
 
-[Bucket versioning](../../concepts/versioning.md) makes it possible to store object history through versions.
+Bucket [versioning](../../concepts/versioning.md) makes it possible to store object history through versions.
 
 {% note info %}
 
-Once you enable versioning, you cannot disable it; however, you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
+You cannot disable versioning once you enable it, but you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ Enable bucket versioning:
 
      ```bash
      name: my-bucket
-     folder_id: csgeoelk7fl15s66dsvbo
+     folder_id: csgeoelk7fl15********
      default_storage_class: STANDARD
      versioning: VERSIONING_ENABLED
      max_size: "10737418240"

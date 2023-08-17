@@ -6,7 +6,7 @@ When creating a VM, you need to specify its network interface settings by select
 
 Once the network interface is connected, the VM will be assigned an internal IP address in the subnet and an [internal FQDN](#hostname). A public IP address will only be assigned in case it was specified when creating the VM.
 
-You can find out the IP addresses, FQDNs, and other information in the management console by going to the **Network** section on the virtual machine page. This data can be used to connect to the VM.
+You can find out the IP addresses, FQDNs, and other information in the management console by going to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the virtual machine page. This data can be used to connect to the VM.
 
 On VMs created from public Linux images, the IP address and hostname (FQDN) are not automatically written to the `/etc/hosts` file. This may affect running the `sudo` command.
 
@@ -46,8 +46,8 @@ The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostna
 
 1. You cannot specify the `hostname` parameter in the management console for a new VM. Instead, the user-defined VM name is used:
 
-	* If you leave the **Name** field blank when creating a VM, it will be assigned an internal FQDN in the `<VM ID>.auto.internal` format.
-   * If you provide a VM name in the **Name** field, it will be assigned an internal FQDN in the `<VM name>.<region>.internal` format.
+   * If you leave the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field blank when creating a VM, it will be assigned an internal FQDN in the `<VM ID>.auto.internal` format.
+   * If you provide a VM name in the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, it will be assigned an internal FQDN in the `<VM name>.<region>.internal` format.
 
 1. When using the CLI, API, and {{ TF }}, FQDNs are created as follows:
 
@@ -58,7 +58,7 @@ The assigned FQDN depends on the specified host name `(CreateInstanceSpec.hostna
 ### Examples {#examples}
 
 | Specified host name | VM FQDN |
-| :--- | :--- |
+:--- | :---
 | `<not specified>` | `<VM ID>.auto.internal` |
 | `breathtaking` | `breathtaking.{{ region-id }}.internal` |
 | `this-is-sparta` | `this-is-sparta.{{ region-id }}.internal` |

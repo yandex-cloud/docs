@@ -15,7 +15,7 @@ links:
   - title: Audit Trails
     description: Сервис сбора и выгрузки аудитных логов
     href: audit-trails/
-  - title: Биллинг
+  - title: Yandex Cloud Billing
     description: Управление платежным аккаунтом
     href: billing/
   - title: Certificate Manager
@@ -30,6 +30,9 @@ links:
   - title: Cloud Backup
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/
+  - title: Cloud Desktop
+    description: Виртуальная инфраструктура рабочих столов
+    href: cloud-desktop/
   - title: Cloud Interconnect
     description: Подключение к ресурсам Yandex Cloud по выделенному каналу
     href: interconnect/
@@ -155,7 +158,7 @@ links:
   - title: SmartCaptcha
     description: Инструмент для верификации запросов
     href: smartcaptcha/
-  - title: SpeechKit
+  - title: '{{ speechkit-name }}'
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/
   - title: Object Storage
@@ -185,3 +188,6 @@ links:
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/
+  - title: YandexGPT
+    description: Генеративные языковые модели для ваших бизнес-приложений.
+    href: yandexgpt/

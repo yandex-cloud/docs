@@ -1,3 +1,3 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mmg-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ MG }}
 
 {% include notitle [MKF to MMG with Data Transfer](../../_tutorials/dataplatform/data-transfer-mkf-mmg.md) %}

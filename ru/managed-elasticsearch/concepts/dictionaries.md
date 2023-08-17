@@ -1,5 +1,7 @@
 # Поддержка словарей
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 В сервисе {{ mes-name }} для проверки правописания и нахождения основы слова предустановлены словари [Hunspell](https://github.com/hunspell/hunspell), которые вы можете использовать с помощью API {{ ES }}. Словари доступны для всех поддерживаемых [редакций](./es-editions.md) и версий. Пример использования словарей Hunspell см. в [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-hunspell-tokenfilter.html).
 
 Список словарей:

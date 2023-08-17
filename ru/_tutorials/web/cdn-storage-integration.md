@@ -54,18 +54,16 @@
 
 Все ресурсы будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
 
-Чтобы создать сеть и подсети:
-
 {% list tabs %}
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-    1. В списке сервисов выберите **{{ vpc-name }}**.
-    1. Нажмите кнопку **Создать сеть**.
-    1. Укажите **Имя** сети: `example-network`.
-    1. В поле **Дополнительно** выберите опцию **Создать подсети**.
-    1. Нажмите кнопку **Создать сеть**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `example-network`.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 
@@ -82,11 +80,11 @@
      Результат:
        
      ```
-     id: enptrcle5q3d3ktd33hj
-     folder_id: b1g9hv2loamqfnbul7d9
+     id: enptrcle5q3d********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-04-04T05:25:03Z"
      name: example-network
-     default_security_group_id: enpbsnnop4akg7ng70ll
+     default_security_group_id: enpbsnnop4ak********
      ```
      
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -105,11 +103,11 @@
        Результат:
       
        ``` 
-       id: e9bnnssj8sc8mjhat9qk
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: e9bnnssj8sc8********
+       folder_id: b1g9hv2loamq********
        created_at: "2022-04-04T09:27:00Z"
        name: example-subnet-{{ region-id }}-a
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 10.1.0.0/16
@@ -127,11 +125,11 @@
        Результат:
       
        ``` 
-       id: e2lghukd9iqo4haidjbt
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: e2lghukd9iqo********
+       folder_id: b1g9hv2loamq********
        created_at: "2022-04-04T09:27:39Z"
        name: example-subnet-{{ region-id }}-b
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-b
        v4_cidr_blocks:
        - 10.2.0.0/16
@@ -149,11 +147,11 @@
        Результат:
       
        ``` 
-       id: b0c3pte4o2kn4v12o05p
-       folder_id: b1g9hv2loamqfnbul7d9
+       id: b0c3pte4o2kn********
+       folder_id: b1g9hv2loamq********
        created_at: "2022-04-04T09:28:08Z"
        name: example-subnet-{{ region-id }}-c
-       network_id: enptrcle5q3d3ktd33hj
+       network_id: enptrcle5q3d********
        zone_id: {{ region-id }}-c
        v4_cidr_blocks:
        - 10.3.0.0/16
@@ -194,7 +192,7 @@
      }
      ```
      
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -226,35 +224,31 @@
 
 ## Создайте бакет в {{ objstorage-name }} {#create-buckets}
 
-Создайте бакет `example-bucket`:
-
 {% list tabs %}
 
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В списке сервисов выберите **{{ objstorage-name }}**.
-  1. Создайте бакет `example-bucket`:
-  
-     1. Нажмите кнопку **Создать бакет**.
-     1. Укажите **Имя** бакета: `example-bucket`.
-     1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
-     1. Нажмите кнопку **Создать бакет**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   
 - AWS CLI
 
-  1. Создайте бакет `example-bucket`:
+  1. Создайте бакет:
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
-       s3 mb s3://example-bucket
+       s3 mb s3://<имя_бакета>
      ```
      
      Результат:
      
      ```
-     make_bucket: s3://example-bucket
+     make_bucket: s3://<имя_бакета>
      ```
      
   1. Включите публичный доступ к чтению объектов и их списка:
@@ -262,24 +256,24 @@
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3api put-bucket-acl \
-       --bucket example-bucket \
+       --bucket <имя_бакета> \
        --acl public-read
      ```
 
 - {{ TF }}
 
-  1. Добавьте в конфигурационный файл параметры бакета `example-bucket`:
+  1. Добавьте в конфигурационный файл параметры бакета:
   
      ```hcl
      ...
      
-     resource "yandex_storage_bucket" "example-bucket" {
-       bucket = "example-bucket"
+     resource "yandex_storage_bucket" "<имя_бакета>" {
+       bucket = "<имя_бакета>"
        acl    = "public-read"
      }
      ```
      
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -335,40 +329,40 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. В списке сервисов выберите **{{ objstorage-name }}**.
-     1. В списке бакетов выберите `example-bucket`.
-     1. Нажмите кнопку **Загрузить** и выберите для загрузки файл `index.html`.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. Выберите бакет.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html`.
 
    - AWS CLI
    
-     1. Загрузите в бакет `example-bucket` файл `index.html`:
+     1. Загрузите в бакет файл `index.html`:
      
         ```bash
         aws --endpoint-url https://{{ s3-storage-host }} \
-          s3 cp v1/index.html s3://example-bucket/index.html
+          s3 cp v1/index.html s3://<имя_бакета>/index.html
         ```
         
         Результат:
         
         ```
-        upload: v1/index.html to s3://example-bucket/index.html
+        upload: v1/index.html to s3://<имя_бакета>/index.html
         ```
 
    - {{ TF }}
    
-     1. Добавьте в конфигурационный файл параметры файла `v1/index.html`, загружаемого в бакет `example-bucket`:
+     1. Добавьте в конфигурационный файл параметры файла `v1/index.html`, загружаемого в бакет:
      
         ```hcl
         ...
         
         resource "yandex_storage_object" "example-bucket-index" {
-          bucket = "example-bucket"
+          bucket = "<имя_бакета>"
           key    = "index.html"
           source = "v1/index.html"
         }
         ```
         
-        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-link }}/storage_object) провайдера {{ TF }}.
+        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-resources-link }}/storage_object) провайдера {{ TF }}.
         
      1. Проверьте корректность конфигурационных файлов.
 
@@ -413,12 +407,13 @@
 
 - Консоль управления 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
-  1. Перейдите на вкладку **Группы безопасности**.
-  1. Нажмите кнопку **Создать группу**.
-  1. Укажите **Имя** группы: `example-sg`.
-  1. Выберите **Сеть** `example-network`.
-  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `example-sg`.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите `example-network`.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
    
      | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
      | --- | --- | --- | --- | --- | --- |
@@ -427,19 +422,18 @@
      | Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
      | Входящий | healthchecks | 30080 | TCP | Проверки состояния балансировщика | — |
       
-     1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
-     1. Нажмите кнопку **Добавить правило**.
-     1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-     1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
-     1. В поле **Назначение** или **Источник** выберите назначение правила:
-      
-        * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-        * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-        * **Проверки состояния балансировщика** — правило, которое позволяет балансировщику проверять состояние ВМ.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
 
-     1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
-   
-  1. Нажмите кнопку **Сохранить**.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}** — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}** — правило, которое позволяет L7-балансировщику проверять состояние ВМ.
+
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -457,21 +451,21 @@
   Результат:
   
   ```
-  id: enpd133ngcnrgc8475cc
-  folder_id: b1g9hv2loamqfnbul7d9
+  id: enpd133ngcnr********
+  folder_id: b1g9hv2loamq********
   created_at: "2022-04-04T10:26:16Z"
   name: example-sg
-  network_id: enptrcle5q3d3ktd33hj
+  network_id: enptrcle5q3d********
   status: ACTIVE
   rules:
-  - id: enpkgrpi2gsibdm6aotd
+  - id: enpkgrpi2gsi********
     direction: EGRESS
     protocol_name: ANY
     protocol_number: "-1"
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpgssij0i168jknb85r
+  - id: enpgssij0i16********
     direction: INGRESS
     ports:
       from_port: "80"
@@ -481,7 +475,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enp0bft67j9lrlnhdur5
+  - id: enp0bft67j9l********
     direction: INGRESS
     ports:
       from_port: "443"
@@ -491,7 +485,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpmorcimu65fk4oaanm
+  - id: enpmorcimu65********
     direction: INGRESS
     ports:
       from_port: "30080"
@@ -539,7 +533,7 @@
      }
      ```
      
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -576,21 +570,20 @@
    
 - Консоль управления
    
-  1. Создайте группу бэкендов `example-bg` с бэкендом `example-backend`:
-   
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Группы бэкендов**.
-     1. Нажмите кнопку **Создать группу бэкендов**.
-     1. Введите имя группы бэкендов: `example-bg`.
-     1. Выберите [тип группы бэкендов](../../application-load-balancer/concepts/backend-group.md#group-types) **HTTP**.
-     1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
-         1. Введите имя бэкенда: `example-backend`.
-         1. Задайте вес бэкенда: `100`.
-         1. Выберите [тип бэкенда](../../application-load-balancer/concepts/backend-group.md#types) **Бакет**.
-         1. В поле **Бакет** укажите название бакета: `example-bucket`.
-     1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-bg`.
+  1. В поле **{{ ui-key.yacloud.alb.label_backend-type }}** выберите [тип группы бэкендов](../../application-load-balancer/concepts/backend-group.md#group-types) **{{ ui-key.yacloud.alb.label_proto-http }}**.
+  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **Добавить** и задайте настройки бэкенда:
+      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-backend`.
+      1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `100`.
+      1. В поле **{{ ui-key.yacloud.common.type }}** выберите [тип бэкенда](../../application-load-balancer/concepts/backend-group.md#types) **{{ ui-key.yacloud.alb.label_bucket }}**.
+      1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите бакет, созданный ранее.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-  1. Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификатор группы бэкендов `example-bg` со вкладки **Группы бэкендов**.
+  Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификатор группы бэкендов `example-bg` со вкладки ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
 
 - API
 
@@ -598,31 +591,30 @@
      
 {% endlist %} 
 
-## Создайте HTTP-роутер и виртуальные хосты {#create-route-hosts}
-
-Создайте HTTP-роутер с виртуальным хостом: `cdn.mywebsite.com`:
+## Создайте HTTP-роутер и виртуальный хост {#create-route-hosts}
 
 {% list tabs %}
 
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **HTTP-роутеры**.
-  1. Нажмите кнопку **Создать HTTP-роутер**.
-  1. Введите имя роутера: `example-router`.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-router`.
   1. Создайте виртуальный хост `example-vh`:
   
-     1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
-     1. Введите имя хоста: `example-vh`.
-     1. Укажите значение **Authority**: `cdn.yandexcloud.example`
-     1. Нажмите кнопку **Добавить маршрут**.
-     1. Введите **Имя**: `example-route`.
-     1. В поле **Путь** выберите **Начинается с** и укажите путь `/`.
-     1. В списке **Методы HTTP** выберите **GET**.
-     1. В поле **Действие** оставьте **Маршрутизация**.
-     1. В списке **Группа бэкендов** выберите `example-bg`.
+     1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-vh`.
+     1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите `cdn.yandexcloud.example`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-route`.
+     1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите **{{ ui-key.yacloud.alb.label_match-prefix }}** и укажите путь `/`.
+     1. В списке **{{ ui-key.yacloud.alb.label_http-methods }}** выберите **GET**.
+     1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте **{{ ui-key.yacloud.alb.label_route-action-route }}**.
+     1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `example-bg`.
 
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
 - CLI
 
@@ -635,9 +627,9 @@
      Результат:
      
      ```
-     id: ds7qd0vj01djuu3c6f8q
+     id: ds7qd0vj01dj********
      name: example-router
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      created_at: "2022-04-04T10:31:41.027649223Z"
      ```
      
@@ -686,9 +678,9 @@
            path:
              prefix_match: /
          route:
-           backend_group_id: ds7pbm5fj2v09ptnn29p
+           backend_group_id: ds7pbm5fj2v0********
      ```
-     
+
      Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
 - {{ TF }}
@@ -718,7 +710,7 @@
      }
      ```
      
-     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -755,24 +747,24 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Балансировщики**.
-  1. Нажмите кнопку **Создать L7-балансировщик**.
-  1. Введите имя балансировщика: `example-balancer`.
-  1. В блоке **Сетевые настройки**:
-  
-     1. Выберите **Сеть** `example-network`.
-     1. Выберите **Группу безопасности** `example-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-balancer`.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+
+     1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите `example-network`.
+     1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `example-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
       
-  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` — и включите передачу трафика в эти подсети.
-  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` — и включите передачу трафика в эти подсети.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и задайте настройки обработчика:
   
-     1. Введите имя обработчика: `example-listener`.
-     1. В блоке **Настройки публичного IP-адреса** включите передачу трафика.
-     1. Укажите порт `80`.
-     1. В поле **Назначить IP-адрес** выберите **Автоматически**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-listener`.
+     1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
+        * В поле **{{ ui-key.yacloud.alb.label_port }}** укажите `80`.
+        * В поле **{{ ui-key.yacloud.common.type }}** выберите **{{ ui-key.yacloud.alb.label_address-auto }}**.
       
-  1. В поле **HTTP-роутер** выберите `example-router`.
-  1. Нажмите кнопку **Создать**.
+  1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `example-router`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
 - CLI
 
@@ -785,13 +777,13 @@
      Результат:
      
      ```
-     +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
-     +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     | e9bnnssj8sc8mjhat9qk | example-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
-     | e2lghukd9iqo4haidjbt | example-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
-     | b0c3pte4o2kn4v12o05p | example-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
-     +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
+     +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
+     |          ID          |               NAME               |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |     RANGE     |
+     +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
+     | e9bnnssj8sc8******** | example-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
+     | e2lghukd9iqo******** | example-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** | example-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
+     +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
      ```
      
      Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
@@ -825,23 +817,23 @@
      
      ```hcl
      done (3m0s)
-     id: ds77q7v39b4ubg8ta2n4
+     id: ds77q7v39b4u********
      name: example-balancer
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-c
-         subnet_id: b0c3pte4o2kn4v12o05p
+         subnet_id: b0c3pte4o2kn********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2lghukd9iqo4haidjbt
+         subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bnnssj8sc8mjhat9qk
-     log_group_id: ckg23vr4dlkse3hvq0kc
+         subnet_id: e9bnnssj8sc8********
+     log_group_id: ckg23vr4dlks********
      security_group_ids:
-     - enpd133ngcnrgc8475cc
+     - enpd133ngcnr********
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
@@ -861,12 +853,12 @@
      
      ```
      done (43s)
-     id: ds77q7v39b4ubg8ta2n4
+     id: ds77q7v39b4u********
      name: example-balancer
-     folder_id: b1g9hv2loamqfnbul7d9
+     folder_id: b1g9hv2loamq********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      listeners:
      - name: example-listener
        endpoints:
@@ -877,18 +869,18 @@
          - "80"
        http:
          handler:
-           http_router_id: ds7qd0vj01djuu3c6f8q
+           http_router_id: ds7qd0vj01dj********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-c
-         subnet_id: b0c3pte4o2kn4v12o05p
+         subnet_id: b0c3pte4o2kn********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2lghukd9iqo4haidjbt
+         subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bnnssj8sc8mjhat9qk
-     log_group_id: ckg23vr4dlkse3hvq0kc
+         subnet_id: e9bnnssj8sc8********
+     log_group_id: ckg23vr4dlks********
      security_group_ids:
-     - enpd133ngcnrgc8475cc
+     - enpd133ngcnr********
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
@@ -941,7 +933,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-link }}/alb_load_balancer) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-resources-link }}/alb_load_balancer) провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -977,18 +969,18 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. В списке сервисов выберите **{{ cdn-name }}**.
-  1. Если CDN-провайдер ещё не активирован, нажмите кнопку **Подключиться к провайдеру**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Если CDN-провайдер ещё не активирован, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
   1. Создайте CDN-ресурс:
-  
-     1. На вкладке **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
-     1. Задайте основные параметры CDN-ресурса следующим образом:
 
-        * **Запрос контента** — **Из одного источника**.
-        * **Тип источника** — **L7-балансировщик**.
-        * **L7-балансировщик** — `example-balancer`.
-        * **IP-адрес** — IP-адрес, назначенный балансировщику (будет единственным в списке).
-        * **Доменные имена для раздачи контента** — `cdn.yandexcloud.example`.
+     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+     1. Задайте основные параметры CDN-ресурса:
+
+        * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — **{{ ui-key.yacloud.cdn.value_query-type-one-origin }}**.
+        * **{{ ui-key.yacloud.cdn.label_source-type }}** — **{{ ui-key.yacloud.cdn.value_source-type-balancer }}**.
+        * **{{ ui-key.yacloud.cdn.label_balancer }}** — `example-balancer`.
+        * **{{ ui-key.yacloud.cdn.label_ip-address }}** — IP-адрес, назначенный балансировщику (будет единственным в списке).
+        * **{{ ui-key.yacloud.cdn.label_personal-domain }}** — `cdn.yandexcloud.example`.
 
           {% note alert %}
 
@@ -996,25 +988,25 @@
 
           {% endnote %}
 
-        * В блоке **Дополнительно**:
+        * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
 
-          * В поле **Протокол для источников** выберите **HTTP**. 
-          * В поле **Переадресация клиентов** выберите **Не использовать**.
+          * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите **HTTP**. 
+          * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите **{{ ui-key.yacloud.cdn.value_do-not-use }}**.
           * Выберите опцию **Доступ конечных пользователей к контенту**.
-          * В поле **Тип сертификата** выберите **Let's Encrypt®**, чтобы автоматически выпустить сертификат для доменного имени `cdn.yandexcloud.example` после создания CDN-ресурса.
-          * В поле **Заголовок Host** выберите **Как у клиента**.
+          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**, чтобы автоматически выпустить сертификат для доменного имени `cdn.yandexcloud.example` после создания CDN-ресурса.
+          * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите **{{ ui-key.yacloud.cdn.value_host-header-resend }}**.
 
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
      Дождитесь выпуска сертификата Let's Encrypt® для доменного имени. Этот процесс может занять до 30 минут.
     
   1. Включите переадресацию клиентов с HTTP на HTTPS:
 
-     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **CDN-ресурсы** выберите ресурс, созданный ранее.
-     1. Убедитесь, что в блоке **Дополнительно** статус сертификата изменился на `Выпущен`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
-     1. В блоке **Дополнительно** в поле **Переадресация клиентов** выберите **С HTTP на HTTPS**.
-     1. Нажмите кнопку **Сохранить**.
+     1. Выберите ресурс, созданный ранее.
+     1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите **{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -1035,7 +1027,7 @@
 
       ```
       id: "90748"
-      folder_id: b1geoelk7fldts6chmjq
+      folder_id: b1geoelk7fld********
       name: example-origin-group
       use_next: true
       origins:
@@ -1062,8 +1054,8 @@
       Результат:
 
       ```
-      id: bc843k2yinvq5fhgvuvc
-      folder_id: b1ge1elk72ldts6chmjq
+      id: bc843k2yinvq********
+      folder_id: b1ge1elk72ld********
       cname: cdn.yandexcloud.example
       ...
       active: true
@@ -1114,7 +1106,7 @@
       }
       ```
 
-      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) в документации провайдера {{ TF }}.
+      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1185,9 +1177,9 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-     1. В списке сервисов выберите **{{ cdn-name }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **Настройки DNS** внизу страницы скопируйте доменное имя вида `cl-....edgecdn.ru`.
+     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `cl-....edgecdn.ru`.
 
    {% endlist %}
 
@@ -1195,7 +1187,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```
-   cdn CNAME cl-....edgecdn.ru
+   cdn CNAME cl-****edgecdn.ru
    ```
    
    Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
@@ -1206,23 +1198,23 @@
    
    - Консоль управления 
    
-     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ dns-name }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
-        1. Нажмите кнопку **Создать зону**.
-        1. В поле **Зона** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`
-        1. Выберите **Тип** зоны — **Публичная**.
-        1. Укажите **Имя** зоны: `example-dns-zone`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
+        1. В поле **{{ ui-key.yacloud.dns.label_zone }}** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`
+        1. В поле **{{ ui-key.yacloud.common.type }}** выберите **{{ ui-key.yacloud.dns.label_public }}**.
+        1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-dns-zone`.
         1. Нажмите кнопку **Создать**.
       
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example`:
 
-        1. В списке зон нажмите на зону `example-dns-zone`.
-        1. Нажмите кнопку **Создать запись**.
+        1. Выберите зону `example-dns-zone`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **Имя** укажите `cdn`.
-        1. Выберите **Тип** записи — **CNAME**.
+        1. В поле **Тип** укажите **CNAME**.
         1. В поле **Значение** вставьте скопированное значение вида `cl-....edgecdn.ru`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI
    
@@ -1238,8 +1230,8 @@
         Результат:
         
         ```
-        id: dns4rq4tadddth4h20qm
-        folder_id: b1g9hv2loamqfnbul7d9
+        id: dns4rq4taddd********
+        folder_id: b1g9hv2loamq********
         created_at: "2022-04-04T11:03:28.847Z"
         name: example-dns-zone
         zone: yandexcloud.example.
@@ -1248,12 +1240,12 @@
         
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
         
-     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-....edgecdn.ru`:
+     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-****edgecdn.ru`:
      
         ```bash
         yc dns zone add-records \
           --name example-dns-zone \
-          --record "cdn CNAME cl-....edgecdn.ru" \
+          --record "cdn CNAME cl-****edgecdn.ru" \
         ```
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1275,11 +1267,11 @@
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное_значение_вида_cl-....edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_cl-****edgecdn.ru>"]
         }
         ```
 
-        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) в документации провайдера {{ TF }}.
+        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) в документации провайдера {{ TF }}.
         
      1. Проверьте корректность конфигурационных файлов.
 
@@ -1305,7 +1297,7 @@
    - API
     
      1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-....edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-****edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
         
    {% endlist %}
    
@@ -1336,7 +1328,7 @@
 1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS `example-dns-zone`.
 1. [Удалите](../../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `example-balancer`.
-1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `example-bucket`.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет `example-bucket`.
+1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `example-network`.

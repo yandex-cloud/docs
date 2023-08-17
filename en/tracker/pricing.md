@@ -5,6 +5,12 @@ description: "The cost of using {{ tracker-name }} is based on the number of use
 
 # Pricing for {{ tracker-full-name }}
 
+{% note tip %}
+
+You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
+
+{% endnote %}
+
 By default, all company employees can use {{ tracker-full-name }} for free in [<q>Read only</q>](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
 
 The cost of using {{ tracker-name }} is based on the number of users with [full access to the service](access.md). The monthly fee [is debited from the billing account](pay-the-bill.md#charge) linked to {{ tracker-name }}.
@@ -13,14 +19,10 @@ You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Pricing {#sec_price}
 
-{% note tip %}
-
-You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
-
-{% endnote %}
 
 
 
+{% include [usd-after-30June.md](../_pricing/tracker/usd-after-30June.md) %}
 
 {% include [usd.md](../_pricing/tracker/usd.md) %}
 
@@ -49,15 +51,15 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 * For large companies, the monthly fee is calculated on a progressive scale.
 
-> For example, the following pricing was in effect in January:
+> For example, the following pricing was in effect in July:
 >
-> * For the first 100 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} per user per month.
+> * For the first 100 users: $3.520000 per user per month.
 >
-> * For the next 150 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} per user per month.
+> * For the next 150 users: $3.200000 per user per month.
 >
-> * For all users over 250: {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }} per user per month.
+> * For all users over 250: $2.880000 per user per month.
 >
-> In January, the number of employees with full access to {{ tracker-name }} varied as follows:
+> In July, the number of employees with full access to {{ tracker-name }} varied as follows:
 >
 > * There were 245 employees for 14 days.
 >
@@ -75,7 +77,7 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >
 > >
 > ```
-> 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
+> 100 × $3.520000 + 150 × $3.200000 + 20 × $2.880000
 > ```
 >
 > 

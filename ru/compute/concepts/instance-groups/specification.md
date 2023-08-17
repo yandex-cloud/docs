@@ -9,7 +9,7 @@
 
 {% note info %}
 
-Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`]({{ tf-provider-link }}/compute_instance_group).
+Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`]({{ tf-provider-resources-link }}/compute_instance_group).
 
 {% endnote %}
 
@@ -19,7 +19,7 @@
 По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
-folder_id: b1gken0eihqn2oa0fm2k
+folder_id: b1gken0eihqn********
 name: queue-autoscale-ig
 instance_template:
   platform_id: standard-v3
@@ -32,11 +32,11 @@ instance_template:
     disk_spec:
       type_id: network-hdd
       size: 5g
-      image_id: fd8m5bal0bi9tjhu7av2
+      image_id: fd8m5bal0bi9********
   network_interface_specs:
-  - network_id: enpocgefm44fp31qpdru
+  - network_id: enpocgefm44f********
     subnet_ids:
-    - e2ljvdp4j2762fl4qh1i
+    - e2ljvdp4j276********
     primary_v4_address_spec:
       one_to_one_nat_spec:
         ip_version: IPV4
@@ -64,8 +64,8 @@ deploy_policy:
   strategy: OPPORTUNISTIC
 allocation_policy:
   zones:
-  - zone_id: {{ region-id }}-b
-service_account_id: ajefnb8427bhl9t0pvf8
+    - zone_id: {{ region-id }}-b
+service_account_id: ajefnb8427bh********
 ```
 
 
@@ -73,19 +73,21 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 Список, структура и  англоязычные  описания полей спецификации представлены:
 
-* в спецификации структуры [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) и [используемых в ней структур](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto) в репозитории API на GitHub (формат [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers));
+* в спецификации структуры [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) и [используемых в ней структур](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto) в репозитории [API](../../../glossary/rest-api.md) на GitHub (формат [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers));
 * в описании метода [create](../../api-ref/InstanceGroup/create) ресурса `InstanceGroup` REST API (формат [JSON](https://ru.wikipedia.org/wiki/JSON));
 * в описании вызова [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API.
 
 Справочники API генерируются из спецификаций, размещенных на GitHub.
 
-Некоторые поля первого уровня и вложенные в них поля также описаны  на русском языке  в разделах документации:
+Некоторые поля первого уровня и вложенные в них поля также описаны на русском языке в разделах документации:
 
 * [{#T}](instance-template.md) (поле `instance_template`).
 * [{#T}](variables-in-the-template.md) (поля `instance_template` и `variables`).
 * [{#T}](policies/allocation-policy.md) (поле `allocation_policy`).
 * [{#T}](policies/deploy-policy.md) (поле `deploy_policy`).
 * [{#T}](policies/scale-policy.md) (поле `scale_policy`).
+* [{#T}](autohealing.md) (поле `health_checks_spec`).
+* [{#T}](balancers.md) (поля `load_balancer_spec` и `application_load_balancer_spec`).
 
 Эти разделы обновляются вручную. Они могут быть менее актуальными, чем справочники API и спецификация на GitHub.
 
@@ -105,7 +107,7 @@ service_account_id: ajefnb8427bhl9t0pvf8
       "description": "ALB target group for example instance group",
       "labels": {
         "foo": "bar",
-        "environment": "production"     
+        "environment": "production"
       }
     }
     ```

@@ -64,45 +64,69 @@ The cost of supporting this infrastructure includes:
 
 ## Create a bucket {#create-service-account}
 
-[Create a bucket](../../storage/operations/buckets/create.md) with any name, for example, `terraform-object-storage-tutorial`. It stores the {{ TF }} state file.
+[Create a bucket](../../storage/operations/buckets/create.md) with restricted access. It stores the {{ TF }} state file.
 
 ## Configure the backend {#set-up-backend}
 
-To save the {{ TF }} state in {{ objstorage-name }}, specify settings for the provider and backend:
+1. Add the [previously obtained](#create-service-account) key ID and secret key to environment variables:
+
+   {% list tabs %}
+
+   - Bash
+
+      ```bash
+      export ACCESS_KEY="<key_ID>"
+      export SECRET_KEY="<secret_key>"
+      ```
+
+   - PowerShell
+
+      ```powershell
+      $Env:ACCESS_KEY="<key_ID>"
+      $Env:SECRET_KEY="<secret_key>"
+      ```
+
+   {% endlist %}
+
+1. Add provider and backend settings to the configuration file:
+
+   
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+
+     backend "s3" {
+       endpoint   = "{{ s3-storage-host }}"
+       bucket     = "<bucket_name>"
+       region     = "{{ region-id }}"
+       key        = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
+
+       skip_region_validation      = true
+       skip_credentials_validation = true
+     }
+   }
+
+   provider "yandex" {
+     token     = "<service_account_OAuth_or_static_key>"
+     cloud_id  = "<cloud_ID>"
+     folder_id = "<folder_ID>"
+     zone      = "<default_availability_zone>"
+   }
+   ```
 
 
-```hcl
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
 
-  backend "s3" {
-    endpoint   = "{{ s3-storage-host }}"
-    bucket     = "<bucket name>"
-    region     = "{{ region-id }}"
-    key        = "<path to state file in the bucket>/<state file name>.tfstate"
-    access_key = "<static key ID>"
-    secret_key = "<secret key>"
+   To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
 
-    skip_region_validation      = true
-    skip_credentials_validation = true
-  }
-}
+1. Run the following command in the folder with the configuration file:
 
-provider "yandex" {
-  token     = "<OAuth or static key of the service account>"
-  cloud_id  = "<cloud ID>"
-  folder_id = "<folder ID>"
-  zone      = "<default availability zone>"
-}
-```
-
-
-
-To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
+   ```bash
+   terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
+   ```
 
 {% include [deploy-infrastructure-step](../_tutorials_includes/deploy-infrastructure-step.md) %}
 
@@ -127,9 +151,9 @@ Create another configuration and use the saved state to create another VM in one
    }
 
    provider "yandex" {
-     token     = "<OAuth or static key of the service account>"
-     cloud_id  = "cloud-id"
-     folder_id = "folder-id"
+     token     = "<service_account_OAuth_or_static_key>"
+     cloud_id  = "<cloud_ID>"
+     folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -137,11 +161,9 @@ Create another configuration and use the saved state to create another VM in one
      backend = "s3"
      config = {
        endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<bucket name>"
+       bucket     = "<bucket_name>"
        region     = "{{ region-id }}"
-       key        = "<path to the state file in the bucket>/<state file name>.tfstate"
-       access_key = "<static key ID>"
-       secret_key = "<secret key>"
+       key        = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
@@ -178,14 +200,14 @@ Create another configuration and use the saved state to create another VM in one
 1. Run the `terraform init` command.
 1. Run the `terraform plan` command. The terminal will display the plan for creating the VM.
 1. Run the `terraform apply` command.
-1. Go to the management console and make sure you can see the `vm-3` instance in the {{ compute-name }} section.
+1. Go to the management console and make sure you can see the `terraform3` instance in the {{ compute-name }} section.
 
 ## Delete the resources you created {#clear-out}
 
 To delete the resources you created, run the `terraform destroy` command; start with the second configuration, and then proceed to the first.
 
-
 ## See also {#see-also}
 
-* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md).
+
+* [{#T}](../../tutorials/infrastructure-management/terraform-state-lock.md)
 

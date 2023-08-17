@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Сертификат от Let's Encrypt
         items:
-          - name: Создание сертификата
+          - name: Добавление сертификата
             href: operations/managed/cert-create.md
           - name: Получение содержимого сертификата
             href: operations/managed/cert-get-content.md
@@ -23,7 +23,7 @@ items:
             href: operations/managed/cert-delete.md
       - name: Пользовательский сертификат
         items:
-          - name: Создание сертификата
+          - name: Добавление сертификата
             href: operations/import/cert-create.md
           - name: Получение содержимого сертификата
             href: operations/import/cert-get-content.md

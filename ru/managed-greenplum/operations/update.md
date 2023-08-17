@@ -18,10 +18,10 @@
 
 - Консоль управления
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** в верхней части страницы.
-    1. В блоке **Базовые параметры** задайте новые имя и описание кластера.
-    1. Нажмите кнопку **Сохранить**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** в верхней части страницы.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте новые имя и описание кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -70,12 +70,12 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-        * **Окно обслуживания** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -85,11 +85,11 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **Менеджер подключений** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
+        * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
 
             {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -166,11 +166,11 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените [настройки {{ GP }}](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
-  1. Нажмите кнопку **Сохранить**.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Измените [настройки {{ GP }}](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -227,11 +227,11 @@
   Чтобы увеличить размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Выберите сервис **{{ mgp-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **Изменить кластер**.
-  1. Измените настройки в блоке **Хранилище**.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Измените настройки в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - API
 

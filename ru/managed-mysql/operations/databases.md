@@ -10,8 +10,8 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_databases }}**.
 
 - CLI
 
@@ -44,12 +44,12 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
   1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser).
-  1. Выберите вкладку **Базы данных**.
-  1. Нажмите кнопку **Добавить**.
-  1. Введите имя для базы данных и нажмите кнопку **Добавить**.
+  1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_databases }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+  1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -106,7 +106,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_database).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - API
 
@@ -126,9 +126,9 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_databases }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 
@@ -160,7 +160,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_database).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - API
 
@@ -185,13 +185,13 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. В списке настроек найдите параметр **sql_mode**.
-  1. Задайте набор режимов SQL с помощью выпадающего списка. Чтобы вернуть настройки по умолчанию, нажмите кнопку **Сбросить**.
-  1. Нажмите кнопку **Сохранить** в диалоговом окне настроек СУБД.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Задайте набор режимов SQL с помощью выпадающего списка. Чтобы вернуть настройки по умолчанию, нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** в диалоговом окне настроек СУБД.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -237,7 +237,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

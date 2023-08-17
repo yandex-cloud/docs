@@ -35,7 +35,7 @@
 
   Чтобы получить список пользователей кластера, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} user list
      --cluster-name=<имя кластера>
   ```
@@ -94,7 +94,7 @@
 
   Чтобы создать пользователя в кластере, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} user create <имя пользователя> \
      --cluster-name=<имя кластера> \
      --password=<пароль пользователя> \
@@ -109,7 +109,7 @@
 
   Чтобы задать несколько квот, перечислите их, используя требуемое количество параметров `--quota` в команде:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} user create <имя пользователя> \
      ...
      --quota="<настройки квоты 0>" \
@@ -150,7 +150,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -182,6 +182,8 @@
 
 ## Изменить пароль {#updateuser}
 
+Рекомендуется использовать интерфейсы {{ yandex-cloud }}, перечисленные ниже. Не используйте SQL для смены пароля, иначе после [технического обслуживания](../concepts/maintenance.md) пароль может измениться на прежний.
+
 {% list tabs %}
 
 - Консоль управления
@@ -201,7 +203,7 @@
 
   Чтобы изменить пароль пользователя, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} user update <имя пользователя> \
      --cluster-name=<имя кластера> \
      --password=<новый пароль>
@@ -242,7 +244,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -259,22 +261,11 @@
 
     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-- SQL
-
-  1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
-  1. Измените пароль пользователя:
-
-      ```sql
-      ALTER USER <имя пользователя> IDENTIFIED BY '<новый пароль>';
-      ```
-
-      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
-
-  Подробнее об изменении пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
 {% endlist %}
 
 ## Изменить пароль пользователя admin {#admin-password-change}
+
+Рекомендуется использовать интерфейсы {{ yandex-cloud }}, перечисленные ниже. Не используйте SQL для смены пароля, иначе после [технического обслуживания](../concepts/maintenance.md) пароль может измениться на прежний.
 
 {% list tabs %}
 
@@ -345,19 +336,6 @@
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-- SQL
-
-    1. [Подключитесь](./connect.md) к кластеру от [имени пользователя `admin`](#sql-user-management).
-    1. Выполните SQL-запрос:
-
-        ```sql
-        ALTER USER admin IDENTIFIED BY '<новый пароль>';
-        ```
-
-        {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
-
-    Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
-
 {% endlist %}
 
 ## Изменить настройки пользователя {#update-settings}
@@ -390,7 +368,7 @@
   Из интерфейса командной строки можно изменить настройки пользователя:
   1. Чтобы настроить права пользователя на доступ к определенным базам данных, выполните команду, перечислив список имен баз данных с помощью параметра `--permissions`:
 
-     ```
+     ```bash
      {{ yc-mdb-ch }} user update <имя пользователя> \
         --cluster-name=<имя кластера> \
         --permissions=<список баз, к которым пользователь должен иметь доступ>
@@ -404,7 +382,7 @@
 
   1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, выполните команду, перечислив список всех квот, с помощью параметров `--quota` (один параметр на каждую квоту):
 
-     ```
+     ```bash
      {{ yc-mdb-ch }} user update <имя пользователя> \
         --cluster-name=<имя кластера> \
         --quota=<настройки квоты 0 (без изменений)> \
@@ -427,7 +405,7 @@
 
   1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду, перечислив измененные настройки с помощью параметра `--settings`:
 
-     ```
+     ```bash
      {{ yc-mdb-ch }} user update <имя пользователя> \
         --cluster-name=<имя кластера> \
         --settings=<список настроек {{ CH }}>
@@ -509,7 +487,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -567,7 +545,7 @@
 
   Чтобы удалить пользователя, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} user delete <имя пользователя> \
      --cluster-name=<имя кластера>
   ```
@@ -590,7 +568,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -639,7 +617,7 @@
 
   Запустите следующую команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} user create "ro-user" \
      --cluster-name="mych" \
      --password="Passw0rd" \

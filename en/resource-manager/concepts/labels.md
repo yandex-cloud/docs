@@ -6,20 +6,18 @@ A _label_ is a key-value pair in `<label name>=<label value>` format. You can us
 
 Labels are subject to the following restrictions:
 
-* Maximum number of labels per resource is 64.
+* Maximum number of labels per resource: 64.
 * The key:
-   * Must be from 1 to 63 characters long.
+   * It may be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
-   * Must start with a letter.
+   * It must start with a letter.
 * The value:
-   * May be up to 63 characters long.
+   * It may be up to 63 characters long.
    * May contain lowercase Latin letters, numbers, hyphens, and underscores.
 
 ## Services that support labels {#services}
 
 List of services whose resources support labels:
-
- 
 * [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
 * [{{ alb-full-name }}](../../application-load-balancer/index.yaml)
 * [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml)
@@ -29,6 +27,7 @@ List of services whose resources support labels:
 * [{{ compute-full-name }}](../../compute/index.yaml)
 * [{{ container-registry-full-name }}](../../container-registry/index.yaml)
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
+* [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
 * [{{ iot-full-name }}](../../iot-core/index.yaml)
 * [{{ kms-full-name }}](../../kms/index.yaml)
 * [{{ lockbox-full-name }}](../../lockbox/index.yaml)
@@ -43,6 +42,7 @@ List of services whose resources support labels:
 * [{{ mrd-full-name }}](../../managed-redis/index.yaml)
 * [{{ ydb-full-name }}](../../ydb/index.yaml)
 * [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml)
+* [{{ objstorage-full-name }}](../../storage/index.yaml)
 * [{{ resmgr-full-name }}](../../resource-manager/index.yaml)
 * [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 * [{{ vpc-full-name }}](../../vpc/index.yaml)
@@ -53,3 +53,4 @@ List of services whose resources support labels:
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+

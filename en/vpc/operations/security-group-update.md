@@ -1,6 +1,10 @@
 # Changing the name and description
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 After creating a security group, you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
 
@@ -11,11 +15,11 @@ After creating a security group, you can change its name and description, and [a
    To change the name or description of a group:
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Click ![image](../../_assets/options.svg) in the row next to the group to edit.
-   1. In the menu that opens, click **Edit**.
-   1. Edit the group name and description and click **Save**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
+   1. Edit the group name and description and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -31,7 +35,7 @@ After creating a security group, you can change its name and description, and [a
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -47,11 +51,11 @@ After creating a security group, you can change its name and description, and [a
       ...
       ```
 
-      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
       {% note info %}
 
-      To manage the [default security group](../../vpc/concepts/security-groups#default-security-group), use the [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group) resource.
+      To manage the [default security group](../../vpc/concepts/security-groups#default-security-group), use the [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group) resource.
 
       {% endnote %}
 

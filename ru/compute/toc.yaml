@@ -65,6 +65,8 @@ items:
         items:
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Сбросить пароль пользователя ВМ
+            href: operations/vm-control/vm-reset-password.md
           - name: Подключить диск к ВМ
             href: operations/vm-control/vm-attach-disk.md
           - name: Отключить диск от ВМ
@@ -105,8 +107,12 @@ items:
             href: operations/vm-connect/recovery-access.md
       - name: Управление агентом для сброса паролей
         items:
+          - name: Проверить работу агента
+            href: operations/vm-guest-agent/check.md
           - name: Установить агент
             href: operations/vm-guest-agent/install.md
+          - name: Удалить агент
+            href: operations/vm-guest-agent/uninstall.md
       - name: Создание диска
         items:
           - name: Создать пустой диск
@@ -115,6 +121,8 @@ items:
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Создать нереплицируемый диск
             href: operations/disk-create/nonreplicated.md
+          - name: Создать высокопроизводительный SSD-диск
+            href: operations/disk-create/ssd-io.md
           - name: Восстановить диск с помощью снимка
             href: operations/disk-create/from-snapshot.md
       - name: Управление диском
@@ -145,6 +153,8 @@ items:
         items:
           - name: Создать группу размещения дисков
             href: operations/disk-placement-groups/create.md
+          - name: Добавить диск в группу размещения
+            href: operations/disk-placement-groups/add-disk.md
           - name: Удалить диск из группы размещения
             href: operations/disk-placement-groups/remove-disk.md
       - name: Создание образа
@@ -303,6 +313,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Метаданные
             href: concepts/vm-metadata.md
+          - name: Сброс паролей на ВМ Windows
+            href: concepts/guest-agent.md
       - name: Графические ускорители
         href: concepts/gpus.md
       - name: Диски и файловые хранилища
@@ -347,7 +359,7 @@ items:
                 href: concepts/instance-groups/policies/scale-policy.md
           - name: Типы масштабирования
             href: concepts/instance-groups/scale.md
-          - name: Автоматическое восстановление
+          - name: Проверки и автовосстановление ВМ
             href: concepts/instance-groups/autohealing.md
           - name: Обновление
             items:
@@ -361,6 +373,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
               - name: Изменение дополнительных дисков в шаблоне виртуальной машины
                 href: concepts/instance-groups/deploy/secondary-disk.md
+          - name: Интеграция с сетевыми и L7-балансировщиками
+            href: concepts/instance-groups/balancers.md
           - name: Остановка группы и приостановка процессов
             href: concepts/instance-groups/stopping-pausing.md
           - name: Статусы
@@ -461,6 +475,8 @@ items:
                 href: api-ref/Disk/listOperations.md
               - name: move
                 href: api-ref/Disk/move.md
+              - name: relocate
+                href: api-ref/Disk/relocate.md
               - name: update
                 href: api-ref/Disk/update.md
           - name: DiskType
@@ -579,6 +595,8 @@ items:
                 href: api-ref/Instance/listOperations.md
               - name: move
                 href: api-ref/Instance/move.md
+              - name: relocate
+                href: api-ref/Instance/relocate.md
               - name: removeOneToOneNat
                 href: api-ref/Instance/removeOneToOneNat.md
               - name: restart
@@ -683,6 +701,8 @@ items:
                 href: api-ref/InstanceGroup/listAccessBindings.md
               - name: update
                 href: api-ref/InstanceGroup/update.md
+              - name: rollingRecreate
+                href: api-ref/InstanceGroup/rollingRecreate.md
               - name: updateAccessBindings
                 href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: setAccessBindings
@@ -701,6 +721,8 @@ items:
                 href: api-ref/InstanceGroup/delete.md
               - name: pauseProcesses
                 href: api-ref/InstanceGroup/pauseProcesses.md
+              - name: rollingRestart
+                href: api-ref/InstanceGroup/rollingRestart.md
               - name: createFromYaml
                 href: api-ref/InstanceGroup/createFromYaml.md
               - name: stop

@@ -34,12 +34,13 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 | `es-ES` | Spanish |
 | `fi-FI` | Finnish |
 | `fr-FR` | French |
+| `he-HE` | Hebrew |
 | `it-IT` | Italian |
-| `kk-KK` | Kazakh |
+| `kk-KZ` | Kazakh |
 | `nl-NL` | Dutch |
 | `pl-PL` | Polish |
 | `pt-PT` | Portuguese |
-| `pt-BR` | Brazilian Portuguese <br> is only available in `general:rc` |
+| `pt-BR` | Brazilian Portuguese |
 | `ru-RU` | Russian (default) |
 | `sv-SE` | Swedish |
 | `tr-TR` | Turkish |

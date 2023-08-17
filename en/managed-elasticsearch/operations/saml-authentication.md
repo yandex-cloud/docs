@@ -1,5 +1,7 @@
 # Configuring SAML authentication
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Security Assertion Markup Language (SAML) is used for exchanging authentication and authorization data between two parties. With SAML, you can implement a single sign-on system (SSO) to switch between applications without re-authentication.
 
 When using SAML and SSO, a {{ mes-name }} cluster gets information from an identity provider (IdP).
@@ -49,7 +51,7 @@ To set up SAML authentication:
    * Copy the information about the Identity Provider Issuer.
    * Save the provider's metadata file in XML format.
 
-   You'll need it to set up SSO for your cluster.
+   You will need it to set up SSO for your cluster.
 
 ## Set up SSO for the cluster {#configuration-sso}
 
@@ -63,7 +65,7 @@ Incorrect settings may cause the cluster to fail.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Access control** tab.
    1. Click **Create**.
    1. Create an authentication provider:
@@ -99,42 +101,34 @@ Incorrect settings may cause the cluster to fail.
 
          * **attribute_dn**: ID of the `X.500 Distinguished Name` user (optional).
 
-            {% note info %}
-
-            For more information about SAML attributes, see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/saml-guide-authentication.html#saml-user-properties).
-
-            {% endnote %}
-
    1. Click **Create**.
 
 - API
 
-   1. Convert the metadata file received from the IdP to Base64 format.
-   1. Prepare a `saml.txt` file:
+   1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
+   1. To set identity provider settings on the cluster side, use the [addProviders](../api-ref/Auth/addProviders.md) REST API method for the [Auth](../api-ref/Auth/index.md) resource or the [AuthService/AddProviders](../api-ref/grpc/auth_service.md#AddProviders) gRPC API call and provide the following in the request:
 
-      ```json
-      {
-          "providers": [{
-              "type": "SAML",
-              "name": "<Provider name>",
-              "enabled": true,
-              "description": "<Provider description>",
-              "saml": {
-                  "idp_entity_id": "<Identity Provider Issuer value>",
-                  "idp_metadata_file": "<base64 metadata file>",
-                  "sp_entity_id": "<SP Entity ID (Audience URI) value>",
-                  "kibana_url": "<URL Kibana, same as SP Entity ID>",
-                  "attribute_principal": "nameid:persistent"
-              }
-          }]
-      }
-      ```
+      * Cluster ID in the `clusterId` parameter.
 
-   1. Use the [addProviders](../api-ref/Auth/addProviders.md) API method to set the IdP parameters on the cluster side. Pass the following in the request:
-      * The cluster ID in the `clusterId` parameter. You can request the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * A file with the provider's configuration.
+         {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
+      * The `SAML` value, in the `type` parameter.
+      * Provider name, in the `name` parameter.
+      * The `true` value, in the `enabled` parameter.
+      * Provider description, in the `description` parameter.
+      * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
+      * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
+      * URI of the SP Entity ID (Audience URI) parameter, in the `spEntityId` application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+      * URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), in the `kibanaUrl` parameter. Same as the `spEntityId`.
+      * Format of `nameid` parameter, for example, `nameid:persistent`, in the `attributePrincipal` parameter. Same as the **Name ID Format** of the IdP.
 
 {% endlist %}
+
+{% note info %}
+
+Learn more about SAML attributes in the [Elasticsearch documentation]({{ links.es.docs }}/elasticsearch/reference/6.8/saml-guide-authentication.html#saml-user-properties).
+
+{% endnote %}
 
 ## Configure roles for SSO {#roles-sso}
 
@@ -216,7 +210,7 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Kibana** tab.
    1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
    1. Open **Management → Stack Management → Security → Role Mappings**.
@@ -264,7 +258,7 @@ To log in to the {{ mes-name }} cluster using the new user's credentials:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster you need and select the **Kibana** tab.
    1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
    1. Enter the **Username** and **Password**.

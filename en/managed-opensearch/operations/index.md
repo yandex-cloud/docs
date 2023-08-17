@@ -1,15 +1,25 @@
-# Step-by-step instructions for {{ mos-name }}
+# Step-by-step guides for {{ mos-name }}
 
-* [Information about existing clusters](cluster-list.md)
-* [Creating clusters](cluster-create.md)
-* [Connecting to clusters](connect.md)
-* [Stopping and starting clusters](cluster-stop.md)
-* [Changing cluster settings](update.md)
-* [Setting up access to {{ objstorage-name }}](s3-access.md)
-* [Managing host groups](host-groups.md)
+## Clusters
+
+* [{#T}](cluster-list.md)
+* [{#T}](cluster-create.md)
+* [{#T}](connect.md)
+* [{#T}](saml-authentication.md)
+* [{#T}](update.md)
+* [{#T}](cluster-version-update.md)
 * [{#T}](plugins.md)
+* [{#T}](cluster-stop.md)
+* [{#T}](host-groups.md)
+* [{#T}](cluster-backups.md)
+* [{#T}](s3-access.md)
+* [{#T}](cluster-delete.md)
+
+## {{ OS }} users
+
 * [{#T}](cluster-users.md)
-* [Managing backups](cluster-backups.md)
-* [Viewing cluster logs](cluster-logs.md)
-* [Deleting clusters](cluster-delete.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+
+## Logs and monitoring
+
+* [{#T}](cluster-logs.md)
+* [{#T}](monitoring.md)

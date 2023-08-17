@@ -34,11 +34,11 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-   1. (optional) Under **Repeat request settings**:
+   1. (Optional) Under **Repeat request settings**:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -127,7 +127,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
       }
       ```
 
-      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 
@@ -150,7 +150,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>

@@ -41,7 +41,7 @@ To support your own domain:
       |--------------|-------|-----|-------------------------------|
       | example.com. | ANAME | 600 | example.com.{{ s3-web-host }} |
 
-      [ANAME](../../../dns/concepts/resource-record.md#aname) records allow second-level domains to be used for hosting and, unlike [CNAME](../../../dns/concepts/resource-record.md#cname) records, do not restrict the use of other record types in the same zone with them.
+      [ANAME](../../../dns/concepts/resource-record.md#aname) records allow second-level domains to be used for hosting. Unlike [CNAME](../../../dns/concepts/resource-record.md#cname) records, they do not restrict the use of other record types in the same zone.
 
       {% endcut %}
 
@@ -69,6 +69,7 @@ To support your own domain:
    1. {% include [create-cert.md](../../../_includes/storage/create-cert.md) %}
    1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
 
+   {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
-

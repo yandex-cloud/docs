@@ -16,17 +16,17 @@
 
 1. Откройте страницу.
 
-1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/move-page.svg) **Переместить**.
+1. В правом верхнем углу страницы нажмите ![](../../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../../_assets/wiki/svg/move-page.svg) **{{ ui-key.yacloud.common.move }}**.
 
 1. Задайте новый адрес страницы.
 
-1. Нажмите кнопку **Переместить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.move }}**.
 
 ## Переместить страницу на панели навигации {#move-with-navigation}
 
 1. Слева на [панели навигации {{ wiki-name }}](../navigation.md) нажмите на страницу и перетащите ее в другой раздел.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 #### См. также
 

@@ -47,6 +47,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 ## Adding a user {#adduser}
 
+{% include [public-privilege](../../_includes/mdb/mpg/public-privilege.md) %}
+
 {% list tabs %}
 
 - Management console
@@ -96,7 +98,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
    1. Add the `yandex_mdb_postgresql_user` resource:
 
@@ -185,7 +187,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
    1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
    1. Change the value of the `password` field:
@@ -294,7 +296,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
    1. To grant the user permissions to access certain databases:
       1. Find the `yandex_mdb_postgresql_user` resource of the desired user.

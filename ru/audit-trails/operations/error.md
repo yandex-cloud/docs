@@ -63,6 +63,20 @@
 1. [Создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый поток данных.
 1. Измените настройки трейла, указав в блоке **Назначение** новый поток данных.
 
+###  DATABASE_INACTIVE {#database-inactive}
+
+[Убедитесь](../../ydb/operations/manage-databases.md#list-db), что база данных {{ ydb-short-name }} находится в статусе `Running`. При необходимости запустите БД, например, с помощью [консоли управления]({{ link-console-main }}):
+1. В списке сервисов выберите **{{ ydb-short-name }}**.
+1. Справа от имени нужной БД нажмите значок ![image](../../_assets/options.svg) и выберите **Запустить**.
+
+###  DATABASE_NOT_FOUND {#database-not-found}
+
+[Убедитесь](../../ydb/operations/manage-databases.md#list-db), что база данных {{ ydb-short-name }} находится в статусе `Running`, а привязанный к ней [поток данных](../../data-streams/operations/manage-streams.md#list-data-streams) — в статусе `Active`. Если поток данных или его БД {{ ydb-short-name }} были удалены, создайте [новый поток](../../data-streams/operations/manage-streams.md#create-data-stream) данных или [новую БД](../../ydb/operations/manage-databases.md#serverless).
+
+### UNKNOWN или INTERNAL_ERROR {#database-internal-error}
+
+Обратитесь в [поддержку]({{ link-console-support }}) за дополнительной информацией и рекомендациями.
+
 ## Лог-группа {{ cloud-logging-name }} {#cloud-logging}
 
 ### ACCESS_DENIED {#logging-access-denied}
@@ -74,6 +88,10 @@
 Проверьте лог-группу, которая указана в [настройках трейла](../concepts/trail.md#trail-settings). Если лог-группа была удалена:
 1. [Создайте](../../logging/operations/create-group.md) новую лог-группу.
 1. Измените настройки трейла, указав в блоке **Назначение** новую лог-группу.
+
+### UNKNOWN или INTERNAL_ERROR {#logging-internal-error}
+
+Обратитесь в [поддержку]({{ link-console-support }}) за дополнительной информацией и рекомендациями.
 
 
 ## См. также

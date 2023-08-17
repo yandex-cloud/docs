@@ -7,22 +7,22 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Управление инстансом {{ GL }}
-        items:
-          - name: Получение информации об инстансах
-            href: operations/instance/instance-list.md
-          - name: Создание инстанса
-            href: operations/instance/instance-create.md
-          - name: Остановка и запуск инстанса
-            href: operations/instance/instance-stop.md
-          - name: Изменение настроек инстанса
-            href: operations/instance/instance-update.md
-          - name: Управление резервными копиями
-            href: operations/instance/instance-backups.md
-          - name: Удаление инстанса
-            href: operations/instance/instance-delete.md
+      - name: Получение информации об инстансах
+        href: operations/instance/instance-list.md
+      - name: Создание инстанса
+        href: operations/instance/instance-create.md
       - name: Подключение к инстансу
         href: operations/connect.md
+      - name: Остановка и запуск инстанса
+        href: operations/instance/instance-stop.md
+      - name: Изменение настроек инстанса
+        href: operations/instance/instance-update.md
+      - name: Управление резервными копиями
+        href: operations/instance/instance-backups.md
+      - name: Удаление инстанса
+        href: operations/instance/instance-delete.md
+      - name: Настройка OmniAuth
+        href: operations/omniauth.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -37,6 +37,8 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Построение пайплайна CI/CD с использованием serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: Хранение Docker-образов в {{ container-registry-full-name }}
+        href: tutorials/image-storage.md
       - name: Тестирование приложений с помощью {{ GL }}
         href: tutorials/application-testing-with-gitlab.md
       - name: Создание тестовых виртуальных машин через {{ GL }} CI
@@ -55,6 +57,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/index.md
   - name: Обучающие курсы
     href: training.md
 base: ru/managed-gitlab

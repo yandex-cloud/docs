@@ -7,15 +7,15 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS, в которой требуется создать запись. 
-  1. Выберите сервис **{{ dns-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону из списка.
-  1. Нажмите кнопку **Создать запись**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
-     1. В поле **Имя** укажите доменное имя записи.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите доменное имя записи.
      1. Выберите [тип записи](../concepts/resource-record.md#rr-types) в выпадающем списке.
-     1. В поле **TTL (в секундах)** укажите время жизни записи или выберите из предложенных.
-     1. Введите **Значение** записи.
-  1. Нажмите кнопку **Создать**.
+     1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни записи или выберите из предложенных.
+     1. Введите **{{ ui-key.yacloud.dns.label_records }}** записи.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -118,6 +118,10 @@
      ```
      yc dns zone list-records <имя зоны DNS>
      ```
+
+- API
+
+  Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 
 {% endlist %}
 

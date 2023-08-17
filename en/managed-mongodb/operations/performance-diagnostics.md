@@ -5,21 +5,21 @@
 {% note warning %}
 
 
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+This feature is in the [Preview stage](../../overview/concepts/launch-stages.md).
 
 
 {% endnote %}
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-To use the diagnostics tool, enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default). By default, statistics are only collected for operations longer than 300 ms. If necessary, [update the DBMS settings](update.md#change-mongod-config) to change the time threshold for collecting slow operation statistics in the [`slowOpThreshold`](../concepts/settings-list.md#setting-slow-op-threshold) parameter.
+To use the diagnostics tool, enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default). By default, statistics are only collected for queries longer than 300 ms. If required, [update the DBMS settings](update.md#change-mongod-config) to change the time threshold for collecting slow query statistics in the [`slowOpThreshold` parameter](../concepts/settings-list.md#setting-slow-op-threshold).
 
 ## Getting profiling data {#get-profiling}
 
-For read/write operations and other DB queries (such as `aggregate`), you can view the data collected by the [{{ MG }} profiler](tools.md#explore-profiler):
+For read/write and some other DB queries (such as `aggregate`), you can view the data collected by the [{{ MG }} profiler](tools.md#explore-profiler):
 
 - A chart with metrics for the selected data segment. You can hide or show individual categories in the chart by clicking on the category name in the chart legend.
-- A table with statistics by operation type.
+- Table with statistics by query type.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Profiling**.
@@ -34,16 +34,16 @@ For read/write operations and other DB queries (such as `aggregate`), you can vi
       * `USER`: By user.
    * Data aggregation parameter:
       * `COUNT`: The number of queries.
-      * `DOCUMENTS_EXAMINED`: The number of documents in the collection scanned during the operation.
+      * `DOCUMENTS_EXAMINED`: Number of documents in the collection scanned during the query.
       * `DOCUMENTS_RETURNED`: The number of returned documents.
       * `DURATION`: Query execution duration.
-      * `KEYS_EXAMINED`: The number of index keys scanned during the operation.
-      * `RESPONSE_LENGTH`: The size of the document returned as the operation output.
+      * `KEYS_EXAMINED`: Number of index keys scanned during the query.
+      * `RESPONSE_LENGTH`: Size of the document returned as the query result.
    * Aggregation function of the selected parameter:
       * `AVG`: Average value.
       * `SUM`: Sum.
 
-For more information about what data is output, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/database-profiler/#output-reference).
+For more information about what statistics you can get, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/database-profiler/#output-reference).
 
 ## Getting information about indexes {#get-indexes}
 

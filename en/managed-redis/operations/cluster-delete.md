@@ -19,9 +19,9 @@ description: "After you delete a Redis database cluster, its backups are kept fo
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to delete the cluster from.
-   1. Select **{{ mrd-name }}**.
-   1. In the line of the appropriate cluster, click ![image](../../_assets/options.svg) and select **Delete**.
-   1. In the window that opens, check **Delete cluster** and click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the line of the appropriate cluster, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+   1. In the window that opens, check **Delete cluster** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - CLI
 
@@ -45,7 +45,7 @@ description: "After you delete a Redis database cluster, its backups are kept fo
 
 - API
 
-   Use the [delete](../api-ref/Cluster/delete.md) API method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.
 
    You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
 

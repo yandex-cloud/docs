@@ -1,27 +1,23 @@
 # Moving a public IP address to a different folder
 
-You can move cloud resources between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
+You can move [public IP addresses](../concepts/address.md) between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
 {% list tabs %}
 
 - Management console
 
-   To move a [public IP address](../concepts/address.md) to a different folder:
-
    1. In the [management console]({{ link-console-main }}), go to the folder where the address is located.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click ![image](../../_assets/options.svg) in the row of the address to be moved and select **Move**.
-   1. Select the destination folder from the drop-down list.
-   1. Click **Move**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click ![image](../../_assets/options.svg) in the row of the address to be moved and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+   1. In the window that opens, select the destination folder.
+   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To move a [public IP address](../concepts/address.md) to a different folder:
 
    1. View a description of the CLI move address command:
 

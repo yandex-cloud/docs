@@ -80,8 +80,8 @@
 
 - API
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings). 
-  
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings).
+
   Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
 
   1. Узнайте идентификатор облака с помощью метода REST API [list](../../api-ref/Cloud/list.md):
@@ -90,9 +90,9 @@
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
       ```
-      
+
       Результат:
-      
+
       ```bash
       {
        "clouds": [
@@ -111,9 +111,9 @@
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
-      
+
       Результат:
-      
+
       ```bash
       {
        "id": "gfei8n54hmfhuk5nogse",
@@ -153,7 +153,7 @@
       * `member` — пользователь, которому нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
         * `userAccount:<идентификатор пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
         * `serviceAccount:<идентификатор сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-        * `federatedUser:<идентификатор федеративного аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/users-get.md).
+        * `federatedUser:<идентификатор федеративного аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/operations/users-get.md).
 
       Пример структуры конфигурационного файла:
 
@@ -171,33 +171,33 @@
 
 
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
-      
+
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
-     
+
       ```bash
       Success! The configuration is valid.
       ```
 
   1. Выполните команду:
-      
+
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       После этого будут назначены права доступа к облаку.
@@ -212,7 +212,7 @@
 - Консоль управления
 
   {% include [set-access-binding-multiple-users-cloud-console](../../../_includes/resource-manager/set-access-binding-multiple-users-cloud-console.md) %}
-  
+
 - CLI
 
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
@@ -281,6 +281,7 @@
 
   {% endnote %}
 
+
   ```bash
   curl -X POST \
       -H 'Content-Type: application/json' \
@@ -320,30 +321,30 @@
 
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
-      
+
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
-     
+
       ```bash
       Success! The configuration is valid.
       ```
 
   1. Выполните команду:
-      
+
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       После этого будут назначены права доступа к облаку.
@@ -353,7 +354,7 @@
 
 ## Доступ к облаку для сервисного аккаунта {#access-to-sa}
 
-Сервисному аккаунту можно назначать роли только на облако, которому он принадлежит.
+Сервисному аккаунту можно [назначать](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) роли на любые облака и каталоги в рамках организации, к которой он принадлежит.
 
 Разрешите сервисному аккаунту `test-sa` управлять облаком `my-cloud` и ресурсами в нем:
 
@@ -438,7 +439,7 @@
 
 - {{ TF }}
 
-  1. Назначьте роль `editor` сервисному аккаунту: 
+  1. Назначьте роль `editor` сервисному аккаунту:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -454,30 +455,30 @@
 
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
-      
+
       ```bash
       terraform validate
       ```
-     
+
       Если конфигурация является корректной, появится сообщение:
-     
+
       ```bash
       Success! The configuration is valid.
       ```
 
   1. Выполните команду:
-      
+
       ```bash
       terraform plan
       ```
-  
+
       В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash
       terraform apply
       ```
-     
+
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       После этого будут назначены права доступа к облаку.

@@ -19,6 +19,7 @@ description: "In this article, you will learn how to work with {{ objstorage-ful
 * [{#T}](buckets/edit-acl.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
+* [{#T}](buckets/tagging.md)
 
 ## Objects {#objects}
 
@@ -26,12 +27,14 @@ description: "In this article, you will learn how to work with {{ objstorage-ful
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
 * [{#T}](objects/restore-object-version.md)
+* [{#T}](objects/rename-move.md)
 * [{#T}](objects/link-for-download.md)
 * [{#T}](objects/edit-object-lock.md)
 * [{#T}](objects/delete.md)
 * [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
+* [{#T}](objects/tagging.md)
 
 ## Hosting static sites {#hosting}
 

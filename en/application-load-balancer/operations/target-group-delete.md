@@ -41,7 +41,7 @@ To delete a target group:
    1. Run this command:
 
       ```bash
-      yc alb target-group delete <target group name or ID>
+      yc alb target-group delete <target_group_name_or_ID>
       ```
 
       To check the deletion, get a list of target groups by running the command:
@@ -61,21 +61,21 @@ To delete a target group:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {
-        name           = "<target group name>"
+        name           = "<target_group_name>"
 
         target {
-          subnet_id    = "<subnet ID>"
-          ip_address   = "<internal IP address of VM 1>"
+          subnet_id    = "<subnet_ID>"
+          ip_address   = "<VM_1_internal_IP_address>"
         }
 
         target {
-          subnet_id    = "<subnet ID>"
-          ip_address   = "<internal IP address of VM 2>"
+          subnet_id    = "<subnet_ID>"
+          ip_address   = "<VM_2_internal_IP_address>"
         }
 
         target {
-          subnet_id    = "<subnet ID>"
-          ip_address   = "<internal IP address of VM 3>"
+          subnet_id    = "<subnet_ID>"
+          ip_address   = "<VM_3_internal_IP_address>"
         }
       }
       ```

@@ -9,7 +9,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
-  1. На странице **Обзор** отобразится **Идентификатор** сервисного аккаунта — строка вида `aje9sb6....ffd2uv0i9`.
+  1. На странице **Обзор** отобразится **Идентификатор** сервисного аккаунта — строка вида `aje9sb6ffd2u********`.
 
 - CLI
 
@@ -26,7 +26,7 @@
   Результат:
 
   ```
-  id: aje6o61dvog2h6g9a33s
+  id: aje6o61dvog2********
   ...
   ```
 
@@ -42,8 +42,8 @@
   +----------------------+------------------+-------------------------------+
   |          ID          |       NAME       |          DESCRIPTION          |
   +----------------------+------------------+-------------------------------+
-  | aje6o61dvog2h6g9a33s | my-robot         |                               |
-  | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+  | aje6o61dvog2******** | my-robot         |                               |
+  | aje9sda1ufvq******** | account_name     | account_description           |
   +----------------------+------------------+-------------------------------+
   ```
 
@@ -53,7 +53,7 @@
   1. Получите информацию о сервисных аккаунтах в каталоге с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md):
 
       ```bash
-      export FOLDER_ID=b1gvmob95yysaplct532
+      export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -61,8 +61,8 @@
       {
        "serviceAccounts": [
         {
-         "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob95yysaplct532",
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "my-robot",
          "description": "my description"

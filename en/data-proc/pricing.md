@@ -24,6 +24,8 @@ The total cost of using {{ dataproc-name }} includes:
 
 Charges are made as part of the {{ compute-name }} service per hour of host virtual machine time based on the [{{ compute-full-name }} computing resource pricing policy](../compute/pricing.md#prices) with a surcharge for using managed {{ dataproc-name }}.
 
+For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
+
 ### Disk space usage {#rules-storage}
 
 The amount of storage requested for each cluster host is charged under {{ compute-name }} based on [disk space pricing](../compute/pricing.md#prices-storage).
@@ -100,6 +102,10 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
 {% endlist %}
 
+
+## {{ metastore-full-name }} cluster pricing
+
+This functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
 
 ## Pricing {#prices}
 

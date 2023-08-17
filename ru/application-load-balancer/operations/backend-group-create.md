@@ -10,14 +10,14 @@
   1. В списке сервисов выберите **{{ alb-name }}**.
   1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
   1. Нажмите кнопку **Создать группу бэкендов**.
-  1. Введите имя группы бэкендов: `test-backend-group`.
+  1. Введите имя группы бэкендов.
   1. Выберите [тип группы бэкендов](../concepts/backend-group.md#group-types):
      
       * `HTTP` — для HTTP- или HTTPS-трафика.
       * `gRPC` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
       * `Stream` — для TCP-трафика без шифрования или с TLS-шифрованием.
 
-  1. (опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `HTTP` или `gRPC` доступны следующие режимы привязки:
+  1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `HTTP` или `gRPC` доступны следующие режимы привязки:
       
      * `По IP-адресу`.
      * `По HTTP-заголовку`.
@@ -41,7 +41,7 @@
 
   {% note info %}
 
-  Создать группу бэкендов типа gRPC можно в [консоли управления]({{ link-console-main }}) или с помощью {{ TF }}.
+  Создать группу бэкендов типа `gRPC` можно в [консоли управления]({{ link-console-main }}) или с помощью {{ TF }}.
 
   {% endnote %}
 
@@ -52,7 +52,7 @@
 
   1. Создайте группу бэкендов, выполнив команду:
      ```
-     yc alb backend-group create <имя группы бэкендов>
+     yc alb backend-group create <имя_группы_бэкендов>
      ```
 
      Результат:
@@ -64,22 +64,22 @@
      created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
-  1. Добавьте в группу бэкенд и проверку состояния. Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — HTTP или Stream.
+  1. Добавьте в группу бэкенд и проверку состояния. Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — `HTTP`, `gRPC` или `Stream`.
 
      {% cut "HTTP-бэкенд" %}    
 
      Выполните команду:
 
-     ```
+     ```bash
      yc alb backend-group add-http-backend \
-       --backend-group-name <имя бэкенд группы> \
-       --name <имя добавляемого бэкенда> \
-       --weight <вес бэкенда> \
-       --port <порт бэкенда> \
-       --target-group-id=<идентификатор целевой группы> \
+       --backend-group-name <имя_бэкенд_группы> \
+       --name <имя_добавляемого_бэкенда> \
+       --weight <вес_бэкенда> \
+       --port <порт_бэкенда> \
+       --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
        --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-     timeout=10s,interval=2s,host=your-host.com,path=/ping
+     timeout=10s,interval=2s,host=<адрес_хоста>,path=<путь>
      ```
 
      Где:
@@ -96,20 +96,20 @@
 
      Результат:
 
-     ```
-     id: a5dqkr2mk3rr799f1npa
-     name: test-backend-group
-     folder_id: aoe197919j8elpeg1lkp
+     ```text
+     id: a5dqkr2mk3rr********
+     name: <имя_группы_бэкендов>
+     folder_id: aoe197919j8e********
      http:
        backends:
-       - name: backend1
+       - name: <имя_бэкенда>
          backend_weight: "1"
          load_balancing_config:
            panic_threshold: "90"
          port: "80"
          target_groups:
            target_group_ids:
-           - a5d2iap3nue9s3anblu6
+           - a5d2iap3nue9********
          healthchecks:
          - timeout: 10s
            interval: 2s
@@ -117,9 +117,63 @@
            unhealthy_threshold: "15"
            healthcheck_port: "80"
            http:
-             host: your-host.com
-             path: /ping
+             host: <адрес_хоста>
+             path: <путь>
      created_at: "2021-02-11T20:46:21.688940670Z"
+     ```
+
+     {% endcut %}
+
+     {% cut "gRPC-бэкенд" %}
+
+     ```bash
+     yc alb backend-group add-grpc-backend \
+       --backend-group-name <имя_бэкенд_группы> \
+       --name <имя_добавляемого_бэкенда> \
+       --weight <вес_бэкенда> \
+       --port <порт_бэкенда> \
+       --target-group-id=<идентификатор_целевой_группы> \
+       --panic-threshold 90 \
+       --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+     timeout=10s,interval=2s,service-name=<имя_gRPC-сервиса>
+     ``` 
+
+     Где:
+
+     * `--panic-threshold` — порог для режима паники.
+     * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
+       * `port` — порт.
+       * `healthy-threshold` — порог работоспособности.
+       * `unhealthy-threshold` — порог неработоспособности.
+       * `timeout` — таймаут.
+       * `interval` — интервал.
+       * `service-name` — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
+
+     Результат:
+
+     ```text
+     id: a5dqkr2mk3rr********
+     name: <имя_группы_бэкендов>
+     folder_id: aoe197919j8e********
+     grpc:
+       backends:
+         - name: <имя_бэкенда>
+           backend_weight: "12"
+           load_balancing_config:
+             panic_threshold: "90"
+           port: "80"
+           target_groups:
+             target_group_ids:
+               - a5d2iap3nue9********
+           healthchecks:
+             - timeout: 10s
+               interval: 2s
+               healthy_threshold: "10"
+               unhealthy_threshold: "15"
+               healthcheck_port: "80"
+               grpc:
+                 service_name: <имя_gRPC_сервиса>
+     created_at: "2023-06-17T13:04:08.567141292Z"
      ```
 
      {% endcut %}
@@ -128,53 +182,55 @@
 
      Выполните команду:
 
-     ```
+     ```bash
      yc alb backend-group add-stream-backend \
-       --backend-group-name <имя бэкенд группы> \
-       --name <имя добавляемого бэкенда> \
-       --weight <вес бэкенда> \
-       --port <порт бэкенда> \
-       --target-group-id=<идентификатор целевой группы> \
+       --backend-group-name <имя_бэкенд_группы> \
+       --name <имя_добавляемого_бэкенда> \
+       --weight <вес_бэкенда> \
+       --port <порт_бэкенда> \
+       --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
-       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-     timeout=10s,interval=2s,host=your-host.com,path=/ping
+       --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+     timeout=10s,interval=2s,send-text=<данные_к_эндпоинту>,receive-text=<данные_от_эндпоинта>
      ```
 
      Где:
 
      * `--panic-threshold` — порог для режима паники.
-     * `--http-healthcheck` — параметры проверки состояния ресурсов:
+     * `--stream-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
        * `healthy-threshold` — порог работоспособности.
        * `unhealthy-threshold` — порог неработоспособности.
        * `timeout` — таймаут.
        * `interval` — интервал.
-       * `host` — адрес хоста.
-       * `path` — путь.
+       * `send-text` — данные, которые отправляются на эндпоинт для проверки состояния.
+       * `receive-text` — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
 
      Результат:
 
-     ```
-     id: ds77tero4f5h46l4e2gl
-     name: test-backend-group
-     folder_id: b1gu6g9ielh690at5bm7
+     ```text
+     id: ds77tero4f5********
+     name: <имя_группы_бэкендов>
+     folder_id: b1gu6g9ielh6********
      stream:
        backends:
-       - name: stream-backend
+       - name: <имя_бэкенда>
      backend_weight: "1"
          port: "80"
          target_groups:
            target_group_ids:
-           - ds7eof3r2cte9u069p97
+           - ds7eof3r2cte********
          healthchecks:
-         - timeout: 10s
-           interval: 2s
-           healthy_threshold: "10"
-           unhealthy_threshold: "15"
-           healthcheck_port: "80"
-           http:
-             host: your-host.com
-             path: /ping
+           - timeout: 10s
+             interval: 2s
+             healthy_threshold: "10"
+             unhealthy_threshold: "15"
+             healthcheck_port: "80"
+             stream:
+               send:
+                 text: <данные_к_эндпоинту>
+               receive:
+                 text: <данные_от_эндпоинта>
      created_at: "2022-04-06T09:17:57.104324513Z"
      ```
 
@@ -226,9 +282,9 @@
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип Stream (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
+         * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
       
-       * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
+       * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
         
       Параметры бэкенда:
       * `name` — имя бэкенда.
@@ -242,7 +298,7 @@
         * `interval` — интервал.
         * `healthy_threshold` — порог работоспособности.
         * `unhealthy_threshold` — порог неработоспособности.
-        * `http_healthcheck` — параметры проверки состояния типа HTTP: 
+        * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
           * `path` — путь.
 
       Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).

@@ -21,7 +21,7 @@
 | **Сценарии использования** | Телефонные ассистенты и роботы </br> Виртуальные ассистенты |
 | **Входные данные** | Голос в режиме реального времени |
 | **Принцип работы** | Обмен сообщениями с сервером в рамках одного соединения |
-| **Поддерживаемые API** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/) |
+| **Поддерживаемые API** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/index.md) |
 | **Максимальная длительность аудиоданных** | {{ stt-streaming-audioLength }} |
 | **Максимальный объем переданных данных** | {{ stt-streaming-fileSize }} |
 | **Количество распознаваемых каналов** | 1 |
@@ -36,7 +36,13 @@
 
 Чтобы приложение могло обращаться к сервису, склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) и сгенерируйте код интерфейса клиента для используемого языка программирования из файла спецификации [API v2](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) или [API v3](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v3/stt_service.proto).
 
-Примеры клиентского приложения см. [{#T}](api/streaming-examples-v3.md) и [{#T}](api/streaming-examples.md). Помимо этого, в [документации gRPC](https://grpc.io/docs/tutorials/) вы можете найти подробные инструкции по генерации интерфейсов и реализации клиентских приложений для различных языков программирования.
+Примеры клиентского приложения:
+
+* [{#T}](api/streaming-examples-v3.md).
+* [{#T}](api/microphone-streaming.md).
+* [{#T}](api/streaming-examples.md).
+
+Помимо этого в [документации gRPC](https://grpc.io/docs/tutorials/) вы можете найти подробные инструкции по генерации интерфейсов и реализации клиентских приложений для различных языков программирования.
 
 ### Авторизация в сервисе {#auth}
 
@@ -48,9 +54,13 @@
 
 ### Запрос распознавания {#requests}
 
+
 Для распознавания речи приложение сначала должно отправить сообщение с настройками распознавания:
+
 * для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) с типом `session_options`.
 * для API v2 — сообщение `StreamingRecognitionRequest` с типом [RecognitionConfig](api/streaming-api#specification-msg).
+
+
 
 После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2. При отправке сообщений учитывайте следующие рекомендации:
 

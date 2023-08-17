@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/RegistryData/publish.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/RegistryData/publish.md
 ---
 
 # IoT Core Service, REST: RegistryData.publish
@@ -10,7 +10,7 @@ Publishes message on behalf of specified registry
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/publish
+POST https://{{ api-host-iot-data }}/iot-devices/v1/registries/{registryId}/publish
 ```
  
 ## Path parameters {#path_params}

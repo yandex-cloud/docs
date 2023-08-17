@@ -9,6 +9,7 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
+* [{#T}](community/manage-community-labels.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
@@ -18,6 +19,7 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](projects/create.md)
 * [{#T}](projects/add-user.md)
+* [{#T}](projects/manage-project-labels.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/storage-resize.md)
 * [{#T}](projects/update.md)
@@ -28,9 +30,11 @@ description: "Страница содержит все инструкции дл
 
 * [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/gpu-performance-check.md)
+* [{#T}](projects/get-notebook-cell-ids.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/snippets.md)
+* [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
 * [{#T}](user-images-cell.md)
 
@@ -44,11 +48,13 @@ description: "Страница содержит все инструкции дл
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
+* [{#T}](data/s3-connectors.md)
 * [{#T}](data/connect-to-s3.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
 * [{#T}](data/connect-to-google-drive.md)
+* [{#T}](data/connect-to-ydb.md)
 
 ## Развертывание эксплуатации моделей {#deploy}
 
@@ -71,3 +77,4 @@ description: "Страница содержит все инструкции дл
 ## Дополнительные возможности {{ ml-platform-name }} {#additional-feature}
 
 * [{#T}](migration.md)
+

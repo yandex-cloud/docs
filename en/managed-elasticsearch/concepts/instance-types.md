@@ -8,6 +8,8 @@ keywords:
 
 # {{ ES }} host classes
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster. For more information about roles, see [{#T}](./index.md).
 
 The host class with the [Data node role](./hosts-roles.md) affects the list of available [disk types](./storage.md):
@@ -18,7 +20,7 @@ The host class with the [Data node role](./hosts-roles.md) affects the list of a
 Only network SSD storage (`network-ssd`) is available for hosts with the Master node role.
 
 
-The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 
 ## Available host classes {#available-flavors}

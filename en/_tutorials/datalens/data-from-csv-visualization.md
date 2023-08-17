@@ -79,7 +79,7 @@ Create a dataset based on the **Files** [connection](../../datalens/concepts/con
 
       ![image](../../_assets/datalens/solution-01/09-Weght-AVG.png)
 
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-01/10-Save-Dataset.png)
 
@@ -161,7 +161,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
       ![image](../../_assets/datalens/solution-01/21-Chart-Color-Set2.png)
 
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 ## Step 5. Create a dashboard {#step5}
 
@@ -200,7 +200,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 ## Step 7. Add selectors to the dashboard {#step7}
 
-Add [selectors](../../datalens/concepts/dashboard.md#selector) to be able to filter superheroes by race (the **Race** field) and publisher (the **Publisher** field).
+Add [selectors](../../datalens/dashboard/selector.md) to be able to filter superheroes by race (the **Race** field) and publisher (the **Publisher** field).
 
 1. Click **Add**.
 1. Choose **Selector**.

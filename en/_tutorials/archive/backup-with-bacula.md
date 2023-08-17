@@ -10,7 +10,7 @@ Bacula consists of several components:
 * **Bacula Console**: A management console for interacting with Bacula Director.
 
 To set up backup and recovery via Bacula:
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a VM](#create-vm).
 1. [Set up the AWS CLI](#configure-aws).
 1. [Install Bacula and additional components](#install-bacula).
@@ -20,9 +20,9 @@ To set up backup and recovery via Bacula:
 1. [Create a backup](#run-backup).
 1. [Recover the files](#run-restore).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -31,9 +31,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost for backup and recovery includes:
 
-* A fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Create a bucket {#create-bucket}
@@ -46,7 +46,7 @@ To create a bucket for backups in {{ objstorage-name }}:
 
    1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
    1. On the folder page, click **Create resource** and select **Bucket**.
-   1. In the **Name** field, enter a name for the bucket: `bacula-bucket`.
+   1. In the **Name** field, enter a name for the bucket.
    1. In the **Bucket access** field, select **Restricted**.
    1. In the **Storage class** field, select **Cold**.
    1. Click **Create bucket**.
@@ -80,13 +80,13 @@ To create a VM:
       * **Guaranteed vCPU share**: 20%.
       * **vCPU**: 2.
       * **RAM**: 2 GB.
-   1. Under **Network settings**, select the network and subnet to connect the VM to. If there aren't any networks, create one:
+   1. Under **Network settings**, select the network and subnet to connect the VM to. If there are no networks available, create one:
       1. Select ![image](../../_assets/plus-sign.svg) **Create network**.
-      1. In the window that opens, enter the network name and folder to host the network.
+      1. In the window that opens, enter the network name and specify the folder to host the network.
       1. (optional) To automatically create subnets, select the **Create subnets** option.
       1. Click **Create**.
 
-         Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting ![image](../../_assets/plus-sign.svg)**Add subnet**.
+         Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../../_assets/plus-sign.svg)**Add subnet**.
    1. Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
    1. Enter the VM access information:
       * Enter the username in the **Login** field.
@@ -262,10 +262,10 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
 
 ### Mount the bucket to the file system {#mount-bucket}
 
-1. Mount the bucket by the `s3fs` utility to upload backups to {{ objstorage-name }}:
+1. Use the `s3fs` utility to mount the bucket to upload backups to {{ objstorage-name }}. To do this, run the command below and specify the bucket name:
 
    ```bash
-   sudo s3fs bacula-bucket /tmp/bacula \
+   sudo s3fs <bucket_name> /tmp/bacula \
      -o url=https://{{ s3-storage-host }} \
      -o use_path_request_style \
      -o allow_other \
@@ -274,7 +274,6 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
    ```
 
    Where:
-   * `bacula-bucket`: The name of the bucket in {{ objstorage-name }}.
    * `uid=133`: The ID of the `bacula` user from the `/etc/passwd` file.
    * `gid=133`: The ID of the `bacula` group from the `/etc/passwd` file.
 
@@ -310,7 +309,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
       sudo ls -la /tmp/bacula | grep test.test
       ```
 
-   1. In the [management console]({{ link-console-main }}), on the folder page, select the **{{ objstorage-short-name }}** service and make sure that the `test.test` file is in the bucket `bacula-bucket`.
+   1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ objstorage-short-name }}** and make sure the `test.test` file is in the bucket.
    1. Delete the test file:
 
       ```bash
@@ -649,7 +648,7 @@ To make sure that the backup is complete:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ objstorage-short-name }}**.
-   1. Open the `bacula-bucket` bucket.
+   1. Open the bucket.
    1. Make sure it contains `MyVolume`.
 
 {% endlist %}
@@ -830,9 +829,9 @@ To make sure that the backup is complete:
    sudo rm -rfd /tmp/bacula-restores/*
    ```
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket:

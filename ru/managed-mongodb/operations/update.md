@@ -24,13 +24,13 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
 
   1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
 
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -115,7 +115,7 @@
 
   * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
-  {% [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -129,10 +129,10 @@
 
   Чтобы увеличить размер хранилища для кластера:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В разделе **Размер хранилища** укажите необходимое значение.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В разделе **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -213,10 +213,10 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Чтобы изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings), нажмите кнопку **Настроить** в блоке **Настройки СУБД**.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Чтобы изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings), нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -260,13 +260,13 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Измените дополнительные настройки кластера:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
      
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -401,11 +401,11 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
-    1. Выберите пункт **Переместить**.
+    1. Выберите пункт **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
-    1. Нажмите кнопку **Переместить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -452,10 +452,10 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-    1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 

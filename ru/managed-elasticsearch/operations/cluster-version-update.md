@@ -1,5 +1,7 @@
 # Изменение версии и редакции {{ ES }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 В кластере {{ mes-name }} вы можете [обновить версию](#version-update) и [изменить редакцию](#start-edition-update) {{ ES }}.
 
 Об обновлениях в рамках одной версии и обслуживании хостов см. в разделе [{#T}](../concepts/maintenance.md).
@@ -14,19 +16,19 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-    1. Выберите кластер и нажмите кнопку **Редактировать**.
-    1. Откройте список в поле **Версия**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Откройте список в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
 {% endlist %}
 
 ### Перед обновлением версии {#before-version-update}
 
-Перед обновлением версии {{ ES }} убедитесь, что это не нарушит работу ваших приложений:
+Убедитесь, что это не нарушит работу ваших приложений:
 
-* Просмотрите [историю изменений](https://www.elastic.co/downloads/past-releases#elasticsearch) {{ ES }}, чтобы узнать, как обновления могут повлиять на работу ваших приложений.
-* Попробуйте обновить версию на тестовом кластере. Тестовый кластер можно развернуть из резервной копии основного кластера.
-* [Создайте резервную копию](cluster-backups.md#create-backup) кластера непосредственно перед обновлением версии.
+1. Посмотрите в [истории изменений](https://www.elastic.co/downloads/past-releases#elasticsearch) {{ ES }}, как обновления могут повлиять на работу ваших приложений.
+1. Попробуйте обновить версию на тестовом кластере. Его можно развернуть из резервной копии основного кластера.
+1. [Создайте резервную копию](cluster-backups.md) основного кластера непосредственно перед обновлением версии.
 
 ### Обновить версию {{ ES }} {#start-version-update}
 
@@ -34,10 +36,10 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-    1. Выберите кластер и нажмите кнопку **Редактировать**.
-    1. В поле **Версия** выберите нужную версию {{ ES }}.
-    1. Нажмите кнопку **Сохранить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ ES }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -57,7 +59,7 @@
         {{ yc-mdb-es }} cluster get <имя или идентификатор кластера>
         ```
 
-    1. Запустите изменение версии:
+    1. Обновите версию:
 
         ```bash
         {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> --version <версия {{ ES }}>
@@ -121,10 +123,10 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-    1. Выберите кластер и нажмите кнопку **Редактировать**.
-    1. В поле **Редакция** выберите нужную редакцию {{ ES }}: `Basic` или `Platinum`.
-    1. Нажмите кнопку **Сохранить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В поле **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** выберите нужную редакцию {{ ES }}: `Basic` или `Platinum`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -144,7 +146,7 @@
         {{ yc-mdb-es }} cluster get <имя или идентификатор кластера>
         ```
 
-    1. Запустите изменение редакции:
+    1. Измените редакцию:
 
         ```bash
         {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
@@ -178,7 +180,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_elasticsearch_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_elasticsearch_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 

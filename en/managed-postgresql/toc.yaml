@@ -7,26 +7,40 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to a database
-        href: operations/connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: SQL queries in the management console
-        href: operations/web-sql-query.md
-      - name: Updating the PostgreSQL version
-        href: operations/cluster-version-update.md
-      - name: Changing cluster and database settings
-        href: operations/update.md
-      - name: Connecting to DataLens
-        href: operations/datalens-connect.md
-      - name: Managing PostgreSQL hosts
-        href: operations/hosts.md
-      - name: Managing databases
-        href: operations/databases.md
+      - name: Clusters
+        items:
+          - name: Getting information on existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing {{ PG }} cluster settings
+            href: operations/update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing PostgreSQL hosts
+            href: operations/hosts.md
+          - name: Managing replication slots
+            href: operations/replication-slots.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Updating the PostgreSQL version
+            href: operations/cluster-version-update.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Databases
+        items:
+          - name: Connecting to a database
+            href: operations/connect.md
+          - name: SQL queries in the management console
+            href: operations/web-sql-query.md
+          - name: Managing databases
+            href: operations/databases.md
+      - name: '{{ PG }} users'
+        items:
+          - name: Managing database users
+            href: operations/cluster-users.md
+          - name: Assigning privileges and roles
+            href: operations/grant.md
       - name: PostgreSQL extensions
         items:
           - name: Managing extensions
@@ -37,22 +51,16 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
-      - name: Managing database users
-        href: operations/cluster-users.md
-      - name: Assigning privileges and roles
-        href: operations/grant.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Performance diagnostics
-        href: operations/performance-diagnostics.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
-      - name: Managing replication slots
-        href: operations/replication-slots.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Performance diagnostics
+            href: operations/performance-diagnostics.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
+          - name: Connecting to DataLens
+            href: operations/datalens-connect.md
   - name: Tutorials
     items:
       - name: All use cases
@@ -73,6 +81,8 @@ items:
         href: tutorials/data-transfer-ydb.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
+      - name: '{{ PG }} change data capture and delivery to {{ DS }}'
+        href: tutorials/mpg-to-yds.md
       - name: >-
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
@@ -93,10 +103,6 @@ items:
               Migrating databases from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
-          - name: >-
-              Asynchronously replicating data from {{ mpg-full-name }} to {{
-              yds-full-name }}
-            href: tutorials/mpg-to-yds.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -109,6 +115,8 @@ items:
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
       - name: Network in {{ mpg-name }}
@@ -273,7 +281,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     items:

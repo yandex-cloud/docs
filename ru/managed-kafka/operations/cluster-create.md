@@ -4,8 +4,10 @@
 
 {% note info %}
 
+
 * Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
+
 
 {% endnote %}
 
@@ -46,7 +48,9 @@
   1. В блоке **Хранилище**:
      * Выберите тип диска.
 
+              
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
        Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.
      * Выберите объем хранилища, который будет использоваться для данных.
@@ -76,7 +80,7 @@
         При выборе количества хостов учтите следующие особенности:
 
          * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
-         * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mkf-name }}.
+                  * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mkf-name }}.
          * Для отказоустойчивости кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/index.md#fault-tolerance).
          * Добавление в кластер {{ mkf-name }} более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
 
@@ -117,9 +121,10 @@
        --environment <окружение: prestable или production> \
        --version <версия {{ KF }}: {{ versions.cli.str }}> \
        --network-name <имя сети> \
+       --subnet-ids <идентификаторы подсетей> \
        --brokers-count <количество брокеров в зоне> \
        --resource-preset <класс хоста> \
-       --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+       --disk-type <тип диска> \
        --disk-size <размер хранилища в гигабайтах> \
        --assign-public-ip <публичный доступ> \
        --security-group-ids <список идентификаторов групп безопасности> \
@@ -139,18 +144,14 @@
 
      ```bash
      {{ yc-mdb-kf }} cluster create \
-     ...
-       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                            `day=<день недели для типа weekly>,`
-                            `hour=<час дня для типа weekly>
+       ...
+       --maintenance-window type=<тип>[,day=<день недели>,hour=<час дня>]
      ```
 
      Где:
-     * `type` — тип технического обслуживания:
-       * `anytime` — в любое время.
-       * `weekly` — по расписанию.
-     * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
-     * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
+
+     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
   1. Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
      1. Задайте значение `true` для параметра `--unmanaged-topics` при создании кластера {{ mkf-name }}:
 
@@ -202,6 +203,7 @@
        environment         = "<окружение: PRESTABLE или PRODUCTION>"
        name                = "<имя кластера>"
        network_id          = "<идентификатор сети>"
+       subnet_ids          = ["<список идентификаторов подсетей>"]
        security_group_ids  = ["<список идентификаторов групп безопасности кластера>"]
        deletion_protection = <защита от удаления кластера: true или false>
 
@@ -216,6 +218,7 @@
              disk_type_id       = "<тип диска>"
              resource_preset_id = "<класс хоста>"
            }
+           kafka_config {}
          }
 
          zones = [
@@ -253,7 +256,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [IP-адреса](../../vpc/concepts/address.md) [ВМ](../../compute/concepts/vm.md). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -311,6 +314,7 @@
   * В окружении `production`.
   * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
+  * В подсети с идентификатором `{{ subnet-id }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С одним брокером.
@@ -328,6 +332,7 @@
     --environment production \
     --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
+    --subnet-ids {{ subnet-id }} \
     --zone-ids {{ region-id }}-a \
     --brokers-count 1 \
     --resource-preset {{ host-class }} \
@@ -368,6 +373,7 @@
     environment         = "PRODUCTION"
     name                = "mykf"
     network_id          = yandex_vpc_network.mynet.id
+    subnet_ids          = yandex_vpc_subnet.mysubnet.id
     security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
     deletion_protection = true
 
@@ -381,6 +387,7 @@
           disk_type_id       = "{{ disk-type-example }}"
           resource_preset_id = "{{ host-class }}"
         }
+        kafka_config {}
       }
 
       zones = [

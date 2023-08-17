@@ -2,9 +2,9 @@
 
 ## Available voices {#voices}
 
-{{ sk-hybrid-name }} offers [premium voices](../../speechkit/tts/voices.md#premium) and [Brand Voice](../../speechkit/tts/brand-voice/).
+{{ sk-hybrid-name }} offers [premium voices](../../{{ speechkit-slug }}/tts/voices.md#premium) and [Brand Voice](../../{{ speechkit-slug }}/tts/brand-voice/).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) on your server.
 

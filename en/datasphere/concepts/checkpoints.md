@@ -2,6 +2,12 @@
 
 A checkpoint in {{ ml-platform-name }} is a [saved state](save-state.md). It includes cell code, output, and variable values, as well as project storage data.
 
+{% note info %}
+
+Checkpoints are not available in [{{ dd }} mode](project.md#dedicated) as it does not allow saving a [state](save-state.md).
+
+{% endnote %}
+
 You can create a maximum of 10 regular checkpoints per project. If a project already has 10 checkpoints, older checkpoints are automatically erased when creating a new checkpoint. To protect a checkpoint against deletion, [pin](../operations/projects/checkpoints.md#pin) it. You can pin a maximum of 10 checkpoints.
 
 {% note info %}

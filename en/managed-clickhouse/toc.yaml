@@ -7,52 +7,62 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to a database
-        href: operations/connect.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: SQL queries in the management console
-        href: operations/web-sql-query.md
-      - name: Changing cluster and database settings
-        href: operations/update.md
-      - name: Configuring access to {{ objstorage-name }}
-        href: operations/s3-access.md
-      - name: Connecting external dictionaries
-        href: operations/dictionaries.md
-      - name: Adding your own geobase
-        href: operations/geobase.md
-      - name: Managing machine learning models
-        href: operations/ml-models.md
-      - name: Managing data format schemas
-        href: operations/format-schemas.md
-      - name: Connecting to {{ datalens-name }}
-        href: operations/datalens-connect.md
-      - name: Switching {{ CH }} versions
-        href: operations/cluster-version-update.md
-      - name: Managing {{ ZK }} hosts
-        href: operations/zk-hosts.md
-      - name: Managing {{ CH }} hosts
-        href: operations/hosts.md
-      - name: Managing databases
-        href: operations/databases.md
-      - name: Managing database users
-        href: operations/cluster-users.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Managing shards
-        href: operations/shards.md
-      - name: Managing shard groups
-        href: operations/shard-groups.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing cluster settings
+            href: operations/update.md
+          - name: Updating the {{ CH }} version
+            href: operations/cluster-version-update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing {{ ZK }} hosts
+            href: operations/zk-hosts.md
+          - name: Managing {{ CH }} hosts
+            href: operations/hosts.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Databases
+        items:
+          - name: Connecting to a database
+            href: operations/connect.md
+          - name: SQL queries in the management console
+            href: operations/web-sql-query.md
+          - name: Managing databases
+            href: operations/databases.md
+          - name: Managing database users
+            href: operations/cluster-users.md
+      - name: Storing and processing data
+        items:
+          - name: Adding your own geobase
+            href: operations/geobase.md
+          - name: Connecting external dictionaries
+            href: operations/dictionaries.md
+          - name: Managing data format schemas
+            href: operations/format-schemas.md
+          - name: Managing machine learning models
+            href: operations/ml-models.md
+          - name: Configuring access to {{ objstorage-name }}
+            href: operations/s3-access.md
+      - name: Sharding
+        items:
+          - name: Managing shards
+            href: operations/shards.md
+          - name: Managing shard groups
+            href: operations/shard-groups.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
+          - name: Connecting from {{ datalens-name }}
+            href: operations/datalens-connect.md
   - name: Tutorials
     items:
       - name: All use cases
@@ -99,6 +109,8 @@ items:
             items:
               - name: Before June 1, 2020
                 href: concepts/instance-types-archive/instance-types-01062020.md
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
       - name: Network in {{ mch-name }}
@@ -327,7 +339,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     items:

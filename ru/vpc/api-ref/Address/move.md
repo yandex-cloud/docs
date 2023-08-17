@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/api-ref/Address/move.md
+sourcePath: en/_api-ref/vpc/v1/api-ref/Address/move.md
 ---
 
 # Virtual Private Cloud API, REST: Address.move

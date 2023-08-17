@@ -35,7 +35,7 @@
 * плата за хранение данных и операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
 * плата за запросы к созданным API-шлюзам и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
 * плата за запросы к очередям и иcходящий трафик (см. [тарифы {{ message-queue-full-name }}](../../message-queue/pricing.md));
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы {{ sf-full-name }}](../../api-gateway/pricing.md)).
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
@@ -357,7 +357,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
     created_at: "2023-03-30T15:01:19Z"
     name: game-data
     status: PROVISIONING
-    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etn0ejcvmjm4********
+    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbao********/etn0ejcvmjm4********
     serverless_database:
       storage_size_limit: "53687091200"
     location_id: ru-central1
@@ -393,7 +393,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
     created_at: "2023-03-30T15:02:44Z"
     name: data-streams
     status: PROVISIONING
-    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etn16k0e1757********
+    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn16k0e1757********
     serverless_database:
       storage_size_limit: "53687091200"
     location_id: ru-central1
@@ -427,7 +427,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
    Результат:
    
    ```text
-   User SID: ajeien4d11sc0434n536@as
+   User SID: ajeien4d11sc043********
    
    Group SIDs:
    all-users@well-known
@@ -618,11 +618,11 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
    
    ```text
    access_key:
-       id: ajeibet32197n869t0lu
-       service_account_id: ajehr6tv2eoo3isdbv0e
+       id: ajeibet32197********
+       service_account_id: ajehr6tv2eoo********
        created_at: "2023-03-13T10:20:58.471421425Z"
-       key_id: YCASD3CT9mPCVFh3KRmB4JDx9
-   secret: YCNhBcdvfDdssIuBa-FDl6zZz0MSky6ujSjACX
+       key_id: YCASD3CT9mPCVFh3K********
+   secret: YCNhBcdvfDdssIuBa-FDl6zZz0MSky********
    ```
 
 1. Скопируйте значение идентификатора ключа `key_id` и сохраните в переменную `YDS_WRITER_KEY_ID`:

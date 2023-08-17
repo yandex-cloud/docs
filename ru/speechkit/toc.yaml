@@ -1,10 +1,20 @@
-title: Yandex SpeechKit
+title: '{{ speechkit-full-name }}'
 href: index.yaml
 items:
   - name: Обзор технологий {{ speechkit-name }}
     href: overview.md
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Как распознать короткие аудиофайлы в API v2
+        href: quickstart/stt-quickstart-v2.md
+      - name: Как распознать потоковое аудио в API v3
+        href: quickstart/stt-quickstart-v3.md
+      - name: Как синтезировать речь в API v1
+        href: quickstart/tts-quickstart-v1.md
+      - name: Как синтезировать речь в API v3
+        href: quickstart/tts-quickstart-v3.md
   - name: Распознавание речи
     items:
       - name: О технологии
@@ -23,6 +33,8 @@ items:
         href: stt/normalization.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
+      - name: Определение конца фразы
+        href: stt/eou.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -42,15 +54,21 @@ items:
           - name: Список поддерживаемых фонем в SSML
             href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
-        href: tts/brand-voice/index.md
-      - name: Синтез по шаблонам
-        href: tts/templates.md
-  - name: SpeechKit Hybrid
+        items:
+          - name: Обзор
+            href: tts/brand-voice/index.md
+          - name: Данные для {{ brand-voice-core }}
+            href: tts/brand-voice/bv-full-data-upload.md
+          - name: Данные для {{ brand-voice-cc-name }}
+            href: tts/templates.md
+  - name: '{{ sk-hybrid-name }}'
     items:
       - name: О технологии
         href: hybrid-speechkit/index.md
       - name: Системные требования
         href: hybrid-speechkit/system-requirements.md
+      - name: Документация {{ sk-hybrid-name }}
+        href: ../speechkit-hybrid/
   - name: Справочники API
     items:
       - name: Аутентификация в API
@@ -71,6 +89,8 @@ items:
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
+              - name: OperationService
+                href: stt-v3/api-ref/grpc/operation_service.md
       - name: Синтез
         items:
           - name: API v1
@@ -81,10 +101,30 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
+  - name: SDK
+    items:
+      - name: О Python SDK
+        href: sdk/python/index.md
+      - name: Установка Python SDK
+        href: sdk/python/install.md
+      - name: Аутентификация в Python SDK
+        href: sdk/python/auth.md
+      - name: Синхронное распознавание Python SDK
+        href: sdk/python/request.md
+      - name: Синтез Python SDK
+        href: sdk/python/synthesis.md
+      - name: Синтез по шаблонам Python SDK
+        href: sdk/python/templates-bvp-bvss.md
+      - name: Синтез по шаблонам {{ brand-voice-cc }} Python SDK
+        href: sdk/python/templates-bvcc.md
   - name: Практические руководства
     items:
-      - name: Потоковое распознавание API v3
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Потоковое распознавание аудиофайла API v3
         href: stt/api/streaming-examples-v3.md
+      - name: Потоковое распознавание речи с микрофона API v3
+        href: stt/api/microphone-streaming.md
       - name: Автоматическое определение языка — API v3
         href: stt/api/stt-language-labels-example.md
       - name: Потоковое распознавание API v2
@@ -95,15 +135,19 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Асинхронное распознавание формата OggOpus — API v2
         href: stt/api/transcribation-ogg.md
-      - name: Синтез API v3
+      - name: "Регулярное асинхронное распознавание аудиофайлов —\_API v2"
+        href: stt/api/batch-transcribation.md
+      - name: Синтез речи в API v3
         href: tts/api/tts-examples-v3.md
-      - name: Синтез по шаблонам
+      - name: Синтез речи по шаблонам
         href: tts/api/tts-templates.md
+      - name: Синтез речи по шаблонам Brand Voice Call Center
+        href: tts/api/tts-templates-bvcc.md
       - name: Синтез речи в формате WAV — API v1
         href: tts/api/tts-wav.md
       - name: Синтез речи в формате OggOpus — API v1
         href: tts/api/tts-ogg.md
-      - name: Синтез из текста SSML — API v1
+      - name: Синтез речи из текста SSML — API v1
         href: tts/api/tts-ssml.md
   - name: Поддерживаемые форматы аудио
     href: formats.md

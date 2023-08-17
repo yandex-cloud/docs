@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Instance/get.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Instance/get.md
 ---
 
 # Compute Cloud API, REST: Instance.get
@@ -156,8 +156,11 @@ view | <p>Defines which information about the Instance resource should be return
           "string"
         ]
       }
-    ]
-  }
+    ],
+    "placementGroupPartition": "string"
+  },
+  "hostGroupId": "string",
+  "hostId": "string"
 }
 ```
 An Instance resource. For more information, see [Instances](/docs/compute/concepts/vm).
@@ -250,3 +253,6 @@ placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rule
 placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
+hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
+hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 

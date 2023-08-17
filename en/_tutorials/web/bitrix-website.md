@@ -369,13 +369,13 @@ To host your site in Bitrix via {{ TF }}:
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_mdb_mysql_cluster]({{ tf-provider-link }}/mdb_mysql_cluster)
-   * [yandex_mdb_mysql_database]({{ tf-provider-link }}/mdb_mysql_database)
-   * [yandex_mdb_mysql_user]({{ tf-provider-link }}/mdb_mysql_user)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster)
+   * [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database)
+   * [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
 
 1. Under `metadata`, enter your username and the contents of your SSH key. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
 

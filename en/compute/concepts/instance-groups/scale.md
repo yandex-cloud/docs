@@ -1,6 +1,6 @@
 # Scaling types
 
-Choose the instance group scaling type when creating each group. The type determines whether the number of instances in the group will change [automatically](#auto-scale) or [manually](#fixed-scale).
+When creating each instance group, you will need to choose its scaling type, which determines whether the number of instances in the group will change [automatically](#auto-scale) or [manually](#fixed-scale).
 
 {% note info %}
 
@@ -16,16 +16,16 @@ You can [create fixed-size instance groups](../../operations/instance-groups/cre
 
 When [creating an automatically scaled instance group](../../operations/instance-groups/create-autoscaled-group.md), you specify the target metric value, while the service continuously re-adjusts the number of instances:
 
-* If the average metric value rises above the target, {{ ig-name }} creates new instances in the group.
-* If the average value decreases so that it's below the target value with a smaller group, then {{ ig-name }} deletes unnecessary instances.
+* If the average metric value rises above the target, {{ ig-name }} will create new instances in the group.
+* If the average value decreases below the target value with a smaller group, {{ ig-name }} will delete unnecessary instances.
 
-This is done to ensure that the average metric value within the same [availability zone](../../../overview/concepts/geo-scope.md) or the entire group (depending on the [automatic scaling type](#auto-scale-type)) does not deviate much from the target value.
+This is done to ensure that the average metric value within the same [availability zone](../../../overview/concepts/geo-scope.md) or the entire group (depending on the [automatic scaling type](#auto-scale-type)) does not differ much from the target value.
 
-> For example, there are 4 instances in an availability zone with an average metric value of 70 and target value of 80. {{ ig-name }} doesn't reduce the group size, because as you delete an instance, the average value surpasses the target value: 4 × 70 / 3 = 93.3. When the average value drops to 60, {{ ig-name }} deletes one instance since the average value doesn't surpass the target: 4 × 60 / 3 = 80.
+> For example, let's assume there are 4 instances in an availability zone with an average metric value of 70 and target value of 80. {{ ig-name }} will not reduce the group size, because as you delete an instance, the average value will be larger than the target one: 4 × 70 / 3 = 93.3. When the average value drops to 60, {{ ig-name }} will delete one instance since the average value does not surpass the target: 4 × 60 / 3 = 80.
 
-If multiple metrics are specified in the settings, then the largest estimated VM instance group size is used.
+If multiple metrics are specified in the settings, the largest estimated instance group size is used.
 
-For automatically scaled groups, assign [common scaling settings](#auto-scale-settings) and [metric](#metrics) settings.
+For automatically scaled groups, you need to specify [common scaling settings](#auto-scale-settings) and [metric](#metrics) settings.
 
 ### Type of automatic scaling {#auto-scale-type}
 
@@ -51,14 +51,14 @@ To reduce adjustment sensitivity, with {{ ig-name }}, you can configure:
 
 You can also set limits on the number of instances per group:
 * *Maximum group size*: {{ ig-name }} will not create more instances if a group already contains this many.
-* *Minimum size in a single availability zone*: {{ ig-name }} won't delete instances from an availability zone if there are only this many instances in the zone.
+* *Minimum size in a single availability zone*: {{ ig-name }} will not delete instances from an availability zone if there are only this many instances in the zone.
 
 ### Metrics for automatic scaling {#metrics}
 
 You can use the following metrics for automatic scaling:
 
 * [CPU utilization](#cpu-utilization).
-* [Any metrics](#monitoring-metrics) from [{{ monitoring-full-name }}](/docs/monitoring/).
+* [Any metrics](#monitoring-metrics) from [{{ monitoring-full-name }}](../../../monitoring/index.yaml).
 
 #### CPU utilization {#cpu-utilization}
 
@@ -68,17 +68,17 @@ Let's look at the algorithm of service actions outside the stabilization period:
 1. Calculate the average CPU utilization during the specified measurement period for each instance, except those in the warm-up period. The load is measured several times per minute on every instance.
 1. Use the obtained values to calculate the average load for each availability zone or across the entire group.
 
-   > For example, a group of 4 instances is located in one availability zone. One of the instances starts, while the others are under 90%, 75%, and 85% workload on average during the measurement period. Average load across the zone: (90+75+85) / 3 = 83.4%
+   > For example, let's assume there is a group of four instances located in one availability zone. One of the instances starts, while the others are under 90%, 75%, and 85% workload on average during the measurement period. The average load across the zone is: (90+75+85) / 3 = 83.4%
 
 1. Obtain the total load: multiply the resulting average load by the total number of instances.
 
-   > In the example, 83.4 × 4 = 333.6%
+   > In our example, it is 83.4 × 4 = 333.6%
 
-1. Divide the total load by the target load level to obtain the number of instances needed (the result is rounded up).
+1. Divide the total load by the target load level to obtain the number of instances required (the result is rounded up).
 
    > Say, for example, the target level is 75%. This means that you need 333.6 / 75 = 4.48 ~ 5 instances. Based on the approximate results, you need to create another instance.
 
-After the number of instances is calculated and changed (if necessary), {{ ig-name }} starts calculating the average load again.
+Once the number of instances is calculated and changed (if required), {{ ig-name }} will start calculating the average load again.
 
 #### Monitoring metrics {#monitoring-metrics}
 

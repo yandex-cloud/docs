@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/User/listMembers.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/listMembers.md
 ---
 
 # Cloud Organization API, REST: User.listMembers
@@ -44,6 +44,7 @@ pageToken | <p>Page token. Set <a href="/docs/organization/api-ref/User/listMemb
         "zoneinfo": "string",
         "locale": "string",
         "phoneNumber": "string",
+        "subType": "string",
         "federation": {
           "id": "string",
           "name": "string"
@@ -70,6 +71,7 @@ users[].<br>subjectClaims.<br>email | **string**<br><p>End-User's preferred e-ma
 users[].<br>subjectClaims.<br>zoneinfo | **string**<br><p>String from zoneinfo ``zoneinfo`` time zone database representing the End-User's time zone. For example, Europe/Paris or America/Los_Angeles.</p> 
 users[].<br>subjectClaims.<br>locale | **string**<br><p>End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639-1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166-1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.</p> 
 users[].<br>subjectClaims.<br>phoneNumber | **string**<br><p>End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.</p> 
+users[].<br>subjectClaims.<br>subType | **string**<br><p>Subject type.</p> 
 users[].<br>subjectClaims.<br>federation | **object**<br><p>User federation, non-empty only for federated users.</p> <p>Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation</p> 
 users[].<br>subjectClaims.<br>federation.<br>id | **string**<br><p>Required. ID of the federation.</p> <p>The maximum string length in characters is 50.</p> 
 users[].<br>subjectClaims.<br>federation.<br>name | **string**<br><p>Name of the federation. The name is unique within the cloud or organization</p> 

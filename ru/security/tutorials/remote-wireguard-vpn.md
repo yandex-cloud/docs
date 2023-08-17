@@ -1,0 +1,1 @@
+{% include [remote-wireguard-vpn](../../_tutorials/routing/remote-wireguard-vpn.md) %}

@@ -35,7 +35,7 @@ The infrastructure support cost for this tutorial includes:
 * Fee for data storage and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for requests to the created API gateways and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for queue requests and outgoing traffic (see [{{ message-queue-full-name }} pricing](../../message-queue/pricing.md)).
-* Fee for function calls and computing resources allocated to execute the functions (see [{{ sf-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for function calls and computing resources allocated to execute the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Prepare the environment {#prepare}
 
@@ -357,7 +357,7 @@ Create a database named `game-data` to store the game data and a database named 
    created_at: "2023-03-30T15:01:19Z"
    name: game-data
    status: PROVISIONING
-   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etn0ejcvmjm4********
+   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbao********/etn0ejcvmjm4********
    serverless_database:
      storage_size_limit: "53687091200"
    location_id: ru-central1
@@ -393,7 +393,7 @@ Create a database named `game-data` to store the game data and a database named 
    created_at: "2023-03-30T15:02:44Z"
    name: data-streams
    status: PROVISIONING
-   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etn16k0e1757********
+   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn16k0e1757********
    serverless_database:
      storage_size_limit: "53687091200"
    location_id: ru-central1
@@ -427,7 +427,7 @@ Create a database named `game-data` to store the game data and a database named 
    Result:
 
    ```text
-   User SID: ajeien4d11sc0434n536@as
+   User SID: ajeien4d11sc043********
 
    Group SIDs:
    all-users@well-known
@@ -618,11 +618,11 @@ The following service accounts were created when deploying the project:
 
    ```text
    access_key:
-       id: ajeibet32197n869t0lu
-       service_account_id: ajehr6tv2eoo3isdbv0e
+       id: ajeibet32197********
+       service_account_id: ajehr6tv2eoo********
        created_at: "2023-03-13T10:20:58.471421425Z"
-       key_id: YCASD3CT9mPCVFh3KRmB4JDx9
-   secret: YCNhBcdvfDdssIuBa-FDl6zZz0MSky6ujSjACX
+       key_id: YCASD3CT9mPCVFh3K********
+   secret: YCNhBcdvfDdssIuBa-FDl6zZz0MSky********
    ```
 
 1. Copy `key_id` and save it to the `YDS_WRITER_KEY_ID` variable:
@@ -780,7 +780,6 @@ The following service accounts were created when deploying the project:
 1. Copy the API gateway's service domain. You can find it in the previous command output in the `domain` field.
 
 1. Find a Telegram bot named [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
-
 1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`, the URL will look like `https://d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`.
 
 ## Test the app {#test-app}

@@ -7,13 +7,13 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать зону DNS.
-  1. Выберите сервис **{{ dns-name }}**.
-  1. Нажмите кнопку **Создать зону**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки зоны:
-     1. **Зона** — доменная зона. Название зоны должно заканчиваться точкой. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
-     1. **Тип** — **Публичная**.
-     1. **Имя** зоны.
-  1. Нажмите кнопку **Создать**.
+     1. **{{ ui-key.yacloud.dns.label_zone }}** — доменная зона. Название зоны должно заканчиваться точкой. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
+     1. **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
+     1. **{{ ui-key.yacloud.common.name }}** зоны.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -123,6 +123,10 @@
      ```
      yc dns zone get <имя зоны DNS>
      ```
+
+- API
+
+  Чтобы создать публичную зону DNS, воспользуйтесь методом REST API [create](../api-ref/DnsZone/create.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create).
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/listPasswords.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listPasswords.md
 ---
 
 # IoT Core Broker Service, REST: Broker.listPasswords
@@ -10,7 +10,7 @@ Retrieves the list of passwords for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords
 ```
  
 ## Path parameters {#path_params}

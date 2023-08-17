@@ -25,12 +25,12 @@
 
 Чтобы отслеживать степень заполнения хранилища на хостах кластера, настройте алерты в {{ monitoring-full-name }}:
 
-1. Перейдите на страницу каталога и выберите сервис **{{ monitoring-name }}**.
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Выберите сервис **{{ mgp-name }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
-    1. **Метрика** — задайте параметры метрики:
+    1. **{{ ui-key.yacloud.common.metric }}** — задайте параметры метрики:
 
         * облако;
         * каталог;
@@ -41,15 +41,15 @@
 
         * метка `disk.free_bytes`.
 
-    1. **Условие срабатывания** — задайте условие `Меньше или равно` для процента заполнения свободного дискового пространства, при котором сработает алерт:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
 
-        * 95% от размера хранилища для `Alarm`;
-        * 90% от размера хранилища для `Warning`.
+        * 95% от размера хранилища для `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`;
+        * 90% от размера хранилища для `{{ ui-key.yacloud_monitoring.alert.status_warn }}`.
 
-    1. **Дополнительные настройки**:
+    1. **{{ ui-key.datalens.component.chartkit-alerts.view.section_additional-settings }}**:
 
-        * **Функция агрегации** — `Минимум` (минимальное значение метрики за период).
-        * **Окно вычисления** — желаемый период, с которым будет обновляться значение метрики.
+        * **{{ ui-key.yacloud_monitoring.service.field.function }}** — `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
+        * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
 
     1. Добавьте созданный ранее канал уведомлений.
 

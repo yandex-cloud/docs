@@ -7,18 +7,16 @@ To create an image from another user image:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create the image.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **Images**.
-   1. In the row with the desired snapshot, click ![image](../../../_assets/horizontal-ellipsis.svg) and select the **Create image** command from the menu.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+   1. In the line with the appropriate snapshot, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.images.button_action-image }}**.
    1. Enter the image name.
 
-      * Its length can be from 2 to 63 characters.
-      * It may contain lowercase Latin letters, numbers, and hyphens.
-      * The first character must be a letter. The last character can't be a hyphen.
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-   1. If required, provide a free-form text description for the image.
-   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **Optimize for deployment**.
-   1. Click **Create**.
+   1. If required, provide a text description for the image.
+   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -101,7 +99,7 @@ To create an image from another user image:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

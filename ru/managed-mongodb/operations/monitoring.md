@@ -12,17 +12,17 @@
 
 Для просмотра детальной информации о состоянии кластера {{ mmg-name }}:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 На странице появятся следующие графики:
 
 * **Asserts total** — количество срабатываний [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) в кластере.
-* **Average operation time per host** — среднее время выполнения команд каждым хостом (в микросекундах).
-* **Average operations time on primary** — среднее время выполнения команд на первичных репликах (в микросекундах).
-* **Average operations time on secondaries** — среднее время выполнения команд на вторичных репликах (в микросекундах).
+* **Average operation time per host** — среднее время выполнения операций каждым хостом (в микросекундах).
+* **Average operations time on primary** — среднее время выполнения операций на первичных репликах (в микросекундах).
+* **Average operations time on secondaries** — среднее время выполнения операций на вторичных репликах (в микросекундах).
 * **CPU usage per host** — степень использования vCPU на каждом хосте (в тысячных долях).
 * **CPU usage per host, top 5 hosts** — 5 хостов с наибольшей утилизацией vCPU (в процентах).
 * **Configured oplog size per host** — размер журнала операций (oplog) на каждом хосте кластера (в гигабайтах).
@@ -73,8 +73,8 @@
 
 Для просмотра детальной информации о состоянии отдельных хостов {{ mmg-name }}:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **Хосты** → **Мониторинги**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Выберите нужный хост из выпадающего списка. Возле имени хоста будет показана его роль (`PRIMARY` или `SECONDARY`) и тип (`MONGOCFG`, `MONGOD`, `MONGOINFRA`, `MONGOS`).
 
 На этой странице выводятся графики, показывающие нагрузку на отдельный хост кластера:
@@ -95,20 +95,20 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
 
-    1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+    1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
-    1. В блоке **Сервисные дашборды** выберите:
+    1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
 
-        * **{{ mes-name }}** для настройки алертов кластера;
-        * **{{ mes-name }} — Host Overview** для настройки алертов хостов.
+        * **{{ mmg-name }}** для настройки алертов кластера;
+        * **{{ mmg-name }} — Host Overview** для настройки алертов хостов.
 
-    1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
+    1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
 
-    1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
+    1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для срабатывания алерта.
 
-    1. Нажмите кнопку **Создать алерт**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
@@ -116,16 +116,16 @@
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                         | Обозначение                     | `Alarm`                  | `Warning`                |
-|---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
-| Доступность БД на запись        | `can_write`                     | `Равно 0`                | —                        |
-| Задержка репликации             | `replset_status-replicationLag` | `180`                    | `30`                     |
-| Объем использованного хранилища | `disk.used_bytes`               | 90% от размера хранилища | 70% от размера хранилища |
+| Метрика                         | Обозначение                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
+|---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
+| Доступность БД на запись        | `can_write`                     | `Равно 0`                                            | —                                                   |
+| Задержка репликации             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
+| Объем использованного хранилища | `disk.used_bytes`               | 90% от размера хранилища                             | 70% от размера хранилища                            |
 
-Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `96636764160` байтов (90%).
-* `Warning` — `75161927680` байтов (70%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байт (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `75161927680` байт (70%).
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-mongodb).
 
@@ -139,19 +139,19 @@
 
     Для этого создайте запрос в конструкторе запросов:
 
-    `service={{ mmg-name }}` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
+    `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
 
 1. Задайте в параметрах алерта значения порогов для оповещения:
-   * **Условие срабатывания** — выберите условие `Меньше или равно` для размера свободного дискового пространства, при котором сработает алерт.
+   * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — выберите условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для размера свободного дискового пространства, при котором сработает алерт.
 
        Рекомендуемые значения порогов в зависимости от размера хранилища:
   
-       | Размер хранилища, ГБ | `Alarm`     | `Warning`        |
+       | Размер хранилища, ГБ | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`     | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`        |
        |---------------------|-------------|------------------|
        | ⩽ 600               | `1G` (1 ГБ) | `1500M` (1,5 ГБ) |
        | > 600               | `6G` (6 ГБ) | `10G` (10 ГБ)    |
 
-   * **Дополнительные настройки** → **Функция агрегации** — выберите значение `Минимум` (минимальное значение метрики за период).
+   * **{{ ui-key.datalens.component.chartkit-alerts.view.section_additional-settings }}** → **{{ ui-key.yacloud_monitoring.service.field.function }}** — выберите значение `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 
@@ -159,8 +159,8 @@
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}
 

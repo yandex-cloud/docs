@@ -11,7 +11,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
    When configuring the network on a new virtual machine, select the automatically assigned public IP address or select an address from the list of reserved addresses.
 
-   Once you select an address, select the **DDoS protection** option.
+   Once you select an address, select the **{{ ui-key.yacloud.component.compute.network-select.field_ddos-protection-provider }}** option.
 
 {% endlist %}
 
@@ -24,16 +24,16 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
    To reserve a protected static IP address:
 
    1. In the [management console]({{ link-console-main }}), change to the folder where you need to reserve an address.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click **Reserve address**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. Select the availability zone where you want to reserve the address.
-   1. Enable the **DDoS protection** option.
-   1. Click **Reserve address**.
+   1. Select **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+   1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -51,27 +51,27 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
       Where `ddos_protection_provider` is a parameter that enables DDoS protection. Available values: `qrator`.
 
-      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
+      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

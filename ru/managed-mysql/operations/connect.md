@@ -29,37 +29,37 @@
 
     [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт {{ port-mmy }}. Для этого создайте следующее правило для входящего трафика:
 
-    * Диапазон портов — `{{ port-mmy }}`.
-    * Протокол — `TCP`.
-    * Источник — `CIDR`.
-    * CIDR блоки — `0.0.0.0/0`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mmy }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 - С ВМ в {{ yandex-cloud }}
 
     1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт {{ port-mmy }}. Для этого в этих группах создайте следующее правило для входящего трафика:
 
-        * Диапазон портов — `{{ port-mmy }}`.
-        * Протокол — `TCP`.
-        * Источник — `Группа безопасности`.
-        * Группа безопасности — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mmy }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+        * Группа безопасности — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
 
     1. [Настройте группу безопасности](../../vpc/operations/security-group-add-rule.md), в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 
         Пример правил для ВМ:
 
         * Для входящего трафика:
-           * Диапазон портов — `{{ port-ssh }}`.
-           * Протокол — `TCP`.
-           * Источник — `CIDR`.
-           * CIDR блоки — `0.0.0.0/0`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             Это правило позволяет [подключаться](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу [SSH](../../glossary/ssh-keygen.md).
 
         * Для исходящего трафика:
-            * Диапазон портов — `{{ port-any }}`.
-            * Протокол — `Любой` (`Any`).
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -80,23 +80,7 @@
 
 {{ MY }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
-
-  Сертификат будет сохранен в каталоге `$HOME/.mysql/root.crt`.
-
-- Windows (PowerShell)
-
-  ```PowerShell
-  mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
-  ```
-
-  Сертификат будет сохранен в каталоге `$HOME\.mysql\root.crt`.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -197,6 +181,21 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
   1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mmy-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget mysql-client --yes && \
+    mkdir -p ~/.mysql && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.mysql/root.crt && \
+    chmod 0600 ~/.mysql/root.crt
+```
 
 ## Примеры строк подключения {#connection-string}
 

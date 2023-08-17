@@ -20,21 +20,21 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    To restore an existing cluster from a backup:
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
-   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    To restore a previously deleted cluster from a backup:
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-   1. Select **{{ mrd-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
+   1. Find the desired backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    {{ mrd-name }} launches the operation to create a cluster from the backup.
 
@@ -93,6 +93,10 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
+- API
+
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call.
+
 {% endlist %}
 
 ## Creating a backup {#create-backup}
@@ -102,9 +106,9 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a backup in.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
-   1. Click **Create backup**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -132,7 +136,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
 
@@ -148,13 +152,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    To get a list of cluster backups:
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. Select **{{ mrd-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI
 
@@ -181,9 +185,11 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` parameter. You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of all backups in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` parameter.
+   You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+
+   To get a list of all the backups in a folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -195,13 +201,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    To get information about the backup of an existing cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder with the cluster to get backup information for.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder that contained the deleted cluster.
-   1. Select **{{ mrd-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI
 
@@ -219,7 +225,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    You can retrieve the backup ID with the [backup list](#list-backups).
 
@@ -231,7 +237,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - Management console
 
-   When [creating](cluster-create.md) or [updating](update.md#change-redis-config) a cluster, you can set the backup start time under **Additional settings**.
+   When [creating](cluster-create.md) or [updating](update.md#change-redis-config) a cluster, you can set the backup start time under **{{ ui-key.yacloud.mdb.forms.section_additional }}**.
 
 - CLI
 
@@ -253,5 +259,9 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       --name <cluster name> \
       --backup-window-start 11:25:00
    ```
+
+- API
+
+   To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call.
 
 {% endlist %}

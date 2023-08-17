@@ -15,7 +15,7 @@ LOG10( number )
 ```
 
 #### Description {#description}
-Returns the logarithm of the number `number` to base 10. Returns 'NULL' if the number is less than or equal to 0.
+Returns the logarithm of the number `number` to base 10. Returns `NULL` if the number is less than or equal to 0.
 
 **Argument types:**
 - `number` — `Fractional number | Integer`
@@ -40,4 +40,4 @@ LOG10(100) = 2.0
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

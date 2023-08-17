@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/listAccessBindings.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listAccessBindings.md
 ---
 
 # Certificate Manager API, REST: Certificate.listAccessBindings

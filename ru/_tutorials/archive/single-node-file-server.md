@@ -291,11 +291,11 @@
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
 
 1. В блоке `metadata` укажите имя пользователя и содержимое SSH-ключа. Подробнее см. в разделе [{#T}](../../compute/concepts/vm-metadata.md).
 

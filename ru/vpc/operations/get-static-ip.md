@@ -11,22 +11,21 @@
 {% list tabs %}
 
 - Консоль управления
-  
-   Чтобы зарезервировать статический публичный IP-адрес:
+
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
-   1. В списке сервисов выберите **{{ vpc-name }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-   1. Нажмите кнопку **Зарезервировать адрес**.
-   1. В открывшемся окне выберите зону доступности, в которой нужно зарезервировать адрес.
-   1. Нажмите кнопку **Зарезервировать**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. В открывшемся окне:
+       * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
+       * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+   1. Нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   Чтобы зарезервировать статический публичный IP-адрес:
 
    1. Просмотрите описание команды CLI для резервирования адреса:
 
@@ -43,8 +42,8 @@
       Результат:
 
       ```bash
-      id: e9b6un9gkso6stdh6b3p
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e9b6un9gkso6********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-01-19T17:52:42Z"
       external_ipv4_address:
         address: 178.154.253.52
@@ -71,6 +70,7 @@
 
           {% include [name-format](../../_includes/name-format.md) %}
 
+     * `deletion_protection` — защита статического публичного IP-адреса от удаления. Пока опция включена, IP-адрес удалить невозможно. Значение по умолчанию `false`.
      * `external_ipv4_address` — описание ipv4-адреса:
         * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
@@ -78,40 +78,24 @@
 
      ```hcl
      resource "yandex_vpc_address" "addr" {
-       name = "<имя статического публичного IP-адреса>"
+       name = "<имя_статического_публичного_IP-адреса>"
+       deletion_protection = "<защита_от_удаления:_true_или_false>"
        external_ipv4_address {
-         zone_id = "<зона доступности>"
+         zone_id = "<зона_доступности>"
        }
      }
      ```
+     
+     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
+  1. Создайте ресурсы:
 
-  1. Проверьте корректность конфигурационных файлов.
+     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-        ```
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-        ```
-        yc vpc address list
-        ```
+     ```bash
+     yc vpc address list
+     ```
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/activate.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/activate.md
 ---
 
 # Lockbox API, REST: Secret.activate

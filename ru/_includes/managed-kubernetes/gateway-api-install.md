@@ -21,7 +21,7 @@
 
    ```bash
    yc iam key create \
-     --service-account-name <имя сервисного аккаунта для Gateway API> \
+     --service-account-name <имя_сервисного_аккаунта_для_Gateway_API> \
      --output sa-key.json
    ```
 
@@ -29,7 +29,7 @@
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [Gateway API](/marketplace/products/yc/gateway-api) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) или создайте новое.
@@ -49,20 +49,18 @@
 
    ```bash
     export HELM_EXPERIMENTAL_OCI=1 && \
-    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api \
-      --version <версия Helm-чарта> \
+    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
+      --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
       --untar && \
     helm install \
-      --namespace <пространство имен> \
+      --namespace <пространство_имен> \
       --create-namespace \
-      --set folderId='<идентификатор каталога>' \
-      --set networkId='<идентификатор облачной сети>' \
-      --set subnetId='<идентификатор подсети>' \
-      --set-file saKeySecretKey='<путь к ранее сгенерированному sa-key.json>' \
+      --set folderId='<идентификатор_каталога>' \
+      --set networkId='<идентификатор_облачной_сети>' \
+      --set subnetId='<идентификатор_подсети>' \
+      --set-file saKeySecretKey='<путь_к_ранее_сгенерированному_sa-key.json>' \
       gateway-api ./gateway-api/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gateway-api#docker-images).
 
 ## См. также {#see-also}
 

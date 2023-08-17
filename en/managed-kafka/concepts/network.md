@@ -30,7 +30,7 @@ When you delete a cluster with public access enabled, all public IP addresses as
 
 {% note info %}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ When you delete a cluster with public access enabled, all public IP addresses as
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
 
 {% endnote %}
 

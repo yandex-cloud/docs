@@ -20,11 +20,7 @@ WITH (
 LIMIT 10;
 ```
 
-{% note info %}
-
 {% include [limit](../_includes/select-limit.md) %}
-
-{% endnote %}
 
 ## Setting up a connection {#create_connection}
 

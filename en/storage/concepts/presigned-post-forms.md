@@ -176,7 +176,7 @@ The security policy is a JSON document that may look as follows:
 }
 ```
 
-The `expiration` field contains the policy expiration date in [ISO8601](https:/en.wikipedia.org/wiki/ISO_8601) format, e.g., `2019-07-22T15:39:36Z`. When the policy expires, {{ objstorage-name }} no longer accepts any files uploaded from the form.
+The `expiration` field contains the policy expiration date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, e.g., `2019-07-22T15:39:36Z`. When the policy expires, {{ objstorage-name }} no longer accepts any files uploaded from the form.
 
 The `conditions` field contains a set of rules for the form fields. At least one rule must be specified for each form field.
 
@@ -224,8 +224,8 @@ The input conditions are as follows:
 To generate form fields, we will use [boto3](../tools/boto.md) SDK for Python:
 
 ```python
-aws_access_key_id = 'JK38EXAMPLEAKDID8'
-aws_secret_access_key = 'ExamP1eSecReTKeykdokKK38800'
+aws_access_key_id = 'JK38EXAMP********'
+aws_secret_access_key = 'ExamP1eSecReTKeykdo********'
 endpoint = 'https://{{ s3-storage-host }}'
 
 s3 = boto3.client('s3',
@@ -261,10 +261,10 @@ The script will return a JSON document in the following format:
         'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
         'X-Amz-Date': '20190722T153936Z',
         'success_action_redirect': 'https://example.com',
-        'X-Amz-Signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96',
+        'X-Amz-Signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a27********',
         'key': 'users/uploads/${filename}',
         'policy': u'eyJjb25kaXRpb25zIj...M5OjM2WiJ9',
-        'X-Amz-Credential': u'JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request'}
+        'X-Amz-Credential': u'JK38EXAMP********/20190722/{{ region-id }}/s3/aws4_request'}
 }
 ```
 
@@ -279,7 +279,7 @@ Using the values from the returned document, you can build an HTML page with a f
         <form action="https://{{ s3-storage-host }}/user-data" method="post" enctype="multipart/form-data">
             Key in storage:
             <input type="input"    name="key" value="users/uploads/${filename}" /><br />
-            <input type="hidden"   name="X-Amz-Credential" value="JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request" />
+            <input type="hidden"   name="X-Amz-Credential" value="JK38EXAMP********/20190722/{{ region-id }}/s3/aws4_request" />
             <input type="hidden"   name="acl" value="public-read" />
             <input type="hidden"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
             <input type="hidden"   name="X-Amz-Date" value="20190722T153936Z" />

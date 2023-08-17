@@ -67,6 +67,8 @@ items:
             href: api-ref/grpc/log_ingestion_service.md
           - name: LogReadingService
             href: api-ref/grpc/log_reading_service.md
+          - name: SinkService
+            href: api-ref/grpc/sink_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST
@@ -99,6 +101,28 @@ items:
                 href: api-ref/LogGroup/update.md
               - name: updateAccessBindings
                 href: api-ref/LogGroup/updateAccessBindings.md
-  - name: Questions and answers
+          - name: Sink
+            items:
+              - name: Overview
+                href: api-ref/Sink/index.md
+              - name: create
+                href: api-ref/Sink/create.md
+              - name: delete
+                href: api-ref/Sink/delete.md
+              - name: get
+                href: api-ref/Sink/get.md
+              - name: list
+                href: api-ref/Sink/list.md
+              - name: listAccessBindings
+                href: api-ref/Sink/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Sink/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/Sink/setAccessBindings.md
+              - name: update
+                href: api-ref/Sink/update.md
+              - name: updateAccessBindings
+                href: api-ref/Sink/updateAccessBindings.md
+  - name: FAQ
     href: qa/index.md
 base: en/logging

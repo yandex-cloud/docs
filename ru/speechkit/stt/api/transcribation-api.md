@@ -1,6 +1,6 @@
 # API асинхронного распознавания
 
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 1. Запрос на распознавание необходимо отправлять от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) с ролью `{{ roles-speechkit-stt }}` на каталог, в котором он создан. Для доступа к бакету {{ objstorage-name }} понадобится роль `storage.uploader`.
 
@@ -17,7 +17,7 @@
     ```
 1. Загрузите аудиофайл в сервис {{ objstorage-full-name }} и получите ссылку на загруженный файл:
 
-   1. Если у вас еще нет бакета в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его.
+   1. Если у вас еще нет бакета в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его с ограниченным доступом.
    1. [Загрузите аудиофайл](../../../storage/operations/objects/upload.md) в ваш бакет. В терминах {{ objstorage-name }} загружаемые файлы называются _объектами_.
    1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный файл. Используйте эту ссылку в запросе на распознавание аудио.
 

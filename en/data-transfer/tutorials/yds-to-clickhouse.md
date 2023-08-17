@@ -1,3 +1,3 @@
-# Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+# Delivering data from a {{ DS }} queue to {{ CH }}
 
 {% include notitle [Stream from YDS to MCH with Data Transfer](../../_tutorials/dataplatform/yds-to-clickhouse.md) %}

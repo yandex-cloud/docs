@@ -129,15 +129,15 @@ To configure, for the resource, the allowed HTTP methods of requests from client
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
+      * `cname`: Primary domain name used for content distribution. Required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
       * `origin_protocol`: Origin protocol. Optional parameter, the default value is `http`.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `secondary_hostnames`: Additional domain names. Optional parameter.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405`(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, the default values are `GET`, `HEAD`, `POST`, or `OPTIONS`.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

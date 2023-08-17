@@ -83,6 +83,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka}
@@ -102,6 +103,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access}
@@ -233,7 +241,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
@@ -320,6 +328,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access1)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig1)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka1}
@@ -339,6 +348,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access1}
@@ -470,7 +486,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
@@ -531,6 +547,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access2)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig2)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka2}
@@ -550,6 +567,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig2}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access2}
@@ -789,7 +813,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
@@ -900,6 +924,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access3)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig3)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka3}
@@ -919,6 +944,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources3)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig3}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access3}
@@ -1050,7 +1082,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
@@ -1251,6 +1283,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access4)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig4)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka4}
@@ -1270,6 +1303,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources4)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig4}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access4}
@@ -1401,7 +1441,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
@@ -1504,6 +1544,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access5)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig5)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka5}
@@ -1523,6 +1564,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources5)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig5}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access5}
@@ -1654,7 +1702,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
@@ -1757,6 +1805,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access6)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig6)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka6}
@@ -1776,6 +1825,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources6)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig6}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access6}
@@ -1907,7 +1963,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
@@ -2013,6 +2069,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
 access | **[Access](#Access7)**<br>Access policy for external services. 
+rest_api_config | **[RestAPIConfig](#RestAPIConfig7)**<br>Configuration of REST API. 
 
 
 ### Kafka {#Kafka7}
@@ -2032,6 +2089,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_
 Field | Description
 --- | ---
 resources | **[Resources](#Resources7)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### RestAPIConfig {#RestAPIConfig7}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Is REST API enabled for this cluster. 
 
 
 ### Access {#Access7}
@@ -2163,7 +2227,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 

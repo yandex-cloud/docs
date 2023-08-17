@@ -65,7 +65,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
       ```bash
       sudo keytool \
           -importcert \
-          -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+          -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
           -keystore /etc/debezium/keystore.jks \
           -storepass <JKS password> \
           --noprompt
@@ -149,12 +149,12 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    Where:
 
    * `name`: Logical name of the Debezium connector. Used for the connector's internal needs.
-   * `database.hostname`: A [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
+   * `database.hostname`: [Special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
 
       You can get the cluster ID with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
 
-   * `database.user`: The {{ PG }} username.
-   * `database.dbname`: The {{ PG }} database name.
+   * `database.user`: {{ PG }} username.
+   * `database.dbname`: {{ PG }} database name.
    * `database.server.name`: Name of the database server that [Debezium will use](#prepare-target) when choosing a topic for sending messages.
    * `table.include.list`: Names of tables for which Debezium should track changes. Specify full names that include the schema name (default: `public`). [Debezium will use](#prepare-target) values from this field when selecting a topic for sending messages.
    * `publication.name`: Name of the publication [created on the source cluster](#prepare-source).
@@ -248,7 +248,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username=debezium \
        -X sasl.password=<password> \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
        -Z \
        -K:
    ```

@@ -13,6 +13,17 @@
   1. Измените параметры балансировщика.
   1. В блоке **Обработчики** напротив нужного обработчика нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
   1. Измените параметры обработчика и нажмите **Сохранить**.
+  1. (Опционально) В блоке **Настройки логов**:
+  
+      1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
+      1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+
+          * **HTTP-коды** — измените HTTP-коды.
+          * **Классы HTTP-кодов** — измените классы HTTP-кодов.
+          * **gRPC-коды** — измените gRPC-коды.
+          * **Доля отбрасываемых логов** — измените процент отбрасываемых логов.
+
+          Чтобы добавить еще одно правило, нажмите кнопку **Добавить правило отбрасывания логов**.
   1. Внизу страницы нажмите кнопку **Сохранить**.
 
 - CLI
@@ -23,26 +34,26 @@
 
   1. Посмотрите описание команды CLI для изменения параметров балансировщика:
 
-     ```
+     ```bash
      yc alb load-balancer update --help
      ```
 
   1. Выполните команду, указав новые параметры балансировщика:
 
-     ```
-     yc alb load-balancer update <имя балансировщика> --new-name <новое имя балансировщика>
+     ```bash
+     yc alb load-balancer update <имя_балансировщика> --new-name <новое_имя_балансировщика>
      ```
 
      Результат:
      
           
-     ```
-     id: a5d88ep483cmbfm63g9t
+     ```yaml
+     id: a5d88ep483cmbfm.....
      name: test-balancer2-updated
-     folder_id: aoe197919j8elpeg1lkp
+     folder_id: aoe197919j8elpe.....
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: c64l1c06d15178sa87k0
+     network_id: c64l1c06d15178s.....
      listeners:
      - name: test-listener
        endpoints:
@@ -53,20 +64,64 @@
          - "80"
        http:
          handler:
-           http_router_id: a5dv7tjdo9gt2pq5l906
+           http_router_id: a5dv7tjdo9gt2pq.....
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: buc4gsmpj8hvramg61g8
+         subnet_id: buc4gsmpj8hvram.....
        - zone_id: {{ region-id }}-b
-         subnet_id: blt6pcatjje62sqvjq5b
+         subnet_id: blt6pcatjje62sq.....
        - zone_id: {{ region-id }}-c
-         subnet_id: fo2ap2nrhjk9vpfdnno8
-     log_group_id: eolul9ap0bv02i8bsp87
+         subnet_id: fo2ap2nrhjk9vpf.....
+     log_group_id: eolul9ap0bv02i8.....
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
      
 
+
+  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+
+      1. Посмотрите описание команды CLI для управления логированием в балансировщике:
+
+          ```bash
+          yc alb load-balancer logging --help
+          ```
+
+      1. Добавьте новое правило отбрасывания логов:
+
+          ```bash
+          yc alb load-balancer logging <имя_балансировщика> \
+            --log-group-id <идентификатор_лог-группы> \
+            --enable \
+            --discard codes=[200,3XX,GRPC_OK],percent=90
+          ```
+
+          Где:
+
+          * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
+          * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+            * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
+            * `percent` — доля отбрасываемых логов в процентах.
+
+          Результат:
+
+          ```yaml
+          done (42s)
+          id: ds76g2zpgp3fej1.....
+          name: test-load-balancer
+          folder_id: b1gug7dbelh690.....
+          ...
+          log_options:
+            log_group_id: e23p9bcvh6gra3t.....
+            discard_rules:
+              - http_codes:
+                  - "200"
+                http_code_intervals:
+                  - HTTP_3XX
+                grpc_codes:
+                  - OK
+                discard_percent: "90"
+          ```
 
   1. Укажите новые параметры обработчика:
 
@@ -74,45 +129,45 @@
 
        1. Посмотрите описание команды CLI для изменения параметров HTTP-обработчика L7-балансировщика:
 
-          ```
+          ```bash
           yc alb load-balancer update-listener --help
           ```
 
        1. Выполните команду, указав новые параметры обработчика:
 
-          ```
-          yc alb load-balancer update-listener <имя балансировщика> \
-            --listener-name <имя обработчика> \
-            --http-router-id <идентификатор HTTP-роутера> \
-            --external-ipv4-endpoint port=<порт обработчика>
+          ```bash
+          yc alb load-balancer update-listener <имя_балансировщика> \
+            --listener-name <имя_обработчика> \
+            --http-router-id <идентификатор_HTTP-роутера> \
+            --external-ipv4-endpoint port=<порт_обработчика>
           ```
 
      * Stream-обработчик:
 
        1. Посмотрите описание команды CLI для изменения параметров Stream-обработчика L7-балансировщика:
 
-          ```
+          ```bash
           yc alb load-balancer update-stream-listener --help
           ```
 
        1. Выполните команду, указав новые параметры обработчика:
 
-          ```
-          yc alb load-balancer update-stream-listener <имя балансировщика> \
-            --listener-name=<имя обработчика> \
-            --backend-group-id=<идентификатор группы бэкендов> \
-            --external-ipv4-endpoint port=<порт обработчика>
+          ```bash
+          yc alb load-balancer update-stream-listener <имя_балансировщика> \
+            --listener-name=<имя_обработчика> \
+            --backend-group-id=<идентификатор_группы_бэкендов> \
+            --external-ipv4-endpoint port=<порт_обработчика>
           ```
 
      Результат обновления двух обработчиков:
 
-     ```
+     ```yaml
      done (42s)
-     id: ds76g8b2op3fej12nab6
+     id: ds76g8b2op3fej1.....
      name: test-load-balancer
-     folder_id: b1gu6g9ielh690at5bm7
+     folder_id: b1gu6g9ielh690a.....
      status: ACTIVE
-     network_id: enp0uulja5s3j1ftvfei
+     network_id: enp0uulja5s3j1f.....
      listeners:
      - name: tslistener
        endpoints:
@@ -123,7 +178,7 @@
          - "80"
        http:
          handler:
-           http_router_id: ds7d7b14b3fsv7qjkvel
+           http_router_id: ds7d7b14b3fsv7q.....
      - name: teststreamlistener
        endpoints:
        - addresses:
@@ -133,21 +188,32 @@
          - "443"
        stream:
          handler:
-           backend_group_id: ds77tero4f5h46l4e2gl
+           backend_group_id: ds77tero4f5h46l.....
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bs1hp7lgdl1g3n6ci1
+         subnet_id: e9bs1hp7lgdl1g3.....
        - zone_id: {{ region-id }}-b
-         subnet_id: e2le8i7hqa216f6i6php
+         subnet_id: e2le8i7hqa216f6.....
        - zone_id: {{ region-id }}-c
-         subnet_id: b0cgk1au6fn203f3tqnf
-     log_group_id: ckgs4u5km3u8j9f360md
+         subnet_id: b0cgk1au6fn203f.....
+     log_group_id: ckgs4u5km3u8j9f.....
      security_group_ids:
-     - enp49ot04g63ih1scuap
+     - enp49ot04g63ih1.....
      created_at: "2022-04-04T02:12:40.160629110Z"
+     log_options:
+       log_group_id: e23p9bfjvsgra3t.....
+       discard_rules:
+         - http_codes:
+             - "200"
+           http_code_intervals:
+             - HTTP_3XX
+           grpc_codes:
+             - OK
+           discard_percent: "90"
      ```
-  1. (опционально) Установите новые ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
+
+  1. (Опционально) Установите новые ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
  
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
@@ -185,27 +251,37 @@
            }
          }
        }
+
+       log_options {
+         log_group_id = "<идентификатор_лог-группы>"
+         discard_rule {
+           http_codes          = ["200"]
+           http_code_intervals = ["HTTP_2XX"]
+           grpc_codes          = ["GRPC_OK"]
+           discard_percent     = 15
+         }
+       }
      }
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
-     ```
+     ```bash
      terraform validate
      ```
      
      Если конфигурация является корректной, появится сообщение:
      
-     ```
+     ```bash
      Success! The configuration is valid.
      ```
 
   1. Выполните команду:
 
-     ```
+     ```bash
      terraform plan
      ```
   
@@ -213,7 +289,7 @@
 
   1. Примените изменения конфигурации:
 
-     ```
+     ```bash
      terraform apply
      ```
      
@@ -221,8 +297,8 @@
 
      Проверить изменение L7-балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
-     yc alb load-balancer get <имя L7-балансировщика>
+     ```bash
+     yc alb load-balancer get <имя_балансировщика>
      ```
 
 - API
@@ -252,18 +328,21 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для удаления обработчика:
-     ```
+
+     ```bash
      yc alb load-balancer remove-listener --help
      ```
 
   1. Выполните команду:
-     ```
+
+     ```bash
      yc alb load-balancer remove-listener <идентификатор или имя балансировщика> \
        --listener-name=<имя обработчика>
      ```
 
      Результат:
-     ```
+
+     ```text
      done (50s)
      ```
 
@@ -305,23 +384,23 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
-     ```
+     ```bash
      terraform validate
      ```
      
      Если конфигурация является корректной, появится сообщение:
      
-     ```
+     ```bash
      Success! The configuration is valid.
      ```
 
   1. Выполните команду:
 
-     ```
+     ```bash
      terraform plan
      ```
   
@@ -329,7 +408,7 @@
 
   1. Примените изменения конфигурации:
 
-     ```
+     ```bash
      terraform apply
      ```
      
@@ -337,7 +416,7 @@
 
      Проверить изменение L7-балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc alb load-balancer get <имя L7-балансировщика>
      ```
 

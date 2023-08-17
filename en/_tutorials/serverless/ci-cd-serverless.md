@@ -86,7 +86,7 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 
 - {{ mgl-name }} instance
 
-   Create a {{ mgl-name }} instance by [following the instructions](../../managed-gitlab/quickstart.md#instance-create).
+   Create a {{ mgl-name }} instance by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
 
 
 - VM running a {{ GL }} image
@@ -96,8 +96,6 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
    {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
 {% endlist %}
-
-## Configure {{ GL }} {#configure-gitlab}
 
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 

@@ -78,7 +78,8 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list host groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [HostGroup.name](#HostGroup1) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`. <br>Each condition has the form `<field> <operator> <value>`, where: <ol><li>`<field>` is the field name. Currently you can use filtering only on the limited number of fields. </li><li>`<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`. </li><li>`<value>` represents a value. </li></ol>String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). The maximum string length in characters is 1000.
+order_by | **string**<br>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. The default sorting order is ascending The maximum string length in characters is 100.
 
 
 ### ListHostGroupsResponse {#ListHostGroupsResponse}
@@ -370,7 +371,7 @@ Field | Description
 host_group_id | **string**<br>Required. ID of the host group to list instances for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Host.id](#Host) field. To get the host ID, use [HostGroupService.ListHosts](#ListHosts) request. The maximum string length in characters is 1000.
+filter | **string**<br>Filter support is not currently implemented. Any filters are ignored. The maximum string length in characters is 1000.
 
 
 ### ListHostGroupInstancesResponse {#ListHostGroupInstancesResponse}
@@ -408,6 +409,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling poli
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources}
@@ -524,6 +527,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule}

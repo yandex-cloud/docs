@@ -1,5 +1,7 @@
 # Managing {{ ES }} plugins
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 When creating or updating a cluster in {{ mes-short-name }}, you can specify a list of necessary plugins and they will be installed in the cluster automatically. A full list of available plugins is [given below](#elasticsearch).
 
 ## Retrieving a list of installed plugins {#list}
@@ -24,11 +26,11 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and include the cluster ID in the `clusterId` request parameter.
+   To get a list of installed plugins, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    Enabled plugins will be shown in the `plugins` list.
 
-   You can get the cluster ID [with a list of clusters in a folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -83,9 +85,11 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To update the list of installed plugins, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * List of plugins in the `configSpec.elasticsearchSpec.plugins` parameter. Plugins that are not included in the list will be disabled.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

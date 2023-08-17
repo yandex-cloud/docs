@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/index.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/index.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster methods
@@ -149,6 +149,9 @@ A set of methods for managing Apache Kafka® clusters.
     "schemaRegistry": true,
     "access": {
       "dataTransfer": true
+    },
+    "restApiConfig": {
+      "enabled": true
     }
   },
   "networkId": "string",
@@ -293,6 +296,8 @@ config.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics
 config.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
 config.<br>access | **object**<br><p>Access policy for external services.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
+config.<br>restApiConfig | **object**<br><p>Configuration of REST API.</p> 
+config.<br>restApiConfig.<br>enabled | **boolean** (boolean)<br><p>Is REST API enabled for this cluster.</p> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: state of the cluster is unknown (``health`` of all hosts in the cluster is ``UNKNOWN``).</li> <li>ALIVE: cluster is alive and well (``health`` of all hosts in the cluster is ``ALIVE``).</li> <li>DEAD: cluster is inoperable (``health`` of all hosts in the cluster is ``DEAD``).</li> <li>DEGRADED: cluster is in degraded state (``health`` of at least one of the hosts in the cluster is not ``ALIVE``).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 

@@ -272,12 +272,6 @@ WITH
 
 {% endcut %}
 
-{% note warning %}
-
-В текущий момент поддерживаются файлы в формате Parquet размером до 50 МБ.
-
-{% endnote %}
-
 ## Пример чтения данных
 
 Пример запроса для чтения данных из {{ objstorage-full-name }}.
@@ -312,7 +306,7 @@ WITH(
 
 В {{ yq-full-name }} поддерживаются следующие алгоритмы сжатия данных для чтения:
 
-|Формат сжатия|Название в {{ yq-short-name }}|
+|Формат сжатия|Название в {{ yq-name }}|
 |--|--|
 |[Gzip](https://ru.wikipedia.org/wiki/Gzip)|gzip|
 |[Zstd](https://ru.wikipedia.org/wiki/Zstandard)|zstd|
@@ -323,7 +317,7 @@ WITH(
 
 Формат файлов parquet поддерживает собственные внутренние алгоритмы сжатия. {{ yq-full-name }} позволяет читать данные в формате parquet с использованием следующих алгоритмов сжатия:
 
-|Формат сжатия|Название в {{ yq-short-name }}|
+|Формат сжатия|Название в {{ yq-name }}|
 |--|--|
 |[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
 |[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|

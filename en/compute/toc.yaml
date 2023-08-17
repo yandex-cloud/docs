@@ -115,6 +115,8 @@ items:
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Creating a non-replicated disk
             href: operations/disk-create/nonreplicated.md
+          - name: Creating a high-performance SSD
+            href: operations/disk-create/ssd-io.md
           - name: Recovering a disk from a snapshot
             href: operations/disk-create/from-snapshot.md
       - name: Disk management
@@ -291,7 +293,7 @@ items:
             href: concepts/performance-levels.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
-          - name: Network on a VM
+          - name: VM networking
             href: concepts/network.md
           - name: Software-accelerated network
             href: concepts/software-accelerated-network.md
@@ -347,7 +349,7 @@ items:
                 href: concepts/instance-groups/policies/scale-policy.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
-          - name: Auto-healing
+          - name: Instance health checks and autohealing
             href: concepts/instance-groups/autohealing.md
           - name: Updating
             items:
@@ -361,6 +363,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
               - name: Changing secondary disks in an instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
+          - name: Integration with network and L7 load balancers
+            href: concepts/instance-groups/balancers.md
           - name: Stopping and pausing an instance group
             href: concepts/instance-groups/stopping-pausing.md
           - name: Statuses
@@ -461,6 +465,8 @@ items:
                 href: api-ref/Disk/listOperations.md
               - name: move
                 href: api-ref/Disk/move.md
+              - name: relocate
+                href: api-ref/Disk/relocate.md
               - name: update
                 href: api-ref/Disk/update.md
           - name: DiskType
@@ -579,6 +585,8 @@ items:
                 href: api-ref/Instance/listOperations.md
               - name: move
                 href: api-ref/Instance/move.md
+              - name: relocate
+                href: api-ref/Instance/relocate.md
               - name: removeOneToOneNat
                 href: api-ref/Instance/removeOneToOneNat.md
               - name: restart
@@ -683,6 +691,8 @@ items:
                 href: api-ref/InstanceGroup/listAccessBindings.md
               - name: update
                 href: api-ref/InstanceGroup/update.md
+              - name: rollingRecreate
+                href: api-ref/InstanceGroup/rollingRecreate.md
               - name: updateAccessBindings
                 href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: setAccessBindings
@@ -701,6 +711,8 @@ items:
                 href: api-ref/InstanceGroup/delete.md
               - name: pauseProcesses
                 href: api-ref/InstanceGroup/pauseProcesses.md
+              - name: rollingRestart
+                href: api-ref/InstanceGroup/rollingRestart.md
               - name: createFromYaml
                 href: api-ref/InstanceGroup/createFromYaml.md
               - name: stop

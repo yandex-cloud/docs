@@ -5,28 +5,21 @@ description: "In this tutorial, you will learn how to create a {{ CH }} cluster 
 
 # Getting started with {{ mch-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
-* [Create a DB cluster](#cluster-create).
+* [Create a database cluster](#cluster-create).
 * [Connect to the DB](#connect).
 
 
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
-
-1. If you do not have a folder yet, create one:
+1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the DB cluster.
-
-   * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+1. You can connect to DB [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based [VM](../compute/concepts/vm.md) in the same [network](../vpc/concepts/network.md#network) as the DB cluster.
+   * To connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
 
@@ -34,13 +27,12 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
-   sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
-   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+   sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
@@ -48,7 +40,7 @@ To get started with the service:
 1. Install the dependencies and the `clickhouse-client` client application:
 
    ```bash
-   sudo apt update && sudo apt install -y clickhouse-client
+   sudo apt update && sudo apt install --yes clickhouse-client
    ```
 
 1. Download the configuration file for `clickhouse-client`:
@@ -67,20 +59,16 @@ To get started with the service:
 ## Connect to the DB {#connect}
 
 
-1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
-   {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
-
 
 
 1. To connect to the DB server, get an SSL certificate:
 
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
-1. Use the ClickHouse CLI to connect:
-
+1. Use the {{ CH }} CLI to connect:
    1. Specify the path to the SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
 
       ```xml

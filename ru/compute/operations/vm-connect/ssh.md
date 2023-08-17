@@ -1,6 +1,26 @@
 # Подключиться к виртуальной машине Linux по SSH
 
-Рекомендуемый способ подключения к [ВМ](../../concepts/vm.md) по [SSH](../../../glossary/ssh-keygen.md) основан на использовании пары ключей: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя. Подключение с помощью пары ключей более безопасно, чем подключение по логину и паролю.
+Рекомендуемый способ подключения к [ВМ](../../concepts/vm.md) по [SSH](../../../glossary/ssh-keygen.md) основан на использовании пары ключей: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя. Чтобы другой пользователь мог подключится к ВМ, добавьте для него SSH-ключ по [инструкции](#vm-authorized-keys). Подключение с помощью пары ключей более безопасно, чем подключение по логину и паролю.
+
+
+Обучающее видео поможет вам подключиться к ВМ Linux по SSH:
+
+{% list tabs %}
+
+- Linux/macOS
+
+  @[youtube](https://www.youtube.com/watch?v=0Q4kivQo0g4&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=10&pp=iAQB)
+
+- Windows 10
+
+  @[youtube](https://www.youtube.com/watch?v=M7m75y80VFM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=11&pp=iAQB)
+
+- Windows 7/8
+
+  @[youtube](https://www.youtube.com/watch?v=rNA-bEbSHZ8&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=12&pp=iAQB)
+
+{% endlist %}
+
 
 ## Создание пары ключей SSH {#creating-ssh-keys}
 
@@ -38,7 +58,7 @@
      cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
      ```
 
-     Вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления]({{ link-console-main }}).
+     Вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
 
 - macOS
 
@@ -58,7 +78,7 @@
      cat ~/.ssh/id_ed25519.pub | pbcopy
      ```
 
-     Вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления]({{ link-console-main }}).
+     Вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
 
 - Windows
 
@@ -80,7 +100,7 @@
      type C:\Users\User\.ssh\id_ed25519.pub | clip
      ```
 
-     Вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления]({{ link-console-main }}).
+     Вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -94,7 +114,7 @@
 
 {% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
 
-Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления в поле **Публичный IPv4** блока **Сеть** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
+Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
 
 Также можно использовать [внутренние IP-адреса](../../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../../vpc/concepts/network.md#network) {{ yandex-cloud }}.
 

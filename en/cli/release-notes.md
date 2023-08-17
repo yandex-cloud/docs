@@ -2,44 +2,126 @@
 
 ## Current version {#latest-release}
 
-## Version 0.104.0 (19/04/23) {#version0.104.00}
+### Version 0.108.1 (06/07/23) {#version0.108.1}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to the CLI {#cli}
 
-#### {{ sf-name }} {#serverless-functions}
+* Temporarily removed the `oslogin` command.
+
+## Previous releases {#previous-releases}
+
+### Version 0.108.0 (04/07/23) {#version0.108.0}
+
+#### Changes to the CLI {#cli}
+
+* Added the `oslogin` command to get the username of the current OS user.
+* Disabled the display of global flags for all commands by default when running `yc [command] -h`. To view global flags, run `yc help [command]`.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ kms-name }} {#kms}
+
+* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, see the [documentation](../kms/).
+
+### Version 0.107.0 (15/06/23) {#version0.107.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Added the `--partitions` parameter to the `yc compute placement-group create` command to specify the number of partitions in `partitionPlacementStrategy`.
+
+##### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Unified the configuration parameters of {{ mrd-name }} clusters for different {{ RD }} versions.
+
+**{{ mgp-name }}**
+
+* Added the following parameters to the `yc managed-greenplum cluster restore` command:
+   * `--segment-host-count` to specify the number of segment hosts in a restored cluster.
+   * `--segment-in-host` to specify the number of segments per host in a restored cluster.
+
+**{{ mmy-name }}**
+
+* Added the `--global-permissions` parameter to the `yc managed-mysql user update` command to grant users `FLUSH_OPTIMIZER_COSTS` and `SHOW_ROUTINE` privileges.
+
+### Version 0.106.0 (19/05/23) {#version0.106.00}
+
+#### Changes to the CLI {#cli}
+
+* Added the `--force-authn` flag to the `yc organization-manager federation saml` command.
+* Added the `fed-auth-browser-skip` configuration option to skip a confirmation that a browser is opened (by pressing **Enter**) when authenticating as a federated user. The option value can be `true` or `false`.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Added the `audit-enabled` flag to the `--master-logging` parameter to enable or disable uploading {{ k8s }} cluster audit logs to {{ cloud-logging-full-name }}.
+
+##### {{ backup-name }} {#backup}
+
+* Added groups of `yc backup` commands to manage VM connections to {{ backup-full-name }}, VM backups, and backup policies.
+
+### Version 0.105.0 (15/05/23) {#version0.105.00}
+
+#### Changes to the CLI {#cli}
+
+* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. This parameter is used to provide the service account ID. The value data type is string.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Fixed the way the `yc logging read` command runs when setting the `--follow` flag.
+
+##### {{ managed-k8s-name }} {#k8s}
+
+Added the `--container-network-settings` parameter to the `yc k8s node-group create` command to configure a container network of cluster nodes. You can provide the MTU value for pods in this parameter in the `pod-mtu` property.
+
+##### Managed database services {#managed-db}
+
+**{{ mkf-name }}**
+
+* Added support for {{ KF }} 3.x, starting from 3.3.
+
+### Version 0.104.0 (19/04/23) {#version0.104.00}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ sf-name }} {#serverless-functions}
 
 * Added the `--payload` parameter to the `yc serverless trigger timer create` command to link user-defined data to an event triggered by a timer.
 
-#### {{ cloud-desktop-name }} {#cloud-desktop}
+##### {{ cloud-desktop-name }} {#cloud-desktop}
 
 * Renamed the `yc cloud-desktop` group of commands to `yc desktops`.
 * Added the `[PREVIEW]` mark to the `yc desktops` group of commands.
 * Added the `yc desktops desktop restart` command to restart desktops.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Fixed listing for a large number of folder objects for all {{ compute-short-name }} entities.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
 Added the `yc managed-clickhouse cluster list-external-dictionaries` command to list the added external dictionaries.
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g., `yc logging read default 1d "level = INFO"`.
 * Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g., `yc logging write default test "{\"key\":\"value\"}"`.
 
-#### {{ sf-name }} {#functions}
+##### {{ sf-name }} {#functions}
 
 * Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g., `yc serverless function logs default 1d "level = INFO"`.
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g., `yc iot broker logs default 1d "level = INFO"`.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.103.0 (15/03/23) {#version0.103.00}
 
@@ -489,9 +571,10 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
 
+
    * Added the `--node-name` flag that can be used to specify a node name template within a group.
 
-   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for VMs — group nodes (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
+   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for group node VMs (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
 
@@ -1016,7 +1099,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 ##### {{ sf-name }} {#serverless-functions}
 
-* Added the `yc serverless trigger create billing-budget` command to create triggers for billing events.
+* Added the `yc serverless trigger create billing-budget` command to create triggers for {{ billing-name }} events.
 * Added commands to control connections to managed databases:
    * `yc serverless mdbproxy update clickhouse`
    * `yc serverless mdbproxy create clickhouse`
@@ -1180,6 +1263,7 @@ Added support for {{ cloud-logging-full-name }}.
 #### {{ managed-k8s-name }} {#k8s}
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
+
 
    Added the `--network-acceleration-type` flag, which lets you specify a network type for node groups: standard or software-accelerated.
 
@@ -1562,6 +1646,7 @@ Added primary support for {{ mkf-name }}:
    Added the `--security-group-ids` flag to set cluster security groups.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
+
    Added the `--network-interface` flag that allows you to configure more detailed network specifications for nodes. For example, you can manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
 
@@ -1831,13 +1916,14 @@ Added support for {{ api-gw-full-name }}.
 
 ##### {{ vpc-name }} {#vpc}
 
-*  `yc vpc subnet create` and `yc vpc subnet update` commands.
+* `yc vpc subnet create` and `yc vpc subnet update` commands.
 
    Added flags for configuring DHCP options: `--domain-name`, `--domain-name-server`, and `--ntp-server`.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
+
 
    Added the `--gpus=GPUS` flag to specify the number of GPUs on the nodes.
 
@@ -1954,7 +2040,8 @@ Added support for {{ api-gw-full-name }}.
    Added the `--node-ipv4-mask-size` flag to configure the size of `CIDR` allocated to each cluster node.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-   Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created at instance group update.
+
+   Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created when updating the group.
 
 
 #### Managed database services {#managed-db}
@@ -2059,9 +2146,8 @@ Added support for {{ api-gw-full-name }}.
 **Improved**
 
 * When you start `yc` with the `--help` or `-h` flag, interactive help opens: in `less` (`$PAGER`) on Linux and macOS and in `more` on Windows. Now you no longer have to scroll up through the help result.
-* The execution debug logs and API interaction debug logs are now saved to the
-   `$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the issue when `yc`, which was installed as a stand-alone binary file, suddenly tries to save its log in the same directory without the rights to it.
-* Debug logs are also saved for successful requests. If you contact support about an issue with a `yc` command, we can help you faster if you attach your log file.
+* The execution and API interaction debug logs are now saved to the `$HOME/.config/yandex-cloud/logs` configuration directory instead of the installation directory. This fixes the issue where `yc`, installed as a stand-alone binary file, would suddenly save its log in the same directory without the rights for it.
+* Debug logs are also saved for successful requests. When reporting an issue with a `yc` command, attach your saved log file so we can help you faster.
 
 **Fixed**
 * When running `yc components ...` commands, no update notice is shown.

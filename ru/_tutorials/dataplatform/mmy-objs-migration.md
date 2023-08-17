@@ -1,4 +1,4 @@
-# Поставка данных из {{ mmy-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
+# Загрузка данных из {{ MY }} в {{ objstorage-name }} с помощью {{ data-transfer-full-name }}
 
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-name }}.
 
@@ -104,7 +104,7 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ objstorage-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-OBJECT_STORAGE }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.connection_settings.title }}**:
@@ -122,7 +122,7 @@
 
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MY }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`.
             * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**:
@@ -141,7 +141,7 @@
 
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания трансфера;
-            * (Опционально) `include_tables_regex`, `exclude_tables_regex` – регулярные выражения для переносимых таблиц и таблиц, которые не надо переносить.
+            * (опционально) `include_tables_regex`, `exclude_tables_regex` – регулярные выражения для переносимых таблиц и таблиц, которые не надо переносить.
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -165,7 +165,7 @@
 1. Убедитесь, что данные перенеслись из кластера-источника {{ mmy-name }} в бакет {{ objstorage-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
-    1. В списке сервисов выберите **{{ objstorage-name }}**.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
     1. Проверьте, что бакет {{ objstorage-name }} содержит папку `measurements` с объектом `<имя базы данных кластера-источника>_measurements` с тестовыми данными.

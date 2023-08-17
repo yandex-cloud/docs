@@ -1,6 +1,6 @@
 # Управление шардами {{ MG }}
 
-Вы можете включить [шардирование](../concepts/sharding.md) для кластера, а также добавлять и настраивать отдельные шарды.
+Кластер можно [создать шардированным](cluster-create.md#creating-a-sharded-cluster) либо [включить шардирование](#enable) позже. Затем можно [добавлять и настраивать шарды](#add-shard).
 
 Для повышения доступности шарды должны состоять как минимум из трех хостов `MONGOD`. Небольшие коллекции обычно нет смысла шардировать: скорость обработки запросов будет выше в обычном кластере реплик.
 
@@ -24,7 +24,7 @@
 
 {% note info %}
 
-Шардирование [не поддерживается](../concepts/sharding.md#shard-management) для хостов с классами **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro** и **b2.medium**. Если у вас нет вкладки **Шарды**, [повысьте класс хостов кластера](update.md#change-resource-preset) до поддерживаемого.
+Шардирование [не поддерживается](../concepts/sharding.md#shard-management) для хостов с классами **b1.medium** и **b2.medium**. Если у вас нет вкладки **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**, [повысьте класс хостов кластера](update.md#change-resource-preset) до поддерживаемого.
 
 {% endnote %}
 
@@ -32,12 +32,12 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. Нажмите кнопку **Включить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Выберите один из типов шардирования:
-     * **Стандартный** — с использованием хостов `MONGOINFRA`.
-     * **Расширенный** — с использованием хостов `MONGOS` и `MONGOCFG`.
+     * **{{ ui-key.yacloud.mongodb.cluster.shards.label_standard }}** — с использованием хостов `MONGOINFRA`.
+     * **{{ ui-key.yacloud.mongodb.cluster.shards.label_custom }}** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
        Подробнее см. в разделе [{#T}](../concepts/sharding.md).
 
@@ -48,7 +48,7 @@
      {% endnote %}
 
   1. Задайте параметры хостов, которые будут обеспечивать доступ к шардированным данным.
-  1. Нажмите кнопку **Включить шардирование**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mongodb.cluster.shards.button_enable_sharding }}**.
 
   Кластер начнет обновляться, при этом будут созданы запрошенные хосты, а также первый шард кластера.
 
@@ -73,7 +73,7 @@
         `zone-id=<зона доступности>,`
         `subnet-name=<имя подсети> \
       --mongoinfra resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-size=<размер хранилища в ГБ>,`
         `disk-type=<тип диска>
     ```
 
@@ -100,7 +100,7 @@
         `zone-id=<зона доступности>,`
         `subnet-name=<имя подсети> \
       --mongos resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-size=<размер хранилища в ГБ>,`
         `disk-type=<тип диска> \
       --host type=mongocfg,`
         `zone-id=<зона доступности>,`
@@ -112,7 +112,7 @@
         `zone-id=<зона доступности>,`
         `subnet-name=<имя подсети> \
       --mongocfg resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-size=<размер хранилища в ГБ>,`
         `disk-type=<тип диска>
     ```
 
@@ -131,6 +131,104 @@
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
 
+- {{ TF }}
+
+  1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     О создании такого файла читайте в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте дополнительные ресурсы в конфигурационный файл.
+
+     {% cut "Для стандартного шардирования кластера с использованием хостов `MONGOINFRA`" %}
+
+        ```hcl
+        resources_mongoinfra {
+          resource_preset_id = "<класс хоста>"
+          disk_type_id       = "<тип диска>"
+          disk_size          = <размер хранилища в ГБ>
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongoinfra"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongoinfra"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongoinfra"
+        }
+        ```
+
+     {% endcut %}
+
+     {% cut "Для расширенного шардирования кластера с использованием хостов `MONGOS` и `MONGOCFG`" %}
+
+        ```hcl
+        resources_mongos {
+          resource_preset_id = "<класс хоста>"
+          disk_type_id       = "<тип диска>"
+          disk_size          = <размер хранилища в ГБ>
+        }
+
+        resources_mongocfg {
+          resource_preset_id = "<класс хоста>"
+          disk_type_id       = "<тип диска>"
+          disk_size          = <размер хранилища в ГБ>
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongos"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongos"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongocfg"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongocfg"
+        }
+
+        host {
+          zone_id   = "<зона доступности>"
+          subnet_id = "<идентификатор подсети>"
+          type      = "mongocfg"
+        }
+        ```
+
+     {% endcut %}
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+
 - API
 
   Чтобы включить шардирование кластера, воспользуйтесь методом REST API [enableSharding](../api-ref/Cluster/enableSharding.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/EnableSharding](../api-ref/grpc/cluster_service.md#EnableSharding) и передайте в запросе идентификатор кластера в параметре `clusterId`.
@@ -145,8 +243,8 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
 
 - CLI
 
@@ -189,11 +287,11 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. Нажмите кнопку **Добавить шард**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
   1. Укажите имя шарда и добавьте нужное количество хостов.
-  1. Нажмите кнопку **Создать шард**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI
 
@@ -218,17 +316,21 @@
 
 - {{ TF }}
 
+  1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
+
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
+     О создании такого файла читайте в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с типом `MONGOD` в параметре `type` и именем шарда в параметре `shard_name`:
 
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
        ...
        host {
-         zone       = "<зона доступности>"
+         zone_id    = "<зона доступности>"
          subnet_id  = "<идентификатор подсети>"
+         type       = "mongod"
          shard_name = "<имя шарда>"
        }
      }
@@ -270,10 +372,10 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
+  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -294,7 +396,8 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О создании такого файла читайте в разделе [{#T}](cluster-create.md).
+
   1. Удалите из описания кластера {{ mmg-name }} все блоки `host`, которые относятся к шарду.
   1. Проверьте корректность настроек.
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/list.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/list.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.list
@@ -456,7 +456,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoPoolSize": "integer",
             "geqoGenerations": "integer",
             "geqoSelectionBias": "number",
-            "geqoSeed": "number"
+            "geqoSeed": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -586,7 +590,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoPoolSize": "integer",
             "geqoGenerations": "integer",
             "geqoSelectionBias": "number",
-            "geqoSeed": "number"
+            "geqoSeed": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -716,7 +724,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoPoolSize": "integer",
             "geqoGenerations": "integer",
             "geqoSelectionBias": "number",
-            "geqoSeed": "number"
+            "geqoSeed": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_10": {
@@ -847,7 +859,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoGenerations": "integer",
             "geqoSelectionBias": "number",
             "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -976,7 +991,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoGenerations": "integer",
             "geqoSelectionBias": "number",
             "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -1105,7 +1123,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoGenerations": "integer",
             "geqoSelectionBias": "number",
             "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_11": {
@@ -1247,7 +1268,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -1387,7 +1411,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -1527,7 +1554,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_11_1C": {
@@ -1670,7 +1700,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -1811,7 +1845,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -1952,7 +1990,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_12": {
@@ -2096,7 +2138,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -2238,7 +2283,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -2380,7 +2428,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_12_1C": {
@@ -2525,7 +2576,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -2668,7 +2723,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -2811,7 +2870,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_13": {
@@ -2967,7 +3030,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -3121,7 +3187,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -3275,7 +3344,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_13_1C": {
@@ -3431,7 +3503,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -3585,7 +3661,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -3739,7 +3819,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_14": {
@@ -3900,7 +3984,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -4059,7 +4146,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -4218,7 +4308,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_14_1C": {
@@ -4379,7 +4472,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -4538,7 +4635,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -4697,7 +4798,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_15": {
@@ -4852,7 +4957,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -5005,7 +5113,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -5158,7 +5269,10 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
             "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "integer"
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         "postgresqlConfig_15_1C": {
@@ -5319,7 +5433,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -5478,7 +5596,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -5637,7 +5759,11 @@ filter | <p>A filter expression that filters resources listed in the response. T
             "geqoSeed": "number",
             "pgTrgmSimilarityThreshold": "number",
             "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number"
+            "pgTrgmStrictWordSimilarityThreshold": "number",
+            "maxStandbyArchiveDelay": "integer",
+            "sessionDurationTimeout": "integer",
+            "logReplicationCommands": true,
+            "logAutovacuumMinDuration": "integer"
           }
         },
         // end of the list of possible fields`clusters[].config`
@@ -6089,6 +6215,10 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>geqoPoo
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>geqoGenerations | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 10 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -6216,6 +6346,10 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>geqoPoolSize
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>geqoGenerations | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 10 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -6343,6 +6477,10 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>geqoPoolS
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>geqoGenerations | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10 | **object**<br>Configuration of a PostgreSQL 10 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Required. Effective settings for a PostgreSQL 10 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -6470,6 +6608,9 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoGenera
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 10 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -6596,6 +6737,9 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoGenerations
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 10 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -6722,6 +6866,9 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoGenerati
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration of a PostgreSQL 11 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -6860,6 +7007,9 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgTrgmSimi
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 11 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -6997,6 +7147,9 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>pgTrgmSimilarit
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 11 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -7134,6 +7287,9 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgTrgmSimila
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Configuration of a PostgreSQL 11 1C server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -7273,6 +7429,10 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>geqoSee
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 11 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -7411,6 +7571,10 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>geqoSeed | *
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 11 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -7549,6 +7713,10 @@ clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>geqoSeed 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12 | **object**<br>Configuration of a PostgreSQL 12 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 12 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -7689,6 +7857,9 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgTrgmSimi
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 12 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -7828,6 +7999,9 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgTrgmSimilarit
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 12 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -7967,6 +8141,9 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgTrgmSimila
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Configuration of a PostgreSQL 12 1C server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 12 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -8108,6 +8285,10 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>geqoSee
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 12 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -8248,6 +8429,10 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>geqoSeed | *
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 12 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -8388,6 +8573,10 @@ clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>geqoSeed 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13 | **object**<br>Configuration of a PostgreSQL 13 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 13 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -8540,6 +8729,9 @@ clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgTrgmSimi
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 13 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -8691,6 +8883,9 @@ clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>pgTrgmSimilarit
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 13 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -8842,6 +9037,9 @@ clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgTrgmSimila
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_13.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C | **object**<br>Configuration of a PostgreSQL 13 1C server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 13 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -8994,6 +9192,10 @@ clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>geqoSee
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 13 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -9145,6 +9347,10 @@ clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>geqoSeed | *
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 13 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -9296,6 +9502,10 @@ clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>geqoSeed 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_13_1C.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14 | **object**<br>Configuration of a PostgreSQL 14 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 14 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -9453,6 +9663,9 @@ clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgTrgmSimi
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 14 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -9609,6 +9822,9 @@ clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>pgTrgmSimilarit
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 14 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -9765,6 +9981,9 @@ clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgTrgmSimila
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_14.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C | **object**<br>Configuration of a PostgreSQL 14 1C server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 14 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -9922,6 +10141,10 @@ clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>geqoSee
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 14 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -10078,6 +10301,10 @@ clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>geqoSeed | *
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 14 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -10234,6 +10461,10 @@ clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>geqoSeed 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_14_1C.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15 | **object**<br>Configuration of a PostgreSQL 15 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 15 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -10385,6 +10616,9 @@ clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>pgTrgmSimi
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 15 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -10535,6 +10769,9 @@ clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>pgTrgmSimilarit
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 15 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -10685,6 +10922,9 @@ clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>pgTrgmSimila
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_15.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C | **object**<br>Configuration of a PostgreSQL 15 1C server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 15 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)
@@ -10842,6 +11082,10 @@ clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>geqoSee
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>effectiveConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 15 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)
@@ -10998,6 +11242,10 @@ clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>geqoSeed | *
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>userConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 15 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)
@@ -11154,6 +11402,10 @@ clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>geqoSeed 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>maxStandbyArchiveDelay | **integer** (int64)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>logReplicationCommands | **boolean** (boolean)
+clusters[].<br>config.<br>postgresqlConfig_15_1C.<br>defaultConfig.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

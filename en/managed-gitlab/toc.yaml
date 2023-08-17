@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Managing a {{ GL }} instance
         items:
@@ -21,7 +21,7 @@ items:
             href: operations/instance/instance-delete.md
       - name: Connecting to instances
         href: operations/connect.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -33,6 +33,8 @@ items:
           Scanning {{ container-registry-name }} for vulnerabilities during
           continuous deployment of {{ managed-k8s-name }} applications
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: Building a CI/CD pipeline using serverless products
+        href: tutorials/ci-cd-serverless.md
   - name: Concepts
     items:
       - name: Relationships between service resources

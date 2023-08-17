@@ -110,7 +110,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -191,7 +191,7 @@
   }
   ```
 
-  Подробнее см. описание ресурса [vpc_address]({{ tf-provider-link }}/vpc_address) в документации провайдера {{ TF }}.
+  Подробнее см. описание ресурса [vpc_address]({{ tf-provider-resources-link }}/vpc_address) в документации провайдера {{ TF }}.
 
 {% endlist %}
 
@@ -319,7 +319,7 @@
        }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-link }}/compute_instance) в документации провайдера {{ TF }}.
+     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -438,7 +438,7 @@
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (опционально) Добавьте описание таблицы маршрутизации.
+  1. (Опционально) Добавьте описание таблицы маршрутизации.
   1. Выберите сеть `usergate-network`.
   1. Нажмите кнопку **Добавить маршрут**.
   1. В открывшемся окне введите префикс подсети назначения `0.0.0.0` и выберите `0` в выпадающем списке.
@@ -575,7 +575,7 @@
 
      Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `netword id` (например, `network_id = "${yandex_vpc_network.lab-net.id}"`).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_route_table).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Проверьте корректность конфигурационных файлов.
 

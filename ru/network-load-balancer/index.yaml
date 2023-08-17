@@ -1,16 +1,11 @@
 title: Yandex Network Load Balancer
 description:
   - >-
-    Yandex Network Load Balancer — сервис, который помогает обеспечить
-    отказоустойчивость приложений за счет равномерного распределения сетевой
-    нагрузки по облачным ресурсам. Сервис позволяет создавать <a
-    href="/docs/network-load-balancer/concepts/">сетевые балансировщики</a> и
-    объединять облачные ресурсы в <a
-    href="/docs/network-load-balancer/concepts/target-resources">целевые
-    группы</a>, по которым нужно распределять трафик. Ресурсы из подключенной к
-    балансировщику целевой группы регулярно опрашиваются <a
-    href="/docs/network-load-balancer/concepts/health-check">проверками
-    состояния</a>, благодаря чему трафик подается только на рабочие ресурсы.
+    Yandex Network Load Balancer (NLB) предназначен для построения
+    отказоустойчивых и масштабируемых приложений и сервисов в {{ yandex-cloud
+    }}. Отказоустойчивость и масштабируемость достигаются за счет распределения
+    трафика, поступающего на балансировщик, по облачным ресурсам которые
+    размещаются за ним.
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
@@ -41,7 +36,7 @@ links:
     href: concepts/limits
   - title: Рекомендации по работе с сервисом
     description: Советы по настройке балансировки трафика
-    href: best-practices
+    href: concepts/best-practices.html
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

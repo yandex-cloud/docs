@@ -22,123 +22,122 @@ Authorization: OAuth <OAuth token>
 
 {% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-> Example: Request for issue links
+> Request for issue links:
 >
->- Use the HTTP GET method.
+> - An HTTP GET method is used.
 >
->```
->GET /v2/issues/JUNE-2/links HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> ```
+> GET /v2/issues/JUNE-2/links HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
+> ```
 
 ## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+   The response body contains the results in JSON format.
 
-    ```json
-    [
-        {
-            "self": "{{ host }}/v2/issues/JUNE-2/links/4709605",
-            "id": 4709605,
-            "type": {
-                "self": "{{ host }}/v2/linktypes/subtask",
-                "id": "subtask",
-                "inward": "Sub-issue",
-                "outward": "Parent issue"
-            },
-            "direction": "outward",
-            "object": {
-                "self": "{{ host }}/v2/issues/TREK-9844",
-                "id": "593cd211ef7e8a332414f2a7",
-                "key": "TREK-9844"
-                "display": "subtask"
-            },
-            "createdBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
-            },
-            "updatedBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
-            },
-            "createdAt": "2017-06-11T05:16:01.421+0000",
-            "updatedAt": "2017-06-11T05:16:01.421+0000",
-            "assignee": {
-                "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
-            },
-            "status": {
-                "self": "{{ host }}/v2/statuses/1",
-                "id": "1",
-                "key": "open",
-                "display": "Open"
-            }
-        },
-        ...
-    ]
-    ```
+   ```json
+   [
+       {
+           "self": "{{ host }}/v2/issues/JUNE-2/links/4709605",
+           "id": 4709605,
+           "type": {
+               "self": "{{ host }}/v2/linktypes/subtask",
+               "id": "subtask",
+               "inward": "sub-issue",
+               "outward": "parent issue"
+           },
+           "direction": "outward",
+           "object": {
+               "self": "{{ host }}/v2/issues/TREK-9844",
+               "id": "593cd211ef7e8a332414f2a7",
+               "key": "TREK-9844",
+               "display": "subtask"
+           },
+           "createdBy": {
+               "self": "{{ host }}/v2/users/1120000000049224",
+               "id": "<employee ID>",
+               "display": "<employee name displayed>"
+           },
+           "updatedBy": {
+               "self": "{{ host }}/v2/users/1120000000049224",
+               "id": "<employee ID>",
+               "display": "<employee name displayed>"
+           },
+           "createdAt": "2017-06-11T05:16:01.421+0000",
+           "updatedAt": "2017-06-11T05:16:01.421+0000",
+           "assignee": {
+               "self": "{{ host }}/v2/users/1120000000049224",
+               "id": "<employee ID>",
+               "display": "<employee name displayed>"
+           },
+           "status": {
+               "self": "{{ host }}/v2/statuses/1",
+               "id": "1",
+               "key": "open",
+               "display": "open"
+           }
+       },
+       ...
+   ]
+   ```
 
-    #### Response parameters {#answer-params}
+   #### Response parameters {#answer-params}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the link. | String |
-    | id | Link ID. | Number |
-    | [type](#type) | Block with information about the link type. | Object |
-    | direction | Link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#object-param) field.</li><li>`inward`: The issue specified in the [object](#object-param) field is the main one for the issue in the request.</li></ul> | String |
-    | [object](#object-block) {#object-param} | Block with information about the linked issue. | Object |
-    | [createdBy](#created-by) | Block with information about the user who created the link. | Object |
-    | [updatedBy](#updated-by) | Block with information about the user who edited the linked issue last. | Object |
-    | createdAt | Link creation date and time. | String |
-    | updatedAt | Link update date and time. | String |
-    | [assignee](#assignee) | Assignee of the linked issue. | Object |
-    | [status](#status) | Status of the linked issue. | Object |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Address of the API resource with information about the link. | String |
+   | id | Link ID. | Number |
+   | [type](#type) | Block with information about the link type. | Objects |
+   | direction | Link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#object-param) field.</li><li>`inward`: The issue specified in the [object](#object-param) field is the main one for the issue in the request.</li></ul> | String |
+   | [object](#object-block) {#object-param} | Block with information about the linked issue. | Objects |
+   | [createdBy](#created-by) | Block with information about the user who created the link. | Objects |
+   | [updatedBy](#updated-by) | Block with information about the user who edited the linked issue last. | Objects |
+   | createdAt | Link creation date and time. | String |
+   | updatedAt | Link update date and time. | String |
+   | [assignee](#assignee) | Assignee of the linked issue. | Objects |
+   | [status](#status) | Status of the linked issue. | Objects |
 
-    **Object fields** `type` {#type}
+   **Object fields** `type` {#type}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Link to the link type. | String |
-    | id | ID of the link type. | String |
-    | inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String |
-    | outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the link type. | String |
+   | id | ID of the link type. | String |
+   | inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String |
+   | outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String |
 
-    **Object fields** `object` {#object-block}
+   **Object fields** `object` {#object-block}
 
-    {% include [issue](../../../_includes/tracker/api/issue.md) %}
+   {% include [issue](../../../_includes/tracker/api/issue.md) %}
 
-    **Object fields** `createdBy` {#created-by}
+   **Object fields** `createdBy` {#created-by}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `updatedBy` {#updated-by}
+   **Object fields** `updatedBy` {#updated-by} 
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `assignee` {#assignee}
+   **Object fields** `assignee` {#assignee}
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `status` {#status}
+   **Object fields** `status` {#status}
 
-    {% include [status](../../../_includes/tracker/api/status.md) %}
+   {% include [status](../../../_includes/tracker/api/status.md) %}
 
-- Request failed
+- The request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

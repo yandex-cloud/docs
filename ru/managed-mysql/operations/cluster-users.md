@@ -10,8 +10,8 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image-users](../../_assets/mdb/user.svg) **Пользователи**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
 
 - CLI
 
@@ -41,25 +41,25 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **Пользователи**.
-  1. Нажмите кнопку **Добавить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
   1. Введите имя пользователя базы данных и пароль.
 
       {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:
-      1. Нажмите кнопку **Добавить базу данных**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
       1. Выберите нужную базу данных из выпадающего списка.
       1. Повторите два предыдущих шага, пока не будут выбраны все требуемые базы данных.
       1. Чтобы удалить базу, добавленную по ошибке, наведите курсор на строку с именем базы и нажмите значок ![image](../../_assets/cross.svg) в конце строки.
   1. Настройте [привилегии пользователя](../concepts/user-rights.md#db-privileges) для каждой из выбранных баз данных:
-      1. Нажмите значок ![image](../../_assets/plus-sign.svg) в столбце **Роли**.
+      1. Нажмите значок ![image](../../_assets/plus-sign.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}**.
       1. Выберите привилегию, которую вы хотите добавить пользователю из выпадающего списка.
       1. Повторите два предыдущих шага, пока не будут добавлены все требуемые привилегии.
   1. Чтобы отозвать привилегию, выданную по ошибке, нажмите значок ![image](../../_assets/cross.svg) справа от ее имени.
   1. При необходимости задайте [настройки {{ MY }} и административные привилегии](../concepts/settings-list.md#dbms-user-settings) для пользователя.
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 - CLI
 
@@ -111,7 +111,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - API
 
@@ -134,10 +134,10 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Изменить пароль**.
-  1. Задайте новый пароль и нажмите кнопку **Изменить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  1. Задайте новый пароль и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
   {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
@@ -188,7 +188,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - API
 
@@ -218,11 +218,11 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Настроить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Задайте [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 
@@ -285,7 +285,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - API
 
@@ -306,9 +306,9 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
 
 - CLI
 
@@ -340,7 +340,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - API
 

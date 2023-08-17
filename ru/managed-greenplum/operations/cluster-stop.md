@@ -8,9 +8,9 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-    1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Остановить**.
-    1. Подтвердите остановку кластера и нажмите кнопку **Остановить**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+    1. Подтвердите остановку кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI
 
@@ -40,9 +40,9 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-    1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Запустить**.
-    1. Подтвердите запуск кластера и нажмите кнопку **Запустить**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+    1. Подтвердите запуск кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
 - CLI
 

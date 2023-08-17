@@ -48,11 +48,12 @@ By ensuring that our cloud infrastructure meets PCI DSS requirements, we enable 
 
 For more information, see:
 
-* [PCI DSS certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_EN.pdf).
-* [PCI DSS certificate for the Yandex data center](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
-* [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
-* [PCI DSS Attestation of Compliance (AOC) for the Yandex data center](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
-* [Responsibility matrix](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+* [PCI DSS certificate for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/СС-664_2022_Яндекс.Облако_кр.pdf).
+* [PCI DSS certificate for the Yandex data center](https://{{ s3-storage-host }}/yc-compliance/certificates/СС-636_2022_Yandex_ЦОД_кр.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://{{ s3-storage-host }}/yc-compliance/20221209_Yandex_Cloud_SP_AOC.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for the Yandex data center](https://{{ s3-storage-host }}/yc-compliance/certificates/20221013_Yandex_DC_AOC.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for Billing](https://{{ s3-storage-host }}/yc-compliance/20221209_Yandex_Cloud_Merchant_AOC.pdf).
+* [Responsibility matrix](https://{{ s3-storage-host }}/yc-compliance/certificates/PCI_DSS_responsibility_matrix_12_2022.pdf).
 * [Requirements and recommendations for building PCI DSS infrastructure](https://{{ s3-storage-host }}/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
 
 ## PCI PIN Security {#pci-pin-security}

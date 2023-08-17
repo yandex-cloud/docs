@@ -1,9 +1,9 @@
 ---
 title: "How to configure a {{ PG }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}."
+description: "In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ PG }} target endpoint
+# Configuring {{ PG }} target endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

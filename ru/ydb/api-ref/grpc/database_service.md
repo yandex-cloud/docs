@@ -65,6 +65,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -330,6 +331,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig1)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig1)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -842,6 +844,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig3)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig3)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -1145,6 +1148,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig4)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig4)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -1217,6 +1221,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig4)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig4)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -1500,6 +1505,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig5)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig5)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -1784,6 +1790,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig6)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig6)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -2272,6 +2279,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig7)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig7)**<br> 
 deletion_protection | **bool**<br> 
 
@@ -2611,6 +2619,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig8)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+kafka_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig8)**<br> 
 deletion_protection | **bool**<br> 
 

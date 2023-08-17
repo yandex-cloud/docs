@@ -2,11 +2,11 @@
 
 Чтобы распознать текст с изображения или из PDF-файла, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
 
-Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
+Для этого в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
 
 ## Примеры {#examples}
 
-### Перед началом {#before-you-begin}
+### Перед началом работы {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 
@@ -14,7 +14,19 @@
 
 ### Распознать текст с изображения {#basic}
 
+1. Подготовьте файл изображения, соответствующий требованиям:
+
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+
+    {% note info %}
+
+    Нужен пример изображения? Скачайте изображение дорожного знака, [предупреждающего о пингвинах](https://{{ s3-storage-host }}/vision/penguins_sample.jpg).
+
+    {% endnote %}
+
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
+
+{% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
 
 ### Распознайте текст из PDF-файла {#pdf}
 

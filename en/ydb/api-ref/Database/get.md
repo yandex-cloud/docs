@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/Database/get.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/Database/get.md
 ---
 
 # Managed Service for YDB API, REST: Database.get
@@ -106,6 +106,7 @@ databaseId | <p>Required. Required. ID of the YDB cluster.</p> <p>The maximum st
   },
   "documentApiEndpoint": "string",
   "kinesisApiEndpoint": "string",
+  "kafkaApiEndpoint": "string",
   "monitoringConfig": {
     "alerts": [
       {
@@ -286,6 +287,7 @@ backupConfig.<br>backupSettings[].<br>type | **string**
 backupConfig.<br>backupSettings[].<br>storageClass | **string**
 documentApiEndpoint | **string**
 kinesisApiEndpoint | **string**
+kafkaApiEndpoint | **string**
 monitoringConfig | **object**
 monitoringConfig.<br>alerts[] | **object**
 monitoringConfig.<br>alerts[].<br>alertId | **string**<br><p>output only field.</p> 

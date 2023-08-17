@@ -1,4 +1,4 @@
-# Switching between DataLens instances
+# Switching between {{ datalens-short-name }} instances
 
 If you are an administrator or user of multiple [organizations](../../concepts/organizations.md), you can switch between them: This lets you work with multiple {{ datalens-short-name }} instances.
 

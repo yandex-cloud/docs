@@ -1,58 +1,60 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа виртуальных машин.
-1. В списке сервисов выберите **{{ compute-name }}**.
-1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
-1. Нажмите кнопку **Создать группу**.
-1. В блоке **Базовые параметры**:
-   * Введите **Имя** и **Описание** группы ВМ. Требования к имени:
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
+   * Введите имя и описание группы ВМ. Требования к имени:
 
      {% include [name-format](../name-format.md) %}
 
      {% include [name-fqdn](../compute/name-fqdn.md) %}
 
    * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
-   * Включите опцию **Защита от удаления** при необходимости. Пока опция включена, невозможно удалить группу.
-1. В блоке **Распределение** выберите нужные **Зоны доступности**. ВМ группы могут находиться в [разных зонах и регионах доступности](../../overview/concepts/geo-scope.md).
-1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**, чтобы задать конфигурацию базовой ВМ:
-   * В блоке **Базовые параметры** введите **Описание** шаблона.
-   * В блоке **Выбор образа/загрузочного диска** выберите, какую систему развернуть на загрузочном диске ВМ.
 
-   * В блоке **Диски**:
+     {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
+
+   * При необходимости включите опцию **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**. Пока опция включена, группу удалить невозможно.
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите нужные. ВМ группы могут находиться в [разных зонах и регионах доступности](../../overview/concepts/geo-scope.md).
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание [шаблона](../../compute/concepts/instance-groups/instance-template.md).
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите, какую систему развернуть на загрузочном [диске](../../compute/concepts/disk.md) ВМ.
+
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
-     * Укажите **Размер** диска.
-     * Чтобы добавить дополнительные диски, нажмите **Добавить диск**.
-   * В блоке **Вычислительные ресурсы**:
+     * Укажите размер диска.
+     * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
-     * Укажите необходимое количество **vCPU**, [гарантированную долю vCPU](../../compute/concepts/performance-levels.md) и объем **RAM**.
+     * Укажите необходимое количество vCPU, [гарантированную долю vCPU](../../compute/concepts/performance-levels.md) и объем RAM.
      * {% include [include](specify-preemptible-vm.md) %}
-   * В блоке **Сетевые настройки**:
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
      {% include [network-settings-group](../../_includes/compute/network-settings-group.md) %}
 
-   * В блоке **Доступ** укажите данные для доступа на ВМ:
-     * Укажите **Сервисный аккаунт**, который следует привязать к ВМ.
-     * Если выбран образ на основе Linux, заполните поля **Логин** и **SSH-ключ**. В качестве ключа укажите содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * Если выбран образ на основе Windows, укажите **Пароль** пользователя `Administrator`.
-     * При необходимости **Разрешите доступ к серийной консоли**.
-   * Нажмите кнопку **Сохранить**.
-1. В блоке **В процессе создания и обновления разрешено**:
-   * В поле **Добавлять выше целевого значения** укажите, на какое количество ВМ можно превышать размер группы.
-   * В поле **Уменьшать относительно целевого значения** укажите, на какое количество ВМ можно уменьшать размер группы.
-   * В поле **Одновременно создавать** укажите, сколько ВМ можно одновременно создавать.
-   * В поле **Время запуска** укажите срок, после которого ВМ начнет получать нагрузку.
-   * В поле **Одновременно останавливать** укажите, сколько ВМ можно одновременно останавливать.
-   * В поле **Останавливать машины по стратегии** укажите одну из [стратегий](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy):
-     * **Принудительная** — {{ ig-name }} самостоятельно выбирает, какие ВМ остановить при обновлении или уменьшении группы.
-     * **Деликатная** — {{ ig-name }} ожидает, когда ВМ остановятся самостоятельно или будут остановлены пользователем.
-1. В блоке **Масштабирование**:
-   * Выберите **Фиксированный** [тип масштабирования](../../compute/concepts/instance-groups/scale.md).
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+     * Выберите сервисный аккаунт, который следует привязать к ВМ.
+     * Если выбран [образ](../../compute/concepts/image.md) на основе Linux, заполните поля **{{ ui-key.yacloud.compute.instances.create.field_user }}** и **{{ ui-key.yacloud.compute.instances.create.field_key }}**. В качестве ключа укажите содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * При необходимости выберите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+   * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** укажите, на какое количество ВМ можно превышать размер группы.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** укажите, на какое количество ВМ можно уменьшать размер группы.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** укажите, сколько ВМ можно одновременно создавать.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}** укажите срок, после которого ВМ начнет получать нагрузку.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** укажите, сколько ВМ можно одновременно останавливать.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** укажите одну из [стратегий](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy):
+     * `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}` — {{ ig-name }} самостоятельно выбирает, какие ВМ остановить при обновлении или уменьшении группы.
+     * `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}` — {{ ig-name }} ожидает, когда ВМ остановятся самостоятельно или будут остановлены пользователем.
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
+   * Выберите `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}` [тип масштабирования](../../compute/concepts/instance-groups/scale.md).
    * Укажите размер группы ВМ.
-1. При необходимости активируйте **Проверку состояний** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
-   * В поле **Тип** выберите протокол проверок состояния: **HTTP** или **TCP**.
-   * В поле **Путь** (для типа HTTP) укажите URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.
-   * В поле **Порт** укажите номер порта от 1 до 32767, на который {{ ig-name }} будет отправлять запросы проверки.
-   * В поле **Время ожидания, с** укажите время ожидания ответа от 1 до 60 секунд.
-   * В поле **Интервал, с** укажите интервал между повторными проверками от 1 до 60 секунд. Интервал должен быть больше времени ожидания минимум на 1 секунду.
-   * В поле **Порог работоспособности** укажите количество успешных проверок, после которого ВМ будет считаться работающей нормально.
-   * В поле **Порог неработоспособности** укажите количество неудачных проверок, после которого ВМ будет считаться неработающей.
-1. В блоке **Пользовательские переменные** при необходимости укажите пары **Ключ**-**Значение**.
-1. Нажмите кнопку **Создать**.
+1. При необходимости активируйте опцию **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите протокол проверок состояния: `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** (для типа HTTP) укажите URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** укажите номер порта от 1 до 32767, на который {{ ig-name }} будет отправлять запросы проверки.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** укажите время ожидания ответа от 1 до 60 секунд.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** укажите интервал между повторными проверками от 1 до 60 секунд. Интервал должен быть больше времени ожидания минимум на 1 секунду.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** укажите количество успешных проверок, после которого ВМ будет считаться работающей нормально.
+   * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** укажите количество неудачных проверок, после которого ВМ будет считаться неработающей.
+1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_variables }}** при необходимости укажите пары `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}`.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

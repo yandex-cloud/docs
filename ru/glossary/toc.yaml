@@ -1,58 +1,92 @@
 title: Облачная терминология
-href: index.yaml
+href: index.md
 items:
-  - name: Протокол SSH
-    href: ssh-keygen.md
-  - name: Виртуальная машина
-    href: vm.md
-  - name: Виртуализация
-    href: virtualization.md
-  - name: Графический процессор (GPU)
-    href: gpu.md
-  - name: Виртуальная частная сеть (VPN)
-    href: vpn.md
-  - name: Аналитика данных
-    href: data-analytics.md
-  - name: Сквозная аналитика
-    href: end-to-end-analytics.md
-  - name: Бизнес-аналитика
-    href: business-analytics.md
-  - name: API
-    href: rest-api.md
-  - name: MQTT-сервер
-    href: mqtt-server.md
-  - name: DNS
-    href: dns.md
-  - name: CORS
-    href: cors.md
-  - name: Облачный сервер
-    href: cloud-server.md
-  - name: Реляционные базы данных
-    href: relational-databases.md
-  - name: OLTP
-    href: oltp.md
-  - name: Транскрибация
-    href: transcribation.md
-  - name: S3
-    href: s3.md
-  - name: SLA
-    href: sla.md
-  - name: QoS
-    href: qos.md
-  - name: Снапшот
-    href: snapshot.md
-  - name: Контейнеризация
-    href: containerization.md
-  - name: Data Mart
-    href: datamart.md
-  - name: Data Lake
-    href: datalake.md
-  - name: Data Vault
-    href: datavault.md
-  - name: Спринты
-    href: sprints.md
-  - name: Бэклог
-    href: backlog.md
-  - name: Kanban-доска
-    href: kanban.md
+  - name: Базы данных
+    items:
+      - name: Data Mart
+        href: datamart.md
+      - name: Data Lake
+        href: datalake.md
+      - name: Реляционные базы данных
+        href: relational-databases.md
+      - name: OLTP
+        href: oltp.md
+      - name: OLAP
+        href: olap.md
+  - name: Аналитика
+    items:
+      - name: Аналитика данных
+        href: data-analytics.md
+      - name: Сквозная аналитика
+        href: end-to-end-analytics.md
+      - name: Бизнес-аналитика
+        href: business-analytics.md
+  - name: Облачные вычисления и сервера
+    items:
+      - name: Виртуальная машина
+        href: vm.md
+      - name: Виртуализация
+        href: virtualization.md
+      - name: Графический процессор (GPU)
+        href: gpu.md
+      - name: Облачный сервер
+        href: cloud-server.md
+      - name: Контейнеризация
+        href: containerization.md
+      - name: SLA
+        href: sla.md
+      - name: Бэкап
+        href: backup.md
+  - name: Хранение и обработка данных
+    items:
+      - name: S3
+        href: s3.md
+      - name: Снапшот
+        href: snapshot.md
+      - name: Data Vault
+        href: datavault.md
+      - name: Big Data
+        href: bigdata.md
+      - name: Шардирование
+        href: sharding.md
+  - name: Речевые технологии
+    items:
+      - name: Транскрибация
+        href: transcribation.md
+  - name: Интернет вещей
+    items:
+      - name: MQTT-сервер
+        href: mqtt-server.md
+      - name: QoS
+        href: qos.md
+  - name: Управление проектами и задачами
+    items:
+      - name: Спринт
+        href: sprints.md
+      - name: Kanban-доска
+        href: kanban.md
+      - name: Бэклог
+        href: backlog.md
+  - name: Сети и доставка контента
+    items:
+      - name: Виртуальная частная сеть (VPN)
+        href: vpn.md
+      - name: DNS
+        href: dns.md
+      - name: CDN
+        href: cdn.md
+      - name: Протокол SSH
+        href: ssh-keygen.md
+      - name: REST API
+        href: rest-api.md
+      - name: GRPC
+        href: grpc.md
+      - name: CORS
+        href: cors.md
+      - name: CLI
+        href: cli.md
+  - name: Безопасность
+    items:
+      - name: SSL-сертификат
+        href: ssl-certificate.md
 base: ru/glossary

@@ -84,16 +84,14 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} добавьте блок `user`:
+  1. Добавьте ресурс `yandex_mdb_kafka_user`:
 
      ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        user {
-          name     = "<имя пользователя>"
-          password = "<пароль>"
-          ...
-        }
-        ...
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль>"
+       ...
      }
      ```
 
@@ -108,7 +106,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -168,16 +166,14 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Найдите в описании кластера {{ mkf-name }} блок `user` для нужного пользователя.
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Измените значение поля `password`:
 
      ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        user {
-          ...
-          password = "<пароль>"
-        }
-        ...
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       ...
+       password = "<пароль>"
+       ...
      }
      ```
 
@@ -191,7 +187,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -237,7 +233,18 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} внесите изменения в блок `permission` в блоке `user`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам.
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
+  1. Внесите изменения в блок `permission`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам:
+
+     ```hcl
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль>"
+       ...
+     }
+     ```
+
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -246,7 +253,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -273,29 +280,37 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ mkf-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Выберите кластер.
-  1. Перейдите на вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужного пользователя и выберите пункт **Настроить**.
-  1. Найдите нужный топик в списке топиков.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для пользователя, которому нужно выдать права на топик, и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите кнопку **+ {{ ui-key.yacloud.kafka.button_add-topic }}**. Если такой кнопки нет — значит, для этого пользователя добавлены права на все существующие топики кластера.
 
-     Если топика нет в списке — добавьте его:
-     1. Нажмите кнопку **+ Добавить топик**. Если такой кнопки нет — значит, для этого пользователя добавлены все существующие топики кластера.
-     1. Выберите нужный топик из выпадающего списка.
+     Если на какие-либо топики не нужны права, [их можно отозвать](#revoke-permission).
 
-        {% note info %}
+  1. Выберите нужный топик из выпадающего списка или введите его название:
 
-        Если при создании кластера была включена настройка **Управление топиками через API**, название топика следует вводить вручную. Чтобы разрешить доступ к любым топикам, укажите в поле **Топик** значение `*`.
+     {% note info %}
 
-        {% endnote %}
+     Если при создании кластера была включена настройка **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}**, название топика следует вводить вручную.
 
-  1. Нажмите на значок ![image](../../_assets/plus.svg) в столбце **Роли** для нужного топика и выберите роль:
+     {% endnote %}
+
+     1. Укажите в поле **{{ ui-key.yacloud.kafka.label_topic }}**:
+
+        * `*` — чтобы разрешить доступ к любым топикам.
+        * Полное название топика — чтобы разрешить доступ конкретно к нему.
+        * `<префикс>*` — чтобы выдать доступ к топикам, названия которых начинаются с указанного префикса. Допустим, есть топики `topic_a1`, `topic_a2`, `a3`. Если указать значение `topic*`, доступ будет разрешен для топиков `topic_a1` и `topic_a2`.
+
+     1. Нажмите кнопку **{{ ui-key.yacloud.kafka.button_add-topic }}**.
+
+  1. Нажмите на значок ![image](../../_assets/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** для нужного топика и выберите роль:
      * `ACCESS_ROLE_CONSUMER`: потребителям, которые используют этого пользователя, будет разрешен доступ к топику.
      * `ACCESS_ROLE_PRODUCER`: производителям, которые используют этого пользователя, будет разрешен доступ к топику.
 
      Вы можете выбрать роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` одновременно — тогда пользователь будет подходить и производителям, и потребителям.
   1. Чтобы выдать права на другие топики — повторите процедуру.
-  1. (опционально) Если права были назначены топику по ошибке — [отзовите их](#revoke-permission).
+  1. (Опционально) Если права были назначены топику по ошибке — [отзовите их](#revoke-permission).
 
 - CLI
 
@@ -320,6 +335,9 @@
 
      Доступны следующие параметры `--permission`:
      * `topic` — имя топика, к которому нужно выдать права доступа.
+
+        Если на какие-либо топики не нужны права, [их можно отозвать](#revoke-permission).
+
      * `role` — роль пользователя: `producer`, `consumer` или `admin`.
 
        Роль `admin` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md#management), если выбраны все топики (`topic=*`).
@@ -340,23 +358,29 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} добавьте блок `permission` в блок `user`:
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_cluster` для нужного пользователя.
+  1. Добавьте блок `permission`:
 
      ```hcl
-     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-        user {
-          name     = "<имя пользователя>"
-          password = "<пароль>"
-          permission {
-            topic_name = "<имя топика>"
-            role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
-          }
-        }
-        ...
+     resource "yandex_mdb_kafka_user" "<имя пользователя>" {
+       ...
+       permission {
+         topic_name = "<топик>"
+         role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
+       }
      }
      ```
 
+     В параметре `topic_name` укажите:
+
+     * `*` — чтобы разрешить доступ к любым топикам.
+     * Полное название топика — чтобы разрешить доступ конкретно к нему.
+     * `<префикс>*` — чтобы выдать доступ к топикам, названия которых начинаются с указанного префикса. Допустим, есть топики `topic_a1`, `topic_a2`, `a3`. Если указать значение `topic*`, доступ будет разрешен для топиков `topic_a1` и `topic_a2`.
+
      Роль `ACCESS_ROLE_ADMIN` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md) и если выбраны все топики (`topic_name = "*"`).
+
+     Если на какие-либо топики не нужны права, [их можно отозвать](#revoke-permission).
+
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -365,7 +389,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -419,7 +443,8 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. В описании кластера {{ mkf-name }} измените или удалите блок `permission` в блоке `user`.
+  1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
+  1. Измените или удалите блок `permission`.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -428,7 +453,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -474,7 +499,7 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Удалите из описания кластера {{ mkf-name }} блок `user` с описанием нужного пользователя.
+  1. Удалите ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -483,7 +508,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 

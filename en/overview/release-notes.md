@@ -20,7 +20,8 @@ You can track changes in the {{ yandex-cloud }} services and tools using our doc
 ## Machine learning {#machine-learning}
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
-* {{ speechkit-full-name }}: [Speech recognition](../speechkit/release-notes-stt.md) and [synthesis](../speechkit/release-notes-tts.md)
+* {{ speechkit-full-name }}: [Speech recognition](../{{ speechkit-slug }}/release-notes-stt.md) and [synthesis](../{{ speechkit-slug }}/release-notes-tts.md)
+* [{{ vision-full-name }}](../vision/release-notes.md)
 
 ## Business tools {#business-tools}
 

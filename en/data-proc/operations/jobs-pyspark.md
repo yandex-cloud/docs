@@ -14,21 +14,23 @@ description: "In this tutorial, you will learn how to manage PySpark jobs in {{ 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Click on the name of the cluster and open the **Jobs** tab.
    1. Click **Submit job**.
-   1. (optional) Enter a name for the job.
+   1. (Optional) Enter a name for the job.
    1. In the **Job type** field, select `PySpark`.
    1. In the **Main python file** field, specify the path to the main PY application file in the following format:
 
       {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   1. (optional) Specify the paths to PY files, if any.
+   1. (Optional) Specify the paths to the PY files, if any.
    1. Specify job arguments.
 
       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
    1. (optional) Specify the paths to JAR files, if any.
    1. (optional) Configure advanced settings:
-      * Paths to the necessary files and archives.
-      * **Settings** as `key-value` pairs.
+
+      * Specify paths to the necessary files and archives.
+      * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
+
    1. Click **Submit job**.
 
 - CLI
@@ -70,10 +72,10 @@ description: "In this tutorial, you will learn how to manage PySpark jobs in {{ 
 
 - API
 
-   Use the [create](../api-ref/Job/create) API method and pass the following information in the request:
+   Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 
-   * The cluster ID in the `clusterId` parameter.
-   * Job name, in the `name` parameter.
+   * Cluster ID in the `clusterId` parameter.
+   * Job name in the `name` parameter.
    * The job properties in the `pysparkJob` parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).

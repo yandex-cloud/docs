@@ -13,7 +13,7 @@
 | [putBucketLogging](bucket/putBucketLogging.md) | Enables and disables logging of actions with the bucket. |
 | [getBucketLogging](bucket/getBucketLogging.md) | Returns settings for logging actions with the bucket. |
 | [listObjectVersions](bucket/listObjectVersions.md) | Returns metadata for all versions of objects in the bucket. |
-| [putBucketTagging](bucket/putbuckettagging.md) | Adds [tags](../../../resource-manager/concepts/labels.md) to a bucket. |
+| [putBucketTagging](bucket/putbuckettagging.md) | Adds [tags](../../concepts/tags.md) to a bucket. |
 | [getBucketTagging](bucket/getbuckettagging.md) | Returns bucket tags. |
 | [deleteBucketTagging](bucket/deletebuckettagging.md) | Deletes bucket tags. |
 

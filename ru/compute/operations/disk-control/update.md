@@ -13,11 +13,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет изменен диск.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **Диски**.
-  1. Нажмите значок ![image](../../../_assets/dots.svg) напротив нужного диска и выберите **Редактировать**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
   1. Измените имя и описание диска.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
   {{ compute-name }} запустит операцию изменения диска.
 
@@ -71,16 +71,16 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На странице **Виртуальные машины** остановите ВМ (см. раздел [{#T}](../vm-control/vm-stop-and-start.md#stop)).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На странице **{{ ui-key.yacloud.compute.switch_instances }}** остановите ВМ (см. раздел [{#T}](../vm-control/vm-stop-and-start.md#stop)).
   1. Дождитесь, когда статус ВМ изменится на `STOPPED`.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **Диски**.
-  1. Нажмите значок ![image](../../../_assets/dots.svg) напротив нужного диска и выберите **Редактировать**.
+  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. Нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
   1. Увеличьте размер диска.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
      {{ compute-name }} запустит операцию изменения размера диска.
-  1. Когда операция завершится, вернитесь на страницу **Виртуальные машины** и запустите остановленную ВМ.
+  1. Когда операция завершится, вернитесь на страницу **{{ ui-key.yacloud.compute.switch_instances }}** и запустите остановленную ВМ.
 
 - CLI
 

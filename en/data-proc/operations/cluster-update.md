@@ -1,4 +1,4 @@
-# Updating {{ dataproc-name }} clusters
+# Editing {{ dataproc-name }} clusters
 
 After creating a cluster, you can modify its basic and advanced settings.
 
@@ -23,6 +23,8 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
       To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
 
+   1. To update your cluster's [component properties](../concepts/settings-list.md), enter the component key and its new value in the **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** field.
+
    1. Change additional cluster settings:
 
       **Deletion protection**: Manages cluster protection from accidental deletion by a user.
@@ -37,7 +39,7 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI's update cluster command:
+   1. View a description of the update cluster CLI command:
 
       ```bash
       {{ yc-dp }} cluster update --help
@@ -63,6 +65,19 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       Enabled protection will not prevent a manual connection to a cluster to delete data.
 
+   1. To update the [component properties](../concepts/settings-list.md), provide the required property values in the `--property` parameter:
+
+      ```bash
+      {{ yc-dp }} cluster update <cluster ID or name> \
+         --property "<prefix of key 1>:<key 1>=<value>", "<prefix of key 2>:<key 2>=<value>", ...
+      ```
+
+      {% note warning %}
+
+      Using the `--property` parameter will reset any component properties that were not explicitly provided in the parameter to their defaults. To save the previously updated properties, list them in your request along with the properties you want to update.
+
+      {% endnote %}
+
    You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
 
 - {{ TF }}
@@ -86,7 +101,7 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

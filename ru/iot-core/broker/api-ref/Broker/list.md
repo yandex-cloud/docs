@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/list.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/list.md
 ---
 
 # IoT Core Broker Service, REST: Broker.list
@@ -10,7 +10,7 @@ Retrieves the list of brokers in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
 ```
  
 ## Query parameters {#query_params}

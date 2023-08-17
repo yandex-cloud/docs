@@ -4,6 +4,12 @@ The interpreter state is the cell code, output, and variable values at a specifi
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
+{% note info %}
+
+You cannot save a state in [{{ dd }} mode](project.md#dedicated).
+
+{% endnote %}
+
 States are saved as _checkpoints_. For more information about working with checkpoints, see [{#T}](../operations/projects/checkpoints.md).
 
 There are two save state modes: standard and automatic. Save modes only apply to regular cells. Cells with [background operations](async.md) create a checkpoint automatically after execution is complete or prompt the user to create one by running `%apply_state`.

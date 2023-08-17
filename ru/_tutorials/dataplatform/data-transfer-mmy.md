@@ -101,7 +101,7 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для источника {{ MY }} с [настройками](../../data-transfer/operations/endpoint/source/mysql.md):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mmy-name }}.
@@ -112,7 +112,7 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника {{ KF }} с [настройками](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mkf-name }}.

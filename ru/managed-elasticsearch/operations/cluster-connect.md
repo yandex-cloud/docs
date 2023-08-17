@@ -9,6 +9,8 @@ keywords:
 
 # Подключение к {{ ES }}-кластеру
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 К хостам кластера {{ mes-name }} с [ролью _Data node_](../concepts/hosts-roles.md#data-node) можно подключиться:
 
 * Через интернет, если вы настроили публичный доступ для нужного хоста.
@@ -38,10 +40,10 @@ keywords:
 
     [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порты 443 (Kibana GUI и Kibana API) и 9200 ({{ ES }}). Для этого создайте следующие правила для входящего трафика:
 
-    * Диапазон портов — `443`, `9200`.
-    * Протокол — `TCP`.
-    * Источник — `CIDR`.
-    * CIDR блоки — `0.0.0.0/0`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`, `9200`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     На каждый порт создается отдельное правило.
 
@@ -49,10 +51,10 @@ keywords:
 
     1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты 443 (Kibana GUI и Kibana API) и 9200 ({{ ES }}). Для этого создайте в этих группах следующие правила для входящего трафика:
 
-        * Протокол — `TCP`.
-        * Диапазон портов — `443`, `9200`.
-        * Источник — `Группа безопасности`.
-        * Группа безопасности — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`, `9200`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
 
         На каждый порт создается отдельное правило.
 
@@ -62,19 +64,19 @@ keywords:
 
         * Для входящего трафика:
 
-            * Диапазон портов — `22`, `443`, `9200`.
-            * Протокол — `TCP`.
-            * Источник — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`, `443`, `9200`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             На каждый порт создается отдельное правило.
 
         * Для исходящего трафика:
 
-            * Диапазон портов — `{{ port-any }}`.
-            * Протокол — `Любой` (`Any`).
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -95,23 +97,7 @@ keywords:
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
-
-  Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
-  ```
-
-  Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
 ## Автоматический выбор хоста для подключения {#automatic-host-selection}
 
@@ -124,6 +110,21 @@ keywords:
 * Использовать специальный FQDN вида `c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}` (например, `https://c-e4ut2....rw.{{ dns-zone }}`).
 
   Этот способ подходит только в том случае, если все хосты с ролью _Data node_ имеют публичный IP-адрес или же подключение осуществляется только с виртуальных машин {{ yandex-cloud }}. Это связано с тем, что хост для подключения, на который указывает этот FQDN, выбирается случайным образом среди все хостов с ролью _Data node_. 
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mes-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget curl --yes && \
+    mkdir -p ~/.elasticsearch && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.elasticsearch/root.crt && \
+    chmod 0600 ~/.elasticsearch/root.crt
+```
 
 ## Примеры строк подключения {#connection-string}
 

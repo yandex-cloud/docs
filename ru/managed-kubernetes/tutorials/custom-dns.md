@@ -9,7 +9,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в [{{ vpc-full-name }}](../../vpc/) или быть доступны через [VPN](../../glossary/vpn.md) или [{{ interconnect-full-name }}](../../interconnect/). Необходимое условие — IP-связность между [узлами](../concepts/index.md#node-group) кластера {{ managed-k8s-name }} и DNS-серверами.
+В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в [{{ vpc-full-name }}](../../vpc/) или быть доступны через [VPN](../../glossary/vpn.md) или [{{ interconnect-full-name }}](../../interconnect/index.yaml). Необходимое условие — IP-связность между [узлами](../concepts/index.md#node-group) кластера {{ managed-k8s-name }} и DNS-серверами.
 1. Создайте ресурсы {{ managed-k8s-name }}:
 
    {% list tabs %}
@@ -98,7 +98,7 @@
 
    ```bash
    kubectl run jessie-dnsutils \
-     --image=k8s.gcr.io/jessie-dnsutils \
+     --image=registry.k8s.io/jessie-dnsutils \
      --restart=Never \
      --command sleep infinity
    ```

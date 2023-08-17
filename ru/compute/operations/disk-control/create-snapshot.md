@@ -50,15 +50,15 @@ _Снимок диска_ — это копия файловой системы 
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **Диски**.
-  1. В строке с диском нажмите кнопку ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **Создать снимок**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. В строке с диском нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
   1. Введите имя снимка:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Если требуется, укажите произвольное текстовое описание снимка.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

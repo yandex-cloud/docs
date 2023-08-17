@@ -90,7 +90,7 @@
   1. Выполните команду для поиска дисков ВМ, которые не имеют ID вашего эталонного образа:
 
      ```bash
-     export ORG_ID=export ORG_ID=<ID организации>
+     export ORG_ID=<ID организации>
      export IMAGE_ID=<id вашего эталонного образа>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
@@ -119,7 +119,7 @@
 
 Если всё же требуется указать приватную информацию в конфигурации, необходимо принять меры безопасности:
 
-* Указывать для приватной информации параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), чтобы отключить её вывод в консоль при выполнении команд `terraformplan`, `terraformapply`.
+* Указывать для приватной информации параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), чтобы отключить её вывод в консоль при выполнении команд `terraform plan`, `terraform apply`.
 * Использовать [terraformremotestate](https://www.terraform.io/docs/language/state/remote.html). Рекомендуется [загружать](../../../tutorials/infrastructure-management/terraform-state-storage.md) состояние {{ TF }} в {{ objstorage-name }}, а также [настроить](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state) блокировку конфигурации с помощью {{ ydb-name }} для предотвращения одновременного редактирования администраторами.
 * Использовать [механизм передачи секретов в {{ TF }} через env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) вместо plaintext либо использовать встроенную возможность KeyManagementService по [шифрованию данных в {{ TF }}](../../../kms/tutorials/terraform-secret.md) с помощью отдельного файла с приватными данными. [Подробнее о данной технике](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073).
 
@@ -460,7 +460,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Выполните команду для поиска кластеров управляемых БД без включённой защиты от удаления:
@@ -504,7 +504,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Найдите кластеры управляемых БД с включённым доступом из {{ datalens-short-name }}:
@@ -601,7 +601,7 @@ ACL позволяет предоставить доступ к объекту �
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc serverless function  list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
+     do yc serverless function list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
      done;
      done;
      done
@@ -712,7 +712,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Выполните команду для поиска кластеров управляемых БД с публичным адресом:
@@ -761,7 +761,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Выполните команду для поиска CR без фильтров по IP:
@@ -860,7 +860,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
 
      ```bash
-     yc organization-manager organization list  
+     yc organization-manager organization list
      ```
 
   1. Найдите все сертификаты вашей организации с датой окончания:

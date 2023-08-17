@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/index.md
+sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/index.md
 ---
 
 # Cloud Functions Service, REST: Function methods
@@ -38,6 +38,7 @@ Method | Description
 [create](create.md) | Creates a function in the specified folder.
 [createVersion](createVersion.md) | Creates a version for the specified function.
 [delete](delete.md) | Deletes the specified function.
+[deleteVersion](deleteVersion.md) | Deletes the specified version of a function.
 [get](get.md) | Returns the specified function.
 [getVersion](getVersion.md) | Returns the specified version of a function.
 [getVersionByTag](getVersionByTag.md) | Returns all versions with the specified tag.

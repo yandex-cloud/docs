@@ -63,23 +63,23 @@ sourcePath: ru/_api-ref/datalens/function-ref/CASE.md
 ```
 CASE (
     [country],
-    "BY", "Белоруссия",
-    "KZ", "Казахстан",
-    "RU", "Россия",
-    "TR", "Турция",
-    "UZ", "Узбекистан",
-    "Другая страна"
+    "AO", "Angola",
+    "AU", "Australia",
+    "BY", "Belarus",
+    "CA", "Canada",
+    "TT", "Trinidad and Tobago",
+    "Other Country"
 )
 ```
 
 ```
 CASE [country]
-    WHEN "BY" THEN "Белоруссия"
-    WHEN "KZ" THEN "Казахстан"
-    WHEN "RU" THEN "Россия"
-    WHEN "TR" THEN "Турция"
-    WHEN "UZ" THEN "Узбекистан"
-    ELSE "Другая страна"
+    WHEN "AO" THEN "Angola"
+    WHEN "AU" THEN "Australia"
+    WHEN "BY" THEN "Belarus"
+    WHEN "CA" THEN "Canada"
+    WHEN "TT" THEN "Trinidad and Tobago"
+    ELSE "Other Country"
 END
 ```
 
@@ -103,4 +103,4 @@ END
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -2,7 +2,7 @@
 noIndex: true
 ---
 
-# Asynchronously replicating data from {{ metrika }} to {{ CH }} using {{ data-transfer-full-name }}
+# Uploading data from {{ metrika }} to a {{ CH }} data mart using {{ data-transfer-full-name }}
 
 {% include [note-metrica-pro](../_includes/data-transfer/note-metrica-pro.md) %}
 
@@ -86,9 +86,9 @@ A transfer only moves the current data and does not affect historical data. If y
 
 {% include [note before delete resources](../_includes/mdb/note-before-delete-resources.md) %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete-transfer).
-1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. [Delete the {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
-1. Delete the {{ metrika }} tag.
+1. Delete the {{ metrika }} tag from your [Yandex Metrica Pro]({{ link-yandex }}/support/metrica/pro/intro.html) account.

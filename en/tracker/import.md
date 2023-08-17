@@ -21,7 +21,7 @@ If you manage your issues and projects with a certain service and want to change
 
    1. [Add](add-users.md#invite_user) the account created to {{ tracker-name }}.
 
-   1. Go to [{{ ya-360 }}]({{ link-ya-360 }}) and add administrative rights to the account that you created. For more information, see [Yandex 360 Help]({{ support-business-admin }}).
+   1. Go to [{{ ya-360 }}]({{ link-ya-360 }}) and add administrative rights to the account that you created. To learn more, see [{{ yandex-360 }} Help]({{ support-business-admin }}).
 
    Once the migration is complete, you can delete the account or revoke the administrative rights.
 
@@ -77,9 +77,7 @@ If you have a list of issues in an Excel spreadsheet, you can migrate the data t
 
 The spreadsheet must include columns with issue parameters. The same column names must be used in the script that processes the Excel file.
 
-1. [Connect{{ tracker-full-name }}.](enable-tracker.md)
-
-
+1. [Connect {{ tracker-full-name }}](enable-tracker.md).
 
 1. [Add your company's employees to {{ tracker-name }}](add-users.md).
 
@@ -177,8 +175,6 @@ To learn more about the data format used in {{ api-name }}, see the [API referen
 To import the data:
 
 1. [Connect {{ tracker-full-name }}](enable-tracker.md).
-
-
 
 1. [Add your company's employees to {{ tracker-name }}](add-users.md).
 

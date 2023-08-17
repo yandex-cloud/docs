@@ -24,7 +24,7 @@ To view detailed information about the {{ mos-name }} cluster status:
       * **Health status**: Shows the cluster's health and technical condition:
 
          * `0` (red): Cluster is unhealthy or partially functional. At least one of the [primary shards](../concepts/scalability-and-resilience.md) is unavailable. If the cluster responds to queries, the search results will be incomplete.
-         * `1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete; however, if there are more unavailable shards, the cluster performance will be disrupted.
+         * `1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete; however, if there are more unavailable shards, cluster performance will be disrupted.
          * `2` (green): Cluster is healthy. All cluster shards are available.
 
       * **Active shards**: Number of active primary shards and the total number of active shards in the cluster.
@@ -176,6 +176,14 @@ To view a cluster's state and status:
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mos-name }}**.
    1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+
+- API
+
+   Use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the ID of the cluster to delete in the `clusterId` request parameter.
+
+   The cluster health and status will be shown in the `health` and `status` parameters, respectively.
+
+   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
 {% endlist %}
 

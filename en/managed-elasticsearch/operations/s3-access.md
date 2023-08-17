@@ -1,14 +1,14 @@
 # Configuring access to {{ objstorage-name }} from an {{ ES }} cluster
 
-{{ mes-name }} supports using {{ objstorage-full-name }} as an {{ ES }} snapshot repository. This lets you use {{ objstorage-name }} to:
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
+{{ mes-name }} supports using {{ objstorage-full-name }} as an {{ ES }} snapshot repository. This allows you to use {{ objstorage-name }} for:
 
 * [Migrating data from a third-party {{ ES }} cluster to {{ mes-name }}](../tutorials/migration-via-snapshots.md).
 
 * Adding [user extensions](cluster-extensions.md#add).
 
 * [Storing backups](./cluster-backups.md).
-
-For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 

@@ -39,7 +39,7 @@
       +------------------+----------------------+-------------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
    
@@ -66,7 +66,7 @@
 
       ```yaml
       name: first-bucket
-      folder_id: b1gmit33ngp6cv2mhjmo
+      folder_id: b1gmit33ngp6********
       anonymous_access_flags:
         read: true
         list: true
@@ -109,7 +109,7 @@
      * `read` — доступ на чтение объектов в бакете.
 	 * `list` — доступ к списку объектов в бакете.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#bucket-anonymous-access-flags).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -9,7 +9,7 @@ keywords:
 
 # Изменение настроек кластера {{ OS }}
 
-После создания кластера вы можете изменить его сервисные настройки. Чтобы изменить конфигурацию отдельных групп хостов, воспользуйтесь инструкцией в разделе [Управление группами хостов](host-groups.md#update-host-group).
+После создания кластера вы можете изменить его сервисные настройки. Также вы можете изменить [конфигурацию групп хостов](host-groups.md#update-host-group) и [версию {{ OS }}](cluster-version-update.md).
 
 ## Изменить сервисные настройки {#change-service-settings}
 
@@ -17,25 +17,22 @@ keywords:
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mos-name }}**.
-    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **Изменить кластер** на панели сверху.
-    1. В блоке **Сервисные настройки**:
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
         1. Измените пароль пользователя `admin`.
         1. При необходимости измените дополнительные настройки кластера:
 
             {% include [Сервисные настройки](../../_includes/mdb/mos/extra-settings.md) %}
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - API
 
-    Чтобы изменить сервисные настройки, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+    Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`.
-
-      {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
-
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль пользователя `admin` в параметре `configSpec.adminPassword`.
     * Список плагинов в параметре `configSpec.opensearchSpec.plugins`. Плагины, не указанные в списке, будут выключены.
     * Настройки доступа из других сервисов в параметре `configSpec.access`.

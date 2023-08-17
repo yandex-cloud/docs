@@ -16,7 +16,7 @@
   * [Безопасно храните конфиденциальные данные в {{ lockbox-name }}](../lockbox/quickstart.md).
 * Ресурсы и управление:
   * [Управляйте ресурсами в каталогах и облаках с помощью {{ resmgr-name }}](../resource-manager/quickstart.md).
-  * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quick-start.md).
+  * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quickstart.md).
   * [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../monitoring/quickstart.md).
   * [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).
   * [Собирайте логи работы ресурсов с помощью {{ cloud-logging-name }}](../logging/quickstart.md).
@@ -42,7 +42,7 @@
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * Машинное обучение:
-  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../speechkit/quickstart.md).
+  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
   * [Переведите текст в {{ translate-name }}](../translate/quickstart.md).
   * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}](../vision/quickstart.md).
   * [Обучайте и запускайте модели машинного обучения в {{ ml-platform-name }}](../datasphere/quickstart.md).

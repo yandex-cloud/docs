@@ -8,16 +8,16 @@ Before publishing your own data, make sure that your charts and dashboards don't
 
 {% endnote %}
 
-In this tutorial, we will use {{ datalens-short-name }} to visualize Moscow population metrics on the map of Moscow districts and publish them to DataLens Public.
+In this tutorial, we will use {{ datalens-short-name }} to visualize and publish Moscow population metrics on the map of Moscow districts.
 
-We will use the [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) file as the source of data on Moscow population and area for 2018. Source: [List of districts and settlements in Moscow](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
+We will use the [Moscow Population 2018.csv](https://storage.yandexcloud.net/doc-files/Moscow%20Population%202018.csv) file as the source of data on Moscow population and area for 2018. Source: [List of districts and settlements in Moscow](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
 1. [Create a connection](#step1).
 1. [Create a dataset](#step2).
 1. [Create a chart with a map of Moscow districts](#step3).
-1. [Publish the chart to DataLens Public](#step4).
+1. [Publish the chart](#step4).
 
 
 ## Getting started {#before-you-begin}
@@ -77,7 +77,7 @@ This will create the file connection. The data will be shown in the same form as
 
     ![image](../../_assets/datalens/solution-05/10-geopoligon.png)
 
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
     ![image](../../_assets/datalens/solution-05/11-save-dataset.png)
 
@@ -105,13 +105,13 @@ This will create the file connection. The data will be shown in the same form as
 
     ![image](../../_assets/datalens/solution-05/15-use-measure.png)
 
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
     ![image](../../_assets/datalens/solution-05/15-1-save-chart.png)
 
 1. In the window that opens, enter the name **Moscow population map by district** for the chart and click **Save**.
 
-## Step 4. Publish the chart to DataLens Public {#step4}
+## Step 4. Publish the chart {#step4}
 
 1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) and select **Public access** in the list that opens.
 
@@ -131,9 +131,10 @@ This will create the file connection. The data will be shown in the same form as
 
     ![image](../../_assets/datalens/solution-05/19-public.png)
 
-You can share this link with your colleagues, partners, and friends. DataLens Public does not require authorization or authentication when the user follows the chart link.
+You can share this link with your colleagues, partners, and friends. When opening the chart link, no authorization and authentication are required.
 
 **Also try:**
-- Building a column chart by district and population.
-- [Creating a dashboard](../../datalens/operations/dashboard/create.md) with a map, a column chart, and [selectors](../../datalens/operations/dashboard/add-selector.md).
-- [Publishing a dashboard](../../datalens/operations/dashboard/publish.md).
+
+* Building a column chart by district and population.
+* [Creating a dashboard](../../datalens/operations/dashboard/create.md) with a map, bar chart, and [selectors](../../datalens/operations/dashboard/add-selector.md).
+* [Publishing a dashboard](../../datalens/concepts/datalens-public.md#how-to-publish).

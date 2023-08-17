@@ -2,7 +2,11 @@
 
 You can assign multiple [security groups](../../../vpc/operations/security-group-create.md) to the network interface of a VM.
 
+{% note info %}
+
 {% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 For more information about how to change a VM name, description, and tags, see [{#T}](vm-update.md).
 
@@ -12,15 +16,16 @@ For more information about how to change a VM name, description, and tags, see [
 
    To update a list of security groups applied to your VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-   1. Select **{{ compute-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Click the name of the desired VM.
-   1. Click **Stop** in the upper-right corner of the page.
-   1. In the window that opens, click **Stop** and wait until the VM status changes to `STOPPED`.
-   1. Change the VM's network interface security groups under **Network**:
-      * Click ![image](../../../_assets/options.svg) in the top-right corner and select **Edit network interface**.
-      * In the **Security groups** field of the window that opens, add new security groups or delete the security groups applied to the VM's network interface.
-      * Click **Save**.
-   1. Click **Run** in the upper-right corner of the page.
-   1. In the window that opens, click **Start**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_action-stop }}** in the upper-right corner.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+   1. Wait for the VM status to change to `Stopped`.
+   1. Change the VM's network interface security groups under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**:
+      * In the top-right corner of the section, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+      * In the **{{ ui-key.yacloud.compute.instance.edit-network-interface.field_security-groups-ids }}** field of the window that opens, add new security groups or delete the security groups applied to the VM's network interface.
+      * Click **{{ ui-key.yacloud.common.save }}**.
+   1. In the top-right corner, click **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 {% endlist %}

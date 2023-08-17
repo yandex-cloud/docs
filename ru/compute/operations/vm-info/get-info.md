@@ -10,21 +10,22 @@
 
 - Консоль управления
 
-  В разделе **{{ compute-name }}**, на странице **Виртуальные машины**, приводится список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с краткой информацией о них.
+  В сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**, на странице **{{ ui-key.yacloud.compute.instances.label_title }}**, приводится список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с краткой информацией о них.
 
   Для получения подробной информации о ВМ нажмите на строку с ее именем.
 
   На вкладке:
-  * **Обзор** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
-  * **Диски** приводится информация о [дисках](../../concepts/disk.md), подключенных к ВМ.
+  * **{{ ui-key.yacloud.compute.instance.switch_overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
+  * **{{ ui-key.yacloud.compute.instance.switch_disks }}** приводится информация о [дисках](../../concepts/disk.md), подключенных к ВМ.
 
   
-  * **Файловые хранилища** приводится информация о подключенных [файловых хранилищах](../../concepts/filesystem.md).
+  * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** приводится информация о подключенных [файловых хранилищах](../../concepts/filesystem.md).
 
-  * **Операции** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
-  * **Мониторинг** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
-  * **Серийная консоль** предоставлен доступ к [серийной консоли](../../operations/serial-console/index.md), если при [создании](../../operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
-  * **Последовательный порт** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [{#T}](get-serial-port-output.md).
+
+  * **{{ ui-key.yacloud.compute.instance.switch_operations }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
+  * **{{ ui-key.yacloud.compute.instance.switch_monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
+  * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../operations/serial-console/index.md), если при [создании](../../operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
+  * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [{#T}](get-serial-port-output.md).
 
 - CLI
 
@@ -107,6 +108,12 @@ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recu
 curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
+Получить [идентификационный документ](../../concepts/vm-metadata.md#identity-document):
+
+```
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
+```
+
 #### Список возвращаемых элементов {#list-of-returned-items}
 
 Список элементов, которые доступны по этому запросу:
@@ -162,6 +169,12 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 
 ```
 curl http://169.254.169.254/latest/meta-data/local-ipv4
+```
+
+Получить [идентификационный документ](../../concepts/vm-metadata.md#identity-document):
+
+```
+curl http://169.254.169.254/latest/vendor/instance-identity/document
 ```
 
 ## Настроить параметры сервиса метаданных ВМ {#metadata-options}
@@ -235,7 +248,7 @@ curl http://169.254.169.254/latest/meta-data/local-ipv4
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
   1. Проверьте конфигурацию командой:
 
      ```bash

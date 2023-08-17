@@ -14,7 +14,7 @@
 
 ## Подключение и срок действия {#how-to-enable}
 
-Ознакомиться с доступными предложениями и подключить CVoS вы можете в консоли управления в разделе **Резервы**.
+Ознакомиться с доступными предложениями и подключить CVoS вы можете в консоли управления в разделе **{{ ui-key.yacloud.billing.account.switch_offers }}**.
 
 При [подключении CVoS](../operations/purchase-cvos.md) вы самостоятельно выбираете:
 * срок действия — 6 месяцев или 1 год;
@@ -94,9 +94,11 @@
 
 Тарифы сервисов, для которых доступно резервируемое потребление:
 * [{{ compute-name }}](../../compute/pricing.md#cvos)
+* [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 * [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
+* [{{ mgp-name }}](../../managed-greenplum/pricing/index.md#cvos)
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
+* [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
 * [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
-* [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 * [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos)

@@ -13,6 +13,12 @@ You can stop and restart a {{ PG }} DB cluster, if required. You are not charged
 
 {% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
 
+{% note info %}
+
+A cluster that has no backups cannot be stopped. To stop it, [create its backup](../operations/cluster-backups.md#create-backup).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console

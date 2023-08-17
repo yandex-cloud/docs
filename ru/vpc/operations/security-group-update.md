@@ -15,11 +15,11 @@
   Чтобы изменить имя или описание группы:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить группу безопасности.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке группы, которую требуется изменить.
-  1. В открывшемся меню нажмите кнопку **Редактировать**.
-  1. Внесите изменения в имя и описание группы и нажмите кнопку **Сохранить**.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+  1. Внесите изменения в имя и описание группы и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
   
@@ -51,11 +51,11 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
      {% note info %}
 
-     Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group).
+     Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group).
 
      {% endnote %}
 

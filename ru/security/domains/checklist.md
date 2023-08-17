@@ -2,12 +2,12 @@
 
 ## Сетевая безопасность {#network-security}
 
-* **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные {{ vpc-short-name }}. Трафик внутри {{ vpc-short-name }} по умолчанию разрешен, между {{ vpc-short-name }} — нет (только через виртуальную машину с двумя сетевыми интерфейсами в разных сетях, [VPN](../../glossary/vpn.md) или {{ interconnect-full-name }}). Посмотрите вебинар [Как работает сеть в {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные {{ vpc-short-name }}. Трафик внутри {{ vpc-short-name }} по умолчанию разрешен, между {{ vpc-short-name }} — нет (только через [виртуальную машину](../../glossary/vm.md) с двумя сетевыми интерфейсами в разных сетях, [VPN](../../glossary/vpn.md) или {{ interconnect-full-name }}). Посмотрите вебинар [Как работает сеть в {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Ограничение сетевого доступа, группы безопасности**: ограничьте сетевой доступ между ресурсами с помощью [групп безопасности](../../vpc/operations/security-group-create.md).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW из {{ marketplace-short-name }}**: если требуется продвинутая сетевая защита, используйте [NGFW](/marketplace?tab=software&search=NGFW) из {{ marketplace-full-name }}.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка в {{ yandex-cloud }} ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
-* **Безопасный доступ извне облачной инфраструктуры (VPN)**: если требуется удаленный доступ к ресурсам облака, настройте site-to-site VPN, см. [инструкцию по настройке с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md), либо воспользуйтесь [{{ interconnect-name }}](../../interconnect/) (также доступна услуга ГОСТ VPN).
+* **Безопасный доступ извне облачной инфраструктуры (VPN)**: если требуется удаленный доступ к ресурсам облака, настройте site-to-site VPN, см. [инструкцию по настройке с использованием демона strongSwan](../../tutorials/routing/ipsec/index.md), либо воспользуйтесь [{{ interconnect-name }}](../../interconnect/index.yaml) (также доступна услуга ГОСТ VPN).
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
@@ -19,7 +19,7 @@
 
 ## Аутентификация и управление доступом {#authentication}
 
-* **Централизованное управление и федерации удостоверений**: создайте организацию в сервисе [{{ org-full-name }}](/services/organization) и настройте систему единого входа (Single Sign-On) в {{ yandex-cloud }} через свой сервер IdP, см. инструкции по настройке с помощью [AD FS](../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), [Google Workspace](../../organization/operations/federations/integration-gworkspace.md).
+* **Централизованное управление и федерации удостоверений**: создайте организацию в сервисе [{{ org-full-name }}](/services/organization) и настройте систему единого входа (Single Sign-On) в {{ yandex-cloud }} через свой сервер IdP, см. инструкции по настройке с помощью [AD FS](../../organization/tutorials/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), [Google Workspace](../../organization/tutorials/federations/integration-gworkspace.md).
 * **Федеративные аккаунты**: используйте федеративные аккаунты вместо аккаунтов на Яндексе, где это возможно.
 * **Принцип минимальных привилегий**: назначайте сервисные роли (например, `compute.images.user`) вместо примитивных (`viewer`, `editor`, `admin`), см. [список всех ролей](../../iam/concepts/access-control/roles.md) и [примеры назначения ролей](../../iam/operations/roles/grant.md). Посмотрите вебинар [Управление доступами в облаке](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
 * **{{ TF }} {{ yandex-cloud }} {{ iam-full-name }} module**: организуйте группы доступов для пользователей облака.
@@ -46,8 +46,8 @@
 * **Отключение серийной консоли**: не используйте серийную консоль, а если это необходимо, то [оценивайте риски](../../compute/operations/serial-console/index.md) и отключайте по окончании работы.
 * **Безопасное использование {{ TF }}**: используйте `terraform remote state` на базе {{ objstorage-name }} с функцией блокировки в {{ ydb-full-name }}, см. [пример настройки](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state). Используйте параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), если требуется. Не передавайте приватные данные в конфигурацию, а если это необходимо, используйте сервисы [управления секретами](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#:~:text=this%20blog%20post%3A-,Do%20not%20store%20secrets%20in%20plain%20text.,secrets%20into%20your%20Terraform%20code) или переменные среды. [Подробнее](./secure-config.md#terraform).
   ![](../../_assets/overview/solution-library-icon.svg)[Пример: сканирование tf-файлов с помощью Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-* **Контроль целостности на гостевых ОС**: применяйте бесплатные host-based решения, такие как Wazuh, Osquery, или платные решения из {{ marketplace-name }}.
-* **Безопасная конфигурация {{ objstorage-name }}**: используйте шифрование, [политики доступа (bucket policy)](../../storage/concepts/policy.md) и ACL, [версионирование для защиты от удаления](../../storage/concepts/versioning.md), включите [встроенный аудит доступа](../../storage/operations/buckets/enable-logging.md) и настройте CORS (при необходимости).
+* **Контроль целостности на гостевых ОС**: применяйте бесплатные host-based решения, такие как [Wazuh](/marketplace/products/opennix/wazuh), Osquery, или платные решения из {{ marketplace-name }}.
+* **Безопасная конфигурация {{ objstorage-name }}**: используйте шифрование, [политики доступа (bucket policy)](../../storage/concepts/policy.md) и ACL, [версионирование для защиты от удаления](../../storage/concepts/versioning.md), включите [встроенный аудит доступа](../../storage/operations/buckets/enable-logging.md) и настройте [CORS](../../glossary/cors.md) (при необходимости).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: безопасная конфигурация {{ objstorage-name }} в {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 * **Безопасная конфигурация {{ sf-full-name }}**: предоставляйте токен сервисного аккаунта через [нативный механизм](../../functions/operations/function-sa.md) с помощью назначенного сервисного аккаунта и метаданных. По возможности используйте [приватные функции](../../functions/operations/function/function-private.md).
 * **Безопасная конфигурация {{ container-registry-full-name }}**: не рекомендуется использовать привилегированные контейнеры для запуска нагрузок. Используйте встроенный в сервис [сканер уязвимостей](../../container-registry/concepts/vulnerability-scanner.md) в образах.
@@ -61,7 +61,7 @@
 
 ## Управление уязвимостями {#vulnerability-management}
 
-* **Автоматизированное сканирование уязвимостей**: используйте бесплатные сетевые сканеры, например, nmap, OpenVAS, OWASP ZAP, или агенты на хостах, например, Wazuh, Tripwire.
+* **Автоматизированное сканирование уязвимостей**: используйте бесплатные сетевые сканеры, например, nmap, OpenVAS, OWASP ZAP, или агенты на хостах, например, [Wazuh](/marketplace/products/opennix/wazuh), Tripwire.
 * **Внешние сканирования безопасности**: проводите сканирования в соответствии с [правилами](../compliance/pentest.md).
 * **Обновления ПО, ОС**: самостоятельно устанавливайте обновления, используйте автоматизированные инструменты обновлений.
 * **Web Application Firewall**: установите WAF из [{{ marketplace-name }}](/marketplace?categories=security) или воспользуйтесь Managed WAF — для получения доступа обратитесь к своему менеджеру.
@@ -71,7 +71,7 @@
 ## Сбор, мониторинг и анализ аудитных логов {#logs-analysis}
 
 * **{{ at-full-name }}**: включите [{{ at-name }}](../../audit-trails/quickstart.md) для всех облаков и каталогов.
-* **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например, с помощью [{{ mes-full-name }}](../../managed-elasticsearch/) или с помощью бесплатных решений Osquery, Wazuh и др.
+* **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например, с помощью [{{ mes-full-name }}](../../managed-elasticsearch/) или с помощью бесплатных решений Osquery, [Wazuh](/marketplace/products/opennix/wazuh) и др.
 * **Сбор Flow logs (если требуется)**: например, с помощью NGFW из {{ marketplace-name }} или бесплатного ПО (в планах встроенные возможности).
 * **Экспорт событий {{ at-name }} в SIEM**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в {{ mes-name }} (ELK)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
@@ -94,7 +94,7 @@
 
 ## Управление бюджетами {#budget-management}
 
-* **Уведомления для контроля расходов**: настройте уведомления на пороги бюджета в биллинге, см. [инструкцию](../../billing/operations/budgets.md).
+* **Уведомления для контроля расходов**: настройте уведомления на пороги бюджета в сервисе {{ billing-name }}, см. [инструкцию](../../billing/operations/budgets.md).
 
 ## Реагирование на инциденты {#incident-response}
 
@@ -124,7 +124,7 @@
 ### Безопасная конфигурация {#kubernetes-secure-configuration}
 
 * **Конфигурация группы узлов в соответствии с baseline и стандартами**: настройте группы узлов в соответствии со стандартами и baseline: NIST, CIS и др. Возможно использовать автоматизированные инструменты: kube-bench, kubescape.
-* **Runtime security и policy engine**: используйте решения для runtime security, например Falco, а также решения для policy engine, например OPA Gatekeeper, Kyverno.
+* **Runtime security и policy engine**: используйте решения для runtime security, например [Falco](/marketplace/products/yc/falco), а также решения для policy engine, например OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка Falco и policy engine с отправкой алертов в {{ mes-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 * **Обновления безопасности**: выберите подходящий [канал обновления](../../managed-kubernetes/concepts/release-channels-and-updates.md) и настройте автоматическое применение обновлений либо применяйте их вручную сразу после публикации в выбранном канале. Также выполняйте своевременное обновление собственного ПО на группах узлов.
 * **Распределение подов на разные группы узлов**: настройте node taints and tolerations + node affinity (по нагрузке и степени приватности).
@@ -133,7 +133,7 @@
 
 * **Сбор и анализ аудитных логов {{ k8s }} и инструментов защиты**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности {{ k8s }} в {{ mes-name }}: аудитные логи, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов Fluent Bit, Beats и др.
+* **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов [Fluent Bit](/marketplace/products/yc/fluent-bit), Beats и др.
 
 
 * **Мониторинг аномальной нагрузки**: используйте [{{ monitoring-full-name }}](../../monitoring/).

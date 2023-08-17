@@ -2,7 +2,7 @@
 
 This section describes how data aggregation and grouping work in {{ datalens-short-name }}, how to correctly formulate expressions with aggregations, and also gives examples of SQL queries with aggregations for {{ CH }}.
 
-The file [Selling.csv](https://disk.yandex.com/d/pT2f56G7bNaFvg) is used as the source of data on sales in cities.
+The [Selling.csv](https://storage.yandexcloud.net/doc-files/Selling.csv) file will be used as the source of data on sales in cities.
 
 ## SQL basic concepts {#basic-sql}
 

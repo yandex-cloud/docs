@@ -8,13 +8,13 @@ You can get the following information about an organization's registered users:
 
 {% note info %}
 
-An ID or email can be received by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information about how to assign roles to users, see [Roles](roles.md#admin).
+An ID or email can be received by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](roles.md#admin).
 
 {% endnote %}
 
 {% list tabs %}
 
-- {{ org-name }} interface
+- {{ org-name }}
 
    {% include [users-info](../_includes/users-info.md) %}
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Instance/attachDisk.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachDisk.md
 ---
 
 # Compute Cloud API, REST: Instance.attachDisk
@@ -36,7 +36,8 @@ instanceId | <p>Required. ID of the instance to attach the disk to. To get the i
       "size": "string",
       "blockSize": "string",
       "diskPlacementPolicy": {
-        "placementGroupId": "string"
+        "placementGroupId": "string",
+        "placementGroupPartition": "string"
       },
 
       // `attachedDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
@@ -67,6 +68,7 @@ attachedDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size
 attachedDiskSpec.<br>diskSpec.<br>blockSize | **string** (int64)<br><p>Block size of the disk, specified in bytes. The default is 4096.</p> 
 attachedDiskSpec.<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
 attachedDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+attachedDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 attachedDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`attachedDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 attachedDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`attachedDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 attachedDiskSpec.<br>diskId | **string** <br>`attachedDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 

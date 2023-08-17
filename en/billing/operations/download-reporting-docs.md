@@ -1,6 +1,6 @@
 # View your expense history and download reporting documents through the console
 
-Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of  can download closing documents in the {{ yandex-cloud }} management console.
+Individuals, companies, and individual entrepreneurs can view their expense history. Companies and individual entrepreneurs that are residents of Russia and Kazakhstan can download reporting documents in the {{ yandex-cloud }} management console.
 
 {% list tabs %}
 
@@ -9,18 +9,18 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
   ## View your expense history {#expense-history}
 
-  Individuals who are residents of  can view their monthly spending history in the {{ yandex-cloud }} management console.
+  Individuals who are residents of Russia and Kazakhstan can view their monthly spending history in the {{ yandex-cloud }} management console.
 
   To view your expense history:
-    1. In the management console, go to [Billing]({{ link-console-billing }}).
-    1. On the **Accounts** page, select a billing account.
-    1. Go to **Expense history**.
+    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+    1. Go to **{{ ui-key.yacloud.billing.account.switch_expences }}**.
 
   Individuals cannot download reporting documents.
 
 - Businesses and individual entrepreneurs
 
-  **Legal entities of the Russian Federation**
+  **For businesses in Russia**
 
     Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md) and request reconciliation reports.
 
@@ -29,12 +29,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     Reports and invoices are generated on the last day of the reporting period (month). The relevant documents will become available for download seven business days after the reporting period closes. Documents for previous reporting periods are also available in the management console.
 
     To download closing documents:
-    1. In the management console, go to [Billing]({{ link-console-billing }}).
-    1. On the **Accounts** page, select a billing account.
-    1. Go to **Reporting documents**.
-    1. Open the **Closing documents** tab.
-    1. In the line for the relevant reporting period, click ![image](../../_assets/horizontal-ellipsis.svg) → **Download**. A window will open showing the reporting documents for the selected period.
-    1. To the right of a document, click ![image](../../_assets/horizontal-ellipsis.svg) → **Open**. The document will open in a new browser tab and will be available for saving.
+    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+    1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
+    1. Open the **{{ ui-key.yacloud.billing.account.tab_acts-title }}** tab.
+    1. In the line for the relevant reporting period, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. A window will open showing the reporting documents for the selected period.
+    1. To the right of a document, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
 
     ## Request a reconciliation report {#download-acts}
 
@@ -43,12 +43,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     You can request a reconciliation report for the current month seven business days after the month ends.
 
     To request a reconciliation report:
-    1. In the management console, go to [Billing]({{ link-console-billing }}).
-    1. On the **Accounts** page, select a billing account.
-    1. Go to **Reporting documents**.
-    1. Open the **Reconciliation reports** tab.
-    1. Click **Request reconciliation report**. In the window that opens, select the period to generate the reconciliation report for and click **Request**.
-    1. Once the request status changes to **Done**, the download button will appear in the **Action** column. Choose **Download signed report** or **Download unsigned report**.
+    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+    1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
+    1. Open the **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}** tab.
+    1. Click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
+    1. Once the request status changes to **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **Action** column. Choose **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **Download unsigned report**.
 
        {% cut "Exchanging original documents" %}
 
@@ -68,7 +68,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
     1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 
-  **Legal entities of the Republic of Kazakhstan**
+  **For businesses in Kazakhstan**
 
     ## Acceptance certificate {#report-of-completion}
 
@@ -77,12 +77,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     Documents are generated on the last day of the reporting period (month). The relevant acceptance certificate will become available for download seven business days after the reporting period closes. Acceptance certificates for previous reporting periods are also available in the management console.
 
     To request an acceptance certificate:
-    1. In the management console, go to [Billing]({{ link-console-billing }}).
-    1. On the **Accounts** page, select a billing account.
-    1. Go to **Reporting documents**.
-    1. Open the **Closing documents** tab.
-    1. In the line for the relevant reporting period, click ![image](../../_assets/horizontal-ellipsis.svg) → **Download**. This will open a window showing the acceptance certificates for the selected period.
-    1. To the right of a document, click ![image](../../_assets/horizontal-ellipsis.svg) → **Open**. The document will open in a new browser tab and will be available for saving.
+    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
+    1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
+    1. Open the **{{ ui-key.yacloud.billing.account.tab_acts-title }}** tab.
+    1. In the line for the relevant reporting period, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. This will open a window showing the acceptance certificates for the selected period.
+    1. To the right of a document, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
 
     ## Electronic invoice {#electronic-invoice}
 

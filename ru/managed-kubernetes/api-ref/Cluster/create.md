@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/api-ref/Cluster/create.md
+sourcePath: en/_api-ref/k8s/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.create

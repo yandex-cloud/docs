@@ -10,7 +10,7 @@
 
    [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is available for Windows 10 or higher.
 
-   1. To check if WSL is installed on your PC, run the following command in cmd or PowerShell:
+   1. To check whether WSL is installed on your PC, run the following command in cmd or PowerShell:
 
       ```powershell
       wsl -u root
@@ -36,7 +36,7 @@ If you want to run your Bash code in cmd or PowerShell, bring it to the appropri
 
 1. [Replace basic syntax elements](#basic-syntax).
 1. [Check the format of equivalent commands](#basic-syntax).
-1. [Replace other commands with their analogs](#replace-analogs).
+1. [Replace other commands with their equivalents](#replace-analogs).
 1. [Check the names of system variables and auxiliary syntax](#replace-analogs).
 
 ### Replace basic syntax elements {#basic-syntax}
@@ -66,7 +66,7 @@ If the code execution fails:
    alias
    ```
 
-   This outputs a list of all aliases defined in the system settings:
+   This will output a list of all aliases defined in the system settings:
 
    ```text
    CommandType     Name                            Version    Source
@@ -91,9 +91,9 @@ If the code execution fails:
 1. Make sure the command in your command shell performs the same function as its equivalent Bash command.
 1. Check the command format: the alias keys may differ. For example, the `ls` command has an alias in PowerShell, but the argument keys differ.
 
-### Replace other commands with their analogs {#replace-analogs}
+### Replace other commands with their equivalents {#replace-analogs}
 
-1. If a command has no alias, find its analog.
+1. If a command has no alias, find its equivalent.
 
    {% cut "List of equivalent commands in Linux, cmd, and PowerShell" %}
 
@@ -108,10 +108,10 @@ If the code execution fails:
    | Delete a file | `rm` | `del` | `del`, `Remove-Item` |
    | Compare file content | `diff` | `fc` | `diff`, `Get-Content`, `Compare-Object` |
    | Find file strings or object properties | `grep` | `find` | `Select-String`, `Where-Object` |
-   | Output the command help | `man <command>` | `<command> /?` | `Get-Help <command>` |
+   | Output command help | `man <command>` | `<command> /?` | `Get-Help <command>` |
    | Output the name of the current directory | `pwd` | `cd` | `$PWD` |
    | Create directory | `mkdir` | `md` | `mkdir`, `New-Item` |
-   | Output the current date and time | `date` | `time` | `Get-Date` |
+   | Output current date and time | `date` | `time` | `Get-Date` |
    | Configure file access policies | `chown`, `chmod` | `attrib` | `attrib`, `Set-XFileOwner` |
    | Schedule the command run | `cron` | `at` | `schtasks`, `Register-ScheduledJob` |
    | Access a web resource over HTTP | `wget` | `wget` | `Invoke-WebRequest` |
@@ -120,7 +120,7 @@ If the code execution fails:
 
 1. If a command has no direct equivalent, you can perform the same action using a combination of commands or other methods. For example, to convert a file to [Base64](https://en.wikipedia.org/wiki/Base64) in PowerShell, use the static Convert method: `[Convert]::ToBase64String([IO.File]::ReadAllBytes(''<filename>''))`.
 
-1. Consider the specifics of your command shell. For example, PowerShell works with objects and their properties rather than text. Therefore, instead of searching by `grep`, the `Where-Object` PowerShell command is used in most cases. It handles objects with required property values. To search for a sequence of characters, use the `Select-String` command.
+1. Consider the specifics of your command shell. For example, PowerShell works with objects and their properties rather than text. Therefore, instead of searching by `grep`, you will need to use the `Where-Object` PowerShell command in most cases. It handles objects with required property values. To search for a sequence of characters, use the `Select-String` command.
 
 ### Check the names of system variables and auxiliary syntax {#replace-analogs}
 

@@ -1,8 +1,6 @@
 # Create a security group
 
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
@@ -13,22 +11,22 @@ To create a new [security group](../concepts/security-groups.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a security group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
-   1. Click **Create group**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Enter a name for the security group.
-   1. In the **Network** field, select the network to assign the security group to.
-   1. Under **Rules**, create traffic management rules:
-      1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-      1. Click **Add rule**.
-      1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-      1. In the **Purpose** or **Source** field, select the purpose of the rule:
-         1. **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         1. **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-         1. **Load balancer health checks**.
-   1. Click **Save**. Add other rules, if required.
-   1. Click **Save**.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules:
+      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the desired protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
+         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
+         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+   1. Click **{{ ui-key.yacloud.common.save }}**. Add other rules, if required.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -126,7 +124,7 @@ To create a new [security group](../concepts/security-groups.md):
          ```
       2. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

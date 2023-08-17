@@ -267,7 +267,6 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
          docker-container-declaration = file("${path.module}/declaration.yaml")
          user-data = file("${path.module}/cloud_config.yaml")
        }
-       service_account_id = "<service account ID>"
      }
      scale_policy {
        fixed_scale {

@@ -1,0 +1,1 @@
+{% include [websocket-app](../../_tutorials/serverless/ory-kratos-authorization.md) %}

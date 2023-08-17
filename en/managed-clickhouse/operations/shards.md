@@ -15,7 +15,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and go to the **Shards** tab.
+   1. Click the cluster name and go to the **Shards** tab.
    1. Click **Add shard**.
    1. Specify the shard parameters:
       * Name and weight.
@@ -85,15 +85,15 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
+   To add a shard to a cluster, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call.
 
-   To copy the data schema from a random replica of one of the shards to the hosts of the new shard, pass the `copySchema` parameter set to `true` in the request.
+   To copy the data schema from a random replica of one of the shards to the hosts of the new shard, include the `copySchema` parameter set to `true` in the request.
 
 {% endlist %}
 
@@ -128,7 +128,7 @@ Use the copy data schema option only if the schema is the same on all cluster sh
 
 - API
 
-   To list the shards in a cluster, use the [listShards](../api-ref/Cluster/listShards.md) method.
+   To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call.
 
 {% endlist %}
 
@@ -176,7 +176,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 - API
 
-   Use the API [updateShard](../api-ref/Cluster/updateShard.md) method and pass the following in the call:
+   To update a shard, use the [updateShard](../api-ref/Cluster/updateShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShard](../api-ref/grpc/cluster_service.md#UpdateShard) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard in the `shardName` parameter.
    * Shard settings in the `configSpec` parameter.
@@ -231,12 +231,12 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   Use the [deleteShard](../api-ref/Cluster/deleteShard.md) method to delete a shard.
+   To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call.
 
 {% endlist %}

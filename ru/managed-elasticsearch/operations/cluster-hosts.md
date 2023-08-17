@@ -9,11 +9,13 @@ keywords:
 
 # Управление хостами
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете получить список хостов в кластере {{ ES }}, а также добавлять и удалять хосты кластера.
 
 {% note info %}
 
-Вы можете добавлять и удалять только хосты с ролью [_Data Node_](../concepts/index.md).
+Вы можете добавлять и удалять только хосты с ролью [_Data node_](../concepts/index.md).
 
 {% endnote %}
 
@@ -23,8 +25,8 @@ keywords:
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
 - CLI
 
@@ -60,14 +62,14 @@ keywords:
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
-    1. Нажмите кнопку **Добавить хост**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
     1. Укажите параметры хоста:
 
         * Зону доступности.
         * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
-        * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне {{ yandex-cloud }}.
+        * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
 
 - CLI
 
@@ -152,9 +154,9 @@ keywords:
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
-    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужного хоста и выберите пункт **Удалить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

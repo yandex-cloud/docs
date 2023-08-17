@@ -35,7 +35,6 @@ For more information, see [{{ ml-platform-full-name }} pricing](../../datasphere
 
 ### Create a folder {#create-folder}
 
-
 Create a folder to store logs of your service.
 
 {% list tabs %}
@@ -79,7 +78,7 @@ In this example, we will use the basic [c1.4 configuration](../../datasphere/con
 
 {% endnote %}
 
-In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns 10 probability values that show how confident the network is about the input image matching a certain class.
+In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns ten probability values that show how confident the network is about the input image matching a certain class.
 
 1. Import the required libraries to the project. To do this, copy and paste the code into the appropriate cell by selecting **Run → Run Selected Cells** or pressing **Shift** + **Enter**. Wait for the operation to complete.
 

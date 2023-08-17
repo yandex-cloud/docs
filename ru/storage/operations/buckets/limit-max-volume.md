@@ -41,7 +41,7 @@
       +------------------+----------------------+----------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+----------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 0        | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
    
@@ -62,7 +62,7 @@
 
       ```yaml
       name: first-bucket
-      older_id: b1gmit33ngp6cv2mhjmo
+      older_id: b1gmit33ngp6********
       default_storage_class: STANDARD
       versioning: VERSIONING_DISABLED
       max_size: "26843545600"
@@ -98,7 +98,7 @@
      * `secret_key` — значение секретного ключа доступа.
      * `max_size` — максимальный размер бакета в байтах.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#bucket-max-size).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
   1. Проверьте конфигурацию командой:
 

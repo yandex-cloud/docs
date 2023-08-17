@@ -46,15 +46,18 @@ To create an instance group based on a {{ coi }}:
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8avp6edhbt
+     service_account_id: aje3932acd8a********
      description: "This instance group was created from YAML config."
      ```
 
      Where:
 
-     * `name`: An arbitrary name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters.
+     * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
      * `service_account_id`: Service account ID.
-     * `description`: A description of the instance group.
+
+       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
+
+     * `description`: Description of the instance group.
 
    * [Instance template](../../compute/concepts/instance-groups/instance-template.md):
 
@@ -67,11 +70,11 @@ To create an instance group based on a {{ coi }}:
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: <ID of latest COI version>
+           image_id: <ID_of_latest_COI_version>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
-         - network_id: c64mknqgnd8avp6edhbt
+         - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
        metadata:
          docker-container-declaration: |-
@@ -97,10 +100,10 @@ To create an instance group based on a {{ coi }}:
         * `READ_WRITE`: Read/write access.
      * `image_id`: ID of the public {{ coi }}.
      * `type_id`: Disk type.
-     * `size`: Disk size.
+     * `size`: Disk size. It must be at least 30 GB.
      * `network_id`: ID of `default-net`.
      * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
-     * `metadata`: Values to pass to the VM metadata.
+     * `metadata`: Values to send to the VM metadata.
      * `docker-container-declaration`: Key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/coi-specifications.md). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
 
    * [Policies](../../compute/concepts/instance-groups/policies/index.md):
@@ -115,6 +118,10 @@ To create an instance group based on a {{ coi }}:
      allocation_policy:
        zones:
          - zone_id: {{ region-id }}-a
+           instance_tags_pool:
+           - first
+           - second
+           - third
      ```
 
      Where:
@@ -127,10 +134,10 @@ To create an instance group based on a {{ coi }}:
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8avp6edhbt
+     service_account_id: aje3932acd8a********
      description: "This instance group was created from YAML config."
      instance_template:
-       service_account_id: aje3932acd8avp6edhbt # ID of the service account to access private Docker images.
+       service_account_id: aje3932acd8a******** # ID of the service account to access private Docker images.
        platform_id: standard-v3
        resources_spec:
          memory: 2G
@@ -138,11 +145,11 @@ To create an instance group based on a {{ coi }}:
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: <ID of latest COI version>
+           image_id: <ID_of_latest_COI_version>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
-         - network_id: c64mknqgnd8avp6edhbt
+         - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
        metadata:
          docker-container-declaration: |-
@@ -163,6 +170,10 @@ To create an instance group based on a {{ coi }}:
      allocation_policy:
        zones:
          - zone_id: {{ region-id }}-a
+            instance_tags_pool:
+            - first
+            - second
+            - third
      ```
 
      {% note info %}

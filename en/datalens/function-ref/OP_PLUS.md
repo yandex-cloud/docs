@@ -15,6 +15,13 @@ value_1 + value_2
 ```
 
 #### Description {#description}
+
+{% note warning %}
+
+`Yandex Metrica` does not support string concatenation.
+
+{% endnote %}
+
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
 | Type of `value_1`                                                                         | Type of `value_2`                                                                         | Return value                                                                                                                                                                     |
@@ -63,4 +70,4 @@ Changing the order of arguments does not affect the result.
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 19.13`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

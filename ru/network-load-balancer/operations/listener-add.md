@@ -80,7 +80,7 @@
        * `external_address_spec` — спецификация обработчика для внешнего балансировщика:
          * `ip_version` — описание внешнего IP-адреса. Укажите версию IP-адреса: `ipv4` или `ipv6`. По умолчанию `ipv4`.
 
-     Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 
@@ -102,6 +102,10 @@
   * Параметры внешнего адреса обработчика в параметре `listenerSpec.externalAddressSpec`.
 
   Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
+
+- API
+
+  Чтобы добавить обработчик к сетевому балансировщику, воспользуйтесь методом REST API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AddListener](../api-ref/grpc/network_load_balancer_service.md#AddListener).
 
 {% endlist %}
 
@@ -151,7 +155,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 

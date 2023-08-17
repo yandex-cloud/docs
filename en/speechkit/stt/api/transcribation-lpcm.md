@@ -1,6 +1,6 @@
-# Recognizing speech in LPCM format
+# Asynchronously recognizing audio files in LPCM format
 
-The example shows how the [API v2](transcribation-api.md) helps asynchronously recognize speech in LPCM audio file format.
+The example shows how the [API v2](transcribation-api.md) helps [asynchronously recognize](../transcribation.md) speech in LPCM audio file format.
 
 
 The example uses the following parameters:
@@ -20,6 +20,12 @@ To use the default parameter value, don't pass this parameter in the request.
 Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
+
+## Getting started {#before-you-begin}
+
+{% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
+
+## Perform speech recognition via the API {#recognize-using-api}
 
 {% list tabs %}
 
@@ -118,4 +124,5 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 * [{#T}](transcribation-api.md)
 * [{#T}](transcribation-ogg.md)
+* [{#T}](batch-transcribation.md)
 * [{#T}](../../concepts/auth.md)

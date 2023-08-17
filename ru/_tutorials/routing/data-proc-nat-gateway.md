@@ -18,12 +18,12 @@
 
 - Вручную
 
-    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`, при создании выключив опцию **Создать подсети**.
+    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`, при создании выключив опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. В сети `data-proc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
 
-        * **Имя** — `data-proc-subnet-a`.
-        * **Зона** — `{{ region-id }}-a`.
-        * **CIDR** — `192.168.1.0/24`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `data-proc-subnet-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
 
     1. [Создайте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и таблицу маршрутизации с именем `data-proc-route-table` в сети `data-proc-network`. Привяжите таблицу к подсети `data-proc-subnet-a`.
 
@@ -31,17 +31,17 @@
 
         * По одному правилу для входящего и исходящего служебного трафика:
 
-            * Диапазон портов — `{{ port-any }}`.
-            * Протокол — `Любой` (`Any`).
-            * Источник — `Группа безопасности`.
-            * Группа безопасности — `Текущая` (`Self`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
         * Правило для исходящего HTTPS-трафика:
 
-            * Диапазон портов — `{{ port-https }}`.
-            * Протокол — `TCP`.
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
@@ -49,15 +49,15 @@
         * [storage.uploader](../../iam/concepts/access-control/roles.md#storage-uploader);
         * [storage.viewer](../../iam/concepts/access-control/roles.md#storage-viewer).
 
-    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом.
 
     1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
-        * **Сервисный аккаунт** — `data-proc-sa`.
-        * **Формат указания бакета** — `Список`.
-        * **Имя бакета** — выберите созданный ранее бакет.
-        * **Сеть** — `data-proc-network`.
-        * **Группы безопасности** — `data-proc-security-group`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `data-proc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}** — `{{ ui-key.yacloud.forms.label_form-list }}`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — выберите созданный ранее бакет.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `data-proc-network`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
 
 - С помощью {{ TF }}
 

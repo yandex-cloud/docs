@@ -7,13 +7,25 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Изменение настроек кластера и базы данных
-        href: operations/update.md
-      - name: Подключение к базе данных
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение настроек кластера
+            href: operations/update.md
+          - name: Обновление версии {{ RD }}
+            href: operations/cluster-version-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление хостами кластера
+            href: operations/hosts.md
+          - name: Управление резервными копиями
+            href: operations/cluster-backups.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Базы данных
         items:
           - name: Подготовка к подключению
             href: operations/connect/index.md
@@ -21,39 +33,39 @@ items:
             href: operations/connect/non-sharded.md
           - name: Подключение к шардированному кластеру
             href: operations/connect/sharded.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Обновление версии Redis
-        href: operations/cluster-version-update.md
-      - name: Управление хостами кластера
-        href: operations/hosts.md
-      - name: Управление шардами
-        href: operations/shards.md
-      - name: Управление резервными копиями
-        href: operations/cluster-backups.md
-      - name: Переключение мастера
-        href: operations/failover.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
+      - name: Шардирование и отказоустойчивость
+        items:
+          - name: Управление шардами
+            href: operations/shards.md
+          - name: Переключение мастера
+            href: operations/failover.md
+      - name: Логи и мониторинг
+        items:
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Все сценарии
         href: tutorials/index.md
-      - name: Хранение сессий PHP в Managed Service for Redis
+      - name: Хранение сессий PHP в {{ mrd-name }}
         href: tutorials/redis-as-php-sessions-storage.md
-      - name: Миграция базы данных в Managed Service for Redis
+      - name: Миграция базы данных в {{ mrd-name }}
         href: tutorials/data-migration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
-        href: concepts/instance-types.md
-      - name: Сеть в Managed Service for Redis
+        items:
+          - name: Действующие классы хостов
+            href: concepts/instance-types.md
+          - name: Архив
+            items:
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
+      - name: Сеть в {{ mrd-name }}
         href: concepts/network.md
       - name: Шардирование
         href: concepts/sharding.md
@@ -71,11 +83,11 @@ items:
         href: concepts/supported-features.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы диска
+      - name: Типы дисков
         href: concepts/storage.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки Redis
+      - name: Настройки {{ RD }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md

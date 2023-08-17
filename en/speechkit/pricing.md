@@ -4,21 +4,25 @@ editable: false
 
 # Pricing for {{ speechkit-name }}
 
-
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ speechkit-short-name }} {#rules}
 
 ### Using speech synthesis {#rules-tts}
 
-The cost of using SpeechKit for speech synthesis depends on the version of the API used. For [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
+
+The cost of using {{ speechkit-name }} for speech synthesis depends on the version of the API you use. For [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
 The cost using [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. Speech synthesis requests have limitations — {{ tts-v3-count }} and {{ tts-v3-time }}.
 
+
+
+
 ### Using speech recognition {#rules-stt}
+
+
 
 The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. The cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
 
@@ -66,6 +70,7 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 | 15.5 seconds | 2 | 16 |
 | 15.5 seconds | 4 | 32 |
 
+
 ## Pricing {#prices}
 
 ### Speech synthesis {#prices-tts}
@@ -73,7 +78,12 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 
 
+
 {% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
+
+
+
+
 
 
 ### {{ brand-voice-name }} {#brand-voice}
@@ -84,11 +94,15 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 {% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
 
 
+
+
 ### Speech recognition {#prices-stt}
 
 
 
 
+
 {% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
+
 
 

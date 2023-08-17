@@ -53,26 +53,26 @@
         "Versions": [
             {
                 "LastModified": "2015-11-10T00:20:11.000Z",
-                "VersionId": "Rb_l2T8UHDkFEwCgJjhlgPOZC0qJ.vpD",
-                "ETag": "\"0622528de826c0df5db1258a23b80be5\"",
+                "VersionId": "Rb_l2T8UHDkFEwCgJjhlgPOZ********",
+                "ETag": "\"0622528de826c0df5db1258a********\"",
                 "StorageClass": "STANDARD",
                 "Key": "index.html",
                 "Owner": {
                     "DisplayName": "my-username",
-                    "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                    "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460dd********"
                 },
                 "IsLatest": true,
                 "Size": 38
             },
             {
                 "LastModified": "2015-11-09T23:26:41.000Z",
-                "VersionId": "rasWWGpgk9E4s0LyTJgusGeRQKLVIAFf",
-                "ETag": "\"06225825b8028de826c0df5db1a23be5\"",
+                "VersionId": "rasWWGpgk9E4s0LyTJgusGeR********",
+                "ETag": "\"06225825b8028de826c0df5d********\"",
                 "StorageClass": "STANDARD",
                 "Key": "index.html",
                 "Owner": {
                     "DisplayName": "my-username",
-                    "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                    "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460dd********"
                 },
                 "IsLatest": false,
                 "Size": 38

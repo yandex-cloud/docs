@@ -11,16 +11,15 @@ You can use your saved filters to pick issues for [dashboards](dashboard.md) and
 The open all the issues that are available to you in {{ tracker-name }}:
 
 * On the left panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues**, then at the bottom of the window, click **All issues**.
-
-* or follow the [direct link]({{ link-tracker }}issues).
+* Or follow the [direct link]({{ link-tracker }}issues).
 
 ### Step 2. Set filter criteria {#set-conditions}
 
 There are several ways to set the filter conditions:
 
-- **Quick filters**
+- **Filtering by parameters**
 
-   Use the quick filter buttons above the issue list. To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
+   Use the filter by parameters buttons above the issue list. To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
 
 - **Searching by parameter**
@@ -96,7 +95,7 @@ If you want to save a filtered issue list, in the upper-right corner, click ![]
 
 1. In the upper part of the window, in the **All issues** field, select your filter.
 
-1. Delete your filter using one of these methods:
+1. Delete your filter using one of the methods:
 
    * To the right of the filter name, click ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Delete**.
 

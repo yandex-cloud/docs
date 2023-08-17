@@ -95,7 +95,7 @@
 
     1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
 
-       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Проверьте корректность конфигурационных файлов.
 

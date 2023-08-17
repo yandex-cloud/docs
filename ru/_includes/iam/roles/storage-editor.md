@@ -1,4 +1,4 @@
-### storage.editor {#storage-editor}
+#### storage.editor {#storage-editor}
 
 Пользователь с ролью `storage.editor` может выполнять любые операции с [бакетами](../../../storage/concepts/bucket.md) и [объектами](../../../storage/concepts/object.md) в каталоге: создавать, удалять и изменять их, в том числе создать публично доступный бакет.
 

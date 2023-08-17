@@ -17,20 +17,26 @@
 
 - Консоль управления
 
+  
+  @[youtube](https://www.youtube.com/watch?v=XflGoG03SHE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=5&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер БД.
-  1. Выберите сервис **{{ mmy-name }}**.
-  1. Нажмите кнопку **Создать кластер**.
-  1. Введите имя кластера {{ mmy-name }} в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. Введите имя кластера {{ mmy-name }} в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер {{ mmy-name }} (после создания кластера окружение изменить невозможно):
      * `PRODUCTION` — для стабильных версий ваших приложений.
      * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mmy-name }}. В prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
   1. Выберите версию СУБД.
   1. Выберите класс хостов — он определяет технические характеристики [виртуальных машин](../../compute/concepts/vm-platforms.md), на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера {{ mmy-name }} меняются характеристики всех уже созданных хостов.
-  1. В блоке **Размер хранилища**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
      * Выберите [тип диска](../concepts/storage.md).
 
+              
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
      * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
 
@@ -40,14 +46,14 @@
 
        {% endnote %}
 
-  1. В блоке **База данных** укажите атрибуты БД:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
      * Имя БД. Имя БД должно быть уникальным в рамках каталога и содержать только латинские буквы, цифры и подчеркивания.
      * Имя пользователя—владельца БД и пароль.
 
        {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
   
-  1. В блоке **Сетевые настройки** выберите:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера {{ mmy-name }}.
      * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mmy-name }}. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
 
@@ -58,9 +64,12 @@
        {% endnote %}
 
 
-  1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные [подсети](../../vpc/concepts/network.md#subnet) для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}. При необходимости нажмите на значок ![image](../../_assets/edit.svg) и выберите конкретные [подсети](../../vpc/concepts/network.md#subnet) для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
-     Если в блоке **Размер хранилища** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mmy-name }}. После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+          
+     Если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mmy-name }}. После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+
+     
   1. При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -69,7 +78,7 @@
 
      {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
-  1. Нажмите кнопку **Создать кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 - CLI
 
@@ -110,7 +119,7 @@
        --user name=<имя пользователя>,password=<пароль пользователя> \
        --database name=<имя БД> \
        --disk-size <размер хранилища в гигабайтах> \
-       --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+       --disk-type <тип диска> \
        --security-group-ids <список идентификаторов групп безопасности>
      ```
 
@@ -128,9 +137,6 @@
        --backup-window-start <время начала резервного копирования> \
        --backup-retain-period-days=<срок хранения автоматических резервных копий, дней> \
        --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false> \
-       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                           `day=<день недели для типа weekly>,`
-                           `hour=<час дня для типа weekly> \
        --websql-access=<запросы из консоли управления: true или false> \
        --deletion-protection=<защита от удаления кластера: true или false>
      ```
@@ -140,6 +146,12 @@
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+
+     {% note info %}
+
+     По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
+
+     {% endnote %}
 
 - {{ TF }}
 

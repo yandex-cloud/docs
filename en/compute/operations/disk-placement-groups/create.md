@@ -7,10 +7,10 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk placement group.
-   1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **Placement groups**.
-   1. Open the **Non-replicated disk placement groups** tab.
-   1. Click **Create non-replicated disk placement** group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+   1. Click the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
+   1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_create-disk-pg }}**.
    1. Enter a name for the group.
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -22,7 +22,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
 - CLI
 
@@ -102,7 +102,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       ```
 
       Where:
-      * `name`: Disk placement group name. in the following format:
+      * `name`: Disk placement group name. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -110,7 +110,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       * `description`: Disk placement group description.
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). We recommend creating disk placement groups in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.
 
-      For more information about the `yandex_compute_disk_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk_placement_group).
+      For more information about the `yandex_compute_disk_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group).
 
    1. Make sure the configuration files are valid.
 
@@ -133,7 +133,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```bash
          yc compute disk-placement-group list

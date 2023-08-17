@@ -2,7 +2,7 @@
 
 Вы можете подключиться к сервису хранения файлов [Google Drive](https://drive.google.com) из интерфейса {{ ml-platform-name }}.
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

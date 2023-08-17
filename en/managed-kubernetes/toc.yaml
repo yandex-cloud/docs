@@ -5,9 +5,9 @@ items:
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     items:
-      - name: All instructions
+      - name: All guides
         href: operations/index.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
@@ -15,7 +15,7 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
-      - name: Connecting to a cluster
+      - name: Connecting to cluster
         items:
           - name: Connection method overview
             href: operations/connect/index.md
@@ -122,7 +122,7 @@ items:
             href: operations/node-group/node-group-delete.md
       - name: Connecting external nodes to the cluster
         href: operations/external-nodes-connect.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -170,6 +170,8 @@ items:
         href: tutorials/gitlab-containers.md
       - name: Updating the Metrics Server parameters
         href: tutorials/metrics-server.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integrating with Argo CD

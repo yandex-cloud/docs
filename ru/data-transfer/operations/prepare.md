@@ -47,7 +47,7 @@
 
     1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) пользователя к нужному топику.
 
-    1. (опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
+    1. (Опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -86,7 +86,7 @@
 
     1. Настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-мастерам](../../managed-greenplum/concepts/index.md) кластера.
 
-    1. Если предполагается использовать [шардированное копирование](../concepts/sharded.md), настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-сегментам](../../managed-greenplum/concepts/index.md) кластера в режиме прямого доступа (utility mode). Для этого убедитесь, что для кластера включена настройка "Доступ из {{ data-transfer-name }}".
+    1. Если предполагается использовать [параллельное копирование](../concepts/sharded.md), настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-сегментам](../../managed-greenplum/concepts/index.md) кластера в режиме прямого доступа (utility mode). Для этого убедитесь, что для кластера включена настройка "Доступ из {{ data-transfer-name }}".
 
     1. Выдайте созданному пользователю привилегию на выполнение операции `SELECT` над таблицами, которые переносит трансфер, и привилегию `USAGE` на схемы, в которых находятся эти таблицы.
 
@@ -114,7 +114,7 @@
 
     1. Настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-мастерам](../../managed-greenplum/concepts/index.md) кластера.
 
-    1. Если предполагается использовать [шардированное копирование](../concepts/sharded.md), настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-сегментам](../../managed-greenplum/concepts/index.md) кластера в режиме прямого доступа (utility mode).
+    1. Если предполагается использовать [параллельное копирование](../concepts/sharded.md), настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-сегментам](../../managed-greenplum/concepts/index.md) кластера в режиме прямого доступа (utility mode).
 
     1. Выдайте созданному пользователю привилегию на выполнение операции `SELECT` над таблицами, которые переносит трансфер, и привилегию `USAGE` на схемы, в которых находятся эти таблицы.
 
@@ -132,6 +132,7 @@
 {% endlist %}
 
 {{ data-transfer-name }} взаимодействует с {{ GP }} по-разному в зависимости от настроек трансфера и содержимого кластера-источника. Подробная информация доступна в разделе [настройка эндпоинта-источника {{ GP }}](../operations/endpoint/source/greenplum.md).
+
 
 ### Источник {{ MG }} {#source-mg}
 
@@ -245,7 +246,7 @@
 
     1. [Включите режим полного бинарного лога](../../managed-mysql/operations/update.md#change-mysql-config) на источнике, установив значение `FULL` или `NOBLOB` для [параметра **Binlog row image**](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image).
 
-    1. (опционально) [Настройте лимит](../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
+    1. (Опционально) [Настройте лимит](../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
 
     1. [Создайте пользователя](../../managed-mysql/operations/cluster-users.md#adduser) для подключения к источнику.
 
@@ -279,7 +280,7 @@
 
         В обоих случаях это позволит продолжить репликацию в случае смены хоста-мастера.
 
-    1. (опционально) [Настройте лимит](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) на размер отправляемых кусков данных (chunk) с помощью параметра `max_allowed_packet`.
+    1. (Опционально) [Настройте лимит](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) на размер отправляемых кусков данных (chunk) с помощью параметра `max_allowed_packet`.
 
     1. Создайте пользователя для подключения к источнику и выдайте ему необходимые привилегии:
 
@@ -302,6 +303,14 @@
 {% endlist %}
 
 ### Источник Oracle {#source-oracle}
+
+{% note info %}
+
+В некоторых версиях Oracle для системных объектов вместо префикса `V$` используются `V_$`. Например, `V_$DATABASE` вместо `V$DATABASE`.
+
+Измените префиксы, если вы столкнулись с ошибкой вида `can only select from fixed tables/views` при выдаче прав на системные объекты.
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -350,7 +359,7 @@
 
         1. Выдайте права созданному пользователю:
 
-           ```sql
+            ```sql
             GRANT SELECT ON V$DATABASE TO <имя пользователя>;
             GRANT SELECT ON V$LOG TO <имя пользователя>;
             GRANT SELECT ON V$LOGFILE TO <имя пользователя>;
@@ -467,7 +476,7 @@
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
-    1. Для параллельного чтения из таблицы установите её первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+    1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
         После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
 
@@ -594,7 +603,7 @@
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
-    1. Для параллельного чтения из таблицы установите её первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+    1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
         После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
 
@@ -629,7 +638,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
+1. (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 
     {% cut "Пример функции обработки" %}
 
@@ -690,7 +699,7 @@
 
     {% endcut %}
 
-1. (опционально) Подготовьте файл схемы данных в формате JSON.
+1. (Опционально) Подготовьте файл схемы данных в формате JSON.
 
     Пример файла со схемой данных:
 
@@ -726,6 +735,10 @@
     * `utf8`
 
 
+### Источник {{ ydb-full-name }} {#source-ydb}
+
+Если вы выбрали режим базы данных {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+
 ## Подготовка приемника {#target}
 
 ### Приемник {{ CH }} {#target-ch}
@@ -736,11 +749,15 @@
 
     1. [Создайте базу-приемник](../../managed-clickhouse/operations/databases.md#add-db).
 
-        Ее имя должно совпадать с именем базы-источника. Если нужно перенести несколько баз данных, создайте для каждой из них отдельный трансфер.
+        Если нужно перенести несколько баз данных, создайте для каждой из них отдельный трансфер.
 
     1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md#adduser) с доступом к базе приемника.
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
+
+    1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) и [настройте ее](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+    1. Назначьте кластеру {{ mch-name }} созданную группу безопасности.
 
 - {{ CH }}
 
@@ -751,6 +768,24 @@
     1. Создайте пользователя с доступом к базе приемника.
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
+
+{% endlist %}
+
+### Приемник {{ ES }} {#target-es}
+
+{% list tabs %}
+
+
+- {{ mes-name }}
+
+    {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
+
+
+- {{ ES }}
+
+    * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
 
 {% endlist %}
 
@@ -831,6 +866,7 @@
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
 {% endlist %}
+
 
 ### Приемник {{ MG }} {#target-mg}
 
@@ -1011,6 +1047,24 @@
    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
 
 
+### Приемник {{ OS }} {#target-os}
+
+{% list tabs %}
+
+
+- {{ mos-name }}
+
+    {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+
+- {{ OS }}
+
+    * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+{% endlist %}
+
 ### Приемник {{ PG }} {#target-pg}
 
 {% list tabs %}
@@ -1035,17 +1089,28 @@
 
     1. [Включите те же расширения](../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
 
+    1. Убедитесь, что на приемнике выбрана политика очистки `DROP таблиц трансфера`.
+
     1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) с доступом к базе приемника.
 
-        После старта трансфер подключится к приемнику от имени этого пользователя.
-
-    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приёмнике:
+    1. Выдайте созданному пользователю все привилегии на базу данных, схемы и переносимые таблицы:
 
         ```sql
-        GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
+        GRANT ALL PRIVILEGES ON DATABASE <имя базы> TO <имя пользователя>;
         ```
 
-    1. Убедитесь, что на приемнике выбрана политика очистки `DROP таблиц трансфера`.
+       Если база не пустая, то пользователь должен быть ее владельцем (owner):
+
+        ```sql
+        ALTER DATABASE <имя базы> OWNER TO <имя пользователя>;
+        ```
+
+       После старта трансфер подключится к приемнику от имени этого пользователя.
+    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приемнике:
+
+       ```sql
+       GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
+       ```
 
 - {{ PG }}
 
@@ -1091,7 +1156,7 @@
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
-    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приёмнике:
+    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приемнике:
 
         ```sql
         GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
@@ -1104,9 +1169,8 @@
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
-
-[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
-
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
+1. Для базы данных в {{ dd }}-режиме [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

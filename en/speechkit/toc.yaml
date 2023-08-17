@@ -1,10 +1,20 @@
-title: Yandex SpeechKit
+title: '{{ speechkit-full-name }}'
 href: index.yaml
 items:
   - name: '{{ speechkit-name }} technology overview'
     href: overview.md
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: How to recognize short audio files in API v2
+        href: quickstart/stt-quickstart-v2.md
+      - name: How to recognize streaming audio in API v3
+        href: quickstart/stt-quickstart-v3.md
+      - name: How to synthesize speech in API v1
+        href: quickstart/tts-quickstart-v1.md
+      - name: How to synthesize speech in API v3
+        href: quickstart/tts-quickstart-v3.md
   - name: Speech recognition
     items:
       - name: About the technology
@@ -23,6 +33,8 @@ items:
         href: stt/normalization.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
+      - name: Detecting the end of utterance
+        href: stt/eou.md
   - name: Speech synthesis
     items:
       - name: About the technology
@@ -42,15 +54,21 @@ items:
           - name: List of SSML supported phonemes
             href: tts/markup/ssml-supported-phonemes.md
       - name: '{{ brand-voice-name }}'
-        href: tts/brand-voice/index.md
-      - name: Pattern-based synthesis
-        href: tts/templates.md
-  - name: SpeechKit Hybrid
+        items:
+          - name: Overview
+            href: tts/brand-voice/index.md
+          - name: Data for {{ brand-voice-core }}
+            href: tts/brand-voice/bv-full-data-upload.md
+          - name: Data for {{ brand-voice-cc-name }}
+            href: tts/templates.md
+  - name: '{{ sk-hybrid-name }}'
     items:
       - name: About the technology
         href: hybrid-speechkit/index.md
       - name: System requirements
         href: hybrid-speechkit/system-requirements.md
+      - name: '{{ sk-hybrid-name }} documentation'
+        href: ../speechkit-hybrid/
   - name: API Reference
     items:
       - name: Authentication in the API
@@ -65,17 +83,19 @@ items:
                 href: stt/api/request-api.md
               - name: Asynchronous Recognition API
                 href: stt/api/transcribation-api.md
-          - name: gRPC API v3 (eng)
+          - name: gRPC API v3
             items:
               - name: Overview
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
+              - name: OperationService
+                href: stt-v3/api-ref/grpc/operation_service.md
       - name: Speech synthesis
         items:
           - name: API v1
             href: tts/request.md
-          - name: gRPC API v3 (eng)
+          - name: gRPC API v3
             items:
               - name: Overview
                 href: tts-v3/api-ref/grpc/index.md
@@ -83,8 +103,12 @@ items:
                 href: tts-v3/api-ref/grpc/tts_service.md
   - name: Tutorials
     items:
-      - name: Streaming recognition, API v3
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Audio file streaming recognition, API v3
         href: stt/api/streaming-examples-v3.md
+      - name: Microphone speech streaming recognition, API v3
+        href: stt/api/microphone-streaming.md
       - name: Automatic language detection, API v3
         href: stt/api/stt-language-labels-example.md
       - name: Streaming recognition, API v2
@@ -95,15 +119,19 @@ items:
         href: stt/api/transcribation-lpcm.md
       - name: Asynchronous recognition of OggOpus format, API v2
         href: stt/api/transcribation-ogg.md
-      - name: Synthesis API v3
+      - name: Regular asynchronous recognition of audio files, API v2
+        href: stt/api/batch-transcribation.md
+      - name: Speech synthesis in API v3
         href: tts/api/tts-examples-v3.md
-      - name: Pattern-based synthesis
+      - name: Pattern-based speech synthesis
         href: tts/api/tts-templates.md
+      - name: Brand Voice Call Center pattern-based speech synthesis
+        href: tts/api/tts-templates-bvcc.md
       - name: "Speech synthesis in WAV format using API\_v1"
         href: tts/api/tts-wav.md
       - name: "Speech synthesis in OggOpus format using API\_v1"
         href: tts/api/tts-ogg.md
-      - name: "Synthesis from SSML text using API\_v3"
+      - name: "Speech synthesis from SSML text using API\_v1"
         href: tts/api/tts-ssml.md
   - name: Supported audio formats
     href: formats.md

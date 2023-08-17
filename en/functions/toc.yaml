@@ -397,6 +397,14 @@ items:
           Automatically copying objects from one {{ objstorage-name }} bucket to
           another
         href: tutorials/bucket-to-bucket.md
+      - name: Running computations on a schedule in {{ ml-platform-name }}
+        href: tutorials/regular-launch-datasphere.md
+      - name: Interactive debugging of functions
+        href: tutorials/serverless-live-debug.md
+      - name: Authorization using functions in Ory Kratos
+        href: tutorials/ory-kratos-authorization.md
+      - name: Regular recognition of audio files in {{ objstorage-name }} buckets
+        href: tutorials/batch-recognition-stt.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
@@ -427,6 +435,8 @@ items:
                 href: functions/api-ref/Function/createVersion.md
               - name: delete
                 href: functions/api-ref/Function/delete.md
+              - name: deleteVersion
+                href: functions/api-ref/Function/deleteVersion.md
               - name: get
                 href: functions/api-ref/Function/get.md
               - name: getVersion

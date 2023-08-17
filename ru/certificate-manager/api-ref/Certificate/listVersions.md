@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/listVersions.md
+sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listVersions.md
 ---
 
 # Certificate Manager API, REST: Certificate.listVersions

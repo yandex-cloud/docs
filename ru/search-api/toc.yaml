@@ -1,0 +1,39 @@
+title: Search API
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Регистрация
+        href: operations/registration.md
+      - name: Общий порядок подключения
+        href: operations/workaround.md
+      - name: Тестирование запросов
+        href: operations/test-request.md
+      - name: Аутентификация в API
+        href: operations/auth.md
+  - name: Концепции
+    items:
+      - name: О сервисе {{ search-api-name }}
+        href: concepts/index.md
+      - name: GET-запросы
+        href: concepts/get-request.md
+      - name: POST-запросы
+        href: concepts/post-request.md
+      - name: Формат ответа
+        href: concepts/response.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Приложения
+    items:
+      - name: Коды ошибок
+        href: reference/error-codes.md
+      - name: Регионы поиска
+        href: reference/regions.md
+base: ru/search-api

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/api-ref/Database/index.md
+sourcePath: en/_api-ref/ydb/v1/api-ref/Database/index.md
 ---
 
 # Managed Service for YDB API, REST: Database methods
@@ -90,6 +90,7 @@ A set of methods for managing databases.
   },
   "documentApiEndpoint": "string",
   "kinesisApiEndpoint": "string",
+  "kafkaApiEndpoint": "string",
   "monitoringConfig": {
     "alerts": [
       {
@@ -269,6 +270,7 @@ backupConfig.<br>backupSettings[].<br>type | **string**
 backupConfig.<br>backupSettings[].<br>storageClass | **string**
 documentApiEndpoint | **string**
 kinesisApiEndpoint | **string**
+kafkaApiEndpoint | **string**
 monitoringConfig | **object**
 monitoringConfig.<br>alerts[] | **object**
 monitoringConfig.<br>alerts[].<br>alertId | **string**<br><p>output only field.</p> 

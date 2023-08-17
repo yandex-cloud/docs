@@ -1,20 +1,18 @@
-# Sample unified analysis of streaming and analytical data
+# Unified analysis of streaming and analytical data
 
-{{ yq-full-name }} is designed using the concept of [unified streaming and analytical computations](../concepts/unified-processing.md). This lets you use a single query to process both streaming and analytical data.
+In this example, you will calculate the cost of taxi rides in specific locations using a single query against [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) data.
 
-In this example, we will use a single request to calculate the number and cost of taxi rides in certain locations.
+The text of the SQL query used to process both data types is the same: only the [connections](../concepts/glossary.md#connection) and [data bindings](../concepts/glossary.md#binding) for the bucket and stream are different.
 
-We will use a ready-made dataset on New York City taxi trips:
-* Using a streaming data generator.
-* Using the analytical data uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data` in the `tutorial` folder.
+Data for analytical processing was placed in the [{{ objstorage-full-name }}](../../storage/index.yaml) bucket, in [Parquet](https://parquet.apache.org/docs/file-format/) files. Stream data will be written by a generator to a dedicated [{{ yds-full-name }}](../../data-streams/index.yaml) stream.
 
-In both cases, we use a reference stored in {{ objstorage-full-name }} to filter our query data.
+In both cases, we use a reference stored in {{ objstorage-name }} to filter our query data.
 
 To run this example:
-1. [Get started](#before-you-begin).
-1. [Analyze the data from {{ objstorage-full-name }}](#analyze-data).
-1. [Analyze the streaming data](#analyze-streaming).
-1. [Make conclusions](#conclusions).
+
+1. [{#T}](#before-you-begin).
+1. [{#T}](#batch).
+1. [{#T}](#stream).
 
 {% note info %}
 
@@ -22,23 +20,23 @@ To run this example:
 
 {% endnote %}
 
-## Getting started {#before-you-begin}
+## Before you start {#before-you-begin}
 
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
 
-## Analyze the data from {{ objstorage-full-name }} {#analyze-data}
+## Analyze the data from {{ objstorage-name }} {#batch}
 
-### Create a connection for analytical data processing {#create-binding}
+### Connect to analytical data {#batch-create-binding}
 
 {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
-### Run the query {#run-query-analytics}
+### Run the query {#batch-run-query}
 
-1. In the query editor in the {{ yq-full-name }} interface, click **New analytics query**.
+1. In the query editor in the {{ yq-name }} interface, click **New analytics query**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -79,11 +77,12 @@ To run this example:
    FROM
        $time;
    ```
+
 1. Click **Run**.
 
-### Review the result {#check-result-analytics}
+### Review the result {#batch-check-result}
 
-Once the analytical query is complete, you will see the result, which in our case will be distribution of the taxi trip duration by the number of trips.
+Once the analytical query is complete, you will see the result: distribution of taxi ride costs in specific locations.
 
 | # | time | PULocationID | total_amount |
 | --- | --- | --- | --- |
@@ -96,21 +95,21 @@ Once the analytical query is complete, you will see the result, which in our cas
 | 7 | 2018-01-02T19:28:00.000000Z | 120 | 7.3 |
 | 8 | 2018-01-03T10:17:00.000000Z | 120 | 81.3 |
 
-## Analyze the streaming data {#analyze-streaming}
+## Analyze the {{ yds-name }} streaming data {#stream}
 
-### Create a data stream {#create-datastream}
+### Create a data stream {#stream-create-datastream}
 
 {% include [create-stream-tutorial](../../_includes/data-streams/create-stream-tutorial.md) %}
 
-### Set up data generation {#configure-generation}
+### Set up data generation {#stream-configure-generation}
 
 {% include [streaming-infra](../_includes/create-tutorial-streaming-infra.md) %}
 
 Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **Start** buttons to control the data generator.
 
-### Run the query {#run-query-streaming}
+### Run the query {#stream-run-query}
 
-1. In the query editor in the {{ yq-full-name }} interface, click **New streaming query**.
+1. In the query editor in the {{ yq-name }} interface, click **New streaming query**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -150,11 +149,12 @@ Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **S
    FROM
        $time;
    ```
+
 1. Click **Run**.
 
-### Review the result {#check-result-streaming}
+### Review the result {#stream-check-result}
 
-Once the query to the streaming data is complete, you will see the result, which in our case will be the number and total cost of the trips made in specific locations after the query was run.
+Once you run the query to the streaming data, you will see the result: the total cost of rides (`total_amount`) in specific `PULocationID` locations after the query ran.
 
 | # | PULocationID | time | total_amount |
 | --- | --- | --- | --- |
@@ -164,7 +164,12 @@ Once the query to the streaming data is complete, you will see the result, which
 | 4 | 121 | 2022-02-15T12:03:00.000000Z | 636.8784 |
 | 5 | 124 | 2022-02-15T12:03:00.000000Z | 923.87805 |
 | 6 | 127 | 2022-02-15T12:04:00.000000Z | 2105.3125 |
+| ... |
 
-## Conclusions {#conclusions}
+## See also {#see-also}
 
-The example above used a unified query for analyzing data from {{ objstorage-full-name }}, as well as for streaming data. The text of SQL queries used for data analysis is the same. The queries only differ in data connections: the first query accesses {{ objstorage-full-name }}, while the second one accesses {{ yds-full-name }}.
+* [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
+* [Aggregate functions. YQL syntax]({{ ydb.docs }}/yql/reference/builtins/aggregation)
+* [SQL expression format](../sources-and-sinks/data-streams-binding.md#model-dannyh)
+* [{#T}](../concepts/batch-processing.md)
+* [{#T}](../concepts/stream-processing.md)

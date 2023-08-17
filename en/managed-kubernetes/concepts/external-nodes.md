@@ -13,9 +13,12 @@ Connecting external nodes is at the [Preview](../../overview/concepts/launch-sta
 To connect external nodes to a {{ managed-k8s-name }} cluster, the following requirements must be met:
 * L3 network connectivity between your servers' local network infrastructure and your {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network). External nodes connect to a cluster [master](./index.md#master) via its {{ yandex-cloud }} cloud network internal IP address.
 
+  
   You can use the following methods to establish a private dedicated connection between your local network infrastructure and {{ yandex-cloud }}:
-  * Via [{{ interconnect-full-name }}](../../interconnect/).
+  * Via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Manually, via a VPN.
+  
+  
 * A {{ managed-k8s-name }} cluster uses network [tunneling](../concepts/network-policy.md#cilium).
 * Connecting servers must have internet access.
 * Connecting servers must have Ubuntu 20.04 as their operating system.
@@ -30,7 +33,9 @@ For external nodes to run predictably in a cluster, it is key that the elements 
 * Local network infrastructure made up of the servers utilized.
 * Links between your local network infrastructure and {{ yandex-cloud }}.
 
-{{ yandex-cloud }} offers reliable private connections between your local network and cloud infrastructure that is part of [{{ interconnect-name }}](../../interconnect/). Alternatively, you can configure and maintain the quality of such a connection yourself using a VPN.
+
+{{ yandex-cloud }} offers reliable private connections between your local network and cloud infrastructure that is part of [{{ interconnect-name }}](../../interconnect/index.yaml). Alternatively, you can configure and maintain the quality of such a connection yourself using a VPN.
+
 
 {{ yandex-cloud }} does not offer management services or guarantee the reliability of any computing or network infrastructure outside {{ yandex-cloud }} data centers. You can take advantage of a managed infrastructure by using {{ managed-k8s-name }} [regular node groups](../operations/node-group/node-group-create.md).
 

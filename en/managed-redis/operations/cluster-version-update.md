@@ -9,7 +9,7 @@ You can only upgrade to a version that immediately follows the current one, such
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions.
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot create a cluster with these versions. The version of existing clusters was automatically upgraded to 6.2.
 
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
@@ -18,19 +18,19 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are discontinued. You cannot c
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mrd-name }}**.
-   1. Select a cluster and click **Edit**.
-   1. Open the list in the **Version** field.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
 
-## Before upgrading {#before-update}
+## Before updating the version {#before-update}
 
-Prior to upgrading a cluster, make sure this does not affect your applications:
+Make sure this does not affect your applications:
 
-1. Review the [change log](https://docs.redis.com/latest/rs/release-notes/) for the {{ RD }} versions that you are upgrading your cluster to, and make sure that changes do not affect your application.
-1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
-1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
+1. See the {{ RD }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Upgrading a cluster {#start-update}
 
@@ -46,10 +46,10 @@ Prior to upgrading a cluster, make sure this does not affect your applications:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
-   1. Select **{{ mrd-name }}**.
-   1. Select the cluster from the list and click **Edit cluster**.
-   1. In the **Version** field, select the new version.
-   1. Click **Save changes**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Select the desired cluster from the list and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
    Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
@@ -82,7 +82,7 @@ Prior to upgrading a cluster, make sure this does not affect your applications:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+   To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ RD }} version number in the `configSpec.version` parameter.

@@ -38,7 +38,7 @@ The cost of resources includes:
 
    - Management console
 
-      1. In [the management console]({{ link-console-main }}), select a folder where you wish to create a service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. Click the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name: `s3-copy-fn`.
@@ -129,7 +129,7 @@ The cost of resources includes:
          * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
-         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+         For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
       1. Make sure the configuration files are valid.
 
@@ -196,11 +196,11 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
       ```text
       access_key:
-        id: aje6t3vsbj8lp9******
-        service_account_id: ajepg0mjt06siu******
+        id: aje6t3vsbj8l********
+        service_account_id: ajepg0mjt06s********
         created_at: "2023-03-21T14:37:51Z"
-        key_id: 0n8X6WY6S24N7O*****
-      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9h******
+        key_id: 0n8X6WY6S24********
+      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
       ```
 
    1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
@@ -217,7 +217,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
       Where `service_account_id` is the ID of the `s3-copy-fn` service account.
 
-      For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_static_access_key).
+      For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
    1. Make sure that the configuration files are valid.
 
@@ -294,14 +294,14 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
    Result:
 
    ```
-   id: e6q2ad0j9b55tk******
-   folder_id: b1gktjk2rg494e******
+   id: e6q2ad0j9b55********
+   folder_id: b1gktjk2rg49********
    created_at: "2021-11-08T19:23:00.383Z"
    name: s3-static-key
    status: ACTIVE
    current_version:
-     id: g6q4fn3b6okjkc******
-     secret_id: e6e2ei4u9b55gh******
+     id: g6q4fn3b6okj********
+     secret_id: e6e2ei4u9b55********
      created_at: "2023-03-21T19:23:00.383Z"
      status: ACTIVE
      payload_entry_keys:
@@ -339,8 +339,8 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-      * [yandex_lockbox_secret]({{ tf-provider-link }}/lockbox_secret).
-      * [yandex_lockbox_secret_version]({{ tf-provider-link }}/lockbox_secret_version).
+      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
+      * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
    1. Make sure the configuration files are valid.
 
@@ -371,7 +371,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
 ## Create {{ objstorage-name }} buckets {#create-buckets}
 
-Create two buckets: `main-bucket` to store files and `reserve-bucket` to copy the `main-bucket` files to.
+Create two buckets: the main one to store files and the backup one to copy the main bucket's files to.
 
 {% list tabs %}
 
@@ -379,46 +379,47 @@ Create two buckets: `main-bucket` to store files and `reserve-bucket` to copy th
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your buckets.
    1. In the list of services, select **{{ objstorage-name }}**.
-   1. Create a bucket named `main-bucket`:
+   1. Create the main bucket:
 
       1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter the bucket name: `main-bucket`.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-   1. Similarly, create a bucket named `reserve-bucket`.
+   1. Similarly, create a backup bucket.
 
 - AWS CLI
 
-   1. Create a bucket named `main-bucket`:
+   1. Create the main bucket:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
-        s3 mb s3://main-bucket
+        s3 mb s3://<main_bucket_name>
       ```
 
       Result:
 
       ```
-      make_bucket: s3://main-bucket
+      make_bucket: s3://<main_bucket_name>
       ```
 
-   1. Similarly, create a bucket named `reserve-bucket`.
+   1. Similarly, create a backup bucket.
 
 - {{ TF }}
 
-   1. In the configuration file, describe the `main-bucket` and `reserve-bucket` parameters:
+   1. In the configuration file, describe the parameters of the main and backup buckets:
 
       ```
       resource "yandex_storage_bucket" "main-bucket" {
-        bucket = "main-bucket"
+        bucket = "<main_bucket_name>"
       }
 
       resource "yandex_storage_bucket" "reserve-bucket" {
-        bucket = "reserve-bucket"
+        bucket = "<backup_bucket_name>"
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are valid.
 
@@ -467,7 +468,7 @@ Create two buckets: `main-bucket` to store files and `reserve-bucket` to copy th
 
 ## Create a function {#create-function}
 
-Create a function that will copy a new [object](../../storage/concepts/object.md) to `reserve-bucket` once you add it to `main-bucket`
+Create a function that will copy a new [object](../../storage/concepts/object.md) to the backup bucket once you add it to the main bucket.
 
 {% list tabs %}
 
@@ -494,7 +495,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
             * `S3_ENDPOINT`: `https://storage.yandexcloud.net`.
-            * `DST_BUCKET`: Name of the bucket to copy files to (`reserve-bucket`).
+            * `DST_BUCKET`: Name of the backup bucket to copy files to.
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
@@ -514,12 +515,12 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       Result:
 
       ```
-      id: b09bhaokchn9pn******
-      folder_id: aoek49ghmknnpj******
+      id: b09bhaokchn9********
+      folder_id: aoek49ghmknn********
       created_at: "2023-03-21T10:03:37.475Z"
       name: copy-function
-      log_group_id: eolm8aoq9vcpps******
-      http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pn******
+      log_group_id: eolm8aoq9vcp********
+      http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
       status: ACTIVE
       ```
 
@@ -533,7 +534,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
         --runtime=bash \
         --entrypoint=handler.sh \
         --service-account-id=<service_account_ID> \
-        --environment DST_BUCKET=reserve-bucket \
+        --environment DST_BUCKET=<backup_bucket_name> \
         --environment S3_ENDPOINT=https://storage.yandexcloud.net \
         --secret name=s3-static-key,key=key_id,environment-variable=AWS_ACCESS_KEY_ID \
         --secret name=s3-static-key,key=secret,environment-variable=AWS_SECRET_ACCESS_KEY \
@@ -556,34 +557,34 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       ```
       done (1s)
-      id: d4e6qqlh53nuh5******
-      function_id: d4emc80mnp5n96******
+      id: d4e6qqlh53nu********
+      function_id: d4emc80mnp5n********
       created_at: "2023-03-22T16:49:41.800Z"
       runtime: bash
       entrypoint: handler.sh
       resources:
         memory: "134217728"
       execution_timeout: 600s
-      service_account_id: aje20nhregkcvu******
+      service_account_id: aje20nhregkc********
       image_size: "4096"
       status: ACTIVE
       tags:
         - $latest
-      log_group_id: ckgmc3l93cl0lf******
+      log_group_id: ckgmc3l93cl0********
       environment:
-        DST_BUCKET: reserve-bucket
+        DST_BUCKET: <backup_bucket_name>
         S3_ENDPOINT: https://storage.yandexcloud.net
       secrets:
-        - id: e6q5qe9a1hgk1a******
-          version_id: e6qrdn2e1acb7e******
+        - id: e6q5qe9a1hgk********
+          version_id: e6qrdn2e1acb********
           key: key_id
           environment_variable: AWS_ACCESS_KEY_ID
-        - id: e6q5qe9a1hgk1a******
-          version_id: e6qrdn2e1acb7e******
+        - id: e6q5qe9a1hgk********
+          version_id: e6qrdn2e1acb********
           key: secret
           environment_variable: AWS_SECRET_ACCESS_KEY
       log_options:
-        folder_id: b1g86q4m5vej8l******
+        folder_id: b1g86q4m5vej********
       ```
 
 - {{ TF }}
@@ -598,9 +599,9 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
         entrypoint         = "handler.sh"
         memory             = "128"
         execution_timeout  = "600"
-        service_account_id = "aje20nhregkcvuik0q44"
+        service_account_id = "aje20nhregkcvu******"
         environment = {
-          DST_BUCKET  = "reserve-bucket"
+          DST_BUCKET  = "<backup_bucket_name>"
           S3_ENDPOINT = "https://storage.yandexcloud.net"
         }
         secrets = {
@@ -634,7 +635,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       * `secrets`: Secret with parts of the static access key.
       * `content`: Path to the `handler-sh.zip` archive with the function source code.
 
-      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
    1. Make sure the configuration files are valid.
 
@@ -667,7 +668,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
 ## Create a trigger {#create-trigger}
 
-Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when you create a new object in the `main-bucket`.
+Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` when you create a new object in the main bucket.
 
 {% list tabs %}
 
@@ -685,7 +686,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select `main-bucket`.
+      * Select the main bucket in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object}}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
@@ -711,7 +712,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
    Where:
 
    * `--name`: Trigger name.
-   * `--bucket-id`: ID of `main-bucket`.
+   * `--bucket-id`: ID of the main bucket.
    * `--events`: [Events](../../functions/concepts/trigger/os-trigger.md#event) to fire the trigger.
    * `--invoke-function-name`: Name of the function being invoked.
    * `--invoke-function-service-account-name`: Name of the service account to use for invoking the function.
@@ -719,19 +720,19 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
    Result:
 
    ```text
-   id: a1s92agr8mpgeo******
-   folder_id: b1g88tflru0ek1******
+   id: a1s92agr8mpg********
+   folder_id: b1g88tflru0e********
    created_at: "2023-03-22T09:47:50.079103Z"
    name: bucket-to-bucket-copying
    rule:
      object_storage:
        event_type:
        - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
-       bucket_id: main-bucket
+       bucket_id: <main_bucket_name>
        invoke_function:
-         function_id: d4eofc7n0m03lm******
+         function_id: d4eofc7n0m03********
          function_tag: $latest
-         service_account_id: aje3932acd0c5u******
+         service_account_id: aje3932acd0c********
    status: ACTIVE
    ```
 
@@ -763,7 +764,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
          * `id`: ID of `copy-function`.
          * `service_account_id`: ID of the `s3-copy-trigger` service account.
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 
@@ -798,14 +799,14 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with `main-bucket`.
+   1. In the [management console]({{ link-console-main }}), go to the folder with the main bucket.
    1. In the list of services, select **{{ objstorage-name }}**.
-   1. Click the `main-bucket` name.
+   1. Click the name of the main bucket.
    1. In the top-right corner, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
    1. In the window that opens, select the required files and click **Open**.
    1. The management console will display all objects selected for upload. Click **{{ ui-key.yacloud.storage.button_upload }}**.
    1. Refresh the page.
-   1. Go to the `reserve-bucket` and make sure it contains the files you added.
+   1. Go to the backup bucket and make sure it contains the files you added.
 
 {% endlist %}
 
@@ -814,8 +815,8 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
 
 To stop paying for the resources you created:
 
-1. [Delete](../../storage/operations/objects/delete-all.md) the objects from `main-bucket` and `reserve-bucket`.
-1. [Delete](../../storage/operations/buckets/delete.md) `main-bucket` and `reserve-bucket`.
+1. [Delete](../../storage/operations/objects/delete-all.md) the objects from the buckets.
+1. [Delete](../../storage/operations/buckets/delete.md) buckets.
 1. [Delete](../../functions/operations/trigger/trigger-delete.md) the `bucket-to-bucket-copying` trigger.
 1. [Delete](../../functions/operations/function/function-delete.md) `copy-function`.
 

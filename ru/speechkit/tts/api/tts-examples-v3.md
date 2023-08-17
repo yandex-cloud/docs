@@ -1,8 +1,9 @@
-# Пример использования API v3 синтеза
+# Синтез речи в API v3
 
-Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/) синтезировать речь из текста в [TTS-разметке](../markup/tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
+С помощью {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/) можно синтезировать речь из текста в [TTS-разметке](../markup/tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
 
 В примере заданы следующие параметры синтеза:
+
 * [формат](../../formats.md) синтезированного аудиофайла — LPCM с частотой дискретизации 22 050 Гц, контейнер [WAV](https://ru.wikipedia.org/wiki/WAV) (значение по умолчанию);
 * [нормализация громкости](../index.md#volume) — LUFS (значение по умолчанию).
 
@@ -12,7 +13,7 @@
 
 Чтобы реализовать пример:
 
-1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
+1. Клонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
 
     ```bash
     git clone https://github.com/yandex-cloud/cloudapi
@@ -145,3 +146,4 @@
 
 * [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)
+* [{#T}](../../sdk/python/synthesis.md)

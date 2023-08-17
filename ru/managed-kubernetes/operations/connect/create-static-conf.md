@@ -126,6 +126,14 @@
    - kind: ServiceAccount
      name: admin-user
      namespace: kube-system
+   ---
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: admin-user-token
+     annotations:
+       kubernetes.io/service-account.name: admin-user
+   type: kubernetes.io/service-account-token
    ```
 
 1. Создайте объект `ServiceAccount`:

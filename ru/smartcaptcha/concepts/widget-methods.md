@@ -215,17 +215,19 @@
     | 'challenge-visible'
     | 'challenge-hidden'
     | 'network-error'
-    | 'success';
+    | 'success'
+    | 'token-expired';
     ```
 
     Описание событий:
 
-    | Событие             | Когда происходит                              | Сигнатура обработчика     |
-    | ------------------- | --------------------------------------------- | ------------------------- |
-    | `challenge-visible` | Открытие всплывающего окна с заданием         | `() => void`              |
-    | `challenge-hidden`  | Закрытие всплывающего окна с заданием         | `() => void`              |
-    | `network-error`     | Возникла сетевая ошибка                       | `() => void`              |
-    | `success`           | Успешная валидация пользователя               | `(token: string) => void` |
+    | Событие             | Когда происходит                             | Сигнатура обработчика     |
+    | ------------------- | ---------------------------------------------| ------------------------- |
+    | `challenge-visible` | Открытие всплывающего окна с заданием        | `() => void`              |
+    | `challenge-hidden`  | Закрытие всплывающего окна с заданием        | `() => void`              |
+    | `network-error`     | Возникла сетевая ошибка                      | `() => void`              |
+    | `success`           | Успешная валидация пользователя              | `(token: string) => void` |
+    | `token-expired`     | Токен прохождения проверки стал невалидным | `() => void`              |
 
 * `callback` — функция-обработчик:
 
@@ -265,6 +267,11 @@
 {% cut "Пример встраивания виджета" %}
 
 ```html
+<form>
+  <div id="captcha-container"></div>
+  <button id="smartcaptcha-demo-submit" disabled="1">Submit</button>
+</form>
+
 <script
   src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=smartCaptchaInit"
   defer

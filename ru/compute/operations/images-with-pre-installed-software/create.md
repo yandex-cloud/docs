@@ -7,22 +7,26 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Нажмите кнопку **Создать ресурс**.
-  1. Выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+  1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 
-  1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. Выберите публичный [образ](../../concepts/image.md) с программным обеспечением, которое хотите использовать.
-  1. (опционально) Если вы хотите добавить к ВМ дополнительные [диски](../../concepts/disk.md), [выберите их](../vm-create/create-from-disks.md) в блоке **Диски и файловые хранилища** на вкладке **Диски**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+     * Введите имя ВМ. Требования к имени:
+
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+     * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный [образ](../../concepts/image.md) с программным обеспечением, которое хотите использовать.
+  1. (Опционально) Если вы хотите добавить к ВМ дополнительные [диски](../../concepts/disk.md), [выберите их](../vm-create/create-from-disks.md) в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**.
 
   
 
-  1. (опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
+  1. (Опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
+
 
 
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../../concepts/performance-levels.md) и необходимое количество vCPU и объем RAM.
 
@@ -32,29 +36,32 @@
 
      {% endnote %}
 
-  1. В блоке **Сетевые настройки**:
-     * Укажите идентификатор [подсети](../../../vpc/concepts/network.md#subnet) или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка. Можно выбрать зону поиска: в текущем каталоге или во всех каталогах. Если сети нет, нажмите кнопку **Создать сеть** и создайте ее:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+     * Укажите идентификатор [подсети](../../../vpc/concepts/network.md#subnet) или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка. Можно выбрать зону поиска: в текущем каталоге или во всех каталогах. Если сети нет, нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
        * В открывшемся окне укажите каталог, в котором будет располагаться новая сеть, и имя сети.
-       * Включите опцию **Создать подсети** — у каждой сети должна быть как минимум одна подсеть.
-       * Нажмите кнопку **Создать**.
-     * В поле **Публичный адрес** выберите способ назначения адреса:
-       * **Автоматически** — чтобы назначить случайный [IP-адрес](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
-       * **Список** — чтобы выбрать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
-       * **Без адреса** — чтобы не назначать публичный IP-адрес.
+       *  В поле **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_advanced }}** выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** — у каждой сети должна быть как минимум одна [подсеть](../../../vpc/concepts/network.md#subnet).
+
+       * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
 
      
 
-     * (опционально) При необходимости выберите опцию [защиты от DDoS-атак](../../../vpc/ddos-protection/index.md).
+     * (Опционально) При необходимости в поле **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** выберите опцию [защиты от DDoS-атак](../../../vpc/ddos-protection/index.md).
 
 
-     * Выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md) (если соответствующего поля нет, для ВМ будет разрешен любой входящий и исходящий трафик).
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
-     * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла [публичного ключа](../vm-connect/ssh.md#creating-ssh-keys).
-     * (опционально) При необходимости разрешите доступ к [серийной консоли](../index.md#serial-console).
-  1. Укажите данные для доступа на ВМ.
-  1. Нажмите кнопку **Создать ВМ**.
+     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md) (если соответствующего поля нет, для ВМ будет разрешен любой входящий и исходящий трафик).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+     * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../vm-connect/ssh.md#creating-ssh-keys).
+     * (Опционально) При необходимости  в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../index.md#serial-console).
+
+     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ занимает несколько минут. Когда ВМ перейдет в статус `RUNNING`, переходите к [настройке программного обеспечения](setup.md). Следить за статусами ВМ можно в списке ВМ каталога.
 
@@ -193,7 +200,7 @@
 
      {% endnote %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:

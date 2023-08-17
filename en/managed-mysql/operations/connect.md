@@ -6,7 +6,7 @@ You can connect to {{ mmy-short-name }} cluster hosts:
 
 {% note warning %}
 
-If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#master-failover) may result in the master not being accessible from the internet.
+If only some cluster hosts have public access configured, the master may not be accessible from the internet when it [changes automatically](../concepts/replication.md#master-failover).
 
 {% endnote %}
 
@@ -17,11 +17,11 @@ For more information, see [{#T}](../concepts/network.md).
 
 ## Configuring security groups {#configure-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Settings of rules depend on the connection method you select:
+Rule settings depend on the connection method you select:
 
 {% list tabs %}
 
@@ -53,15 +53,15 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -80,23 +80,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 {{ MY }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
-
-   The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
-
-- Windows (PowerShell)
-
-   ```PowerShell
-   mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
-   ```
-
-   The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -106,13 +90,13 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](./h
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
 
 {% endnote %}
 
 ### Current master {#fqdn-master}
 
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` Always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -128,16 +112,16 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
       <DB name>
 ```
 
-### The least lagging replica {#fqdn-replica}
+### Most recent replica {#fqdn-replica}
 
-FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. The cluster ID can be requested with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
 * If there are no active replicas in a cluster, you cannot connect to this FQDN, as the respective DNS CNAME record will point to a `null` object.
 
-An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9ulc8j9nm` ID:
 
 ```bash
 mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
@@ -185,14 +169,14 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Specify the connection parameters on the **Main** tab:
          * **Server**: <host name>.{{ dns-zone }} Or a [special FQDN](#special-fqdns).
          * **Port**: `{{ port-mmy }}`.
-         * **Database**: Name of the DB to connect to.
+         * **Database**: DB you want to connect to.
          * **Username**, **Password**: DB username and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
-            1. Enable **Verify server certificate**.
+            1. Disable **Verify server certificate**.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

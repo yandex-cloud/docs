@@ -6,18 +6,18 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 {% note warning %}
 
-If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#replication-auto) may result in the master not being accessible from the internet.
+If only some cluster hosts have public access configured, the master may not be accessible from the internet when it [changes automatically](../concepts/replication.md#replication-auto).
 
 {% endnote %}
 
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Settings of rules depend on the connection method you select:
+Rule settings depend on the connection method you select:
 
 {% list tabs %}
 
@@ -49,15 +49,15 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+         This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -78,13 +78,13 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](hos
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
 
 {% endnote %}
 
 ### Current master {#fqdn-master}
 
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -105,16 +105,16 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
       target_session_attrs=read-write"
 ```
 
-### The least lagging replica {#fqdn-replica}
+### Most recent replica {#fqdn-replica}
 
-FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
-An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9ulc8j9nm` ID:
 
 ```bash
 psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
@@ -129,12 +129,12 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 To guarantee a connection to the master host:
 
-1. Specify in the `host` argument either:
+1. In the `host` argument, provide one of the following:
 
-   * A [special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-   * The FQDNs of all the cluster hosts.
+   * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
+   * FQDNs of all cluster hosts.
 
-1. Pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 To upgrade the library version used by the `psql` utility:
 
@@ -145,20 +145,7 @@ To upgrade the library version used by the `psql` utility:
 
 {{ PG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\AppData\Roaming\postgresql; `
-   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-   ```
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -206,7 +193,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
          * **Port**: `{{ port-mpg }}`.
-         * **Database**: Name of the DB to connect to.
+         * **Database**: DB you want to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
@@ -215,6 +202,82 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+## Connecting from {{ pgadmin }} {#connection-pgadmin}
+
+The connection was tested for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.0 on Ubuntu 20.04.
+
+You can only use {{ pgadmin }} to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+
+Create a new server connection:
+
+1. Select **Object** → **Register** → **Server...**
+1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
+1. In the **Connection** tab, specify the connection parameters:
+
+   * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Port**: `{{ port-mpg }}`.
+   * **Maintenance database**: DB you want to connect to.
+   * **Username**: Username for connection.
+   * **Password**: User password.
+
+1. In the **Parameters** tab:
+
+   * Set the **SSL mode** parameter to `verify-full`.
+   * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
+
+1. Click **Save** to save the server connection settings.
+
+As a result, the cluster appears in the server list in the navigation menu.
+
+## Connecting from {{ google-looker }} {#connection-google-looker}
+
+You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview) to connect to public cluster hosts.
+
+1. Save the `CA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
+1. In the same directory, generate a client certificate with a private key:
+
+   ```bash
+   openssl req -newkey rsa:2048 -nodes -keyout private.pem -out cert.pem
+   ```
+
+   When creating a certificate, you will be prompted to change some settings. Press **Enter** to use their default values.
+
+   You will see two files in your local directory: `cert.pem` and `private.pem`.
+
+1. On the [{{ google-looker }} navigation page](https://lookerstudio.google.com/navigation/reporting), select **Create** → **Data source**.
+1. Choose {{ PG }}.
+1. Fill out the fields below:
+
+   * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Port**: `{{ port-mpg }}`.
+   * **Database**: DB you want to connect to.
+   * **Username**: Username for connection.
+   * **Password**: User password.
+
+1. Select **Enable SSL** and **Enable client authentication**.
+1. Specify the certificate files and the client private key in the respective fields:
+
+   * **Server certificate**: Select the `CA.pem` file.
+   * **Client certificate**: Select the `cert.pem` file.
+   * **Client private key**: Select the `private.pem` file.
+
+1. Click **Authenticate**.
+
+## Connecting from a Docker container {#connection-docker}
+
+You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+
+To connect to a {{ mpg-name }} cluster, add the following lines to the Dockerfile:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget postgresql-client --yes && \
+    mkdir -p ~/.postgresql && \
+    wget "{{ crt-web-path }}" \
+        --output-document ~/.postgresql/root.crt && \
+    chmod 0600 ~/.postgresql/root.crt
+```
 
 ## Sample connection strings {#connection-string}
 

@@ -1,6 +1,6 @@
 # Creating a VM in a group of dedicated hosts
 
-The VM you create will be linked to one of the [dedicated hosts](../../concepts/dedicated-host.md) in the group. When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host from the group.
+The VM you create will be linked to one of the [dedicated hosts](../../concepts/dedicated-host.md) in the group. When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
 
 If you do not have a group of dedicated hosts, [create](create-host-group.md) one.
 
@@ -106,7 +106,7 @@ Create a VM with the following characteristics:
 * VCPU cores: 64.
 * RAM: 704 GB
 * Number of local disks: 2.
-* Size of a local disk: 3200 × 10^9^ B (~ 2.91 TB).
+* Size of a single local disk: 3198924357632 B (~ 2.91 TB).
 * Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
 To do this, follow these steps:
@@ -132,8 +132,8 @@ To do this, follow these steps:
      --memory 704 \
      --host-group-id <dedicated_host_group_ID> \
      --network-interface subnet-id=<subnet_ID> \
-     --attach-local-disk "size=3200000000000" \
-     --attach-local-disk "size=3200000000000" \
+     --attach-local-disk "size=3198924357632" \
+     --attach-local-disk "size=3198924357632" \
      --ssh-key <public_SSH_key_file_path> \
      --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
    ```

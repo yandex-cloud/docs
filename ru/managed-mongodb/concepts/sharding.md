@@ -62,9 +62,9 @@ _Шардирование_ — стратегия горизонтального
 
 {{ mmg-name }} управляет шардами следующим образом:
 
-- Из-за ограниченных ресурсов кластер с хостами классов **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro** и **b2.medium** не шардируется.
+- Из-за ограниченных ресурсов кластер с хостами классов **b1.medium** и **b2.medium** не шардируется.
 
-- Кластер [создается](../operations/cluster-create.md) нешардированным. [Включите шардирование](../operations/shards.md#enable) после создания кластера.
+- Кластер можно [создать шардированным](../operations/cluster-create.md#creating-a-sharded-cluster) либо [включить шардирование](../operations/shards.md#enable) позже.
 
 - За управление шардированием в {{ mmg-name }} отвечают хосты с ролями `MONGOS` ([маршрутизация запросов пользователей](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) и `MONGOCFG` ([хранение конфигурации шардов](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)).
 

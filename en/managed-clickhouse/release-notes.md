@@ -4,6 +4,14 @@ This section covers the revision history for {{ mch-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## Q2 2023 {#q2-2023}
+
+* New {{ CH }} versions are now available: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
+
+## Q1 2023 {#q1-2023}
+
+* New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
+
 ## Q4 2022 {#q4-2022}
 
 * New {{ CH }} versions are now available: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) and [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).

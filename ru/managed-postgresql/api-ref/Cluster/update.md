@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/update.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/update.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.update
@@ -269,7 +269,11 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoPoolSize": "integer",
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
-      "geqoSeed": "number"
+      "geqoSeed": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_10": {
       "maxConnections": "integer",
@@ -398,7 +402,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoGenerations": "integer",
       "geqoSelectionBias": "number",
       "geqoSeed": "number",
-      "maxStandbyArchiveDelay": "integer"
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_11": {
       "maxConnections": "integer",
@@ -538,7 +545,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
-      "maxStandbyArchiveDelay": "integer"
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_11_1C": {
       "maxConnections": "integer",
@@ -679,7 +689,11 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_12": {
       "maxConnections": "integer",
@@ -821,7 +835,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
-      "maxStandbyArchiveDelay": "integer"
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_12_1C": {
       "maxConnections": "integer",
@@ -964,7 +981,11 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_13": {
       "maxConnections": "integer",
@@ -1118,7 +1139,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
-      "maxStandbyArchiveDelay": "integer"
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_13_1C": {
       "maxConnections": "integer",
@@ -1272,7 +1296,11 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_14": {
       "maxConnections": "integer",
@@ -1431,7 +1459,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
-      "maxStandbyArchiveDelay": "integer"
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_14_1C": {
       "maxConnections": "integer",
@@ -1590,7 +1621,11 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_15": {
       "maxConnections": "integer",
@@ -1743,7 +1778,10 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
-      "maxStandbyArchiveDelay": "integer"
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     "postgresqlConfig_15_1C": {
       "maxConnections": "integer",
@@ -1902,7 +1940,11 @@ clusterId | <p>Required. ID of the PostgreSQL Cluster resource to update. To get
       "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
-      "pgTrgmStrictWordSimilarityThreshold": "number"
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
     },
     // end of the list of possible fields`configSpec`
 
@@ -2166,6 +2208,10 @@ configSpec.<br>postgresqlConfig_10_1C.<br>geqoPoolSize | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_10_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_10_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10 | **object**<br>Configuration for a PostgreSQL 10 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_10.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)
@@ -2292,6 +2338,9 @@ configSpec.<br>postgresqlConfig_10.<br>geqoGenerations | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_10.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_10.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_10.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a PostgreSQL 11 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_11.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)
@@ -2429,6 +2478,9 @@ configSpec.<br>postgresqlConfig_11.<br>pgTrgmSimilarityThreshold | **number** (d
 configSpec.<br>postgresqlConfig_11.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_11.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_11.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_11_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
@@ -2567,6 +2619,10 @@ configSpec.<br>postgresqlConfig_11_1C.<br>geqoSeed | **number** (double)<br><p>A
 configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_11_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_11_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_11_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a PostgreSQL 12 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_12.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
@@ -2706,6 +2762,9 @@ configSpec.<br>postgresqlConfig_12.<br>pgTrgmSimilarityThreshold | **number** (d
 configSpec.<br>postgresqlConfig_12.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_12.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_12.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_12_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
@@ -2846,6 +2905,10 @@ configSpec.<br>postgresqlConfig_12_1C.<br>geqoSeed | **number** (double)<br><p>A
 configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_12_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_12_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_12_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a PostgreSQL 13 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_13.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
@@ -2997,6 +3060,9 @@ configSpec.<br>postgresqlConfig_13.<br>pgTrgmSimilarityThreshold | **number** (d
 configSpec.<br>postgresqlConfig_13.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_13.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_13.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_13_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
@@ -3148,6 +3214,10 @@ configSpec.<br>postgresqlConfig_13_1C.<br>geqoSeed | **number** (double)<br><p>A
 configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_13_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_13_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_13_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a PostgreSQL 14 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_14.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
@@ -3304,6 +3374,9 @@ configSpec.<br>postgresqlConfig_14.<br>pgTrgmSimilarityThreshold | **number** (d
 configSpec.<br>postgresqlConfig_14.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_14.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_14.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_14_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
@@ -3460,6 +3533,10 @@ configSpec.<br>postgresqlConfig_14_1C.<br>geqoSeed | **number** (double)<br><p>A
 configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_14_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_14_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_14_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a PostgreSQL 15 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_15.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>sharedBuffers | **integer** (int64)
@@ -3610,6 +3687,9 @@ configSpec.<br>postgresqlConfig_15.<br>pgTrgmSimilarityThreshold | **number** (d
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_15.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a PostgreSQL 15 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
 configSpec.<br>postgresqlConfig_15_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>sharedBuffers | **integer** (int64)
@@ -3766,6 +3846,10 @@ configSpec.<br>postgresqlConfig_15_1C.<br>geqoSeed | **number** (double)<br><p>A
 configSpec.<br>postgresqlConfig_15_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_15_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 maintenanceWindow | **object**<br><p>New maintenance window settings for the cluster.</p> <p>A maintenance window settings.</p> 
 maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/list.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/list.md
 ---
 
 # Managed Service for ClickHouse API, REST: User.list
@@ -164,6 +164,11 @@ pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/
         "asyncInsertStaleTimeout": "integer",
         "memoryProfilerStep": "integer",
         "memoryProfilerSampleProbability": "number",
+        "maxFinalThreads": "integer",
+        "inputFormatParallelParsing": true,
+        "inputFormatImportNestedJson": true,
+        "localFilesystemReadMethod": "string",
+        "maxReadBufferSize": "integer",
         "compile": true,
         "minCountToCompile": "integer"
       },
@@ -313,6 +318,11 @@ users[].<br>settings.<br>asyncInsertBusyTimeout | **integer** (int64)<br><p>The 
 users[].<br>settings.<br>asyncInsertStaleTimeout | **integer** (int64)<br><p>The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the ``asyncInsertBusyTimeout`` with every INSERT query as long as ``asyncInsertMaxDataSize`` is not exceeded.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms">ClickHouse documentation</a>.</p> 
 users[].<br>settings.<br>memoryProfilerStep | **integer** (int64)<br><p>Memory profiler step (in bytes).</p> <p>If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.</p> <p>Default value: <strong>4194304</strong> (4 MB). Zero means disabled memory profiler.</p> 
 users[].<br>settings.<br>memoryProfilerSampleProbability | **number** (double)<br><p>Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.</p> <p>Possible values: from <strong>0</strong> to <strong>1</strong>. Default: <strong>0</strong>.</p> 
+users[].<br>settings.<br>maxFinalThreads | **integer** (int64)<br><p>Sets the maximum number of parallel threads for the SELECT query data read phase with the FINAL modifier. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#max-final-threads">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
+users[].<br>settings.<br>inputFormatParallelParsing | **boolean** (boolean)<br><p>Enables or disables order-preserving parallel parsing of data formats. Supported only for <a href="https://clickhouse.com/docs/en/interfaces/formats#tabseparated">TSV</a>, <a href="https://clickhouse.com/docs/en/interfaces/formats#tskv">TKSV</a>, <a href="https://clickhouse.com/docs/en/interfaces/formats#csv">CSV</a> and <a href="https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow">JSONEachRow</a> formats. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing">ClickHouse documentation</a></p> 
+users[].<br>settings.<br>inputFormatImportNestedJson | **boolean** (boolean)<br><p>Enables or disables the insertion of JSON data with nested objects. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing">ClickHouse documentation</a></p> 
+users[].<br>settings.<br>localFilesystemReadMethod | **string**<br><p>Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.</p> 
+users[].<br>settings.<br>maxReadBufferSize | **integer** (int64)<br><p>The maximum size of the buffer to read from the filesystem. See in-depth description in <a href="https://clickhouse.com/codebrowser/ClickHouse/src/Core/Settings.h.html#DB::SettingsTraits::Data::max_read_buffer_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 users[].<br>settings.<br>compile | **boolean** (boolean)<br><p>The setting is deprecated and has no effect.</p> 
 users[].<br>settings.<br>minCountToCompile | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 users[].<br>quotas[] | **object**<br><p>Set of quotas assigned to the user.</p> 

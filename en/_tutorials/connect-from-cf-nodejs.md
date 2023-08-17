@@ -20,7 +20,7 @@ To set up a connection to the {{ ydb-short-name }} database:
 1. [Create a function](#create-function).
 1. [Test the function](#test-function).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -37,13 +37,13 @@ The infrastructure support cost for this scenario includes:
 
 ## Prepare the environment {#prepare-environment}
 
-1. Clone the [examples repository](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/main/examples/basic-example-v1) using Git:
+1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git:
 
    ```
-   git clone https://github.com/ydb-platform/ydb-nodejs-sdk.git
+   git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. Go to the folder with the project files in the repository: `examples/basic-example-v1`.
+1. In the repository, go to the folder with the project files: `examples/serverless/functions/YDB-connect-from-serverless-function`.
 1. Install and initialize the [{{ yandex-cloud }} CLI](../cli/quickstart.md).
 1. Install the [jq](https://stedolan.github.io/jq/download/) utility. In the root of the folder with the project files, start the terminal and run the command:
 
@@ -70,8 +70,8 @@ The infrastructure support cost for this scenario includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-   1. Go to the **Service accounts** tab.
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the service account name: `sa-function`.
    1. Click **Add role** and choose the `editor role`.
@@ -79,7 +79,7 @@ The infrastructure support cost for this scenario includes:
 
 - CLI
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc iam service-account create --name sa-function
@@ -99,7 +99,7 @@ The infrastructure support cost for this scenario includes:
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
    1. Make sure the configuration files are valid.
 
@@ -135,7 +135,7 @@ The infrastructure support cost for this scenario includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose the `sa-function` service account and click the line with its name.
    1. Click **Create new key** in the top panel.
    1. Click **Create authorized key**.
@@ -154,7 +154,7 @@ The infrastructure support cost for this scenario includes:
 
 - CLI
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc iam key create --service-account-name sa-function -o service_account_key_file.json
@@ -175,7 +175,7 @@ The infrastructure support cost for this scenario includes:
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
 
    1. Make sure the configuration files are valid.
 
@@ -213,7 +213,7 @@ The infrastructure support cost for this scenario includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
    1. In the list of services, select **{{ ydb-name }}**.
    1. Click **Create database**.
-   1. Enter a name for the database. For naming requirements, see below:
+   1. Enter a name for the database. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -223,7 +223,7 @@ The infrastructure support cost for this scenario includes:
       Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
 
    1. Click on the name of the created database.
-   1. Save the **Endpoint** and **Database** field values under **Connection**. You'll need them in the next step.
+   1. Save the **Endpoint** and **Database** field values under **Connection**. You will need them in the next step.
 
 {% endlist %}
 
@@ -279,9 +279,9 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 * [Delete the database](../ydb/operations/manage-databases.md#delete-db).
 * [Delete the function](../functions/operations/function/function-delete.md).

@@ -82,6 +82,7 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
@@ -217,11 +218,9 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
 
 
-
 ### {{ mos-full-name }} {#mos}
 
 {% include [limits.md](../../_includes/mdb/mos/limits.md) %}
-
 
 
 ### {{ mpg-full-name }} {#mpg}
@@ -229,11 +228,9 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
-
 
 
 
@@ -290,11 +287,9 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 
 
-
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
-
 
 
 

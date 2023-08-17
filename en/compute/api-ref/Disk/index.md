@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Disk/index.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Disk/index.md
 ---
 
 # Compute Cloud API, REST: Disk methods
@@ -26,7 +26,8 @@ A set of methods for managing Disk resources.
     "string"
   ],
   "diskPlacementPolicy": {
-    "placementGroupId": "string"
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
   },
 
   //  includes only one of the fields `sourceImageId`, `sourceSnapshotId`
@@ -54,6 +55,7 @@ status | **string**<br>Current status of the disk.<br><ul> <li>CREATING: Disk is
 instanceIds[] | **string**<br><p>Array of instances to which the disk is attached.</p> 
 diskPlacementPolicy | **object**<br>Placement policy configuration.
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 sourceImageId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 sourceSnapshotId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
 
@@ -66,4 +68,5 @@ Method | Description
 [list](list.md) | Retrieves the list of Disk resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified disk.
 [move](move.md) | Moves the specified disk to another folder of the same cloud.
+[relocate](relocate.md) | Moves the specified disk to another availability zone
 [update](update.md) | Updates the specified disk.

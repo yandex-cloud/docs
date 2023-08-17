@@ -81,7 +81,7 @@
 
       ```bash
       - id: "90209"
-        folder_id: somefolder7p3l5eobbd
+        folder_id: somefolder7p********
         name: test-group-1
         use_next: true
         origins:
@@ -95,7 +95,7 @@
           source: www.example1.com
           enabled: true
       - id: "90208"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5ve********
         name: test-group
         use_next: true
         origins:
@@ -172,7 +172,7 @@
       * `secondary_hostnames` — дополнительные доменные имена. Необязательный параметр.
       * `origin_group_id` — идентификатор [группы источников](../../concepts/origins.md). Обязательный параметр. Используйте идентификатор из описания группы источников в ресурсе `yandex_cdn_origin_group`.
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
+      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 
@@ -234,7 +234,7 @@
     Результат:
 
     ```bash
-    id: someidkfjqjfl325fw
+    id: someidkfjq********
 
     ...
 

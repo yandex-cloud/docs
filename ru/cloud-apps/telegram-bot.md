@@ -11,6 +11,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../functions/pricing.md)).
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../api-gateway/pricing.md)).
 * Плата за количество запросов к стандартной очереди (см. [тарифы {{ message-queue-full-name }}](../message-queue/pricing.md)).
+* Плата за хранение и запрос секретов (см. [тарифы {{ lockbox-full-name }}](../lockbox/pricing.md)).
 
 ## Перед началом работы {#before-begin}
 
@@ -32,7 +33,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 1. Выберите **Demo Telegram Bot** и нажмите кнопку **Использовать**.
 1. Укажите:
     * Имя приложения.
-    * (опционально) Описание приложения.
+    * (Опционально) Описание приложения.
     * Сервисный аккаунт с ролью `admin` на каталог или выберите **Автоматически**, чтобы нужный сервисный аккаунт создался при установке приложения. От имени этого сервисного аккаунта будут создаваться ресурсы приложения.
     * Идентификатор секрета {{ lockbox-full-name }}, который создали ранее.
 1. Нажмите кнопку **Установить** и дождитесь, пока приложение установится.
@@ -46,9 +47,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl \
           --request POST \
-          --url https://api.telegram.org/bot<токен бота>/setWebhook \
-          --header 'content-type: application/json' \
-          --data '{"url": "https://<Домен API-шлюза>/echo"}'
+          --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo
         ```
 
     - Windows (cmd)
@@ -56,9 +55,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl ^
           --request POST ^
-          --url https://api.telegram.org/bot<токен бота>/setWebhook ^
-          --header "content-type: application/json" ^
-          --data "{\"url\": \"https://<Домен API-шлюза>/echo\"}"
+          --url "https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo"
         ```
 
     - Windows (PowerShell)
@@ -66,9 +63,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```powershell
         curl.exe `
           --request POST `
-          --url https://api.telegram.org/bot<токен бота>/setWebhook `
-          --header '"content-type: application/json"' `
-          --data '"{ \"url\": \"https://<Домен API-шлюза>/echo\" }"'
+          --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo
         ```
 
     {% endlist %}

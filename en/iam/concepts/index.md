@@ -19,7 +19,7 @@ With {{ iam-short-name }}, you can:
 
 To grant a user access to a resource, you assign them [roles](access-control/roles.md) for the resource. Each role consists of a set of permissions that describe operations that can be performed with the resource.
 
-Before performing an operation with a certain resource (for example, creating a VM), {{ yandex-cloud }} sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user who is performing this operation. If some of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
+Before performing an operation with a certain resource (such as creating a VM), {{ yandex-cloud }} sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user who is performing this operation. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
 
 
 ## Accounts in {{ yandex-cloud }} {#accounts}
@@ -36,7 +36,7 @@ Billing accounts aren't used for managing resources in {{ yandex-cloud }} and ar
 
 ### Yandex account {#passport}
 
-_Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) or [Yandex 360](https://360.yandex.ru/) account.
+_Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) or [{{ yandex-360 }}](https://360.yandex.ru/) account.
 
 {% note info %}
 

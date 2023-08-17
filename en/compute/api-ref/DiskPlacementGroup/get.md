@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/DiskPlacementGroup/get.md
+sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/get.md
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.get
@@ -32,7 +32,14 @@ diskPlacementGroupId | <p>Required. ID of the placement group to return. To get 
   "labels": "object",
   "zoneId": "string",
   "status": "string",
-  "spreadPlacementStrategy": {}
+
+  //  includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
+  "spreadPlacementStrategy": {},
+  "partitionPlacementStrategy": {
+    "partitions": "string"
+  },
+  // end of the list of possible fields
+
 }
 ```
 
@@ -47,4 +54,6 @@ description | **string**<br><p>Description of the placement group.</p>
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
 status | **string**<br>Current status of the placement group
-spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.
+spreadPlacementStrategy | **object**<br>Distribute disks over distinct failure domains. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy | **object**<br>Distribute disks over partitions. <br> includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`<br>
+partitionPlacementStrategy.<br>partitions | **string** (int64)

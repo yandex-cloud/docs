@@ -10,7 +10,10 @@ You can get a CSV file with your general or per-resource spending details.
 
    {% note alert %}
 
-   Do not make your bucket public; otherwise, anyone will be able to download your expense details from the bucket link.
+   Bucket requirements:
+
+   * Do not make your bucket public; otherwise, anyone will be able to download your expense details from the bucket link.
+   * Do not add [encryption](../../storage/concepts/encryption.md) to the bucket.
 
    {% endnote %}
 
@@ -23,17 +26,23 @@ You can get a CSV file with your general or per-resource spending details.
 - Management console
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
-   1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
+   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
    1. Select the account you want to get details for.
-   1. On the **Overview** page, go to the **Export details** tab.
-   1. Click **Create**.
-   1. In the **Create periodic export** window that opens, enter:
-      * In the **Bucket** field, the name of the bucket to store the CSV file with details.
-      * In the **Directory** field, the name of the directory for the file. The last character must be `/`.
-      * Select the language for product names: English or Russian. 
-      * Select the type of details: **General** or **Resource**.
-   1. Click **Create**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_exports }}**.
+   1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+   1. In the **{{ ui-key.yacloud.billing.account.exports.label_create-export-title }}** window that opens, specify:
+      * In the **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** field, the name of the bucket to store the CSV file with details.
+      * In the **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** field, the name of the folder for the file. The last character must be `/`.
+      * Select the language for product names: English or Russian.
+      * Select **{{ ui-key.yacloud.billing.account.exports.label_not-include-resources }}** or **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** as the detailed view type.
+
+         {% note tip %}
+
+         If you select the **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** type of details for regular export, you can also view {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id` field](#format) (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+
+         {% endnote %}
+   1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
 {% endlist %}
 
@@ -69,7 +78,7 @@ The table contains the following columns:
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
    * {{ message-queue-name }}: ID of the request.
-   * {{ sf-name }} : ID of the function.
+   * {{ sf-name }}: ID of the function.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.

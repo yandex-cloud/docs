@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/move.md
+sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/move.md
 ---
 
 # Managed Service for Elasticsearch API, REST: Cluster.move

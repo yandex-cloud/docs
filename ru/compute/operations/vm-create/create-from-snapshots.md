@@ -6,11 +6,15 @@
 
 - Консоль управления
 
-  Чтобы создать виртуальную машину:
+  
+  @[youtube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **Создать ВМ**.
-  1. В блоке **Базовые параметры**:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+
       * Введите имя и описание ВМ. Требования к имени:
 
           {% include [name-format](../../../_includes/name-format.md) %}
@@ -19,57 +23,64 @@
 
       * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-  1. В блоке **Выбор образа/загрузочного диска** выберите один из снимков:
-     * Перейдите на вкладку **Пользовательские** и нажмите **Выбрать**.
-     * В открывшемся окне перейдите на вкладку **Снимок**.
-     * Выберите снимок диска из списка и нажмите **Применить**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из снимков:
 
-  1. В блоке **Диски и файловые хранилища** [добавьте диск](./create-from-disks.md):
-      * Нажмите кнопку **Добавить диск**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.button_choose }}**.
+      * В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}**.
+      * Выберите снимок диска из списка и нажмите **{{ ui-key.yacloud.common.apply }}**.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** [добавьте диск](create-from-disks.md):
+
+      * Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Введите имя диска.
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Укажите нужный размер блока.
       * Укажите нужный размер диска.
-      * (опционально) Включите опцию **Удалять вместе с ВМ**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
-      * Выберите наполнение `Снимок`.
-      * Выберите нужный снимок в списке.
-      * Нажмите кнопку **Добавить**.
+      * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
+      * Выберите наполнение `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}`.
+      * Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
+  
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../concepts/filesystem.md):
 
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
-     
-     * Нажмите кнопку **Подключить файловое хранилище**.
+     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
      * В открывшемся окне выберите файловое хранилище.
-     * Введите имя устройства.
-     * Нажмите кнопку **Подключить файловое хранилище**.
+     * Укажите имя устройства.
+     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
  
 
-  1. В блоке **Вычислительные ресурсы**:
-      * Выберите [платформу](../../concepts/vm-platforms.md).
-      * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
-      * При необходимости сделайте виртуальную машину [прерываемой](../../concepts/preemptible-vm.md).
-      * (опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
-  1. В блоке **Сетевые настройки**:
+     * Выберите [платформу](../../concepts/vm-platforms.md).
+     * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
+     * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
+     * (Опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-    1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+  
+  1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
-      * В поле **Логин** введите имя пользователя.
 
-          {% note alert %}
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
 
-          Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
-          {% endnote %}
+        {% note alert %}
 
-      * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
-      * Если требуется, разрешите доступ к [серийной консоли](../../operations/serial-console/index.md).
+        Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
 
-  1. Нажмите кнопку **Создать ВМ**. 
+        {% endnote %}
+
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+     * Если требуется, разрешите доступ к [серийной консоли](../../operations/serial-console/index.md).
+ 
+     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   
   Виртуальная машина появится в списке. При создании виртуальной машине назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).
 

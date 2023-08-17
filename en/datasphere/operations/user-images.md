@@ -32,7 +32,8 @@ You can configure the environment to run your code using [Docker images](../conc
        apt-key adv --fetch-keys <public GPG key> &&\
        add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
        apt-get update &&\
-       apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
+       apt-get -y install libnvidia-common-450 cuda-drivers-450 nvidia-driver-450 &&\
+       apt-get -y install cuda-11-2 libcudnn8=8.1.1.33-1+cuda11.2 cuda-toolkit-11-2 &&\
        exit
       RUN pip install tensorflow-gpu==2.4.1
       ```
@@ -45,6 +46,8 @@ You can configure the environment to run your code using [Docker images](../conc
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+
+{% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 ## Applying a Docker image to a project {#set}
 

@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ yds-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ DS }}
 
 В поток данных {{ yds-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 
@@ -106,7 +106,7 @@
 
     **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
         Выберите кластер-источник из списка и укажите настройки подключения к нему.
 

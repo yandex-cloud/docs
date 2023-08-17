@@ -18,7 +18,7 @@ description: "After you delete a {{ CH }} database cluster, its backups are kept
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete**.
 
 - CLI
@@ -43,7 +43,7 @@ description: "After you delete a {{ CH }} database cluster, its backups are kept
 
 - API
 
-   Use the API [delete](../api-ref/Cluster/delete.md) method: transmit the requisite cluster ID in the `clusterId` parameter.
+   To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

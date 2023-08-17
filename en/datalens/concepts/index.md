@@ -1,20 +1,19 @@
 ---
 title: "{{ datalens-full-name }}. Service overview"
-description: "{{ datalens-full-name }} is a business analytics service. Allows you to connect to various data sources, visualize data, create dashboards, and share your results. This article will help you understand the relationship between entities and the difference between a workbook and collection."
+description: "{{ datalens-full-name }} is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results. This article will help you understand the relationship between entities and the difference between a workbook and collection."
 ---
 
-# {{ datalens-name }} overview
 
-{{ datalens-full-name }} is a business analytics service. Allows you to connect to various data sources, visualize data, create dashboards, and share your results.
+# About
+
+{{ datalens-full-name }} is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results.
 With {{ datalens-full-name }}, you can track your product and business metrics directly from data sources to make data-based decisions.
-
 
 {% note warning %}
 
 The number of {{ datalens-short-name }} instances in one [cloud {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud): 1.
 
 {% endnote %}
-
 
 ## Relationship between entities {#component-interrelation}
 
@@ -29,5 +28,6 @@ The number of {{ datalens-short-name }} instances in one [cloud {{ yandex-cloud 
 - **Chart**: Data from a data source or a dataset visualized as tables, diagrams, or maps.
 - **Dashboard**: A set of charts, selectors for filtering data, and text blocks.
 
- You can create the entity objects yourself or use ready-made solutions from the [{{ datalens-short-name }} Marketplace](marketplace.md). 
+You can create the entity objects yourself or use ready-made solutions from the [{{ datalens-short-name }} Marketplace](marketplace.md).
+
 

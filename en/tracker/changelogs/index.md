@@ -1,103 +1,67 @@
-# {{ tracker-full-name }} revision history for March 2023
+# {{ tracker-full-name }} revision history for May 2023
 
-* [Ideas from our users](#your-ideas)
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
-## Ideas from our users {#your-ideas}
-
-
-While working on our main goals, we also try to listen to our users' ideas. This month, we implemented the two most popular ideas:
-
-
-### Canceling the sending of an email {#mail-timer}
-
-**158 votes**
-
-You can now cancel an email sent from an [issue comment](../user/comments.md). Click **Cancel** at the bottom of the screen within 5 seconds of sending an email: your email will not be sent and you will be able to edit the comment.
-
-### New workflow editor {#workflow-editor}
-
-**154 votes**
-
-[Queue](../queue-intro.md) settings now have a visual editor for [workflows](../manager/create-work-process.md). All statuses and transitions are now displayed in the diagram. We also added some new settings, for example, you can now enable transitions to a status from all other statuses with just a single click.
-
- 
-
 ## Updates {#top-news}
 
-### Updated All Boards page {#new-boadrs-page}
+### Switching boards to new technologies {#old-to-new}
 
-The **All Boards** page has a new design.
+You can now [switch](../manager/boards-convertor.md) the old boards to our [new technologies](../manager/agile-new.md). When migrating the board, the following is retained:
+* ID.
+* Name.
+* Issues added.
+* Status distribution by column.
+* **Reported by me** and **Assigned to me** filters.
+* Filter for adding issues.
 
+You can switch your board back to the old version after migration, if needed. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Switch back to the old version** in the board's top panel and wait until it switches back.
 
-### Inviting users to your organization {#invite-org}
+### Grouping issues by any field {#grouping}
 
-You can now send users invitations to {{ org-full-name }} from the {{ tracker-name }} interface. You can send invitations to any email address, not just Yandex. Once a user accepts your invitation, they can select a Yandex account to use to join your organization or create a new account.
+You can now group issues by any field. This kind of grouping is supported for a [list of project issues](../manager/project-list.md), a project's Gantt chart, and on [new boards](../manager/agile-new.md).
 
+To group issues, click ![](../../_assets/tracker/svg/group.svg) and select a field.
 
-### Burn down chart {#burnout-diagramm}
+### Setting up an issue color for a Gantt chart based on a queue and filter {#gantt-colours-filter}
 
-[New boards](../manager/agile-new.md) with a [backlog](../manager/backlog.md) now have a **Burn down chart** tab available for the sprint selected. By default, the chart shows the current sprint.
+A [Gantt chart](../gantt/project.md) based on a queue and filter allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
 
-### Saving Gantt chart settings to filter issues {#gantt-preset-colors}
+### **Collapse** and **Expand** buttons {#new-buttons}
 
-[Gantt chart](../manager/gantt.md) settings for issue system filters (**My projects**, **Created by me**, and other) are saved even after you refresh the page with the respective filter.
+The **Issue list** and **Gantt chart** tabs of the [project](../manager/project-new.md) page now have the **Collapse** and **Expand** buttons. Use them to expand and collapse:
+* All sub-issues in a tree list.
+* All groups in grouping mode.
 
+### Navigation with arrows {#arrow-buttons}
 
-### Managing organizations {#org-add}
+You can now use the keyboard to move across your issue list:
 
-{{ tracker-name }} now lets you [change an organization](../cloud-vs-360.md#reconnect) from {{ ya-360 }} to {{ org-full-name }}.
-
-
-### Color settings for filter and queue Gantt charts {#gantt-colors-queue}
-
-You can now select a color for a specific issue in a [Gantt chart](../manager/gantt.md) for an issue filter or queue.
-
-### Invitations to comments in projects {#project-summons}
-
-You can now invite users to comment on the [project](../manager/project-new.md) either on the page or in the project card.
-
-### Access to projects for customers {#customer-access}
-
-We updated [project](../manager/project-new.md) access settings: now, when selecting the **All participants** access level, access is granted to the reporter, responsible employee, project participants, and customers.
-
-### Displaying an issue list in a Gantt chart by filter or queue {#gantt-settings-columns}
-
-In a Gantt chart created based on an issue filter or queue, you can select the issue parameters to be displayed in the list to the left of the chart. To select the desired parameters, click ![](../../_assets/tracker/svg/settings-old.svg) in the top-right corner of the issue list in the chart.
+* Arrow keys to navigate the menu.
+* **Enter** or spacebar to follow a link.
 
 
-### Onboarding for new {{ tracker-name }} users {#onboarding}
+### Disabling an organization {#no-orgs}
 
-Onboarding is now available for new {{ tracker-name }} users: when they log in to {{ tracker-name }}for the first time, they can select a suitable [workflow template](../manager/create-work-process.md) and get a set of required tools.
+Now, to work in {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}, you can choose one [organization](../cloud-vs-360.md) and disable another one if you do not need it. To disable an organization, go to ![](../../_assets/tracker/svg/admin.svg) **Administration** → ![](../../_assets/tracker/svg/organizations.svg) [**Organizations**]({{ link-tracker }}admin/orgs). Click ![](../../_assets/tracker/dots.png) and select **Disable**.
 
-![](../../_assets/tracker/onboarding.png =690x395)
-
-
-
-### New boards in workflow templates {#new-boards-presets}
-
-We updated [workflow templates](../manager/create-work-process.md): now, [new issue boards](../manager/agile-new.md) are created in them.
+In this case, it will be disconnected from {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}. Its data will not be lost. However, this organization's users will be marked as dismissed, the groups will be deleted, and the access rights will be revoked. The email aliases set up on the domain in the queues will be deleted.
 
 
-### Migrating to new boards {#create-board-popup}
+### Buttons to navigate through comments {#comment-up-down}
 
-Now, you can only create [new issue boards](../manager/agile-new.md). You can no longer create old boards, but you can continue to use all previously created ones.
+There are new buttons that allow you to move to the first or last comment in issues. To move to an issue description, double-click ![](../../_assets/tracker/to-first-comment.png =12x12).
+You can also use the following keys for navigation:
 
-## Fixes and improvements {#fixes}
+* **Windows**: **Home** or **End**.
+* **Mac OS**: **⌘** + **↑** or **⌘** + **↓**.
 
-### Retaining a sprint after you edit a board {#spint-saved}
+### Mandatory comments on the transition screen {#flow-comments}
 
-Now, after you rename fields or update a set of fields in a card, the selected sprint remains on your [issue board](../manager/agile-new.md).
+In the [new workflow editor](../manager/workflow.md), you can now make it mandatory to write a comment when changing an issue's status. To make the **Comment** field required, go to the workflow editor and select&nbsp;**Required** in the **Transition screen** section.
 
-### Displaying issue links in a Gantt chart for projects {#gantt-linked-tasks}
+### Displaying completed sprints {#scroll-fixed}
 
-In a [Gantt chart for projects](../manager/gantt-project.md), you can now more effectively edit issue links by adding or removing blockers, dependent issues, or sub-issues. Now, changes you make to the chart apply to issues and immediately appear on charts opened by other users.
-
-### Selecting a end date for a sprint {#sprint-end-date}
-
-We fixed the error that prevented users from specifying an end date for a [sprint](../manager/create-agile-sprint.md). The **Other** option now works properly.
-
-### Grouping issues on a board {#tasks-groups}
-
-The [issue grouping](../manager/agile-new-use.md#group) on the selected board remains after you refresh and open the page again.
+* Fixed the bug when the list of completed sprints was only displayed in part.
+* Completed sprints are sorted by end date: those completed most recently are shown at the top of the list.
+* There is a new button to switch to the sprint issue list on the filter page.

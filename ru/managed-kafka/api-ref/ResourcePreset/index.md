@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/ResourcePreset/index.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/ResourcePreset/index.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: ResourcePreset methods

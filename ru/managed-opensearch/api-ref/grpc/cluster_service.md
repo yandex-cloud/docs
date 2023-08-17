@@ -97,6 +97,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup}
@@ -159,7 +161,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
@@ -251,6 +253,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup2)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup2}
@@ -313,7 +317,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
@@ -377,6 +381,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup4)**<br>OpenSearch type host groups of the cluster. 
+config | **oneof:** `opensearch_config_2`<br>
+&nbsp;&nbsp;opensearch_config_2 | **[config.OpenSearchConfig2](#OpenSearchConfig2)**<br> 
 
 
 ### NodeGroup {#NodeGroup4}
@@ -439,7 +445,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
@@ -520,6 +526,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup6)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup6}
@@ -606,11 +614,13 @@ access | **[Access](#Access3)**<br>Access policy for external services.
 Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
+config | **oneof:** `opensearch_config_2`<br>
+&nbsp;&nbsp;opensearch_config_2 | **[config.OpenSearchConfig2](#OpenSearchConfig2)**<br> 
 
 
 ### DashboardsClusterUpdateSpec {#DashboardsClusterUpdateSpec}
 
-Empty
+Empty.
 
 ### Access {#Access3}
 
@@ -631,7 +641,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
@@ -712,6 +722,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup8)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup8}
@@ -893,6 +905,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup10)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup10}
@@ -955,7 +969,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
@@ -1020,6 +1034,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup12)**<br>OpenSearch type host groups of the cluster. 
+config | **oneof:** `opensearch_config_2`<br>
+&nbsp;&nbsp;opensearch_config_2 | **[config.OpenSearchConfig2](#OpenSearchConfig2)**<br> 
 
 
 ### NodeGroup {#NodeGroup12}
@@ -1082,7 +1098,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
@@ -1164,6 +1180,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup14)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup14}
@@ -1299,6 +1317,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup16)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup16}
@@ -1361,7 +1381,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
@@ -1510,6 +1530,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup18)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup18}
@@ -1572,7 +1594,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
@@ -1680,6 +1702,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup20)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup20}
@@ -1742,7 +1766,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
@@ -1850,6 +1874,8 @@ Field | Description
 --- | ---
 plugins[] | **string**<br>Names of the cluster plugins. 
 node_groups[] | **[NodeGroup](#NodeGroup22)**<br>Host groups of the OpenSearch type. 
+config | **oneof:** `opensearch_config_set_2`<br>
+&nbsp;&nbsp;opensearch_config_set_2 | **[config.OpenSearchConfigSet2](#OpenSearchConfigSet2)**<br> 
 
 
 ### NodeGroup {#NodeGroup22}
@@ -1912,7 +1938,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
-Empty
+Empty.
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 

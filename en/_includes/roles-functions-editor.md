@@ -1,3 +1,3 @@
-### functions.editor {#functions-editor}
+#### functions.editor {#functions-editor}
 
-The `functions.editor` role lets you create, edit, and delete functions, as well as create function versions.
+The `functions.editor` role allows you to create, edit, and delete functions, as well as create function versions.

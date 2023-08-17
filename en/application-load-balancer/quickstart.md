@@ -5,7 +5,7 @@ This guide will help you create your first L7 load balancer, connect a target gr
 ## Getting started {#before-begin}
 
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-   1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+   1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 ## Create a VM and launch a test web server on it {#create-vm}
@@ -37,7 +37,7 @@ In this example, we will assume there is only one VM in the target group.
    1. In the list of services, select **{{ alb-name }}**.
    1. In the left menu, select **Target groups**.
    1. Click **Create target group**.
-   1. Enter a name for the target group: `test-target-group`.
+   1. Give your target group a name, e.g., `test-target-group`.
    1. Select the `test-vm1` VM.
    1. Click **Create**.
 
@@ -45,7 +45,7 @@ In this example, we will assume there is only one VM in the target group.
 
    {% include [cli-install](../_includes/cli-install.md) %}
 
-   Run the command:
+   Run the following command:
 
    ```bash
    yc alb target-group create test-target-group \
@@ -110,7 +110,7 @@ In this example, we will assume there is only one VM in the target group.
 
 - Management console
 
-   1. In the menu on the left, select **HTTP routers**.
+   1. In the left menu, select **HTTP routers**.
    1. Click **Create HTTP router**.
    1. Enter the router name: `test-http-router`.
    1. Under **Virtual hosts**, click **Add virtual host**.
@@ -120,7 +120,7 @@ In this example, we will assume there is only one VM in the target group.
    1. In the **Path** field, select `Starts with` and specify the path `/`.
    1. In the **Action** field, leave the `Routing` value.
    1. In the **Backend group** list, select `test-backend-group`.
-   1. Leave the other settings as they are and click **Create**.
+   1. Leave all other settings as they are and click **Create**.
 
 - CLI
 
@@ -158,10 +158,10 @@ As an example, let's create a balancer with a node in the same subnet and same a
 
 - Management console
 
-   1. In the menu on the left, select **Load balancers**.
+   1. In the left menu, select **Load balancers**.
    1. Click **Create load balancer**.
-   1. Enter the name of the load balancer: `test-load-balancer`.
-   1. Under **Network settings**, select the network whose subnets will host the balancer's nodes.
+   1. Enter the name of your load balancer: `test-load-balancer`.
+   1. Under **Network settings**, select the network whose subnets will host the load balancer's nodes.
    1. Under **Allocation**, select the subnets for the load balancer's nodes in each availability zone and enable traffic.
    1. Click **Add listener** under **Listeners**. Set the listener settings:
       1. Enter the listener name: `test-listener`.

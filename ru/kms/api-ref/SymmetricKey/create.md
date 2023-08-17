@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/create.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/create.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.create

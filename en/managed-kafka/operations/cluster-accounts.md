@@ -84,16 +84,14 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Add a `user` section to the {{ mkf-name }} cluster description:
+   1. Add the `yandex_mdb_kafka_user` resource:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         user {
-           name     = "<username>"
-           password = "<password>"
-           ...
-         }
-         ...
+      resource "yandex_mdb_kafka_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<password>"
+        ...
       }
       ```
 
@@ -104,19 +102,19 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
-   Use the [create](../api-ref/User/create.md) API method and pass the following information in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/user_service.md#Create) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * User settings in the `userSpec` parameter:
       * Username in the `name` parameter.
       * User password in the `password` parameter.
@@ -168,16 +166,14 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, find the `user` block for the required user.
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
    1. Change the value of the `password` field:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         user {
-           ...
-           password = "<password>"
-         }
-         ...
+      resource "yandex_mdb_kafka_user" "<username>" {
+        ...
+        password = "<password>"
+        ...
       }
       ```
 
@@ -187,20 +183,20 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
    * New user password, in the `password` parameter.
 
@@ -237,25 +233,36 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, edit the `permission` section in the `user` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions.
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
+   1. Edit the `permission` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions:
+
+      ```hcl
+      resource "yandex_mdb_kafka_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<password>"
+        ...
+      }
+      ```
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
-   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
    * A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
 
@@ -295,7 +302,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       You can select the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles at the same time to make a user suitable for both producers and consumers.
    1. To grant permissions to other topics, repeat the steps.
-   1. (optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
+   1. (Optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
 
 - CLI
 
@@ -340,19 +347,16 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, add a `permission` section to the `user` block:
+   1. In the file, find the `yandex_mdb_kafka_cluster` resource for the required user.
+   1. Add a `permission` section:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         user {
-           name     = "<username>"
-           password = "<password>"
-           permission {
-             topic_name = "<topic name>"
-             role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER or ACCESS_ROLE_ADMIN>"
-           }
-         }
-         ...
+      resource "yandex_mdb_kafka_user" "<username>" {
+        ...
+        permission {
+          topic_name = "<topic>"
+          role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER, or ACCESS_ROLE_ADMIN>"
+        }
       }
       ```
 
@@ -361,20 +365,20 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
-   Use the [grantPermission](../api-ref/User/grantPermission.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   To grant user permissions, use the [grantPermission](../api-ref/User/grantPermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/GrantPermission](../api-ref/grpc/user_service.md#GrantPermission) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * The new permission to the topic in the `permission` parameter.
 
 
@@ -419,25 +423,26 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ mkf-name }} cluster description, edit or delete the `permission` section in the `user` block.
+   1. In the file, find the `yandex_mdb_kafka_user` resource for the required user.
+   1. Edit or delete the `permission` section.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
-   Use the [revokePermission](../api-ref/User/revokePermission.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   To revoke user permissions, use the [revokePermission](../api-ref/User/revokePermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/RevokePermission](../api-ref/grpc/user_service.md#RevokePermission) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * The topic permission to be revoked in the `permission` parameter.
 
 
@@ -474,24 +479,24 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Delete the user block with a description of the required `user` from the {{ mkf-name }} cluster description.
+   1. Delete the `yandex_mdb_kafka_user` resource for the appropriate user.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
-   Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
 
 
@@ -514,13 +519,13 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To get a list of users:
-   1. To get a list of users, run the command:
+   1. To get a list of users, run the following command:
 
       ```bash
       {{ yc-mdb-kf }} user list --cluster-name <cluster name>
       ```
 
-   1. To get detailed information for a specific user, run the command:
+   1. To get detailed information for a specific user, run this command:
 
       ```bash
       {{ yc-mdb-kf }} user get <username> --cluster-name <cluster name>
@@ -529,7 +534,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
 
 - API
 
-   Use the [list](../api-ref/User/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
 

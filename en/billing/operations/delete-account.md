@@ -1,11 +1,11 @@
 # Delete a billing account
 
-If don't plan to use {{ yandex-cloud }} services, delete all resources to avoid charges.
+To delete a {{ yandex-cloud }} billing account you no longer need:
 
-{% note warning %}
+1. [Delete all resource folders](../../resource-manager/operations/folder/delete.md) from all clouds linked to the billing account.
+1. [Pay any outstanding charges](../concepts/billing-threshold.md#arrears).
+1. [Contact support]({{ link-console-support }}) and provide them the billing account ID (you can find it on the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) tab).
 
-Disks, snapshots, images, and reserved static public IP addresses are billed regardless of whether the VM is running or not. Learn more about billing for [disks, snapshots, and images](../../compute/pricing.md#disk) and [public IP addresses](../../vpc/pricing.md#prices-public-ip).
+Please note that this operation cannot be undone.
 
-{% endnote %}
-
-To delete a cloud with all its resources or a billing account, contact [technical support]({{ link-console-support }}). In your request, please specify your [cloud ID](../../resource-manager/operations/cloud/get-id.md) or billing account ID.
+See also [how to link a cloud to a different billing account](pin-cloud.md).

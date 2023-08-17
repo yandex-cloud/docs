@@ -267,7 +267,6 @@
          docker-container-declaration = file("${path.module}/declaration.yaml")
          user-data = file("${path.module}/cloud_config.yaml")
        }
-       service_account_id = "<идентификатор сервисного аккаунта>"
      }
      scale_policy {
        fixed_scale {

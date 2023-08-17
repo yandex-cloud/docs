@@ -10,19 +10,7 @@ To create an API key:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Choose a service account and click the line with its name.
-   1. Click **Create new key** in the top panel.
-   1. Click **Create API key**.
-   1. Enter a description of the key so that you can easily find it in the management console.
-   1. Save the ID and private key.
-
-      {% note alert %}
-
-      Once you close the dialog, the private key value will be unavailable.
-
-      {% endnote %}
+  {% include [create-console](../../../_includes/iam/create-api-key-console.md) %}
 
 - CLI
 
@@ -46,8 +34,8 @@ To create an API key:
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
-      | aje6o61dvog2h6g9a33s | my-robot         |                               |
-      | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+      | aje6o61dvog2******** | my-robot         |                               |
+      | aje9sda1ufvq******** | blabla           | bla bla bla is my description |
       +----------------------+------------------+-------------------------------+
       ```
 
@@ -61,10 +49,10 @@ To create an API key:
 
       ```
       api_key:
-        id: ajeke74kbp5bfq7m6ka2
-        service_account_id: ajepg0mjt06siuj65usm
+        id: ajeke74kbp5b********
+        service_account_id: ajepg0mjt06s********
         created_at: "2019-04-09T08:41:27Z"
-      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHsssT5ICtm
+      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
       To learn how to provide the key to a request, read the guides for the [services](../../concepts/authorization/api-key.md#supported-services) that support this authorization method.
@@ -75,7 +63,7 @@ To create an API key:
    1. Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
       ```bash
-      export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
+      export SERVICEACCOUNT_ID=<service_account_id>
       export IAM_TOKEN=CggaATEVAgA...
       curl -X POST \
         -H "Content-Type: application/json" \
@@ -99,13 +87,13 @@ To create an API key:
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
-        service_account_id = "<service account ID>"
-        description        = "<key description>"
-        pgp_key            = "<PGP key>"
+        service_account_id = "<service_account_id>"
+        description        = "<key_description>"
+        pgp_key            = "<pgp_key>"
       }
       ```
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 
@@ -128,7 +116,7 @@ To create an API key:
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>
@@ -154,7 +142,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 - API
 
    ```bash
-   export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
+   export SERVICEACCOUNT_ID=<service_account_id>
    export IAM_TOKEN=CggaATEVAgA...
    curl -X POST \
      -H "Content-Type: application/json" \
@@ -177,14 +165,14 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
-        service_account_id = "aje82upckiqhi3943ekr"
+        service_account_id = "<service_account_id>"
         description        = "this API-key is for my-robot"
       }
       ```
 
       {% endcut %}
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
    1. Make sure the configuration files are valid.
 
@@ -207,7 +195,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

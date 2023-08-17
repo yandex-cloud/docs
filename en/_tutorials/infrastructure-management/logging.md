@@ -1,26 +1,21 @@
 # Writing load balancer logs to {{ PG }}
 
-This use case describes [logging](../../application-load-balancer/concepts/application-load-balancer.md#logging) messages about each incoming request to the {{ alb-full-name }} load balancer to the {{ PG }} database.
+You can write load balancer [logs](../../application-load-balancer/concepts/application-load-balancer.md#logging) (messages about each incoming request to the {{ alb-full-name }} load balancer) to the {{ PG }} database.
 
-To log load balancer operations, a log group is automatically created. Under the use case, log delivery from this log group to the database will be set up using {{ sf-full-name }} resources: a [trigger](../../functions/concepts/trigger/cloudlogs-trigger.md) and triggered [function](../../functions/concepts/function.md)
+To log load balancer operations, a [log group](../../logging/concepts/log-group.md) will be created in {{ cloud-logging-name }}. Log delivery from this log group to the database will be set up using {{ sf-full-name }} resources: a [trigger](../../functions/concepts/trigger/cloudlogs-trigger.md) and a triggered [function](../../functions/concepts/function.md).
 
-To create a database, in this use case we'll use {{ mpg-full-name }}.
-
-{% note info %}
-
-Some use case steps can't be performed in the [management console]({{ link-console-main }}). You can [get the log group ID](#get-log-group-id) and [create a trigger](#set-up-sf-create-trigger) with this ID through the CLI or API only.
-
-{% endnote %}
+To create a database, we will use [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 
 To set up logging:
 
 1. [Prepare your cloud](#before-begin).
 1. [Create a cloud network](#create-network).
+1. [Create a service account](#create-sa).
 1. [Create security groups](#create-security-groups).
 1. [Set up a database in {{ mpg-full-name }}](#set-up-db).
 1. [Create an instance group](#create-vms).
+1. [Create a log group {{ cloud-logging-full-name }}](#create-log-group).
 1. [Create the required resources in {{ alb-full-name }}](#create-alb-resources).
-1. [Get the ID of the log group for the load balancer](#get-log-group-id).
 1. [Create the required resources in {{ sf-full-name }}](#set-up-sf).
 1. [Test the logging process](#test).
 
@@ -37,12 +32,14 @@ The support cost for a load balancer with logging includes:
 
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A payment for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
-* A payment for calling the log-processing function and allocating computing resources to the function (see [{{ sf-full-name }}](../../functions/pricing.md) pricing).
+* Fee for function calls for log processing and computing resources allocated to execute the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for logging operations and log storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for {{ alb-name }} resource usage (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 
 
 ## Create a cloud network {#create-network}
 
-All resources you have created in the tutorial belong to the same [cloud network](../../vpc/concepts/network.md).
+All resources you create will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 To create a network:
 
@@ -58,15 +55,34 @@ To create a network:
 
 {% endlist %}
 
+## Create a service account {#create-sa}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. At the top of the screen, go to the **Service accounts** tab.
+   1. Click **Create service account**.
+   1. In the **Name** field, enter `alb-logging-service-account`.
+   1. Add roles: `serverless.functions.invoker` and `editor`.
+   1. Click **Create**.
+
+{% endlist %}
+
 ## Create security groups {#create-security-groups}
+
+{% note info %}
 
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
-[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that:
-* Let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic.
-* Let the load balancer send logs to the log group and the {{ PG }} cluster receive the logs from it.
+{% endnote %}
 
-Three security groups will be created in the use case: for the load balancer, all VMs, and the cluster.
+[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that:
+* Allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic.
+* Allow the load balancer to send logs to the log group and the {{ PG }} cluster, to receive the logs from it.
+
+You will create three security groups: one for the load balancer, another one for all VMs, and yet another for the cluster.
 
 To create security groups:
 
@@ -88,7 +104,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -140,11 +156,11 @@ To create a cluster and a database:
 
       * Specify the `Intel Cascade Lake` platform.
       * Select the `burstable` type.
-      * Specify the `b2.nano` class.
+      * Specify the `b2.medium` class.
 
       {% note warning %}
 
-      The `b2.nano` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
+      The `b2.medium` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
 
       {% endnote %}
 
@@ -224,7 +240,7 @@ You need to create a log table in advance:
 
 ## Create an instance group {#create-vms}
 
-As web servers for your site, you'll use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. In this use case, the servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see the use case [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
+As web servers for your site, you'll use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. The servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
 
 To create an instance group:
 
@@ -235,6 +251,7 @@ To create an instance group:
    1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Open the **Instance groups** tab. Click **Create group**.
    1. Enter the instance group name: `alb-logging-ig`.
+   1. In the **Service account** field, select the [previously created](#create-sa) service account.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define**.
    1. Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
@@ -266,14 +283,29 @@ To create an instance group:
 
    1. Click **Save**.
    1. Under **Scaling**, enter the **Size** of the instance group: 2.
-   1. Under **Integration with Application Load Balancer**, select **Create target group** and specify `alb-logging-tg` as the group name. [Read more about target groups](../../application-load-balancer/concepts/target-group.md).
+   1. Under **Integration with Application Load Balancer**, select **Create target group** and specify `alb-logging-tg` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
    1. Click **Create**.
 
 {% endlist %}
 
-It may take several minutes to create an instance group. Once created, the group's [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) changes to `RUNNING`and the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of all of its VMs to `RUNNING_ACTUAL`.
+It may take a few minutes to create an instance group. Once created, the group [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) will change to `RUNNING`, and the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of all its VMs, to `RUNNING_ACTUAL`.
 
 ![ig-running](../../_assets/application-load-balancer/tutorials/virtual-hosting/ig-running.png)
+
+## Create a {{ cloud-logging-full-name }} log group {#create-log-group}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../../logging/concepts/log-group.md).
+   1. Select **{{ cloud-logging-name }}**.
+   1. Click **Create group**.
+   1. Enter a name, such as `alb-logging-group`, and description for the log group.
+   1. Set the log group record retention period.
+   1. Click **Create group**.
+
+{% endlist %}
 
 ## Create the necessary resources in {{ alb-full-name }} {#create-alb-resources}
 
@@ -290,7 +322,7 @@ To create a backend group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Open the **Backend groups** tab. Click **Create backend group**.
+   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**. Click **Create backend group**.
    1. Enter the **Name** for the backend group: `alb-logging-bg`.
    1. Under **Backends**, click **Add**.
    1. Enter the **Name** for the backend: `alb-logging-backend`.
@@ -314,7 +346,7 @@ To create an HTTP router:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Open the **HTTP routers** tab. Click **Create HTTP router**.
+   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**. Click **Create HTTP router**.
    1. Enter the **Name** of the HTTP router: `alb-logging-router`.
    1. Click **Add virtual host**.
    1. Enter the **Name** of the virtual host: `alb-logging-host`.
@@ -334,44 +366,15 @@ To create a load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Click **Create L7 load balancer**.
+   1. Click **Create L7 load balancer** and select **Manual**.
    1. Enter the **Name** of the load balancer: `alb-logging-balancer`.
    1. Under **Network settings**, select the `alb-logging-network` network and the `alb-logging-sg-balancer` security group you created previously.
+   1. Under **Log settings**, specify `alb-logging-group`.
    1. Click **Add listener** under **Listeners**.
    1. Enter the **Name** of the listener: `alb-logging-listener`.
    1. In the **Protocol** field, select **HTTP**.
    1. In the **HTTP Router** field, select the router `alb-logging-router` you [created previously](#create-http-router).
    1. Click **Create**.
-
-{% endlist %}
-
-## Get the ID of the log group for the load balancer {#get-log-group-id}
-
-{% note info %}
-
-You can't perform this step in the [management console]({{ link-console-main }}).
-
-{% endnote %}
-
-Along with a load balancer, a log group is created to write logs to. You'll need the log group ID when creating a trigger in {{ sf-name }}.
-
-To get the log group ID:
-
-{% list tabs %}
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   Run the following command:
-
-   ```bash
-   yc alb load-balancer get alb-logging-balancer | grep log_group_id
-   ```
-
-- API
-
-   Use the gRPC API [LoadBalancerService/Get](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Get) call or the [get](../../application-load-balancer/api-ref/LoadBalancer/get.md) REST API method. The ID of the log group will be specified in the `log_group_id` field.
 
 {% endlist %}
 
@@ -391,7 +394,7 @@ To create a function:
    1. Click **Create function**.
    1. Enter the function name: `alb-logging-function`.
    1. Click **Create**. After creating the function, you'll be automatically redirected to the **Editor** page.
-   1. Select the **Python** runtime environment and click **Next**.
+   1. Select **Python** **3.8** as the runtime environment and click **Next**.
    1. Clear the file editing area and paste the following code into it:
 
       {% cut "Function code" %}
@@ -435,7 +438,7 @@ To create a function:
           messages = event['messages'][0]['details']['messages']
 
           for message in messages:
-              alb_message = json.loads(message['message'])
+              alb_message = message['json_payload']
               alb_message['table_name'] = 'load_balancer_requests'
               insert_statement = (
                   'INSERT INTO {table_name} '
@@ -444,7 +447,7 @@ To create a function:
                   '\'{backend_ip}\', {request_processing_times[request_time]});'
               ).format(**alb_message)
 
-              if verboseLogging: 
+              if verboseLogging:
                   logger.info(f'Exec: {insert_statement}')
               try:
                   cursor.execute(insert_statement)
@@ -472,14 +475,7 @@ To create a function:
       * **Timeout, sec:** 10.
       * **RAM:** 128 MB.
 
-   1. Create a service account:
-
-      1. Click **Create account** (or **Create new**). An additional window opens.
-      1. In the **Name** field, enter `alb-logging-function-service-account`.
-      1. Add roles: `serverless.functions.invoker` and `editor`.
-      1. Click **Create**.
-
-      The created account is automatically added to the **Service account** field. On behalf of this account, the function will write data to the DB.
+   1. Select the previously created `alb-logging-service-account`. On behalf of this account, the function will write data to the DB.
 
    1. Add environment variables:
 
@@ -499,7 +495,7 @@ To create a function:
       1. On the **Shell** tab, find a sample connection string.
       1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **Value** field of the function environment variables.
 
-   1. In the upper-right corner, click **Create version**.
+   1. In the top-right corner, click **Create version**.
 
 {% endlist %}
 
@@ -507,38 +503,69 @@ To create a function:
 
 The [trigger](../../functions/concepts/trigger/index.md) will receive copies of messages from the load balancer and pass them to the function for processing.
 
-{% note info %}
-
-{{ alb-name }} uses a special type of log group. Before creating a trigger, ask [technical support]({{ link-console-support }}) to give you the option to create triggers for such log groups. You can only create a trigger using the CLI or API.
-
-{% endnote %}
-
 To create a trigger:
 
 {% list tabs %}
 
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+
+   1. Select **{{ sf-name }}**.
+
+   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+
+   1. Click **Create trigger**.
+
+   1. Under **Basic parameters**:
+
+      * Give your trigger a name, such as `alb-logging-trigger`.
+      * In the **Type** field, select **{{ cloud-logging-name }}**.
+      * In the **Launched resource** field, select **Function**.
+
+   1. Under **{{ cloud-logging-name }} settings**:
+      * Select `alb-logging-group` in the **Log group** field.
+      * Specify `alb.loadBalancer` in the **Resource types** field.
+
+   1. Under **Batch message settings**:
+      * In the **Waiting time, s** field, enter `15`.
+      * In the **Group size** field, enter `10`.
+
+   1. Under **Function settings**, select the function you previously created and specify:
+
+      * Function version tag: `$latest`.
+      * Previously created service account.
+
+   1. Click **Create trigger**.
+
 - CLI
 
-   Run this command:
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a trigger that invokes a function, run this command:
 
    ```bash
-   yc serverless trigger create cloud-logs alb-logging-trigger \
-     --log-groups <log group ID> \
-     --invoke-function-name alb-logging-function \
-     --invoke-function-service-account-name alb-logging-function-service-account \
+   yc serverless trigger create logging alb-logging-trigger \
+     --log-group-name <log_group_name> \
+     --resource-types alb.loadBalancer \
      --batch-size 10 \
-     --batch-cutoff 15s
+     --batch-cutoff 15s \
+     --invoke-function-name alb-logging-function \
+     --invoke-function-service-account-name alb-logging-service-account \
    ```
 
    Where:
 
-   * `--log-groups`: ID of the log group for the load balancer, which you [received earlier](#get-log-group-id).
+   * `--log-group-name`: Name of the log group you [previously created](#create-log-group).
+   * `--resource-types`: Log group resource types.
    * `--invoke-function-name`: Name of the function that you [created earlier](#set-up-sf-create-function).
    * `--invoke-function-service-account-name`: The name of the service account you created along with the function.
    * `--batch-size`: The maximum number of messages sent to the function at the same time.
    * `--batch-cutoff`: The maximum time interval between sending consecutive messages to the function.
 
-   For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/trigger/create/cloud-logs.md).
+   For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/trigger/create/logging.md).
 
 - API
 
@@ -570,22 +597,20 @@ To create a trigger:
       1. Select the cluster `alb-logging-cluster`.
       1. Go to the **SQL** tab.
       1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
-      1. Select the database that you created together with the cluster, and click **Connect**.
+      1. Select the database you created along with the cluster and click **Connect**.
       1. Click on the `load_balancer_requests` table. You should now see the first rows of this table with the data about your requests to the load balancer.
 
    {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To shut down the load balancer and stop paying for the created resources:
 
-1. Delete the non-billable resources that block the deletion of billable resources:
-
-   1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `alb-logging-balancer` L7 load balancer.
-   1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `alb-logging-router` HTTP router.
-   1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `alb-logging-bg` backend group.
-
+1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `alb-logging-balancer` L7 load balancer.
+1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `alb-logging-router` HTTP router.
+1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `alb-logging-bg` backend group.
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `alb-logging-ig` instance group.
 1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger `alb-logging-trigger`.
 1. [Delete](../../functions/operations/function/function-delete.md) the function `alb-logging-function`.
 1. [Delete](../../managed-postgresql/operations/cluster-delete.md) the cluster `alb-logging-cluster`.
+1. [Delete](../../logging/operations/delete-group.md) the `alb-logging-group` log group.

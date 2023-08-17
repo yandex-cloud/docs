@@ -2,12 +2,12 @@
 
 ## Network security {#network-security}
 
-* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. The traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../vpc/operations/security-group-create.md).
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW from {{ marketplace-short-name }}**: If more robust network protection is required, use [NGFW](/marketplace?tab=software&search=NGFW) from {{ marketplace-full-name }}.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
-* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see [this guide](../../tutorials/routing/ipsec-vpn.md) to learn how to set it up using the strongSwan daemon) or use [{{ interconnect-name }}](../../interconnect/). You can also leverage the GOST VPN service.
+* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see [this guide](../../tutorials/routing/ipsec-vpn.md) to learn how to set it up using the strongSwan daemon) or use [{{ interconnect-name }}](../../interconnect/index.yaml). You can also leverage the GOST VPN service.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
@@ -21,12 +21,12 @@
 
 * **Centralized management and identity federations**: Create an organization in [{{ org-full-name }}](/services/organization) and set up Single Sign-On in {{ yandex-cloud }} via your IdP server. See the setup instructions for [AD FS](../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), and [Google Workspace](../../organization/operations/federations/integration-gworkspace.md).
 * **Federated accounts**: Use federated accounts instead of Yandex accounts whenever possible.
-* **Principle of least privilege**: Assign service roles (for example, `compute.images.user`) instead of primitive roles (`viewer`, `editor`, or `admin`). See a [list of all roles](../../iam/concepts/access-control/roles.md) and [examples of assigning roles](../../iam/operations/roles/grant.md). Watch our webinar [Managing cloud access permissions](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
+* **Principle of least privilege**: Assign service roles (for example, `compute.images.user`) instead of primitive roles (`viewer`, `editor`, or `admin`). See a [list of all roles](../../iam/concepts/access-control/roles.md) and [examples of assigning roles](../../iam/operations/roles/grant.md). Watch our webinar to learn how to [manage cloud access permissions](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
 * **{{ TF }} {{ yandex-cloud }} {{ iam-full-name }} module**: Organize access groups for cloud users.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: {{ iam-name }} in {{ TF }} for {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud)
 * **Working with service accounts**: [Assign a service account to a VM instance](../../compute/operations/vm-connect/auth-inside-vm.md) and get a token using the metadata service. Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: 169.254.169.254).<!-- tbd: добавить ссылку на решение -->
 * **2FA**: For an identity federation, set up 2FA on the side of your IdP. For a Yandex account, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
-* **billing.accounts.owner protection**: After performing the initial operations, don't use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a specific employee with a federated account.
+* **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a specific employee with a federated account.
 * **resource-manager.clouds.owner protection**: Assign the `resource-manager.clouds.owner` role to employees with federated accounts. Set a strong password for the Yandex account that was used to create the cloud, and use it only when absolutely necessary. Grant administrators less privileged access and use `resource-manager.clouds.owner` only when absolutely necessary.
 * **Resource model**: Place all critical resources that must be compliant with standards in a separate cloud. Divide resource groups by folders. Host shared resources (such as network and security groups) in a separate shared resource folder.
 
@@ -36,7 +36,7 @@
 * **VM disk encryption (if required)**.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 * **Client-side encryption (if required)**: Use data encryption with {{ kms-name }} keys. See an [overview of encryption methods](../../kms/tutorials/encrypt/index.md).
-* **{{ kms-name }} key protection**: Grant only granular access to individual {{ kms-name }} keys (the `kms.keys.encrypterDecrypter` role). Use [key rotation](../../kms/concepts/version.md).
+* **{{ kms-name }} key protection**: Grant only granular access to individual {{ kms-name }} keys (the `kms.keys.encrypter`, `kms.keys.decrypter`, or `kms.keys.encrypterDecrypter` roles). Use [key rotation](../../kms/concepts/version.md).
 * **Secret management**: Use secret management services, such as [{{ lockbox-name }}](../../lockbox/) or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}.<!-- или контейнер {{ registry }}/yc/vault -->
 
 ## Secure configuration {#secure-configuration}
@@ -45,9 +45,9 @@
 * **Standards and baseline**: Configure the OS and software in accordance with the baseline and standards (such as CIS and PCI DSS). To automate compliance, use, for example, [OpenSCAP](https://www.open-scap.org/getting-started/).
 * **Disabling the serial console**: Do not use the serial console; if you still have to, [evaluate your risks](../../compute/operations/serial-console/index.md) and disable it once you are done.
 * **Safe use of {{ TF }}**: Use `terraform remote state` based on {{ objstorage-name }} with a lock function in {{ ydb-full-name }}. You can see a setup example [here](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state). Set [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) if required. Do not transfer private data to the configuration; if you still have to, use [secret management](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#:~:text=this%20blog%20post%3A-,Do%20not%20store%20secrets%20in%20plain%20text.,secrets%20into%20your%20Terraform%20code) services or environment variables. You can read more [here](./secure-config.md#terraform).
-  ![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning.tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
+  ![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
 * **Integrity control on guest OS**: Use free host-based solutions, such as Wazuh or Osquery, or paid solutions from {{ marketplace-name }}.
-* **Secure configuration of {{ objstorage-name }}**: Use encryption, [bucket policies](../../storage/concepts/policy.md), and ACLs, or [versioning for deletion protection](../../storage/concepts/versioning.md), enable [built-in access auditing](../../storage/operations/buckets/enable-logging.md) and configure CORS (if necessary).
+* **Secure configuration of {{ objstorage-name }}**: Use encryption, [bucket policies](../../storage/concepts/policy.md), and ACLs, or [versioning for deletion protection](../../storage/concepts/versioning.md), enable [built-in access auditing](../../storage/operations/buckets/enable-logging.md) and configure CORS, if required.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Secure configuration of {{ objstorage-name }} in {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 * **Secure configuration of {{ sf-full-name }}**: Provide a service account token via the [native authentication mechanism](../../functions/operations/function-sa.md) using the assigned service account and metadata. If possible, use [private functions](../../functions/operations/function/function-private.md).
 * **Secure configuration of {{ container-registry-full-name }}**: We do not recommend using privileged containers to run loads. Use the built-in image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md).
@@ -90,11 +90,11 @@
 
 ## Backups {#backup}
 
-* **Regular backups**: Configure scheduled creation of disk snapshots using {{ sf-name }}.
+* **Regular backups**: Configure scheduled creation of disk snapshots using {{ sf-name }}).
 
 ## Managing budgets {#budget-management}
 
-* **Notifications for cost control**: Set up notifications for budget thresholds in Billing. See the [instructions](../../billing/operations/budgets.md).
+* **Notifications for cost control**: Set up notifications for budget thresholds in {{ billing-name }}. See [this guide](../../billing/operations/budgets.md) for details.
 
 ## Incident response {#incident-response}
 
@@ -110,7 +110,7 @@
 
 ### Network security {#kubernetes-network-security}
 
-* **Security groups**: Configure security groups for {{ k8s }}. See the [instructions](../../managed-kubernetes/operations/connect/security-groups.md). We don't recommend granting public access and public addresses to {{ k8s }} components.
+* **Security groups**: Configure security groups for {{ k8s }}. See the [instructions](../../managed-kubernetes/operations/connect/security-groups.md). We do not recommend granting public access and public addresses to {{ k8s }} components.
 * **Ingress controller**: To access {{ k8s }} services from outside, use a LoadBalancer (internal or external) Ingress controller (HTTPS): [{{ alb-name }} Ingress Controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md) or other solutions, such as [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 * **DDoS protection**: Create an IP address with DDoS protection and assign it to the service or Ingress controller.
 * **Network policy**: Restrict access at the {{ k8s }} level using [Calico network policies](../../managed-kubernetes/operations/calico.md) or advanced [Cilium network policies](../../managed-kubernetes/operations/cilium.md).

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/opensearch/api-ref/Cluster/restore.md
+sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/restore.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.restore
@@ -49,7 +49,12 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore
             "string"
           ]
         }
-      ]
+      ],
+      "opensearchConfig_2": {
+        "maxClauseCount": "integer",
+        "fielddataCacheSize": "string",
+        "reindexRemoteWhitelist": "string"
+      }
     },
     "dashboardsSpec": {
       "nodeGroups": [
@@ -121,6 +126,10 @@ configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the hosts in the group.</p> 
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2 | **object**
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 
+configSpec.<br>opensearchSpec.<br>opensearchConfig_2.<br>reindexRemoteWhitelist | **string**
 configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration.</p> <p>Dashboards create-time configuration.</p> 
 configSpec.<br>dashboardsSpec.<br>nodeGroups[] | **object**<br><p>Dashboards type host groups of the cluster.</p> 
 configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Name of the group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 

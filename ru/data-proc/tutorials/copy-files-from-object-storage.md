@@ -165,7 +165,7 @@ hadoop distcp \
 * `spark:spark.hadoop.fs.s3a.committer.name` — используемый режим по умолчанию: `directory`, `magic` или `partitioned`.
 * `spark:spark.sql.parquet.output.committer.class : org.apache.spark.internal.io.cloud.BindingParquetOutputCommitter`.
 * `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.internal.io.cloud.PathOutputCommitProtocol`.
-* (Опционально) `core:fs.s3a.committer.staging.conflict-mode` — действие при обнаружении в целевой таблице уже существующих партиций с данными (при использовании режима `partitioned`):
+* (опционально) `core:fs.s3a.committer.staging.conflict-mode` — действие при обнаружении в целевой таблице уже существующих партиций с данными (при использовании режима `partitioned`):
     * `append` — данные в существующей партиции дополняются новыми данными.
     * `fail` — при попытке перезаписи существующей партиции задание останавливается с ошибкой.
     * `replace` — данные в существующей партиции заменяются данными новой партиции.
@@ -299,6 +299,8 @@ hadoop distcp \
   Получив доступ, вы можете читать файл напрямую из {{ objstorage-name }}:
 
   ```python
+  from pyspark.sql import SQLContext
+
   sql = SQLContext(sc)
   df = sql.read.parquet("s3a://<имя бакета>/<путь к объекту>")
   ```

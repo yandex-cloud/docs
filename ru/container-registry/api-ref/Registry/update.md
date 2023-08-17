@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/api-ref/Registry/update.md
+sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/update.md
 ---
 
 # Container Registry API, REST: Registry.update

@@ -34,18 +34,18 @@
         Пример правил для ВМ:
 
         * Для входящего трафика:
-            * Диапазон портов — `22`.
-            * Протокол — `TCP`.
-            * Источник — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             Это правило позволяет подключаться к ВМ по протоколу [SSH](../../glossary/ssh-keygen.md).
 
         * Для исходящего трафика:
-            * Диапазон портов — `{{ port-any }}`.
-            * Протокол — `Любой` (`Any`).
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -61,20 +61,7 @@
 
 Чтобы использовать SSL-соединение, получите сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\AppData\Roaming\postgresql
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-  ```
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -129,6 +116,56 @@
     1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
+## Подключение из {{ pgadmin }} {#connection-pgadmin}
+
+Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.1 в macOS Ventura 13.0 и Microsoft Windows 10 Pro 21H1.
+
+Подключаться из {{ pgadmin }} можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Создайте новое подключение к серверу:
+
+1. Выберите в меню **Object** → **Register** → **Server...**
+1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе {{ pgadmin }}. Имя может быть любым.
+1. На вкладке **Connection** укажите параметры подключения:
+
+    * **Host name/address** — [особый FQDN хоста-мастера](#fqdn-master) или обычный FQDN хоста;
+    * **Port** — `{{ port-mgp }}`;
+    * **Maintenance database** — имя служебной базы данных `postgres`;
+    * **Username** — имя пользователя, от имени которого выполняется подключение;
+    * **Password** — пароль пользователя.
+
+1. На вкладке **Parameters**:
+
+    * Установите параметр **SSL mode** в значение `verify-full`.
+    * Добавьте новый параметр **Root certificate** и укажите в нем путь к сохраненному файлу SSL-сертификата.
+
+1. Нажмите кнопку **Save**, чтобы сохранить настройки подключения к серверу.
+
+Кластер появится в списке серверов в навигационном меню.
+
+Для наблюдения за состоянием кластера рекомендуется использовать сервис [{{ monitoring-full-name }}](monitoring.md) вместо вкладки **Dashboard** в {{ pgadmin }}, потому что в ней может возникать ошибка:
+
+```text
+column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait_event AS wait_event, ^
+```
+
+При работе с другими вкладками в {{ pgadmin }} эта ошибка не возникает.
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mgp-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget postgresql-client --yes && \
+    mkdir -p ~/.postgresql && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.postgresql/root.crt && \
+    chmod 0600 ~/.postgresql/root.crt
+```
 
 ## Примеры строк подключения {#connection-string}
 

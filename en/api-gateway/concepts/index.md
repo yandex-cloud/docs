@@ -3,7 +3,7 @@ title: "Relationships between {{ api-gw-full-name }} resources"
 description: "API gateway is an interface for interacting with services in {{ yandex-cloud }} or on the internet. API gateways are set in a declarative way using specifications. A specification is a JSON or YAML file with an API gateway description based on the OpenAPI 3.0 standard. In {{ api-gw-name }}, the specification is supplemented with extensions that you can use for integrating with other cloud platforms."
 ---
 
-# Relationships between resources in {{ api-gw-name }}
+# Resource relationships in {{ api-gw-name }}
 
 _API gateway_ is an interface for interacting with services in {{ yandex-cloud }} or on the internet.
 
@@ -34,7 +34,7 @@ For more information about domains, see [{#T}](../../certificate-manager/concept
 
 ## Authorization {#authorization}
 
-{{ api-gw-short-name }} enables you to implement standard [authentication and authorization mechanisms](https://swagger.io/docs/specification/authentication/) as described in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) specification. At present, [authorization using a function](../concepts/extensions/function-authorizer.md) is available.
+{{ api-gw-short-name }} enables you to implement standard [authentication and authorization mechanisms](https://swagger.io/docs/specification/authentication/) as described in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) specification. Currently, [authorization using a function](../concepts/extensions/function-authorizer.md) and [authorization using a JWT](../concepts/extensions/jwt-authorizer.md) are available.
 
 ## WebSocket {#websocket}
 

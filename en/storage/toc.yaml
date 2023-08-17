@@ -33,6 +33,8 @@ items:
             href: operations/buckets/enable-logging.md
           - name: Object lock management
             href: operations/buckets/configure-object-lock.md
+          - name: Bucket label management
+            href: operations/buckets/tagging.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -43,6 +45,8 @@ items:
             href: operations/objects/download.md
           - name: Restoring an object's version
             href: operations/objects/restore-object-version.md
+          - name: Renaming and moving objects
+            href: operations/objects/rename-move.md
           - name: Getting a public link to an object
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock
@@ -55,6 +59,8 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL
             href: operations/objects/edit-acl.md
+          - name: Object label management
+            href: operations/objects/tagging.md
       - name: Static website hosting
         items:
           - name: Hosting setup
@@ -131,6 +137,8 @@ items:
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
+      - name: Labels
+        href: concepts/tags.md
       - name: S3 Select query language
         href: concepts/s3-select-language.md
       - name: Quotas and limits
@@ -259,6 +267,12 @@ items:
                     href: s3/api-ref/object/getobjectretention.md
                   - name: getObjectLegalHold
                     href: s3/api-ref/object/getobjectlegalhold.md
+                  - name: putObjectTagging
+                    href: s3/api-ref/object/putobjecttagging.md
+                  - name: getObjectTagging
+                    href: s3/api-ref/object/getobjecttagging.md
+                  - name: deleteObjectTagging
+                    href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
                   - name: General multipart upload procedure
@@ -387,6 +401,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
+  - name: Log reference
+    href: logs-ref.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -33,7 +33,7 @@
      containers:
        - name: cuda-vector-add
          # https://github.com/kubernetes/kubernetes/blob/v1.7.11/test/images/nvidia-cuda/Dockerfile
-         image: "k8s.gcr.io/cuda-vector-add:v0.1"
+         image: "registry.k8s.io/cuda-vector-add:v0.1"
          resources:
            limits:
              nvidia.com/gpu: 1 # Запрос 1 GPU.
@@ -62,7 +62,7 @@
    Namespace:    default
    Priority:     0
    ...
-     Normal  Pulling    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Successfully pulled image "k8s.gcr.io/cuda-vector-add:v0.1"
+     Normal  Pulling    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Successfully pulled image "registry.k8s.io/cuda-vector-add:v0.1"
      Normal  Created    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container cuda-vector-add
      Normal  Started    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container
    ```
@@ -86,7 +86,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

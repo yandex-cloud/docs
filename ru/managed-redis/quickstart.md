@@ -1,9 +1,5 @@
 # Как начать работать с {{ mrd-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 Чтобы начать работу с сервисом:
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к кластеру](#connect).
@@ -18,7 +14,7 @@
 
 1. Есл для кластера не настроен публичный доступ, подключиться к нему можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../glossary/ssh-keygen.md).
-1. Установите на ВМ утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS):
+1. Установите на ВМ утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)):
 
    ```bash
    sudo apt install redis-tools
@@ -28,14 +24,14 @@
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер {{ RD }}.
-1. Выберите сервис **{{ mrd-name }}**.
-1. Нажмите кнопку **Создать кластер**.
-1. Задайте параметры кластера и нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mrd-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 ## Подключитесь к кластеру {#connect}
 
-1. Если в вашем кластере включена поддержка TLS, настройте SSL-сертификат:
+1. Если в вашем кластере включена поддержка TLS, получите SSL-сертификат:
 
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 

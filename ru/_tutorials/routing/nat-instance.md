@@ -41,20 +41,20 @@ _NAT-инстанс_ — специальная виртуальная маши�
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать тестовую ВМ.
-   1. В списке сервисов выберите **{{ compute-name }}**.
-   1. Нажмите кнопку **Создать ВМ**.
-   1. В блоке **Базовые параметры**:
-         * В поле **Имя** введите имя ВМ, например `test-vm`.
-         * В поле **Зона доступности** выберите зону доступности, где находится подсеть `private-subnet`.
-   1. В блоке **Выбор образа/загрузочного диска** выберите один из образов и версию операционной системы на базе Linux.
-   1. В блоке **Сетевые настройки**:
-         * В поле **Подсеть** выберите подсеть для тестовой ВМ, например `private-subnet`.
-         * В поле **Публичный адрес** выберите **Без адреса**.
-         * В поле **Внутренний IPv4-адрес** выберите **Автоматически**.
-   1. В блоке **Доступ**:
-         * В поле **Логин** введите имя пользователя.
-         * В поле **SSH-ключ** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-   1. Нажмите кнопку **Создать ВМ**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ, например `test-vm`.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `private-subnet`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из образов и версию операционной системы на базе Linux.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть для тестовой ВМ, например `private-subnet`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_none }}**.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    Сохраните имя пользователя, закрытый SSH-ключ и внутренний IP-адрес тестовой ВМ.
 
@@ -66,7 +66,11 @@ _NAT-инстанс_ — специальная виртуальная маши�
 
 ## Создайте группу безопасности {#create-security-groups}
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) содержат правила, которые разрешают обращаться к ВМ по SSH. В сценарии будет создана группа безопасности `nat-instance-sg`.
 
@@ -76,30 +80,30 @@ _NAT-инстанс_ — специальная виртуальная маши�
 
 - Консоль управления 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
-  1. Откройте вкладку **Группы безопасности**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
   1. Создайте группу безопасности:
      
-     1. Нажмите кнопку **Создать группу**.
-     1. Укажите **Имя** группы: `nat-instance-sg`.
-     1. Выберите **Сеть** `my-vpc`.
-     1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя группы: `nat-instance-sg`.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `my-vpc`.
+     1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
    
-        | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
+        | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
         | --- | --- | --- | --- | --- | --- |
-        | Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0 |
-        | Входящий | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
-        | Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
-        | Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
+        | Исходящий | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | Входящий | `ssh` | `22` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | Входящий | `ext-http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | Входящий | `ext-https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       
-        1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
-        1. Нажмите кнопку **Добавить правило**.
-        1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-        1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
-        1. В поле **Назначение** или **Источник** выберите **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите `0.0.0.0/0`.
-        1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
+        1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+        1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик. Чтобы открыть все порты, нажмите **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**, чтобы разрешить передачу трафика по всем протоколам.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите `0.0.0.0/0`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
    
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }}
 
@@ -114,20 +118,20 @@ _NAT-инстанс_ — специальная виртуальная маши�
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать NAT-инстанс.
-   1. В списке сервисов выберите **{{ compute-name }}**.
-   1. Нажмите кнопку **Создать ВМ**.
-   1. В блоке **Базовые параметры**:
-         * В поле **Имя** введите имя ВМ для NAT-инстанса, например `nat-instance`.
-         * В поле **Зона доступности** выберите зону доступности, где находится подсеть `public-subnet`.
-   1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите образ [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts).
-   1. В блоке **Сетевые настройки**:
-         * В поле **Подсеть** выберите подсеть для NAT-инстанса, например `public-subnet`.
-         * В поле **Публичный адрес** выберите **Автоматически**.
-         * В поле **Внутренний IPv4-адрес** выберите **Автоматически**.
-   1. В поле **Доступ**:
-         * В поле **Логин** введите имя пользователя.
-         * В поле **SSH-ключ** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо создать самостоятельно.
-   1. Нажмите кнопку **Создать ВМ**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ для NAT-инстанса, например `nat-instance`.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, где находится подсеть `public-subnet`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts).
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть для NAT-инстанса, например `public-subnet`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла с публичным [SSH-ключом](../../glossary/ssh-keygen.md). Пару ключей для подключения по SSH необходимо создать самостоятельно.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    Сохраните имя пользователя, закрытый SSH-ключ, внутренний и публичный IP-адреса NAT-инстанса.
 
@@ -152,25 +156,23 @@ _NAT-инстанс_ — специальная виртуальная маши�
    1. Создайте таблицу маршрутизации и добавьте в нее статический маршрут: 
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать статический маршрут.
-      1. В списке сервисов выберите **{{ vpc-name }}**.
-      1. Перейдите на вкладку ![route-tables](../../_assets/vpc/route-tables.svg) **Таблицы маршрутизации**.
-      1. Нажмите кнопку **Создать таблицу маршрутизации**.
-      1. Задайте имя таблицы маршрутизации, например `nat-instance-route`.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. На панели слева выберите ![route-tables](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** задайте имя таблицы маршрутизации, например `nat-instance-route`.
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      1. Выберите сеть, например `my-vpc`.
-      1. Нажмите кнопку **Добавить маршрут**.
-      1. В открывшемся окне введите префикс подсети назначения `0.0.0.0/0`.
-      1. В поле **Next hop** выберите **IP-адрес**.
-      1. Укажите внутренний IP-адрес NAT-инстанса. Нажмите кнопку **Добавить**.
-      1. Нажмите кнопку **Создать таблицу маршрутизации**.
+      1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_network-id }}** выберите сеть, например `my-vpc`.
+      1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+      1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** введите `0.0.0.0/0`.
+      1. В поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** выберите `{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}`.
+      1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** укажите внутренний IP-адрес NAT-инстанса. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
    1. Привяжите таблицу маршрутизации к подсети, где находится тестовая ВМ, например `private-subnet`:
-      1. Перейдите на вкладку ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
-      1. Напротив подсети с тестовой ВМ, например `private-subnet`, нажмите кнопку ![options](../../_assets/options.svg).
-      1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
-      1. В открывшемся окне выберите таблицу `nat-instance-route` из списка.
-      1. Нажмите кнопку **Привязать**.
+      1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+      1. Нажмите ![image](../../_assets/options.svg) в строке подсети с тестовой ВМ и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+      1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.subnet.add-route-table.popup-route-table_field_route-table-id }}** выберите таблицу `nat-instance-route` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - {{ TF }}
 
@@ -268,12 +270,12 @@ _NAT-инстанс_ — специальная виртуальная маши�
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-   * [yandex_vpc_route_table]({{ tf-provider-link }}/vpc_route_table)
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+   * [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table)
 
 1. В файле `nat-instance.auto.tfvars` задайте пользовательские параметры:
 

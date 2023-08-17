@@ -51,7 +51,7 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -63,7 +63,7 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster). You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
+You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
 
@@ -75,7 +75,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
    1. Click the name of the cluster you need and select the **Backup copies** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
 
    To restore a previously deleted cluster from a backup:
@@ -83,7 +83,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
    1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
 
    {{ mch-name }} launches the operation to create a cluster from the backup.
@@ -143,7 +143,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--environment`: Environment:
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ MS}} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ MS}} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--host`: Host parameters:
@@ -158,11 +158,11 @@ For a new cluster, you should set all the parameters that are required at creati
          
          * `network-hdd`
          * `network-ssd`
-         * `local-ssd`
+                  * `local-ssd`
          * `network-ssd-nonreplicated`
 
 
-   1. To restore the whole cluster, pass backup IDs for all cluster shards:
+   1. To restore the entire cluster, provide backup IDs for all cluster shards:
 
       ```bash
       {{ yc-mdb-ch }} cluster restore \
@@ -172,13 +172,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * Backup ID of the appropriate shard in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
    * Cluster environment in the `environment` parameter.
    * Cluster configuration in the `configSpec` parameter.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+   * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
    * Network ID in the `networkId` parameter.
 
    To restore the entire cluster, provide backup IDs for the remaining cluster shards in the `additionalBackupIds` parameter:
@@ -223,9 +223,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -262,7 +262,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    To find out the ID, [retrieve a list of backups](#list-backups).
 
@@ -282,22 +282,22 @@ For a new cluster, you should set all the parameters that are required at creati
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To set a backup start time, pass the desired value in `HH:MM:SS` format in the `--backup-window-start` argument to the cluster update command:
+   To set a backup start time, provide the value you need in `HH:MM:SS` format in the `--backup-window-start` argument to the cluster update command:
 
    ```bash
    {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-      --backup-window-start=<time of backup start>
+      --backup-window-start=<backup start time>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
+   To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. You can get it along [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
+   * List of the updated cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

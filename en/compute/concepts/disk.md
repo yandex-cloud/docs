@@ -24,36 +24,28 @@ Disks take up storage space, which incurs additional fees. For more information,
 
 In case you create a disk from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk use cost are also inherited from the source.
 
-## Disk types {#disks_types}
+## Disk types {#disks-types}
 
 {{ yandex-cloud }} VMs can use the following disk types:
 * Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
 * Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
-* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance that has, however, a few [limitations](#nr-disks).
+* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance but no redundancy.
+* High-performance SSD (`network-ssd-io-m3`): Network drive with the same characteristics as `network-ssd-nonreplicated`, plus redundancy. High-performance SSDs are currently at the [Preview](../../overview/concepts/launch-stages.md) stage. Using high performance SSDs will be charged starting September 1, 2023.
+* [Local disk drives](dedicated-host.md#resource-disks) on dedicated hosts.
 
-{% note info %}
+Network SSDs, network HDDs, and high-performance SSDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even if multiple physical disks fail at the same time. Non-replicated disks do not ensure data security.
 
-Disks are not replicated on the {{ yandex-cloud }} side. You can, however, make your disk replicated using [placement groups](disk-placement-group.md).
+If a physical disk hosting a network drive fails, the VM will continue running and will quickly regain full access to its data.
 
-{% endnote %}
+### Non-replicated disks and high-performance SSDs {#nr-disks}
 
-Standard network SSDs and HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not provide such redundancy.
+Non-replicated disks and high-performance SSDs outperform network SSDs but have the following limitations:
 
-If a physical disk hosting a network SSD or HDD fails, the VM will continue running and will quickly regain full access to its data.
-
-Network drives are slower than local drives in terms of performance and throughput; at the same time, they boost VM reliability and uptime.
-
-### Non-replicated disk limitations {#nr-disks}
-
-Non-replicated disks are better than regular network drives in terms of performance and can be useful when the redundancy is already provided at the application level or you need to provide quick access to temporary data.
-
-Non-replicated disks have a number of limitations:
-* Non-replicated disk size must be a multiple of 93 GB.
+* Disk size must be a multiple of 93 GB.
 
   {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
-* The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks do not provide redundancy.
-* You cannot create [snapshots](snapshot.md) or [images](image.md) from a non-replicated disk.
+* You cannot create [snapshots](snapshot.md) or [images](image.md) from these disks.
 * {% include [nrd-az](../../_includes/compute/nrd-az.md) %}
 
 {% note alert %}
@@ -62,7 +54,7 @@ Our recommendation is to avoid using a non-replicated disk as your boot drive. T
 
 {% endnote %}
 
-Multiple non-replicated disks can be combined into a [placement group](disk-placement-group.md) to ensure data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to minimize the risk of simultaneous failure of all disks in the group.
+If you need enhanced performance and guaranteed fault tolerance, we recommend using high-performance SSDs. Currently, high-performance SSDs have the same limitations on creating images and snapshots as non-replicated disks. We will soon add support for creating snapshots with write freeze and, moving forward, full-featured snapshots with no write freeze.
 
 ## Maximum disk size {#maximum-disk-size}
 
@@ -76,7 +68,7 @@ To successfully boot a VM up, you will need a boot drive. Optionally, you can th
 
 {% include [attach-empty-disk](../_includes_service/attach-empty-disk.md) %}
 
-When selecting a disk to attach to a VM, you can specify that the disk should be deleted once you delete the VM. This option is also available when you create a VM, reconfigure it, or attach a new disk to it.
+When selecting a disk to attach to a VM, you can specify that the disk should be deleted once you delete the VM. This option is available when you create a VM, reconfigure it, or attach a new disk to it.
 
 If a VM had any previously created disks attached, they will be detached when you delete the VM. The data on the disk will be still there, and you will be able to attach the disk to a different VM later.
 
@@ -84,9 +76,12 @@ If you would like to delete a disk with a VM, specify this option when creating 
 
 ## Backups {#backup}
 
-Each disk is accessible and replicated within a specific availability zone.
+Backups are required to make sure no data is lost if damaged. Different disk types allow using different backup methods:
 
-You can also create disk backups as [snapshots](snapshot.md) manually or automatically, based on [schedules](snapshot-schedule.md). Snapshots are replicated across all availability zones, which allows you to migrate disks from one zone to another.
+* [{{ backup-name }}](../../backup/) enables you to create consistent data copies on VMs with any disk types. The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+* [Disk snapshots](snapshot.md): Use them to manually or automatically create [scheduled](snapshot-schedule.md) snapshots of network SSDs and HDDs. You cannot take snapshots of non-replicated disks and high-performance SSDs.
+
+Snapshots are replicated across all availability zones, which allows you to migrate disks from one zone to another.
 
 Sometimes, you may want to restore a disk to a specific state on a regular basis, for instance, when you need to attach the same boot drive to every new VM. In this case, you can upload a disk [image](image.md) to {{ compute-name }}, which will allow you to create disks faster than you would do it from snapshots. Images are also automatically replicated to multiple availability zones.
 

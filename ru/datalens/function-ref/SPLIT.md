@@ -35,14 +35,14 @@ SPLIT( orig_string [ , delimiter [ , part_index ] ] )
 #### Примеры {#examples}
 
 ```
-SPLIT("RU-MOW-SVO", "-", 1) = "RU"
+SPLIT("192.168.0.1", ".", 1) = "192"
 ```
 
 ```
-SPLIT("RU-MOW-SVO", "-", -1) = "SVO"
+SPLIT("192.168.0.1", ".", -1) = "1"
 ```
 
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `MySQL 5.6`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `MySQL 5.6`, `PostgreSQL 9.3`, `YDB`.

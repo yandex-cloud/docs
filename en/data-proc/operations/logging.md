@@ -14,7 +14,7 @@ For more information, see [{#T}](../concepts/logs.md).
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
-   1. (optional) Specify the output settings:
+   1. (Optional) Specify the output settings:
       * [Message filter](../concepts/logs.md):
          * Getting the job start output {{ dataproc-name }}:
 

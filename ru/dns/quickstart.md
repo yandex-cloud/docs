@@ -7,7 +7,7 @@
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 
 
-1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 
 
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать [виртуальную сеть](../vpc/concepts/network.md#network) по умолчанию с [подсетями](../vpc/concepts/network.md#subnet) во всех [зонах доступности](../overview/concepts/geo-scope.md).
@@ -24,14 +24,14 @@
 
 - Консоль управления
 
-  1. Откройте раздел **{{ dns-name }}** в каталоге, где требуется создать зону DNS.
-  1. Нажмите кнопку **Создать зону**.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в каталоге, где требуется создать зону DNS.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки зоны:
-     1. **Имя**: `test-zone`.
-     1. **Зона**: `testing`.
-     1. **Тип**: `Внутренняя`.
-     1. **Сеть**: сеть, в которой находятся ваши ВМ. 
-  1. Нажмите кнопку **Создать**.
+     1. **{{ ui-key.yacloud.dns.label_zone }}**: `testing`.
+     1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_private }}`.
+     1. **{{ ui-key.yacloud.common.name }}**: `test-zone`.
+     1. **{{ ui-key.yacloud.dns.label_networks }}**: сеть, в которой находятся ваши ВМ. 
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -52,19 +52,19 @@
 - Консоль управления
 
   1. Откройте список зон и выберите зону `test-zone`.
-  1. Выберите **Записи** в меню слева.
-  1. Нажмите кнопку **Создать запись**. Задайте параметры записи:
-     1. **Имя**: `test-vm-1`.
-     1. **Тип**: `А`.
-     1. **TTL**: `600`.
-     1. **Значение**: [внутренний IP-адрес](../vpc/concepts/address.md#internal-addresses) ВМ `test-vm1`.
-  1. Нажмите кнопку **Создать**.
-  1. Нажмите кнопку **Создать запись** еще раз. Задайте параметры еще одной записи:
-     1. **Имя**: `test-vm-2`.
-     1. **Тип**: `А`.
-     1. **TTL**: `600`.
-     1. **Значение**: внутренний IP-адрес ВМ `test-vm2`.
-     1. Нажмите кнопку **Создать**.
+  1. Выберите **{{ ui-key.yacloud.dns.label_zone-record-sets }}** в меню слева.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. Задайте параметры записи:
+     1. **{{ ui-key.yacloud.common.name }}**: `test-vm-1`.
+     1. **{{ ui-key.yacloud.common.type }}**: `А`.
+     1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
+     1. **{{ ui-key.yacloud.dns.label_records }}**: [внутренний IP-адрес](../vpc/concepts/address.md#internal-addresses) ВМ `test-vm1`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** еще раз. Задайте параметры еще одной записи:
+     1. **{{ ui-key.yacloud.common.name }}**: `test-vm-2`.
+     1. **{{ ui-key.yacloud.common.type }}**: `А`.
+     1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
+     1. **{{ ui-key.yacloud.dns.label_records }}**: внутренний IP-адрес ВМ `test-vm2`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -113,13 +113,13 @@ test-vm-2.testing has address 10.0.0.9
 
 - Консоль управления
 
-  1. Откройте раздел **{{ dns-name }}** в каталоге, где требуется создать зону DNS.
-  1. Нажмите кнопку **Создать зону**.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в каталоге, где требуется создать зону DNS.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки зоны:
-     1. **Имя**: `test-public-zone`.
-     1. **Зона**: `example.com.`
-     1. **Тип**: `Публичная`.
-  1. Нажмите кнопку **Создать**.
+     1. **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`
+     1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
+     1. **{{ ui-key.yacloud.common.name }}**: `test-public-zone`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -140,13 +140,13 @@ test-vm-2.testing has address 10.0.0.9
 - Консоль управления
 
   1. Откройте список зон и выберите зону `test-public-zone`.
-  1. Выберите **Записи** в меню слева.
-  1. Нажмите кнопку **Создать запись**. Задайте параметры записи:
-     1. **Имя**: `www`.
-     1. **Тип**: `А`.
-     1. **TTL**: `600`.
-     1. **Значение**: публичный IP-адрес ВМ `test-vm-1`.
-  1. Нажмите кнопку **Создать**.
+  1. Выберите **{{ ui-key.yacloud.dns.label_zone-record-sets }}** в меню слева.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. Задайте параметры записи:
+     1. **{{ ui-key.yacloud.common.name }}**: `www`.
+     1. **{{ ui-key.yacloud.common.type }}**: `А`.
+     1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
+     1. **{{ ui-key.yacloud.dns.label_records }}**: публичный IP-адрес ВМ `test-vm-1`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

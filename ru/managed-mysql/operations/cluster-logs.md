@@ -10,15 +10,15 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mmy-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **Логи**.
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. Выберите тип отображаемых событий. По умолчанию используется тип `MYSQL_ERROR`.
     1. При необходимости укажите хосты и уровень логирования в выпадающих списках рядом с полем ввода дат.
 
     Будет отображен список записей в логе за выбранный период времени. Чтобы посмотреть подробную информацию о событии, нажмите на интересующую запись в списке.
 
-    Если записей слишком много и отображается только часть из них, нажмите на ссылку **Загрузить еще** в конце списка.
+    Если записей слишком много и отображается только часть из них, нажмите на ссылку **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** в конце списка.
 
 - CLI
 
@@ -71,9 +71,15 @@
 
 - API
 
-    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе:
 
-    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
+    * Тип логов в параметре `serviceType`:
+
+        {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
 {% endlist %}
 
@@ -99,8 +105,14 @@
 
 - API
 
-    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе:
 
-    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор кластера в параметре `clusterId`.
+
+        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
+    * Тип логов в параметре `serviceType`:
+
+        {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
 {% endlist %}

@@ -8,15 +8,52 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создано файловое хранилище.
-     1. Выберите сервис **{{ compute-name }}**.
-     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **Файловые хранилища**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
      1. Выберите нужное хранилище.
-     1. Перейдите на вкладку **Виртуальные машины**.
-     1. Нажмите кнопку **Подключить к ВМ**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}**.
+     1. Нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
      1. В открывшемся окне:
-        1. Выберите **Виртуальную машину**.
-        1. Укажите **Имя устройства**, под которым файловое хранилище будет доступно в ВМ.
-        1. Нажмите кнопку **Подключить к ВМ**.
+        1. Выберите виртуальную машину.
+        1. Укажите имя устройства, под которым файловое хранилище будет доступно в ВМ.
+        1. Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
+
+   - {{ TF }}
+
+      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      Если вы не указали для ВМ параметр `allow_stopping_for_update` в значении `true`, сделайте это.
+
+      Чтобы подключить файловое хранилище к виртуальной машине, добавьте к ее описанию блок `filesystem` с параметром `filesystem_id` (см. пример).
+
+      1. Откройте файл конфигурации {{ TF }} и добавьте фрагмент с описанием хранилища к описанию ВМ:
+
+          {% cut "Пример описания хранилища в конфигурации ВМ в {{ TF }}" %}
+
+          ```hcl
+          ...
+          resource "yandex_compute_instance" "vm-1" {
+            name        = "test-vm"
+            platform_id = "standard-v3"
+            zone        = "{{ region-id }}-a"
+
+            filesystem {
+              filesystem_id = "fhmaikp755grp4mlvvem"
+            }
+          ...
+          ```
+
+          {% endcut %}
+
+      1. Примените изменения:
+
+          {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      Проверить присоединение хранилища к ВМ можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+        ```bash
+        yc compute instance get <имя_ВМ>
+        ```
 
    - API
 
@@ -29,7 +66,7 @@
    1. Выполните команду:
 
       ```bash
-      sudo mount -t virtiofs <имя устройства> <путь для монтирования>
+      sudo mount -t virtiofs <имя_устройства> <путь_для_монтирования>
       ```
 
    1. Проверьте, что файловое хранилище смонтировано:
@@ -53,7 +90,7 @@
       ```
 
    1. Чтобы файловое хранилище монтировалось при каждом запуске ВМ, добавьте в файл `/etc/fstab` строку вида:
-
-      ```text
-      <имя устройства>  <путь для монтирования> virtiofs    rw    0   0
+   
+      ```
+      <имя_устройства>  <путь_для_монтирования> virtiofs    rw    0   0
       ```

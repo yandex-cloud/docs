@@ -6,16 +6,16 @@
 
 Вы можете настроить вашу [стартовую страницу](startpage.md) в старом интерфейсе так, чтобы на ней отображался любой из предложенных вариантов:
 
-* [**Моя страница**](startpage.md#my-page);
+* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page);
 * [фильтр](create-filter.md);
 * [дашборд](dashboard.md);
 * [доска задач](../manager/create-agile-board.md).
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **Стартовая страница** укажите какой фильтр, дашборд или доску задач вы хотите видеть на главной странице. Чтобы сделать стартовой **Мою страницу**, выберите ее в списке.
+1. В блоке **{{ ui-key.startrek.ui_components_NavigationBar.start-page-title }}** укажите какой фильтр, дашборд или доску задач вы хотите видеть на главной странице. Чтобы сделать стартовой **Мою страницу**, выберите ее в списке.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 ## Настроить язык интерфейса {#choose-language}
 
@@ -23,7 +23,7 @@
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. В блоке **Язык и регион** выберите нужный язык.
+1. В блоке **{{ ui-key.yacloud.settings.switch_lang }}** выберите нужный язык.
 
 ## Настроить оформление {#choose-theme}
 
@@ -31,13 +31,13 @@
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. В блоке **Оформление** выберите нужную тему.
+1. В блоке **{{ ui-key.yacloud.settings.switch_appearance }}** выберите нужную тему.
 
-1. Чтобы при нажатии на название или ключ (например, **TEST-123**) задача открывалась на боковой панели справа, выберите вариант **Да**.
+1. Чтобы при нажатии на название или ключ (например, **TEST-123**) задача открывалась на боковой панели справа, выберите вариант **{{ ui-key.startrek.ui_components_Confirm.ok-button-text }}**.
 
 ## Настроить отображение пользователей {#sec_display}
 
-По умолчанию в полях **Автор**, **Исполнитель** и **Наблюдатели** отображаются имена и фамилии пользователей. Чтобы на странице задачи вместо имен и фамилий отображались логины или портреты, измените способ отображения пользователей.
+По умолчанию в полях **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}** и **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** отображаются имена и фамилии пользователей. Чтобы на странице задачи вместо имен и фамилий отображались логины или портреты, измените способ отображения пользователей.
 
 {% cut "Скриншот" %}
 
@@ -49,8 +49,8 @@
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **Отображение пользователей** выберите удобный для вас способ:
-    - Выберите **Показывать логин вместо имени**, чтобы в системных полях задачи вместо имен и фамилий отображались логины.
+1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.users-display-format }}** выберите удобный для вас способ:
+    - Выберите **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-login }}**, чтобы в системных полях задачи вместо имен и фамилий отображались логины.
 
         {% cut "Скриншот" %}
 
@@ -58,7 +58,7 @@
 
         {% endcut %}
 
-    - Выберите **Включить режим портретов для списков пользователей**, чтобы в полях со списком пользователей отображались только аватары. Настройка не влияет на поля **Автор** и **Исполнитель**.	
+    - Выберите **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-icons-in-lists }}**, чтобы в полях со списком пользователей отображались только аватары. Настройка не влияет на поля **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}** и **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**.	
 
         {% cut "Скриншот" %}
 
@@ -66,7 +66,7 @@
 
         {% endcut %}
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 ## Настроить отображение дат {#sec_display_date}
 
@@ -76,9 +76,9 @@
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **Формат дат** выберите нужный формат.
+1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.date-format }}** выберите нужный формат.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 ## Настроить уведомления {#sec_notifications}
 
@@ -91,7 +91,7 @@
     - Настройте [отображение имен и типа события в письмах](notification-settings.md#section_u1f_3w5_xgb).
     - Включите или отключите [уведомления об изменениях, которые вы сделали в задачах](subscribe.md#sec_self).
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 Подробнее об уведомлениях читайте в разделах:
 
@@ -104,9 +104,9 @@
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **Порядок сообщений в задаче** включите опцию **Сначала новые**.
+1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-and-history }}** включите опцию **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-new-on-top }}**.
 
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 ## Бета-версия нового интерфейса {#sec_beta}
 
@@ -120,4 +120,4 @@
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. В блоке **Эксперименты** выключите опцию **Бета-версия нового интерфейса**.
+1. В блоке **{{ ui-key.yacloud.settings.switch_experiments }}** выключите опцию **Бета-версия нового интерфейса**.

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/update.md
+sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/update.md
 ---
 
 # Data Proc API, REST: Subcluster.update

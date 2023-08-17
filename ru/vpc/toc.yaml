@@ -46,8 +46,6 @@ items:
         items:
           - name: Создать статический маршрут
             href: operations/static-route-create.md
-          - name: Включить NAT в интернет
-            href: operations/enable-nat.md
           - name: Создать и настроить NAT-шлюз
             href: operations/create-nat-gateway.md
           - name: Перенести таблицу маршрутизации между каталогами
@@ -74,6 +72,8 @@ items:
         items:
           - name: Включить защиту от DDoS-атак
             href: operations/enable-ddos-protection.md
+          - name: Настроить MTU при включении защиты от DDoS-атак
+            href: operations/adjust-mtu-ddos-protection.md
       - name: График сетевых соединений
         href: operations/connections-view.md
   - name: Практические руководства
@@ -84,18 +84,32 @@ items:
         href: tutorials/web-service.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: tutorials/nat-instance.md
-      - name: Создание туннеля IPSec VPN
-        href: tutorials/ipsec-vpn.md
+      - name: Организация сетевой связности с помощью IPsec-шлюзов
+        items:
+          - name: Схема решения
+            href: tutorials/ipsec/index.md
+          - name: Самостоятельная реализация средствами {{ yandex-cloud }}
+            href: tutorials/ipsec/ipsec-vpn.md
+          - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
+            href: tutorials/ipsec/sgw.md
       - name: Установка виртуального роутера Cisco CSR 1000v
         href: tutorials/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: tutorials/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: tutorials/openvpn.md
+      - name: >-
+          Защищенный доступ пользователей к облачным ресурсам на основе
+          WireGuard VPN
+        href: tutorials/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: tutorials/usergate-proxy.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
+      - name: Сеть между каталогами
+        href: tutorials/multi-folder-vpc.md
+      - name: Настройка PT Application Firewall
+        href: tutorials/pt-application-firewall.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

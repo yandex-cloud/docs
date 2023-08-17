@@ -47,7 +47,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the topic you need.
 
-   1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+   1. (Optional) To use username and password authorization, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -86,7 +86,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. Configure the source cluster to enable the user you created to connect to all the cluster's [master hosts](../../managed-greenplum/concepts/index.md).
 
-   1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode. To do this, make sure that the "Access from {{ data-transfer-name }}" setting is enabled for the cluster.
+   1. If you are going to use [parallel copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode. To do this, make sure that the "Access from {{ data-transfer-name }}" setting is enabled for the cluster.
 
    1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
@@ -114,7 +114,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. Configure the source cluster to enable the user you created to connect to all the cluster's [master hosts](../../managed-greenplum/concepts/index.md).
 
-   1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode.
+   1. If you are going to use [parallel copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode.
 
    1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
@@ -132,6 +132,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 {% endlist %}
 
 {{ data-transfer-name }} works with {{ GP }} differently depending on the transfer configuration and the source cluster contents. Detailed information is available in the section on [{{ GP }} source endpoint settings](../operations/endpoint/source/greenplum.md).
+
 
 ### {{ MG }} source {#source-mg}
 
@@ -245,7 +246,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Enable full binary logging](../../managed-mysql/operations/update.md#change-mysql-config) on the source by setting the [**Binlog row image** parameter](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) to `FULL` or `NOBLOB`.
 
-   1. (optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
+   1. (Optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
 
    1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
@@ -279,7 +280,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       In both cases, this lets replication continue even after changing the master host.
 
-   1. (optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
+   1. (Optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
 
    1. Create a user to connect to the source and grant them the required privileges:
 
@@ -302,6 +303,14 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 {% endlist %}
 
 ### Oracle source {#source-oracle}
+
+{% note info %}
+
+Some versions of Oracle use `V_$` instead of `V$` as the prefix for system objects. For example, `V_$DATABASE` instead of `V$DATABASE`.
+
+If you get an error like "`can only select from fixed tables/views`" when granting permissions to system objects, try changing the prefixes.
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -350,7 +359,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       1. Grant privileges to the created user:
 
-           ```sql
+            ```sql
             GRANT SELECT ON V$DATABASE TO <username>;
             GRANT SELECT ON V$LOG TO <username>;
             GRANT SELECT ON V$LOGFILE TO <username>;
@@ -364,7 +373,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
             GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO <username>;
             GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO <username>;
             GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO <username>;
-           ```
+            ```
 
         1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
         1. Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
@@ -629,7 +638,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `yds.editor` role.
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
+1. (Optional) [Create a processing function](../../functions/operations/function/function-create.md).
 
    {% cut "Processing function example" %}
 
@@ -690,7 +699,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    {% endcut %}
 
-1. (optional) Prepare a data schema file in JSON format.
+1. (Optional) Prepare a data schema file in JSON format.
 
    Sample file with a data schema:
 
@@ -751,6 +760,24 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    1. Create a user with access to the target database.
 
       Once started, the transfer will connect to the target on behalf of this user.
+
+{% endlist %}
+
+### {{ ES }} target {#target-es}
+
+{% list tabs %}
+
+
+- {{ mes-name }}
+
+   {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
+
+
+- {{ ES }}
+
+   * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+   {% include [prepare-es](../../_includes/data-transfer/prepare-es.md) %}
 
 {% endlist %}
 
@@ -831,6 +858,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
       Once started, the transfer will connect to the target on behalf of this user.
 
 {% endlist %}
+
 
 ### {{ MG }} target {#target-mg}
 
@@ -1011,6 +1039,24 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role.
 
 
+### {{ OS }} target {#target-os}
+
+{% list tabs %}
+
+
+- {{ mos-name }}
+
+   {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+
+- {{ OS }}
+
+   * {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+   {% include [prepare-os](../../_includes/data-transfer/prepare-os.md) %}
+
+{% endlist %}
+
 ### {{ PG }} target {#target-pg}
 
 {% list tabs %}
@@ -1035,17 +1081,28 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. In the target database, [enable the same extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) that are enabled in the source database.
 
+   1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
+
    1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the target database.
 
-      Once started, the transfer will connect to the target on behalf of this user.
+   1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
+      ```sql
+      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      ```
+
+      If the database is not empty, the user must be its owner:
+
+      ```sql
+      ALTER DATABASE <database name> OWNER TO <username>;
+      ```
+
+      Once started, the transfer will connect to the target on behalf of this user.
    1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it's `public`) on the target:
 
       ```sql
       GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
       ```
-
-   1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
 
 - {{ PG }}
 

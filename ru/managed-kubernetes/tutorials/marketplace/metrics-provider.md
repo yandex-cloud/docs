@@ -50,7 +50,7 @@
        spec:
          containers:
            - name: nginx
-             image: k8s.gcr.io/hpa-example
+             image: registry.k8s.io/hpa-example
              resources:
                requests:
                  memory: "256Mi"
@@ -170,7 +170,7 @@ Events:           <none>
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
 1. [Удалите кластер {{ managed-k8s-name }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластера [публичный статический IP-адрес](../../../vpc/concepts/address.md#public-addresses), [удалите его](../../../vpc/operations/address-delete.md).

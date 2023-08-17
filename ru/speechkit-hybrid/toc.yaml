@@ -9,24 +9,28 @@ items:
     hidden: true
   - name: Архитектура сервиса
     href: architecture.md
-  - name: Синтез речи
-    items:
-      - name: О технологии
-        href: tts/index.md
-      - name: Тестирование производительности
-        href: tts/testing.md
+  - name: Начало работы
+    href: quickstart.md
   - name: Распознавание речи
     items:
       - name: О технологии
         href: stt/index.md
       - name: Тестирование производительности
         href: stt/testing.md
+  - name: Синтез речи
+    items:
+      - name: О технологии
+        href: tts/index.md
+      - name: Тестирование производительности
+        href: tts/testing.md
   - name: Администрирование {{ sk-hybrid-name }}
     items:
       - name: Настройки сервиса
         href: settings.md
-      - name: Мониторинг
+      - name: Мониторинг сервисов {{ sk-hybrid-name }}
         href: monitoring.md
+      - name: Мониторинг Envoy
+        href: monitoring-envoy.md
       - name: Уровни логирования
         href: operations/logging.md
       - name: Терминирование TLS

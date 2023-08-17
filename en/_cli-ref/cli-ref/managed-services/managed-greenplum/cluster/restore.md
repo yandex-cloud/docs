@@ -40,6 +40,8 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Greenplum cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
+|`--segment-host-count`|<b>`int`</b><br/>Number of segment hosts.|
+|`--segment-in-host`|<b>`int`</b><br/>Number of segments on host.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

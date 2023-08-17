@@ -13,7 +13,11 @@
   1. Выберите пункт **Создать авторизованный ключ**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
-  1. Сохраните открытый и закрытый ключи: закрытый ключ не сохраняется в {{ yandex-cloud }}, открытый ключ нельзя будет посмотреть в консоли управления.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**. В открывшемся окне:
+      1. Скопируйте открытый и закрытый ключи и надежно сохраните. Закрытый ключ не сохраняется в {{ yandex-cloud }}, открытый ключ нельзя будет посмотреть в консоли управления.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
+      
+         Также вы можете скачать ключи одним файлом в формате JSON. Для этого нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
 - CLI
 
@@ -32,7 +36,7 @@
   ```json
   {
      "id": "lfkoe35hsk58aks301nl",
-     "service_account_id": "ajepg0mjt06siua65usm",
+     "service_account_id": "ajepg0mjt06s********",
      "created_at": "2019-03-20T10:04:56Z",
      "key_algorithm": "RSA_2048",
      "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
@@ -68,10 +72,10 @@
       "key": {
           "createdAt": "2018-10-30T15:55:00+00:00",
           "description": "",
-          "id": "lfkoe35hsk58aks301nl",
+          "id": "lfkoe35hsk58********",
           "keyAlgorithm": "RSA_2048",
           "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
-          "serviceAccountId": "ajepg0mjt06siua65usm"
+          "serviceAccountId": "ajepg0mjt06s********"
       },
       "privateKey": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
   }
@@ -92,14 +96,14 @@
 
        ```
        resource "yandex_iam_service_account_key" "sa-auth-key" {
-         service_account_id = "<идентификатор сервисного аккаунта>"
-         description        = "<описание ключа>"
-         key_algorithm      = "<алгоритм генерации ключа>"
-         pgp_key            = "<pgp-ключ>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+         description        = "<описание_ключа>"
+         key_algorithm      = "<алгоритм_генерации_ключа>"
+         pgp_key            = "<pgp_ключ>"
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_key).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_key).
 
     1. Проверьте корректность конфигурационных файлов.
 

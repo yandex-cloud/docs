@@ -1,4 +1,4 @@
-# Reset the interpreter state
+# Resetting the interpreter state
 
 {% note alert %}
 
@@ -9,7 +9,7 @@ This action resets all results and clears the state of variables.
 To reset the interpreter state:
 
 1. In the top panel in the project window, click **Kernel**.
-1. In the menu that opens, click **Reset kernel state (variables)**.
+1. In the menu that opens, click **Reset Variables in Kernel State**.
 
 #### What's next {#what-is-next}
 

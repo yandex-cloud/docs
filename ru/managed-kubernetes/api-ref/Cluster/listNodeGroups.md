@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/api-ref/Cluster/listNodeGroups.md
+sourcePath: en/_api-ref/k8s/v1/api-ref/Cluster/listNodeGroups.md
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.listNodeGroups
@@ -119,6 +119,10 @@ filter | <p>A filter expression that filters resources listed in the response. C
         },
         "containerNetworkSettings": {
           "podMtu": "string"
+        },
+        "gpuSettings": {
+          "gpuClusterId": "string",
+          "gpuEnvironment": "string"
         }
       },
       "scalePolicy": {
@@ -269,6 +273,9 @@ nodeGroups[].<br>nodeTemplate.<br>containerRuntimeSettings | **object**
 nodeGroups[].<br>nodeTemplate.<br>containerRuntimeSettings.<br>type | **string**<br><p>Required.</p> 
 nodeGroups[].<br>nodeTemplate.<br>containerNetworkSettings | **object**
 nodeGroups[].<br>nodeTemplate.<br>containerNetworkSettings.<br>podMtu | **string** (int64)
+nodeGroups[].<br>nodeTemplate.<br>gpuSettings | **object**<br><p>GPU settings</p> 
+nodeGroups[].<br>nodeTemplate.<br>gpuSettings.<br>gpuClusterId | **string**<br><p>GPU cluster id, that mk8s node will join.</p> 
+nodeGroups[].<br>nodeTemplate.<br>gpuSettings.<br>gpuEnvironment | **string**<br><p>GPU environment configured on node.</p> <ul> <li>GPU_ENVIRONMENT_UNSPECIFIED: Use one of the values below, depending on the default for the specific Cloud installation. - RUNC_DRIVERS_CUDA: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.</li> <li>RUNC: Use a node image with the pre-installed GPU toolkit but without drivers. You should install drivers on a node yourself in that case. There are tools to help you to do that, for example gpu-operator.</li> </ul> 
 nodeGroups[].<br>scalePolicy | **object**<br><p>Scale policy of the node group.  For more information, see <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
 nodeGroups[].<br>scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`nodeGroups[].scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br>
 nodeGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

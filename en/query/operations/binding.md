@@ -20,7 +20,7 @@ To create a binding:
 
    1. For the {{ yds-short-name }} connection type, select a data stream or create a new one.
       For the {{ objstorage-short-name }} connection type, specify the bucket path.
-   1. (optional) Select the compression algorithm.
+   1. (Optional) Select the compression algorithm.
    1. Select data binding format.
    1. Add columns:
       * Enter a name for the column.
@@ -38,7 +38,7 @@ To create a binding:
    **General**:
 
      * Data paths.
-     * The data format.
+     * Data format.
      * Compression.
 
    **Schema**: List of data binding columns and their types.

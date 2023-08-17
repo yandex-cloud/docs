@@ -1,0 +1,3 @@
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}** — выберите тип [сериализации](../../data-transfer/concepts/serializer.md): `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_auto.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}`.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}** — укажите параметры [сериализации Debezium](../../data-transfer/concepts/serializer.md#debezium).

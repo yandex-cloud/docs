@@ -16,5 +16,6 @@
 * [{#T}](./managed-kafka-to-greenplum.md)
 * [{#T}](./mkf-to-mpg.md)
 * [{#T}](./mkf-to-mch-migration.md)
+* [{#T}](./mkf-to-mes-migration.md)
 * [{#T}](./mkf-ydb-stream.md)
 * [{#T}](./mkf-yds-stream.md)

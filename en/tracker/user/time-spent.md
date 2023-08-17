@@ -1,81 +1,63 @@
-# Specifying time spent
+# Registering time spent
 
-{{ tracker-name }} can keep a record of the time you spent on an issue.
+In {{ tracker-name }}, you can keep track of the time you spent resolving the issue.
 
-To make sure issue statistics are correct, do not enter any data for another employee. It's important that each assignee register the time spent themselves.
+To make sure that the issue statistics is correct, do not enter data on behalf of another employee. It's important that each employee register their time spent themselves.
 
-Time is tracked in business weeks (5 work days), business hours (8 hours), hours, minutes, and seconds.
+The time spent is counted in working weeks (5 working days), working days (8 hours), hours, minutes, and seconds.
 
 ## Time tracking {#spent-time}
 
-The **Time tracking** section displays the time allotted to and spent on resolving the issue.
+The **Time spent** section shows the time planned and spend on the issue.
 
-Before you start working on your issue, we recommend specifying the time you plan to spend on it. Once you finish, you will be able to compare your estimate with how much time you actually spent on the issue.
+Before getting started with an issue, we recommend that you specify the time you're planning to spend on it. When the work is complete, you can compare your preliminary evaluation with the actually spent time.
 
-* **Original estimate**: How much time you're planning to spend on the issue.
+* **Original Estimate**: The time planned to spend on the issue execution.
 
-* **Estimate**: You can specify how much time you still need to resolve the issue. Fill it in before or after you begin working on the issue.
+* **Estimate**: You can specify the time left to be spent on resolving the issue. Fill it out in the beginning or in the process of working on the issue.
 
-    * If you don't specify a time value in the **Original estimate** field, the value in the **Estimate** field will be recalculated each time you [register the time spent](#section_y1t_gkh_vcb) on the issue.
+   * If you don't specify time in the **Original Estimate** field, whenever you [register time](#add-time-spent), the value in the **Estimate** field will decrease by the registered value.
 
-    * If you specified a time value in the **Original estimate** field, the value in the **Estimate** field will start to decrease accordingly once you go over your initial estimate.
+   * If you specify time in the **Original Estimate** field, the value in the **Estimate** field will start decreasing by registered values after you spend more time on the issue than the original estimate.
 
-* **Time spent**: How much time you eventually spent on the issue. If you added [multiple records of time spent](#section_y1t_gkh_vcb) on an issue, this field will display the total time spent.
+* **Time Spent**: The total time spent to resolve the issue. If you added [several records on the time spent](#add-time-spent), this field will show the total value.
 
-## Specifying time spent {#section_y1t_gkh_vcb}
+## Registering time spent {#add-time-spent}
 
-To register the time spent:
+To register spent time:
 
 1. Open the issue page.
 
-1. Select **Actions** → **Add time spent**.
+1. In the upper-right corner, select **Actions** → **Add time spent**.
+
+1. Select the date of the record creation.
 
 1. Fill in the **Time spent** field.
 
-   Example:
+   E.g.:
    * 1 week and 3 days: `1w 3d`, `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`, `3h 20m 30s`.
 
-1. If necessary, enter the start time and leave a comment. The comment won't be visible in the issue, but it will be saved in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
+1. If necessary, leave a comment. The comment won't be visible in the issue, but it will be saved in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
 
 1. Click **Save**.
 
-{% note info  %}
+{% note info %}
 
 You can add multiple entries. The time entered is summed up.
 
-You can only change the saved value via an [API request](../concepts/issues/patch-worklog.md).
+You can change the saved value only by sending a [request to the API](../concepts/issues/patch-worklog.md).
 
 {% endnote %}
 
-Any user can record the time spent, not just the issue assignee. The [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz) will show the time spent by all users who added time to the issue.
+Any user can register their spent time, not only the issue's assignee. The [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz) will show efforts of all users who added their spent time to the issue.
 
-## Viewing time spent {#section_cqc_hkh_vcb}
+## View time spent {#show-time-spent}
 
-{% list tabs %}
+You can view the time spent on an issue under **Time spent** in the right panel on the issue page or in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
 
-- Web interface
+If the issue doesn't show the **Time spent** section, add it:
 
-  You can view the time spent on an issue under **Time spent** on the right panel or in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
+1. Click **![](../../_assets/tracker/svg/add-filter.svg) Edit parameter list** on the right panel.
 
-  If the **Time spent** section is not displayed in the issue details, add it:
-
-  1. Click ![](../../_assets/tracker/task-params-btn.png) **Select fields** on the issue details panel.
-
-  1. Under **Time spent**, enable the **Time spent** and **Estimate** options.
-
-- Mobile app
-
-  To view the amount of time you spent on a issue, go to the **Parameters** tab on the issue page. The time spent is displayed under **Time spent**.
-
-  To edit your issue estimate, to the right of the **Estimate** field, tap ![](../../_assets/tracker/mobile-edit-param.png). Enter a new value and tap **Save**.
-
-  {% note info %}
-
-  If the **Time spent** section is missing, go to the web interface and add the **Time spent** and **Estimate** fields on the right panel by tapping ![](../../_assets/tracker/task-params-btn.png) **Select fields**.
-
-
-  {% endnote %}
-
-{% endlist %}
-
+1. Under **Time spent**, enable the **Time spent** and **Estimate** options.

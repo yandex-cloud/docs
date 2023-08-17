@@ -15,9 +15,10 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
    `Authorization: Bearer <your IAM token>`: If an [IAM token](#iam-token) is used.
 
-* `X-Org-ID: <organization ID>`
-
-   To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+* `ID: <organization ID>`
+   * `X-Org-Id`: ID of the {{ yandex-360 }} organization linked to {{ tracker-name }}.
+   * `X-Cloud-Org-Id`: ID of the {{ yandex-cloud }} organization linked to {{ tracker-name }}.
+      You can copy the organization ID on the [{{ tracker-name }} organization source page]({{ link-tracker }}admin/orgs).
 
 
 ## Getting access to the API via OAuth 2.0 {#section_about_OAuth}
@@ -33,7 +34,7 @@ To get access to {{ api-name }}:
 
    1. Under **Platforms**, select the platform you need and specify its parameters.
 
-      If you are developing or testing an application, use a [debug token]({{ link-OAuth-debug-token }}). To get it, select **Web services** and, in the **Redirect URI** field, enter the default value from the **Enter URL for debugging**: `{{ link-OAuth }}verification_code` prompt.
+      If you are developing or testing an application, use a [debug token]({{ link-OAuth-debug-token }}). To get it, select **Web services** and, in the **Redirect URI** field, enter the default value from the **Enter URL for debugging** prompt: `{{ link-OAuth }}verification_code`.
 
    1. Under **Data access**, select {{ tracker-name }} access permissions that your application needs:
 
@@ -61,6 +62,7 @@ To get access to {{ api-name }}:
 1. Use the obtained token in the `Authorization` header when making requests to the {{ tracker-name }} API. The OAuth token grants the same permissions as those of the user account in {{ tracker-name }}. For example, if the user is not allowed to change queue settings, API requests to change queue settings will not be available using this token.
 
 1. To check if you have access to the API, [request information about the current user](../get-user-info.md).
+
    If no access permission is granted, you will get a response with the `401 Unauthorized` code.
 
 

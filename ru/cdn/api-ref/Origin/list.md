@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/api-ref/Origin/list.md
+sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/list.md
 ---
 
 # Cloud CDN API, REST: Origin.list

@@ -1,17 +1,16 @@
 ---
 title: "Graphics accelerators (GPUs)"
-description: "GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU in terms of processing certain types of data. It can be used for complex computing. Compute Cloud provides graphics accelerators (GPUs) as part of graphics cards."
+description: "GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU in terms of processing certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards."
 ---
 
 # Graphics accelerators (GPUs)
 
-{{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs in terms of processing certain types of data and can be used for complex computing.
+{{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs in terms of processing certain types of data and can be used for complex computing. To make problem solving even more efficient and convenient, you can use automatic allocation of resources in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
 In {{ compute-name }}, you can use the following GPUs:
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory). 
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
-* [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6. 
-
+* [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6.
 
 {% note warning %}
 
@@ -19,12 +18,10 @@ GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference
 
 {% endnote %}
 
-
-By default, the cloud has a zero [quota](../concepts/limits.md#compute-quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
+{% include [gpu-zero-quota](../../_includes/compute/gpu-zero-quota.md) %}
 
 
 VMs with GPUs cannot be created in the `{{ region-id }}-c` availability zone. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
-
 
 
 ## Graphics accelerators (GPUs) {#gpu}
@@ -49,6 +46,9 @@ The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-
 NVIDIA® Tesla® T4 based on the [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) architecture uses Turing tensor cores, as well as the RT cores, and provides 16 GB of GDDR6 memory with a [throughput of 300 GB/s](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
 
+
+
+
 ### VM configurations {#config}
 
 The computing resources may have the following configurations:
@@ -57,7 +57,7 @@ The computing resources may have the following configurations:
 * {{ v100-broadwell }} (`gpu-standard-v1`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 32 | 8 | 96 |
   | 2 | 64 | 16 | 192 |
   | 4 | 128 | 32 | 384 |
@@ -65,7 +65,7 @@ The computing resources may have the following configurations:
 * {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 32 | 8 | 48 |
   | 2 | 64 | 16 | 96 |
   | 4 | 128 | 32 | 192 |
@@ -75,23 +75,27 @@ The computing resources may have the following configurations:
 * {{ a100-epyc }} (`gpu-standard-v3`):
 
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 80 | 28 | 119 |
   | 2 | 160 | 56 | 238 |
   | 4 | 320 | 112 | 476 |
   | 8 | 640 | 224 | 952 |
 
+* {{ t4-ice-lake }} (`standard-v3-t4`):
 
-* {{ t4-ice-lake }} (`gpu-standard-v3-t4`):
-
+  
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
-  | --- | --- | --- | --- |
+  --- | --- | --- | ---
   | 1 | 16 | 4 | 16 |
   | 1 | 16 | 8 | 32 |
   | 1 | 16 | 16 | 64 |
   | 1 | 16 | 32 | 128 |
 
+
+
+
 VM GPUs are provided in full. For example, if a configuration has four GPUs specified, your VM will have four full-featured GPU devices.
+
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 
@@ -101,6 +105,7 @@ For more information about organizational and technical limitations for VMs, see
 ### OS images {#os}
 
 {% include [gpu-os](../../_includes/compute/gpu-os.md) %}
+
 
 ## GPU clusters {#gpu-clusters}
 
@@ -113,6 +118,7 @@ To use GPU clusters, contact your account manager.
 You can group multiple VMs running on 8 NVIDIA A100 GPUs into a cluster. This will allow you to accelerate distributed training tasks that require higher computing capacity than individual VMs can provide. Make sure the cluster is created in the same availability zone as its VMs. The cluster VMs are interconnected through InfiniBand, a secure high-speed network.
 
 You can add VMs from different folders, networks, and subnets to your cluster. For the cluster VMs to interact properly, we recommend using a [security group](../../vpc/concepts/security-groups.md) that allows unlimited traffic within the group. The default security group meets this requirement. If you edited the default security group, add a group with unlimited internal traffic.
+
 
 ## See also {#see-also}
 

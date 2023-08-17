@@ -23,11 +23,11 @@ To grant the user permissions:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles {#roles}
+## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ service-name }} service.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+### Service roles {#service-roles}
 
 {% include [roles-ymq-reader](../../_includes/roles-ymq-reader.md) %}
 
@@ -35,21 +35,11 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [roles-ymq-admin](../../_includes/roles-ymq-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-Users with the `{{ roles-viewer }}` role can view lists of cloud message queues and their details.
+### Primitive roles {#primitive-roles}
 
-### {{ roles-editor }} {#editor}
-
-Users with the `{{ roles-editor }}` role can perform any operations on message queues and messages.
-
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
-
-### {{ roles-admin }} {#admin}
-
-Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to create message queues and messages or view their details.
-
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## See also {#see-also}
 

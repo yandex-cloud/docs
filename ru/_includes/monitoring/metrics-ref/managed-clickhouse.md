@@ -70,14 +70,14 @@ shard | Идентификатор шарда
 | ----- | ----- |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, байты | Гарантированный размер оперативной памяти. | 
 | `mem.limit_bytes`<br/>`DGAUGE`, байты | Предельный размер оперативной памяти. | 
-| `mem.active_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `active`. | 
+| `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
 | `mem.available_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `available`. | 
 | `mem.buffers_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `buffers`.  | 
 | `mem.cached_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `cached`.  | 
-| `mem.free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `free`.  |
+| `mem.free_bytes`<br/>`DGAUGE`, байты | Объем свободной оперативной памяти, доступной для использования, без учета `mem.buffers_bytes` и `mem.cached_bytes`.  |
 | `mem.shared_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `shared`.  | 
 | `mem.total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `total`.  | 
-| `mem.used_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `used`.  | 
+| `mem.used_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которую в данный момент используют запущенные процессы.  | 
 
 ### Метрики сети {#managed-clickhouse-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -411,7 +411,7 @@ shard | Идентификатор шарда
 ##### Системные метрики {#managed-clickhouse-config-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого ClickHouse отправляет исключение `Too many parts ....` Задается в [настройках](https://cloud.yandex.ru/docs/managed-clickhouse/concepts/settings-list#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого ClickHouse отправляет исключение `Too many parts ....` Задается в [настройках](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, байты | Размер партиций на локальных дисках. |
 | `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, штуки | Максимальное число кусков данных в разделе. | 
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, секунды | Максимальное время задержки репликации. | 

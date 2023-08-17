@@ -483,7 +483,7 @@
 
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-Чтобы  с помощью {{ TF }}:
+Чтобы настроить автоматическое сканирование Docker-образа при загрузке  с помощью {{ TF }}:
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -534,10 +534,10 @@
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [yandex_iam_service_account]({{ tf-provider-link }}/yandex_iam_service_account)
-   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/yandex_resourcemanager_folder_iam_member)
-   * [yandex_container_registry]({{ tf-provider-link }}/yandex_container_registry)
-   * [yandex_function]({{ tf-provider-link }}/yandex_function)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/yandex_iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/yandex_resourcemanager_folder_iam_member)
+   * [yandex_container_registry]({{ tf-provider-resources-link }}/yandex_container_registry)
+   * [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
 
 1. В файле `image-auto-scan.auto.tfvars` задайте пользовательские параметры:
     * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет создана инфраструктура.

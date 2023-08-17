@@ -29,6 +29,9 @@ links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
+  - title: Практические руководства
+    description: Сценарии трансферов данных
+    href: tutorials/
   - title: Концепции
     description: Узнайте про устройство и возможности сервиса
     href: concepts/
@@ -44,6 +47,9 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+  - title: Решение проблем
+    description: Перечень известных проблем и способов их решения
+    href: troubleshooting/
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training

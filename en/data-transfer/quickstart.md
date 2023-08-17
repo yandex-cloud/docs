@@ -3,9 +3,9 @@
 Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Go to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
+1. Go to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder does not exist, create it:
 
    {% list tabs %}
 
@@ -49,7 +49,7 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
    {% endlist %}
 
 
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher for the desired folder or the cloud that the folder belongs to.
 
 
@@ -126,7 +126,7 @@ For more information, see [{#T}](./operations/endpoint/index.md).
    * {{ dt-type-copy-reg }}: To create a full copy of data at certain intervals of time.
    * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
    * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
-1. (optional) Add a transfer description.
+1. (Optional) Add a transfer description.
 1. Click **Create**.
 
 For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#transfer-types).
@@ -145,6 +145,6 @@ For more information, see [{#T}](operations/transfer.md).
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [preparing databases for the service](operations/prepare.md) and [setting up transfers](operations/transfer.md).
-* Read [questions and answers](qa/index.md).
+* Check out [our tutorials on using {{ data-transfer-name }}](tutorials/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

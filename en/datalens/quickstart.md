@@ -14,7 +14,7 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## Create a dataset {#create-dataset}
 
-1. In the upper-right corner, click **Create dataset**.
+1. In the top-right corner, click **Create dataset**.
 1. Drag the **MS_SalesMiniTable** table to the workspace.
 
    ![drag-table](../_assets/datalens/quickstart/02-drag-table.png)
@@ -32,13 +32,13 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## Create a column chart {#create-column-chart}
 
-1. In the upper-right corner, click **Create chart**.
+1. In the top-right corner, click **Create chart**.
 1. For the visualization type, choose **Bar chart**.
 1. Add the product subcategory to the chart. To do this, drag the **ProductSubcategory** field from the **Dimensions** section to the **X** section.
 1. Add a sales measure to the chart. To do this, drag the **Sales** field from the **Measures** section to the **Y** section.
 1. Sort the chart in descending order of sales measure. Drag the **Sales** field from the **Measures** section to the **Sorting** section.
 1. Save the chart.
-   1. In the upper-right corner, click **Save**.
+   1. In the top-right corner, click **Save**.
    1. In the window that opens, enter the **Sales by subcategory** name for the chart and click **Save**.
 
    ![create-chart-1](../_assets/datalens/quickstart/04-create-column-chart.png)
@@ -85,7 +85,7 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## Add charts to the dashboard {#add-charts}
 
-1. In the upper-right corner, click **Add** and choose **Chart**.
+1. In the top-right corner, click **Add** and choose **Chart**.
 1. In the window that opens, click **Select**.
 1. Select the **Sales map** chart. This will automatically fill in the **Name** field.
 1. Click **Add**.
@@ -114,6 +114,6 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 ## What's next {#whats-next}
 
 * Review the [tutorials](tutorials/index.md) for examples of using the service.
-* Read about [service concepts](concepts/index.md).
+* Read about [service concepts](./concepts/index.md).
 * See [step-by-step instructions](operations/index.md).
 * View an [example of a ready-to-use dashboard](https://datalens.yandex/9fms9uae7ip02).

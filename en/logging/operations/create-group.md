@@ -18,7 +18,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../concepts/log-group.md).
    1. Select **{{ cloud-logging-name }}**.
    1. Click **Create group**.
-   1. (optional) Enter a name and description for the log group using the following format:
+   1. (Optional) Enter a name and description for the log group The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -31,9 +31,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   
    To create a log group, run the command:
 
+   
    ```
    yc logging group create \
      --name=group \
@@ -60,8 +60,10 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
       > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
 
+
    Result:
 
+   
    ```
    done (1s)
    id: af3flf29t8**********
@@ -73,7 +75,6 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    retention_period: 3600s
    data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
    ```
-   
 
 
 - {{ TF }}
@@ -84,7 +85,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Name of the log group. This is an optional parameter. Using the following format:
+      * `name`: Name of the log group. This is an optional parameter. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -116,7 +117,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 
 
-      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
+      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/logging_group).
 
    1. Make sure the configuration files are valid.
 
@@ -139,7 +140,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
       ```
       yc logging group list

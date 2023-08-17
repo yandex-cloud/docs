@@ -23,7 +23,7 @@ A bucket policy consists of rules, while a rule consists of the following basic 
 
 Resource
 
-: Bucket (such as `samplebucket`), a bucket object (`samplebucket/some/key`), or a prefix (`samplebucket/some/path/*`), including an empty prefix to indicate all objects in the bucket (`samplebucket/*`). You can specify multiple resources in a rule.
+: Bucket, a bucket object (`<bucket name>/some/key`), or a prefix (`<bucket name>/some/path/*`), including an empty prefix to indicate all objects in the bucket (`<bucket name>/*`). You can specify multiple resources in a rule.
 
 {% note info %}
 
@@ -31,7 +31,7 @@ Resource
 
 {% endnote %}
 
-If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, for example, `arn:aws:s3:::samplebucket`.
+If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, such as `arn:aws:s3:::<bucket name>`.
 
 Action
 
@@ -83,22 +83,22 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
 
 ## Sample configurations {#config-examples}
 
-* Rule that allows an anonymous user to read objects in the `samplebucket` bucket over an encrypted connection:
+* Rule that allows an anonymous user to read objects in the bucket over an encrypted connection:
 
   ```json
   {
-    "Id": "epd4limdp3dgec7enpq5",
+    "Id": "epd4limdp3dg********",
     "Version": "2012-10-17",
     "Statement": [
       {
-        "Sid": "f1qqoehl1q53l06kqurs",
+        "Sid": "f1qqoehl1q53********",
         "Effect": "Allow",
         "Principal": "*",
         "Action": "s3:GetObject",
         "Resource": "arn:aws:s3:::<bucket name>/*",
         "Condition": {
           "Bool": {
-           "aws:SecureTransport": "true"
+            "aws:SecureTransport": "true"
           }
         }
       }
@@ -173,13 +173,13 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
         "Sid":"User1PermissionsPrefix",
         "Effect":"Allow",
         "Principal": {
-          "CanonicalUser": "<user ID>"
+            "CanonicalUser": "<user ID>"
         },
         "Action": "s3:ListBucket",
         "Resource":["arn:aws:s3:::<bucket name>"],
         "Condition": {
-           "StringLike": {
-             "s3:prefix": "user1path/*"
+          "StringLike": {
+            "s3:prefix": "user1path/*"
           }
         }
       },

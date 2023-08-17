@@ -34,14 +34,14 @@ Make sure you have a domain name and can access the DNS settings on the website 
 
 The cost of supporting the CDN infrastructure includes:
 
-* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+* A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
 
-Create two buckets: one, `ycprojectblue-storage`, will store files, and the other, `ycprojectblue-logs`, will store request logs for the first one.
+Create two buckets: one will store files and the other will store request logs for the first one.
 
 {% list tabs %}
 
@@ -51,14 +51,14 @@ Create two buckets: one, `ycprojectblue-storage`, will store files, and the othe
    1. Create a bucket for files:
 
       1. Click **Create bucket**.
-      1. Specify the bucket **Name**: `ycprojectblue-storage`.
+      1. **Name** the bucket.
       1. In the **Object read access** and **Object listing access** fields, select **Public**.
       1. Click **Create bucket**.
 
    1. Create a bucket for logs:
 
       1. Click **Create bucket**.
-      1. Specify the bucket **Name**: `ycprojectblue-logs`.
+      1. **Name** the bucket.
       1. Click **Create bucket**.
 
 - AWS CLI
@@ -68,7 +68,7 @@ Create two buckets: one, `ycprojectblue-storage`, will store files, and the othe
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
         s3api create-bucket \
-        --bucket ycprojectblue-storage \
+        --bucket <name_of_bucket_with_files> \
         --acl public-read
       ```
 
@@ -76,7 +76,7 @@ Create two buckets: one, `ycprojectblue-storage`, will store files, and the othe
 
       ```json
       {
-          "Location": "/ycprojectblue-storage"
+          "Location": "/<name_of_bucket_with_files>"
       }
       ```
 
@@ -85,14 +85,14 @@ Create two buckets: one, `ycprojectblue-storage`, will store files, and the othe
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
         s3api create-bucket \
-        --bucket ycprojectblue-logs
+        --bucket <name_of_bucket_with_logs>
       ```
 
       Result:
 
       ```json
       {
-          "Location": "/ycprojectblue-logs"
+          "Location": "/<name_of_bucket_with_logs>"
       }
       ```
 
@@ -106,7 +106,7 @@ Create two buckets: one, `ycprojectblue-storage`, will store files, and the othe
 
       * `access_key`: ID of the static access key.
       * `secret_key`: Value of the secret access key.
-      * `bucket`: Name of the created bucket (`ycprojectblue-storage`).
+      * `bucket`: The name of the bucket being created.
 
       Example of the configuration file structure:
 
@@ -121,40 +121,40 @@ Create two buckets: one, `ycprojectblue-storage`, will store files, and the othe
 
       resource "yandex_storage_bucket" "storage" {
         access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "ycprojectblue-storage"
+        secret_key = "<private_key>"
+        bucket     = "<name_of_bucket_with_files>"
         acl        = "public-read"
       }
 
       resource "yandex_storage_bucket" "logs" {
         access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket     = "ycprojectblue-logs"
+        secret_key = "<private_key>"
+        bucket     = "<name_of_bucket_with_logs>"
       }
       ```
 
 
 
-   1. Make sure that the configuration files are correct:
+1. Make sure that the configuration files are correct:
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+   1. In the command line, go to the directory where you created the configuration file.
+   1. Run the check using this command:
 
-         ```bash
-         terraform plan
-         ```
+      ```bash
+      terraform plan
+      ```
 
-      If the configuration is described correctly, the terminal displays the parameters of the bucket being created. If the configuration contains any errors, {{ TF }} will point them out.
+   If the configuration is described correctly, the terminal displays the parameters of the bucket being created. If the configuration contains any errors, {{ TF }} will point them out.
 
-   1. Deploy the bucket:
+1. Deploy the bucket:
 
-      1. If the configuration does not contain any errors, run this command:
+   1. If the configuration does not contain any errors, run this command:
 
-         ```bash
-         terraform apply
-         ```
+      ```bash
+      terraform apply
+      ```
 
-      1. Confirm that you want to create the bucket.
+   1. Confirm that you want to create the bucket.
 
 - API
 
@@ -170,17 +170,17 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - API
 
-   Use the API method [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) for bucket `ycprojectblue-storage`. HTTP request body:
+   Use the [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) API method for the bucket with files. HTTP request body:
 
    ```xml
    <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
      <LoggingEnabled>
-       <TargetBucket>ycprojectblue-logs</TargetBucket>
+       <TargetBucket>name_of_bucket_with_logs</TargetBucket>
      </LoggingEnabled>
    </BucketLoggingStatus>
    ```
 
-   Where `TargetBucket` is the name of the bucket to write logs to (`ycprojectblue-logs`).
+   Where `TargetBucket` is the name of the bucket to write logs to.
 
 {% endlist %}
 
@@ -191,7 +191,7 @@ You need to check that, when user requests are made, files are downloaded from t
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
-   1. Select the `ycprojectblue-storage` bucket.
+   1. Select the bucket with files.
    1. Click **Upload**.
    1. In the window that opens, select the `ycgame-update-v1.1.exe` patch file and click **Open**.
    1. Click **Upload**.
@@ -204,20 +204,20 @@ You need to check that, when user requests are made, files are downloaded from t
    aws --endpoint-url=https://{{ s3-storage-host }} \
      s3 cp \
      <path_to_ycgame-update-v1.1.exe> \
-     s3://ycprojectblue-storage/ycgame-update-v1.1.exe
+     s3://<name_of_bucket_with_files>/ycgame-update-v1.1.exe
    ```
 
    Result:
 
    ```
-   upload: <path_to_ycgame-update-v1.1.exe> to s3://ycprojectblue-storage/ycgame-update-v1.1.exe
+   upload: <path_to_ycgame-update-v1.1.exe> to s3://<name_of_bucket_with_files>/ycgame-update-v1.1.exe
    ```
 
 - {{ TF }}
 
    1. Add the parameters of the object to upload to the configuration file you created in the [bucket creation step](#create-buckets):
 
-      * `bucket`: Name of the bucket to add the object to (`ycprojectblue-storage`)
+      * `bucket`: Name of the bucket to add the object to.
       * `key`: Name of the object in the bucket (`ycgame-update-v1.1.exe`). This parameter is required.
       * `source`: Relative or absolute path to the file that you upload as an object.
 
@@ -228,10 +228,10 @@ You need to check that, when user requests are made, files are downloaded from t
 
       resource "yandex_storage_object" "patch-v1-1" {
         access_key = "<static_key_ID>"
-        secret_key = "<secret_key>"
-        bucket = "ycprojectblue-storage"
+        secret_key = "<private_key>"
+        bucket = "<name_of_bucket_with_files>"
         key    = "ycgame-update-v1.1.exe"
-        source = "<file_path>/ycgame-update-v1.1.exe"
+        source = "<path_to_file>/ycgame-update-v1.1.exe"
       }
       ```
 
@@ -277,7 +277,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
          * **Content query**: **From one origin**.
          * **Origin type**: **Bucket**.
-         * **Bucket**: `ycprojectblue-storage`.
+         * **Bucket**: `<name_of_bucket_with_files>`.
          * **Domain names for content distribution**: The primary domain name that you'll use to publish patches, such as `cdn.ycprojectblue.example`.
 
             {% note alert %}
@@ -292,7 +292,7 @@ You need to check that, when user requests are made, files are downloaded from t
             * In the **Redirect clients** field, select **Don't use**.
             * Enable **End-user access to content**.
             * In the **Certificate type** field, select **Let's Encrypt®** to automatically issue a certificate for the `cdn.ycprojectblue.example` domain name after creating your CDN resource.
-            * In the **Host header** field, select **Custom**. In the **Header value** field, specify the origin domain name, `ycprojectblue-storage.{{ s3-storage-host }}`, so that the source bucket responds to CDN server requests correctly.
+            * In the **Host header** field, select **Custom**. In the **Header value** field, specify the origin domain name, `<name_of_bucket_with_files>.{{ s3-storage-host }}`, so that the source bucket responds to CDN server requests correctly.
 
       1. Click **Create**.
 
@@ -331,18 +331,18 @@ You need to check that, when user requests are made, files are downloaded from t
       ```bash
       yc cdn resource create \
         --cname cdn.ycprojectblue.example \
-        --origin-bucket-source ycprojectblue-storage.{{ s3-storage-host }} \
-        --origin-bucket-name ycprojectblue-storage \
+        --origin-bucket-source <name_of_bucket_with_files>.{{ s3-storage-host }} \
+        --origin-bucket-name <name_of_bucket_with_files> \
         --origin-protocol https \
         --lets-encrypt-gcore-ssl-cert \
-        --host-header ycprojectblue-storage.{{ s3-storage-host }} \
+        --host-header <name_of_bucket_with_files>.{{ s3-storage-host }} \
       ```
 
       Result:
 
       ```
-      id: bc8e3l7s4dhadigoh3jr
-      folder_id: b1g86q4m5vej8lkljme5
+      id: bc8e3l7s4dha********
+      folder_id: b1g86q4m5vej********
       cname: cdn.ycprojectblue.example
       ...
       active: true
@@ -368,7 +368,7 @@ You need to check that, when user requests are made, files are downloaded from t
         name     = "updates-origin-group"
         use_next = true
         origin {
-          source = "ycprojectblue-storage.{{ s3-storage-host }}"
+          source = "<name_of_bucket_with_files>.{{ s3-storage-host }}"
         }
       }
 
@@ -378,7 +378,7 @@ You need to check that, when user requests are made, files are downloaded from t
         origin_protocol     = "https"
         origin_group_id     = yandex_cdn_origin_group.my_group.id
         options {
-          custom_host_header     = "ycprojectblue-storage.{{ s3-storage-host }}"
+          custom_host_header     = "<name_of_bucket_with_files>.{{ s3-storage-host }}"
         }
         ssl_certificate {
           type = "lets_encrypt_gcore"
@@ -386,7 +386,7 @@ You need to check that, when user requests are made, files are downloaded from t
       }
       ```
 
-      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
+      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
    1. Make sure the configuration files are valid.
 
@@ -409,7 +409,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    1. Enable client redirect for a resource. Add the following field at the beginning of the `options` section for a CDN resource:
 
@@ -462,7 +462,7 @@ You need to check that, when user requests are made, files are downloaded from t
 1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.edgecdn.ru` domain. For example:
 
    ```http
-   cdn CNAME cl-.....6bb.edgecdn.ru.
+   cdn CNAME cl-********.edgecdn.ru.
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:
@@ -508,8 +508,8 @@ You need to check that, when user requests are made, files are downloaded from t
          Result:
 
          ```bash
-         id: aetuvdw77q61dwbl1z2d
-         folder_id: aoewzf73jwdlm1xtp4dd
+         id: aetuvdw77q61********
+         folder_id: aoewzf73jwdl********
          created_at: "2021-09-28T10:33:31.917Z"
          name: cdn-zone-a
          zone: ycprojectblue.example.
@@ -519,7 +519,7 @@ You need to check that, when user requests are made, files are downloaded from t
       1. Create a record in the zone:
 
          ```bash
-         yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.edgecdn.ru."
+         yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-********.edgecdn.ru."
          ```
 
          Where:
@@ -544,7 +544,7 @@ You need to check that, when user requests are made, files are downloaded from t
          | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.           |
          |                            |      |       | {{ dns-mx-host }}. 1 10800   |
          |                            |      |       | 900 604800 86400               |
-         | cdn.ycprojectblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
+         | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.           |
          +----------------------------+------+-------+--------------------------------+
          ```
 
@@ -553,7 +553,7 @@ You need to check that, when user requests are made, files are downloaded from t
    - API
 
       1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
-      1. In the zone, create a record named `cdn CNAME cl-.....6bb.edgecdn.ru.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
+      1. In the zone, create a record named `cdn CNAME cl-********.edgecdn.ru.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
 
    {% endlist %}
 
@@ -607,14 +607,14 @@ You need to check that, when user requests are made, files are downloaded from t
    https://cdn.ycprojectblue.example/ycgame-update-v1.1.exe
    ```
 
-1. Get the logs of requests to the `ycprojectblue-storage` bucket:
+1. Get the logs of requests to the bucket with files:
 
    {% list tabs %}
 
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
-      1. Select the `ycprojectblue-logs` bucket.
+      1. Select the bucket with the logs.
       1. Click on the name of the object corresponding to the `ycgame-update-v1.1.exe` download time.
       1. Click **Download**.
 
@@ -624,7 +624,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
          ```bash
          aws --endpoint-url=https://{{ s3-storage-host }} \
-           s3 ls s3://ycprojectblue-logs
+           s3 ls s3://<name_of_bucket_with_logs>
          ```
 
          Result:
@@ -642,19 +642,19 @@ You need to check that, when user requests are made, files are downloaded from t
 
          ```bash
          aws --endpoint-url=https://{{ s3-storage-host }} \
-           s3 cp s3://ycprojectblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 \
+           s3 cp s3://<name_of_bucket_with_logs>/2021-10-01-13-38-02-E69EAEC1C9083756 \
            2021-10-01-13-38-02-E69EAEC1C9083756
          ```
 
          Result:
 
          ```
-         download: s3://ycprojectblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756
+         download: s3://<name_of_bucket_with_logs>/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756
          ```
 
    - API
 
-      1. Get a list of objects with logs in the `ycprojectblue-logs` bucket using the [listObjects](../../storage/s3/api-ref/bucket/listobjects.md) API method.
+      1. Get a list of objects in the bucket with logs using the [listObjects](../../storage/s3/api-ref/bucket/listobjects.md) API method.
 
       1. In the resulting list, find the object whose log was saved after downloading `ycgame-update-v1.1.exe` and download it using the API [get](../../storage/s3/api-ref/object/get.md) method.
 
@@ -667,8 +667,8 @@ You need to check that, when user requests are made, files are downloaded from t
 To shut down your CDN resource and stop paying for the created resources:
 
 1. [Disable](../../cdn/operations/resources/disable-resource.md) the created resource.
-1. [Delete](../../storage/operations/objects/delete.md) the `ycgame-update-v1.1.exe` object from the `ycprojectblue-storage` bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the `ycprojectblue-storage` bucket.
-1. [Delete](../../storage/operations/objects/delete.md) all objects from the `ycprojectblue-logs` bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the `ycprojectblue-logs` bucket.
+1. [Delete](../../storage/operations/objects/delete.md) the `ycgame-update-v1.1.exe` object from the bucket with files.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket with files.
+1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket with logs.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket with logs.
 1. [Delete](../../dns/operations/zone-delete.md) the DNS zone if you used it during [DNS setup](#dns-setup).

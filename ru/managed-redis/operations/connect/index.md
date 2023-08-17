@@ -7,7 +7,7 @@
 
 ## Поддержка шифрования {#tls-support}
 
-Для кластеров {{ mrd-short-name }} поддерживается шифрованное SSL-соединение. Чтобы пользоваться SSL, при [создании кластера](../cluster-create.md) включите настройку **Поддержка TLS**.
+Для кластеров {{ mrd-short-name }} поддерживается шифрованное SSL-соединение. Чтобы пользоваться SSL, при [создании кластера](../cluster-create.md) включите настройку **{{ ui-key.yacloud.redis.field_tls-support }}**.
 
 При SSL-подключении к кластеру с поддержкой шифрования отключите проверку соответствия FQDN и сертификата на стороне приложения. Иначе подключиться к кластеру не получится, т. к. {{ RD }} вместо FQDN хоста возвращает его IP-адрес, в результате при проверке имени хоста возникнет ошибка.
 
@@ -55,7 +55,7 @@
 
     Для этого создайте следующее правило для входящего трафика:
 
-    * Диапазон портов — создайте отдельное правило для каждого порта:
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — создайте отдельное правило для каждого порта:
 
         * `{{ port-mrd }}` — для подключения напрямую к хостам без использования шифрования.
         * `{{ port-mrd-tls }}` — для подключения напрямую к хостам с использованием SSL-шифрования.
@@ -63,9 +63,9 @@
 
             Для подключения к кластеру с использованием Sentinel требуется также создать правило, разрешающее подключение через порт `{{ port-mrd }}` или `{{ port-mrd-tls }}`.
 
-    * Протокол — `TCP`.
-    * Источник — `Группа безопасности`.
-    * Группа безопасности — группа безопасности, в которой находится ВМ. Если она совпадает с настраиваемой группой, то укажите **Текущая** (`Self`).
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — группа безопасности, в которой находится ВМ. Если она совпадает с настраиваемой группой, то укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}**.
 
 * Шардированный кластер
 
@@ -73,10 +73,10 @@
 
     Для этого создайте следующее правило для входящего трафика:
 
-    * Диапазон портов — `{{ port-mrd }}` или только `{{ port-mrd-tls }}` для кластера с поддержкой SSL-шифрования.
-    * Протокол — `TCP`.
-    * Источник — `Группа безопасности`.
-    * Группа безопасности — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mrd }}` или только `{{ port-mrd-tls }}` для кластера с поддержкой SSL-шифрования.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`. В противном случае укажите группу безопасности ВМ.
 
 {% endlist %}
 
@@ -96,3 +96,5 @@
 Чтобы использовать шифрованное SSL-соединение, получите SSL-сертификат:
 
 {% include [install-certificate](../../../_includes/mdb/mrd/install-certificate.md) %}
+
+{% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}

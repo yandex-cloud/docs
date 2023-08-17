@@ -11,7 +11,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-disk-size).
 
-* [Changing settings{{ MY }}](#change-mysql-config).
+* [Changing {{ MY }} settings](#change-mysql-config).
 
    {% note warning %}
 
@@ -52,20 +52,20 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. View a description of the update cluster CLI command:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} cluster update --help
       ```
 
    1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
       
-      ```
+      ```bash
       {{ yc-mdb-my }} resource-preset list
       ```
 
       Result:
 
-      ```
+      ```text
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
@@ -78,7 +78,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. Specify the class in the update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} cluster update <cluster name>
         --resource-preset <class ID>
       ```
@@ -119,7 +119,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Host class you need in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
    * List of settings to update (in this case, `configSpec.resources.resourcePresetId`) in the `updateMask` parameter.
 
@@ -199,7 +199,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
@@ -231,7 +231,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. View a description of the update cluster configuration CLI command:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} cluster update-config --help
       ```
 
@@ -239,7 +239,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       All supported parameters are listed in the request [format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} cluster update-config <cluster name>
          --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
@@ -272,7 +272,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -280,7 +280,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To change {{ MY }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Array with new {{ MY }} settings in the following parameter:
       * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
       * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
@@ -341,7 +341,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -421,7 +421,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Settings for access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
@@ -583,7 +583,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster (this feature is in the [Preview](../../overview/concepts/launch-stages.md) stage).
+You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
 

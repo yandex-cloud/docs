@@ -52,7 +52,7 @@
          * `folder_id`: ID of the folder.
          * `description`: Text description of the function.
          * `labels`: Function labels in `key:value` format.
-         * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
+         * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
          * `runtime`: The function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
          * `memory`: The amount of memory allocated for function execution, in MB.
@@ -102,7 +102,7 @@
 
 
 
-      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
    1. Check the configuration using this command:
 

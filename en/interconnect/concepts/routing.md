@@ -11,12 +11,12 @@ When connecting a client infrastructure via {{ interconnect-full-name }}, it is 
 * Always set up two channels for connections via two [points of presence](pops.md).
 * Use the same [BGP ASN](priv-con.md#bgp-asn) on client routers. If the [BGP ASN](priv-con.md#bgp-asn) values are different on different client routers, fault tolerance mechanisms will not work.
 * Each client router that sets [BGP connectivity](priv-con.md#bgp-peering) with the {{ yandex-cloud }} equipment over **eBGP** should also set BGP connectivity with other client routers over **iBGP**.
-* Use prefixes of a different length on client routers for BGP announcements to distribute outgoing traffic from cloud subnets through the following communication channels:
-   * Prefix with a length of `/8` (short prefix) indicates the lowest priority of a route.
-   * Prefix with a length of `/32` (long prefix) indicates the highest route priority.
-* To choose a communication channel for outgoing traffic from the client infrastructure to cloud networks on a client router, you can, for example, use a standard BGP attribute named `Local Preference`.
+* Use prefixes of a different length on client routers for BGP announcements to distribute outgoing traffic from cloud subnets across communication circuits:
+   * Prefix with a length of `/8` (short prefix) means the lowest route priority.
+   * Prefix with a length of `/32` (long prefix) means the highest route priority.
+* To choose a communication circuit for outgoing traffic from the client infrastructure to cloud networks on a client router, you can, for example, use a standard BGP attribute named `Local Preference`.
 * You can use {{ interconnect-name }} and a [NAT gateway](../../vpc/operations/create-nat-gateway.md) simultaneously if client routers do not announce the default `0.0.0.0/0` route over BGP to {{ yandex-cloud }}. If the client routers do announce the default `0.0.0.0/0` route over BGP to {{ yandex-cloud }}, you cannot use a [NAT gateway](../../vpc/operations/create-nat-gateway.md).
-* Currently, {{ yandex-cloud }} does not support distribution of outgoing traffic from cloud subnets to the client infrastructure based on the [BGP AS-Path Prepend](https://linkmeup.gitbook.io/sdsm/8.-bgp-i-ip-sla/2.-bgp/4.-balansirovka-nagruzki/2.-as-path-prepend) or [BGP community](https://linkmeup.gitbook.io/sdsm/8.1.-ibgp/3.-atributy-bgp/4.-community/0.-teoriya) mechanisms.
+* Currently, {{ yandex-cloud }} does not support distribution of outgoing traffic from cloud subnets to the client infrastructure based on the [BGP community](https://linkmeup.gitbook.io/sdsm/8.1.-ibgp/3.-atributy-bgp/4.-community/0.-teoriya) method.
 
 
 
@@ -37,7 +37,16 @@ To allow asymmetric traffic from {{ yandex-cloud }}, disable the [RPF](https://e
 
 ## Traffic prioritization by direction (Active-Standby) {#cic-routing-as}
 
-Below is an example of traffic prioritization using two private connections set up via two points of presence.
+For traffic prioritization by direction as part of the {{ interconnect-name }} service, you can use the following methods:
+
+* [Longest Prefix Match (LPM)](#lpm1)
+* [BGP AS-Path Prepend](#prepend1) (will be available starting July 3, 2023)
+
+The `Longest Prefix Match` method has a higher priority than the `BGP AS-Path Prepend` method in the algorithm for selecting the best route on routers. We recommend that you only choose one of the suggested methods and not use both of them at the same time.
+
+### Longest Prefix Match (LPM) method {#lpm1}
+
+Below, you can see an example of traffic prioritization using two private connections set up via two points of presence with the `Longest Prefix Match` method.
 
 A short prefix from the client infrastructure, `10.0.0.0/8`, is announced over BGP by a client router via the `NORD` point of presence to {{ yandex-cloud }}.
 
@@ -49,6 +58,23 @@ Announcements via the `M9` point of presence will be treated in {{ yandex-cloud 
 
 This way, for all traffic from the `172.16.1.0/24`, `172.16.2.0/24`, and `172.16.3.0/24` cloud subnets to the client infrastructure, the private connection to the `M9` point of presence will be selected. If this connection fails, traffic will be automatically switched over to the private connection to the `NORD` point of presence.
 
+
+### BGP AS-Path Prepend method {#prepend1}
+
+Below, you can see an example of traffic prioritization using two private connections set up via two points of presence with the `BGP AS-Path Prepend` method.
+
+You can learn more about the **BGP AS-Path Prepend** method [here](https://datatracker.ietf.org/doc/html/rfc4271#section-5.1.2).
+
+The `10.0.0.0/8` prefix is announced from the client infrastructure over BGP by a client router, R1, via the `M9` point of presence to {{ yandex-cloud }}. The default `BGP AS-Path` attribute value will be `65001`, while the length of the `AS-Path` (amount of autonomous system number values) will be 1.
+
+The same `10.0.0.0/8` prefix is announced from the client infrastructure over BGP by another client router, R2, via the `NORD` point of presence to {{ yandex-cloud }}.
+
+Before announcing the prefix, the BGP routing policy on the R2 router adds the client's autonomous system number (BGP ASN) to the `AS-Path BGP` attribute value so that it will be equal to `65001 65001` and the `AS-Path` length will be 2. This update makes the prefix with the resulting `AS-Path` length less preferable for external BGP routers.
+
+
+This way, the best route via the `M9` point of presence will be selected on the {{ yandex-cloud }} side for the `10.0.0.0/8` prefix, while the route via the `NORD` point of presence will be standby, as its `AS-Path` will be longer.
+
+For all traffic from the `172.16.1.0/24, 172.16.2.0/24, and 172.16.3.0/24` cloud subnets to the client infrastructure, the private connection to the `M9` point of presence will be selected. If this connection fails, traffic will be automatically switched over to the private connection to the `NORD` point of presence.
 
 
 ## Traffic reservation via a VPN gateway {#cic-routing-vpn}
@@ -99,8 +125,16 @@ In this flowchart, traffic from cloud subnets connected to {{ interconnect-name 
 [Security groups](../../vpc/concepts/security-groups.md) cannot be assigned to resources outside {{ yandex-cloud }}, therefore the correct way to filter traffic is to use IPv4 prefixes rather than links to other security groups.
 In this case, the customer can configure traffic filtering rules on client routers before sending it to the internet via their own NAT gateway without using the {{ yandex-cloud }} infrastructure.
 
-
 ## Traffic prioritization by direction for the 0.0.0.0/0 route {#cic-routing-default-as}
+
+For traffic prioritization by direction as part of the {{ interconnect-name }} service, you can use the following methods:
+
+* [Longest Prefix Match (LPM)](#lpm1)
+* [BGP AS-Path Prepend](#prepend1) (will be available starting July 3, 2023)
+
+The `Longest Prefix Match` method has a higher priority than the `BGP AS-Path Prepend` method in the algorithm for selecting the best route on routers. We recommend that you only choose one of the suggested methods and not use both of them at the same time.
+
+### Longest Prefix Match (LPM) method {#lpm2}
 
 Below is an example of traffic prioritization using two private connections set up via two points of presence.
 
@@ -108,13 +142,29 @@ The default route from the client infrastructure, `0.0.0.0/0`, is announced over
 
 Two long (more specific) prefixes from the client infrastructure, `0.0.0.0/1` and `128.0.0.0/1`, are announced over BGP by a client router via the `M9` point of presence to {{ yandex-cloud }}.
 
-
 ![cic-routing-6](../../_assets/interconnect/cic-routing-6.svg)
 
 Announcements via the `M9` point of presence will be treated in {{ yandex-cloud }} as more specific, i.e., of higher priority.
 
 This way, for all traffic from the cloud subnets, the private connection to the `M9` point of presence will be selected. If this connection fails, traffic is automatically switched over to the private connection to the `NORD` point of presence.
 
+
+### BGP AS-Path Prepend method {#prepend2}
+
+Below, you can see an example of traffic prioritization using two private connections set up via two points of presence with the `BGP AS-Path Prepend` method.
+
+You can learn more about the `BGP AS-Path Prepend` method [here](https://datatracker.ietf.org/doc/html/rfc4271#section-5.1.2).
+
+The default route from the client infrastructure, `0.0.0.0/0`, is announced over BGP by a client router via the `M9` point of presence to {{ yandex-cloud }}. The default `BGP AS-Path` attribute value will be `65001`, while the length of the `AS-Path` (amount of autonomous system number values) will be 1.
+
+The same `0.0.0.0/0` prefix is announced from the client infrastructure over BGP by another client router, R2, via the `NORD` point of presence to {{ yandex-cloud }}.
+
+Before announcing the prefix, the BGP routing policy on the R2 router adds the client's autonomous system number (BGP ASN) to the `AS-Path BGP` attribute value so that it will be equal to `65001 65001` and the `AS-Path` length will be 2. This update makes the prefix with the resulting AS-Path length less preferable for external BGP routers.
+
+
+This way, the best route via the `M9` point of presence will be selected on the {{ yandex-cloud }} side for the `0.0.0.0/0` prefix, while the route via the `NORD` point of presence will be standby, as its `AS-Path` will be longer.
+
+For all traffic from the cloud subnets to the client infrastructure, the private connection to the `M9` point of presence will be selected. If this connection fails, traffic will be automatically switched over to the private connection to the `NORD` point of presence.
 
 
 ## Working with security groups {#cic-sg}

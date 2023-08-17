@@ -13,18 +13,18 @@ A [sharded cluster](../concepts/sharding.md) contains three or more master hosts
    To switch the master in a non-sharded cluster:
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing a non-sharded cluster.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
-   1. In the line of the host with the `MASTER` role, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Switch master**.
-   1. In the resulting window, select **I want to switch the master** and click **Switch**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. In the line of the host with the `MASTER` role, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
+   1. In the window that opens, select the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label_confirmation }}** option and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
    To switch the master in a sharded cluster:
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing a sharded cluster.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
-   1. In the line of the host with the `MASTER` role, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Switch master**.
-   1. In the window that opens, click **Switch**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. In the line of the host with the `MASTER` role, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
 - CLI
 
@@ -51,9 +51,9 @@ A [sharded cluster](../concepts/sharding.md) contains three or more master hosts
 
 - API
 
-   Use the API [startFailover](../api-ref/Cluster/startFailover.md) method and pass the following in the request:
+   To switch the master, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) gRPC API call and provide the following in the request:
 
-   * In the `clusterId` parameter, the ID of the cluster where you want to switch the master. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md).
+   * ID of the cluster where you want to switch the master, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md).
    * For a sharded cluster only: the name of the current master host of the desired shard in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list).
 
 {% endlist %}

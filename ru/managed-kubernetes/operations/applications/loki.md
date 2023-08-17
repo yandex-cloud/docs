@@ -13,11 +13,11 @@
 
    ```bash
    yc iam access-key create \
-     --service-account-name=<имя сервисного аккаунта> \
+     --service-account-name=<имя_сервисного_аккаунта> \
      --format=json > sa-key.json
    ```
 
-1. [Создайте бакет в {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
@@ -25,13 +25,16 @@
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [Loki](/marketplace/products/yc/loki) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
+
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Loki или создайте новое.
    * **Название приложения** — укажите название приложения.
    * **Имя бакета** — укажите имя [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}.
-   * **Статический ключ для доступа** — скопируйте содержимое файла `sa-key.json` или создайте новый ключ доступа для сервисного аккаунта. Сервисный аккаунт должен иметь роли `storage.uploader` и `storage.viewer`.
+   * **Статический ключ для доступа** — скопируйте содержимое файла `sa-key.json`.
+   * **Установить Promtail** — оставьте опцию включенной, чтобы поставлять локальные журналы инстансу Grafana Loki с помощью [агента Promtail](https://grafana.com/docs/loki/latest/clients/promtail/). Обычно агент используется для приложений, для которых нужен регулярный мониторинг.
+
 1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
-1. После развертывания Loki будет доступен по адресу внутри кластера {{ managed-k8s-name }}: `http://loki-gateway.<пространство имен>.svc.cluster.local`.
+1. После развертывания Loki будет доступен по адресу внутри кластера {{ managed-k8s-name }}: `http://loki-gateway.<пространство_имен>.svc.cluster.local`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -43,18 +46,16 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
-     --version <версия Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_loki.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set storageConfig.aws.bucketnames=<имя бакета {{ objstorage-name }}> \
-     --set-file serviceaccountawskeyvalue=<путь к файлу со статическим ключом сервисного аккаунта> \
+     --set storageConfig.aws.bucketnames=<имя_бакета_Object_Storage> \
+     --set-file serviceaccountawskeyvalue=<путь_к_файлу_со_статическим_ключом_сервисного_аккаунта> \
      loki ./loki/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/loki#docker-images).
 
 ## См. также {#see-also}
 

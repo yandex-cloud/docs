@@ -1,0 +1,1 @@
+Once you install the agent, the VM will be added to **{{ backup-name }}** in the ![machines](../../_assets/backup/machines.svg) **Virtual machines** tab and you will be able to link it to a [backup policy](../../backup/concepts/policy.md).

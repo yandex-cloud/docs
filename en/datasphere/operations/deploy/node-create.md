@@ -1,4 +1,4 @@
-# Creating a node
+# Creating a node with Python code
 
 You can deploy an individual cell of a notebook or third-party [Docker image](../../../container-registry/concepts/docker-image.md) as an independent service using [nodes](../../concepts/resource-model.md#resources).
 
@@ -23,62 +23,62 @@ If your project uses packages and libraries that are not included in the [list o
 
 1. Pin the checkpoint:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. Under **Resources**, select **Checkpoint**.
+   1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**.
    1. In the list, choose the last added checkpoint named `Cell run` and make sure it contains the appropriate node.
-   1. In the upper-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **Pin**.
-   1. In the window that appears, enter the checkpoint name and click **Pin**.
+   1. In the top-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **{{ ui-key.yc-ui-datasphere.common.pin }}**.
+   1. In the window that appears, enter the checkpoint name and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
 1. Create a node:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. In the upper-right corner, click **Create resource**. In the window that opens, select **Node**.
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the basic node parameters:
-      * **Type**: Resource that a node is based on (**Cell** or **Docker image**).
-      * **Name**: Node name.
-      * (Optional) **Description**: Node description.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Resource that a node is based on (**{{ ui-key.yc-ui-datasphere.common.cell }}** or **{{ ui-key.yc-ui-datasphere.common.docker }}**).
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name.
+      * (Optional) **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}**: Node description.
    1. Depending on the node type, specify other parameters:
 
       {% list tabs %}
 
       - Cell
 
-         * In the **Checkpoint** field, select the previously created checkpoint.
-         * Under **Input variables** and **Output variables**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/plus.svg) **Add**.
-         * (Optional) If a [nonstandard environment](node-customization.md) is used for running a cell code, specify the path to an image inside your project under **System Docker image**. Click **Show additional parameters** and set the following:
-            * **Username**: `json_key`.
-            * **Password secret**: [Secret](../../concepts/secrets.md) with a password for your container registry.
+         * In the **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}** field, select the previously created checkpoint.
+         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** and **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
+         * (Optional) If a [nonstandard environment](node-customization.md) is used for running a cell code, select **{{ ui-key.yc-ui-datasphere.new-node.user-custom }}** under **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** and specify:
+            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
+            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry.
 
       - Docker image
 
-         * Under **Docker image**, specify the path to the image in {{container-registry-name}}. Click **Show additional parameters** and set the following:
-            * **Username**: `json_key`.
-            * **Password secret**: [Secret](../../concepts/secrets.md) with a password for your container registry. See [{#T}](node-customization.md).
-         * Under **Endpoint**:
-            * **Type**: Select the node connection protocol: **HTTP** (**HTTP/2**) or **gRPC**.
-            * **Port**: Specify the port for connecting to the node.
-            * **Timeout**: Set the session duration in seconds.
-            * **Idle timeout**: Set the idle time before disconnecting from the node, in seconds.
-         * (optional) Under **Telemetry**:
-            * **Type**: Select the telemetry service (**Prometheus** or **Yandex Monitoring**).
-            * **HTTP path**: Specify the address to send telemetry data to.
-            * **Port**: Specify the port to send telemetry data to.
-         * (optional) Under **Check**:
-            * **Type**: Protocol to perform node health checks through (**HTTP** or **gRPC**).
-            * **Port**: Port that node health checks are performed from.
-            * **Path**: Path to the resource to check.
-            * **Timeout**: Check duration in seconds.
-            * **Interval**: Interval between checks in seconds.
-            * **Failed checks**: Allowed number of failed checks.
-            * **Checks passed**: Required number of successful checks.
+         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the image in {{container-registry-name}}. Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
+            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
+            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry. For details, see [{#T}](node-customization.md).
+         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+            * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the node connection protocol: **HTTP** (**HTTP/2**) or **gRPC**.
+            * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: Specify the port for connecting to the node.
+            * **{{ ui-key.yc-ui-datasphere.common.timeout }}**: Set the session duration in seconds.
+            * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}**: Set the idle time before disconnecting from the node, in seconds.
+         * (optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
+            * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select the telemetry service (**{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}** or **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.yandex-monitoring }}**).
+            * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}**: Specify the address to send telemetry data to.
+            * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: Specify the port to send telemetry data to.
+         * (optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
+            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Protocol to perform node health checks through (**HTTP** or **gRPC**).
+            * **{{ ui-key.yc-ui-datasphere.common.port }}**: Port that node health checks are performed from.
+            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: Path to the resource to check.
+            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: Check duration in seconds.
+            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: Interval between checks in seconds.
+            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: Allowed number of failed checks.
+            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: Required number of successful checks.
 
       {% endlist %}
 
-   1. Under **Folder**, select the folder to create new resources in.
-   1. Under **Maintenance**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
-   1. Under **Access control list (ACL)**, click ![Add](../../../_assets/plus.svg) **Add ACL** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
-   1. Click **Create**.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+   1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 To view all created nodes:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Resources**, select **Node**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 
 ## Examples {#examples}
 
@@ -122,32 +122,34 @@ Let's look at an example of creating an API endpoint that takes a number range a
    This will automatically create a checkpoint in the project.
 1. Pin the checkpoint:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. Under **Resources**, select **Checkpoints**.
+   1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**.
    1. In the list, choose the last added checkpoint named `Cell run` and make sure it contains the appropriate node.
-   1. In the upper-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **Pin**.
-   1. In the window that appears, enter a name for the checkpoint, such as `randomizer-checkpoint`, and click **Pin**.
+   1. In the top-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **{{ ui-key.yc-ui-datasphere.common.pin }}**.
+   1. In the window that appears, enter a name for the checkpoint, such as `randomizer-checkpoint`, and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
 1. Create a node:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. In the upper-right corner, click **Create resource**. In the window that opens, select **Node**.
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the node parameters:
-      * **Type**: **Cell**.
-      * **Name**: Node name like `randomizer-node`.
-      * In the **Checkpoint** field, select the checkpoint named `randomizer-checkpoint`.
-      * Under **Input variables**, click ![Add](../../../_assets/plus.svg) **Add** and create a variable with the following parameters:
-         * **Name**: `input_data`.
-         * **Type**: `dict`.
-      * Under **Output variables**, click ![Add](../../../_assets/plus.svg) **Add** and create a variable with the following parameters:
-         * **Name**: `output_data`.
-         * **Type**: `dict`.
-   1. Under **Folder**, select your folder.
-   1. Under **Maintenance**, select:
-      * **Instance configuration**: `c1.4`.
-      * **Availability zone**: `{{region-id}}-a`.
-      * **Subnet ID**: Specify the ID of the subnet available in your folder. If you don't have a subnet, [create](../../../vpc/operations/subnet-create.md) one.
-   1. Click **Create**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name like `randomizer-node`.
+      * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `randomizer-checkpoint`.
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+         * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `input_data`.
+         * **{{ ui-key.yc-ui-datasphere.common.type }}**: `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+         * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `output_data`.
+         * **{{ ui-key.yc-ui-datasphere.common.type }}**: `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select your folder.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select:
+      * **{{ ui-key.yc-ui-datasphere.new-node.provisioning-form-label.instance-spec }}**: `c1.4`.
+      * Under **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}**, click **{{ ui-key.yc-ui-datasphere.new-node.add-new-zone }}** and select `{{ region-id }}-a`.
+         * In the menu that opens, click **{{ ui-key.yc-ui-datasphere.common.add-new }}** in the **{{ ui-key.yc-ui-datasphere.common.subnet }}** field.
+         * In the window that opens, specify the ID of the subnet available in your folder. If you do not have a subnet, [create](../../../vpc/operations/subnet-create.md) one.
+         * Click **{{ ui-key.yc-ui-datasphere.common.add }}**.
+   1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Get the node ID:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. Under **Resources**, select **Node**.
+   1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Select the created node and copy its ID (it is in the format `xxxxxxxxxxxxxxxxxxxx`).
 1. [Get an IAM token](../../../iam/operations/iam-token/create.md) used for authentication in the API.
 1. Install the [cURL](https://curl.se/) utility for sending REST API requests.

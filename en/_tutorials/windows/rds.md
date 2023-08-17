@@ -4,7 +4,7 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
+This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server with Remote Desktop Services and Active Directory installed. Images are available with preset quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for five users.
 
 {% note warning %}
 
@@ -14,7 +14,7 @@ To increase the quota, re-create the VM.
 
 To deploy the Remote Desktop Services infrastructure:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a script to manage a local administrator account](#admin-script).
 1. [Create a VM for Remote Desktop Services](#add-vm).
@@ -24,7 +24,7 @@ To deploy the Remote Desktop Services infrastructure:
 1. [Set up the Remote Desktop Session Host role](#rdsh).
 1. [Create users](#create-users).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -37,9 +37,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost of installing Microsoft Windows Server with Remote Desktop Services includes:
 
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -70,9 +70,13 @@ Create a cloud network named `my-network` with subnets in all the availability z
       yc vpc network create --name my-network
       ```
 
+   - API
+
+      Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
+
    {% endlist %}
 
-1. Create a subnet in the network `my-network`:
+2. Create a subnet in the network `my-network`:
 
    {% list tabs %}
 
@@ -80,7 +84,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
       To create a subnet:
       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
-      1. Click on the name of the cloud network.
+      1. Click the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
@@ -97,6 +101,10 @@ Create a cloud network named `my-network` with subnets in all the availability z
         --network-name my-network \
         --range 10.1.0.0/16
       ```
+
+   - API
+
+      Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
 
    {% endlist %}
 
@@ -134,7 +142,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Specify the number of vCPUs and amount of RAM:
+      - Specify the number of vCPUs and the amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
@@ -142,7 +150,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    1. Under **Network settings**, click **Add network** and select `my-network`. Select the `my-subnet-a` subnet. Under **Public address**, select **Automatically**.
    1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
 - CLI
 
@@ -158,6 +166,10 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       --metadata-from-file user-data=setpass
    ```
 
+- API
+
+   Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 ## Install and configure Active Directory domain controllers {#install-ad}
@@ -167,17 +179,17 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    {% list tabs %}
 
    - Management console
-  
+
      1. On the folder page in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
      1. Select `my-rds-vm`.
      1. Click ![image](../../_assets/options.svg) and select **Restart**.
-  
+
    - CLI
-  
+
      ```
      yc compute instance restart my-rds-vm
      ```
-  
+
    - API
 
      Use the [restart](../../compute/api-ref/Instance/restart.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Restart](../../compute/api-ref/grpc/instance_service.md#Restart) gRPC API call.
@@ -224,11 +236,11 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       Set-NetFirewallRule `
         -DisplayName 'Active Directory Domain Controller - LDAP (UDP-In)' `
         -RemoteAddress:Intranet
-      
+
       Set-NetFirewallRule `
         -DisplayName 'Active Directory Domain Controller - LDAP (TCP-In)' `
         -RemoteAddress:Intranet
-      
+
       Set-NetFirewallRule `
         -DisplayName 'Active Directory Domain Controller - Secure LDAP (TCP-In)' `
         -RemoteAddress:Intranet
@@ -238,7 +250,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 ## Set up the license server in the domain {#license-server}
 
-1. Add the system user `Network Service` to the Active Directory security group Terminal Server License Servers:
+1. Add the Network Service system user to the Terminal Server License Servers group in the Active Directory security group:
 
    {% list tabs %}
 
@@ -322,17 +334,17 @@ Install the Remote Desktop Session Host role on the server:
 
 ## Add the server to the AD security group and register it as SCP {#ad-sg-scp}
 
-Add the server to the Active Directory security group Terminal Server License Servers and register it as the licensing service connection point (SCP):
+Add the server to the Terminal Server License Servers group in the Active Directory security group and register it as the license service connection point (SCP) for users:
 
 {% list tabs %}
 
 - Windows Server
 
   1. Click **Start**.
-  1. In the search box, type `Remote Desktop Licensing Manager`.
-  1. Right-click the server in the list and select **Review Configuration...**
-  1. Next to the first warning, about the `Terminal Server License Servers` group, click **Add to Group**, then click **Continue**.
-  1. Next to the second warning, about the service connection point, click **Register as SCP**.
+  1. Type `Remote Desktop Licensing Manager` in the search box.
+  1. Right-click the server in the list and select **Review Configuration...**.
+  1. Next to the first warning, on the `Terminal Server License Servers` group, click **Add to Group** and then click **Continue**.
+  1. Next to the second warning, the one on the service connection point, click **Register as SCP**.
   1. Click **OK**.
   1. Restart the VM.
 
@@ -400,7 +412,7 @@ Add the server to the Active Directory security group Terminal Server License Se
    - PowerShell
 
       ```powershell
-      & secedit /export /cfg sec_conf_export.ini /areas user_rights
+      & secedit /export /cfg sec_conf_export.ini  /areas user_rights
       $secConfig = Get-Content sec_conf_export.ini
       $SID = 'S-1-5-32-555'
       $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"
@@ -412,6 +424,6 @@ Add the server to the Active Directory security group Terminal Server License Se
 
    {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 If you no longer need the created resources, delete the [VM instances](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md).

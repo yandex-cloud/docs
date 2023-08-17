@@ -6,15 +6,15 @@
 
 By using service accounts you can flexibly configure access rights to resources for programs you wrote.
 
-> For example, you have an app for tracking VM statuses. This program only needs to have the right to view (the [viewer](../access-control/roles.md#viewer) role), but the program runs under your name and you have the right to delete VMs.
+> For example, let's assume you have an app for tracking VM statuses. This app only needs to have the view permissions (the [viewer](../access-control/roles.md#viewer) role); however, it runs under your name and you have the right to delete VMs.
 >
-> To prevent your program from accidentally deleting a VM, create a service account and grant it view-only access.
+> To prevent your app from accidentally deleting a VM, create a service account and grant it view-only access.
 
 {% include [sa-uniq-name](../../../_includes/iam/sa-uniq-name.md) %}
 
 ## How service accounts differ from other accounts {#sa-difference}
 
-* Currently, you can't use service accounts to log in the [management console]({{ link-console-main }}). We assume that programs, rather than users, perform operations on behalf of service accounts.
+* Currently, you cannot use service accounts to log in to the [management console]({{ link-console-main }}). We assume that programs, rather than users, perform operations on behalf of service accounts.
 * The service account is a resource. You can [assign](../../operations/sa/set-access-bindings.md) and [revoke](../../operations/roles/revoke.md) users roles for a service account. For example, you can allow other people to use this service account to access {{ yandex-cloud }}.
 * You can create [keys](#sa-key) for the service account to [authenticate in {{ yandex-cloud }}](../authorization/index.md#sa) via the API, CLI, or other tools. Those keys are deleted when you delete the service account.
 * You can link your service account to [virtual machines](../../../compute/operations/vm-connect/auth-inside-vm.md) and [functions](../../../functions/operations/function-sa.md) that you run your program from.

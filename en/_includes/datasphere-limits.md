@@ -10,17 +10,19 @@
 | Number of communities linked to a single [billing account](../billing/concepts/billing-account.md) | 100 |
 | Number of communities per [organization](../organization/) | 10 |
 | **VM usage restrictions** |
-| c1.32 | 0 |
-| c1.80 | 0 |
+| c1.32 ^1^ | 0 |
+| c1.80 ^2^ | 0 |
 | g1.1 ^1^ | 0 |
-| g1.2 | 0 |
-| g1.4 | 0 |
-| g2.1 | 0 |
-| g2.2 | 0 |
-| g2.4 | 0 |
-| g2.8 | 0 |
+| g1.2 ^1^ | 0 |
+| g1.4 ^1^ | 0 |
+| g2.1 ^1^ | 0 |
+| g2.2 ^1^ | 0 |
+| g2.4 ^1^ | 0 |
+| g2.8 ^2^ | 0 |
 
 ^1^ quotas can be increased after you deposit at least $10 to your billing account or upon request to the support team.
+
+^2^ quotas can only be increased for businesses and upon individual request to the support team.
 
 #### Limits {#datasphere-limits}
 

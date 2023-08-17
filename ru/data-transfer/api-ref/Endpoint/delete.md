@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/delete.md
+sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/delete.md
 ---
 
 # Data Transfer API, REST: Endpoint.delete

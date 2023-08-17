@@ -28,7 +28,7 @@ CONCAT( arg_1, arg_2, arg_3 [ , ... ] )
 #### Примеры {#examples}
 
 ```
-CONCAT("Дата рождения ", #2019-01-23#) = "Дата рождения 2019-01-23"
+CONCAT("Date of birth ", #2019-01-23#) = "Date of birth 2019-01-23"
 ```
 
 ```
@@ -38,4 +38,4 @@ CONCAT(2019, 01, 23) = "20190123"
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `Yandex Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

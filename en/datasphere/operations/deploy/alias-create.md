@@ -4,19 +4,19 @@ You can distribute the load across [nodes](../../concepts/deploy/index.md#node) 
 
 To create an alias:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. In the upper-right corner, click **Create resource**. In the window that appears, select **Alias**.
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 1. Specify the alias parameters:
-   * In the **Name** field, enter a name for the alias.
-   * In the **Prefix** field, select an available alias prefix.
-   * Under **Nodes**, select the node to redirect alias requests to. Specify the percentage of requests to be redirected to the node. To add another node, click ![Add](../../../_assets/plus.svg) **Add**.
-   * (Optional) Under **Metadata**, click ![Add](../../../_assets/plus.svg) **Add** and specify the alias metadata in key-value format.
-   * Under **Access control list**, click ![Add](../../../_assets/plus.svg) **Add** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the alias from.
-   * Under **Folder**, select the folder to create new resources in.
-1. Click **Save**.
+   * In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a name for the alias.
+   * In the **{{ ui-key.yc-ui-datasphere.common.prefix }}** field, select an available alias prefix.
+   * Under **{{ ui-key.yc-ui-datasphere.new-alias.field.label-nodes }}**, select the node to redirect alias requests to. Specify the percentage of requests to redirect to the node. To add another node, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}**.
+   * (Optional) Under **{{ ui-key.yc-ui-datasphere.new-alias.field.label-metadata }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}** and specify the alias metadata in key-value format.
+   * Under **{{ ui-key.yc-ui-datasphere.common.folder }}**, select the folder to create new resources in.
+   * Under **{{ ui-key.yc-ui-datasphere.new-alias.field.label-acl }}**, select **{{ ui-key.yc-ui-datasphere.common.type }}**: **{{ ui-key.yc-ui-datasphere.alias.public }}** or **{{ ui-key.yc-ui-datasphere.alias.private }}**.
+1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 To view all created aliases:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Resources**, select **Alias**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 
 #### What's next {#what-is-next}
 

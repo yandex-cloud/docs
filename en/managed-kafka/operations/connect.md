@@ -24,7 +24,11 @@ There are ready-made {{ KF }} API implementations for most popular programming l
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% note info %}
+
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -79,10 +83,10 @@ Settings of rules depend on the connection method you select:
       * For outgoing traffic:
          * Protocol: `Any`.
          * Port range: `{{ port-any }}`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-      This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+      This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -101,21 +105,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To use an encrypted connection, get an SSL certificate:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
-
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
-   ```
-
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
 
 The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 

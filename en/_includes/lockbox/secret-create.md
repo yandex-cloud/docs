@@ -110,7 +110,7 @@ To create a secret:
       * `deletion_protection`: Deletion protection flag. To enable protection, set `true`. To disable protection, set `false`. The default value is `false`. This is an optional parameter.
       * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional parameter.
 
-      For more information about the parameters of the `yandex_lockbox_secret` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/lockbox_secret).
+      For more information about the parameters of the `yandex_lockbox_secret` resource in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/lockbox_secret).
 
    1. Create resources:
 

@@ -23,3 +23,6 @@ Examples of how to use {{ iot-full-name }} on Android devices in different progr
 
 * [{#T}](data-recording.md)
 
+## Practical tips
+
+* [{#T}](message-delivery-check.md)

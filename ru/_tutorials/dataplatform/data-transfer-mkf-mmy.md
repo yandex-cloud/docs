@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных очереди из {{ KF }} в {{ MY }} с помощью {{ data-transfer-full-name }}
 
 В кластер {{ mmy-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 
@@ -32,7 +32,7 @@
             * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера.
 
         
-        1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
+        1. Для подключения к кластерам с локальной машины пользователя настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
             * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
@@ -153,7 +153,7 @@
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
 

@@ -9,6 +9,21 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 20/06/2023 {#200623}
+
+1. Added a page with a [list of all the projects]({{ link-datasphere-main }}) of a user.
+1. Updated initial notebooks.
+1. Fixed bugs and added minor improvements in platform performance.
+
+
+## Release on 23/05/2023 {#230523}
+
+1. {{ ml-platform-name }} now supports a new [{{ dd }}](concepts/project.md#dedicated) operation mode.
+1. In the {{ dd }} mode, the IDE version is updated to JupyterLab 3.5.3.
+1. You can now select an organization in an optimized way.
+1. Operations with community and project members are now easier to perform.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 29/03/2023 {#290323}
 
 1. You can now work with [labels](../resource-manager/concepts/labels.md) to label resources.

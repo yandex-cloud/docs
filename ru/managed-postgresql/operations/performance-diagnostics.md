@@ -130,7 +130,7 @@
 
     {% endlist %}
 
-Подробнее про отображаемые сведения см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
+Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) и [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache).
 
 ## Получить информацию о плане выполнения запроса {#auto-explain-enable}
 

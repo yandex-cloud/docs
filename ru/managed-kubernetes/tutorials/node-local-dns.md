@@ -235,7 +235,7 @@
              operator: "Exists"
            containers:
            - name: node-cache
-             image: k8s.gcr.io/dns/k8s-dns-node-cache:1.17.0
+             image: registry.k8s.io/dns/k8s-dns-node-cache:1.17.0
              resources:
                requests:
                  cpu: 25m
@@ -484,7 +484,7 @@ service "node-local-dns" deleted
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 1. Удалите кластер {{ managed-k8s-name }}.
 
    {% list tabs %}

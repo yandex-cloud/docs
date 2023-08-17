@@ -3,7 +3,7 @@
 This section provides users with recommendations on security settings in [{{ vpc-full-name }}](../../../vpc/).
 
 
-To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via [VMs](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/).
+To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via [VMs](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/index.yaml).
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
@@ -285,9 +285,10 @@ To enable administrators to establish remote connections to your cloud resources
    **Setup options**:
    * [Creating an IPsec VPN tunnel using the strongSwan](../../../tutorials/routing/ipsec-vpn.md).
    * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
-   * A client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
+   * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
-   See the instructions in [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md). You can also use certified data cryptographic security tools.
+   For details, see the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
+  
 * A dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
 
 To access the infrastructure using control protocols (such as SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
@@ -305,10 +306,12 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
    1. Go to the **Route tables** section.
    1. If routes to remote sites' private networks through VMs with a VPN gateway are found, the recommendation is fulfilled.
    1. Check the VMs in each cloud for VPN gateways. In addition, check if their security groups have open ports for the VPN.
+  
 
 - Manual check
 
    Contact your account manager to find out if you have {{ interconnect-name }} activated. If yes, check if remote access is used.
+
 
 {% endlist %}
 
@@ -316,7 +319,7 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
 Possible options for setting up outbound internet access:
 * [Public IP address](../../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
-* [Egress NAT (NAT gateway)](../../../vpc/operations/enable-nat.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We don't recommend that you use Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure. Learn more about the [setting](../../../vpc/operations/create-nat-gateway.md).
+* [Egress NAT (NAT gateway)](../../../vpc/operations/create-nat-gateway.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We don't recommend that you use Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
 * [NAT instance](../../../tutorials/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using a [NAT instance]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) image from {{ marketplace-name }}.
 
 **Comparison of internet access methods**:

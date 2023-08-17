@@ -39,11 +39,11 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       +------------------+----------------------+-------------+-----------------------+---------------------+
       |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
       +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Save the name of the bucket using the `NAME` column to enable public access to.
+   1. Using the `NAME` column, save the name of the bucket to enable public access to.
    1. Allow public access to operations with the bucket:
 
       ```bash
@@ -66,7 +66,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       ```yaml
       name: first-bucket
-      folder_id: b1gmit33ngp6cv2mhjmo
+      folder_id: b1gmit33ngp6********
       anonymous_access_flags:
         read: true
         list: true
@@ -109,7 +109,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
       * `read`: Read access to bucket objects.
       * `list`: Access to list of bucket objects.
 
-      For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-anonymous-access-flags).
+      For more information about `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
    1. Make sure the configuration files are valid.
 
@@ -132,7 +132,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+         All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

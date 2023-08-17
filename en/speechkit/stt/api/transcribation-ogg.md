@@ -1,6 +1,6 @@
-# Recognizing speech in OggOpus format
+# Asynchronously recognizing audio files in OggOpus format
 
-The example shows how the [API v2](transcribation-api.md) helps asynchronously recognize speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
+The example shows how the [API v2](transcribation-api.md) helps [asynchronously recognize](../transcribation.md) speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
 
 The examples use the following parameters:
 
@@ -10,6 +10,12 @@ The examples use the following parameters:
 Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
+
+## Getting started {#before-you-begin}
+
+{% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
+
+## Perform speech recognition via the API {#recognize-using-api}
 
 {% list tabs %}
 
@@ -171,4 +177,5 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 * [{#T}](transcribation-api.md)
 * [{#T}](transcribation-lpcm.md)
+* [{#T}](batch-transcribation.md)
 * [{#T}](../../concepts/auth.md)

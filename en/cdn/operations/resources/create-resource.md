@@ -81,7 +81,7 @@ To create a [resource](../../concepts/resource.md):
 
       ```bash
       - id: "90209"
-        folder_id: somefolder7p3l5eobbd
+        folder_id: somefolder7p********
         name: test-group-1
         use_next: true
         origins:
@@ -95,7 +95,7 @@ To create a [resource](../../concepts/resource.md):
           source: www.example1.com
           enabled: true
       - id: "90208"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5ve********
         name: test-group
         use_next: true
         origins:
@@ -172,7 +172,7 @@ To create a [resource](../../concepts/resource.md):
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -234,7 +234,7 @@ To create a [resource](../../concepts/resource.md):
    Result:
 
    ```bash
-   id: someidkfjqjfl325fw
+   id: someidkfjq********
 
    ...
 

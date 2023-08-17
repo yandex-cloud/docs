@@ -33,17 +33,14 @@ REGEXP_REPLACE( string, pattern, replace_with )
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
-
-
 
 #### Пример {#examples}
 
 ```
-REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
+REGEXP_REPLACE("123 456", "\s", "-") = "123-456"
 ```
 
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 19.13`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `MySQL 8.0.12`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

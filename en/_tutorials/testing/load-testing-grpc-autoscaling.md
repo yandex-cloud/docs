@@ -192,8 +192,8 @@ This instruction will use a gRPC service as a test target.
    Expected result:
 
    ```
-   NAME        CLASS    HOSTS            ADDRESS         PORTS     AGE
-   grpc-demo   <none>   <website_name>   <IP_address>    80, 443   2m
+   NAME        CLASS    HOSTS            ADDRESS        PORTS     AGE
+   grpc-demo   <none>   <website_name>   <IP_address>   80, 443   2m
    ```
 
    Where:
@@ -287,7 +287,7 @@ This instruction will use a gRPC service as a test target.
      package: yandextank.plugins.Pandora
      config_content:
       pools:
-        - id: Gun
+       - id: Gun
          gun:
            type: grpc
            target: <your-site-name>:<port>
@@ -300,12 +300,12 @@ This instruction will use a gRPC service as a test target.
            destination: ./phout.log
          rps:
            - duration: 60s
-            type: line
-            from: 1
-            to: 10
+             type: line
+             from: 1
+             to: 10
          startup:
            - type: once
-            times: 1000
+             times: 1000
       log:
         level: debug
       monitoring:
@@ -327,20 +327,20 @@ This instruction will use a gRPC service as a test target.
 
 6. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * In the **Test data** settings section, select **From computer**, click **Attach file**, and upload the prepared `ammo.json` file.
-   * Under **Test settings**:
-      * In the **Configuration method** field, select **Configuration file**.
-      * In the **Configuration file** field, click **Attach file** and upload the prepared `load.yaml` file.
+   * In the **{{ ui-key.yacloud.load-testing.test-data-section }}** settings section, select **{{ ui-key.yacloud.load-testing.label_local-source }}**, click **Attach file**, and upload the prepared `ammo.json` file.
+   * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}** settings:
+      * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
+      * In the **{{ ui-key.yacloud.load-testing.field_config-file }}** field, click **Attach file** and upload the prepared `load.yaml` file.
 
 7. Monitor the test:
 
-   1. In the [management console]({{ link-console-main }}), select {{ managed-k8s-name }}.
+   1. In the [management console]({{ link-console-main }}), select {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
    1. Select your test cluster.
-   1. Go to the **Workload** tab.
+   1. Click the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
    1. Monitor the change in the number of application pods as the load increases and decreases.
-   1. After testing is complete, in the [management console]({{ link-console-main }}), select {{ alb-name }}.
+   1. After testing is complete, in the [management console]({{ link-console-main }}), select {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.
    1. Select the created L7 load balancer.
-   1. Go to the **Monitoring** tab.
+   1. Click the **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. View the test load chart.
 
 ## How to delete the resources you created {#clear-out}

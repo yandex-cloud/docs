@@ -1,47 +1,56 @@
 # My issues
 
-To find issues you're working on, select **Issues** → **All my issues** on the top panel in {{ tracker-name }}. This opens the [filter page](default-filters.md) where you can see issues that list you as the reporter, assignee, or follower.
+To find issues you're working on:
 
-To search for issues in the list, use [quick filters](#q-filters) or [add search criteria](default-filters.md#add-condition).
+1. In the left panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues**.
 
-## Quick filters {#q-filters}
+1. To find the issues in which you are the reporter, assignee, or follower, select the **All my issues** filter.
 
-You can use quick filters to filter out your issue list, leaving only the issues that include the selected parameters. Quick filter buttons are located above the issue list:
+1. If you cannot see all relevant issues, expand the list:
 
-![](../../_assets/tracker/quick-filters-new.png)
+   * On the left panel at the bottom of the page, click **Full list of filtered issues** or follow the [direct link]({{ link-tracker }}issues/my-issues).
 
-1. Resolution filters. Select one of the options:
-    - **All**: The page displays all issues, regardless of the resolution.
-    - **Without resolution**: The page only displays issues that aren't resolved.
-    - **With resolution**: The page only displays resolved issues.
-1. Role-based filters. You can apply multiple filters at the same time:
-    - **Reported by me**
-    - **Assigned to me**
-    - **Followed by me**.
+   * To open all the issues available to you in {{ tracker-name }}, at the bottom of the window, click **All issues** or follow the [direct link]({{ link-tracker }}).
 
-As a result, only the issues that meet the selected filter parameters are shown in the list.
+To search for issues in the list, use [filtering by parameters](#q-filters) or [add search criteria](default-filters.md#add-condition).
 
-## Searching for issues by name or description {#search-name}
+## Filter by parameters {#q-filters}
 
-If you want to find an issue using its name or description, click **Add filter** above the issue list and set your parameters:
+Use filters to narrow down your issue list and display only those issues that match the selected parameters. The filter by parameters buttons are above the issue list:
 
-- To find issues that contain a particular phrase in their name, add the **Issue** parameter to your search and enter the text to search for.
-- To find issues that contain a particular phrase in their description, add the **Description** parameter to your search and enter the text to search for.
+* To use standard filters, click the filter name in the list located in the bottom-left corner of the page:
+   * **Favorite issues**.
+   * **All my issues**.
+   * **Reported by me**.
+   * **Assigned to me**.
+   * **Followed by me**.
+   * **Waiting for response**.
+   * **Deadline approaching**.
 
-![](../../_assets/tracker/filters-condition.png)
+* To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
-{% note info %}
+* To use the [advanced search parameters](./default-filters.md#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **Add a field for filtering** and select a field.
 
-If you define multiple parameters, only issues that contain all of them are found.
+## Searching for issues by name {#search-name}
 
-{% endnote %}
+If you want to find an issue using its name:
+
+1. In the left panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or click the [link]({{ link-tracker }}issues/).
+
+1. In the **Search by name, description, comments** field, enter the text to find.
+
+The system will search for issues that match all the selected filters.
 
 ## Configuring how issues are displayed {#manage-list}
 
-You can configure how issues are displayed in the list or download the list as a file:
+{% note info %}
 
-- If you want to hide or display certain issue fields, click **Configure columns**, select the fields, and click **Save**.
-- To group issues by a certain field, click **Not grouped** to the right of the list and select the desired field.
-- To create a [Gantt chart](../manager/gantt.md) for your issue list, go to the upper-right corner and click ![](../../_assets/tracker/gantt-ico.png).
-- To save an issue list, click ![](../../_assets/tracker/icon-download.png) to the right above the list and select the format of the file to download or simply copy the list to the clipboard.
+Issue display settings are only available in the {{ tracker-name }} web interface.
 
+{% endnote %}
+
+You can set up the display of issues in the list or save the list to a file:
+
+* If you want to hide or display certain issue fields, click ![](../../_assets/tracker/svg/settings.svg) icon, select the fields, and click **Apply**.
+* To group issues by a certain field, click![](../../_assets/tracker/svg/group.svg) **No grouping** above the list and select the desired field.
+* To save an issue list, at the top right of the page, click ![](../../_assets/tracker/svg/export.svg) and select the format of the file to download or simply copy the list to the clipboard.

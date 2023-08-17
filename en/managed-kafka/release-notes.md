@@ -1,8 +1,16 @@
 # {{ mkf-full-name }} releases
 
-This section presents the revision history for {{ mkf-name }}.
+This section covers the revision history for {{ mkf-name }}.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## Q2 2023 {#q2-2023}
+
+* New {{ KF }} version 3.4 available in `PRODUCTION` environment. For more information about revisions, see the [{{ KF }} documentation](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
+## Q1 2023 {#q1-2023}
+
+* New {{ KF }} version 3.3 available in `PRODUCTION` environment. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q4 2022 {#q4-2022}
 

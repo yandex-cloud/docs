@@ -1,16 +1,16 @@
-# Sample analysis of streaming data
+# Processing of data streams from {{ yds-full-name }}
 
-{{ yq-full-name }} can run [streaming processing](../concepts/stream-processing.md) of data in an SQL-like language called [YQL](https://ydb.tech/en/docs/yql/reference/syntax/).
+In this example, you will [process a data stream](../concepts/stream-processing.md) on New York City taxi rides. Data for the example will be written by a generator to a dedicated [{{ yds-full-name }}](../../data-streams/index.yaml) stream.
 
-In this example, we'll use a ready-made dataset on New York City taxi trips. As a result, we will calculate the count and total cost of the first trips. For this, we will create a [data stream](../../data-streams/concepts/glossary.md) and write data to it using a generator. Then we'll run a YQL query to get the count of trips and their cost.
+As a result, you will get the total cost of the first ten rides since the stream data processing began.
 
-To execute the example:
+To run this example:
 
-1. [Get started](#before-you-begin).
-1. [Create a data stream](#create-datastream).
-1. [Set up data generation](#configure-generation).
-1. [Run the query](#run-query).
-1. [Review the result](#check-result).
+1. [{#T}](#before-you-begin).
+1. [{#T}](#create-datastream).
+1. [{#T}](#configure-generation).
+1. [{#T}](#run-query).
+1. [{#T}](#check-result).
 
 {% note info %}
 
@@ -18,10 +18,10 @@ To execute the example:
 
 {% endnote %}
 
-## Getting started {#before-you-begin}
+## Before you start {#before-you-begin}
 
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. [Create](../../ydb/quickstart.md#serverless) a serverless database.
@@ -36,10 +36,9 @@ To execute the example:
 
 Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **Start** buttons to control the data generator.
 
-
 ## Run the query {#run-query}
 
-1. In the query editor in the {{ yq-full-name }} interface, click **New streaming query**.
+1. In the query editor in the {{ yq-name }} interface, click **New streaming query**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -63,13 +62,13 @@ Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **S
 
 ## Review the result {#check-result}
 
-Once the query is completed, you'll see the following results: the number of trips and the total cost of the first trips made after running the query.
+Once the query is completed, you'll see the following results: the total cost (`total_amount`) of the first 10 rides made after the query ran.
 
 | # | time | ride_count | total_amount |
 | --- | --- | --- | --- |
 | 1 | 2022-11-28T16:05:00.000000Z | 10 | 5675.542679843059 |
 
-#### See also {#see-also}
+## See also {#see-also}
 
 * [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
 * [Aggregate functions. YQL syntax]({{ ydb.docs }}/yql/reference/builtins/aggregation)

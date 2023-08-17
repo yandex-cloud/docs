@@ -25,21 +25,13 @@ Backups are kept for 7 days.
 
 #### Which version of {{ OS }} does {{ mos-short-name }} use? {#dbms-version}
 
-The {{ OS }} versions maintained by the vendor are available in {{ mos-short-name }}.
+The {{ OS }} versions maintained by the vendor are available in {{ mos-short-name }}. For more information, see [{#T}](../concepts/update-policy.md).
 
 #### What happens when a new {{ OS }} version is released? {#new-version}
 
-When new versions include only bug fixes (such versions are called _maintenance releases_), the cluster software is automatically updated after a short testing period.
+When a new minor version is released, the cluster software is [automatically updated](../concepts/update-policy.md) after testing. Clusters with an unsupported {{ OS }} version will also be updated automatically.
 
-The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
-
-#### What happens when the {{ OS }} version becomes deprecated? {#dbms-deprecated}
-
-{{ mos-short-name }} automatically notifies cluster owners by email that their {{ OS }} version is approaching end of life.
-
-Clusters running the {{ OS }} version that is no longer supported are automatically upgraded to the most up-to-date and stable maintained version.
-
-The owners of the affected clusters receive advanced notice of expected work times and DB availability.
+The owner of the affected clusters will receive a notice of expected work times and database availability.
 
 {% include [logs](../../_qa/logs.md) %}
 
@@ -58,3 +50,9 @@ The thresholds are only set in bytes. For example, here are the recommended valu
 
 * `Alarm`: `96636764160` bytes (90%).
 * `Warning`: `85899345920` bytes (80%).
+
+#### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
+
+{% include [throttling](../../_qa/throttling.md) %}
+
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size or switch to a faster disk type by [restoring the cluster](../operations/cluster-backups.md#restore) from a backup.

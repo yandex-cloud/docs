@@ -13,15 +13,11 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 1. [Import](../../storage/operations/objects/upload.md) the file with the data format schema to {{ objstorage-full-name }}.
 
-1. Configure access to the schema file using one of the methods:
+1. Configure access to the schema file using a [service account](../../iam/concepts/users/service-accounts.md):
 
-   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method enables you to access the file without entering account information.
-
-      1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
-      2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
-      3\. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
-
-   * [Enable public access](../../storage/operations/objects/edit-acl.md) to the bucket containing the file.
+   1. [Connect a service account to a cluster](s3-access.md#connect-service-account).
+   1. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
+   1. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
 
 1. [Get a link](s3-access.md#get-link-to-object) to the schema file.
 
@@ -92,13 +88,13 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   Use the [create](../api-ref/FormatSchema/create.md) API method and include the following information in the request:
+   To add a data format schema, use the [create](../api-ref/FormatSchema/create.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Create](../api-ref/grpc/format_schema_service.md#Create) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Format schema name in the `formatSchemaName` parameter.
@@ -170,17 +166,17 @@ To update the contents of a schema that is already connected to the cluster:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
       {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   Use the [update](../api-ref/FormatSchema/update.md) API method and include the following in the request:
+   To update a data format schema, use the [update](../api-ref/FormatSchema/update.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Update](../api-ref/grpc/format_schema_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
-   * New link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+   * The new link to the file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -236,13 +232,13 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   Use the [delete](../api-ref/FormatSchema/delete.md) API method and include the following in the request:
+   To delete a data format schema, use the [delete](../api-ref/FormatSchema/delete.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Delete](../api-ref/grpc/format_schema_service.md#Delete) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
@@ -274,7 +270,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - API
 
-   Use the [list](../api-ref/FormatSchema/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of data format schemas, use the [list](../api-ref/FormatSchema/list.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/List](../api-ref/grpc/format_schema_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -301,7 +297,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - API
 
-   Use the [get](../api-ref/FormatSchema/get.md) API method and pass the following in the request:
+   To get detailed information about a data format schema, use the [get](../api-ref/FormatSchema/get.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Get](../api-ref/grpc/format_schema_service.md#Get) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).

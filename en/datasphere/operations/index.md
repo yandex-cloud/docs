@@ -9,6 +9,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
+* [{#T}](community/manage-community-labels.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
@@ -18,6 +19,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 * [{#T}](projects/create.md)
 * [{#T}](projects/add-user.md)
+* [{#T}](projects/manage-project-labels.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/storage-resize.md)
 * [{#T}](projects/update.md)
@@ -28,6 +30,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 * [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/gpu-performance-check.md)
+* [{#T}](projects/get-notebook-cell-ids.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/snippets.md)
@@ -49,6 +52,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
 * [{#T}](data/connect-to-google-drive.md)
+* [{#T}](data/connect-to-ydb.md)
 
 ## Deploying models {#deploy}
 

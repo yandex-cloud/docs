@@ -25,8 +25,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost for bucket support includes:
 
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 
 
 
@@ -44,11 +44,11 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter the service account name: `sa-win-disk-connect`.
-   1. Click ![](../../_assets/plus-sign.svg) **Add role** and select the `storage.editor` role.
-   1. Click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
+   1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**and select the `storage.editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
 - CLI
 
@@ -62,7 +62,7 @@ The cost for bucket support includes:
    yc iam service-account create --name sa-win-disk-connect
    ```
 
-   Name format requirements:
+   The name format requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -81,11 +81,11 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Choose `sa-win-disk-connect` and click the line with its name.
-   1. Click ![](../../_assets/plus-sign.svg) **Create new key** in the top panel.
-   1. Select **Create static access key**.
-   1. Specify the key description and click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Select the `sa-win-disk-connect` service account.
+   1. In the top panel, click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
 - CLI
@@ -124,16 +124,16 @@ The cost for bucket support includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-   1. In the list of services, select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
-   1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
-   1. In the **Object read access**, **Object listing access** and **Read access to settings** fields, select **Restricted**.
-   1. Click **Create bucket**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket following the [naming conventions](../../storage/concepts/bucket.md#naming).
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
-   1. Create a bucket specifying the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming):
+   1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
@@ -150,7 +150,7 @@ The cost for bucket support includes:
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. Add the section with the bucket parameters to the configuration file specifying the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming):
+   1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
 
       ```hcl
       resource "yandex_storage_bucket" "<bucket_name>" {
@@ -158,7 +158,7 @@ The cost for bucket support includes:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are valid.
 
@@ -217,24 +217,24 @@ The cost for bucket support includes:
 
 {% note info %}
 
-If needed, you can run an advanced connection setup. For this, at the `Edit advanced config?` prompt, enter `y` in the terminal. For more about advanced settings, see the [documentation page](https://rclone.org/s3/) of the `rclone` utility.
+If required, you can run an advanced connection setup. For this, at the `Edit advanced config?` prompt, enter `y` in the terminal. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
 
 {% endnote %}
 
 ## Mount a bucket {#bucket-mount}
 
-1. Check the connection to the bucket. In the same terminal where you configured your connection, run the command specifying the bucket name:
+1. Check the connection to the bucket. In the same terminal where you configured your connection, run the following command with the bucket name specified:
 
    ```powershell
    rclone.exe ls s3-connect:<bucket_name>
    ```
 
-   If the configuration is set up correctly, the objects in the bucket are listed in the console.
+   If the configuration is set up correctly, the objects in the bucket will be listed in the console.
 
-1. Mount the bucket to the file system specifying the bucket name and the disk letter:
+1. Mount the bucket to the file system specifying the bucket name and an available drive letter in the file system:
 
    ```powershell
-   rclone.exe mount s3-connect:<bucket_name> <disk letter>: --vfs-cache-mode full
+   rclone.exe mount s3-connect:<bucket_name> <drive_letter>: --vfs-cache-mode full
    ```
 
    You will see a new disk with the objects from the bucket in Windows Explorer.
@@ -252,8 +252,8 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
      <id>rclone</id>
      <name>rclone-s3-disk</name>
      <description>This service maps an S3 bucket as a system drive.</description>
-     <executable>"<path to the working directory>\rclone.exe"</executable>
-     <arguments>mount s3-connect:bucket-for-win <disk letter>: --vfs-cache-mode full</arguments>
+     <executable>"<working_directory_path>\rclone.exe"</executable>
+     <arguments>mount s3-connect:<bucket_name> <drive_letter>: --vfs-cache-mode full</arguments>
      <log mode="roll" />
      <onfailure action="restart" />
    </service>
@@ -283,5 +283,5 @@ You can also set up the service to start on behalf of the system user (for more 
 
 To stop paying for the resources you created:
 
-* [Delete objects](../../storage/operations/objects/delete-all.md) from the bucket.
-* [Delete](../../storage/operations/buckets/delete.md) the bucket.
+* [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
+* [Delete the bucket](../../storage/operations/buckets/delete.md).

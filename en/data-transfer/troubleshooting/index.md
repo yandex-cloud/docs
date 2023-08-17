@@ -6,8 +6,10 @@ This section describes typical problems that may arise during [transfer](../oper
 * [{#T}](#api)
 * [{#T}](#network)
 * [{#T}](#clickhouse)
+* [{#T}](#elasticsearch)
 * [{#T}](#mongodb)
 * [{#T}](#mysql)
+* [{#T}](#opensearch)
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
 * [{#T}](#yds)
@@ -16,6 +18,8 @@ This section describes typical problems that may arise during [transfer](../oper
 Key features about preparing sources and targets for a transfer are described in the [relevant section](../operations/prepare.md).
 
 Limitations on sources and targets while a transfer is running are described in [{#T}](../operations/db-actions.md).
+
+You can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
 
 ## General {#common}
 
@@ -55,6 +59,12 @@ Error example:
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/table-names.md) %}
 
+## {{ ES }} {#elasticsearch}
+
+{% include [ambiguous-object-resolution-es](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
+
+{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+
 ## {{ MG }} {#mongodb}
 
 {% include [string-size](../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
@@ -64,6 +74,8 @@ Error example:
 {% include [no-tables](../../_includes/data-transfer/troubles/mongodb/no-tables.md) %}
 
 {% include [sharded](../../_includes/data-transfer/troubles/mongodb/sharded.md) %}
+
+{% include [timeseries](../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
 
 ## {{ MY }} {#mysql}
 
@@ -76,6 +88,14 @@ Error example:
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+## {{ OS }} {#opensearch}
+
+{% include [ambiguous-object-resolution-os](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
+
+{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
 ## {{ PG }} {#postgresql}
 
@@ -111,6 +131,8 @@ Error example:
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
 
 ## {{ ydb-full-name }} {#ydb}
 
@@ -121,10 +143,11 @@ Error example:
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
 
 
+
 ## How to report a problem {#support}
 
 
-If you followed the tips provided but the problem persists, contact [ tech support]({{ link-console-support }}).
+If you followed the tips provided but the problem persists, contact [tech support]({{ link-console-support }}).
 
 
 In your request, specify the [transfer](../operations/transfer.md#list) or [endpoint](../operations/endpoint/index.md#list) ID and attach [transfer status](../operations/monitoring.md) details.

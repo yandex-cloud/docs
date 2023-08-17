@@ -43,6 +43,8 @@ items:
             href: operations/application-load-balancer-get-stats.md
           - name: Посмотреть логи L7-балансировщика
             href: operations/application-load-balancer-get-logs.md
+          - name: Настроить запись логов L7-балансировщика
+            href: operations/application-load-balancer-manage-logs.md
           - name: Получить идентификатор лог-группы L7-балансировщика
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Остановить и запустить L7-балансировщик
@@ -245,6 +247,8 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
+  - name: Справочник метрик
+    href: metrics.md
   - name: Справочники инструментов для {{ managed-k8s-name }}
     items:
       - name: Обзор

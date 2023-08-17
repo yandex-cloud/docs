@@ -59,7 +59,7 @@
 
    {% endnote %}
 
-- On a domain in Yandex 360
+- On a domain in {{ yandex-360 }}
 
    1. {% include [go to settings](transition-page.md) %}
 
@@ -73,7 +73,7 @@
 
    1. Set up a mailbox for receiving and sending messages.
       1. In the **Email** field, specify a new email address to be used only for the queue.
-      1. If you need to process emails not only from the organization's employees but from external users as well, enable the setting **Accept letters not only from employees of the organization**.
+      1. If you need to process emails not only from the organization's employees but from external users as well, enable the **Accept letters not only from employees of the organization** setting.
 
    1. Specify the parameters with which the issues should be created in the queue: the [issue type](../../tracker/manager/add-ticket-type.md) and [components](../../tracker/manager/components.md).
 

@@ -92,7 +92,7 @@ The load on processor cores.
 ##### {{ OS }} native metrics {#managed-opensearch-system-metrics}
 
 | Name<br/>Type, units |
-| ----- | 
+| ----- |
 | `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, milliseconds |
 | `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, pcs |
 | `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, KB |
@@ -374,23 +374,23 @@ The load on processor cores.
 ##### Other metrics {#managed-opensearch-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `opensearch_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](https://cloud.yandex.ru/docs/managed-opensearch/concepts/scalability-and-resilience) and total number of active shards in the cluster. |
+| `opensearch_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster. |
 | `opensearch_active_shards`<br/>`DGAUGE`, pcs | Number of active shards. |
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards. |
 | `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards. |
 | `opensearch_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized. |
 | `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
 | `opensearch_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated. |
-| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): The cluster is unhealthy or partially functional.  At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): The cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): The cluster is healthy. All cluster shards are available. |
+| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional.  At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
 | `opensearch_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned. |
-| `dashboards_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](https://cloud.yandex.ru/docs/managed-opensearch/concepts/scalability-and-resilience) and total number of active shards in the cluster. |
+| `dashboards_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster. |
 | `dashboards_active_shards`<br/>`DGAUGE`, pcs | Number of active shards. |
 | `dashboards_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards. |
 | `dashboards_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards. |
 | `dashboards_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized. |
 | `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
 | `dashboards_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated. |
-| `dashboards_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): The cluster is unhealthy or partially functional.  At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): The cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): The cluster is healthy. All cluster shards are available. |
+| `dashboards_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional.  At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
 | `dashboards_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned. |
 
 Read more about the service in the [{{ mos-full-name }}](../../../managed-opensearch/) documentation.

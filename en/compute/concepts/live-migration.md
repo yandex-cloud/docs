@@ -1,25 +1,29 @@
 # Live migration
 
-{{ compute-full-name }} uses the live migration feature that allows you to move running VMs across physical servers without stopping or restarting them. The downtime usually does not exceed 10 seconds.
+{{ compute-name }} uses the live migration feature that allows you to move running [VMs](vm.md) across physical servers without stopping or restarting them. The downtime usually does not exceed 10 seconds.
 
-Live migration does not change any VM settings. The live migration process moves a running VM from one server to another in the same availability zone. This does not affect any VM properties, including internal and external IP addresses, metadata, memory, network, OS's, or application status.
+Live migration does not change any VM settings. The live migration process moves a running VM from one server to another in the same [availability zone](../../overview/concepts/geo-scope.md). This does not affect any VM properties, including [internal and external IP addresses](../../vpc/concepts/address.md), [metadata](vm-metadata.md), memory, [network](../../vpc/concepts/network.md#network), OSs, or application status.
 
-{{ compute-short-name }} starts live migration in the following cases:
-
+{{ compute-name }} starts live migration in the following cases:
 * Scheduled hardware maintenance and upgrades.
 * Unscheduled maintenance in the event of failed hardware, including CPUs, NICs, and power supply units.
 * OS, BIOS, and firmware updates.
-* Changes in the OS configuration.
+* OS configuration updates.
 * Security updates.
 
 ## Limitations {#limitations}
 
-The following types of virtual machines cannot be moved:
-
-* Virtual machines with [GPUs](../concepts/gpus.md)*.
-* [Preemptible](../concepts/preemptible-vm.md)* virtual machines.
-* {{ sf-name }} virtual machines.
-* Managed DBMS virtual machines with local SSDs.
-* Virtual machines with disabled migration.
+The following types of VMs cannot be moved:
+* VMs with [GPUs](../concepts/gpus.md)[^1].
+* [Preemptible](../concepts/preemptible-vm.md)[^1] VMs.
+* [{{ sf-full-name }}](../../functions/) VMs.
+* Managed DBMS VMs with local SSDs.
+* VMs with disabled migration.
 
 \* These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
+
+## See also {#see-also}
+
+* [How to move a VM to a different availability zone](../operations/vm-control/vm-change-zone.md)
+* [How to move a VM to another folder](../operations/vm-control/vm-change-folder.md)
+* [How to move a VM to another cloud](../operations/vm-control/vm-change-cloud.md)

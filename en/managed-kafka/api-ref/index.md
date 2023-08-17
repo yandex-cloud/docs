@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/index.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/index.md
 ---
 
 # Managed Service for Apache Kafka® API: REST reference

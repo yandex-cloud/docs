@@ -52,7 +52,7 @@ For example, allow any authenticated user to view folder information:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note alert %}
 
@@ -64,18 +64,18 @@ For example, allow any authenticated user to view folder information:
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to grant permissions for. Required parameter.
-      * `role`: The role assigned. Required parameter.
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to grant permissions for. This parameter is required.
+      * `role`: Role being assigned. This parameter is required.
 
          {% note info %}
 
-         For each role, only one `yandex_resourcemanager_folder_iam_member` resource can be used.
+         For each role, you can only use one `yandex_resourcemanager_folder_iam_member` resource.
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). Required parameter.
+      * `member`: User to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). This parameter is required.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       ...
@@ -91,25 +91,25 @@ For example, allow any authenticated user to view folder information:
       ...
       ```
 
-      For more information about the parameters of the `yandex_resourcemanager_folder_iam_member` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

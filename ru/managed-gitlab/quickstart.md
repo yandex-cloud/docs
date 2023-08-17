@@ -37,22 +37,28 @@
    1. Измените пароль для администратора.
    1. Авторизуйтесь с помощью логина и пароля администратора.
 1. [Создайте группу](https://docs.gitlab.com/ee/user/group/#create-a-group), в которой будет размещен ваш проект.
-1. [Создайте пользователя](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) и [добавьте его в группу](https://docs.gitlab.com/ee/user/group/#add-users-to-a-group).
-1. Создайте SSH-ключ и [присвойте его аккаунту пользователя](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
-1. [Создайте пустой проект](https://docs.gitlab.com/ee/user/project/working_with_projects.html#blank-projects), в котором будет размещен ваш репозиторий.
+1. [Создайте пользователя](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) и [добавьте его в группу](https://docs.gitlab.com/ee/user/project/members/#add-users-to-a-project) с ролью `Maintainer` или `Owner`.
+1. [Создайте SSH-ключ](https://docs.gitlab.com/ee/user/ssh.html) и [присвойте его аккаунту пользователя](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
+1. [Создайте пустой проект](https://docs.gitlab.com/ee/user/project/), в котором будет размещен ваш репозиторий.
 
 ## Начните работу с репозиторием {#start-work-with-git}
 
-В этом разделе вы узнаете, как начать работу с локальной копией вашего репозитория. Выполните эти действия на локальном компьютере:
+В этом разделе вы узнаете, как начать работу с локальной копией вашего репозитория от имени созданного пользователя. Выполните эти действия на локальном компьютере:
 1. [Установите клиент Git](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#install-git).
 1. [Клонируйте репозиторий](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) на локальный компьютер.
-1. Начните работу с репозиторием. Создайте файл `README.md`, и сохраните его в каталоге с репозиторием:
+1. Перейдите в каталог с репозиторием:
+
+   ```bash
+   cd <имя проекта>
+   ```
+
+1. Создайте файл `README.md`:
 
    ```bash
    echo "This is my new project" > README.md
    ```
 
-1. Добавьте файл в репозиторий с помощью команды:
+1. Проиндексируйте файл `README.md`:
 
    ```bash
    git add README.md
@@ -65,8 +71,9 @@
    ```
 
    Подробнее см. в [документации {{ GL }}](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes).
-1. [Передайте изменения](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) в {{ mgl-name }}:
+
+1. [Передайте изменения](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#send-changes-to-gitlabcom) в {{ mgl-name }}:
 
    ```bash
-   git push origin master
+   git push origin main
    ```

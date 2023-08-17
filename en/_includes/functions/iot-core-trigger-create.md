@@ -43,11 +43,11 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
       {% include [function-settings](function-settings.md) %}
 
-   1. (optional) Under **Repeat request settings**:
+   1. (Optional) Under **Repeat request settings**:
 
       {% include [repeat-request.md](repeat-request.md) %}
 
-   1. (optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -147,7 +147,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
          * `id`: Function ID.
          * `service_account_id`: ID of the service account with rights to invoke a function.
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 
@@ -170,7 +170,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>

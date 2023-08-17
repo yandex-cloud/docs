@@ -8,7 +8,7 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан сертификат.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. В списке сервисов выберите **{{ certificate-manager-name }}**.
   1. Выберите в списке сертификат, который необходимо обновить.
   1. В открывшемся окне нажмите кнопку **Обновить сертификат**.
@@ -76,6 +76,48 @@
      not_after: "2021-09-15T08:12:57Z"
      not_before: "2020-09-15T08:12:57Z"
      ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и измените параметры `certificate` и `private_key` сертификата:
+
+     {% cut "Пример описания сертификата в конфигурации {{ TF }}" %}
+
+     ```
+     ...
+     resource "yandex_cm_certificate" "imported-certificate" {
+       name        = "my-certificate"
+       description = "this is a test certificate"
+
+       self_managed {
+         certificate = <<-EOT
+                       -----BEGIN CERTIFICATE-----
+                       MIIF...
+                       -----END CERTIFICATE-----
+                       EOT
+         private_key = <<-EOT
+                       -----BEGIN PRIVATE KEY-----
+                       MIIJ...
+                       -----END PRIVATE KEY-----
+                       EOT
+       }
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение сертификата можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc certificate-manager certificate get <имя_сертификата>
+    ```
 
 - API
 

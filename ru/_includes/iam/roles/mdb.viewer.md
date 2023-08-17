@@ -1,3 +1,3 @@
-### {{ roles-mdb-viewer }} {#mdb-viewer}
+#### {{ roles-mdb-viewer }} {#mdb-viewer}
 
 Роль `{{ roles-mdb-viewer }}` позволяет просматривать информацию об управляемых базах данных кластеров и логах их работы.

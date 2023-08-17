@@ -114,7 +114,7 @@
         ```
 
 
-        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
+        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -259,7 +259,7 @@
 
 ## Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
 
-В консоли управления [федеративному пользователю](../../../organization/add-federation.md) можно назначить роль на отдельное облако или каталог.
+В консоли управления [федеративному пользователю](../../../organization/concepts/add-federation.md) можно назначить роль на отдельное облако или каталог.
 
 {% list tabs %}
 

@@ -24,7 +24,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Add selectors to the dashboard](#add-selectors-to-dashboard).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -35,7 +35,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a dataset {#create-dataset}
 
-1. In the upper-right corner, click **Create dataset**.
+1. In the top-right corner, click **Create dataset**.
 
 1. Drag the **MS_SalesMiniTable** table to the workspace.
 
@@ -62,7 +62,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    The aggregation field will become a measure and change color to blue.
 
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Name the dataset: **Moscow Sales dataset with parameters**, then click **Create**.
 
 ## Add parameters to the dataset {#create-dataset-parameters}
@@ -117,7 +117,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Add a product category dimension to the chart. To do this, drag the **ProductCategory** field from the **Dimensions** section to the **Colors** section. The diagram areas corresponding to product categories will be filled by different colors.
 1. Save the chart.
 
-   1. In the upper-right corner, click **Save**.
+   1. In the top-right corner, click **Save**.
    1. Enter the chart name **Sales by product category**, then click **Save**.
 
       ![image](../../_assets/datalens/solution-parameters/save-chart-grouping.png)
@@ -151,7 +151,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Drag the **Sales** measure to the **X** section.
 1. Save the chart.
 
-   1. In the upper-right corner, click **Save**.
+   1. In the top-right corner, click **Save**.
    1. Enter the chart name **Chart with a configurable visualization dimension**, then click **Save**.
 
       ![image](../../_assets/datalens/solution-parameters/save-chart-measure-select.png)
@@ -185,7 +185,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 ## Add selectors to the dashboard {#add-selectors-on-dashboard}
 
-Add [selectors](../../datalens/concepts/dashboard.md#selector) with manual input to edit values in the charts.
+Add [selectors](../../datalens/dashboard/selector.md) with manual input to edit values in the charts.
 
 {% note warning %}
 
@@ -206,7 +206,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
    1. Click the input field next to the **Default value** parameter and add the values:
 
       * `day`
-      * `week()` 
+      * `week()`
       * `month`
       * `year`
 
@@ -221,7 +221,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
       ![image](../../_assets/datalens/solution-parameters/add-selector-parameters.png)
 
    1. Click **Add**.
-   1. Place the selector on the dashboard on top of the  **Sales by product category type**. Now you can manage data grouping in this chart.
+   1. Place the selector on the dashboard on top of the **Sales by product category type**. Now you can manage data grouping in this chart.
 
       ![image](../../_assets/datalens/solution-parameters/chart-grouping-w.png)
 

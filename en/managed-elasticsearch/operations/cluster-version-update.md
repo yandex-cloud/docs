@@ -1,5 +1,7 @@
 # Updating the {{ ES }} version and edition
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 In the {{ mes-name }} cluster, you can [update the version](#version-update) and [update the edition](#start-edition-update) of {{ ES }}.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
@@ -14,7 +16,7 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select a cluster and click **Edit**.
    1. Open the list in the **Version** field.
 
@@ -22,11 +24,11 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 ### Before updating the version {#before-version-update}
 
-Before updating the {{ ES }} version, make sure this doesn't affect your apps:
+Make sure this does not affect your applications:
 
-* View the [past release notes](https://www.elastic.co/downloads/past-releases#elasticsearch) for {{ ES }} to find out how the update might affect your applications.
-* Try updating the version on a test cluster. You can deploy a test cluster from a backup of the main cluster.
-* [Create a backup](cluster-backups.md#create-backup) of the main cluster before updating the version.
+1. See the {{ ES }} [changelog](https://www.elastic.co/downloads/past-releases#elasticsearch) to check how updates might affect your applications.
+1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ### Updating the {{ ES }} version {#start-version-update}
 
@@ -34,7 +36,7 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select a cluster and click **Edit**.
    1. In the **Version** field, select the version {{ ES }}.
    1. Click **Save**.
@@ -57,7 +59,7 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
       {{ yc-mdb-es }} cluster get <cluster name or ID>
       ```
 
-   1. Run the version update:
+   1. Update the version:
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster name of ID> --version <{{ ES }} version>
@@ -86,7 +88,7 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -94,11 +96,14 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * The new {{ ES }} version in the `configSpec.version` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.version` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.version`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -118,7 +123,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Select a cluster and click **Edit**.
    1. In the **Edition** field, select the required {{ ES }} edition: `Basic` or `Platinum`.
    1. Click **Save**.
@@ -141,7 +146,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
       {{ yc-mdb-es }} cluster get <cluster name or ID>
       ```
 
-   1. Run the edition update:
+   1. Update the edition:
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster name or ID> \
@@ -171,21 +176,24 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_elasticsearch_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_elasticsearch_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To update the {{ ES }} edition, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterId` parameter.
+
+      {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+
    * The new {{ ES }} edition, in the `configSpec.edition` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.edition` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.edition`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/opensearch/api-ref/Cluster/index.md
+sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/index.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster methods
@@ -48,7 +48,24 @@ A set of methods for managing OpenSearch clusters.
             "string"
           ]
         }
-      ]
+      ],
+      "opensearchConfigSet_2": {
+        "effectiveConfig": {
+          "maxClauseCount": "integer",
+          "fielddataCacheSize": "string",
+          "reindexRemoteWhitelist": "string"
+        },
+        "userConfig": {
+          "maxClauseCount": "integer",
+          "fielddataCacheSize": "string",
+          "reindexRemoteWhitelist": "string"
+        },
+        "defaultConfig": {
+          "maxClauseCount": "integer",
+          "fielddataCacheSize": "string",
+          "reindexRemoteWhitelist": "string"
+        }
+      }
     },
     "dashboards": {
       "nodeGroups": [
@@ -131,6 +148,19 @@ config.<br>opensearch.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of t
 config.<br>opensearch.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> 
 config.<br>opensearch.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
 config.<br>opensearch.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the host group.</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2 | **object**
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig | **object**<br><p>Required.</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>effectiveConfig.<br>reindexRemoteWhitelist | **string**
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>userConfig | **object**
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>userConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>userConfig.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>userConfig.<br>reindexRemoteWhitelist | **string**
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>defaultConfig | **object**
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>defaultConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>defaultConfig.<br>fielddataCacheSize | **string**<br><p>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata</p> 
+config.<br>opensearch.<br>opensearchConfigSet_2.<br>defaultConfig.<br>reindexRemoteWhitelist | **string**
 config.<br>dashboards | **object**<br><p>Dashboards configuration.</p> <p>The Dashboards host group type configuration.</p> 
 config.<br>dashboards.<br>nodeGroups[] | **object**<br><p>Host groups of the Dashboards type.</p> 
 config.<br>dashboards.<br>nodeGroups[].<br>name | **string**<br><p>Name of the group. 1-63 characters long.</p> 

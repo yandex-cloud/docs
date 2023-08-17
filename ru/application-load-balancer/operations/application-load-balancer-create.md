@@ -18,18 +18,31 @@
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-  1. (опционально) В блоке **Настройки автомасштабирования** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
+  1. (Опционально) В блоке **Настройки автомасштабирования** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
       Количество единиц будет меняться автоматически с учетом нагрузки на балансировщик и установленных ограничений. От количества единиц зависит [тарификация балансировщика](../pricing.md).
+
+  1. (Опционально) В блоке **Настройки логов**:
+      1. Включите опцию **Запись логов**.
+      1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
+      1. Нажмите кнопку **Добавить правило отбрасывания логов** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+
+          * **HTTP-коды** — добавьте HTTP-коды.
+          * **Классы HTTP-кодов** — добавьте классы HTTP-кодов.
+          * **gRPC-коды** — добавьте gRPC-коды.
+          * **Доля отбрасываемых логов** — добавьте процент отбрасываемых логов.
+      
+          Вы можете задать больше одного правила.
+
 
   1. В блоке **Размещение** выберите три подсети для узлов балансировщика и включите передачу трафика в эти подсети.
 
   1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
      1. Введите имя обработчика: `test-listener`.
-     1. (опционально) Включите опцию **Публичный IP-адрес**. Укажите **Порт**: `80` и выберите **Тип**:
+     1. (Опционально) Включите опцию **Публичный IP-адрес**. Укажите **Порт**: `80` и выберите **Тип**:
         * `Автоматически`.
         * `Список` — в появившемся поле справа выберите адрес в выпадающем списке.
-     1. (опционально) Включите опцию **Внутренний IP-адрес**. Укажите **Порт** и выберите **Подсеть** в выпадающем списке.
+     1. (Опционально) Включите опцию **Внутренний IP-адрес**. Укажите **Порт** и выберите **Подсеть** в выпадающем списке.
      1. В блоке **Прием и обработка трафика** выберите тип обработчика: `HTTP` или `Stream`.
      
         Для `HTTP` выберите:
@@ -53,11 +66,13 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для создания L7-балансировщика:
+
      ```bash
      yc alb load-balancer create --help
      ```
 
   1. Выполните команду, указав сеть и подсети, в которых будут размещаться узлы балансировщика, а также [подходящие группы безопасности](../concepts/application-load-balancer.md#security-groups):
+
      ```bash
      yc alb load-balancer create <имя_балансировщика> \
        --network-name <имя_сети> \
@@ -69,31 +84,77 @@
      Результат:
      
           
-     ```
+     ```yaml
      done (1m40s)
-     id: a5d88ep483cmbfm63g9t
+     id: a5d88ep483cmbfm.....
      name: test-balancer2
-     folder_id: aoe197919j8elpeg1lkp
+     folder_id: aoe197919j8elpe.....
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: c64l1c06d15178sa87k0
+     network_id: c64l1c06d15178s.....
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: buc4gsmpj8hvramg61g8
+         subnet_id: buc4gsmpj8hvram.....
        - zone_id: {{ region-id }}-b
-         subnet_id: blt6pcatjje62sqvjq5b
+         subnet_id: blt6pcatjje62sq.....
        - zone_id: {{ region-id }}-c
-         subnet_id: fo2ap2nrhjk9vpfdnno8
-     log_group_id: eolul9ap0bv02i8bsp87
+         subnet_id: fo2ap2nrhjk9vpf.....
+     log_group_id: eolul9ap0bv02i8.....
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
      
 
  
-  1. (опционально) Установите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
+  1. (Опционально) Установите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
  
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
+
+  1. (Опционально) Установите параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+
+      1. Посмотрите описание команды CLI для добавления логирования в балансировщик:
+
+          ```bash
+          yc alb load-balancer logging --help
+          ```
+
+      1. Привяжите лог-группу к балансировщику и настройте [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+
+          ```bash
+          yc alb load-balancer logging <имя_балансировщика> \
+            --log-group-id <идентификатор_лог-группы> \
+            --enable \
+            --discard codes=[<HTTP-код>,<Класс_HTTP-кодов>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
+          ```
+
+          Где:
+
+          * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
+          * `--discard` — правило отбрасывания логов. Параметры правила:
+            * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
+            * `percent` — доля отбрасываемых логов в процентах.
+            
+            Вы можете задать больше одного правила.
+
+          Результат:
+
+          ```yaml
+          done (42s)
+          id: ds76g83js9gfej12nab6
+          name: test-load-balancer
+          folder_id: b1gu33ev7lh690at5bm7
+          ...
+          log_options:
+            log_group_id: e23p9bfjvsgra3tliktf
+            discard_rules:
+              - http_codes:
+                  - "200"
+                http_code_intervals:
+                  - HTTP_3XX
+                grpc_codes:
+                  - OK
+                discard_percent: "90"
+          ```
 
   1. Добавьте обработчик для L7-балансировщика:
 
@@ -101,13 +162,13 @@
 
        1. Посмотрите описание команды CLI для добавления HTTP-обработчика L7-балансировщика:
 
-          ```
+          ```bash
           yc alb load-balancer add-listener --help
           ```
 
        1. Добавьте обработчик, выполнив команду:
 
-          ```
+          ```bash
           yc alb load-balancer add-listener <имя балансировщика> \
             --listener-name <имя обработчика> \
             --http-router-id <идентификатор HTTP-роутера> \
@@ -118,13 +179,13 @@
 
        1. Посмотрите описание команды CLI для добавления Stream-обработчика L7-балансировщика:
 
-          ```
+          ```bash
           yc alb load-balancer add-stream-listener --help
           ```
 
        1. Добавьте обработчик, выполнив команду:
 
-          ```
+          ```bash
           yc alb load-balancer add-stream-listener <имя балансировщика> \
             --listener-name=<имя обработчика> \
             --backend-group-id=<идентификатор группы бэкендов> \
@@ -133,13 +194,13 @@
 
      Результат после добавления двух обработчиков:
  
-     ```
+     ```yaml
      done (42s)
-     id: ds76g8b2op3fej12nab6
+     id: ds76g8b2op3fej1.....
      name: test-load-balancer
-     folder_id: b1gu6g9ielh690at5bm7
+     folder_id: b1gu6g9ielh690a.....
      status: ACTIVE
-     network_id: enp0uulja5s3j1ftvfei
+     network_id: enp0uulja5s3j1f.....
      listeners:
      - name: tslistener
        endpoints:
@@ -150,7 +211,7 @@
          - "80"
        http:
          handler:
-           http_router_id: ds7d7b14b3fsv7qjkvel
+           http_router_id: ds7d7b14b3fsv7q.....
      - name: teststreamlistener
        endpoints:
        - addresses:
@@ -160,19 +221,29 @@
          - "443"
        stream:
          handler:
-           backend_group_id: ds77tero4f5h46l4e2gl
+           backend_group_id: ds77tero4f5h46l.....
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bs1hp7lgdl1g3n6ci1
+         subnet_id: e9bs1hp7lgdl1g3.....
        - zone_id: {{ region-id }}-b
-         subnet_id: e2le8i7hqa216f6i6php
+         subnet_id: e2le8i7hqa216f6.....
        - zone_id: {{ region-id }}-c
-         subnet_id: b0cgk1au6fn203f3tqnf
-     log_group_id: ckgs4u5km3u8j9f360md
+         subnet_id: b0cgk1au6fn203f.....
+     log_group_id: ckgs4u5km3u8j9f.....
      security_group_ids:
-     - enp49ot04g63ih1scuap
+     - enp49ot04g63ih1.....
      created_at: "2022-04-04T02:12:40.160629110Z"
+     log_options:
+       log_group_id: e23p9bfjvsgra3t.....
+       discard_rules:
+         - http_codes:
+             - "200"
+           http_code_intervals:
+             - HTTP_3XX
+           grpc_codes:
+             - OK
+           discard_percent: "90"
      ```
 
 - {{ TF }}
@@ -185,18 +256,18 @@
 
      ```hcl
      resource "yandex_alb_load_balancer" "test-balancer" {
-       name        = "<имя L7-балансировщика>"
-       network_id  = "<идентификатор сети>"
+       name        = "<имя_L7-балансировщика>"
+       network_id  = "<идентификатор_сети>"
 
        allocation_policy {
          location {
-           zone_id   = "<зона доступности>"
-           subnet_id = "<идентификатор подсети>" 
+           zone_id   = "<зона_доступности>"
+           subnet_id = "<идентификатор_подсети>" 
          }
        }
 
        listener {
-         name = "<имя обработчика>"
+         name = "<имя_обработчика>"
          endpoint {
            address {
              external_ipv4_address {
@@ -206,8 +277,18 @@
          }
          http {
            handler {
-             http_router_id = "<идентификатор HTTP-роутера>"
+             http_router_id = "<идентификатор_HTTP-роутера>"
            }
+         }
+       }
+
+       log_options {
+         log_group_id = "<идентификатор_лог-группы>"
+         discard_rule {
+           http_codes          = ["<HTTP-код>"]
+           http_code_intervals = ["<класс_HTTP-кодов>"]
+           grpc_codes          = ["<gRPC-код>"]
+           discard_percent     = <доля_отбрасываемых_логов>
          }
        }
      }
@@ -228,15 +309,24 @@
 
         * `endpoint` — описание адресов и портов обработчика. Укажите внешний IPv4-адрес и порт для приема трафика. Если параметр `external_ipv4_address` не задан, то публичный адрес будет выделен автоматически.
         * `http` — описание HTTP-приемника для обработчика. Укажите идентификатор HTTP-роутера.
+        * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+          * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
+          * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+            * `http_codes` — HTTP-коды.
+            * `http_code_intervals` — классы HTTP-кодов.
+            * `grpc_codes` — gRPC-коды.
+            * `discard_percent` — доля отбрасываемых логов в процентах.
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
+            Вы можете задать больше одного правила.
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
-        ```
+        ```bash
         terraform plan
         ```
 
@@ -246,7 +336,7 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
+        ```bash
         terraform apply
         ```
 
@@ -254,7 +344,7 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-        ```
+        ```bash
         yc alb load-balancer list
         ```
 

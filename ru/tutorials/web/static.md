@@ -3,4 +3,4 @@ title: "Как разместить статический сайт HTML в об
 description: "В этой инструкции вы узнаете, как с помощью облачного сервиса {{ objstorage-full-name }} загружать статические файлы вашего веб-сайта и привязывать к бакету доменное имя."
 ---
 
-{% include [static](../../_tutorials/web/static.md) %}
+{% include [static](../../_tutorials/applied/static.md) %}

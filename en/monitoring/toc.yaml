@@ -96,7 +96,15 @@ items:
       - name: Query language
         href: concepts/querying.md
       - name: Alerting
-        href: concepts/alerting.md
+        items:
+          - name: Overview
+            href: concepts/alerting.md
+          - name: Alert
+            href: concepts/alerting/alert.md
+          - name: Annotation
+            href: concepts/alerting/annotation.md
+          - name: Notification channel
+            href: concepts/alerting/notification-channel.md
       - name: Data decimation
         href: concepts/decimation.md
       - name: Deleting expired metrics (TTL)

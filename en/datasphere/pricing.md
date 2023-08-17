@@ -6,20 +6,40 @@ editable: false
 
 
 
+## What goes into the cost of using {{ ml-platform-name }} {#rules}
+
+When using {{ ml-platform-name }}, you pay for the use of computing resources: the compute and instance running time is charged per second.
+
+### Running {{ ml-platform-name }} in the {{ ds }} mode {#serverless}
+
+When performing computations and training models in the [{{ ds }} mode](concepts/project.md#serverless), you pay for the compute time. If you do not perform any computational operations in a project, the {{ ml-platform-name }} usage time is not charged. However, if you run computations using {{ dataproc-name }} clusters, they are charged separately. For more information, see [Using {{ dataproc-name }} clusters](#data-proc).
+
+You are separately charged for [data storage](#storage) in datasets and project storage expansion.
+
+### Running {{ ml-platform-name }} in the {{ dd }} mode {#dedicated}
+
+When performing computations and training models in the [{{ dd }} mode](concepts/project.md#dedicated), you pay for the VM usage time since the first computations are run in a notebook until the VM is released regardless of whether any computations were performed after the initial run. If you run computations using {{ dataproc-name }} clusters, they are [charged separately](#data-proc).
+
+You are separately charged for [data storage](#storage) in datasets and project storage expansion.
+
+### Using models {#node}
+
+{% include [pricing nodes](../_includes/datasphere/nodes-pricing-warn.md) %}
+
 {% include [prices](../_includes/datasphere/migration/pricing.md) %}
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
 The cost of using integration with the {{ dataproc-name }} service takes into account:
 * {{ ml-platform-name }} c1.4 configuration computing resources.
-   These resources are created for integration with the {{ dataproc-name }} cluster and are charged while calculations are running on the cluster.
+   These resources are created for integration with the {{ dataproc-name }} cluster and are charged while computations are running on the cluster.
 * The entire lifetime of the {{ dataproc-name }} cluster according to the [{{ dataproc-full-name }} pricing policy](../data-proc/pricing.md).
 
 Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 ### Disk space usage {#storage}
 
-Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the [quota]({{ link-console-quotas }}) on project size, the [storage size](#project-data) exceeding {{ ml-project-size }} is paid separately. For more information about pricing, see [{#T}](concepts/limits.md).
+Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#project-data) exceeding {{ ml-project-size }} is paid for separately. For more information about pricing, see [{#T}](concepts/limits.md).
 
 [Data storage inside datasets](#prices-datasets) is charged separately.
 
@@ -31,6 +51,8 @@ The monthly usage rate is based on 720 hours a month.
 
 ## Pricing {#prices}
 
+Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless) and [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) and when you [use models](../datasphere/concepts/deploy/index.md#node).
+
 
 
 
@@ -40,6 +62,12 @@ The monthly usage rate is based on 720 hours a month.
 ### Performing background operations {#async}
 
 Learn more about [background operations](../datasphere/concepts/async.md).
+
+{% note alert %}
+
+Starting July 10, 2023, background operations will be charged according to the rules for [using computing resources](#paug).
+
+{% endnote %}
 
 
 

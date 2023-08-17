@@ -1,4 +1,4 @@
-title: Billing
+title: Yandex Cloud Billing
 href: index.yaml
 editable: false
 items:
@@ -10,51 +10,51 @@ items:
         href: operations/index.md
       - name: Working with documents
         items:
-          - name: Understand your payment invoice
+          - name: Understanding your payment invoice
             href: operations/spell-out-bill.md
-          - name: Download reporting documents
+          - name: Downloading reporting documents
             href: operations/download-reporting-docs.md
-          - name: Enable electronic document management
+          - name: Enabling electronic document management
             href: operations/edo.md
       - name: Managing a billing account
         items:
-          - name: Create a new billing account
+          - name: Creating a new billing account
             href: operations/create-new-account.md
-          - name: Change your billing account data
+          - name: Changing your billing account data
             href: operations/change-data.md
-          - name: Link a cloud to a billing account
+          - name: Linking a cloud to a billing account
             href: operations/pin-cloud.md
-          - name: Delete a billing account
+          - name: Deleting a billing account
             href: operations/delete-account.md
-          - name: Activate the paid version
+          - name: Activating the paid version
             href: operations/activate-commercial.md
       - name: Managing payment methods
         items:
-          - name: Link another bank card
+          - name: Linking another bank card
             href: operations/pin-card.md
-          - name: Change the payment method
+          - name: Changing payment method
             href: operations/change-payment-method.md
       - name: Cost optimization
         items:
-          - name: Enable notifications
+          - name: Enabling notifications
             href: operations/budgets.md
-          - name: Purchase a committed volume of services (CVoS)
+          - name: Purchasing a committed volume of services (CVoS)
             href: operations/purchase-cvos.md
       - name: Paying for services
         items:
-          - name: Activate a promo code
+          - name: Activating a promo code
             href: operations/activate-promocode.md
-          - name: Top up your personal account
+          - name: Topping up your personal account
             href: operations/pay-the-bill.md
       - name: Analyzing {{ yandex-cloud }} service usage
         items:
-          - name: View your payment history
+          - name: Viewing your payment history
             href: operations/check-bill-history.md
           - name: Viewing usage details in the console
             href: operations/check-charges.md
-          - name: Get expense details by folder
+          - name: Getting expense details by folder
             href: operations/get-folder-report.md
-          - name: View details in {{ datalens-full-name }}
+          - name: Viewing details in {{ datalens-full-name }}
             href: operations/dashboard.md
           - name: Searching for usage details with {{ yq-full-name }}
             href: operations/query-integration.md
@@ -88,6 +88,8 @@ items:
         href: concepts/budget.md
       - name: Agreement
         href: concepts/contract.md
+      - name: Quotas and limits
+        href: concepts/limits.md
       - name: Glossary
         href: concepts/glossary.md
   - name: Paying for resources

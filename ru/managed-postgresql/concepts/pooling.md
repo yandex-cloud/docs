@@ -41,9 +41,9 @@ Odyssey поддерживает три режима управления сое
 
 Режим работы пулера можно [изменить](../operations/update.md#change-pooler-config) после создания кластера.
 
-{% note warning %}
+{% note info %}
 
-В кластере {{ mpg-name }} предусмотрена квота на длительность соединения — 12 часов. Чтобы увеличить ее, обратитесь в [техническую поддержку](../../support/overview.md).
+Время жизни самой длинной активной сессии/транзакции задается настройкой СУБД уровня кластера [Session duration timeout](./settings-list.md#setting-session-duration-timeout).
 
 {% endnote %}
 

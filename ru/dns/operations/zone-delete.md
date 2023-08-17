@@ -7,10 +7,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить зону DNS.
-  1. Выберите сервис **{{ dns-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке зоны, которую требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -94,5 +94,9 @@
      ```
      yc dns zone list
      ```
+
+- API
+
+  Чтобы удалить зону DNS, воспользуйтесь методом REST API [delete](../api-ref/DnsZone/delete.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Delete](../api-ref/grpc/dns_zone_service.md#Delete).
 
 {% endlist %}

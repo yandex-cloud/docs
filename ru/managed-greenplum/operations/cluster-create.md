@@ -13,10 +13,10 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер баз данных.
-    1. Выберите сервис **{{ mgp-name }}**.
-    1. Нажмите кнопку **Создать кластер**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
-    1. (опционально) Введите описание кластера.
+    1. (Опционально) Введите описание кластера.
     1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
         * `PRODUCTION` — для стабильных версий ваших приложений.
         * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mgp-full-name }}. В Prestable-окружении раньше появляются новые функциональные возможности, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
@@ -27,9 +27,9 @@
        
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
-    1. В блоке **Сетевые настройки**:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
         * Выберите облачную сеть для размещения кластера.
-        * В параметре **Группы безопасности** укажите [группу безопасности](../operations/connect.md#configuring-security-groups), которая содержит правила, разрешающие любой исходящий и входящий трафик по любому протоколу с любых IP-адресов.
+        * В параметре **{{ ui-key.yacloud.mdb.forms.field_security-group }}** укажите [группу безопасности](../operations/connect.md#configuring-security-groups), которая содержит правила, разрешающие любой исходящий и входящий трафик по любому протоколу с любых IP-адресов.
 
             {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
@@ -40,12 +40,12 @@
             {% endnote %}
 
 
-        * Выберите зону доступности и подсеть для размещения кластера. Чтобы создать новую подсеть, нажмите кнопку **Создать новую** рядом с нужной зоной доступности.
-        * Выберите опцию **Публичный доступ**, чтобы подключаться к кластеру из интернета.
+        * Выберите зону доступности и подсеть для размещения кластера. Чтобы создать новую подсеть, нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}** рядом с нужной зоной доступности.
+        * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
 
     1. Укажите настройки пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее в разделе [{#T}](../concepts/cluster-users.md).
 
-        * **Имя пользователя** — может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
             {% note info %}
 
@@ -53,12 +53,12 @@
 
             {% endnote %}
 
-        * **Пароль** — длина от 8 до 128 символов.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
 
     1. При необходимости задайте дополнительные настройки кластера:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-        * **Окно обслуживания** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -68,36 +68,36 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **Менеджер подключений** — режим работы и параметры [менеджера подключений](..//concepts/pooling.md):
+        * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [пулера соединений](../concepts/pooling.md):
 
             {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
-    1. Укажите параметры хостов-мастеров на вкладке **Master**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
+    1. Укажите параметры хостов-мастеров на вкладке **{{ ui-key.yacloud.greenplum.section_resource-master }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
 
-        * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
+        * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
 
-        * В блоке **Хранилище**:
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
           * Выберите [тип диска](../concepts/storage.md).
 
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
-    1. Укажите параметры хостов-сегментов на вкладке **Segment**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
+    1. Укажите параметры хостов-сегментов на вкладке **{{ ui-key.yacloud.greenplum.section_resource-segment }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
 
         * Количество хостов-сегментов.
         * Количество сегментов на хост. Максимальное значение этого параметра зависит от класса хостов.
         * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
-        * В блоке **Хранилище**:
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
            * Выберите [тип диска](../concepts/storage.md).
 
              
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
              
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -204,18 +204,12 @@
         ```bash
         {{ yc-mdb-gp }} cluster create <имя кластера> \
            ...
-           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                               `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly>
+           --maintenance-window type=<тип>[,day=<день недели>,hour=<час дня>]
         ```
 
         Где:
 
-        * `type` — тип технического обслуживания:
-            * `anytime` — в любое время.
-            * `weekly` — по расписанию.
-        * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
-        * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/), передайте значение `true` в соответствующих параметрах при создании кластера:
 
@@ -377,7 +371,7 @@
     ```bash
     {{ yc-mdb-gp }} cluster create \
        --name=gp-cluster \
-       --sqlserver-version={{ versions.cli.latest }} \
+       --greenplum-version={{ versions.cli.latest }} \
        --environment=PRODUCTION \
        --network-name=default \
        --user-name=user1 \

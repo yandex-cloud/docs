@@ -1,5 +1,7 @@
 # {{ ES }} versioning policy
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 By updating to the latest versions, you get new features, revisions, and bug fixes.
 
 {{ mes-name }} always supports multiple {{ ES }} versions. Support for new versions is added as they are released.

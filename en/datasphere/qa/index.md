@@ -7,9 +7,11 @@ description: "How do I get {{ ml-platform-full-name }} activity logs? Find the a
 
 {% include [logs](../../_qa/logs.md) %}
 
-#### What do I do if I can't install a package in my project or don't have internet access? {#error-connection}
+{% include [personal-data](../../_qa/personal-data.md) %}
 
-You might have connection issues if you added a subnet to your project that doesn't have internet access.
+#### What do I do if I cannot install a package in my project or do not have internet access? {#error-connection}
+
+You might have connection issues if you added a subnet to your project that does not have internet access.
 
 If you need a subnet for your project, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) to get internet access.
 
@@ -33,9 +35,9 @@ The error says that the system can't serialize the variable. It means that you c
 
 #### If I delete a running cell, will computations stop? {#delete-cell}
 
-No, computations will continue even if you delete a cell from the notebook. Before deleting a cell, stop it. If you have deleted a running cell, stop running calculations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab or click **{{ ui-key.yc-ui-datasphere.project-page.stop-ide-executions }}** in the **{{ ui-key.yc-ui-datasphere.project-page.executions }}** widget on the project page.
+No, they will not. Computations will continue even if you delete a cell from the notebook. Before deleting a cell, make sure to stop it. If you have deleted a running cell, stop running calculations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab or click **{{ ui-key.yc-ui-datasphere.project-page.stop-ide-executions }}** in the **{{ ui-key.yc-ui-datasphere.project-page.executions }}** widget on the project page.
 
-#### My browser can't open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
+#### My browser cannot open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
 
 When opening a project in the IDE, {{ ml-platform-name }} redirects your request to its own host with {{ jlab }}Lab. Modern browsers may block such website behavior if you use more advanced privacy tools, including incognito mode. To open a project in the IDE, turn off the blocking settings:
 

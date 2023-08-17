@@ -1,4 +1,4 @@
-### storage.admin {#storage-admin}
+#### storage.admin {#storage-admin}
 
 The `storage.admin` role is intended for managing {{ objstorage-short-name }}. Users with this role can:
 

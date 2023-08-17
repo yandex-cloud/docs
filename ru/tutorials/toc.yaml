@@ -5,10 +5,6 @@ items:
     items:
       - name: Все руководства
         href: web/index.md
-      - name: Статический сайт в {{ objstorage-name }}
-        href: web/static.md
-      - name: Сайт на LAMP- или LEMP-стеке
-        href: web/lamp-lemp.md
       - name: >-
           Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
           network-load-balancer-name }}
@@ -17,34 +13,12 @@ items:
           Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
           }}
         href: web/application-load-balancer-website.md
-      - name: Сайт на базе Joomla с БД {{ PG }}
-        href: web/joomla-postgresql.md
-      - name: Создание сайта на WordPress
-        href: web/wordpress.md
-      - name: Сайт на WordPress с БД {{ MY }}
-        href: web/wordpress-mysql.md
-      - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
-        href: web/wordpress-transfer.md
-      - name: Сайт на базе 1С-Битрикс
-        href: web/bitrix-website.md
-      - name: Организация виртуального хостинга
-        href: web/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
-      - name: Публикация обновлений для игр с помощью {{ cdn-name }}
-        href: web/prefetch.md
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
-  - name: Интернет-магазины
-    items:
-      - name: Все руководства
-        href: internet-store/index.md
-      - name: Интернет-магазин на 1С-Битрикс
-        href: internet-store/bitrix-shop.md
-      - name: Интернет-магазин на OpenCart
-        href: internet-store/opencart.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -77,6 +51,8 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: archive/kubernetes-backup.md
+      - name: Развертывание параллельной файловой системы GlusterFS
+        href: archive/ha-regional-glusterfs.md
   - name: Для разработчиков
     items:
       - name: Все руководства
@@ -111,12 +87,56 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
+  - name: Прикладные решения
+    items:
+      - name: Все руководства
+        href: applied/index.md
+      - name: Создание сайта
+        items:
+          - name: Статический сайт в {{ objstorage-name }}
+            href: web/static.md
+          - name: Сайт на LAMP- или LEMP-стеке
+            href: web/lamp-lemp.md
+          - name: Сайт на базе Joomla с БД {{ PG }}
+            href: web/joomla-postgresql.md
+          - name: Создание сайта на WordPress
+            href: web/wordpress.md
+          - name: Сайт на WordPress с БД {{ MY }}
+            href: web/wordpress-mysql.md
+          - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
+            href: web/wordpress-transfer.md
+          - name: Сайт на базе 1С-Битрикс
+            href: web/bitrix-website.md
+          - name: Интернет-магазин на OpenCart
+            href: internet-store/opencart.md
+          - name: Организация виртуального хостинга
+            href: web/virtual-hosting.md
+      - name: 1С
+        items:
+          - name: Интернет-магазин на 1С-Битрикс
+            href: internet-store/bitrix-shop.md
+          - name: >-
+              Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
+              mpg-name }}
+            href: infrastructure-management/1c-postgresql-linux.md
+      - name: Интернет вещей (IoT)
+        items:
+          - name: Мониторинг состояния географически распределенных устройств
+            href: iot/datalens.md
+          - name: Мониторинг показаний датчиков и уведомления о событиях
+            href: iot/monitoring.md
+          - name: Эмуляция множества IoT-устройств
+            href: testing/iot-emulation.md
+      - name: Прочее
+        items:
+          - name: Публикация обновлений для игр с помощью {{ cdn-name }}
+            href: web/prefetch.md
+          - name: Создание SAP-программы в {{ yandex-cloud }}
+            href: infrastructure-management/sap.md
   - name: Тестовая среда
     items:
       - name: Все руководства
         href: testing/index.md
-      - name: Эмуляция множества IoT-устройств
-        href: testing/iot-emulation.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad
         href: testing/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
@@ -139,10 +159,6 @@ items:
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: infrastructure-management/packer-custom-image.md
-      - name: >-
-          Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
-          mpg-name }}
-        href: infrastructure-management/1c-postgresql-linux.md
       - name: Настройка синхронизации часов с помощью NTP
         href: infrastructure-management/ntp.md
       - name: Работа с группой ВМ с автомасштабированием
@@ -159,8 +175,6 @@ items:
         href: infrastructure-management/vm-fluent-bit-logging.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
-      - name: Создание SAP-программы в {{ yandex-cloud }}
-        href: infrastructure-management/sap.md
       - name: Настройка локального кеширующего DNS-резолвера
         href: infrastructure-management/local-dns-cache.md
       - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
@@ -275,15 +289,13 @@ items:
       - name: Шардирование таблиц {{ mch-name }}
         href: dataplatform/clickhouse-sharding.md
       - name: >-
-          Настройка {{ dns-name }} для доступа к кластерам управляемых баз
-          данных из других облачных сетей
+          Настройка {{ dns-name }} для доступа к кластерам управляемых БД из
+          других облачных сетей
         href: dataplatform/mdb-dns-peering.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
-      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
-        href: dataplatform/dp-mch-data-exchange.md
       - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
@@ -330,7 +342,7 @@ items:
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
-      - name: Асинхронная репликация данных из {{ mmy-name }} в {{ yds-name }}
+      - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: dataplatform/mmy-to-yds.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
@@ -358,7 +370,7 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
-      - name: Асинхронная репликация данных из {{ mpg-name }} в {{ yds-name }}
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
         href: dataplatform/mpg-to-yds.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
@@ -388,6 +400,8 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
+      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+        href: routing/multi-folder-vpc.md
       - name: Архитектура и защита базового интернет-сервиса
         href: routing/web-service.md
       - name: Настройки DHCP для работы с корпоративным DNS-сервером
@@ -396,8 +410,15 @@ items:
         href: routing/bastion.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
-      - name: Создание туннеля IPSec VPN
-        href: routing/ipsec-vpn.md
+      - name: Организация сетевой связности с помощью IPsec-шлюзов
+        items:
+          - name: Схема решения
+            href: routing/ipsec/index.md
+          - name: Самостоятельная реализация средствами {{ yandex-cloud }}
+            href: routing/ipsec/ipsec-vpn.md
+          - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
+            href: routing/ipsec/sgw.md
+        href: routing/ipsec/index.md
       - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
@@ -408,10 +429,16 @@ items:
           Создание туннеля между двумя подсетями при помощи OpenVPN Access
           Server
         href: routing/site-to-site-openvpn.md
+      - name: >-
+          Защищенный доступ пользователей к облачным ресурсам на основе
+          WireGuard VPN
+        href: routing/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
         href: routing/usergate-firewall.md
+      - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин
+        href: routing/route-switcher.md
       - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе Next-Generation Firewall
@@ -448,14 +475,10 @@ items:
         href: datalens/data-from-appmetrica-yc-visualization.md
       - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
         href: datalens/storage-logs-analysis.md
-  - name: Интернет вещей
-    items:
-      - name: Руководства по работе с интернетом вещей
-        href: iot/index.md
-      - name: Мониторинг состояния географически распределенных устройств
-        href: iot/datalens.md
-      - name: Мониторинг показаний датчиков и уведомления о событиях
-        href: iot/monitoring.md
+      - name: >-
+          Визуализация данных из {{ tracker-name }} при помощи {{ datalens-name
+          }}
+        href: datalens/data-from-tracker.md
   - name: Бессерверные технологии
     items:
       - name: Сокращатель ссылок

@@ -128,7 +128,7 @@ You can configure [exporting audit logs to a SIEM system](../../audit-trails/con
 
 ## Deleting unauthorized resources {#delete-unauthorized-resources}
 
-1. Check that {{ yandex-cloud }} doesn't contain any resources that you haven't created, such as a VM, data store, database, function, or API gateway.
+1. Check that {{ yandex-cloud }} does not contain any resources that you have not created, such as a VM, data store, database, function, or API gateway.
 1. Delete unauthorized resources, first of all, those that can process data or compromise your information in any other way.
 
 
@@ -147,3 +147,4 @@ Learn more about [requesting technical support](../../support/overview.md).
 
 1. [Manage secrets in your cloud](../../security/domains/encryption.md#upravlenie-sekretami).
 1. [Collect, monitor, and analyze audit logs](../../security/domains/audit-logs.md).
+

@@ -175,7 +175,7 @@
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -209,6 +209,7 @@
 ## Примеры {#examples}
 
 * [{#T}](#multiple-roles).
+* [{#T}](#impersonation).
 * [{#T}](#access-to-sa).
 * [{#T}](#access-to-all).
 
@@ -277,6 +278,7 @@
 
     {% endnote %}
 
+
     ```bash
     curl -X POST \
         -H 'Content-Type: application/json' \
@@ -313,6 +315,7 @@
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
+     
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -331,18 +334,19 @@
      }
      ...
      ```
-    
+
+
      {% endcut %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
-  
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+ 
   1. Проверьте конфигурацию командой:
      ```
      terraform validate
-     ```
-     
+     ``` 
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -351,14 +355,14 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
@@ -369,8 +373,84 @@
 
 {% endlist %}
 
+### Настроить имперсонацию {#impersonation}
 
-### Доступ сервисного аккаунта к другому сервисному аккаунту {#access-to-sa}
+[Имперсонация](../../concepts/access-control/index.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта с помощью флага `--impersonate-service-account-id`. Для этого у сервисного аккаунта должны быть нужные права, а у пользователя — роль `iam.serviceAccounts.tokenCreator`.
+
+{% list tabs %}
+
+- CLI
+
+  1. Узнайте ID сервисного аккаунта, например, `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов (в профиле администратора):
+
+      ```bash
+      yc iam service-account list
+      ```
+
+      Результат:
+
+      ```
+      +----------------------+----------+------------------+
+      |          ID          |   NAME   |   DESCRIPTION    |
+      +----------------------+----------+------------------+
+      | ajebqtreob2dpblin8pe | test-sa  | test-description |
+      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      +----------------------+----------+------------------+
+      ```
+
+  1. Назначьте сервисному аккаунту `test-sa` роль `viewer` на каталог `my-folder`. В типе субъекта укажите `serviceAccount`, а в значении — ID сервисного аккаунта (в профиле администратора):
+
+      ```
+      yc resource-manager folder add-access-binding my-folder \
+        --role viewer \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```
+
+  1. Получите ID пользователя и назначьте ему роль `iam.serviceAccounts.tokenCreator` на сервисный аккаунт `test-sa` (в профиле администратора):
+
+      ```
+      yc iam service-account add-access-binding test-sa \
+        --role iam.serviceAccounts.tokenCreator \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+      ```
+
+
+  1. Пользователь может выполнить команду от имени сервисного аккаунта `test-sa` с помощью флага `--impersonate-service-account-id`.
+
+      Например, пользователь может получить список виртуальных машин в каталоге `my-folder`:
+
+      ```
+      yc compute instance list --folder-name my-folder \
+        --impersonate-service-account-id ajebqtreob2dpblin8pe
+      ```
+
+      Также пользователь может получить [IAM-токен](../../concepts/authorization/iam-token.md) сервисного аккаунта `test-sa` для кратковременного доступа:
+
+      ```
+      yc iam create-token --impersonate-service-account-id ajebqtreob2dpblin8pe
+      ```
+
+      Срок действия полученного токена закончится автоматически.
+
+  1. Если доступ больше не нужен пользователю, отзовите роль у сервисного аккаунта (в профиле администратора):
+
+      ```
+      yc resource-manager folder remove-access-binding my-folder \
+        --role viewer \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```
+  1. Отзовите роль `iam.serviceAccounts.tokenCreator` у пользователя, получавшего права сервисного аккаунта:
+
+      ```
+      yc iam service-account remove-access-binding test-sa \
+        --role iam.serviceAccounts.tokenCreator \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+      ```
+
+
+{% endlist %}
+
+### Настроить доступ сервисного аккаунта к другому сервисному аккаунту {#access-to-sa}
 
 Разрешите сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`:
 
@@ -477,18 +557,18 @@
      }
      ...
      ```
-    
+
      {% endcut %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
-  
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
   1. Проверьте конфигурацию командой:
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -497,14 +577,14 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
@@ -515,7 +595,7 @@
 
 {% endlist %}
 
-### Доступ к ресурсу всем пользователям {#access-to-all}
+### Разрешить доступ к ресурсу всем пользователям {#access-to-all}
 
 {% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
 
@@ -579,18 +659,18 @@
      }
      ...
      ```
-    
+
      {% endcut %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
-  
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
   1. Проверьте конфигурацию командой:
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -599,14 +679,14 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):

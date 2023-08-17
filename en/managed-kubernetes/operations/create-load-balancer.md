@@ -12,7 +12,7 @@ To publish an app, use a `LoadBalancer` service. The following options are suppo
 
   The application will be available:
   * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
-  * From the company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/).
+    * From the company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
 
@@ -257,17 +257,20 @@ metadata:
   annotations:
     # Load balancer type: Internal.
     yandex.cloud/load-balancer-type: internal
-    # ID of the subnet where an IP address for the internal network load balancer should be allocated.
+    # ID of the subnet where an IP address for the
+    # internal network load balancer should be allocated.
     yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9
 spec:
   type: LoadBalancer
   ports:
-  # The internal network load balancer port to handle user requests.
+  # The internal network load balancer port to
+  # handle user requests.
   - port: 80
     name: plaintext
     # Container port the application listens on.
     targetPort: 8080
-  # Selector labels used in a pod template when creating a Deployment object.
+  # Selector labels used in a pod template when creating
+  # a Deployment object.
   selector:
     app: hello
 ```

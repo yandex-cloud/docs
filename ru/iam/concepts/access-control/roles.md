@@ -16,19 +16,19 @@ _Роль_ — это набор разрешений, который опред
 
 ![image](../../../_assets/iam/security/primitive-roles-hierarchy.svg)
 
-### {{ roles-auditor }} {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 {% include [roles-auditor](../../../_includes/roles-auditor.md) %}
 
-### {{ roles-viewer }} {#viewer}
+#### {{ roles-viewer }} {#viewer}
 
 {% include [roles-viewer](../../../_includes/roles-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 {% include [roles-editor](../../../_includes/roles-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
@@ -55,6 +55,34 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
 
 {% include [roles-alb-admin](../../../_includes/roles-alb-admin.md) %}
+
+## {{ at-full-name }} {#at-roles}
+
+{% include [audit-trails-auditor](../../../_includes/iam/roles/audit-trails-auditor.md) %}
+
+{% include [audit-trails-viewer](../../../_includes/iam/roles/audit-trails-viewer.md) %}
+
+{% include [audit-trails-editor](../../../_includes/iam/roles/audit-trails-editor.md) %}
+
+{% include [audit-trails-admin](../../../_includes/iam/roles/audit-trails-admin.md) %}
+
+{% include [audit-trails-configviewer](../../../_includes/iam/roles/audit-trails-configviewer.md) %}
+
+## {{ billing-name }} {#billing-roles}
+
+{% include [billing-accounts-member](../../../_includes/iam/roles/billing-accounts-member.md) %}
+
+{% include [billing-accounts-owner](../../../_includes/iam/roles/billing-accounts-owner.md) %}
+
+{% include [billing-accounts-viewer](../../../_includes/iam/roles/billing-accounts-viewer.md) %}
+
+{% include [billing-accounts-editor](../../../_includes/iam/roles/billing-accounts-editor.md) %}
+
+{% include [billing-accounts-admin](../../../_includes/iam/roles/billing-accounts-admin.md) %}
+
+{% include [billing-accounts-var-without-discounts](../../../_includes/iam/roles/billing-accounts-var-without-discounts.md) %}
+
+{% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
@@ -128,7 +156,6 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
 
-{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
 
 
 ## {{ dataproc-full-name }} {#dataproc-roles}
@@ -136,6 +163,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [mdb.dataproc.agent](../../../_includes/iam/roles/dataproc-agent.md) %}
 
 {% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
+
+{% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
 
 
 ## {{ yds-full-name }} {#yds-roles}
@@ -148,6 +177,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [yds-admin](../../../_includes/iam/roles/yds-admin.md) %}
 
+
+
 ## {{ data-transfer-full-name }} {#data-transfer-roles}
 
 {% include [data-transfer-viewer](../../../_includes/iam/roles/data-transfer-viewer.md) %}
@@ -157,12 +188,12 @@ _Роль_ — это набор разрешений, который опред
 {% include [data-transfer-admin](../../../_includes/iam/roles/data-transfer-admin.md) %}
 
 
+
 ## {{ datalens-full-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
-
 
 
 ## {{ ml-platform-name }} {#datasphere-roles}
@@ -240,6 +271,16 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
 
+## {{ lockbox-full-name }} {#lockbox-roles}
+
+{% include [lockbox-admin](../../../_includes/roles-lockbox-admin.md) %}
+
+{% include [lockbox-editor](../../../_includes/roles-lockbox-editor.md) %}
+
+{% include [lockbox-viewer](../../../_includes/roles-lockbox-viewer.md) %}
+
+{% include [lockbox-payloadViewer](../../../_includes/roles-lockbox-payloadViewer.md) %}
+
 ## {{ mkf-full-name }} {#mkf-roles}
 
 {% include [mkf-auditor](../../../_includes/iam/roles/mkf-auditor.md) %}
@@ -259,6 +300,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [mch-editor](../../../_includes/iam/roles/mch-editor.md) %}
 
 {% include [mch-admin](../../../_includes/iam/roles/mch-admin.md) %}
+
+
 
 ## {{ mes-full-name }} {#mes-roles}
 
@@ -288,6 +331,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mgp-admin](../../../_includes/iam/roles/mgp-admin.md) %}
 
+
+
 ## {{ managed-k8s-full-name }} {#kubernetes-roles}
 
 {% include [k8s-cluster-api-viewer](../../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
@@ -308,6 +353,8 @@ _Роль_ — это набор разрешений, который опред
 
 Подробнее см. в разделе [{#T}](../../../managed-kubernetes/security/index.md).
 
+
+
 ## {{ mmg-full-name }} {#mmg-roles}
 
 {% include [mmg-auditor](../../../_includes/iam/roles/mmg-auditor.md) %}
@@ -317,6 +364,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [mmg-editor](../../../_includes/iam/roles/mmg-editor.md) %}
 
 {% include [mmg-admin](../../../_includes/iam/roles/mmg-admin.md) %}
+
+
 
 ## {{ mmy-full-name }} {#mmy-roles}
 
@@ -358,6 +407,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mrd-admin](../../../_includes/iam/roles/mrd-admin.md) %}
 
+
+
 ## {{ mms-full-name }} {#mms-roles}
 
 {% include [mms-auditor](../../../_includes/iam/roles/mms-auditor.md) %}
@@ -375,7 +426,6 @@ _Роль_ — это набор разрешений, который опред
 {% include [ydb-editor](../../../_includes/iam/roles/ydb-editor.md) %}
 
 {% include [ydb-admin](../../../_includes/iam/roles/ydb-admin.md) %}
-
 
 ## {{ message-queue-full-name }} {#ymq-roles}
 
@@ -421,6 +471,12 @@ _Роль_ — это набор разрешений, который опред
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
 
+## {{ search-api-full-name }} {#search-api-roles}
+
+{% include [roles-search-api](../../../_includes/roles-search-api-executor.md) %}
+
+
+
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
@@ -448,6 +504,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
+
+
 ## {{ translate-full-name }} {#translate-roles}
 
 {% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
@@ -455,6 +513,8 @@ _Роль_ — это набор разрешений, который опред
 ## {{ vision-full-name }} {#vision-roles}
 
 {% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
+
+
 
 ## {{ vpc-full-name }} {#vpc-roles}
 
@@ -475,6 +535,12 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
 
 
+## {{ wiki-full-name }} {#wiki-roles}
+
+{% include [wiki-viewer](../../../_includes/iam/roles/wiki-viewer.md) %}
+
+{% include [wiki-admin](../../../_includes/iam/roles/wiki-admin.md) %}
+
 ## {{ yq-full-name }} {#yq-roles}
 
 {% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
@@ -484,3 +550,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
+
+
+## {{ yagpt-full-name }} {#yandexgpt-roles}
+
+{% include [roles-yandexgpt-user](../../../_includes/roles-yandexgpt-user.md) %}

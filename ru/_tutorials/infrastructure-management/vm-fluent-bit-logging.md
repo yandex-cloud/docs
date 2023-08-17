@@ -9,16 +9,19 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `logging.writer` на каталог.
-1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **Доступ** укажите сервисный аккаунт, который создали на предыдущем шаге.
+1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, который создали на предыдущем шаге.
 1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по [SSH](../../glossary/ssh-keygen.md).
 1. Установите на ВМ:
     * [Go не ниже версии 1.17](https://go.dev/doc/install):
+
         ```bash
         wget https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
         tar -xzf go1.17.6.linux-amd64.tar.gz
         export PATH=$PWD/go/bin:$PATH
         ```
+
     * Git:
+
         ```bash
         sudo apt install git
         ```
@@ -26,12 +29,15 @@
 ## Создайте сервис systemd, генерирующий логи {#systemd}
 
 1. Создайте директорию:
+
     ```bash
     sudo mkdir /usr/local/bin/logtest
     sudo chown $USER /usr/local/bin/logtest
     cd /usr/local/bin/logtest
     ```
+
 1. Создайте файл `logtest.py`:
+
     ```py
     import logging
     import random
@@ -122,14 +128,18 @@
             # Ждем 1 секунду, чтобы не засорять журнал
             time.sleep(1)
     ```
+
 1. Создайте виртуальную среду и установите необходимые зависимости:
+
     ```bash
     sudo apt install python3-pip python3.8-venv
     python3 -m venv venv
     source venv/bin/activate
     pip3 install systemd-logging
     ```
+
 1. Создайте файл `logtest.sh`:
+
     ```sh
     #!/bin/bash
 
@@ -137,11 +147,15 @@
     . "$SCRIPT_PATH/venv/bin/activate"
     python "$SCRIPT_PATH/logtest.py"
     ```
+
 1. `systemd` будет вызывать `logtest.sh` для запуска сервиса, поэтому сделайте файл исполняемым:
+
     ```bash
     chmod +x logtest.sh
     ```
+
 1. Создайте файл `logtest.service`:
+
     ```
     [Unit]
     Description=Sample to show logging from a Python application to systemd
@@ -155,35 +169,47 @@
     [Install]
     WantedBy=multi-user.target
     ```
+
 1. Создайте символическую ссылку для `logtest.service`:
+
     ```bash
     sudo ln -s "$(pwd)/logtest.service" /etc/systemd/system/logtest.service
     ```
+
 1. Перезапустите `systemd`:
+
     ```bash
     sudo systemctl daemon-reload
     ```
+
 1. Посмотрите статус сервиса `logtest.service`:
+
     ```bash
     systemctl status logtest.service
     ```
 
     Результат:
+
     ```bash
     ● logtest.service - Sample to show logging from a Python application to systemd
      Loaded: loaded (/etc/systemd/system/logtest.service; linked; vendor preset: enabled)
      Active: inactive (dead)
     ```
+
 1. Запустите сервис `logtest.service`:
+
     ```bash
     sudo systemctl start logtest.service
     ```
+
 1. Снова посмотрите статус сервиса `logtest.service`, теперь он должен быть активен:
+
     ```bash
     systemctl status logtest.service
     ```
 
     Результат:
+
     ```bash
     ● logtest.service - Sample to show logging from a Python application to systemd
          Loaded: loaded (/etc/systemd/system/logtest.service; linked; vendor preset: enabled)
@@ -199,31 +225,43 @@
 ## Установите и настройте Fluent Bit {#install-fluent-bit}
 
 1. Добавьте GPG-ключ, которым подписаны пакеты в репозитории Fluent Bit:
+
     ```bash
     wget -qO - https://packages.fluentbit.io/fluentbit.key | sudo apt-key add -
     ```
+
 1. Добавьте в файл `/etc/apt/sources.list` следующую строку:
+
     ```bash
     deb https://packages.fluentbit.io/ubuntu/focal focal main
     ```
+
 1. Обновите индексы `apt`:
+
     ```bash
     sudo apt-get update
     ```
+
 1. Установите пакет `td-agent-bit`:
+
     ```bash
     sudo apt-get install td-agent-bit
     ```
+
 1. Запустите сервис `td-agent-bit`:
+
     ```bash
     sudo systemctl start td-agent-bit
     ```
+
 1. Проверьте статус сервиса `td-agent-bit`, он должен быть активен:
+
     ```bash
     systemctl status td-agent-bit
     ```
 
     Результат:
+
     ```bash
     ● td-agent-bit.service - TD Agent Bit
          Loaded: loaded (/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: enabled)
@@ -238,10 +276,13 @@
 ## Подключите плагин {#connect-plugin}
 
 1. Клонируйте репозиторий с кодом плагина:
+
     ```bash
     git clone https://github.com/yandex-cloud/fluent-bit-plugin-yandex.git
     ```
+
 1. Скомпилируйте библиотеку `yc-logging.so`:
+
     ```bash
     cd fluent-bit-plugin-yandex/
     export fluent_bit_version=1.8.6
@@ -251,16 +292,23 @@
       -ldflags "-X main.PluginVersion=${plugin_version}" \
       -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
     ```
+
 1. Скопируйте библиотеку `yc-logging.so`:
+
     ```bash
     sudo cp yc-logging.so /usr/lib/td-agent-bit/yc-logging.so
     ```
+
 1. Добавьте в файл с настройками плагинов `/etc/td-agent-bit/plugins.conf` путь до библиотеки `yc-logging.so`:
+
     ```
     [PLUGINS]
         Path /usr/lib/td-agent-bit/yc-logging.so
     ```
+
 1. Добавьте в файл `/etc/td-agent-bit/td-agent-bit.conf`  настройки сервиса `td-agent-bit`:
+
+
     ```
     [INPUT]
         Name  systemd
@@ -280,6 +328,7 @@
 
     В поле `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../../logging/concepts/log-group.md) которого будут передаваться логи.
 1. Перезапустите сервис `td-agent-bit`:
+
     ```bash
     sudo systemctl restart td-agent-bit
     ```
@@ -291,10 +340,9 @@
 - Консоль управления
 
     1.  В [консоли  управления]({{ link-console-main }}) перейдите в каталог, который указали в настройках сервиса `td-agent-bit`.
-    1. Выберите сервис **{{ cloud-logging-name }}**.
-    1. Перейдите на вкладку **Группы**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Нажмите на строку c лог-группой по умолчанию `default`.
-    1. Перейдите на вкладку **Логи**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. На открывшейся странице отобразятся записи.
 
 - CLI

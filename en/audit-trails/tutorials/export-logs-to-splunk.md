@@ -37,8 +37,8 @@ To complete the tutorial, a Splunk instance must be available to the intermediat
 The infrastructure support cost includes:
 
 * Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 * A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
@@ -61,7 +61,7 @@ The infrastructure support cost includes:
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
+      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
 
@@ -137,7 +137,7 @@ The infrastructure support cost includes:
       Where:
 
       * `role`: Role being assigned.
-      * `id`: The ID of the folder from which audit logs will be collected.
+      * `id`: ID of the folder from which audit logs will be collected.
       * `service-account-id`: ID of your service account.
 
    1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder that will host the trail:
@@ -189,8 +189,8 @@ To create the trail, make sure you have the following roles:
    1. Select **{{ at-name }}**.
    1. Click **Create trail** and specify:
 
-      * **Name**: The name of the trail being created.
-      * **Description**: A description of the trail (optional).
+      * **Name**: Name of the trail being created.
+      * **Description**: Description of the trail (optional).
 
    1. Under **Filter**, set up the audit log scope:
 
@@ -243,7 +243,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
       1. Click **Save**.
    1. Create a route table:
       1. On the left-hand panel, select **Route tables**.
-      1. Click **Create**, to [create](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
+      1. Click **Create** to [create](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
       1. Click **Add route**.
       1. In the window that opens, select **Gateway** in the **Next hop** field.
       1. In the **Gateway** field, select the NAT gateway you created. The destination prefix will be propagated automatically.

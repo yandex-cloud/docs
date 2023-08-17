@@ -3,6 +3,10 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Как организовать работу в {{ ml-platform-name }}
+    items:
+      - name: Настроить проект для работы с облаком
+        href: tutorials/basics.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -13,6 +17,8 @@ items:
             href: operations/community/create.md
           - name: Добавить пользователя в сообщество
             href: operations/community/add-user.md
+          - name: Управление метками сообщества
+            href: operations/community/manage-community-labels.md
           - name: Добавить канал связи
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт
@@ -27,6 +33,8 @@ items:
             href: operations/projects/create.md
           - name: Добавить пользователя в проект
             href: operations/projects/add-user.md
+          - name: Управление метками проекта
+            href: operations/projects/manage-project-labels.md
           - name: Выбрать версию Python
             href: operations/projects/python-version.md
           - name: Изменить размер хранилища проекта
@@ -43,12 +51,16 @@ items:
             href: operations/projects/control-compute-resources.md
           - name: Проверить загрузку GPU
             href: operations/projects/gpu-performance-check.md
+          - name: Получить идентификаторы ноутбука и ячейки
+            href: operations/projects/get-notebook-cell-ids.md
           - name: Установить пакеты
             href: operations/projects/install-dependencies.md
           - name: Очистить состояние интерпретатора
             href: operations/projects/clear-kernel-state.md
           - name: Примеры кода в ноутбуке
             href: operations/projects/snippets.md
+          - name: Очистить вывод ячеек ноутбука
+            href: operations/projects/clear-outputs.md
           - name: Работа с Git
             href: operations/projects/work-with-git.md
           - name: Запустить Docker-контейнер в отдельной ячейке
@@ -65,9 +77,13 @@ items:
             href: operations/user-images.md
           - name: Работа с датасетами
             href: operations/data/dataset.md
+          - name: Работа с коннекторами S3
+            href: operations/data/s3-connectors.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к хранилищу S3
+            href: operations/data/s3-connectors.md
+          - name: Подключение к S3 с помощью библиотеки boto3
             href: operations/data/connect-to-s3.md
           - name: Подключение к базе данных {{ CH }}
             href: operations/data/connect-to-clickhouse.md
@@ -77,6 +93,8 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Подключение к Google Drive
             href: operations/data/connect-to-google-drive.md
+          - name: Подключение к базе данных {{ ydb-name }}
+            href: operations/data/connect-to-ydb.md
       - name: Развертывание эксплуатации моделей
         items:
           - name: Создать ноду с кодом на Python
@@ -147,6 +165,8 @@ items:
             href: concepts/dataset.md
           - name: Шаблоны {{ dataproc-name }}
             href: concepts/data-proc-template.md
+          - name: Коннекторы S3
+            href: concepts/s3-connector.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
       - name: Квоты и лимиты
@@ -169,6 +189,12 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Запуск вычислений по расписанию
         href: tutorials/regular-launch.md
+      - name: Запуск вычислений с помощью API
+        href: tutorials/batch-code-execution.md
+      - name: Обучение модели на данных из {{ objstorage-full-name }}
+        href: tutorials/s3-to-datasphere.md
+      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+        href: tutorials/mlflow-datasphere.md
   - name: Справочник API
     items:
       - name: Обзор
@@ -181,8 +207,6 @@ items:
             href: api-ref/grpc/index.md
           - name: CommunityService
             href: api-ref/grpc/community_service.md
-          - name: ProjectDataService
-            href: api-ref/grpc/project_data_service.md
           - name: ProjectService
             href: api-ref/grpc/project_service.md
           - name: OperationService

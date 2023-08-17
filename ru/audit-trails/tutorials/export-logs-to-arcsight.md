@@ -6,7 +6,7 @@
 
 Решение, которое описано в руководстве, работает по следующей схеме:
 1. [Трейл](../concepts/trail.md) загружает логи в бакет {{ objstorage-name }}.
-1. [Бакет](../../storage/concepts/bucket.md) монтируется через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-интерфейс к папке на промежуточной ВМ.
+1. [Бакет](../../storage/concepts/bucket.md) монтируется через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-интерфейс к папке на промежуточной [ВМ](../../glossary/vm.md).
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) забирает логи из папки и передает их в ArcSight для анализа.
 
 Подробнее о сценариях загрузки аудитных логов в ArcSight смотрите в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight#two-log-shipping-scenarios).
@@ -47,7 +47,7 @@
 
 Вы можете использовать готовую ВМ, у которой есть доступ к экземпляру ArcSight, или создать новую:
 
-1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из образа Linux с операционной системой Ubuntu 20.04.
+1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из образа Linux с операционной системой [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по [SSH](../../glossary/ssh-keygen.md).
 
 ### Создайте бакет для аудитных логов {#create-backet}
@@ -60,7 +60,7 @@
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Нажмите **Создать бакет**.
   1. На странице создания бакета:
-      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming), например, `arcsight-bucket`.
+      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
       1. При необходимости ограничьте максимальный размер бакета.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -93,7 +93,7 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `arcsight-bucket`.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, созданный ранее.
   1. На панели слева выберите **Шифрование**.
   1. В поле **Ключ {{ kms-short-name }}** выберите ключ `arcsight-kms`.
   1. Нажмите **Сохранить**.
@@ -286,7 +286,7 @@
   5. В блоке **Назначение** задайте параметры объекта назначения:
 
      * **Назначение** — `{{ objstorage-name }}`.
-     * **Бакет** — `arcsight-bucket`.
+     * **Бакет** — имя бакета.
      * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
   
      {% note info %}
@@ -333,7 +333,7 @@
 1. Смонтируйте бакет:
 
    ```bash
-   s3fs arcsight-bucket ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
+   s3fs <имя_бакета> ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
    ```
 
 1. Проверьте, что бакет смонтирован:

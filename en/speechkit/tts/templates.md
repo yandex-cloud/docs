@@ -1,21 +1,30 @@
 # Pattern-based speech synthesis
 
-Pattern-based synthesis allows you to synthesize speech based on specially prepared phrases, or _patterns_, with changeable key parts called _variables_. In pattern-based synthesis, a new phrase is synthesized integrally rather than combined of multiple pre-recorded and synthesized blocks. Speech intonations are copied from the pattern. As a result, the speech sounds naturally and cannot be told apart from real human speech.
+With pattern-based synthesis, you can synthesize speech based on pre-edited phrases, or _patterns_, with changeable key parts called _variables_. A new phrase is synthesized integrally instead of combining multiple pre-recorded and synthesized blocks. Speech intonations are copied from the pattern. This makes speech sound natural – just like real human speech.
 
-Pattern-based synthesis is only available for [{{ brand-voice-name }}](brand-voice/index.md) voices. To get started with pattern-based synthesis, [fill out the form](#contact-form).
+Pattern-based synthesis is only available for [{{ brand-voice-name }}](brand-voice/index.md) voices.
+
+
+{% note warning %}
+
+Access to the {{ brand-voice-name }} service is available on request. To get access to the technology, [fill out this form](#contact-form).
+
+{% endnote %}
+
 
 ## Source data for pattern-based synthesis {#income-data}
 
 Each request sent for pattern-based synthesis must include:
+
 * An audio recording of the pattern phrase.
 * Text template with markup of variable parts.
 * Values of variables for synthesizing a new phrase.
 * Timestamp of the beginning and end of each variable part.
 
-> For example, let's assume you need to synthesize this phrase: `Давайте проверим бронирование. Ваш рейс восьмого сентября в одиннадцать двадцать по маршруту Москва Санкт-Петербург. Аэропорт вылета Домодедово, аэропорт прилета Пулково. Все верно?`
-> Meanwhile, your pattern audio recording includes the following phrase: `Давайте проверим бронирование. Ваш рейс двадцать третьего марта в двадцать один ноль ноль по маршруту Екатеринбург Владивосток. Аэропорт вылета Кольцово, аэропорт прилета Кневичи. Все верно?`.
-> The text pattern should look like this: `Let's check your booking. Ваш рейс {date} по маршруту {route}. Аэропорт вылета {source}, аэропорт прилета {destination}. Все верно?`
-> The list of variables is as follows: `variable_name = '{date}', variable_value = 'восьмого сентября в одиннадцать двадцать'`, `variable_name = '{route}', variable_value = 'Москва Санкт-Петербург'`, `variable_name = '{source}', variable_value = 'Домодедово'`, `variable_name = '{destination}', variable_value = 'Пулково'`.
+> Let's assume you need to synthesize this phrase: `Let's check your booking. Your flight is at eleven twenty, September eight, from London to Madrid. You depart from Heathrow and arrive at Barajas. Is everything correct?`
+> Your pattern audio recording contains the following phrase: `Let's check your booking. Your flight is at nine, March twenty-three, from Paris to Lisbon. You depart from Charles de Gaulle and arrive at Humberto Delgado. Is everything correct?`
+> The text pattern should look like this: `Let's check your booking. Your flight is at {date}, {route}. You depart from {source} and arrive at {destination}. Is everything correct?`
+> List of variables: `variable_name = '{date}', variable_value = 'eleven twenty, September eight'`, `variable_name = '{route}', variable_value = 'from London to Madrid'`, `variable_name = '{source}', variable_value = 'Heathrow'`, `variable_name = '{destination}', variable_value = 'Barajas'`.
 
 See examples of pattern-based synthesis in [{#T}](api/tts-templates.md).
 
@@ -44,13 +53,7 @@ The pattern must contain one or more variables to replace. The length of the var
 
 Divide long utterances into independent sentences and different patterns. The synthesized phrase cannot exceed {{ tts-v3-time }} and {{ tts-v3-count }}.
 
-When recording Russian speech, make sure to use the letter <q>ё</q> when needed in the pattern text. It is not acceptable to use <q>е</q> instead of <q>ё</q> in any synthesized text. In homographs where the stress may be ambiguous, you must explicitly indicate the stressed vowel with the `+` sign.
-> _<q>The +import of goods from foreign countries</q>_: Stress falls on the first syllable.
-> _<q>Goods they im+port from China.</q>_: Stress falls on the second syllable.
-
-All data should be denormalized: the text strings being synthesized should not include numbers or abbreviations, such as <q>15 Smith st., bl. 3</q> or <q>RUB 13.10</q>. Make sure to speel out digits, numbers, and abbreviations. Acronyms can be left as they are.
-
-In questions, specify which word should be \*\*logically stressed\*\* to indicate the intonation of an interrogative sentence.
+{% include [text requirements](../../_includes/speechkit/tts-text-requirements.md) %}
 
 {% note warning %}
 
@@ -58,13 +61,9 @@ The logical stress should not fall on the variable part of the phrase.
 
 {% endnote %}
 
-> The sentence <q>Did the cat go to the forest?</q> can be read three different ways:
-> * Did the \*\*cat\*\* go to the forest? Meaning, <q>Who was it that went to the forest? Was it really the cat?</q>
-> * Did the cat \*\*go\*\* to the forest? Meaning, <q>Did the cat walk or run?</q> or <q>Was the action itself performed? Is the cat gone or not?</q>
-> * Did the cat go \*\*to the forest\*\*? Meaning <q>Where did the cat go and why? To the forest, outside, to look for a sausage?</q>
->
-> In all sentences, the logical stress emphasizes the main meaning of the sentence.
-
 ## How to use pattern-based synthesis {#templates-implementation}
 
-Pattern-based synthesis is only available for [API v3](../tts-v3/api-ref/grpc/). [Example of pattern-based synthesis](api/tts-templates.md).
+Pattern-based synthesis is only available for [API v3](../tts-v3/api-ref/grpc/). Implementation examples:
+
+* [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
+* [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).

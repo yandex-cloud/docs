@@ -7,11 +7,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет изменена запись зоны DNS.
-  1. Выберите сервис **{{ dns-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону из списка.
-  1. Нажмите значок ![image](../../_assets/options.svg) напротив имени нужной записи и выберите **Редактировать**.
+  1. Нажмите значок ![image](../../_assets/options.svg) напротив имени нужной записи и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените TTL или значение записи.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -88,6 +88,10 @@
      ```
      yc dns zone list-records <имя зоны DNS>
      ```
+
+- API
+
+  Чтобы изменить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 
 {% endlist %}
 

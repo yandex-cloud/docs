@@ -7,23 +7,31 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Подключение к кластеру
-        href: operations/connect.md
-      - name: Изменение кластера
-        href: operations/cluster-update.md
-      - name: Управление подкластерами
-        href: operations/subclusters.md
-      - name: Изменение подкластера
-        href: operations/subcluster-update.md
-      - name: Подключение к интерфейсам компонентов
-        href: operations/connect-interfaces.md
-      - name: Использование Sqoop
-        href: operations/sqoop-usage.md
-      - name: Управление заданиями
+      - name: Кластеры {{ dataproc-name }}
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Подключение к кластеру
+            href: operations/connect.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Подкластеры {{ dataproc-name }}
+        items:
+          - name: Управление подкластерами
+            href: operations/subclusters.md
+          - name: Изменение подкластера
+            href: operations/subcluster-update.md
+      - name: Сервисы Apache и другие сторонние сервисы
+        items:
+          - name: Подключение к интерфейсам компонентов
+            href: operations/connect-interfaces.md
+          - name: Использование Sqoop
+            href: operations/sqoop-usage.md
+      - name: Задания (jobs)
         items:
           - name: Все задания
             href: operations/jobs.md
@@ -35,31 +43,26 @@ items:
             href: operations/jobs-hive.md
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
-      - name: Управление серверами {{ metastore-name }}
-        hidden: true
+      - name: Кластеры {{ metastore-name }}
         items:
-          - name: Что такое {{ metastore-full-name }}
-            hidden: true
-            href: operations/metastore/index.md
-          - name: Создание сервера {{ metastore-name }}
-            hidden: true
+          - name: Создание кластера {{ metastore-name }}
             href: operations/metastore/cluster-create.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
-            hidden: true
             href: operations/metastore/dataproc-connect.md
-          - name: Удаление сервера {{ metastore-name }}
-            hidden: true
+          - name: Удаление кластера {{ metastore-name }}
             href: operations/metastore/cluster-delete.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Работа с логами
-        href: operations/logging.md
-      - name: Мониторинг состояния Spark-приложений
-        href: operations/spark-monitoring.md
-      - name: Диагностика и устранение проблем производительности Spark-приложений
-        href: operations/spark-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Логи и мониторинг
+        items:
+          - name: Работа с логами
+            href: operations/logging.md
+          - name: Мониторинг состояния кластера и хостов
+            href: operations/monitoring.md
+          - name: Мониторинг состояния Spark-приложений
+            href: operations/spark-monitoring.md
+          - name: >-
+              Диагностика и устранение проблем производительности
+              Spark-приложений
+            href: operations/spark-diagnostics.md
   - name: Практические руководства
     items:
       - name: Все практические руководства
@@ -103,18 +106,25 @@ items:
           mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
       - name: Совместная работа с таблицами с использованием {{ metastore-name }}
-        hidden: true
         href: tutorials/dataproc-to-dataproc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
-        href: concepts/instance-types.md
+        items:
+          - name: Действующие классы хостов
+            href: concepts/instance-types.md
+          - name: Архив
+            items:
+              - name: До 20 июня 2023 года
+                href: concepts/instance-types-archive/instance-types-20062023.md
       - name: Среда исполнения
         href: concepts/environment.md
       - name: Интерфейсы и порты компонентов {{ dataproc-name }}
         href: concepts/interfaces.md
+      - name: Кластеры {{ metastore-full-name }}
+        href: concepts/metastore.md
       - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Задания Spark

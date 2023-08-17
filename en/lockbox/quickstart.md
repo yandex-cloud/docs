@@ -40,7 +40,7 @@ You can use this logic in scripts, services, and applications where you need to 
       export IAM_TOKEN=$(yc iam create-token)
       ```
 
-      You can also get an IAM token for your service account from inside the VM that the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
+      You can also get an IAM token for your service account from inside the VM the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
 
       ```
       export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)

@@ -2,6 +2,8 @@
 
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of an existing one.
 
+
+
 ## Creating a preemptible VM {#create-preemptible}
 
 To create a [preemptible](../../concepts/preemptible-vm.md) VM:
@@ -11,9 +13,10 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
-   1. Under **Basic parameters**:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** at the top right.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+
       * Enter a name and description for the VM. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
@@ -21,55 +24,60 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
-   1. Under **Image/boot disk selection**, select one of the [images](../../concepts/image.md).
-   1. (Optional) Under **Disks and file storage**, select the **Disks** tab and configure a boot [disk](../../concepts/disk.md):
+
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select one of the [images](../../concepts/image.md).
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** tab and configure a boot [disk](../../concepts/disk.md):
+
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.
 
-         If you wish to create a VM from an existing disk, under **Disks and file storage**, [add a disk](create-from-disks.md):
-         * Click **Add disk**.
+         If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
+         * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
          * Enter the disk name.
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the desired block size.
          * Specify the required disk size.
-         * (optional) Enable the **Delete with the VM** option if you need to automatically delete the disk when deleting the VM it will be attached to.
-         * Select `Disk` as content.
-         * Click **Add**.
-
-   
-   1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
-      * Click **Connect file storage**.
-      * In the window that opens, select a file store.
-      * Enter a device name.
-      * Click **Connect file storage**.
+         * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+         * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
+         * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
 
-   1. Under **Computing resources**:
-      * Choose a [platform](../../concepts/vm-platforms.md).
-      * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
-      * Enable the **Preemptible** option.
-      * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
-   1. Under **Network settings**:
+1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../../concepts/filesystem.md):
 
-      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
-
-   
-   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+   * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
+   * In the window that opens, select a file store.
+   * Enter the device name.
+   * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
 
-   1. Under **Access**, specify the information required to access the instance:
-      * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-      * Enter the username in the **Login** field.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
-         {% note alert %}
+   * Choose a [platform](../../concepts/vm-platforms.md).
+   * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
+   * Enable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
+   * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
-         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-         {% endnote %}
+   {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-      * In the **SSH key** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
+
+1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
+   * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
+   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+
+      {% note alert %}
+
+      Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+
+      {% endnote %}
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
-   1. Click **Create VM**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    The VM appears in the list.
 
@@ -151,7 +159,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
         }
 
         metadata = {
-          ssh-keys = "<username>:<SSH key contents>}"
+          ssh-keys = "<username>:<SSH key contents>"
         }
 
         scheduling_policy {
@@ -208,7 +216,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -223,13 +231,14 @@ To change the type of a VM, for example, make it preemptible:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. Click ![image](../../../_assets/options.svg) next to the VM name and select **Stop**.
-   1. In the window that opens, click **Stop**. The VM status changes to `Stopped`.
-   1. Click ![image](../../../_assets/options.svg) next to the VM name and select **Edit**.
-   1. Under **Computing resources**, enable the **Preemptible** option.
-   1. Click **Save changes**.
-   1. Click ![image](../../../_assets/compute/run-vm.svg) **Start**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the line with the appropriate VM, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-stop }} **.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status changes to `Stopped`.
+   1. In the line with the appropriate VM, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.
+   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+   1. At the top right, click ![image](../../../_assets/compute/run-vm.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
 
@@ -333,7 +342,7 @@ To change the type of a VM, for example, make it preemptible:
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

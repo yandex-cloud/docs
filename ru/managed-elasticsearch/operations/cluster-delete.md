@@ -9,6 +9,8 @@ keywords:
 
 # Удаление {{ ES }}-кластера
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете удалить кластер {{ ES }}, если он вам больше не нужен. Все данные в кластере будут удалены.
 
 ## Перед удалением кластера {#before-you-delete}
@@ -25,9 +27,9 @@ keywords:
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого нужно удалить кластер.
-  1. Выберите сервис **{{ mes-name }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - CLI
 

@@ -2,7 +2,13 @@ title: Yandex IoT Core
 href: index.yaml
 items:
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart-overview.md
+      - name: Реестр устройств
+        href: quickstart.md
+      - name: Брокер
+        href: quickstart-broker.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -117,6 +123,8 @@ items:
         href: tutorials/java.md
       - name: Запись данных с устройства в Managed Service for PostgreSQL
         href: tutorials/data-recording.md
+      - name: Тестирование доставки сообщения
+        href: tutorials/message-delivery-check.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -1,4 +1,4 @@
-# Disk types
+# Disk types in {{ mrd-name }}
 
 
 {{ mrd-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
@@ -14,8 +14,7 @@ This storage does not provide fault tolerance for a single-host cluster: if a lo
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
-
-## Choice of disk type during cluster creation {#storage-type-selection}
+## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created together with a {{ RD }} cluster depends on the disk type you select and on whether you enable [sharding](./sharding.md):
 
@@ -25,7 +24,6 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 | Local SSD storage (`local-ssd`) | ⩾ 3 hosts | ⩾ 6 hosts (3 shards × 2 hosts) |
 | Non-replicated SSD storage (`network-ssd-nonreplicated`) | ⩾ 3 hosts | ⩾ 9 hosts (3 shards × 3 hosts) |
 
-Additional hosts are required to ensure fault tolerance.
+The preset maximum number of cluster hosts and shards is a [fault tolerance condition](switchover.md). For more information about limits on the number of hosts per cluster or shard, see [{#T}](./limits.md).
 
-For more information about limits on the number of hosts per cluster or shard, see [{#T}](./limits.md).
 

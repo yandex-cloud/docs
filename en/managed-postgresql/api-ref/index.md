@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/api-ref/index.md
+sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/index.md
 ---
 
 # Managed Service for PostgreSQL API: REST reference

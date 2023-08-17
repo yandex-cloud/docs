@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dns/api-ref/DnsZone/index.md
+sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/index.md
 ---
 
 # Cloud DNS API, REST: DnsZone methods
@@ -51,5 +51,6 @@ Method | Description
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified DNS zone.
 [update](update.md) | Updates the specified DNS zone.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified DNS zone.
+[updatePrivateNetworks](updatePrivateNetworks.md) | Atomically updates zone private networks
 [updateRecordSets](updateRecordSets.md) | Method with strict control for changing zone state. Returns error when: 1. Deleted record is not found. 2. Found record with matched type and name but different TTL or value. 3. Attempted to add record with existing name and type. Deletions happen first. If a record with the same name and type exists in both lists, then the existing record will be deleted, and a new one added.
 [upsertRecordSets](upsertRecordSets.md) | Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist. Deletes records that match all specified fields which allows to delete only specified records from a record set.

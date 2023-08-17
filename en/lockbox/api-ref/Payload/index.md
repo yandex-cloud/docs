@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Payload/index.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Payload/index.md
 ---
 
 # Lockbox API, REST: Payload methods

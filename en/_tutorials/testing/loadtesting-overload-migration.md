@@ -7,7 +7,7 @@ To migrate load testing results:
 1. [Prepare your cloud](#before-you-begin).
 1. [Get a Yandex OverLoad API token](#get-overload-token).
 1. [Get the test IDs](#get-test-id).
-1. [Transfer the testing results](#transfer-results).
+1. [Migrate the testing results](#transfer-results).
 1. [Check the results](#check-results).
 
 If you no longer need the OverLoad test results, [delete them](#clear-out).
@@ -44,13 +44,13 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **Tests** tab.
-   1. Click ![options](../../_assets/options.svg) at the top right and select **Import tests from Overload**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
+   1. Click ![options](../../_assets/options.svg) at the top right and select **{{ ui-key.yacloud.load-testing.label_import-tests-from-overload }}**.
    1. In the window that opens, specify the import parameters:
-      * **Token**: Yandex OverLoad API token you previously obtained.
-      * **Test ID**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **Add ID** and enter the next ID.
-   1. Click **Import**.
+      * **{{ ui-key.yacloud.load-testing.field_overload-token }}**: Yandex OverLoad API token you previously obtained.
+      * **{{ ui-key.yacloud.load-testing.field_overload-test-id }}**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **{{ ui-key.yacloud.load-testing.button_add-overload-test-id }}** and enter the next ID.
+   1. Click **{{ ui-key.yacloud.common.import }}**.
 
    It takes some time to transfer the load testing results.
 
@@ -62,18 +62,18 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **Operations** tab.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
    1. Make sure the following operations completed successfully:
       * **Overload Migration**.
       * **Overload Migrate Test** for each migrated test.
-   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **Tests** tab.
+   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
    1. Check that the list contains tests named like `[overload <test_ID>]<test_description>`.
    1. Choose one of the migrated tests and view its results.
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To delete the test results migrated from Yandex OverLoad:
 
@@ -81,9 +81,9 @@ To delete the test results migrated from Yandex OverLoad:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ load-testing-name }}**.
-   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **Tests** tab.
-   1. Next to the test to delete the results for, click ![options](../../_assets/options.svg) and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
+   1. Next to the test to delete the results for, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/addVersion.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 
 # Lockbox API, REST: Secret.addVersion

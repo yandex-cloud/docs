@@ -23,6 +23,14 @@
 
   {% endnote %}
 
+* Маску [подсети](../../../vpc/concepts/network.md#subnet) [узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group).
+
+  {% note warning %}
+
+  Если изменить маску подсети для работающего кластера {{ managed-k8s-name }}, его блоки CIDR могут быть израсходованы, тогда развертывание [подов](../../concepts/index.md#pod) на новых группах узлов станет невозможным.
+
+  {% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -50,26 +58,26 @@
   1. Выполните команду, передав список изменяемых настроек (в примере приведены не все настройки):
 
      ```bash
-     {{ yc-k8s }} cluster update <имя кластера {{ managed-k8s-name }}> \
-       --new-name <новое имя кластера {{ managed-k8s-name }}> \
-       --description <описание кластера {{ managed-k8s-name }}> \
-       --service-account-id <идентификатор сервисного аккаунта для ресурсов> \
-       --service-account-name <имя сервисного аккаунта для ресурсов> \
-       --node-service-account-id <идентификатор сервисного аккаунта для узлов> \
-       --security-group-ids <список идентификаторов групп безопасности> \
-       --master-logging enabled=<отправка логов: true или false>,`
-           `log-group-id=<идентификатор лог-группы>,`
-           `folder-id=<идентификатор каталога>,`
-           `kube-apiserver-enabled=<отправка логов kube-apiserver: true или false>,`
-           `cluster-autoscaler-enabled=<отправка логов cluster-autoscaler: true или false>,`
-           `events-enabled=<отправка событий {{ k8s }}: true или false>
+     {{ yc-k8s }} cluster update <имя_кластера_{{ managed-k8s-name }}> \
+       --new-name <новое_имя_кластера_{{ managed-k8s-name }}> \
+       --description <описание_кластера_{{ managed-k8s-name }}> \
+       --service-account-id <идентификатор_сервисного_аккаунта_для_ресурсов> \
+       --service-account-name <имя_сервисного_аккаунта_для_ресурсов> \
+       --node-service-account-id <идентификатор_сервисного_аккаунта_для_узлов_{{ managed-k8s-name }}> \
+       --security-group-ids <список_идентификаторов_групп_безопасности> \
+       --master-logging enabled=<отправка_логов:_true_или_false>,`
+           `log-group-id=<идентификатор_лог-группы>,`
+           `folder-id=<идентификатор_каталога>,`
+           `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
+           `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
+           `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>
      ```
 
      Где:
      * `--new-name` — имя кластера {{ managed-k8s-name }}.
      * `--description` — описание кластера {{ managed-k8s-name }}.
      * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером {{ managed-k8s-name }}.
-     * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления [узлами](../../concepts/index.md#node-group).
+     * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления узлами {{ managed-k8s-name }}.
      * `--security-group-ids` — группы безопасности кластера {{ managed-k8s-name }}.
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
@@ -79,7 +87,7 @@
        {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
 
      * `--version` — версию {{ k8s }}.
-     * `--latest-revision` — получить все доступные обновления для текущей версии мастера.
+     * `--latest-revision` — получить все доступные обновления для текущей версии [мастера {{ managed-k8s-name }}](../../concepts/index.md#master).
      * `--auto-upgrade` — управлять автоматическими обновлениями кластера {{ managed-k8s-name }}.
      * Управление окном обновлений:
        * `--anytime-maintenance-window` — обновлять в любое время.
@@ -145,8 +153,7 @@
   done (1s)
   id: abcd123ef4ghi567j8k9
   folder_id: l1m01nopqr1st2uvwxy1
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
+  ...
   description: My test {{ k8s }} cluster
   labels:
     new_label: test_label
@@ -179,8 +186,7 @@
   done (1s)
   id: abcd123ef4ghi567j8k9
   folder_id: l1m01nopqr1st2uvwxy1
-  created_at: "2019-11-20T11:26:36Z"
-  name: k8s-demo
+  ...
   description: My test {{ k8s }} cluster
   labels:
     test_label: my_k8s_label
@@ -209,7 +215,6 @@
   folder_id: b1g88tflru0ek1omtsu0
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
   ...
   ```
 

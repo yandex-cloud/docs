@@ -1,6 +1,6 @@
 # Управление хостами {{ MG }}-кластера
 
-Вы можете добавлять и удалять [хосты кластера ](../concepts/index.md), запускать повторную синхронизацию хостов, а также [управлять настройками {{ MG }}](update.md) для отдельных кластеров.
+Вы можете добавлять и удалять [хосты кластера](../concepts/index.md), запускать повторную синхронизацию хостов, а также [управлять настройками {{ MG }}](update.md) для отдельных кластеров.
 
 ## Получить список хостов в кластере {#list-hosts}
 
@@ -8,9 +8,9 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера {{ mmg-name }}.
-  1. Выберите вкладку **Хосты**.
+  1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
 
 - CLI
 
@@ -67,15 +67,15 @@
 - Консоль управления
 
   Чтобы добавить хост в кластере {{ mmg-name }}:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и перейдите на вкладку **Хосты**.
-  1. Нажмите кнопку **Добавить хост**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера {{ mmg-name }} и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
   1. Укажите параметры хоста:
      * [Зону доступности](../../overview/concepts/geo-scope.md).
      * [Подсеть](../../vpc/concepts/network.md#subnet) (если нужной подсети в списке нет, создайте ее).
-     * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне {{ yandex-cloud }}.
+     * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
      * Тип хоста и название шарда, если в кластере {{ mmg-name }} включено шардирование.
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI
 
@@ -181,7 +181,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -218,10 +218,10 @@
 - Консоль управления
 
   Чтобы удалить хост из кластера {{ mmg-name }}:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **Хосты**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
-  1. В открывшемся окне отметьте опцию **Я удаляю хост** и нажмите кнопку **Подтвердить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне отметьте опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI
 
@@ -253,7 +253,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -287,9 +287,9 @@
 - Консоль управления
 
   Чтобы запустить принудительную ресинхронизацию хоста:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **Хосты**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **Ресинхронизировать**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
 
 - CLI
 

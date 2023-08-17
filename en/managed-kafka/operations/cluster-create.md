@@ -1,11 +1,13 @@
 # Creating a {{ KF }} cluster
 
-A cluster in {{ mkf-name }} is one or more broker hosts where topics and their partitions are located. Producers and consumers can work with these topics by connecting to cluster hosts.
+A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to cluster hosts.
 
 {% note info %}
 
+
 * The number of broker hosts you can create together with a {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
+
 
 {% endnote %}
 
@@ -13,81 +15,78 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
 ## How to create a {{ mkf-name }} cluster {#create-cluster}
 
-Prior to creating a cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
+Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
-      1. Give your cluster a name and add a descritpion, if required. It must be unique within the folder.
-      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      1. Enter a name and description of the {{ mkf-name }} cluster. It must be unique within the folder.
+      1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ KF }} version.
       1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
          1. Enable **Manage topics via the API**.
-         1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
+         1. After creating your {{ mkf-name }} cluster, [create an admin user](cluster-accounts.md#create-user).
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-   1. Under **Host class**, select the platform, host type, and host class.
+   1. Under **Host class**, select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class.
 
-      The host class defines the technical capabilities of the virtual machines that [{{ KF }} brokers](../concepts/brokers.md) are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
+      The host class defines the technical specifications of the [VMs](../../compute/concepts/vm.md) that {{ KF }} brokers will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
-      By [changing the host class](cluster-update.md#change-brokers) for a cluster, you also change the characteristics of all the existing instances.
-
+      When [changing the host class](cluster-update.md#change-brokers) for the {{ mkf-name }} cluster, the configuration of all existing instances changes as well.
    1. Under **Storage**:
+      * Select the disk type.
 
-      * Select the [disk type](../concepts/storage.md).
+               
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-         You can't change the disk type for {{ mkf-name }} clusters after creation.
-
+         You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
       * Select the size of storage to be used for data.
 
    
    1. Under **Network settings**:
-
-      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a cluster with one accessibility zone, you will not be able to increase the number of zones and brokers in the future.
-      1. Select the [network](../../vpc/concepts/network.md).
-      1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
+      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and brokers in the future.
+      1. Select a [network](../../vpc/concepts/network.md#network).
+      1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** next to the availability zone in question.
 
          {% note info %}
 
-         For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
+         For a {{ mkf-name }} cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three [{{ ZK }} hosts](../concepts/index.md), one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
 
          {% endnote %}
 
-      1. Select [security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic.
+      1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster's network traffic.
 
          {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
       1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
 
    1. Under **Hosts**:
-
-      1. Specify the number of {{ KF }} [broker hosts](../concepts/brokers.md) to be located in each of the selected availability zones.
+      1. Specify the number of {{ KF }} broker hosts to be located in each of the selected availability zones.
 
          When choosing the number of hosts, keep in mind that:
 
-         * The {{ KF }} cluster hosts will be evenly deployed in the selected availability zones. Decide on the number of zones and hosts per zone based on the required fault tolerance model and cluster load.
-         * Replication is possible if there are at least two hosts in the cluster.
-         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
-         * Adding more than one host to the cluster automatically adds three {{ ZK }} hosts.
+         * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
+                  
+         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+         * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
+         * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
       
-      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
+      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -99,10 +98,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
    1. Configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings), if required.
-
    1. Click **Create cluster**.
-
-   1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+   1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
 
 - CLI
 
@@ -110,13 +107,13 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the create cluster CLI command:
+   1. View a description of the create {{ mkf-name }} cluster CLI command:
 
       ```bash
       {{ yc-mdb-kf }} cluster create --help
       ```
 
-   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+   1. Specify the {{ mkf-name }} cluster parameters in the create command (in our example, there are only some of the supported parameters):
 
       
       ```bash
@@ -125,12 +122,13 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         --environment <environment: prestable or production> \
         --version <{{ KF }} version: {{ versions.cli.str }}> \
         --network-name <network name> \
-        --brokers-count <number of brokers in zone> \
+        --subnet-ids <subnet IDs> \
+        --brokers-count <number of brokers per zone> \
         --resource-preset <host class> \
         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --disk-size <storage size, GB> \
         --assign-public-ip <public access> \
-        --security-group-ids <security group ID list> \
+        --security-group-ids <list of security group IDs> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
@@ -143,27 +141,24 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   1. To set up a [maintenance window](../concepts/maintenance.md) (including windows for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
       ...
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
+        --maintenance-window type=<maintenance type: anytime or weekly>,`
                              `day=<day of week for weekly>,`
                              `hour=<hour for weekly>
       ```
 
       Where:
-
       * `type`: Maintenance type:
          * `anytime`: Any time.
          * `weekly`: On a schedule.
       * `day`: Day of the week in `DDD` format for `weekly`. For example, `MON`.
       * `hour`: Hour in `HH` format for `weekly`. For example, `21`.
-
-   1. To manage topics via the {{ KF }} Admin API:
-
-      1. When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
+   1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
+      1. When creating a {{ mkf-name }} cluster, set the `--unmanaged-topics` parameter to `true`:
 
          ```bash
          {{ yc-mdb-kf }} cluster create \
@@ -171,14 +166,13 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
            --unmanaged-topics true
          ```
 
-         You cannot edit this setting after you create a cluster.
-
+         You cannot edit this setting after you create a {{ mkf-name }} cluster.
       1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
 
    
    1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
-   1. To create a cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
+   1. To create a {{ mkf-name }} cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -198,10 +192,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
 
    To create a cluster:
-
    1. In the configuration file, describe the parameters of the resources you want to create:
-
-      * {{ KF }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
+      * {{ mkf-name }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -216,6 +208,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         name                = "<cluster name>"
         network_id          = "<network ID>"
+        subnet_ids          = ["<list of subnet IDs>"]
         security_group_ids  = ["<list of cluster security group IDs>"]
         deletion_protection = <cluster deletion protection: true or false>
 
@@ -230,6 +223,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
               disk_type_id       = "<disk type>"
               resource_preset_id = "<host class>"
             }
+            kafka_config {}
           }
 
           zones = [
@@ -261,39 +255,41 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create a cluster.
+   1. Create a {{ mkf-name }} cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - API
 
-   Use the [create](../api-ref/Cluster/create.md) API method and include the following information in the request:
+   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mkf-name }} cluster should be placed, in the `folderId` parameter.
+   * {{ mkf-name }} cluster name in the `name` parameter.
 
-   * ID of the folder where the cluster should be placed, in the `folderId` parameter.
-   * Cluster name in the `name` parameter.
-         * Security group identifiers in the `securityGroupIds` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   
+   * [Security group](../../vpc/concepts/security-groups.md) identifiers in the `securityGroupIds` parameter.
+
+
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   To manage topics via the {{ KF }} Admin API:
+   To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
+   1. Set the `unmanagedTopics` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
+   1. After creating your {{ mkf-name }} cluster, [create an admin user](./cluster-accounts.md#create-user).
 
-   1. Pass `true` for the `unmanagedTopics` parameter. You cannot edit this setting after you create a cluster.
-   1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
-
-   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter. You cannot edit this setting after you create a cluster.
+   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    
-   To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
+   To create a {{ mkf-name }} cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), provide a list of host IDs in the `hostGroupIds` parameter.
 
    {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -303,7 +299,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -323,10 +319,11 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `production` environment.
    * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
+   * In the subnet with the `{{ subnet-id }}` ID.
    * In the security group `{{ security-group }}`.
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
+   * With network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
    * With protection against accidental cluster deletion.
 
@@ -340,6 +337,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --version {{ versions.cli.latest }} \
      --network-name {{ network-name }} \
+     --subnet-ids {{ subnet-id }} \
      --zone-ids {{ region-id }}-a \
      --brokers-count 1 \
      --resource-preset {{ host-class }} \
@@ -354,21 +352,24 @@ If you specified security group IDs when creating a cluster, you may also need t
 - {{ TF }}
 
    Create a {{ mkf-name }} cluster with test characteristics:
-
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the cloud with the `{{ tf-cloud-id }}` ID.
+   * In the folder with the `{{ tf-folder-id }}` ID.
    * With the name `mykf`.
    * In the `PRODUCTION` environment.
    * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
-         * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+
+   
+   * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+
+
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
+   * With network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
    * With protection against accidental cluster deletion.
 
-   The configuration file for the cluster looks like this:
+   The configuration file for the {{ mkf-name }} cluster looks like this:
 
    
    
@@ -377,6 +378,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      environment         = "PRODUCTION"
      name                = "mykf"
      network_id          = yandex_vpc_network.mynet.id
+     subnet_ids          = yandex_vpc_subnet.mysubnet.id
      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
      deletion_protection = true
 
@@ -390,6 +392,7 @@ If you specified security group IDs when creating a cluster, you may also need t
            disk_type_id       = "{{ disk-type-example }}"
            resource_preset_id = "{{ host-class }}"
          }
+         kafka_config {}
        }
 
        zones = [

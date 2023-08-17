@@ -11,7 +11,7 @@ description: "В этой инструкции вы создадите и про
 
 Чтобы начать работать в {{ yandex-cloud }}:
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте API-шлюз {#create-api-gw}
@@ -21,11 +21,11 @@ description: "В этой инструкции вы создадите и про
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
-  1. В списке сервисов выберите **{{ api-gw-name }}**.
-  1. Нажмите кнопку **Создать API-шлюз**.
-  1. В поле **Имя** введите `numbers`.
-  1. (опционально) В поле **Описание** введите описание.
-  1. В блок **Спецификация** добавьте спецификацию:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `numbers`.
+  1. (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** введите описание.
+  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
   
       ```
       openapi: "3.0.0"
@@ -60,7 +60,7 @@ description: "В этой инструкции вы создадите и про
               content:
                 'text/plain': "Hello, {user}!\n"
       ```
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - {{ TF }}
 
@@ -75,8 +75,8 @@ description: "В этой инструкции вы создадите и про
 ## Обратитесь к API-шлюзу {#api-gw-test}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
-1. В списке сервисов выберите **{{ api-gw-name }}** и нажмите на созданный API-шлюз.
-1. Скопируйте значение поля **Домен** и сформируйте ссылку вида: `https://<домен>/hello?user=API`. Должна получиться ссылка вида: 
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и нажмите на созданный API-шлюз.
+1. Скопируйте значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** и сформируйте ссылку вида: `https://<домен>/hello?user=API`. Должна получиться ссылка вида: 
 
     ```
     https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello?user=API
@@ -109,19 +109,19 @@ description: "В этой инструкции вы создадите и про
     Чтобы создать функцию:
     1. Создайте функцию: 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
-        1. Нажмите кнопку **Создать ресурс**.
-        1. Выберите **Функция**.
-        1. В поле **Имя** введите `list`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+        1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+        1. В поле **{{ ui-key.yacloud.common.name }}** введите `list`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         1. [Сделайте](../../functions/operations/function/function-public.md) функцию публичной.
     1. Создайте версию функции: 
         1. В открывшемся окне выберите созданную функцию.
-        1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-        1. В открывшемся окне в поле **Среда выполнения** выберите `nodejs12`.
-        1. В поле **Способ** выберите редактор кода.
-        1. Ниже в редакторе нажмите кнопку **Создать файл**.
+        1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+        1. В открывшемся окне в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** выберите среду выполнения `nodejs12`.
+        1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+        1. Ниже в редакторе нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**.
             1. В открывшемся окне введите имя файла `index.js`.
-            1. Нажмите кнопку **Создать**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         1. Вставьте следующий код в файл `index.js`:
             
             ```
@@ -133,8 +133,8 @@ description: "В этой инструкции вы создадите и про
                 };
             };
             ```
-        1. В поле **Точка входа** введите `index.handler`.
-        1. Нажмите кнопку **Создать версию**.
+        1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `index.handler`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - {{ TF }}
 
@@ -188,7 +188,7 @@ description: "В этой инструкции вы создадите и про
      * `content` — исходный код функции.
      * `content.0.zip_filename` — путь к ZIP-архиву, содержащему исходный код функции.
 
-     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -230,8 +230,8 @@ description: "В этой инструкции вы создадите и про
   Чтобы обновить спецификацию API-шлюза:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо обновить API-шлюз.
   1. В открывшемся окне выберите API-шлюз и нажмите кнопку ![image](../../_assets/options.svg).
-  1. В открывшемся меню нажмите кнопку **Редактировать**.
-  1. В блок **Спецификация** добавьте расширенную версию спецификации
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте расширенную версию спецификации
       
       Добавлен метод `/numbers`, который с помощью расширения `x-yc-apigateway-integration` типа `cloud_functions` вызывает функцию по идентификатору. 
       
@@ -356,7 +356,7 @@ description: "В этой инструкции вы создадите и про
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/api_gateway).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -46,8 +46,6 @@ items:
         items:
           - name: Creating static routes
             href: operations/static-route-create.md
-          - name: Enabling egress NAT
-            href: operations/enable-nat.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
           - name: Moving a route table between folders
@@ -74,6 +72,8 @@ items:
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
+          - name: Setting the MTU when DDoS protection is active
+            href: operations/adjust-mtu-ddos-protection.md
       - name: Chart of network connections
         href: operations/connections-view.md
   - name: Tutorials
@@ -96,6 +96,8 @@ items:
         href: tutorials/usergate-proxy.md
       - name: Configuring networks for {{ dataproc-full-name }}
         href: tutorials/dataproc-nat-instance.md
+      - name: Network between folders
+        href: tutorials/multi-folder-vpc.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -296,6 +298,6 @@ items:
             href: api-ref/grpc/subnet_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/vpc

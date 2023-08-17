@@ -2,7 +2,7 @@
 
 Вы можете загрузить на страницу файл и разместить в тексте ссылку на скачивание.
 
-Чтобы открыть список всех файлов, загруженных на страницу, в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../_assets/wiki/svg/attachments.svg) **Файлы**.
+Чтобы открыть список всех файлов, загруженных на страницу, в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 
 {% note warning %}
@@ -14,13 +14,19 @@
 
 ## Загрузить файл на страницу {#upload-file}
 
-1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **Файлы**.
+1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
-1. Нажмите кнопку **Выберите файл** и откройте нужный файл или файлы.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-attachments.upload-btn-text }}** и откройте нужный файл или файлы.
+
+{% note info %}
+
+Максимальный размер одного загружаемого файла - 200 МБ. 
+
+{% endnote %}
 
 ## Вставить ссылку на файл {#paste-link}
 
-1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **Файлы**.
+1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 1. Наведите курсор на файл и нажмите кнопку ![](../_assets/wiki/svg/copy-link.svg) **Скопировать код для вставки**.
 
@@ -34,15 +40,15 @@
  
 ## Скачать файл {#download}
 
-1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **Файлы**.
+1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 1. Наведите курсор на файл и нажмите кнопку ![](../_assets/wiki/svg/download.svg) **Скачать**.
 
 ## Удалить файл {#delete}
 
-1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **Файлы**.
+1. Откройте страницу и в правом верхнем углу нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия**, затем выберите ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
-1. Наведите курсор на файл и нажмите кнопку ![](../_assets/wiki/svg/delete.svg) **Удалить**.
+1. Наведите курсор на файл и нажмите кнопку ![](../_assets/wiki/svg/delete.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.delete }}**.
 
 #### См. также
 

@@ -37,13 +37,13 @@
 
 ## Подготовьте окружение {#prepare-environment}
 
-1. Клонируйте [репозиторий examples](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/main/examples/basic-example-v1) с помощью Git:
+1. Клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) с помощью Git:
 
    ```
-   git clone https://github.com/ydb-platform/ydb-nodejs-sdk.git
+   git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. В репозитории перейдите в папку с файлами проекта: `examples/basic-example-v1`.
+1. В репозитории перейдите в папку с файлами проекта: `examples/serverless/functions/YDB-connect-from-serverless-function`.
 1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../cli/quickstart.md).
 1. Установите утилиту [jq](https://stedolan.github.io/jq/download/). В корне папки с файлами проекта запустите терминал и выполните команду:
 
@@ -99,7 +99,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -175,7 +175,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_key).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_key).
 
   1. Проверьте корректность конфигурационных файлов.
 

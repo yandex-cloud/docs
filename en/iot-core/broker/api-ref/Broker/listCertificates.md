@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/listCertificates.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listCertificates.md
 ---
 
 # IoT Core Broker Service, REST: Broker.listCertificates
@@ -10,7 +10,7 @@ Retrieves the list of broker certificates for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates
 ```
  
 ## Path parameters {#path_params}

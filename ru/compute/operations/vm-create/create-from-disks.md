@@ -4,17 +4,18 @@
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}
 
-Чтобы создать ВМ из набора дисков:
-
 {% list tabs %}
 
 - Консоль управления
 
-  Чтобы создать ВМ:
+  
+  @[youtube](https://www.youtube.com/watch?v=SsM2c6YW5sg&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=8&pp=iAQB)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **Создать ВМ**.
-  1. В блоке **Базовые параметры**:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
      * Введите имя и описание ВМ. Требования к имени:
 
        {% include [name-format](../../../_includes/name-format.md) %}
@@ -22,31 +23,31 @@
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * Выберите зону доступности, в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../concepts/image.md).
-  1. В блоке **Диски и файловые хранилища** [добавьте диск](create-from-disks.md):
-     * Нажмите кнопку **Добавить диск**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../concepts/image.md).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** [добавьте диск](create-from-disks.md):
+     * Нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
      * Введите имя диска.
      * Выберите [тип диска](../../concepts/disk.md#disks_types).
      * Укажите нужный размер блока.
      * Укажите нужный размер диска.
-     * (опционально) Включите опцию **Удалять вместе с ВМ**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
-     * Выберите наполнение `Диск`.
-     * Нажмите кнопку **Добавить**.
+     * (Опционально) Включите опцию **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}**, если нужно автоматически удалять диск при удалении ВМ, к которой он будет подключен.
+     * Выберите наполнение `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}`.
+     * Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
   
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
-     * Нажмите кнопку **Подключить файловое хранилище**.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../concepts/filesystem.md):
+     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
      * В открывшемся окне выберите файловое хранилище.
-     * Введите имя устройства.
-     * Нажмите кнопку **Подключить файловое хранилище**.
+     * Укажите имя устройства.
+     * Нажмите **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
 
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
      * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * (опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
-  1. В блоке **Сетевые настройки**:
+     * (Опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
@@ -54,9 +55,9 @@
   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
 
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
-     * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
-     * В поле **Логин** введите имя пользователя.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+     * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
        {% note alert %}
 
@@ -64,9 +65,12 @@
 
        {% endnote %}
 
-     * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../operations/vm-connect/ssh.md#creating-ssh-keys).
      * Если требуется, разрешите доступ к [серийной консоли](../../operations/serial-console/index.md).
-  1. Нажмите кнопку **Создать ВМ**.
+
+     {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста (FQDN)](../../../vpc/concepts/address.md#fqdn).
 
@@ -132,26 +136,27 @@
   Чтобы создать ВМ из набора дисков:
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```yaml
+     ```hcl
      resource "yandex_compute_instance" "vm-1" {
 
-       name        = "vm-from-disks"
-       platform_id = "standard-v3"
-       zone        = "<зона доступности>"
+       name                      = "vm-from-disks"
+       allow_stopping_for_update = true
+       platform_id               = "standard-v3"
+       zone                      = "<зона_доступности>"
 
        resources {
-         cores  = <количество ядер vCPU>
-         memory = <объем RAM в ГБ>
+         cores  = <количество_ядер_vCPU>
+         memory = <объем_RAM_в_ГБ>
        }
 
        boot_disk {
          initialize_params {
-           disk_id = "<идентификатор загрузочного диска>"
+           disk_id = "<идентификатор_загрузочного_диска>"
          }
        }
 
        secondary_disk {
-         disk_id = "<идентификатор дополнительного диска>"
+         disk_id = "<идентификатор_дополнительного_диска>"
        }
 
        network_interface {
@@ -160,7 +165,7 @@
        }
 
        metadata = {
-         ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>"
+         ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
        }
      }
 
@@ -170,7 +175,7 @@
 
      resource "yandex_vpc_subnet" "subnet-1" {
        name       = "subnet1"
-       zone       = "<зона доступности>"
+       zone       = "<зона_доступности>"
        network_id = "${yandex_vpc_network.network-1.id}"
      }
      ```
@@ -178,6 +183,7 @@
      Где:
      * `yandex_compute_instance` — описание [ВМ](../../concepts/vm.md):
        * `name` — имя ВМ.
+       * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
        * `zone` — идентификатор зоны доступности, в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
@@ -198,23 +204,10 @@
      {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
 
-        ```bash
-        terraform plan
-        ```
+  1. Создайте ресурсы:
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

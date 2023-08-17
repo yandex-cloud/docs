@@ -14,7 +14,7 @@
 
 1. [Создайте _кластер-приемник_ {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 20.04 и публичным IP-адресом.
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
 
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
@@ -65,7 +65,7 @@
         ```bash
         sudo keytool \
             -importcert \
-            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
             -keystore /etc/debezium/keystore.jks \
             -storepass <пароль JKS> \
             --noprompt
@@ -174,7 +174,7 @@
 
 1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
 
-    * **Имя** — `mmy.db1.measurements`.
+    * **{{ ui-key.yacloud.common.name }}** — `mmy.db1.measurements`.
 
         Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) по принципу `<имя сервера>.<имя базы данных>.<имя таблицы>`.
 
@@ -187,7 +187,7 @@
 
 1. Создайте служебный топик для отслеживания состояния коннектора:
 
-    * **Имя** — `__debezium-heartbeat.mmy`.
+    * **{{ ui-key.yacloud.common.name }}** — `__debezium-heartbeat.mmy`.
 
         Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) по принципу `<префикс для heartbeat>.<имя сервера>`.
 
@@ -196,15 +196,15 @@
         * Префикс `__debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
         * Имя сервера `mmy` указано в параметре `database.server.name`.
 
-    * **Политика очистки лога** — `Compact`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `{{ ui-key.datalens.dc.kafka.topics.value_cleanup-policy-compact }}`.
 
     Если необходимо получать данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 
 1. Создайте служебный топик для отслеживания изменений в схеме формата данных:
 
-    * **Имя** — `dbhistory.mmy`.
-    * **Политика очистки лога** — `Delete`.
-    * **Количество разделов** — `1`.
+    * **{{ ui-key.yacloud.common.name }}** — `dbhistory.mmy`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `{{ ui-key.datalens.dc.kafka.topics.value_cleanup-policy-delete }}`.
+    * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
 
 1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.
 
@@ -262,7 +262,7 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=debezium \
         -X sasl.password=<пароль> \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
         -Z \
         -K:
     ```
@@ -321,7 +321,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
 1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 

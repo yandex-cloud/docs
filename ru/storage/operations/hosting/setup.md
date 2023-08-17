@@ -42,8 +42,9 @@
      ```
 
      Где:
+
      * `index` — абсолютный путь к файлу главной страницы сайта. 
-     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.  
+     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.
   
   1. Выполните следующую команду:
 
@@ -60,7 +61,7 @@
 
      ```text
      name: my-bucket
-     folder_id: b1gjs8dck8bvb10chmjf
+     folder_id: b1gjs8dck8bv********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"
@@ -166,7 +167,7 @@
   1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
       * Доменное имя хоста, на который будут перенаправляться все запросы к бакету.
-      * (опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
+      * (Опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI
@@ -211,7 +212,7 @@
 
      ```text
      name: my-bucket
-     folder_id: b1gjs8dck8bvb10chmjf
+     folder_id: b1gjs8dck8bv********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"
@@ -258,7 +259,7 @@
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
        * `redirect_all_requests_to` — доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету. Вы можете указать префикс протокола (`http://` или `https://`). По умолчанию используется протокол из исходного запроса.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#static-website-hosting).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Проверьте конфигурацию командой:
 
@@ -381,7 +382,7 @@
 
      ```text
      name: my-bucket
-     folder_id: b1gjs8dck8bvb10chmjf
+     folder_id: b1gjs8dck8bv********
      default_storage_class: STANDARD
      versioning: VERSIONING_SUSPENDED
      max_size: "10737418240"
@@ -412,7 +413,7 @@
        website {
          index_document = "<абсолютный_путь_к_файлу_главной_страницы_сайта>"
          error_document = "<абсолютный_путь_к_файлу_ошибок>"
-		 routing_rules            = <<EOF
+         routing_rules  = <<EOF
          [
 	       {
              "Condition": {
@@ -445,7 +446,7 @@
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
        * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть хотя бы по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#static-website-hosting).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Проверьте конфигурацию командой:
 

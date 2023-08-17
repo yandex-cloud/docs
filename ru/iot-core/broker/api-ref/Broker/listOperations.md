@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/listOperations.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listOperations.md
 ---
 
 # IoT Core Broker Service, REST: Broker.listOperations
@@ -10,7 +10,7 @@ Lists operations for the specified broker.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/operations
+GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/operations
 ```
  
 ## Path parameters {#path_params}

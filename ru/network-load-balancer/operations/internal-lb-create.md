@@ -16,7 +16,7 @@
 
 - Консоль управления
   
-  Чтобы создать [внутренний сетевой балансировщик](../concepts/internal-load-balancer.md):
+  Чтобы создать [внутренний сетевой балансировщик](../concepts/nlb-types.md):
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно создать балансировщик.
   1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
   1. Нажмите кнопку **Создать сетевой балансировщик**.
@@ -46,7 +46,7 @@
       1. Выберите целевую группу или [создайте новую](target-group-create.md):
           * В поле **Целевые группы** выберите ![image](../../_assets/plus-sign.svg) **Создать целевую группу**.
           * В открывшемся окне введите имя целевой группы.
-          * Добавьте в целевую группу виртуальные машины.
+          * Добавьте в целевую группу [виртуальные машины](../../glossary/vm.md).
           * Нажмите кнопку **Создать**.
       1. (Опционально) Под блоком **Проверка состояния** нажмите кнопку **Настроить**. В открывшемся окне задайте параметры [проверки состояния ресурсов](../concepts/health-check.md):
           * **Имя**.
@@ -78,21 +78,21 @@
      ```bash
      yc load-balancer network-load-balancer create <имя балансировщика> \
         --type=internal \
-        --listener name=<имя обработчика>,`
+        --listener name=<имя_обработчика>,`
                   `port=<порт>,`
-                  `target-port=<целевой порт>,`
-                  `protocol=<протокол: tcp или udp>,`
-                  `internal-subnet-id=<идентификатор подсети>,`
-                  `internal-ip-version=<версия IP-адреса: ipv4 или ipv6> \
-        --target-group target-group-id=<идентификатор целевой группы>,`
-                      `healthcheck-name=<имя проверки состояния>,`
-                      `healthcheck-interval=<интервал между проверками>s,`
-                      `healthcheck-timeout=<таймаут проверки состояния>s,`
-                      `healthcheck-unhealthythreshold=<количество проваленных проверок для статуса Unhealthy>,`
-                      `healthcheck-healthythreshold=<количество успешных проверок для статуса Healthy>,`
+                  `target-port=<целевой_порт>,`
+                  `protocol=<протокол:_tcp_или_udp>,`
+                  `internal-subnet-id=<идентификатор_подсети>,`
+                  `internal-ip-version=<версия_IP-адреса:_ipv4_или_ipv6> \
+        --target-group target-group-id=<идентификатор_целевой_группы>,`
+                      `healthcheck-name=<имя_проверки_состояния>,`
+                      `healthcheck-interval=<интервал_между_проверками>s,`
+                      `healthcheck-timeout=<таймаут_проверки_состояния>s,`
+                      `healthcheck-unhealthythreshold=<количество_проваленных_проверок_для_статуса_Unhealthy>,`
+                      `healthcheck-healthythreshold=<количество_успешных_проверок_для_статуса_Healthy>,`
                       `healthcheck-tcp-port=<TCP-порт>,`
                       `healthcheck-http-port=<HTTP-порт>,`
-                      `healthcheck-http-path=<адрес URL, по которому будут выполняться проверки>
+                      `healthcheck-http-path=<адрес_URL,_по_которому_будут_выполняться_проверки>
      ```
 
      Где:
@@ -122,22 +122,23 @@
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
-       name = "<имя сетевого балансировщика>"
+       name = "<имя_сетевого_балансировщика>"
        type = "internal"
+       deletion_protection = "<защита_от_удаления:_true_или_false>"
        listener {
-         name = "<имя обработчика>"
-         port = <номер порта>
+         name = "<имя_обработчика>"
+         port = <номер_порта>
          internal_address_spec {
-           subnet_id = "<идентификатор подсети>"
-           ip_version = "<версия IP-адреса: ipv4 или ipv6>"
+           subnet_id = "<идентификатор_подсети>"
+           ip_version = "<версия_IP-адреса:_ipv4_или_ipv6>"
          }
        attached_target_group {
-         target_group_id = "<идентификатор целевой группы>"
+         target_group_id = "<идентификатор_целевой_группы>"
          healthcheck {
-           name = "<имя проверки состояния>"
+           name = "<имя_проверки_состояния>"
              http_options {
-               port = <номер порта>
-               path = "<адрес URL, по которому будут выполняться проверки>"
+               port = <номер_порта>
+               path = "<адрес_URL,_по_которому_будут_выполняться_проверки>"
              }
          }
        }
@@ -148,6 +149,7 @@
 
      * `name` — имя сетевого балансировщика.
      * `type` — тип сетевого балансировщика. Используйте `internal`, чтобы создать внутренний балансировщик.
+     * `deletion_protection` — защита внутреннего сетевого балансировщика от удаления. Пока опция включена, удалить балансировщик невозможно. Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. Значение по умолчанию `false`.
      * `listener` — параметры обработчика:
        * `name` — имя обработчика.
        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
@@ -160,13 +162,11 @@
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
-  1. Проверьте корректность настроек.
+  1. Создайте сетевой балансировщик:
 
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-  1. Создайте сетевой балансировщик.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API
 
@@ -179,6 +179,10 @@
   * Идентификаторы [целевых групп](../concepts/target-resources.md) и настройки [проверки состояния их ресурсов](../concepts/health-check.md) в параметре `attachedTargetGroups`.
 
   Идентификаторы целевых групп можно получить со [списком целевых групп в каталоге](target-group-list.md#list).
+
+- API
+
+  Чтобы создать внутренний сетевой балансировщик, воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create).
 
 {% endlist %}
 
@@ -207,9 +211,10 @@
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "internal-lb-test-1"
        type = "internal"
+       deletion_protection = "true"
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 
@@ -225,7 +230,7 @@
 
   ```api
   {
-    "folderId": "<идентификатор каталога>",
+    "folderId": "<идентификатор_каталога>",
     "name": "internal-lb-test-1",
     "type": "INTERNAL"
   }
@@ -243,9 +248,9 @@
     * Порт `80`.
     * Целевой порт `81`.
     * Протокол `TCP`.
-    * Идентификатор подсети `b0cp4drld130kuprafls`.
+    * Идентификатор подсети `b0cp4drld130********`.
     * Версия IP-адреса `ipv4`.
-* Идентификатор целевой группы `enpu2l7q9kth8906spjn`.
+* Идентификатор целевой группы `enpu2l7q9kth********`.
 * Параметры проверки состояния целевой группы:
     * Имя `http`.
     * Интервал выполнения проверок состояния `2` секунды.
@@ -268,9 +273,9 @@
                `port=80,`
                `target-port=81,`
                `protocol=tcp,`
-               `internal-subnet-id=b0cp4drld130kuprafls,`
+               `internal-subnet-id=b0cp4drld130********,`
                `internal-ip-version=ipv4 \
-     --target-group target-group-id=enpu2l7q9kth8906spjn,`
+     --target-group target-group-id=enpu2l7q9kth********,`
                    `healthcheck-name=http,`
                    `healthcheck-interval=2s,`
                    `healthcheck-timeout=1s,`
@@ -288,18 +293,19 @@
      resource "yandex_lb_network_load_balancer" "internal-lb-test" {
        name = "internal-lb-test-2"
        type = "internal"
+       deletion_protection = "true"
        listener {
          name        = "test-listener"
          port        = 80
          target_port = 81
          protocol    = "tcp"
          internal_address_spec {
-           subnet_id  = "b0cp4drld130kuprafls"
+           subnet_id  = "b0cp4drld130********"
            ip_version = "ipv4"
          }
        }
        attached_target_group {
-         target_group_id = "enpu2l7q9kth8906spjn"
+         target_group_id = "enpu2l7q9kth********"
          healthcheck {
            name                = "http"
            interval            = 2
@@ -315,7 +321,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 
@@ -331,7 +337,7 @@
 
   ```api
   {
-    "folderId": "<идентификатор каталога>",
+    "folderId": "<идентификатор_каталога>",
     "name": "internal-lb-test-2",
     "type": "INTERNAL",
     "listenerSpecs": [
@@ -341,14 +347,14 @@
         "protocol": "TCP",
         "targetPort": "81",
         "internalAddressSpec": {
-          "subnetId": "b0cp4drld130kuprafls",
+          "subnetId": "b0cp4drld130********",
           "ipVersion": "IPV4"
         }
       }
     ],
     "attachedTargetGroups": [
       {
-        "targetGroupId": "enpu2l7q9kth8906spjn",
+        "targetGroupId": "enpu2l7q9kth********",
         "healthChecks": [
           {
             "name": "http",

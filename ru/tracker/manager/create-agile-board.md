@@ -2,25 +2,25 @@
 
 Чтобы создать доску:
 
-1. На верхней панели {{ tracker-name }} выберите **Доски** → **Создать доску задач**.
+1. На верхней панели {{ tracker-name }} выберите **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-agile-board }}**.
 
 1. Выберите тип доски:
 
-    - **Простая** доска позволяет распределить задачи по колонкам в зависимости от их статуса.
+    - **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}** доска позволяет распределить задачи по колонкам в зависимости от их статуса.
 
         Выберите эту доску, если раньше вы не использовали Agile-инструменты и хотите попробовать.
 		
 		{% note info %}
 		
-		Чтобы создать доску задач с новым интерфейсом, включите опцию **Попробовать новые доски**. О работе с новой версией досок читайте в разделе [{#T}](agile-new.md).
+		Чтобы создать доску задач с новым интерфейсом, включите опцию **{{ ui-key.startrek.blocks-desktop_agile-form-modal.new-board-ad-control }}**. О работе с новой версией досок читайте в разделе [{#T}](agile-new.md).
 		
 		{% endnote %}
 
-    - Доска **Скрам**, помимо отображения статусов задач, включает инструменты для управления [спринтами](agile.md#dlen_sprint), [оценки сложности задач](planning-poker.md) и [диаграмму сгорания задач](agile.md#dlen_burndown).
+    - Доска **{{ ui-key.startrek.blocks-desktop_onboarding-form.template-1 }}**, помимо отображения статусов задач, включает инструменты для управления [спринтами](agile.md#dlen_sprint), [оценки сложности задач](planning-poker.md) и [диаграмму сгорания задач](agile.md#dlen_burndown).
 
         Выберите эту доску, если работаете по методологии Скрам.
 
-    - Доска **Канбан** — похожа на простую доску, но все задачи в статусе **Открыт** автоматически попадают в колонку [**Бэклог**](agile.md#dlen_backlog).
+    - Доска **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}** — похожа на простую доску, но все задачи в статусе **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}** автоматически попадают в колонку [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](agile.md#dlen_backlog).
 
         Выберите эту доску, если ваша команда работает с большим потоком задач, например в службе поддержки.
 
@@ -48,7 +48,7 @@
 
 1. Укажите очередь для создания задач. Это позволит быстро создавать задачи в этой очереди прямо на странице доски.
 
-1. Нажмите кнопку **Создать**. Новая доска доступна в меню **Доски** на верхней панели {{ tracker-name }}.
+1. Нажмите кнопку **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. Новая доска доступна в меню **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** на верхней панели {{ tracker-name }}.
 
 1. Если требуется, [настройте колонки и внешний вид карточки задачи](edit-agile-board.md).
 

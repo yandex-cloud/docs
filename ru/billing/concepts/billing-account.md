@@ -25,8 +25,8 @@
 - Консоль управления
   
   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **Все сервисы**.
-  1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
+  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+  1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
 {% endlist %}
 

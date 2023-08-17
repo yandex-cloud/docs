@@ -1,28 +1,32 @@
 ---
 title: "{{ mmy-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the MySQL cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
+description: "The host class determines the computing power allocated for each host in a MySQL cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
 ---
 
 # {{ MY }} host classes
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
-The host class affects the list of available [disk types](./storage.md):
+
+The host class also determines which [disk types](./storage.md) are available:
 
 * **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
 * **b1**, **b2**: `network-ssd`, `network-hdd`.
 
-The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
+
+The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 
 ## Available host classes {#available-flavors}
 
 
-Hosts in {{ mmy-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mmy-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
 The full list of possible host configurations on each platform is provided below.
+
+{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3.md) %}
 
@@ -31,8 +35,6 @@ The full list of possible host configurations on each platform is provided below
 | Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|-----------------|------------------------|---------|----------------------|
 | **Intel Broadwell** |
-| b1.nano | 2 | 5% | 2 | 10 - 25 |
-| b1.micro | 2 | 20% | 2 | 10 - 50 |
 | b1.medium | 2 | 50% | 4 | 10 - 512 |
 | s1.micro | 2 | 100% | 8 | 10 - 8184 |
 | s1.small | 4 | 100% | 16 | 10 - 8184 |
@@ -40,8 +42,6 @@ The full list of possible host configurations on each platform is provided below
 | s1.large | 16 | 100% | 64 | 10 - 8184 |
 | s1.xlarge | 32 | 100% | 128 | 10 - 8184 |
 | **Intel Cascade Lake** |
-| b2.nano | 2 | 5% | 2 | 10 - 25 |
-| b2.micro | 2 | 20% | 2 | 10 - 50 |
 | b2.medium | 2 | 50% | 4 | 10 - 512 |
 | m2.micro | 2 | 100% | 16 | 10 - 8184 |
 | m2.small | 4 | 100% | 32 | 10 - 8184 |

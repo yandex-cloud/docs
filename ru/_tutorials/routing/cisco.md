@@ -50,30 +50,30 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ВМ с Cisco Cloud Services Router.
-  1. Нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Укажите имя ВМ, например `cisco-router`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
       * Укажите необходимое количество vCPU и объем RAM:
-        * **Платформа** — Intel Ice Lake.
-        * **Гарантированная доля vCPU** — 100%.
-        * **vCPU** — 2.
-        * **RAM** — 4 ГБ.
-  1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить ВМ. Если сети нет, создайте ее:
-      1. Выберите пункт ![image](../../_assets/plus-sign.svg) **Создать сеть**.
+        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+        * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+        * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+        * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если сети нет, создайте ее:
+      1. Выберите пункт ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
       1. В открывшемся окне укажите имя сети и каталог, в котором будет находиться ВМ.
-      1. (опционально) Для автоматического создания подсетей выберите опцию **Создать подсети**.
-      1. Нажмите кнопку **Создать**.
+      1. (Опционально) Для автоматического создания подсетей выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-          У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/plus-sign.svg) **Добавить подсеть**.
-  1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-  1. Укажите данные для доступа на ВМ:
-      * В поле **Логин** введите имя пользователя.
-      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа, [созданного ранее](#create-ssh-keys).
-  1. Выберите опцию **Разрешить доступ к серийной консоли**.
-  1. Нажмите кнопку **Создать ВМ**.
+          У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+      1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение ̀`{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа, [созданного ранее](#create-ssh-keys).
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** выберите опцию **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы сможете пользоваться серийной консолью.
 
@@ -86,9 +86,9 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. В списке ВМ выберите `cisco-router`.
-  1. Перейдите на вкладку ![image](../../_assets/compute/serial-console.svg) **Серийная консоль** и нажмите кнопку **Подключиться**.
+  1. Перейдите на вкладку ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
   1. Дождитесь полной загрузки операционной системы.
   1. Чтобы перейти в привилегированный режим, выполните в серийной консоли команду `enable`:
 

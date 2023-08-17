@@ -1,21 +1,21 @@
-title: Yandex SpeechKit
+title: '{{ speechkit-full-name }}'
 description:
   - >-
-    Yandex SpeechKit enables app developers to use speech recognition
+    {{ speechkit-full-name }} enables app developers to use speech recognition
     (Speech-to-Text) and speech synthesis (Text-to-Speech) technologies.
-  - SpeechKit is accessible via the API.
+  - '{{ speechkit-name }} is accessible via the API.'
   - >-
-    Yandex Cloud infrastructure is <a
+    {{ yandex-cloud }} infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
     secure</a> and in compliance with Russian Federal Law 152-FZ.
   - >-
     The service is subject to the <a
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
     service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex
-    Compute Cloud</a>.
+    href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for {{
+    speechkit-full-name }}</a>.
 meta:
-  title: Yandex SpeechKit
+  title: '{{ speechkit-full-name }}'
 links:
   - title: Getting started
     description: Convert text to speech and speech to text
@@ -32,10 +32,10 @@ links:
   - title: Synthesis API
     description: Description of the synthesis API v3 methods
     href: tts-v3/api-ref/grpc/
-  - title: SpeechKit Brand Voice
+  - title: '{{ brand-voice-name }}'
     description: Speech synthesis technology with a unique voice
     href: tts/brand-voice/
-  - title: SpeechKit Hybrid
+  - title: '{{ sk-hybrid-name }}'
     description: Running {{ speechkit-name }} voice technologies on-premise
     href: hybrid-speechkit/
   - title: Authentication in the API

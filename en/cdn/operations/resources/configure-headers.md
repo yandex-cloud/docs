@@ -160,7 +160,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       * The `options` section contains additional parameters of CDN resources:
          * `static_response_headers`: Custom headers that CDN servers send in response to the client. This is an optional parameter.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 

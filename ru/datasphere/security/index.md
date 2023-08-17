@@ -20,11 +20,11 @@ description: "Управление доступом в сервисе, пред�
 * [{#T}](../operations/projects/add-user.md).
 * [Поделиться ресурсами с участниками сообщества](../operations/index.md#share).
 
-Также вы можете [назначить права доступа](../../organization/roles.md) через интерфейс {{ org-name }}.
+Также вы можете [назначить права доступа](../../organization/security/index.md) через интерфейс {{ org-name }}.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-### Сервисные роли {#services}
+### Сервисные роли {#service-roles}
 
 {% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
 
@@ -60,7 +60,7 @@ description: "Управление доступом в сервисе, пред�
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 
-### Примитивные роли {#primitive}
+### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 

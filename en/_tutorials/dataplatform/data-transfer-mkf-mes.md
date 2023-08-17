@@ -1,4 +1,6 @@
-# Delivering data from {{ mkf-full-name }} to {{ mes-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from a {{ KF }} {{ ES }} queue using {{ data-transfer-full-name }}
+
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 A {{ mes-name }} cluster can get data from {{ KF }} topics in real time.
 
@@ -162,7 +164,7 @@ You can provide data to the {{ mes-name }} cluster as the `admin` user assigned 
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
 
@@ -327,7 +329,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 Delete the other resources, depending on the method used to create them:
 

@@ -1,9 +1,5 @@
 # Getting started with {{ mrd-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the cluster](#connect).
@@ -28,14 +24,14 @@ To get started with the service:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a cluster {{ RD }}.
-1. Select **{{ mrd-name }}**.
-1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
 
-1. If TLS support is enabled in your cluster, set up an SSL certificate:
+1. If TLS support is enabled in your cluster, get an SSL certificate:
 
    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
@@ -43,8 +39,6 @@ To get started with the service:
 1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
-   {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
 
 
 1. Connect to the cluster using `redis-cli`.

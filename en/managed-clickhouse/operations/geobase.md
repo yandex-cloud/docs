@@ -20,7 +20,7 @@ To add your own geobase to a {{ CH }} cluster:
       * `5`: Region.
       * `6`: City.
    * Population (UInt32): Optional.
-1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function. For example:
+1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function, e.g.:
 
    * `regionToCountry(RegionID)` — Uses the default dictionary: `regions_hierarchy.txt`.
    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix: `regions_hierarchy_alt.txt`.
@@ -40,15 +40,11 @@ To add your own geobase to a {{ CH }} cluster:
 
 1. [Upload](../../storage/operations/objects/upload.md) the geobase archive to {{ objstorage-full-name }}.
 
-1. Configure access to the geobase archive using one of the following methods:
+1. Configure access to the geobase archive using a [service account](../../iam/concepts/users/service-accounts.md):
 
-   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method enables you to access the file without entering account information.
-
-      1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
-      2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
-      3\. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
-
-   * [Enable public access](../../storage/operations/objects/edit-acl.md) to the bucket containing the file.
+   1. [Connect a service account to a cluster](s3-access.md#connect-service-account).
+   1. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
+   1. In the bucket ACL, [grant](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the account.
 
 1. [Get a link](s3-access.md#get-link-to-object) to the geobase archive.
 
@@ -59,7 +55,7 @@ To add your own geobase to a {{ CH }} cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **DBMS settings**, click **Settings**.
    1. In the **Geobase uri** field, provide a link to the geobase archive in {{ objstorage-full-name }}.
@@ -72,7 +68,7 @@ To add your own geobase to a {{ CH }} cluster:
 
    To add a geobase:
 
-   1. View a description of the CLI's update cluster configuration command:
+   1. View a description of the update cluster configuration CLI command:
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config --help
@@ -117,13 +113,13 @@ To add your own geobase to a {{ CH }} cluster:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the link to the geobase archive in {{ objstorage-name }} in the `geobaseUri` parameter of the request.
+   To add a geobase to a {{ CH }} cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the link to the geobase archive in {{ objstorage-name }} in the `geobaseUri` parameter.
 
    {% note warning %}
 

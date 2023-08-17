@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/deletePassword.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/deletePassword.md
 ---
 
 # IoT Core Broker Service, REST: Broker.deletePassword
@@ -10,7 +10,7 @@ Deletes the specified password.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords/{passwordId}
+DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords/{passwordId}
 ```
  
 ## Path parameters {#path_params}

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/api-ref/Sku/get.md
+sourcePath: en/_api-ref/billing/v1/api-ref/Sku/get.md
 ---
 
 # Billing API, REST: Sku.get
@@ -24,7 +24,7 @@ id | <p>Required. ID of the SKU to return. To get the SKU ID, use <a href="/docs
 Parameter | Description
 --- | ---
 currency | <p>Required. Currency of the SKU. Can be one of the following:</p> <ul> <li>``RUB``</li> <li>``USD``</li> <li>``KZT``</li> </ul> 
-billingAccountId | <p>Optional ID of the billing account. If specified, contract prices for concrete billing account are included in the response. To get the billing account ID, use <a href="/docs/billing/api-ref/BillingAccount/list">list</a> request.</p> 
+billingAccountId | <p>Optional ID of the billing account. If specified, contract prices for a particular billing account are included in the response. To get the billing account ID, use <a href="/docs/billing/api-ref/BillingAccount/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

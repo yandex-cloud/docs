@@ -1,4 +1,4 @@
-### smart-captcha.editor {#smart-captcha-editor}
+#### smart-captcha.editor {#smart-captcha-editor}
 
 В роль `smart-captcha.editor` входят следующие разрешения:
 * просмотр настроек капчи;

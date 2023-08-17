@@ -36,12 +36,48 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится файловое хранилище.
-     1. Выберите сервис **{{ compute-name }}**.
-     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **Файловые хранилища**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
      1. Выберите нужное хранилище.
-     1. Перейдите на вкладку **Виртуальные машины**.
-     1. В строке нужной ВМ нажмите ![image](../../../_assets/options-grey.svg) и выберите пункт **Отключить файловое хранилище**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}**.
+     1. В строке нужной ВМ нажмите ![image](../../../_assets/options-grey.svg) и выберите пункт **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
      1. В открывшемся окне подтвердите отключение.
+
+   - {{ TF }}
+
+      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      Если вы не указали для ВМ параметр `allow_stopping_for_update` в значении `true`, сделайте это.
+
+      1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием хранилища:
+
+            {% cut "Пример описания хранилища в конфигурации ВМ в {{ TF }}" %}
+
+            ```hcl
+            ...
+            resource "yandex_compute_instance" "vm-1" {
+
+               name        = "test-vm"
+               platform_id = "standard-v3"
+               zone        = "{{ region-id }}-a"
+
+               filesystem {
+                  filesystem_id = "fhmaikp755grp4mlvvem"
+               }
+            ...
+            ```
+
+            {% endcut %}
+
+      1. Примените изменения:
+
+          {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      Проверить отсоединение хранилища от ВМ можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+        ```bash
+        yc compute instance get <имя_ВМ>
+        ```
 
    - API
 

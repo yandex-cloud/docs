@@ -4,9 +4,9 @@ The method returns information about a query, including query metada, its execut
 
 {% include [!](../../_includes/api-common.md) %}
 
-## Request {#request}
+## Query {#request}
 
-`GET` request to `/queries/{query_id}?project_id={folder_id}`, where `{folder_id}` is the folder ID and `{query_id}` is the query ID.
+`GET` request to `/queries/{query_id}?project={folder_id}`, where `{folder_id}` is the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID and `{query_id}` is the query ID.
 
 ## Response {#response}
 

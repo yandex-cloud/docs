@@ -11,4 +11,4 @@ Some features provided in {{ mmg-name }} depend on the {{ MG }} edition:
 | Index management | Support for multi-component and multi-key indexes and geolocation data | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Sharding and replication | Distributing data across shards and replica sets | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 
-To use `Enterprise` Edition, {{ MG }} version 4.4 or higher is required. To update your {{ mmg-name }} cluster, follow the [instructions](../operations/cluster-version-update.md).
+To use `Enterprise` Edition, {{ MG }} version 4.4 or higher is required. To update your {{ mmg-name }} cluster, follow [this guide](../operations/cluster-version-update.md).

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/delete.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/delete.md
 ---
 
 # Lockbox API, REST: Secret.delete

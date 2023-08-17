@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/logging/api-ref/index.md
+sourcePath: en/_api-ref/logging/v1/api-ref/index.md
 ---
 
 # Cloud Logging Service: REST reference
@@ -9,3 +9,4 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [LogGroup](LogGroup/index.md) | A set of methods for managing log groups.
+[Sink](Sink/index.md) | A set of methods for managing log sinks.

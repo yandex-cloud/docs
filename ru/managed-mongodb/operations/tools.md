@@ -37,13 +37,13 @@ mongotop 5 --uri="mongodb://{имя_пользователя_с ролью_mdbMo
 
 ### Выполняемые в данный момент запросы {#list-running-queries}
 
-Чтобы посмотреть не относящиеся к текущему пользователю запросы, от имени пользователя с ролью [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) выполните [операцию db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/):
+Чтобы посмотреть не относящиеся к текущему пользователю запросы, от имени пользователя с ролью [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) выполните [запрос db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/):
 
 ```javascript
 db.currentOp()
 ```
 
-Чтобы посмотреть запросы текущего пользователя, выполните операцию `db.currentOp()` со значением `true` для [настройки](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
+Чтобы посмотреть запросы текущего пользователя, выполните запрос `db.currentOp()` со значением `true` для [настройки](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
 
 ```javascript
 db.currentOp({ "$ownOps": true })
@@ -57,8 +57,8 @@ db.currentOp({ "$ownOps": true })
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **Логи**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}**.
 
 - CLI
 
@@ -66,7 +66,7 @@ db.currentOp({ "$ownOps": true })
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы посмотреть логи **{{ mmg-name }}**:
+    Чтобы посмотреть логи **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**:
 
     1. Посмотрите описание команды CLI для просмотра логов:
 

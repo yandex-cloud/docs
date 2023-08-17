@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Disk/delete.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Disk/delete.md
 ---
 
 # Compute Cloud API, REST: Disk.delete

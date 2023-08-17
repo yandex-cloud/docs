@@ -1,2 +1,1 @@
-> For example, you created a **Business** billing account type for <q>Russia</q>. The payer of this account is a business and resident of the Russian Federation. All your next billing accounts must also be created for <q>Russia</q> with payers that are residents of the Russian Federation (businesses or individuals). Selecting another country creates an error.
-
+> Let's assume you created a billing account of the **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}** type for <q>Russia</q>. The payer of this account is a business and a resident of Russia. All your next billing accounts must also be created for <q>Russia</q> with payers that are residents of Russia (businesses or individuals). Selecting another country will lead to an error.

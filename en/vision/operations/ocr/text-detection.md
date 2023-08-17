@@ -2,17 +2,27 @@
 
 To recognize text in an image or from a PDF file, use the [Text recognition](../../concepts/ocr/index.md).
 
-To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `TEXT_DETECTION`, and specify the recognition settings in the `textDetectionConfig` property.
+To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `TEXT_DETECTION`, and specify the recognition settings in the `textDetectionConfig` property.
 
 ## Examples {#examples}
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 
 {% include [ai-before-beginning](../../../_includes/vision/ai-before-beginning.md) %}
 
 ### Recognize text from an image {#basic}
+
+1. Prepare an image file that meets the requirements:
+
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+
+    {% note info %}
+
+    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
+
+    {% endnote %}
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
@@ -63,7 +73,7 @@ To recognize a line of text:
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Create a file with the request body (for example, `body.json`):
+1. Create a file with the request body, e.g., `body.json`:
 
     **body.json:**
     ```json
@@ -96,7 +106,7 @@ If you know the language of the text, specify it in the request to improve the q
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Create a file with the request body (for example, `body.json`):
+1. Create a file with the request body, e.g., `body.json`:
 
     **body.json:**
     ```json
@@ -196,7 +206,7 @@ If you know the language of the text, specify it in the request to improve the q
     vision_text_detection path/to/document.pdf application/pdf
     ```
 
-### Code examples {#code-examples}
+### Code samples {#code-examples}
 
 The examples below show the script code for text recognition. Authentication is implemented for an account on Yandex using [OAuth token](../../../iam/concepts/authorization/oauth-token.md) ([learn more about authentication methods](../../api-ref/authentication.md)).
 
@@ -204,180 +214,180 @@ The examples below show the script code for text recognition. Authentication is 
 
 - Go
 
-    Create a script file, for example `text_detection.go` and copy the following code into it:
+   Create a script file, for example `text_detection.go` and copy the following code into it:
 
-    ```go
-    package main
+   ```go
+   package main
 
-    import (
-        "bytes"
-        "encoding/base64"
-        "encoding/json"
-        "errors"
-        "flag"
-        "fmt"
-        "io/ioutil"
-        "log"
-        "net/http"
-    )
+   import (
+       "bytes"
+       "encoding/base64"
+       "encoding/json"
+       "errors"
+       "flag"
+       "fmt"
+       "io/ioutil"
+       "log"
+       "net/http"
+   )
 
-    // The function returns the IAM token for the Yandex account.
-    func GetIamToken(iamURL, oauthToken string) (string, error) {
-        body, err := json.Marshal(&IamTokenRequest{YandexPassportOauthToken: oauthToken})
-        if err != nil {
+   // The function returns the IAM token for the Yandex account.
+   func GetIamToken(iamURL, oauthToken string) (string, error) {
+       body, err := json.Marshal(&IamTokenRequest{YandexPassportOauthToken: oauthToken})
+       if err != nil {
            return "", err
-        }
+       }
 
-        resp, err := http.Post(iamURL, "application/json", bytes.NewReader(body))
-        if err != nil {
-            return "", errors.New("Failed to obtain IAM token by oAuth token: " + err.Error())
-        }
+       resp, err := http.Post(iamURL, "application/json", bytes.NewReader(body))
+       if err != nil {
+           return "", errors.New("Failed to obtain IAM token by oAuth token: " + err.Error())
+       }
 
-        if resp.StatusCode != http.StatusOK {
-            return "", fmt.Errorf("Auth service returned status %d", resp.StatusCode)
-        }
+       if resp.StatusCode != http.StatusOK {
+           return "", fmt.Errorf("Auth service returned status %d", resp.StatusCode)
+       }
 
-        defer func() {
-            err := resp.Body.Close()
-            if err != nil {
-                log.Fatal(err)
-            }
-        }()
+       defer func() {
+           err := resp.Body.Close()
+           if err != nil {
+               log.Fatal(err)
+           }
+       }()
 
-        respBody, err := ioutil.ReadAll(resp.Body)
-        if err != nil {
-            return "", err
-        }
+       respBody, err := ioutil.ReadAll(resp.Body)
+       if err != nil {
+           return "", err
+       }
 
-        iamTokenResponse := &IamTokenResponse{}
-        err = json.Unmarshal(respBody, iamTokenResponse)
-        if err != nil {
-            return "", err
-        }
+       iamTokenResponse := &IamTokenResponse{}
+       err = json.Unmarshal(respBody, iamTokenResponse)
+       if err != nil {
+           return "", err
+       }
 
-        return iamTokenResponse.IamToken, nil
-    }
+       return iamTokenResponse.IamToken, nil
+   }
 
-    type IamTokenRequest struct {
-        YandexPassportOauthToken string `json:"yandexPassportOauthToken"`
-    }
+   type IamTokenRequest struct {
+       YandexPassportOauthToken string `json:"yandexPassportOauthToken"`
+   }
 
-    type IamTokenResponse struct {
-        IamToken string
-    }
+   type IamTokenResponse struct {
+       IamToken string
+   }
 
-    // The function sends an image recognition request to the server and returns a response from the server
-    func RequestAnalyze(visionURL, iamToken, folderID, imageBase64 string) (string, error) {
-        request := BatchAnalyzeRequest{
-            FolderID: folderID,
-            AnalyzeSpecs: []AnalyzeSpec{
-                {
-                    Content: imageBase64,
-                    Features: []Feature{
-                        {
-                            Type: "TEXT_DETECTION",
-                            TextDetectionConfig: TextDetectionConfig{
-                                LanguageCodes: []string{
-                                    "en",
-                                    "ru",
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        }
+   // The function sends an image recognition request to the server and returns a response from the server
+   func RequestAnalyze(visionURL, iamToken, folderID, imageBase64 string) (string, error) {
+       request := BatchAnalyzeRequest{
+           FolderID: folderID,
+           AnalyzeSpecs: []AnalyzeSpec{
+               {
+                   Content: imageBase64,
+                   Features: []Feature{
+                       {
+                           Type: "TEXT_DETECTION",
+                           TextDetectionConfig: TextDetectionConfig{
+                               LanguageCodes: []string{
+                                   "en",
+                                   "ru",
+                               },
+                           },
+                       },
+                   },
+               },
+           },
+       }
 
         body, err := json.Marshal(&request)
         if err != nil {
             return "", err
         }
 
-        req, err := http.NewRequest("POST", visionURL, bytes.NewReader(body))
-        if err != nil {
-            return "", errors.New("Failed to prepare request: " + err.Error())
-        }
-        req.Header.Set("Content-Type", "application/json")
-        req.Header.Set("Authorization", "Bearer "+iamToken)
+       req, err := http.NewRequest("POST", visionURL, bytes.NewReader(body))
+       if err != nil {
+           return "", errors.New("Failed to prepare request: " + err.Error())
+       }
+       req.Header.Set("Content-Type", "application/json")
+       req.Header.Set("Authorization", "Bearer "+iamToken)
 
-        resp, err := http.DefaultClient.Do(req)
-        if err != nil {
-            return "", errors.New("Failed to process request: " + err.Error())
-        }
+       resp, err := http.DefaultClient.Do(req)
+       if err != nil {
+           return "", errors.New("Failed to process request: " + err.Error())
+       }
 
-        if resp.StatusCode != http.StatusOK {
-            return "", fmt.Errorf("Service returned status %d", resp.StatusCode)
-        }
+       if resp.StatusCode != http.StatusOK {
+           return "", fmt.Errorf("Service returned status %d", resp.StatusCode)
+       }
 
-        defer func() {
-            err := resp.Body.Close()
-            if err != nil {
-                log.Panic(err)
-            }
-        }()
+       defer func() {
+           err := resp.Body.Close()
+           if err != nil {
+               log.Panic(err)
+           }
+       }()
 
-        respBody, err := ioutil.ReadAll(resp.Body)
-        if err != nil {
-            return "", err
-        }
+       respBody, err := ioutil.ReadAll(resp.Body)
+       if err != nil {
+           return "", err
+       }
 
-        return string(respBody), nil
-    }
+       return string(respBody), nil
+   }
 
-    type BatchAnalyzeRequest struct {
-        FolderID     string        `json:"folderId"`
-        AnalyzeSpecs []AnalyzeSpec `json:"analyzeSpecs"`
-    }
+   type BatchAnalyzeRequest struct {
+       FolderID     string        `json:"folderId"`
+       AnalyzeSpecs []AnalyzeSpec `json:"analyzeSpecs"`
+   }
 
-    type AnalyzeSpec struct {
-        Content  string    `json:"content"`
-        Features []Feature `json:"features"`
-    }
+   type AnalyzeSpec struct {
+       Content  string    `json:"content"`
+       Features []Feature `json:"features"`
+   }
 
-    type Feature struct {
-        Type                string `json:"type"`
-        TextDetectionConfig `json:"textDetectionConfig"`
-    }
+   type Feature struct {
+       Type                string `json:"type"`
+       TextDetectionConfig `json:"textDetectionConfig"`
+   }
 
-    type TextDetectionConfig struct {
-        LanguageCodes []string `json:"languageCodes"`
-    }
+   type TextDetectionConfig struct {
+       LanguageCodes []string `json:"languageCodes"`
+   }
 
-    func main() {
-        iamURL := "https://iam.{{ api-host }}/iam/v1/tokens"
-        visionURL := "https://vision.{{ api-host }}/vision/v1/batchAnalyze"
+   func main() {
+       iamURL := "https://iam.{{ api-host }}/iam/v1/tokens"
+       visionURL := "https://vision.{{ api-host }}/vision/v1/batchAnalyze"
 
-        oauthToken := flag.String("oauth-token", "", "oAuth token to obtain IAM token")
-        folderID := flag.String("folder-id", "", "Folder ID")
-        imagePath := flag.String("image-path", "", "Path to image to recognize")
-        flag.Parse()
+       oauthToken := flag.String("oauth-token", "", "oAuth token to obtain IAM token")
+       folderID := flag.String("folder-id", "", "Folder ID")
+       imagePath := flag.String("image-path", "", "Path to image to recognize")
+       flag.Parse()
 
-        iamToken, err := GetIamToken(iamURL, *oauthToken)
-        if err != nil {
-            log.Panic(err)
-        }
+       iamToken, err := GetIamToken(iamURL, *oauthToken)
+       if err != nil {
+           log.Panic(err)
+       }
 
-        imageData, err := ioutil.ReadFile(*imagePath)
-        if err != nil {
-            log.Panic(err)
-        }
-        imageBase64 := base64.StdEncoding.EncodeToString(imageData)
+       imageData, err := ioutil.ReadFile(*imagePath)
+       if err != nil {
+           log.Panic(err)
+       }
+       imageBase64 := base64.StdEncoding.EncodeToString(imageData)
 
-        responseText, err := RequestAnalyze(visionURL, iamToken, *folderID, imageBase64)
-        if err != nil {
-            log.Panic(err)
-        }
-        fmt.Print(responseText)
-    }
-    ```
+       responseText, err := RequestAnalyze(visionURL, iamToken, *folderID, imageBase64)
+       if err != nil {
+           log.Panic(err)
+       }
+       fmt.Print(responseText)
+   }
+   ```
 
-    {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
+   {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
-    ```bash
-    export TOKEN=AgAAAAAMTH...
-    export FOLDER_ID=b1gvmob95yysaplct532
-    go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
-    ```
+   ```bash
+   export TOKEN=AgAAAAAMTH...
+   export FOLDER_ID=b1gvmob95yysaplct532
+   go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
+   ```
 
 - Python
 

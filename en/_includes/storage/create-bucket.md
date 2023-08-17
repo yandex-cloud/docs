@@ -1,4 +1,4 @@
-The minimum role required to create a bucket is `storage.editor`. See the [role description](../../storage/security/#storage-editor) for details.
+The minimum role required to create a bucket is `storage.editor`. See also the [role description](../../storage/security/#storage-editor) for details.
 
 {% list tabs %}
 
@@ -20,6 +20,11 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
+      1. Add [labels](../../storage/concepts/tags.md), if needed:
+         1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+         1. Enter a label in `key: value` format.
+         1. Click **Enter**.
+
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
 - {{ yandex-cloud }} CLI
@@ -68,8 +73,8 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
       Result:
 
       ```yaml
-      name: first-bucket
-      folder_id: b1gmit33ngp6cv2mhjmo
+      name: <bucket_name>
+      folder_id: b1gmit33ngp6********
       anonymous_access_flags:
         read: false
         list: false
@@ -138,7 +143,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
       * `yandex_storage_bucket`: Bucket description:
          * `bucket`: Bucket name.
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
    1. Make sure the configuration files are valid.
 
@@ -159,7 +164,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
       1. Confirm that you want to create the resources.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 

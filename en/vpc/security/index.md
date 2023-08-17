@@ -15,11 +15,11 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
@@ -69,7 +69,7 @@ The table below lists the roles needed to perform a particular action. You can a
 | Enable the gateway in a route table | `create`, `update` | `vpc.gateways.user` |
 | Create security groups | `create` | `vpc.securityGroups.admin` or `editor` for the folder and network |
 | Update and delete security groups | `update`, `delete` | `vpc.securityGroups.admin` or `editor` for the network and security group |
-| **Manage resource access** | |
+| **Managing resource access** | |
 | [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
 To create a [NAT gateway](../concepts/gateways.md) and connect it to a route table, you must be assigned the `vpc.gateways.editor` and `vpc.gateways.user` roles. Currently, you cannot use reserved public IP addresses for gateways, so the `vpc.admin` role is not enough.

@@ -12,11 +12,11 @@ _Классификация изображений сейчас находитс
 
 Чтобы оценить качество изображения, воспользуйтесь возможностью [Классификация изображений](../../concepts/classification/index.md).
 
-Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `Classification`, а в конфигурации укажите модель [quality](../../concepts/classification/supported-models.md#quality).
+Для этого в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `Classification`, а в конфигурации укажите модель [quality](../../concepts/classification/supported-models.md#quality).
 
 ## Примеры {#examples}
 
-### Перед началом {#before-you-begin}
+### Перед началом работы {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 

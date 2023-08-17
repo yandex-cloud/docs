@@ -7,9 +7,9 @@ To view the chart of your VM or cluster network connections:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the desired resource.
-   1. Select the appropriate service from the list of services, such as **{{ compute-name }}** for VMs or **{{ dataproc-name }}** for clusters.
+   1. Select the appropriate service from the list of services, such as **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** for VMs or **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** for clusters.
    1. Select the desired resource from the list.
-   1. Go to the **Monitoring** tab.
+   1. Click the **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. Find the **Connections quota utilization** chart.
 
    The chart values may be higher than the values within the resource. This is due to the record delete delay:

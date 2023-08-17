@@ -1,4 +1,4 @@
-### kms.viewer {#kms-viewer}
+#### kms.viewer {#kms-viewer}
 
 Роль `kms.viewer` дает право смотреть список ключей и информацию о них.
 

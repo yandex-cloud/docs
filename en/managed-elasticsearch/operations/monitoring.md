@@ -1,5 +1,7 @@
 # Monitoring the state of {{ ES }} clusters and hosts
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 New data for charts is received every {{ graph-update }}.
@@ -16,7 +18,7 @@ To view detailed information about the {{ mes-name }} cluster status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Click on the name of the cluster and open the **Monitoring** tab.
 
    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
@@ -24,7 +26,7 @@ To view detailed information about the {{ mes-name }} cluster status:
    The page displays the following charts:
 
    * **Active shards**: Number of active [primary shards](../concepts/scalability-and-resilience.md) and the total number of active shards in the cluster.
-   * **Deletion rate**: The number of delete operations per second per host.
+   * **Deletion rate**: The number of delete operations per second, per host.
    * **Disk space usage percent**: Shows how much disk space is used on each host (%).
    * **Flushes**: The number of transaction log flush operations per host.
 
@@ -54,7 +56,7 @@ To view detailed information about the {{ mes-name }} cluster status:
    * **Read bytes**: Disk read rate on each host (bytes per second).
    * **Read operations**: Number of read operations per second, per host.
    * **Refreshes**: The number of index segment refresh operations per host.
-   * **Search queries**: The number of search queries per second per host.
+   * **Search queries**: The number of search queries per second, per host.
    * **Segments**: Number of index segments per host.
    * **Store size**: The size of index storage on disk (in bytes).
    * **Write bytes**: Disk write rate on each host (bytes per second).
@@ -76,7 +78,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{mes-name }}**.
    1. Click the name of the cluster you need and select the **Hosts** tab.
    1. Select the **Monitoring** tab.
    1. Select the host from the drop-down list.
@@ -147,8 +149,16 @@ To view a cluster's state and status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
    1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+
+- API
+
+   Use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   The cluster health and status will be shown in the `health` and `status` parameters, respectively.
+
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 

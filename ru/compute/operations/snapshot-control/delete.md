@@ -13,10 +13,10 @@
 - Консоль управления
 
   1. В консоли управления выберите каталог, в котором находится снимок.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **Снимки дисков**.
-  1. В строке с нужным снимком нажмите значок ![image](../../../_assets/dots.svg) и выберите в меню команду **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. В строке с нужным снимком нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots.list.button_action-delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.snapshots.list.popup-confirm_button_delete }}**.
 
 - CLI
 

@@ -9,6 +9,8 @@ keywords:
 
 # Managing backups in {{ mes-name }}
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 
 {{ mes-short-name }} enables you to create [index](../concepts/indexing.md) backups using both {{ yandex-cloud }} tools and the {{ ES }} snapshot mechanism. For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
@@ -50,21 +52,21 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    Result:
 
    ```text
-   +----------+----------------------+----------------------+----------------------+
-   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-   +----------+----------------------+----------------------+----------------------+
-   | c9qlk... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
-   | c9qpm... | 2020-08-09T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2020-08-09T21:30:00Z |
-   +----------+----------------------+----------------------+----------------------+
+   +----------------------+----------------------+----------------------+----------------------+
+   |          ID          |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+   +----------------------+----------------------+----------------------+----------------------+
+   | c9qlk4v13uq7******** | 2020-08-10T12:00:00Z | c9qlk4v13uq7******** | 2020-08-10T11:55:17Z |
+   | c9qpm90p3pcg******** | 2020-08-09T22:01:04Z | c9qpm90p3pcg******** | 2020-08-09T21:30:00Z |
+   +----------------------+----------------------+----------------------+----------------------+
    ```
 
 - API
 
-   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the {{ mes-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and provide the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mes-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/backup_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -100,7 +102,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - API
 
-   Use the [get](../api-ref/Backup/get.md) API method and provide the backup ID in the `backupId` request parameter.
+   To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/backup_service.md#Get) gRPC API call and provide the backup ID in the `backupId` request parameter.
 
    To find out the ID, [retrieve a list of backups](#list-backups).
 
@@ -144,9 +146,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - API
 
-   Use the [backup](../api-ref/Cluster/backup.md) API method and provide the cluster ID in the `clusterId` request parameter.
+   To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -207,7 +209,7 @@ When creating a new cluster, set all required parameters.
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
-      | c9qlk4v13uq79r9cgcku...  | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
+      | c9qlk4v13uq79r9********  | 2020-08-10T12:00:00Z | c9qlk4v13uq7******** | 2020-08-10T11:55:17Z |
       | ...                                                                                           |
       +--------------------------+----------------------+----------------------+----------------------+
       ```
@@ -243,7 +245,7 @@ When creating a new cluster, set all required parameters.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -280,7 +282,7 @@ When creating a new cluster, set all required parameters.
 
 - API
 
-   Use the [restore](../api-ref/Cluster/restore.md) API method and provide the following in the request:
+   To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.

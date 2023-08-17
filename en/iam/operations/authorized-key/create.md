@@ -13,7 +13,11 @@ To create [authorized keys](../../concepts/authorization/key.md):
    1. Click **Create authorized key**.
    1. Select the encryption algorithm.
    1. Enter a description of the key so that you can easily find it in the management console.
-   1. Save both the public and private keys. The private key is not saved in {{ yandex-cloud }}, and you won't be able to view the public key in the management console.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**. In the window that opens:
+      1. Copy your public and private keys and save them securely. The private key is not saved in {{ yandex-cloud }}, and the public key is not shown in the management console.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
+
+         You can also download your keys in a single JSON file. To do this, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
 - CLI
 
@@ -99,7 +103,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
 
    1. Make sure the configuration files are valid.
 
@@ -122,7 +126,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>

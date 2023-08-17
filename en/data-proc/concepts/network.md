@@ -20,7 +20,7 @@ When you reduce the number of hosts in a subcluster, the service selects the hos
 
 {% note info %}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% endnote %}
 

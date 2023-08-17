@@ -73,7 +73,7 @@ To prepare a container's Docker image:
        return text("Hello!")
 
    if __name__ == "__main__":
-       app.run(host='0.0.0.0', port=os.environ['PORT'], motd=False, access_log=False)
+       app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
    ```
 
    **Dockerfile**
@@ -125,7 +125,7 @@ To prepare a container's Docker image:
 
    WORKDIR /app
    ADD index.go .
-   RUN go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o server-app *.go
+   RUN GOARCH=amd64 go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o server-app *.go
 
    FROM scratch
    COPY --from=build /app/server-app /server-app

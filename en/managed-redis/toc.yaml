@@ -7,13 +7,25 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Changing cluster and database settings
-        href: operations/update.md
-      - name: Connecting to a database
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing cluster settings
+            href: operations/update.md
+          - name: Updating the {{ RD }} version
+            href: operations/cluster-version-update.md
+          - name: Stopping and starting clusters
+            href: operations/cluster-stop.md
+          - name: Managing hosts in a cluster
+            href: operations/hosts.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+      - name: Databases
         items:
           - name: Preparing for connecting
             href: operations/connect/index.md
@@ -21,39 +33,39 @@ items:
             href: operations/connect/non-sharded.md
           - name: Connecting to a sharded cluster
             href: operations/connect/sharded.md
-      - name: Stopping and starting clusters
-        href: operations/cluster-stop.md
-      - name: Updating a Redis version
-        href: operations/cluster-version-update.md
-      - name: Managing hosts in a cluster
-        href: operations/hosts.md
-      - name: Managing shards
-        href: operations/shards.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Switching the master
-        href: operations/failover.md
-      - name: Monitoring the state of clusters and hosts
-        href: operations/monitoring.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
+      - name: Sharding and fault-tolerance
+        items:
+          - name: Managing shards
+            href: operations/shards.md
+          - name: Switching the master
+            href: operations/failover.md
+      - name: Logs and monitoring
+        items:
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Monitoring the state of clusters and hosts
+            href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
-      - name: Storing PHP sessions in Managed Service for Redis
+      - name: Storing PHP sessions in {{ mrd-name }}
         href: tutorials/redis-as-php-sessions-storage.md
-      - name: Migrating databases to Managed Service for Redis
+      - name: Migrating databases to {{ mrd-name }}
         href: tutorials/data-migration.md
   - name: Concepts
     items:
       - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
-        href: concepts/instance-types.md
-      - name: Network in Managed Service for Redis
+        items:
+          - name: Active host classes
+            href: concepts/instance-types.md
+          - name: Archive
+            items:
+              - name: Before June 20, 2023
+                href: concepts/instance-types-archive/instance-types-20062023.md
+      - name: Network in {{ mrd-name }}
         href: concepts/network.md
       - name: Sharding
         href: concepts/sharding.md
@@ -75,7 +87,7 @@ items:
         href: concepts/storage.md
       - name: Maintenance
         href: concepts/maintenance.md
-      - name: Redis settings
+      - name: '{{ RD }} settings'
         href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
@@ -183,7 +195,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
   - name: Questions and answers
     items:

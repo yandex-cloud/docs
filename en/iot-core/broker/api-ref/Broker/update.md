@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/update.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/update.md
 ---
 
 # IoT Core Broker Service, REST: Broker.update
@@ -10,7 +10,7 @@ Updates the specified broker.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}
+PATCH https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 ```
  
 ## Path parameters {#path_params}

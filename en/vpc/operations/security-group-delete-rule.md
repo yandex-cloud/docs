@@ -1,6 +1,10 @@
 # Deleting a rule from a security group
 
+{% note info %}
+
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -9,12 +13,12 @@
    To delete a rule from a security group:
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
-   1. Select the group to update.
-   1. Under **Rules**, click ![image](../../_assets/options.svg) in the row of the rule to delete.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. Click ![image](../../_assets/options.svg) next to the security group for which you need to delete a rule and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, click ![image](../../_assets/options.svg) in the row of the rule to delete.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -89,13 +93,13 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a rule created with {{ TF }} from a security group:
 
    1. Open the {{ TF }} configuration file and delete the `ingress` or `egress` section from the security group description:
 
-      {% cut "Sample description of a security group with rules in a {{ TF }}configuration" %}
+      {% cut "Sample description of a security group with rules in a {{ TF }} configuration" %}
 
       ```hcl
       ...

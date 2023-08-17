@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/api-ref/Secret/create.md
+sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/create.md
 ---
 
 # Lockbox API, REST: Secret.create

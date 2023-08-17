@@ -3,6 +3,7 @@
 
 Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{{ objstorage-full-name }}](#os).
+* [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 
 
@@ -19,9 +20,13 @@
 {% endnote %}
 
 
+## {{ alb-full-name }} {#alb}
+
+[{{ alb-name }}](../../application-load-balancer/index.yaml) может обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов, добавленных в {{ certificate-manager-name }}. Сертификаты из {{ certificate-manager-name }} можно использовать в обработчиках [L7-балансировщиков](../../application-load-balancer/operations/application-load-balancer-create.md).
+
 ## {{ api-gw-full-name }} {#api-gw}
 
-{{ api-gw-full-name }} позволяет объединить несколько микросервисов в единый продукт. [Микросервисы](/blog/posts/2022/03/microservice-architecture) могут быть запущены в виртуальных машинах, контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к [API](../../glossary/rest-api.md).
+{{ api-gw-full-name }} позволяет объединить несколько микросервисов в единый продукт. [Микросервисы](/blog/posts/2022/03/microservice-architecture) могут быть запущены в [виртуальных машинах](../../glossary/vm.md), контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к [API](../../glossary/rest-api.md).
 
 Для обеспечения TLS-соединения будет использован привязанный к домену сертификат.
 

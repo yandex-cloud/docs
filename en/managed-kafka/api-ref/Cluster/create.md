@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/create.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.create
@@ -149,6 +149,9 @@ POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters
     "schemaRegistry": true,
     "access": {
       "dataTransfer": true
+    },
+    "restApiConfig": {
+      "enabled": true
     }
   },
   "topicSpecs": [
@@ -371,6 +374,8 @@ configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage to
 configSpec.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
 configSpec.<br>access | **object**<br><p>Access policy for external services.</p> 
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
+configSpec.<br>restApiConfig | **object**<br><p>Configuration of REST API.</p> 
+configSpec.<br>restApiConfig.<br>enabled | **boolean** (boolean)<br><p>Is REST API enabled for this cluster.</p> 
 topicSpecs[] | **object**<br><p>One or more configurations of topics to be created in the Apache Kafka® cluster.</p> 
 topicSpecs[].<br>name | **string**<br><p>Name of the topic.</p> 
 topicSpecs[].<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 

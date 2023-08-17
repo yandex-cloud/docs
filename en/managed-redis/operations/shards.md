@@ -14,9 +14,9 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
-   1. Select **{{ mrd-name }}**.
-   1. Click the name of a cluster and open the **Shards** tab.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
 - CLI
 
@@ -44,7 +44,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 - API
 
-   Use the API [listShards](../api-ref/Cluster/listShards.md) method and pass the cluster ID in the `clusterId` parameter.
+   To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/cluster_service.md#ListShards) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
@@ -68,9 +68,9 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 - API
 
-   Use the [getShard](../api-ref/Cluster/getShard.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter.
-   * In the `shardName` parameter, the name of the shard.
+   To get shard details, use the [getShard](../api-ref/Cluster/getShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShard](../api-ref/grpc/cluster_service.md#GetShard) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
+   * Name of the shard you need in the `shardName` parameter.
 
 {% endlist %}
 
@@ -83,16 +83,15 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to add a shard to.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of the cluster and go to the **Shards** tab.
-   1. Click **Add shard**.
-   1. Enter the **Shard name**.
-   1. Under **Hosts**:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
+   1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
       * (optional) Edit the host settings.
-      * Click **Add host**.
-      * In the window that opens, select the **Availability zone** and **Subnet**, and enable the **Public access** option.
-      * Click **Save**.
-   1. Click **Create shard**.
+      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+      * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, choose the availability zone, select **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable the **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** option.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI
 
@@ -143,7 +142,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the update of resources.
+   1. Confirm the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -153,9 +152,9 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
 - API
 
-   Use the [addShard](../api-ref/Cluster/addShard.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter.
-   * In the `shardName` parameter, the name of the shard.
+   To add a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/cluster_service.md#AddShard) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
+   * Name of the shard in the `shardName` parameter.
    * In the array of `hostSpecs` parameters, the shard host configuration.
 
    You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
@@ -177,10 +176,10 @@ All the shard hosts are deleted with the shard.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to delete the shard from.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
-   1. In the line of the appropriate shard, click ![image](../../_assets/options.svg) and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
+   1. In the line of the appropriate shard, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -207,7 +206,7 @@ All the shard hosts are deleted with the shard.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -217,9 +216,9 @@ All the shard hosts are deleted with the shard.
 
 - API
 
-   Use the [deleteShard](../api-ref/Cluster/deleteShard.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter.
-   * In the `shardName` parameter, the name of the shard to delete.
+   To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call and provide the following in the request:
+   * Cluster ID in the `clusterId` parameter.
+   * Name of the shard to delete in the `shardName` parameter.
 
    You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
 
@@ -237,13 +236,13 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
    To rebalance a cluster:
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster in question.
-   1. Select **{{ mrd-name }}**.
-   1. Click on the name of the desired cluster.
-   1. On the **Overview** tab, click **Rebalance**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+   1. Click the name of the cluster you need.
+   1. In the **{{ ui-key.yacloud.common.overview }}** tab, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
 
    {% note tip %}
 
-   You can also rebalance a cluster using the **Rebalance cluster** button on the **Shards** tab.
+   You can also rebalance a cluster using the **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster }}** button on the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
    {% endnote %}
 
@@ -264,6 +263,6 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
 - API
 
-   You can rebalance a cluster using the [rebalance](../api-ref/Cluster/rebalance.md) method.
+   To rebalance a cluster, use the [rebalance](../api-ref/Cluster/rebalance.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Rebalance](../api-ref/grpc/cluster_service.md#Rebalance) gRPC API call.
 
 {% endlist %}

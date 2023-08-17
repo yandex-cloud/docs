@@ -12,26 +12,28 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 You can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or a [certificate](../concepts/index). These roles also apply to nested resources.
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/certificate-manager/service-roles-hierarchy-with-admin.svg)
 
+### Service roles {#service-roles}
+
 Active roles in the service:
-* Service roles:
-   * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
-   * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
-   * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-   * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+
+* {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
+* {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#choosing-roles}
 

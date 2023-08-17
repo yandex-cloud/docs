@@ -1,8 +1,9 @@
-# Example use of API v3 synthesis
+# Speech synthesis in API v3
 
-The example shows how you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file using the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/).
+With the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/), you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file.
 
 The example uses the following synthesis parameters:
+
 * Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 22050 Hz, [WAV](https://en.wikipedia.org/wiki/WAV) container (default).
 * [Volume normalization](../index.md#volume): LUFS (default).
 

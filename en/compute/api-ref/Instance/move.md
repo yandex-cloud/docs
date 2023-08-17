@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Instance/move.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Instance/move.md
 ---
 
 # Compute Cloud API, REST: Instance.move

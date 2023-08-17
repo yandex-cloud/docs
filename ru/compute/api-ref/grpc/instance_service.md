@@ -28,6 +28,7 @@ A set of methods for managing Instance resources.
 | [UpdateNetworkInterface](#UpdateNetworkInterface) | Updates the specified instance network interface. |
 | [ListOperations](#ListOperations) | Lists operations for the specified instance. |
 | [Move](#Move) | Moves the specified instance to another folder of the same cloud. |
+| [Relocate](#Relocate) | Moves the specified instance to another availability zone <br>Running instance will be restarted during this operation. |
 
 ## Calls InstanceService {#calls}
 
@@ -72,6 +73,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling poli
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources}
@@ -188,6 +191,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule}
@@ -212,7 +216,8 @@ Field | Description
 folder_id | **string**<br>Required. ID of the Folder to list instances in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstancesResponse.next_page_token](#ListInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstancesResponse.next_page_token](#ListInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [Instance.name](#Instance1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`. <br>Each condition has the form `<field> <operator> <value>`, where: <ol><li>`<field>` is the field name. Currently you can use filtering only on the limited number of fields. </li><li>`<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`. </li><li>`<value>` represents a value. </li></ol>String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). The maximum string length in characters is 1000.
+order_by | **string**<br>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. The default sorting order is ascending The maximum string length in characters is 100.
 
 
 ### ListInstancesResponse {#ListInstancesResponse}
@@ -250,6 +255,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings1)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources1}
@@ -366,6 +373,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule1)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule1}
@@ -465,6 +473,7 @@ source | **oneof:** `image_id` or `snapshot_id`<br>
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ### AttachedLocalDiskSpec {#AttachedLocalDiskSpec}
@@ -548,6 +557,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule2)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule2}
@@ -609,6 +619,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources2}
@@ -750,6 +762,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule3)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule3}
@@ -818,6 +831,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources3}
@@ -1013,6 +1028,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources4}
@@ -1129,6 +1146,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule4}
@@ -1268,6 +1286,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources5}
@@ -1384,6 +1404,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule5}
@@ -1485,6 +1506,7 @@ source | **oneof:** `image_id` or `snapshot_id`<br>
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ### Operation {#Operation7}
@@ -1538,6 +1560,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources6}
@@ -1654,6 +1678,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule6}
@@ -1736,6 +1761,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources7}
@@ -1852,6 +1879,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule7}
@@ -1941,6 +1969,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources8}
@@ -2057,6 +2087,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule8}
@@ -2139,6 +2170,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling pol
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources9}
@@ -2255,6 +2288,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule9}
@@ -2355,6 +2389,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources10}
@@ -2471,6 +2507,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule10}
@@ -2551,6 +2588,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources11}
@@ -2667,6 +2706,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule11}
@@ -2780,6 +2820,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources12}
@@ -2896,6 +2938,7 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule12}
@@ -3016,6 +3059,8 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling po
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
 
 
 ### Resources {#Resources13}
@@ -3132,9 +3177,210 @@ Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
 host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
 
 
 ### HostAffinityRule {#HostAffinityRule13}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action 
+values[] | **string**<br>Affinity value or host ID or host group ID 
+
+
+## Relocate {#Relocate}
+
+Moves the specified instance to another availability zone <br>Running instance will be restarted during this operation.
+
+**rpc Relocate ([RelocateInstanceRequest](#RelocateInstanceRequest)) returns ([operation.Operation](#Operation16))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RelocateInstanceMetadata](#RelocateInstanceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance14)<br>
+
+### RelocateInstanceRequest {#RelocateInstanceRequest}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+destination_zone_id | **string**<br>Required. ID of the availability zone to move the instance to. <br>To get the zone ID, make a [ZoneService.List](./zone_service#List) request. The maximum string length in characters is 50.
+
+
+### Operation {#Operation16}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RelocateInstanceMetadata](#RelocateInstanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Instance](#Instance14)>**<br>if operation finished successfully. 
+
+
+### RelocateInstanceMetadata {#RelocateInstanceMetadata}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>ID of the instance that is being moved. 
+source_zone_id | **string**<br>ID of the availability zone that the instance is being moved from. 
+destination_zone_id | **string**<br>ID of the availability zone that the instance is being moved to. 
+
+
+### Instance {#Instance14}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance. 
+folder_id | **string**<br>ID of the folder that the instance belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br>Name of the instance. 1-63 characters long. 
+description | **string**<br>Description of the instance. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+zone_id | **string**<br>ID of the availability zone where the instance resides. 
+platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
+resources | **[Resources](#Resources14)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
+metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
+metadata_options | **[MetadataOptions](#MetadataOptions14)**<br>Options allow user to configure access to instance's metadata 
+boot_disk | **[AttachedDisk](#AttachedDisk14)**<br>Boot disk that is attached to the instance. 
+secondary_disks[] | **[AttachedDisk](#AttachedDisk14)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk14)**<br>Array of local disks that are attached to the instance. 
+filesystems[] | **[AttachedFilesystem](#AttachedFilesystem14)**<br>Array of filesystems that are attached to the instance. 
+network_interfaces[] | **[NetworkInterface](#NetworkInterface14)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings14)**<br>GPU settings 
+fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy14)**<br>Scheduling policy configuration. 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
+network_settings | **[NetworkSettings](#NetworkSettings14)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy14)**<br>Placement policy configuration. 
+host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
+host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+
+
+### Resources {#Resources14}
+
+Field | Description
+--- | ---
+memory | **int64**<br>The amount of memory available to the instance, specified in bytes. 
+cores | **int64**<br>The number of cores available to the instance. 
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. 
+gpus | **int64**<br>The number of GPUs available to the instance. 
+
+
+### MetadataOptions {#MetadataOptions14}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+
+
+### AttachedDisk {#AttachedDisk14}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
+disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk14}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
+
+
+### AttachedFilesystem {#AttachedFilesystem14}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
+filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
+
+
+### NetworkInterface {#NetworkInterface14}
+
+Field | Description
+--- | ---
+index | **string**<br>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance. 
+mac_address | **string**<br>MAC address that is assigned to the network interface. 
+subnet_id | **string**<br>ID of the subnet. 
+primary_v4_address | **[PrimaryAddress](#PrimaryAddress14)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address | **[PrimaryAddress](#PrimaryAddress14)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
+
+
+### PrimaryAddress {#PrimaryAddress14}
+
+Field | Description
+--- | ---
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
+one_to_one_nat | **[OneToOneNat](#OneToOneNat14)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+dns_records[] | **[DnsRecord](#DnsRecord14)**<br>Internal DNS configuration 
+
+
+### OneToOneNat {#OneToOneNat14}
+
+Field | Description
+--- | ---
+address | **string**<br>An external IP address associated with this instance. 
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
+dns_records[] | **[DnsRecord](#DnsRecord14)**<br>External DNS configuration 
+
+
+### DnsRecord {#DnsRecord14}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
+dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
+ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
+ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### GpuSettings {#GpuSettings14}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
+
+
+### SchedulingPolicy {#SchedulingPolicy14}
+
+Field | Description
+--- | ---
+preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkSettings {#NetworkSettings14}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
+
+
+### PlacementPolicy {#PlacementPolicy14}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule14)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+placement_group_partition | **int64**<br>Placement group partition 
+
+
+### HostAffinityRule {#HostAffinityRule14}
 
 Field | Description
 --- | ---

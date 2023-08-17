@@ -2,7 +2,7 @@
 
 Вы можете получать CSV-файл с общей или поресурсной детализацией расходов.
 
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 1. Если у вас еще нет разделения на [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте каталог](../../resource-manager/operations/folder/create.md). В названии каталога укажите имя проекта или клиента, который будет использовать его.
 
@@ -10,7 +10,10 @@
 
    {% note alert %}
 
-   Не делайте бакет публичным, иначе любой сможет скачать вашу детализацию по ссылке на бакет.
+   Требования к бакету:
+ 
+   * Не делайте бакет публичным, иначе любой сможет скачать вашу детализацию по ссылке на бакет.
+   * Не добавляйте [шифрование](../../storage/concepts/encryption.md) бакету.
 
    {% endnote %}
 
@@ -23,17 +26,23 @@
 - Консоль управления
 
   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **Все сервисы**.
-  1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
+  1. В левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+  1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На странице **Обзор** перейдите на вкладку **Экспорт детализации**.
-  1. Нажмите кнопку **Создать**.
-  1. В открывшемся окне **Создание регулярного экспорта** укажите:
-     * В поле **Бакет** имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **Папка** название папки для файла. Последний символ должен быть `/`.
+  1. На панели слева выберите **{{ ui-key.yacloud.billing.account.switch_exports }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud.billing.account.exports.label_create-export-title }}** укажите:
+     * В поле **{{ ui-key.yacloud.billing.account.exports.field_bucket }}** имя бакета, где будет храниться CSV-файл с детализацией.
+     * В поле **{{ ui-key.yacloud.billing.account.exports.field_prefix }}** название папки для файла. Последний символ должен быть `/`.
      * Выберите язык, на котором будут отображаться названия продуктов – английский или русский.
-     * Выберите тип детализации – **Общая** или **Поресурсная**.
-  1. Нажмите кнопку **Создать**.
+     * Выберите тип детализации – **{{ ui-key.yacloud.billing.account.exports.label_not-include-resources }}** или **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}**.
+     
+         {% note tip %}
+
+         Выбирая тип **{{ ui-key.yacloud.billing.account.exports.label_include-resources }}** для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
+
+         {% endnote %}
+  1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
 {% endlist %}
 

@@ -1,9 +1,5 @@
 # Getting started with {{ mkf-name }}
 
-
-{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
-
 To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Create a topic](#topic-create).
@@ -74,7 +70,7 @@ To create a user:
 1. Click on the name of the cluster you created and select the **Users** tab.
 1. Click **Add**.
 1. Enter a username and password (from 8 to 128 characters).
-1. Click ![image](../_assets/plus.svg) **Add topic** and select a previously created topic from the drop-down list.
+1. Click **![image](../_assets/plus.svg) Add topic** and select a previously created topic from the drop-down list.
 1. Add permissions to this topic for the producer and consumer. This process is described in detail in [{#T}](operations/cluster-accounts.md).
 1. Click **Add**.
 
@@ -90,8 +86,6 @@ To connect to a cluster:
 1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
-   {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
 
 
 1. Install an SSL certificate on the VM:

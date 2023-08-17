@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Instance/index.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Instance/index.md
 ---
 
 # Compute Cloud API, REST: Instance methods
@@ -134,8 +134,11 @@ A set of methods for managing Instance resources.
           "string"
         ]
       }
-    ]
-  }
+    ],
+    "placementGroupPartition": "string"
+  },
+  "hostGroupId": "string",
+  "hostId": "string"
 }
 ```
  
@@ -227,6 +230,9 @@ placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rule
 placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
+hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
+hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -243,6 +249,7 @@ Method | Description
 [list](list.md) | Retrieves the list of Instance resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified instance.
 [move](move.md) | Moves the specified instance to another folder of the same cloud.
+[relocate](relocate.md) | Moves the specified instance to another availability zone
 [removeOneToOneNat](removeOneToOneNat.md) | Removes One-to-one NAT from the network interface.
 [restart](restart.md) | Restarts the running instance.
 [start](start.md) | Starts the stopped instance.

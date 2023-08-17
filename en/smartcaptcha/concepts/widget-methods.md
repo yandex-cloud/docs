@@ -37,11 +37,11 @@ Example of a container with parameters for rendering a widget:
 
 Where:
 
-| Data attribute | Value | Default value |
+| Data attribute  | Value                                                                        | Default value               |
 | --------------- | ---------------------------------------------------------------------------- | --------------------------- |
-| `data-sitekey` | `string` | None |
-| `data-hl` | `'ru'` \| `'en'` \| `'be'` \| `'kk'` \| `'tt'` \| `'uk'` \| `'uz'` \| `'tr'` | `window.navigator.language` |
-| `data-callback` | `string` | None |
+| `data-sitekey`  | `string`                                                                     | None                        |
+| `data-hl`       | `'ru'` \| `'en'` \| `'be'` \| `'kk'` \| `'tt'` \| `'uk'` \| `'uz'` \| `'tr'` | `window.navigator.language` |
+| `data-callback` | `string`                                                                     | None                        |
 
 {% cut "Example of embedding the widget" %}
 
@@ -69,7 +69,7 @@ Where:
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<Client_part_key>"
+        data-sitekey="<Client_key>"
         data-hl="en"
         data-callback="callback"
       ></div>
@@ -129,6 +129,8 @@ The `render` method is used to draw the widget.
       sitekey: string;
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
+      test?: boolean;
+      webview?: boolean;
       invisible?: boolean;
       shieldPosition?: `top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`;
       hideShield?: boolean;
@@ -140,12 +142,14 @@ Where:
 
 * `container`: Container for the widget. You can transmit a DOM element or ID of the container.
 * `params`: Object with parameters for the CAPTCHA:
-   * `sitekey`: Client part key.
-   * `callback`: Listener function.
+   * `sitekey`: Client-side key.
+   * `callback`: Handler function.
    * `hl`: Widget language.
+   * `test`: Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only.
+   * `webview`: Launching CAPTCHA in **WebView**. It is used to make user response validation more precise when adding CAPTCHA to mobile apps via **WebView**.
    * `invisible`: [Invisible CAPTCHA](./invisible-captcha.md).
-   * `shieldPosition`: Position of the [block](./invisible-captcha.md#data-processing-notice) with data processing notice.
-   * `hideShield`: Hide the [block](./invisible-captcha.md#data-processing-notice) with data processing notice.
+   * `shieldPosition`: Position of the [data processing notice section](./invisible-captcha.md#data-processing-notice).
+   * `hideShield`: Hide the [data processing notice section](./invisible-captcha.md#data-processing-notice).
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
@@ -159,7 +163,17 @@ The `getResponse` method returns the current value of the user token.
 (widgetId: WidgetId | undefined) => string;
 ```
 
-`widgetId` argument: Unique widget ID. If no argument is passed, the result of the first rendered widget is returned.
+`widgetId` argument: Unique widget ID. If no argument is provided, the result of the first rendered widget is returned.
+
+### Execute method {#execute}
+
+The `execute` method starts user validation. It is used to start the invisible CAPTCHA test at a certain event, for example, when the user clicks the submit authorization form button.
+
+```ts
+(widgetId: WidgetId | undefined) => void;
+```
+
+`widgetId` argument: Unique widget ID. If the argument is not provided, the test will be run on the first rendered widget.
 
 ### reset method {#reset}
 
@@ -201,17 +215,19 @@ Where:
    | 'challenge-visible'
    | 'challenge-hidden'
    | 'network-error'
-   | 'success';
+   | 'success'
+   | 'token-expired';
    ```
 
    Event descriptions:
 
-   | Event | When it occurs | Handler signature: |
-   | ------------------- | --------------------------------------------- | ------------------------- |
-   | `challenge-visible` | Opening the task pop-up window | `() => void` |
-   | `challenge-hidden` | Closing the task pop-up window | `() => void` |
-   | `network-error` | A network error occurred | `() => void` |
-   | `success` | Successful user validation | `(token: string) => void` |
+   | Event               | When it occurs                 | Handler signature         |
+   | ------------------- | -------------------------------| ------------------------- |
+   | `challenge-visible` | Opening the task pop-up window | `() => void`              |
+   | `challenge-hidden`  | Closing the task pop-up window | `() => void`              |
+   | `network-error`     | A network error occurred       | `() => void`              |
+   | `success`           | Successful user validation     | `(token: string) => void` |
+   | `token-expired`     | Invalidated verification token | `() => void`              |
 
 * `callback`: Listener function:
 
@@ -276,7 +292,7 @@ Usage example:
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<Client_part_key>',
+      sitekey: '<Client_key>',
       callback: callback,
     });
   }

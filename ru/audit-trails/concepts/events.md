@@ -27,6 +27,7 @@
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
+* [{{ mgp-short-name }}](#managed-service-for-greenplum)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ managed-k8s-name }}](#managed-service-for-kubernetes)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
@@ -62,7 +63,7 @@
 `AddBackendGroupBackend` | Добавление бэкенда в группу бэкендов
 `AddLoadBalancerListener` | Добавление обработчика в балансировщик
 `AddLoadBalancerSniMatch` | Добавление SNI-обработчика в балансировщик
-`AddTargetGroupTargets` | Добавление ВМ в целевую группу
+`AddTargetGroupTargets` | Добавление [ВМ](../../glossary/vm.md) в целевую группу
 `CreateBackendGroup` | Создание группы бэкендов
 `CreateHttpRouter` | Создание HTTP-роутера
 `CreateLoadBalancer` | Создание балансировщика
@@ -104,16 +105,18 @@
 
 ## {{ sf-name }} {#functions}
 
-Имя сервиса — `serverless.functions`.
+Имя сервиса — `serverless`.
 
 Имя события | Описание
 --- | ---
-`CreateFunction` | Создание функции
-`CreateFunctionVersion` | Создание версии функции
-`DeleteFunction` | Удаление функции
-`RemoveFunctionTag` | Удаление тега функции
-`SetFunctionTag` | Назначение тега функции
-`UpdateFunction` | Изменение функции
+`functions.CreateFunction` | Создание функции
+`functions.CreateFunctionVersion` | Создание версии функции
+`functions.DeleteFunction` | Удаление функции
+`functions.RemoveFunctionTag` | Удаление тега функции
+`functions.SetFunctionTag` | Назначение тега функции
+`functions.SetFunctionAccessBindings` | Назначение привязок прав доступа для функции
+`functions.UpdateFunction` | Изменение функции
+`functions.UpdateFunctionAccessBindings` | Изменение привязок прав доступа для функции
 `mdbproxy.CreateProxy` | Создание прокси
 `mdbproxy.DeleteProxy` | Удаление прокси
 `mdbproxy.UpdateProxy` | Изменение прокси
@@ -145,7 +148,7 @@
 
 Имя события | Описание
 --- | ---
-`CreateCertificate` | Создание сертификата
+`CreateCertificate` | Добавление сертификата
 `CreateDomain` | Создание домена
 `UpdateCertificate` | Изменение сертификата
 `UpdateDomain` | Изменение домена
@@ -161,7 +164,7 @@
 
 Имя события | Описание
 --- | ---
-`CreateDnsZone` | Создание зоны DNS
+`CreateDnsZone` | Создание зоны [DNS](../../glossary/dns.md)
 `DeleteDnsZone` | Удаление зоны DNS
 `SetDnsZoneAccessBindings` | Назначение привязок прав доступа к зоне DNS
 `UpdateDnsZone` | Изменение зоны DNS
@@ -193,12 +196,14 @@
 `CrashInstance` | Аварийное отключение ВМ
 `CreateDisk` | Создание диска
 `CreateFilesystem` | Создание файловой системы
+`CreateGpuCluster` | Создание кластера GPU
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
 `CreateSnapshot` | Создание снимка диска
 `CreateSnapshotSchedule` | Создание расписания снимков диска
 `DeleteDisk` | Удаление диска
 `DeleteFilesystem` | Удаление файловой системы
+`DeleteGpuCluster` | Удаление кластера GPU
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
 `DeleteSnapshot` | Удаление снимка диска
@@ -215,6 +220,7 @@
 `StopInstance` | Остановка ВМ
 `UpdateDisk` | Изменение диска
 `UpdateFilesystem` | Изменение файловой системы
+`UpdateGpuCluster` | Изменение кластера GPU
 `UpdateImage` | Изменение образа диска
 `UpdateInstance` | Изменение ВМ
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
@@ -242,15 +248,20 @@
 --- | ---
 `CreateImage` | Создание образа
 `CreateImageTag` | Создание тега образа
+`CreateLifecyclePolicy` | Создание политики жизненного цикла
 `CreateRegistry` | Создание реестра
 `CreateRepository` | Создание репозитория
+`CreateScanPolicy` | Создание политики сканирования
 `DeleteImage` | Удаление образа
 `DeleteImageTag` | Удаление тега образа
+`DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
 `DeleteRepository` | Удаление репозитория
 `ScanImage` | Сканирование образа
 `UpdateIpPermission` | Изменение политики доступа с IP-адресов
+`UpdateLifecyclePolicy` | Изменение политики жизненного цикла
 `UpdateRegistry` | Изменение реестра
+`UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение привязок прав доступа на реестр  
 `UpdateRepositoryAccessBindings` | Изменение привязок прав доступа на репозиторий
 `SetRegistryAccessBindings`  | Назначение привязок прав доступа на реестр
@@ -409,6 +420,22 @@
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth
 `UpgradeInstance` | Обновление версии GitLab
 `CleanupRegistryInstance` | Очистка Docker Registry
+
+
+## {{ mgp-short-name }} {#managed-service-for-greenplum}
+
+Имя сервиса — `mdb.greenplum`.
+
+Имя события | Описание
+--- | ---
+`CreateCluster` | Создание кластера
+`DeleteCluster` | Удаление кластера
+`ExpandCluster` | Расширение кластера
+`RestoreCluster` | Создание нового кластера из резервной копии
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
@@ -570,11 +597,15 @@
 `BucketHttpsUpdate` | Изменение HTTPS-конфигурации для бакета
 `BucketLifecycleUpdate` | Изменение жизненного цикла объекта в бакете
 `BucketPolicyUpdate` | Изменение политик доступа бакета
+`BucketTagsUpdate` | Изменение тегов бакета
 `BucketUpdate` | Изменение бакета
 `BucketWebsiteUpdate` | Изменение конфигурации веб-сайта
+`ObjectAclUpdate` | Изменение ACL объекта в бакете^*^
 `ObjectCreate` | Создание объекта в бакете ^*^
 `ObjectDelete` | Удаление объекта в бакете ^*^
 `ObjectUpdate` | Изменение объекта в бакете ^*^
+`ObjectTagsDelete` | Удаление тегов объекта
+`ObjectTagsUpdate` | Изменение тегов объекта
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane object storage в audit trail `<id трейла>`».
@@ -609,15 +640,20 @@
 `CreateInvitations` | Создание приглашения
 `CreateGroup` | Создание группы пользователей
 `CreateMembership` | Добавление пользователя в организацию
+`CreateOrganization` | Создание организации
 `DeleteInvitation` | Удаление приглашения
 `DeleteGroup` | Удаление группы пользователей
 `DeleteMembership` | Удаление пользователя из организации
+`DeleteOrganization` | Удаление организации
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
 `SetGroupAccessBindings` | Назначение привязок прав доступа к группе пользователей
+`SetOrganizationAccessBindings` | Назначение привязок прав доступа к организации
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение привязок прав доступа к группе пользователей
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
+`UpdateOrganization` | Изменение организации
+`UpdateOrganizationAccessBindings` | Изменение привязок прав доступа к организации
 
 ## {{ resmgr-name }} {#resmgr}
 
@@ -653,6 +689,8 @@
 
 Имя события | Описание
 --- | ---
+`AddressAttached` | Привязка адреса к облачному ресурсу
+`AddressDetached` | Отвязка адреса от облачного ресурса
 `CreateAddress` | Создание адреса облачных ресурсов
 `CreateGateway` | Создание шлюза
 `CreateNetwork` | Создание облачной сети

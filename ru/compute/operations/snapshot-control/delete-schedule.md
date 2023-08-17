@@ -7,10 +7,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
-  1. Выберите сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **Снимки дисков**.
-  1. Перейдите на вкладку **Расписания снимков**.
-  1. Напротив расписания, которое нужно удалить, нажмите ![image](../../../_assets/options.svg) и выберите **Удалить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
+  1. Напротив расписания, которое нужно удалить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление расписания.
 
 - CLI
@@ -76,6 +76,47 @@
       ```text
       done (5s)
       ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием расписания:
+
+      {% cut "Пример описания расписания в конфигурации {{ TF }}" %}
+
+      ```hcl
+      resource "yandex_compute_snapshot_schedule" "default" {
+        name = "my-name"
+
+        schedule_policy {
+          expression = "0 0 * * *"
+        }
+
+        snapshot_count = 1
+
+        snapshot_spec {
+            description = "snapshot-description"
+            labels = {
+              snapshot-label = "my-snapshot-label-value"
+            }
+        }
+
+        disk_ids = ["test_disk_id", "another_test_disk_id"]
+      }
+      ```
+
+      {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   Проверить удаление расписания можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc compute snapshot-schedule list
+    ```
 
 - API
 

@@ -27,6 +27,7 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [{{ compute-full-name }}](../../compute/index.yaml)
 * [{{ container-registry-full-name }}](../../container-registry/index.yaml)
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
+* [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
 * [{{ iot-full-name }}](../../iot-core/index.yaml)
 * [{{ kms-full-name }}](../../kms/index.yaml)
 * [{{ lockbox-full-name }}](../../lockbox/index.yaml)
@@ -49,6 +50,8 @@ _Метка_ — это пара ключ-значение в формате `<�
 #### См. также {#see-also}
 
 * [Управление метками](../operations/manage-labels.md)
+* [Управление метками в сообществах {{ ml-platform-full-name }}](../../datasphere/operations/community/manage-community-labels.md)
+* [Управление метками в проектах {{ ml-platform-full-name }}](../../datasphere/operations/projects/manage-project-labels.md)
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}

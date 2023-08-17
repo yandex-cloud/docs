@@ -6,21 +6,17 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
 
 - Management console
 
-   To change a public IP address from static to dynamic:
    1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click ![image](../../_assets/options.svg) in the row of the address that you want to make dynamic.
-   1. In the menu that opens, select **Make dynamic**.
-   1. In the window that opens, click **Change**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.vpc.addresses.button_action-dynamic }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_dynamic }}**.
 
 - CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To change a public IP address from static to dynamic:
 
    1. See the description of the CLI's update address attribute command:
 
@@ -44,7 +40,7 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
       +----------------------+------+---------------+----------+------+
       ```
 
-      The `true` value of the RESERVED parameter of the IP address with the ID `e2l46k8conff8n6ru1jl` shows that this address is static.
+      The `true` value of the RESERVED parameter of the IP address with the `e2l46k8conff8n6ru1jl` ID shows that this address is static.
 
    1. Make the address dynamic using the `--reserved=false` key and the address ID:
 
@@ -69,6 +65,6 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
 
 - API
 
-   To convert the type of a public IP address from static to dynamic, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call.
+   To change the type of a public IP address from static to dynamic, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call.
 
 {% endlist %}

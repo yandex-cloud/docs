@@ -16,7 +16,9 @@ items:
           - name: Создать внутренний балансировщик
             href: operations/internal-lb-create.md
           - name: Остановить и запустить сетевой балансировщик
-            href: operations/load-balancer-stop.md
+            href: operations/load-balancer-start-and-stop.md
+          - name: Изменить настройки балансировщика
+            href: operations/load-balancer-update.md
           - name: Удалить балансировщик
             href: operations/load-balancer-delete.md
           - name: Проверить состояние целевых ресурсов
@@ -39,20 +41,26 @@ items:
             href: operations/target-group-delete.md
   - name: Концепции
     items:
-      - name: Сетевой балансировщик нагрузки
+      - name: Обзор
         href: concepts/index.md
-      - name: Внутренний сетевой балансировщик
-        href: concepts/internal-load-balancer.md
-      - name: Обработчик
+      - name: Типы сетевых балансировщиков
+        href: concepts/nlb-types.md
+      - name: Обработчик трафика
         href: concepts/listener.md
-      - name: Целевые ресурсы и группы
+      - name: Целевые группы и ресурсы
         href: concepts/target-resources.md
-      - name: Проверка состояния ресурсов
+      - name: Проверка доступности ресурсов
         href: concepts/health-check.md
+      - name: Особенности реализации
+        href: concepts/specifics.md
+      - name: Сценарии использования
+        href: concepts/scenarios.md
+      - name: Рекомендации по применению
+        href: concepts/best-practices.md
+      - name: Мониторинг
+        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Рекомендации по использованию сервиса
-    href: best-practices.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

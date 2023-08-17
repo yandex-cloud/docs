@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/MlModel/update.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/update.md
 ---
 
 # Managed Service for ClickHouse API, REST: MlModel.update

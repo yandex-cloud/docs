@@ -9,6 +9,8 @@ keywords:
 
 # Информация об имеющихся {{ ES }}-кластерах
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mes-name }}.
 
 ## Получить список кластеров в каталоге {#list-clusters}
@@ -17,7 +19,7 @@ keywords:
 
 - Консоль управления
 
-  В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
+  В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
 
 - CLI
 
@@ -43,7 +45,7 @@ keywords:
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Нажмите на имя нужного кластера.
 
 - CLI
@@ -76,9 +78,9 @@ keywords:
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Нажмите на имя нужного кластера.
-  1. Перейдите на вкладку **Операции**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI
 

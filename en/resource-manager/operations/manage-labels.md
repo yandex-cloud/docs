@@ -2,13 +2,15 @@
 
 You can add, delete, or update resource [labels](../concepts/labels.md#services) in the management console, {{ yandex-cloud }} CLI, and {{ TF }}.
 
+Labels are supported in certain [services](../concepts/labels.md#services). Label management in some services, such as [{{ objstorage-name }}](../../storage/operations/buckets/tagging.md), may be different.
+
 ## Adding a label {#add-label}
 
 {% list tabs %}
 
 - Management console
 
-   The example below shows how to add a label to a {{ compute-name }} VM instance. You can also add a label to a resource from the [list](../concepts/labels.md#services) of label-enabled services.
+   The example below shows how to a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
    1. In the list of services, select **{{ compute-name }}**.
@@ -89,6 +91,11 @@ You can add, delete, or update resource [labels](../concepts/labels.md#services)
 
 {% endlist %}
 
+You can create a label with multiple values. For example, create a label named `my-cloud` with the following values:
+
+* `my-vm`: For your VM instance.
+* `my-disk`: For your disk.
+
 ## Editing a label {#update-label}
 
 You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
@@ -167,7 +174,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 - Management console
 
-   The example below shows how to delete a label from a {{ compute-name }} VM. You can also delete a label from another resource.
+   The example below shows how to delete a label from a {{ compute-name }} VM. You can delete a label from another resource in the same way.
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
    1. In the list of services, select **{{ compute-name }}**.

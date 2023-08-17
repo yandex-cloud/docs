@@ -37,13 +37,13 @@ For more information about configuring the profiler and how to interpret its res
 
 ### Currently running queries {#list-running-queries}
 
-To view queries that don't pertain to the current user, under the user with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role, run [db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/):
+To view queries that do not pertain to the current user, run the [db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/) query under the user with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role:
 
 ```javascript
 db.currentOp()
 ```
 
-To view the current user's queries, run `db.currentOp()` with the `true` value to [configure](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
+To view the current user's queries, run the `db.currentOp()` query with the `true` value to [configure](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
 
 ```javascript
 db.currentOp({ "$ownOps": true })
@@ -84,7 +84,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 
 - API
 
-   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To view logs, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 

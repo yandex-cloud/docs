@@ -16,7 +16,7 @@
 
     {% endnote %}
 
-1. Укажите название задачи в поле **Тема**.
+1. Укажите название задачи в поле **{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-subject }}**.
 
 1. Опишите задачу в теле письма.
 

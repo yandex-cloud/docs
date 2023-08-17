@@ -9,11 +9,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить зону DNS.
-  1. Выберите сервис **{{ dns-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке зоны, которую требуется изменить.
-  1. В открывшемся меню нажмите кнопку **Редактировать**.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры зоны.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -101,5 +101,9 @@
      ```
      yc dns zone get <имя зоны DNS>
      ```
+
+- API
+
+  Чтобы изменить зону DNS, воспользуйтесь методом REST API [update](../api-ref/DnsZone/update.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Update](../api-ref/grpc/dns_zone_service.md#Update).
 
 {% endlist %}

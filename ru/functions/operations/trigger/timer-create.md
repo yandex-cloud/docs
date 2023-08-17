@@ -28,17 +28,20 @@
         * В поле **Тип** выберите **Таймер**.
         * В поле **Запускаемый ресурс** выберите **Функция**.
 
-    1. В блоке **Настройки таймера** укажите расписание вызова функции в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
+    1. В блоке **Настройки таймера**:
+
+        * В поле **Cron-выражение** укажите расписание вызова функции в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
+        * (опционально) В поле **Данные** укажите сообщение, которое будет передаваться в функцию при срабатывании таймера в поле `payload`. Тип данных — строка, длина которой не более 4096 символов.
 
     1. В блоке **Настройки функции** выберите функцию и укажите:
 
     	{% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. (опционально) В блоке **Настройки повторных запросов**:
+    1. (Опционально) В блоке **Настройки повторных запросов**:
 
     	{% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+    1. (Опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
     1. Нажмите кнопку **Создать триггер**.
 
@@ -52,20 +55,22 @@
 
     ```bash
     yc serverless trigger create timer \
-      --name <имя таймера> \
+      --name <имя_таймера> \
       --cron-expression '<cron-выражение>' \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --payload <сообщение> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
 
     Где:
 
     * `--name` — имя таймера.
     * `--cron-expression` — расписание вызова функции в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
+    * `--payload` — сообщение, которое будет передаваться в функцию при срабатывании таймера. Длина строки должна быть не более 4096 символов.
     
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -79,6 +84,7 @@
     rule:
       timer:
         cron_expression: 5 12 * * ? *
+        payload: <сообщение>
         invoke_function_with_retry:
           function_id: d4eofc7n0m**********
           function_tag: $latest
@@ -109,6 +115,7 @@
      * `description` — описание триггера.
      * `timer` — настройки триггера:
        * `cron_expression` — расписание вызова функции в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
+       * `payload` — сообщение, которое будет передаваться в функцию при срабатывании таймера. Длина строки должна быть не более 4096 символов.
      * `function` — настройки функции, которую будет запускать триггер:
        * `id` — идентификатор функции.
 
@@ -116,18 +123,19 @@
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
-       name        = "<имя таймера>"
-       description = "<описание триггера>"
+       name        = "<имя_таймера>"
+       description = "<описание_триггера>"
        timer {
          cron_expression = "* * * * ? *"
+         payload         = "<сообщение>"
        }
        function {
-         id = "<идентификатор функции>"
+         id = "<идентификатор_функции>"
        }
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -153,7 +161,7 @@
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
 
         ```
-        yc serverless trigger get <идентификатор триггера>
+        yc serverless trigger get <идентификатор_триггера>
         ```
 
 - API

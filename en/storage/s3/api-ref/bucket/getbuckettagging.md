@@ -1,6 +1,8 @@
 # GetBucketTagging method
 
-Returns bucket [tags](../../../../resource-manager/concepts/labels.md).
+Returns bucket [labels](../../../concepts/tags.md).
+
+{% include [labels-tags](../../../../_includes/storage/labels-tags.md) %}
 
 ## Query {#request}
 
@@ -22,7 +24,7 @@ GET /{bucket}?tagging HTTP/2
 
 ### Headers {#request-headers}
 
-Use [common request headers](../common-request-headers.md) in requests.
+Use [common request headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -53,7 +55,7 @@ A successful response contains additional data in XML format with the schema des
 | Element | Description |
 --- | ---
 | `Tagging` | Root element. |
-| `TagSet` | Array of tags. |
-| `Tag` | Container for tags. |
-| `Key` | Tag key.<br>Type: String. |
-| `Value` | Tag value.<br>Type: String. |
+| `TagSet` | Array of labels. |
+| `Tag` | Container for labels. |
+| `Key` | Label key.<br>Type: String. |
+| `Value` | Label value.<br>Type: String. |

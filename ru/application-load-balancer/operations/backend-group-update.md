@@ -29,13 +29,13 @@ description: "Пошаговая инструкция по изменению г
      
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-       Для группы бэкендов типа HTTP или gRPC доступны режимы:
+       Для группы бэкендов типа `HTTP` или `gRPC` доступны режимы:
        
        * `По IP-адресу`;
        * `По HTTP-заголовку`;
        * `По cookie`.
        
-       Для типа Stream привязка сессий всегда работает по IP-адресу.
+       Для типа `Stream` привязка сессий всегда работает по IP-адресу.
        
        Подробнее о привязке сессий и её режимах см. в [разделе](../concepts/backend-group.md#session-affinity).
    
@@ -79,23 +79,23 @@ description: "Пошаговая инструкция по изменению г
      Результат:
 
      ```
-     id: ds7mi7mlqgctp95cotf0
-     name: test-backend-group
+     id: ds7mi7mlqgct********
+     name: <имя_группы_бэкендов>
      description: update
-     folder_id: b1g6hif00bod2o410drm
+     folder_id: b1g6hif00bod********
      labels:
        bar: buz
        foo: buz
      http:
        backends:
-       - name: backend1
+       - name: <имя_бэкенда>
          backend_weight: "2"
          load_balancing_config:
            panic_threshold: "90"
          port: "80"
          target_groups:
            target_group_ids:
-           - ds75pc3146dhsesgqe8s
+           - ds75pc3146dh********
          healthchecks:
          - timeout: 10s
            interval: 2s
@@ -103,8 +103,8 @@ description: "Пошаговая инструкция по изменению г
            unhealthy_threshold: "15"
            healthcheck_port: "80"
            http:
-             host: your-host.com
-             path: /ping
+             host: <адрес_хоста>
+             path: <путь>
        connection:
          source_ip: true
      created_at: "2022-11-30T17:46:05.599491104Z"
@@ -142,7 +142,7 @@ description: "Пошаговая инструкция по изменению г
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
        
-       * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип Stream (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
+       * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
@@ -184,25 +184,26 @@ description: "Пошаговая инструкция по изменению г
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Добавьте в группу бэкенд и проверку состояния. Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — HTTP или Stream.
+  Добавьте в группу бэкенд и проверку состояния. Внутри группы все бэкенды должны быть одного [типа](../concepts/backend-group.md#group-types) — `HTTP` или `Stream`.
 
-  {% cut "HTTP-бэкенд" %}
+  {% cut "HTTP-бэкенд" %} 
 
   Выполните команду:
 
   ```bash
   yc alb backend-group add-http-backend \
-    --backend-group-name <имя бэкенд группы> \
-    --name <имя добавляемого бэкенда> \
-    --weight <вес бэкенда> \
-    --port <порт бэкенда> \
-    --target-group-id=<идентификатор целевой группы> \
+    --backend-group-name <имя_группы_бэкендов> \
+    --name <имя_добавляемого_бэкенда> \
+    --weight <вес_бэкенда> \
+    --port <порт_бэкенда> \
+    --target-group-id=<идентификатор_целевой_группы> \
     --panic-threshold 90 \
-    --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
-    timeout=10s,interval=2s,host=your-host.com,path=/ping
+    --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+  timeout=10s,interval=2s,host=your-host.com,path=/ping
   ```
 
   Где:
+
   * `--panic-threshold` — порог для режима паники.
   * `--http-healthcheck` — параметры проверки состояния ресурсов:
     * `port` — порт.
@@ -216,12 +217,52 @@ description: "Пошаговая инструкция по изменению г
   Результат:
 
   ```text
-  id: a5dqkr2mk3rr799f1npa
-  name: test-backend-group
-  folder_id: aoe197919j8elpeg1lkp
+  id: a5dqkr2mk3rr********
+  name: <имя_группы_бэкендов>
+  folder_id: aoe197919j8e********
   ...
-          host: your-host.com
-          path: /ping
+          host: <адрес_хоста>
+          path: <путь>
+  created_at: "2021-02-11T20:46:21.688940670Z"
+  ```
+
+  {% endcut %}
+
+  {% cut "gRPC-бэкенд" %}
+
+  ```bash
+  yc alb backend-group add-grpc-backend \
+    --backend-group-name <имя_группы_бэкендов> \
+    --name <имя_добавляемого_бэкенда> \
+    --weight <вес_бэкенда> \
+    --port <порт_бэкенда> \
+    --target-group-id=<идентификатор_целевой_группы> \
+    --panic-threshold 90 \
+    --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+  timeout=10s,interval=2s,service-name=<имя_gRPC-сервиса>
+  ``` 
+
+  Где:
+
+  * `--panic-threshold` — порог для режима паники.
+  * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
+    * `port` — порт.
+    * `healthy-threshold` — порог работоспособности.
+    * `unhealthy-threshold` — порог неработоспособности.
+    * `timeout` — таймаут.
+    * `interval` — интервал.
+    * `service-name` — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
+
+  Результат:
+
+  ```text
+  id: a5dqkr2mk3rr********
+  name: <имя_группы_бэкендов>
+  folder_id: aoe197919j8e********
+  ...
+            grpc:
+              service_name: <имя_gRPC-сервиса>
+  ...
   created_at: "2021-02-11T20:46:21.688940670Z"
   ```
 
@@ -233,36 +274,38 @@ description: "Пошаговая инструкция по изменению г
 
   ```bash
   yc alb backend-group add-stream-backend \
-    --backend-group-name <имя бэкенд группы> \
-    --name <имя добавляемого бэкенда> \
-    --weight <вес бэкенда> \
-    --port <порт бэкенда> \
-    --target-group-id=<идентификатор целевой группы> \
+    --backend-group-name <имя_группы_бэкендов> \
+    --name <имя_добавляемого_бэкенда> \
+    --weight <вес_бэкенда> \
+    --port <порт_бэкенда> \
+    --target-group-id=<идентификатор_целевой_группы> \
     --panic-threshold 90 \
-    --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
-    timeout=10s,interval=2s,host=your-host.com,path=/ping
+    --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+  timeout=10s,interval=2s,send-text=<данные_к_эндпоинту>,receive-text=<данные_от_эндпоинта>
   ```
 
   Где:
+
   * `--panic-threshold` — порог для режима паники.
-  * `--http-healthcheck` — параметры проверки состояния ресурсов:
+  * `--stream-healthcheck` — параметры проверки состояния ресурсов:
     * `port` — порт.
     * `healthy-threshold` — порог работоспособности.
     * `unhealthy-threshold` — порог неработоспособности.
     * `timeout` — таймаут.
     * `interval` — интервал.
-    * `host` — адрес хоста.
-    * `path` — путь.
+    * `send-text` — данные, которые отправляются на эндпоинт для проверки состояния.
+    * `receive-text` — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
 
   Результат:
 
   ```text
-  id: ds77tero4f5h46l4e2gl
-  name: test-backend-group
-  folder_id: b1gu6g9ielh690at5bm7
+  id: ds77tero4f5********
+  name: <имя_группы_бэкендов>
+  folder_id: b1gu6g9ielh6********
   ...
-          host: your-host.com
-          path: /ping
+              text: <данные_к_эндпоинту>
+            receive:
+              text: <данные_от_эндпоинта>
   created_at: "2022-04-06T09:17:57.104324513Z"
   ```
 
@@ -273,53 +316,54 @@ description: "Пошаговая инструкция по изменению г
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
   1. Откройте конфигурационный файл {{ TF }} и добавьте блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагмент с описанием группы бэкендов:
 
-    ```hcl
-    resource "yandex_alb_backend_group" "test-backend-group" {
-      name                     = "<имя группы бэкендов>"
+      ```hcl
+      resource "yandex_alb_backend_group" "test-backend-group" {
+        name                     = "<имя_группы_бэкендов>"
 
-      http_backend {
-        name                   = "<имя бэкенда>"
-        weight                 = 1
-        port                   = 80
-        target_group_ids       = ["<идентификатор целевой группы>"]
-        load_balancing_config {
-          panic_threshold      = 90
-        }    
-        healthcheck {
-          timeout              = "10s"
-          interval             = "2s"
-          healthy_threshold    = 10
-          unhealthy_threshold  = 15 
-          http_healthcheck {
-            path               = "/"
+        http_backend {
+          name                   = "<имя_бэкенда>"
+          weight                 = 1
+          port                   = 80
+          target_group_ids       = ["<идентификатор_целевой_группы>"]
+          load_balancing_config {
+            panic_threshold      = 90
+          }    
+          healthcheck {
+            timeout              = "10s"
+            interval             = "2s"
+            healthy_threshold    = 10
+            unhealthy_threshold  = 15 
+            http_healthcheck {
+              path               = "/"
+            }
           }
         }
       }
-    }
-    ```
+      ```
 
-    Где `yandex_alb_backend_group` — параметры группы бэкендов:
-    * `name` — имя группы бэкендов.
-    * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
+      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+      * `name` — имя группы бэкендов.
+      * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
 
-    Параметры бэкенда:
-    * `name` — имя бэкенда.
-    * `port` — порт бэкенда.
-    * `weight` — вес бэкенда.
-    * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/quickstart.md): `yc alb target-group list`.
-    * `load_balancing_config` — параметры балансировки:
-      * `panic_threshold` — порог для режима паники.
-    * `healthcheck` — параметры проверки состояния:
-      * `timeout` — таймаут.
-      * `interval` — интервал.
-      * `healthy_threshold` — порог работоспособности.
-      * `unhealthy_threshold` — порог неработоспособности.
-      * `http_healthcheck` — параметры проверки состояния типа HTTP: 
-        * `path` — путь.
+      Параметры бэкенда:
+      * `name` — имя бэкенда.
+      * `port` — порт бэкенда.
+      * `weight` — вес бэкенда.
+      * `target_group_ids` — идентификатор целевой группы. Получить список доступных целевых групп можно с помощью команды [CLI](../../cli/quickstart.md): `yc alb target-group list`.
+      * `load_balancing_config` — параметры балансировки:
+        * `panic_threshold` — порог для режима паники.
+      * `healthcheck` — параметры проверки состояния:
+        * `timeout` — таймаут.
+        * `interval` — интервал.
+        * `healthy_threshold` — порог работоспособности.
+        * `unhealthy_threshold` — порог неработоспособности.
+        * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
+          * `path` — путь.
 
-    Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
+      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
@@ -327,7 +371,7 @@ description: "Пошаговая инструкция по изменению г
      Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc alb backend-group get --name <имя группы бэкендов>
+     yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
 - API
@@ -346,7 +390,7 @@ description: "Пошаговая инструкция по изменению г
   1. Выберите сервис **{{ alb-name }}**.
   1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
   1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках см. [выше](#add-backend).
   1. Нажмите кнопку **Сохранить**.
 
@@ -359,7 +403,7 @@ description: "Пошаговая инструкция по изменению г
   1. Посмотрите описание команды CLI для изменения параметров бэкенда:
 
      ```bash
-     yc alb backend-group update-<тип бэкенда>-backend --help
+     yc alb backend-group update-<тип_бэкенда>-backend --help
      ```
 
   1. Укажите новые параметры бэкенда в зависимости от его типа:
@@ -370,17 +414,18 @@ description: "Пошаговая инструкция по изменению г
 
      ```bash
      yc alb backend-group update-http-backend \
-       --backend-group-name <имя бэкенд группы> \
-       --name <имя бэкенда> \
-       --weight <вес бэкенда> \
-       --port <порт бэкенда> \
-       --target-group-id=<идентификатор целевой группы> \
+       --backend-group-name <имя_группы_бэкендов> \
+       --name <имя_добавляемого_бэкенда> \
+       --weight <вес_бэкенда> \
+       --port <порт_бэкенда> \
+       --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
        --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
      timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```
 
      Где:
+
      * `--panic-threshold` — порог для режима паники.
      * `--http-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
@@ -394,12 +439,52 @@ description: "Пошаговая инструкция по изменению г
      Результат:
 
      ```text
-     id: a5dqkr2mk3rr799f1npa
-     name: test-backend-group
-     folder_id: aoe197919j8elpeg1lkp
+     id: a5dqkr2mk3rr********
+     name: <имя_группы_бэкендов>
+     folder_id: aoe197919j8e********
      ...
-             host: your-host.com
-             path: /ping
+             host: <адрес_хоста>
+             path: <путь>
+     created_at: "2021-02-11T20:46:21.688940670Z"
+     ```
+
+     {% endcut %}
+
+     {% cut "gRPC-бэкенд" %}
+
+     ```bash
+     yc alb backend-group update-grpc-backend \
+       --backend-group-name <имя_группы_бэкендов> \
+       --name <имя_добавляемого_бэкенда> \
+       --weight <вес_бэкенда> \
+       --port <порт_бэкенда> \
+       --target-group-id=<идентификатор_целевой_группы> \
+       --panic-threshold 90 \
+       --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+     timeout=10s,interval=2s,service-name=<имя_gRPC-сервиса>
+     ``` 
+
+     Где:
+
+     * `--panic-threshold` — порог для режима паники.
+     * `--grpc-healthcheck` — параметры проверки состояния ресурсов:
+       * `port` — порт.
+       * `healthy-threshold` — порог работоспособности.
+       * `unhealthy-threshold` — порог неработоспособности.
+       * `timeout` — таймаут.
+       * `interval` — интервал.
+       * `service-name` — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
+
+     Результат:
+
+     ```text
+     id: a5dqkr2mk3rr********
+     name: <имя_группы_бэкендов>
+     folder_id: aoe197919j8e********
+     ...
+               grpc:
+                 service_name: <имя_gRPC-сервиса>
+     ...
      created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
@@ -411,36 +496,38 @@ description: "Пошаговая инструкция по изменению г
 
      ```bash
      yc alb backend-group update-stream-backend \
-       --backend-group-name <имя бэкенд группы> \
-       --name <имя бэкенда> \
-       --weight <вес бэкенда> \
-       --port <порт бэкенда> \
-       --target-group-id=<идентификатор целевой группы> \
+       --backend-group-name <имя_группы_бэкендов> \
+       --name <имя_добавляемого_бэкенда> \
+       --weight <вес_бэкенда> \
+       --port <порт_бэкенда> \
+       --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
-       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-     timeout=10s,interval=2s,host=your-host.com,path=/ping
+       --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+     timeout=10s,interval=2s,send-text=<данные_к_эндпоинту>,receive-text=<данные_от_эндпоинта>
      ```
 
      Где:
+
      * `--panic-threshold` — порог для режима паники.
-     * `--http-healthcheck` — параметры проверки состояния ресурсов:
+     * `--stream-healthcheck` — параметры проверки состояния ресурсов:
        * `port` — порт.
        * `healthy-threshold` — порог работоспособности.
        * `unhealthy-threshold` — порог неработоспособности.
        * `timeout` — таймаут.
        * `interval` — интервал.
-       * `host` — адрес хоста.
-       * `path` — путь.
+       * `send-text` — данные, которые отправляются на эндпоинт для проверки состояния.
+       * `receive-text` — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
 
      Результат:
 
      ```text
-     id: ds77tero4f5h46l4e2gl
-     name: test-backend-group
-     folder_id: b1gu6g9ielh690at5bm7
+     id: ds77tero4f5********
+     name: <имя_группы_бэкендов>
+     folder_id: b1gu6g9ielh6********
      ...
-             host: your-host.com
-             path: /ping
+                 text: <данные_к_эндпоинту>
+               receive:
+                 text: <данные_от_эндпоинта>
      created_at: "2022-04-06T09:17:57.104324513Z"
      ```
 
@@ -455,13 +542,13 @@ description: "Пошаговая инструкция по изменению г
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
-       name                     = "<имя группы бэкендов>"
+       name                     = "<имя_группы_бэкендов>"
 
        http_backend {
-         name                   = "<имя бэкенда>"
+         name                   = "<имя_бэкенда>"
          weight                 = 1
          port                   = 80
-         target_group_ids       = ["<идентификатор целевой группы>"]
+         target_group_ids       = ["<идентификатор_целевой_группы>"]
           load_balancing_config {
            panic_threshold      = 90
          }    
@@ -480,7 +567,7 @@ description: "Пошаговая инструкция по изменению г
 
      Где `yandex_alb_backend_group` — параметры группы бэкендов:
      * `name` — имя группы бэкендов.
-     * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
+     * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — `HTTP`, `gRPC` или `Stream`.
 
      Параметры бэкенда:
      * `name` — имя бэкенда.
@@ -494,7 +581,7 @@ description: "Пошаговая инструкция по изменению г
        * `interval` — интервал.
        * `healthy_threshold` — порог работоспособности.
        * `unhealthy_threshold` — порог неработоспособности.
-       * `http_healthcheck` — параметры проверки состояния типа HTTP: 
+       * `http_healthcheck` — параметры проверки состояния типа `HTTP`: 
          * `path` — путь.
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
@@ -505,7 +592,7 @@ description: "Пошаговая инструкция по изменению г
      Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc alb backend-group get --name <имя группы бэкендов>
+     yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
 - API
@@ -526,7 +613,7 @@ description: "Пошаговая инструкция по изменению г
   1. Выберите сервис **{{ alb-name }}**.
   1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
@@ -538,32 +625,41 @@ description: "Пошаговая инструкция по изменению г
   1. Посмотрите описание команды CLI для удаления бэкенда из группы:
 
      ```bash
-     yc application-load-balancer delete-<тип бэкенда>-backend --help
+     yc application-load-balancer delete-<тип_бэкенда>-backend --help
      ```
 
   1. В зависимости от типа бэкенда выполните команду для удаления:
+
      * HTTP-бэкенд:
 
        ```bash
        yc alb backend-group delete-http-backend \
-         --backend-group-name=<имя группы бэкендов> \
-         --name=<имя удаляемого бэкенда>
+         --backend-group-name=<имя_группы_бэкендов> \
+         --name=<имя_удаляемого_бэкенда>
+       ```
+
+     * gRPC-бэкенд
+
+       ```bash
+       yc alb backend-group delete-grpc-backend \
+         --backend-group-name=<имя_группы_бэкендов> \
+         --name=<имя_удаляемого_бэкенда>
        ```
 
      * Stream-бэкенд:
 
        ```bash
        yc alb backend-group delete-stream-backend \
-         --backend-group-name=<имя группы бэкендов> \
-         --name=<имя удаляемого бэкенда>
+         --backend-group-name=<имя_группы_бэкендов> \
+         --name=<имя_удаляемого_бэкенда>
        ```
 
      Результат:
 
      ```text
-     id: a5dqkr2mk3rr799f1npa
-     name: test-backend-group
-     folder_id: aoe197919j8elpeg1lkp
+     id: a5dqkr2mk3rr********
+     name: <имя_бэкенда>
+     folder_id: aoe197919j8e********
      created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
@@ -578,13 +674,13 @@ description: "Пошаговая инструкция по изменению г
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
-       name                     = "<имя группы бэкендов>"
+       name                     = "<имя_группы_бэкендов>"
 
        http_backend {
-         name                   = "<имя бэкенда>"
+         name                   = "<имя_бэкенда>"
          weight                 = 1
          port                   = 80
-         target_group_ids       = ["<идентификатор целевой группы>"]
+         target_group_ids       = ["<идентификатор_целевой_группы>"]
          load_balancing_config {
            panic_threshold      = 90
          }    
@@ -609,7 +705,7 @@ description: "Пошаговая инструкция по изменению г
      Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc alb backend-group get --name <имя группы бэкендов>
+     yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
 - API

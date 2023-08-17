@@ -4,6 +4,8 @@
 
 Триггеру для {{ cloud-logging-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для чтения из лог-группы и вызова функции.
 
+О том, как создать триггер для {{ cloud-logging-name }}, читайте в инструкции [{#T}](../../operations/trigger/cloud-logging-trigger-create.md).
+
 ## Роли, необходимые для корректной работы триггера для {{ cloud-logging-name }} {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.

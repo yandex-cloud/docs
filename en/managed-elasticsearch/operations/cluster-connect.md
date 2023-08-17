@@ -9,6 +9,8 @@ keywords:
 
 # Connecting to an {{ ES }} cluster
 
+{% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
+
 You can connect to the hosts in the {{ mes-name }} cluster with the [_Data node_ role](../concepts/hosts-roles.md#data-node):
 
 * Over the internet, if you configured public access for the appropriate host.
@@ -22,7 +24,11 @@ Regardless of the connection method, {{ mes-name }} only supports cluster host c
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+{% note info %}
+
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+{% endnote %}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -69,10 +75,10 @@ Settings of rules depend on the connection method you select:
 
          * Port range: `{{ port-any }}`.
          * Protocol: `Any`.
-         * Source type: `CIDR`.
+         * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -91,25 +97,9 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To use an encrypted connection, get an SSL certificate:
 
-{% list tabs %}
+{% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
-- Linux (Bash)
-
-   {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
-
-   The certificate will be saved in the `$HOME/.elasticsearch/root.crt` folder.
-
-- Windows (PowerShell)
-
-   ```powershell
-   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
-   ```
-
-   The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
-
-{% endlist %}
-
-## Automatic selecting the host to connect to {#automatic-host-selection}
+## Automatic selection of a host for connection {#automatic-host-selection}
 
 When connecting to an {{ ES }} cluster, you can:
 

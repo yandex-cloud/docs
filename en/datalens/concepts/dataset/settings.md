@@ -33,9 +33,9 @@ Default filters for new charts will enable you:
 
 ## Access management {#access-management}
 
-You can configure permissions for an entire dataset.  For more information, see [{#T}](../../operations/dataset/manage-access.md). 
+You can configure permissions for an entire dataset.  For more information, see [{#T}](../../security/manage-access.md). 
 
-You can also set data permissions at the row level (_Row-level security_ aka _RLS_). For more information, see [{#T}](../../operations/dataset/manage-row-level-security.md).
+You can also set data permissions at the row level (_Row-level security_ aka _RLS_). For more information, see [{#T}](../../security/row-level-security.md).
 
 
 ## Executing SQL queries in datasets {#sql-request-in-datatset}
@@ -45,7 +45,7 @@ When using SQL queries in datasets, we recommend:
 * Restricting the user specified in the connection to `read-only` access.
 * Assigning users that should not have ad-hoc query privileges `Execute` access to the connection and the associated datasets.
 
-You can enable or disable the use of subqueries as a source when [creating](../../operations/index.md#creating-connection) or editing a connection.
+You can enable or disable the use of subqueries as a source when [creating](../connection.md) or editing a connection.
 
 #### See also {#see-also}
 - [{#T}](../../operations/dataset/create.md)

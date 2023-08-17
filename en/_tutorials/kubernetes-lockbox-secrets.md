@@ -1,85 +1,117 @@
-[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to configure the synchronization of [{{ lockbox-name }}](../lockbox/)secrets with those of {{ managed-k8s-name }} clusters.
+[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to set up syncing of {{ lockbox-name }} [secrets](../lockbox/concepts/secret.md) with {{ managed-k8s-name }} [cluster secrets](../managed-kubernetes/concepts/encryption.md).
 
 There are [several schemas for integrating](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} with {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
 
 ![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 
 To set up secret syncing:
+1. [Getting started](#before-you-begin).
 1. [Install the External Secrets Operator](#install-eso).
 1. [Configure {{ lockbox-name }}](#configure-lockbox).
 1. [Configure the {{ k8s }} cluster](#configure-k8s).
 1. [Create an External Secret](#create-es).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+You can also deploy an infrastructure for syncing {{ lockbox-short-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a [ready-made configuration file](#terraform).
+
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+The cost of resources for syncing secrets includes:
+* Fee for using the {{ managed-k8s-name }} master (see [{{ managed-k8s-full-name }} pricing](../managed-kubernetes/pricing.md)).
+* Fee for a node group's computing resources and disks (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
 
 ### Create an infrastructure {#create-infrastructure}
 
-{% list tabs %}
 
-- Manually
+1. [Create a cloud network](../vpc/operations/network-create.md) and [subnet](../vpc/operations/subnet-create.md).
 
-   1. [Create a cloud network](../vpc/operations/network-create.md) and [subnet](../vpc/operations/subnet-create.md).
-   1. [Create a service account](../iam/operations/sa/create.md) named `eso-service-account`. You'll need it to work with the External Secrets Operator.
-   1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+1. Create a service account:
 
-- Using {{ TF }}
+    {% list tabs %}
 
-   1. If you don't have {{ TF }}, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
-      * [Network](../vpc/concepts/network.md#network).
-      * [Network](../vpc/concepts/network.md#network).
-      * [Security group](../vpc/concepts/security-groups.md) and [rules](../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-         * Rules for service traffic.
-         * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-      * {{ managed-k8s-name }} cluster.
-      * [Service account](../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
-   1. Specify the following in the configuration file:
-      * [Folder ID](../resource-manager/operations/folder/get-id.md).
-      * {{ k8s }} versions for the cluster and {{ managed-k8s-name }} node groups.
-      * {{ managed-k8s-name }} cluster CIDR.
-      * Name of the cluster service account.
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+    - Management console
+
+      1. In the [management console]({{link-console-main}}), select a folder where you wish to create a service account.
+      1. Go to the **Service accounts** tab.
+      1. Click **Create service account**.
+      1. Enter a name for the service account, such as `eso-service-account`.
+
+          Name format requirements:
+
+          {% include [name-format](../_includes/name-format.md) %}
+
+      1. Click **Create**.
+
+    - CLI
+
+      To create a service account, run the following command:
 
       ```bash
-      terraform validate
+      yc iam service-account create --name <service_account_name>
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
-   1. Create the required infrastructure:
+      Where `--name` is the service account name, e.g., `eso-service-account`. The name format requirements are as follows:
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+      {% include [name-format](../_includes/name-format.md) %}
 
-      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+   {% endlist %}
 
-{% endlist %}
+1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to the `authorized-key.json` file:
 
-### Prepare the environment {#prepare-env}
+   {% list tabs %}
+
+   - Management console
+
+      1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+      1. Go to the **Service accounts** tab.
+      1. Choose a service account, such as `eso-service-account`, and click the line with its name.
+      1. In the top panel, click **Create new key** and select **Create authorized key**.
+      1. Select the encryption algorithm.
+      1. Enter a description of the key so that you can easily find it in the management console.
+      1. Save both the public and private keys. The private key is not saved in {{ yandex-cloud }}, and you will not be able to view the public key in the management console.
+
+   - CLI
+
+      To create an authorized key, run this command:
+
+      ```bash
+      yc iam key create \
+        --service-account-name <service_account_name> \
+        --output authorized-key.json
+      ```
+
+      Where:
+      * `--service-account-name`: Name of the service account, such as `eso-service-account`.
+      * `--output`: Name of the file to save the authorized key contents to.
+
+   {% endlist %}
+
+1. [Create](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster with any suitable configuration.
+
+   {% note info %}
+
+   Make sure the cluster node has at least 10 pods needed for External Secrets Operator to run.
+
+   {% endnote %}
+
+1. [Create](../managed-kubernetes/operations/node-group/node-group-create.md) a node group.
+
+### Configure the environment {#environment-set-up}
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
 1. Install the `jq` utility:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
-
-1. [Create a service account](../iam/operations/sa/create.md) named `eso-service-account`. You'll need it to work with the External Secrets Operator.
-1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to the file `authorized-key.json`:
-
-   ```bash
-   yc iam key create \
-     --service-account-name eso-service-account \
-     --output authorized-key.json
-   ```
-
-1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -90,7 +122,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Using {{ marketplace-full-name }}
 
-   To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, [follow the instructions](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
+   To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, follow [this guide](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
 
 
 - Using Helm
@@ -118,7 +150,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       {% endnote %}
 
-      Command result:
+      Result:
 
       ```text
       NAME: external-secrets
@@ -136,35 +168,74 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Configure {{ lockbox-name }} {#configure-lockbox}
 
-1. [Create a secret](../lockbox/operations/secret-create.md):
-   * **Name**: `lockbox-secret`.
-   * **Key/Value**:
-      * **Key**: `password`.
-      * **Value** → **Text**: `p@$$w0rd`.
-1. Get the secret ID:
+{% list tabs %}
 
-   ```bash
-   yc lockbox secret list
-   ```
+- Management console
 
-   Command result:
+   1. Create a secret:
+      1. In the [management console]({{ link-console-main }}), select the folder where you will be creating your secret.
+      1. In the list of services, select **{{ lockbox-short-name }}** and click **Create secret**.
+      1. In the **Name** field, enter a name for the secret, such as `lockbox-secret`.
+      1. Under **Version**:
+         * In the **Key** field, enter a non-secret ID: `password`.
+         * In the **Value** field, enter the confidential data you want to store: `p@$$w0rd`.
+      1. Click **Create**.
+   1. Save the ID of the secret created. You will need it later.
+   1. Assign the `lockbox.payloadViewer` role for the secret to the `eso-service-account`:
+      1. Click the `lockbox-secret` name.
+      1. On the left-hand panel, select ![image](../_assets/organization/icon-groups.svg) **Access rights** and click **Assign roles**.
+      1. In the window that opens, click ![image](../_assets/plus-sign.svg) **Select user**.
+      1. Select `eso-service-account`.
+      1. Click ![image](../_assets/plus-sign.svg) **Add role** and select `lockbox.payloadViewer`.
+      1. Click **Save**.
 
-   ```text
-   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
-   |                     ID                     |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
-   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
-   | <{{ lockbox-name }} secret ID>             | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
-   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
-   ```
+- CLI
 
-1. To make sure that `eso-service-account` has access to the secret, assign it the `lockbox.payloadViewer` role:
+   1. Create a secret named `lockbox-secret`:
 
-   ```bash
-   yc lockbox secret add-access-binding \
-     --name lockbox-secret \
-     --service-account-name eso-service-account \
-     --role lockbox.payloadViewer
-   ```
+      ```bash
+      yc lockbox secret create \
+        --name lockbox-secret \
+        --payload '[{"key": "password","textValue": "p@$$w0rd"}]'
+      ```
+
+      Where:
+      * `--name`: Name of the secret.
+      * `--payload`: Content of the secret.
+
+   1. Get the secret ID:
+
+      ```bash
+      yc lockbox secret list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+----------------+------------+---------------------+----------------------+--------+
+      |          ID          |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
+      +----------------------+----------------+------------+---------------------+----------------------+--------+
+      | e6qoffd33mf0osc2lpum | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
+      +----------------------+----------------+------------+---------------------+----------------------+--------+
+      ```
+
+      Save the secret ID (see the `ID` column). You will need it later.
+
+   1. Assign the `lockbox.payloadViewer` role for the secret to the `eso-service-account`:
+
+      ```bash
+      yc lockbox secret add-access-binding \
+        --name lockbox-secret \
+        --service-account-name eso-service-account \
+        --role lockbox.payloadViewer
+      ```
+
+      Where:
+      * `--name`: Name of the secret.
+      * `--service-account-name`: Name of the service account.
+      * `--role`: Role being assigned.
+
+{% endlist %}
 
 ## Configure a {{ managed-k8s-name }} {#configure-k8s}
 
@@ -218,11 +289,13 @@ If you no longer need these resources, [delete them](#clear-out).
      data:
      - secretKey: password
        remoteRef:
-         key: <{{ lockbox-name }} secret ID>
+         key: e6qoffd33mf0osc2lpum
          property: password'
    ```
 
-   The `spec.target.name` parameter specifies the name of a new key: `k8s-secret`. The External Secrets Operator creates this key and inserts the parameters of `lockbox-secret`.
+   Where:
+   * `key`: ID of the {{ lockbox-name }} secret.
+   * `spec.target.name`: Name of the new key (`k8s-secret`). The External Secrets Operator creates this key and inserts the parameters of `lockbox-secret`.
 
 1. Make sure that the new `k8s-secret` key contains the `lockbox-secret` value:
 
@@ -239,9 +312,9 @@ If you no longer need these resources, [delete them](#clear-out).
    p@$$w0rd
    ```
 
-## Delete the resources you created {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To stop paying for the resources you created:
 
 {% list tabs %}
 
@@ -253,19 +326,50 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 - Using {{ TF }}
 
-   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+   1. In the terminal, go to the directory that contains the current {{ TF }} configuration file with an infrastructure plan.
    1. Delete the `k8s-cluster.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
-   1. Confirm the update of resources.
+      If there are any errors in the configuration files, {{ TF }} will point to them.
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
       All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
 
 {% endlist %}
+
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+1. If you do not have {{ TF }} yet, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+   * [Network](../vpc/concepts/network.md#network).
+   * [Subnet](../vpc/concepts/network.md#network).
+   * [Security group](../vpc/concepts/security-groups.md) and [rules](../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+      * Rules for service traffic.
+      * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+   * {{ managed-k8s-name }} cluster.
+   * [Service account](../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
+1. Specify the following in the configuration file:
+   * [Folder ID](../resource-manager/operations/folder/get-id.md).
+   * {{ k8s }} versions for the cluster and {{ managed-k8s-name }} node groups.
+   * {{ managed-k8s-name }} cluster CIDR.
+   * Name of the cluster service account.
+1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+1. Make sure the {{ TF }} configuration files are correct using this command:
+
+   ```bash
+   terraform validate
+   ```
+
+   If there are any errors in the configuration files, {{ TF }} will point to them.
+1. Create the required infrastructure:
+
+   {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+   {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}

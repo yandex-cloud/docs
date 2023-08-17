@@ -2,10 +2,10 @@
 
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the {{ jlab }} Notebook interface.
 
-This tutorial solves the problem of binary image classification. Such a problem may arise when you need to detect vehicle types on images from CCTV cameras. It is assumed that the CCTV system captures images from a camera when it detects motion and saves them to a bucket in {{ objstorage-full-name }}.
+This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
 
 To get an idea of how the problem might be solved:
-1. [Prepare the infrastructure](#deploy-infrastructure).
+1. [Prepare your infrastructure](#deploy-infrastructure).
 1. [Configure {{ ml-platform-name }}](#project).
 1. [Create secrets](#create-secrets).
 1. [Prepare notebooks](#set-notebooks).
@@ -130,14 +130,15 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name following the [naming guidelines](../../storage/concepts/bucket.md#naming), such as `bucketwithvideo`.
+      1. Enter bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
 
          {% note warning %}
 
-         Don't use buckets that have dots in their names for connecting.
+         Do not use buckets with dots in their names for connection.
 
          {% endnote %}
 
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
       1. Limit the maximum bucket size, if required.
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
@@ -218,19 +219,19 @@ The packages listed in the cell are already installed in {{ ml-platform-name }} 
 
 ## Upload and label the data {#load-dataset}
 
-Go to the **Connect S3** section. The following operations are performed there:
+Go to the **Connect S3** section. You can use it to:
 
-1. Connection to the S3 bucket is set up.
-1. A list of objects, i.e., images of cars and buses, is loaded. They will be used for training the model.
-1. The function to extract an image using a key (name) is defined.
+1. Set up a connection to the S3 bucket.
+1. Load the list of objects, i.e., images of cars and buses. These will be used to train the model.
+1. Define the function to extract an image using a key (name).
 
-In the next section, **Labeling**, the data is labeled:
+The next section, **Labeling**, is used for labeling data:
 * Images are labeled according to the key value (folder name).
 * Bus images are labeled with `0`, and car images are labeled with `1`.
 
 To upload and label the data:
 
-1. In the first cell, replace the `bucket_name` variable value with the name of your bucket. The default bucket name is `bucketwithvideo`.
+1. In the first cell, replace the `bucket_name` variable value with the name of your bucket. The default value is `bucketwithvideo`.
 1. Select all the cells containing code in the **Connect S3** and **Labeling** sections. To do this, hold **Shift** and click to the left of the cells in question:
 
    ```
@@ -245,11 +246,11 @@ To upload and label the data:
 
 ## Prepare the ML model and calculate the properties {#get-cnn-model}
 
-Go to the **Calculating the characteristics** section. The following operations are performed there:
+Go to the **Calculating the characteristics** section. It is used to:
 
-1. The ResNet50 model is loaded from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1000 categories.
-1. The `featurize_images` function is defined. It splits the list of images into chunks with 32 images in each, converts their size to 224×224 pixels, and then converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) to upload to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.
-1. This function is used to calculate binary properties (`1` — car, `0` — other) and save them to a file. This step may take 10-15 minutes. [More about the ResNet50 model](https://www.kaggle.com/keras/resnet50).
+1. Load the ResNet50 model from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1,000 categories.
+1. Define the `featurize_images` function. It splits the list of images into 'chunks' of 32 each, scales the images down to 224×224 pixels, and converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) for uploading to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.
+1. Leverage the function to calculate binary properties (`1` means car, `0` means other) and save them to a file. This step may take 10-15 minutes. You can read more about the ResNet50 model [here](https://www.kaggle.com/keras/resnet50).
 
 To prepare the model and calculate the properties:
 
@@ -257,7 +258,7 @@ To prepare the model and calculate the properties:
 
    ```
    #!g1.1
-   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
    ...
    ```
 
@@ -303,11 +304,12 @@ To use the resulting model:
 
    {% endnote %}
 
-1. Run the first three cells. In these cells:
-   1. The packages needed for the test are imported.
-   1. The name of the bucket that stores the images is defined. The default bucket name is `bucketwithvideo`.
-   1. A connection to the bucket with the images from the video monitoring service is set up.
-1. Add a test image including a car:
+1. In the second cell, replace the `bucket_name` variable value with the name of your bucket. The default value is `bucketwithvideo`.
+1. Run the first three cells. Use these cells to:
+   1. Import the packages you need for the test.
+   1. Identify the name of the bucket to store the images.
+   1. Set up a connection to the bucket with CCTV images.
+1. Specify a test image featuring a car:
 
    ```
    test_image = 'car/electric-cars-17.jpeg'
@@ -326,7 +328,7 @@ To use the resulting model:
    ```
    %%time
    clf = lgb.Booster(model_file='ImageClassificationML/lightgbm_classifier.model')
-   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
    ...
    ```
 
@@ -363,5 +365,5 @@ There are several practical uses of the model you built:
 To shut down the model and stop paying for the resources created:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
-1. [Delete](../../storage/operations/buckets/delete.md) the respective bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../datasphere/operations/projects/delete.md) your project.

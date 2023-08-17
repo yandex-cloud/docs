@@ -36,7 +36,7 @@
 
     При необходимости вы можете изменить адрес страницы вручную.
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 1. [Добавьте на страницу текст](basic-markup.md) и сохраните изменения.
 
@@ -48,9 +48,9 @@
 
 1. Создать подстраницу в разделе можно двумя способами:
 
-    * В меню ![](../_assets/wiki/svg/structure-icon.svg) **Структура раздела** слева от названия страницы нажмите ![](../_assets/wiki/svg/button-add-subpage.svg) **Создать подстраницу**.
+    * В меню ![](../_assets/wiki/svg/structure-icon.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.tree }}** слева от названия страницы нажмите ![](../_assets/wiki/svg/button-add-subpage.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}**.
 
-    * На странице раздела в правом верхнем углу страницы нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите **Создать подстраницу**.
+    * На странице раздела в правом верхнем углу страницы нажмите ![](../_assets/wiki/svg/actions-icon.svg) **Действия** и выберите **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}**.
 
 1. Выберите тип **Старый редактор**.
 
@@ -58,7 +58,7 @@
 
 1. Поле **Адрес страницы** заполнится автоматически. При необходимости вы можете изменить адрес страницы вручную.
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 1. [Добавьте на страницу текст](basic-markup.md) и сохраните изменения.
 

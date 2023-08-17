@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/update.md
+sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/update.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.update
@@ -153,6 +153,9 @@ clusterId | <p>Required. ID of the Apache Kafka® cluster to update.</p> <p>To g
     "schemaRegistry": true,
     "access": {
       "dataTransfer": true
+    },
+    "restApiConfig": {
+      "enabled": true
     }
   },
   "name": "string",
@@ -281,6 +284,8 @@ configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage to
 configSpec.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
 configSpec.<br>access | **object**<br><p>Access policy for external services.</p> 
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
+configSpec.<br>restApiConfig | **object**<br><p>Configuration of REST API.</p> 
+configSpec.<br>restApiConfig.<br>enabled | **boolean** (boolean)<br><p>Is REST API enabled for this cluster.</p> 
 name | **string**<br><p>New name for the Apache Kafka® cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

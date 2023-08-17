@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/list.md
+sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/list.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.list
@@ -64,7 +64,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "minBytesForWidePart": "integer",
                 "minRowsForWidePart": "integer",
                 "ttlOnlyDropParts": true,
-                "allowRemoteFsZeroCopyReplication": true
+                "allowRemoteFsZeroCopyReplication": true,
+                "mergeWithTtlTimeout": "integer",
+                "mergeWithRecompressionTtlTimeout": "integer",
+                "maxPartsInTotal": "integer",
+                "maxNumberOfMergesWithTtlInPool": "integer",
+                "cleanupDelayPeriod": "integer",
+                "numberOfFreeEntriesInPoolToExecuteMutation": "integer"
               },
               "compression": [
                 {
@@ -258,6 +264,7 @@ filter | <p>A filter expression that filters resources listed in the response. T
               "backgroundMovePoolSize": "integer",
               "backgroundDistributedSchedulePoolSize": "integer",
               "backgroundBufferFlushSchedulePoolSize": "integer",
+              "backgroundMessageBrokerSchedulePoolSize": "integer",
               "defaultDatabase": "string",
               "totalMemoryProfilerStep": "integer",
               "totalMemoryTrackerSampleProbability": "number"
@@ -278,7 +285,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "minBytesForWidePart": "integer",
                 "minRowsForWidePart": "integer",
                 "ttlOnlyDropParts": true,
-                "allowRemoteFsZeroCopyReplication": true
+                "allowRemoteFsZeroCopyReplication": true,
+                "mergeWithTtlTimeout": "integer",
+                "mergeWithRecompressionTtlTimeout": "integer",
+                "maxPartsInTotal": "integer",
+                "maxNumberOfMergesWithTtlInPool": "integer",
+                "cleanupDelayPeriod": "integer",
+                "numberOfFreeEntriesInPoolToExecuteMutation": "integer"
               },
               "compression": [
                 {
@@ -472,6 +485,7 @@ filter | <p>A filter expression that filters resources listed in the response. T
               "backgroundMovePoolSize": "integer",
               "backgroundDistributedSchedulePoolSize": "integer",
               "backgroundBufferFlushSchedulePoolSize": "integer",
+              "backgroundMessageBrokerSchedulePoolSize": "integer",
               "defaultDatabase": "string",
               "totalMemoryProfilerStep": "integer",
               "totalMemoryTrackerSampleProbability": "number"
@@ -492,7 +506,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
                 "minBytesForWidePart": "integer",
                 "minRowsForWidePart": "integer",
                 "ttlOnlyDropParts": true,
-                "allowRemoteFsZeroCopyReplication": true
+                "allowRemoteFsZeroCopyReplication": true,
+                "mergeWithTtlTimeout": "integer",
+                "mergeWithRecompressionTtlTimeout": "integer",
+                "maxPartsInTotal": "integer",
+                "maxNumberOfMergesWithTtlInPool": "integer",
+                "cleanupDelayPeriod": "integer",
+                "numberOfFreeEntriesInPoolToExecuteMutation": "integer"
               },
               "compression": [
                 {
@@ -686,6 +706,7 @@ filter | <p>A filter expression that filters resources listed in the response. T
               "backgroundMovePoolSize": "integer",
               "backgroundDistributedSchedulePoolSize": "integer",
               "backgroundBufferFlushSchedulePoolSize": "integer",
+              "backgroundMessageBrokerSchedulePoolSize": "integer",
               "defaultDatabase": "string",
               "totalMemoryProfilerStep": "integer",
               "totalMemoryTrackerSampleProbability": "number"
@@ -793,6 +814,12 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTre
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>minRowsForWidePart | **integer** (int64)<br><p>Minimum number of rows in a data part that can be stored in <strong>Wide</strong> format.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>ttlOnlyDropParts | **boolean** (boolean)<br><p>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>allowRemoteFsZeroCopyReplication | **boolean** (boolean)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>mergeWithTtlTimeout | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>mergeWithRecompressionTtlTimeout | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>maxPartsInTotal | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>maxNumberOfMergesWithTtlInPool | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>cleanupDelayPeriod | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>mergeTree.<br>numberOfFreeEntriesInPoolToExecuteMutation | **integer** (int64)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -885,7 +912,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphite
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>regexp | **string**<br><p>Pattern for metric names.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>function | **string**<br><p>Required. Name of the aggregating function to apply to data of the age specified in ``retention``.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>securityProtocol | **string**
@@ -937,6 +964,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgrou
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
@@ -957,6 +985,12 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>minRowsForWidePart | **integer** (int64)<br><p>Minimum number of rows in a data part that can be stored in <strong>Wide</strong> format.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>ttlOnlyDropParts | **boolean** (boolean)<br><p>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>allowRemoteFsZeroCopyReplication | **boolean** (boolean)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>mergeWithTtlTimeout | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>mergeWithRecompressionTtlTimeout | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>maxPartsInTotal | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>maxNumberOfMergesWithTtlInPool | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>cleanupDelayPeriod | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree.<br>numberOfFreeEntriesInPoolToExecuteMutation | **integer** (int64)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -1049,7 +1083,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollu
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>regexp | **string**<br><p>Pattern for metric names.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>function | **string**<br><p>Required. Name of the aggregating function to apply to data of the age specified in ``retention``.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>securityProtocol | **string**
@@ -1101,6 +1135,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundFet
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
@@ -1121,6 +1156,12 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>minRowsForWidePart | **integer** (int64)<br><p>Minimum number of rows in a data part that can be stored in <strong>Wide</strong> format.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>ttlOnlyDropParts | **boolean** (boolean)<br><p>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>allowRemoteFsZeroCopyReplication | **boolean** (boolean)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>mergeWithTtlTimeout | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>mergeWithRecompressionTtlTimeout | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>maxPartsInTotal | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>maxNumberOfMergesWithTtlInPool | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>cleanupDelayPeriod | **integer** (int64)
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree.<br>numberOfFreeEntriesInPoolToExecuteMutation | **integer** (int64)
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
@@ -1213,7 +1254,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRo
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>regexp | **string**<br><p>Pattern for metric names.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>function | **string**<br><p>Required. Name of the aggregating function to apply to data of the age specified in ``retention``.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
-clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka | **object**
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>securityProtocol | **string**
@@ -1265,6 +1306,7 @@ clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>background
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 clusters[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)

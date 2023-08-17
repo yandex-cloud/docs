@@ -30,7 +30,7 @@ The infrastructure support cost includes:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [service account](../iam/concepts/users/service-accounts.md).
-  1. Go to the **Service accounts** tab.
+  1. At the top of the screen, go to the **Service accounts** tab.
   1. Click **Create service account**.
   1. Enter the service account name: `sa-trail-logs`.
   1. Click ![](../_assets/plus-sign.svg) **Add role** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
@@ -77,8 +77,8 @@ The infrastructure support cost includes:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. In the configuration file, describe the service account parameters:
+  If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. In the configuration file, describe the service account parameters:
 
      ```hcl
      resource "yandex_iam_service_account" "sa" {
@@ -98,7 +98,7 @@ The infrastructure support cost includes:
       }
       ```
 
-     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account).
+     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
   1. Make sure the configuration files are valid.
      1. In the command line, go to the directory where you created the configuration file.
      1. Run the check using this command:
@@ -133,14 +133,14 @@ The infrastructure support cost includes:
 
      ```json
      {
-      "serviceAccounts": [
-       {
-        "id": "aje6o61*****h6g9a33s",
-        "folderId": "b1gvmob*****aplct532",
-        "createdAt": "2022-07-25T18:01:25Z",
-        "name": "sa-trail-logs"
-       }
-      ]
+       "serviceAccounts": [
+        {
+          "id": "aje6o61*****h6g9a33s",
+          "folderId": "b1gvmob*****aplct532",
+          "createdAt": "2022-07-25T18:01:25Z",
+          "name": "sa-trail-logs"
+        }
+       ]
      }
      ```
 
@@ -198,41 +198,41 @@ The infrastructure support cost includes:
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ CH }} cluster**.
   1. Specify the settings for a {{ CH }} cluster:
      1. Under **General parameters**, enter the cluster name `trail-logs`.
-     1. Under **Host class**, select **burstable** as the [virtual machine](../compute/concepts/vm.md) type and **b2.nano** as the [host type](../managed-clickhouse/concepts/instance-types.md).
-     1. Under **Database**, enter the DB name `trail_data`, the username `user` and the password. Remember the database name.
+     1. Under **Host class**, select the **burstable** [VM](../compute/concepts/vm.md) type and **b2.medium** [host type](../managed-clickhouse/concepts/instance-types.md).
+     1. Under **Database**, enter `trail_data` for DB name, `user` for username, and the password. Remember the database name.
      1. Under **Hosts**, click ![pencil](../_assets/pencil.svg). Enable **Public access** and click **Save**.
      1. Under **Additional settings**, enable the following options:
         * Access from {{ datalens-name }}.
         * Access from management console.
         * Access from [{{ data-transfer-full-name }}](../data-transfer/).
-  1. After configuring all the settings, click **Create cluster**.
+  1. After configuring all settings, click **Create cluster**.
 
 - CLI
 
-  1. Check whether the folder has any [subnets](../vpc/concepts/network.md#subnet) for the cluster hosts:
+   1. Check whether the folder has any [subnets](../vpc/concepts/network.md#subnet) for the cluster hosts:
 
-     ```bash
-     yc vpc subnet list
-     ```
+      ```bash
+      yc vpc subnet list
+      ```
 
-     If there are no subnets in the folder, [create the required subnets](../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
-  1. Specify the cluster parameters in the create command:
+      If there are no subnets in the folder, [create the required subnets](../vpc/operations/subnet-create.md) in{{ vpc-full-name }}.
+   1. Specify the cluster parameters in the create command:
 
-     ```bash
-     {{ yc-mdb-ch }} cluster create \
-       --name trail-logs \
-       --environment production \
-       --network-name <network_name> \
-       --host type=clickhouse,zone-id=<availability_zone>,subnet-id=<subnet_ID> \
-       --clickhouse-resource-preset b2.nano \
-       --clickhouse-disk-type network-hdd \
-       --clickhouse-disk-size 10 \
-       --user name=user,password=<user_password> \
-       --database name=trail_data \
-       --datalens-access=true \
-       --datatransfer-access=true \
-       --websql-access=true
-     ```
+      ```bash
+      {{ yc-mdb-ch }} cluster create \
+        --name trail-logs \
+        --environment production \
+        --network-name <network_name> \
+        --host type=clickhouse,zone-id=<availability_zone>,subnet-id=<subnet_ID> \
+        --clickhouse-resource-preset b2.medium \
+        --clickhouse-disk-type network-hdd \
+        --clickhouse-disk-size 10 \
+        --user name=user,password=<user_password> \
+        --database name=trail_data \
+        --datalens-access=true \
+        --datatransfer-access=true \
+        --websql-access=true
+      ```
 
      For more information about the `yc managed-clickhouse cluster create` command, see the [CLI reference](../cli/cli-ref/managed-services/managed-clickhouse/cluster/create.md).
 
@@ -248,7 +248,7 @@ The infrastructure support cost includes:
 
        clickhouse {
          resources {
-           resource_preset_id = "b2.nano"
+           resource_preset_id = "b2.medium"
            disk_type_id       = "network-hdd"
            disk_size          = 10
          }
@@ -273,8 +273,8 @@ The infrastructure support cost includes:
        }
 
        access {
-         datalens     = true
-         datatransfer = true
+         data_lens     = true
+         data_transfer = true
        }
      }
      ```
@@ -534,7 +534,7 @@ To visualize data, you need to [connect](../datalens/concepts/connection.md) to 
 ### Create a dataset {#create-dataset}
 
 1. Drag the `trail_data.trail_logs_stream` table from the **Tables** section on the left of the screen to the workspace.
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Enter the dataset name `trail-logs-dataset` and click **Create**.
 1. When the dataset is saved, click **Create chart** in the top-right corner.
 
@@ -546,7 +546,7 @@ To display the number of events for each source, create a line [chart](../datale
 1. Drag the `event_id` field from the **Dimensions** section to the **X** section.
 1. Drag the `event_source` field from the **Dimensions** section to the **Colors** section.
 1. In the top-right corner, click **Save**.
-1. In the window that opens, enter the name `Trail logs: events` for the chart and click **Save**.
+1. In the window that opens, enter the `Trail logs: events` name for the chart and click **Save**.
 
 ### Create a pie chart {#create-pir-chart}
 
@@ -554,7 +554,7 @@ To show numerical proportion by event status, create a pie chart:
 1. Copy the chart from the previous step:
    1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
-   1. In the window that opens, enter the name `Trail logs: statuses` for the new chart and click **Save**.
+   1. In the window that opens, enter the `Trail logs: statuses` name for the new chart and click **Save**.
 1. For the visualization type, select **Pie chart**. The `event_source` and `event_id` are automatically copied to the **Color** and **Measures** sections, respectively.
 1. Delete the `event_source` field from the **Color** section and drag the `event_status` field there.
 1. In the top-right corner, click **Save**.
@@ -567,9 +567,9 @@ Create a [dashboard](../datalens/concepts/dashboard.md) to add charts to:
 1. Enter the name `Trail logs dashboard` for the dashboard and click **Create**.
 1. In the top-right corner, click **Add** and choose **Chart**.
 1. In the **Chart** chart, click **Select** and choose the `Trail logs: events` pie chart from the list.
-1. Click **Add**. The chart is displayed on the dashboard.
+1. Click **Add**. The chart will be displayed on the dashboard.
 1. Repeat the previous steps for the `Trail logs: statuses` chart.
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 Example dashboard:
 
@@ -577,7 +577,7 @@ Example dashboard:
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 * [Delete the cluster](../managed-postgresql/operations/cluster-delete.md) named `trail-logs`.
 * [Delete the stream](../data-streams/operations/manage-streams.md#delete-data-stream) named `trail-logs-stream`.
 * [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.

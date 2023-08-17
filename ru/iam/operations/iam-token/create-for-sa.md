@@ -31,7 +31,7 @@ yc iam create-token
 
 Чтобы получить IAM-токен, создайте [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) и обменяйте его на IAM-токен.
 
-### Перед началом {#before-you-begin}
+### Перед началом работы {#before-you-begin}
 
 1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
 1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT. Сохраните идентификатор открытого ключа.
@@ -118,6 +118,12 @@ yc iam create-token
 - Python
 
   Пример создания JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
+
+  Установите модуль `cryptography` для работы с алгоритмом `PS256`:
+  
+  ```bash
+  pip3 install cryptography
+  ```
 
   ```python
   import time
@@ -306,9 +312,9 @@ yc iam create-token
   func signedToken() string {
     claims := jwt.RegisteredClaims{
             Issuer:    serviceAccountID,
-            ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Hour)),
-            IssuedAt:  jwt.NewNumericDate(time.Now()),
-            NotBefore: jwt.NewNumericDate(time.Now()),
+            ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
+            IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
+            NotBefore: jwt.NewNumericDate(time.Now().UTC()),
             Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
     }
     token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)

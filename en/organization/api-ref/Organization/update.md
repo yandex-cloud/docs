@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/update.md
+sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/update.md
 ---
 
 # Cloud Organization API, REST: Organization.update

@@ -6,12 +6,21 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+### Release on 19/06/23 {#190623}
+
+Improved the quality of pronunciation of car brands for Uzbek.
+
+## Previous versions {#previous}
+
+### Release 08/06/23 {#080623}
+
+1. Added normalization for cardinal numbers written in Arabic numerals for Uzbek.
+1. Improved the quality of speech synthesis for Uzbek. The changes primarily enhance the synthesis of short texts.
+
 ### Release on 18/04/23 {#180423}
 
 1. Speech synthesis for Uzbek now supports [phoneme-based format](tts/markup/tts-markup.md#phoneme) to transcribe text (see the list of supported phonemes [here](tts/markup/tts-supported-phonemes.md#phonemes-uz)). In addition, the Uzbek model can now automatically replace apostrophes. However, for efficient speech synthesis, you should only use the straight `ʼ` and reversed `ʻ` typographic apostrophes.
 1. For [pattern-based synthesis](tts/templates.md), the default volume normalization has been changed. Now, if the normalization type is not set explicitly, the volume of variables is normalized using the initial pattern.
-
-## Previous versions {#previous}
 
 ### Release on 21/03/23 {#210323}
 

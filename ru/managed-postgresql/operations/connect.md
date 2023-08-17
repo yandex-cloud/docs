@@ -145,20 +145,7 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 {{ PG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
-{% list tabs %}
-
-- Linux (Bash)
-
-  {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
-
-- Windows (PowerShell)
-
-  ```powershell
-  mkdir $HOME\AppData\Roaming\postgresql; `
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-  ```
-
-{% endlist %}
+{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -216,32 +203,81 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 {% endlist %}
 
-## Подключение из pgAdmin 4 {#connection-pgadmin}
+## Подключение из {{ pgadmin }} {#connection-pgadmin}
 
-  Подключение проверялось для [pgAdmin 4](https://www.pgadmin.org/download/) версии 7.0 в Ubuntu 20.04.
+Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.0 в Ubuntu 20.04.
 
-  Подключаться из pgAdmin 4 можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
+Подключаться из {{ pgadmin }} можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
 
-  Создайте новое подключение к серверу:
+Создайте новое подключение к серверу:
 
-  1. Выберите в меню **Object** → **Register** → **Server...**
-  1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе pgAdmin 4. Имя может быть любым.
-  1. На вкладке **Connection** укажите параметры подключения:
+1. Выберите в меню **Object** → **Register** → **Server...**
+1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе {{ pgadmin }}. Имя может быть любым.
+1. На вкладке **Connection** укажите параметры подключения:
 
-      * **Host name/address** — [особый FQDN хоста-мастера](#fqdn-master) или обычный FQDN хоста;
-      * **Port** — `{{ port-mpg }}`;
-      * **Maintenance database** — имя БД для подключения;
-      * **Username** — имя пользователя, от имени которого выполняется подключение;
-      * **Password** — пароль пользователя.
+    * **Host name/address** — [особый FQDN хоста-мастера](#fqdn-master) или обычный FQDN хоста;
+    * **Port** — `{{ port-mpg }}`;
+    * **Maintenance database** — имя БД для подключения;
+    * **Username** — имя пользователя, от имени которого выполняется подключение;
+    * **Password** — пароль пользователя.
 
-  1. На вкладке **Parameters**:
+1. На вкладке **Parameters**:
 
-      * Установите параметр **SSL mode** в значение `verify-full`.
-      * Добавьте новый параметр **Root certificate** и укажите в нем путь к сохраненному файлу [SSL-сертификата](#get-ssl-cert).
+    * Установите параметр **SSL mode** в значение `verify-full`.
+    * Добавьте новый параметр **Root certificate** и укажите в нем путь к сохраненному файлу SSL-сертификата.
 
-  1. Нажмите кнопку **Save**, чтобы сохранить настройки подключения к серверу.
+1. Нажмите кнопку **Save**, чтобы сохранить настройки подключения к серверу.
 
-  Кластер появится в списке серверов в навигационном меню.
+Кластер появится в списке серверов в навигационном меню.
+
+## Подключение из {{ google-looker }} {#connection-google-looker}
+
+Подключаться из [{{ google-looker }}](https://lookerstudio.google.com/overview) можно только к хостам кластера в публичном доступе.
+
+1. Сохраните [сертификат сервера]({{ crt-web-path }}) `CA.pem` в локальную папку.
+1. В той же папке сгенерируйте сертификат клиента с приватным ключом:
+
+    ```bash
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -out cert.pem
+    ```
+
+    При создании сертификата программа предложит изменить ряд настроек. Нажмите **Enter**, чтобы использовать для них значения по умолчанию.
+
+    В локальной папке появятся два файла: `cert.pem` и `private.pem`.
+
+1. На [странице навигации {{ google-looker }}](https://lookerstudio.google.com/navigation/reporting) выберите **Создать** → **Источник данных**.
+1. Выберите {{ PG }}.
+1. Заполните поля:
+
+    * **Имя хоста или IP-адрес** — [особый FQDN хоста-мастера](#fqdn-master) или обычный FQDN хоста;
+    * **Порт** — `{{ port-mpg }}`;
+    * **База данных** — имя БД для подключения;
+    * **Имя пользователя** — имя пользователя, от имени которого выполняется подключение;
+    * **Пароль** — пароль пользователя.
+
+1. Выберите опции **Включить SSL** и **Включить аутентификацию клиента**.
+1. Укажите файлы сертификатов и приватный ключ клиента в соответствующих полях:
+
+    * **Server certificate** — выберите файл `CA.pem`.
+    * **Client certificate** — выберите файл `cert.pem`.
+    * **Client private key** — выберите файл `private.pem`.
+
+1. Нажмите **Выполнить аутентификацию**.
+
+## Подключение из Docker-контейнера {#connection-docker}
+
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
+Для подключения к кластеру {{ mpg-name }} добавьте в Dockerfile строки:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget postgresql-client --yes && \
+    mkdir -p ~/.postgresql && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.postgresql/root.crt && \
+    chmod 0600 ~/.postgresql/root.crt
+```
 
 ## Примеры строк подключения {#connection-string}
 

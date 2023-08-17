@@ -40,15 +40,11 @@
 
 1. [Загрузите](../../storage/operations/objects/upload.md) архив с геобазой в {{ objstorage-full-name }}.
 
-1. Настройте доступ к архиву геобазы одним из способов:
+1. Настройте доступ к архиву геобазы, используя [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
 
-    * Используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) (рекомендуется). Этот способ позволяет получить доступ к файлу без ввода учетных данных.
-
-        1\. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
-        2\. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
-        3\. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
-
-    * [Включите публичный доступ](../../storage/operations/objects/edit-acl.md) к бакету с файлом.
+    1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
+    1. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
+    1. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
 
 1. [Получите ссылку](s3-access.md#get-link-to-object) на архив с геобазой.
 
@@ -117,7 +113,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

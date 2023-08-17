@@ -14,7 +14,7 @@
   
       {% include [name-format](../../_includes/name-format.md) %}
   
-  1. Выберите виртуальные машины, которые нужно добавить в целевую группу.
+  1. Выберите [виртуальные машины](../../glossary/vm.md), которые нужно добавить в целевую группу.
   1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -64,7 +64,7 @@
         * `subnet_id` — идентификатор подсети, к которой подключены целевые объекты. Все целевые объекты в целевой группе должны находится в пределах одной зоны доступности.
         * `address` — внутренний IP-адрес ресурса.
 
-     Более подробную информацию о параметрах ресурса `yandex_lb_target_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/lb_target_group).
+     Более подробную информацию о параметрах ресурса `yandex_lb_target_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_target_group).
 
   1. Проверьте корректность настроек.
 
@@ -83,5 +83,11 @@
   * Идентификатор подсети и внутренний IP-адрес целевых ресурсов в параметре `targets`.
 
   Целевые ресурсы можно добавить после создания целевой группы с помощью метода API [addTargets](../api-ref/TargetGroup/addTargets).
+
+- API
+
+  Чтобы создать новую целевую группу, воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
+  
+  После создания целевой группы следует добавить в нее целевые ресурсы, по которым будет распределяться нагрузка. Для этого воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets).
 
 {% endlist %}

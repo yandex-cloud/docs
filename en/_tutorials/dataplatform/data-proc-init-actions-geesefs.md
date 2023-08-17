@@ -10,9 +10,9 @@ To set up GeeseFS:
 1. [Create a cluster that uses the initialization action](#create-cluster).
 1. [Check bucket availability](#check-availability).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
 
@@ -61,25 +61,25 @@ If you no longer need these resources, [delete them](#clear-out).
 
 [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) with the following settings:
 
-* **Service account**: Select the service account you created previously.
-* **Custom scripts**: Add an action with the following parameters:
+* In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the service account you [previously created](#before-you-begin).
+* In the **{{ ui-key.yacloud.mdb.forms.config_field_initialization-action }}** field, click **{{ ui-key.yacloud.mdb.forms.button_add-initialization-action }}** and set the script parameters:
 
-   * **URI**: Specify the path to the action file in the bucket, for example:
+   * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** field, specify the path to the script file in the bucket, such as:
 
       ```http
-      s3a://<bucket name>/geesefs_mount.sh
+      s3a://<bucket_name>/geesefs_mount.sh
       ```
 
-   * **Arguments**: Specify the name of the previously created bucket and `/mnt/test` as your mount point. Arguments are specified on separate lines:
+   * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** field, specify the name of the [previously created](#before-you-begin) bucket and `/mnt/test` as your mount point. Arguments are specified on separate lines:
 
       ```text
-      <bucket name>
+      <bucket_name>
       /mnt/test
       ```
 
-* **Bucket name**: Select a previously created bucket.
+* In the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field, select the [previously created](#before-you-begin) bucket.
 
-* **Sub**: Enable **Public access** in the settings. This will enable you to connect to subcluster hosts without an intermediate virtual machine.
+* In the **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** menu, enable **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** in the settings. This will enable you to connect to subcluster hosts without an intermediate virtual machine.
 
 ## Check {#check-availability} bucket availability.
 
@@ -88,10 +88,10 @@ If you no longer need these resources, [delete them](#clear-out).
 1. To make sure that the bucket has been mounted successfully, run the command:
 
    ```bash
-   ls /mnt/test/<bucket name>
+   ls /mnt/test/<bucket_name>
    ```
 
-   It will return the list of objects stored in the root folder of the bucket. In this case, the file name is `geesefs_mount.sh`.
+   As a result, it will output the list of objects stored in the root folder of the bucket. In this case, the file name is `geesefs_mount.sh`.
 
 ## Delete the resources you created {#clear-out}
 

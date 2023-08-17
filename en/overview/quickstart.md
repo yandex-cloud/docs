@@ -6,11 +6,11 @@ description: "In this article, you will learn how to get started with {{ yandex-
 # Getting started with {{ yandex-cloud }}
 
 
-The {{ yandex-cloud }} platform has several user interfaces, such as the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
+The {{ yandex-cloud }} platform has several user interfaces, such as the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a {{ yandex-360 }} account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
 
 ## Creating a billing account {#new-account}
 
-A billing account is required even if you plan to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../getting-started/usage-grant.md).
+When you create the first billing account linked to your user account, you are awarded the [initial grant](../getting-started/usage-grant.md).
 
 {% include [main](../_includes/billing/registration-main.md) %}
 
@@ -20,7 +20,7 @@ A billing account is required even if you plan to use only free services. When y
 
    * Enter your first, last, and middle name.
 
-   * Link your bank card. Specify your card details: 16-digit number, expiration date, and CVV (see it on the back side of your card).
+   * Link your bank card. Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card).
 
       {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
 
@@ -37,7 +37,7 @@ A billing account is required even if you plan to use only free services. When y
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
-      * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
 - Legal entity, individual entrepreneur or non-resident of Russia and Kazakhstan
 
@@ -46,7 +46,7 @@ A billing account is required even if you plan to use only free services. When y
 
       {% include [contacts-note](../_includes/billing/contacts-note.md) %}
 
-   * If you select the **Bank card** payment method, link your corporate bank card. Specify your card details: 16-digit number, expiration date, and CVV (see it on the back side of your card). Confirm the card is a corporate one and you are authorized to use it.
+   * If you select the **Bank card** payment method, link your corporate bank card. Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card). Confirm the card is a corporate one and you are authorized to use it.
 
       {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
 
@@ -61,13 +61,13 @@ A billing account is required even if you plan to use only free services. When y
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
-      * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
    * Click **Create**.
 
    If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your user account. In this case, it may take up to three business days to activate your billing account.
 
-   If this is your first payment account in {{ yandex-cloud }}, and you've selected **Bank transfer** as a payment method, the account will be created in the trial period. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
+   If this is your first payment account in {{ yandex-cloud }}, and you've selected **Bank transfer** as a payment method, the account will be created in the trial period. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
 
 {% endlist %}
 
@@ -111,7 +111,7 @@ When the initial grant expires, the total unused amount is offset, and the acces
 
 #### Is it safe to pay to {{ yandex-cloud }}?
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements, that's why it's safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements; this is why it is safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
 
 #### Where do I find my agreement with {{ yandex-cloud }}?
 

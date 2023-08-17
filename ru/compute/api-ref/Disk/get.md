@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/api-ref/Disk/get.md
+sourcePath: en/_api-ref/compute/v1/api-ref/Disk/get.md
 ---
 
 # Compute Cloud API, REST: Disk.get
@@ -42,7 +42,8 @@ diskId | <p>Required. ID of the Disk resource to return. To get the disk ID use 
     "string"
   ],
   "diskPlacementPolicy": {
-    "placementGroupId": "string"
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
   },
 
   //  includes only one of the fields `sourceImageId`, `sourceSnapshotId`
@@ -71,5 +72,6 @@ status | **string**<br>Current status of the disk.<br><ul> <li>CREATING: Disk is
 instanceIds[] | **string**<br><p>Array of instances to which the disk is attached.</p> 
 diskPlacementPolicy | **object**<br>Placement policy configuration.
 diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
 sourceImageId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 sourceSnapshotId | **string** <br> includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 

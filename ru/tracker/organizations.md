@@ -6,7 +6,7 @@
 
 [Изменения]({{ link-ya-360-notfree }}) затронут всех пользователей {{ tracker-name }} с бесплатной организацией в {{ ya-360 }}.
 
-Чтобы посмотреть, к каким организациям подключен ваш {{ tracker-name }}, на панели слева нажмите ![](../_assets/tracker/svg/admin.svg) **Администрирование** → ![](../_assets/tracker/svg/organizations.svg) [**Организации**]({{ link-tracker }}admin/orgs). Чтобы проверить, платите ли вы за организацию в {{ ya-360 }}, в блоке с ней нажмите **Управление организацией** и перейдите в раздел **Оплата и тариф**.
+Чтобы посмотреть, к каким организациям подключен ваш {{ tracker-name }}, на панели слева нажмите ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs). Чтобы проверить, платите ли вы за организацию в {{ ya-360 }}, в блоке с ней нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgMainInfoPane.org-manage-button }}** и перейдите в раздел **Оплата и тариф**.
 
 {% cut "Откуда у меня организация {{ ya-360 }}, настраивали же только {{ org-full-name }}?" %}
 
@@ -28,7 +28,7 @@
 
 В марте 2023 года {{ org-full-name }} будут поддерживать управление группами пользователей в {{ tracker-name }}.
 
-Администратор {{ org-full-name }} будет считаться также администратором в {{ tracker-name }} ([роли](../organization/roles.md#admin) `organization-manager.admin` и `organization-manager.organizations.owner`). Чтобы назначать администраторов, можно будет [выдавать](../organization/roles.md) роль `tracker.admin`.
+Администратор {{ org-full-name }} будет считаться также администратором в {{ tracker-name }} ([роли](../organization/security/index.md#admin) `organization-manager.admin` и `organization-manager.organizations.owner`). Чтобы назначать администраторов, можно будет [выдавать](../organization/security/index.md) роль `tracker.admin`.
 
 {{ org-full-name }} остаются бесплатными.
 

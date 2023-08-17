@@ -102,7 +102,7 @@ The management console only allows you to change the name of a folder. To change
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
+      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Check the configuration using this command:
       ```

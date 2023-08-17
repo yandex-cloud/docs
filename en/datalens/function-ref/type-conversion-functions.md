@@ -71,6 +71,8 @@ The following type casts are supported:
 
 | Data source   | Data type                     | Native data type      | Parameters for native type   | Comment                       |
 |:--------------|:------------------------------|:----------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`  | `Date`                        | `Date`                |                              |                               |
+| `ClickHouse`  | `Date`                        | `Date32`              |                              |                               |
 | `ClickHouse`  | `Fractional number`           | `Float32`             |                              |                               |
 | `ClickHouse`  | `Fractional number`           | `Float64`             |                              |                               |
 | `ClickHouse`  | `Fractional number`           | `Decimal`             | `Integer`, `Integer`         |                               |

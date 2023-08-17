@@ -45,6 +45,8 @@ items:
             href: operations/objects/download.md
           - name: Восстановление версии объекта
             href: operations/objects/restore-object-version.md
+          - name: Переименование и перемещение объекта
+            href: operations/objects/rename-move.md
           - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
           - name: Настройка блокировок версии объекта
@@ -57,6 +59,8 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Редактирование ACL объекта
             href: operations/objects/edit-acl.md
+          - name: Управление метками объекта
+            href: operations/objects/tagging.md
       - name: Хостинг статических сайтов
         items:
           - name: Настройка хостинга
@@ -97,6 +101,12 @@ items:
         href: tutorials/yds-obj-migration.md
       - name: Автоматическое копирование объектов из бакета в бакет
         href: tutorials/bucket-to-bucket.md
+      - name: Регулярное распознавание аудиофайлов в бакете
+        href: tutorials/batch-recognition-stt.md
+      - name: >-
+          Обучение модели в {{ ml-platform-full-name }} на данных из {{
+          objstorage-name }}
+        href: tutorials/s3-to-datasphere.md
   - name: Концепции
     items:
       - name: Обзор
@@ -187,6 +197,8 @@ items:
             href: tools/sftps.md
   - name: Справочник API
     items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
       - name: REST (совместимый с Amazon S3)
         items:
           - name: Как пользоваться API
@@ -265,6 +277,12 @@ items:
                     href: s3/api-ref/object/getobjectretention.md
                   - name: getObjectLegalHold
                     href: s3/api-ref/object/getobjectlegalhold.md
+                  - name: putObjectTagging
+                    href: s3/api-ref/object/putobjecttagging.md
+                  - name: getObjectTagging
+                    href: s3/api-ref/object/getobjecttagging.md
+                  - name: deleteObjectTagging
+                    href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
                   - name: Общий порядок составной загрузки
@@ -357,8 +375,6 @@ items:
                 href: s3/api-ref/response-codes.md
       - name: gRPC и REST
         items:
-          - name: Аутентификация в API
-            href: api-ref/authentication.md
           - name: gRPC (англ.)
             items:
               - name: Overview
@@ -393,6 +409,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
+  - name: Справочник логов
+    href: logs-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

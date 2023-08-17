@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/api-ref/DeviceData/publish.md
+sourcePath: en/_api-ref/iot/devices/v1/api-ref/DeviceData/publish.md
 ---
 
 # IoT Core Service, REST: DeviceData.publish
@@ -10,7 +10,7 @@ Publishes message on behalf of specified device
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/publish
+POST https://{{ api-host-iot-data }}/iot-devices/v1/devices/{deviceId}/publish
 ```
  
 ## Path parameters {#path_params}

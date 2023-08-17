@@ -2,23 +2,45 @@ title: Yandex DataLens
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Service overview
+        href: concepts/index.md
+      - name: Navigation and interface
+        href: getting-started/navigation.md
+        hidden: true
+      - name: Getting started
+        href: quickstart.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Courses
+        href: training.md
+      - name: Step-by-step guides
+        href: operations/index.md
+        hidden: true
   - name: Tutorials
     items:
-      - name: All tutorials
+      - name: Overview
         href: tutorials/index.md
       - name: Visualizing data from a CSV file
         href: tutorials/data-from-csv-visualization.md
       - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Analyzing a retail chain's sales from a {{ CH }} database
-        href: tutorials/data-from-ch-visualization.md
       - name: Analyzing public data on road accidents in Russia
         href: tutorials/data-from-csv-geo-visualization.md
+      - name: Analyzing a retail chain's sales from a {{ CH }} database
+        href: tutorials/data-from-ch-visualization.md
       - name: >-
           Analyzing sales and locations of pizzerias based on data from {{ CH }}
           DB and Marketplace
         href: tutorials/data-from-ch-to-geolayers-visualization.md
+      - name: Analyzing Yandex Music podcast statistics (for podcasters)
+        href: tutorials/data-from-podcasts.md
+      - name: Visualizing {{ monitoring-full-name }} data
+        href: tutorials/data-from-monitoring-visualization.md
+      - name: Visualizing Bitrix24 data
+        href: tutorials/data-from-bitrix24-visualization.md
+      - name: Visualizing {{ yq-full-name }} data
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Web analytics with a connection to Yandex Metrica
         href: tutorials/data-from-metrica-visualization.md
       - name: >-
@@ -27,96 +49,42 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcasters)
-        href: tutorials/data-from-podcasts.md
+      - name: Building customer journey charts based on AppMetrica data
+        href: tutorials/data-from-appmetrica-yc-visualization.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
       - name: Visualizing data using parameters
         href: tutorials/data-from-ch-with-parameters.md
-      - name: Visualizing {{ monitoring-full-name }} data
-        href: tutorials/data-from-monitoring-visualization.md
-      - name: Building customer journey charts based on AppMetrica data
-        href: tutorials/data-from-appmetrica-yc-visualization.md
-      - name: Creating a Bitrix24 connection
-        href: tutorials/data-from-bitrix24-visualization.md
-  - name: Concepts
+  - name: Connection
     items:
-      - name: Service overview
-        href: concepts/index.md
-      - name: Organizations in {{ datalens-name }}
-        href: concepts/organizations.md
-      - name: Connection
+      - name: Overview
         href: concepts/connection.md
-      - name: Data types
-        href: concepts/data-types.md
-      - name: Datasets
-        items:
-          - name: Overview
-            href: concepts/dataset/index.md
-          - name: Data model
-            href: concepts/dataset/data-model.md
-          - name: Dataset settings
-            href: concepts/dataset/settings.md
-      - name: Charts
-        items:
-          - name: Overview
-            href: concepts/chart/index.md
-          - name: Chart settings
-            href: concepts/chart/settings.md
-          - name: Measure Values and Measure Names
-            href: concepts/chart/measure-values.md
-      - name: Dashboards
-        href: concepts/dashboard.md
-      - name: Joining data
-        href: concepts/data-join.md
-      - name: Optimization best practices
-        href: concepts/optimization_recommendations.md
-      - name: Using Markdown in {{ datalens-name }}
-        href: concepts/markdown.md
-      - name: '{{ datalens-name }} Public'
-        href: concepts/datalens-public.md
-      - name: Calculated fields
-        items:
-          - name: Overview
-            href: concepts/calculations/index.md
-          - name: Formula syntax
-            href: concepts/calculations/formula-syntax.md
-      - name: Parameterization
-        href: concepts/parameters.md
-      - name: Marketplace
-        href: concepts/marketplace.md
-      - name: Backups
-        href: concepts/backup.md
       - name: Caching
         href: concepts/caching.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-  - name: Step-by-step guides
-    items:
-      - name: All guides
-        href: operations/index.md
-      - name: Working with connections
+      - name: Joining data
+        href: concepts/data-join.md
+      - name: Step-by-step guides
         items:
           - name: Creating a {{ CH }} connection
             href: operations/connection/create-clickhouse.md
-          - name: Creating a connection to a file
-            href: operations/connection/create-file.md
-          - name: Creating a Google Sheets connection
-            href: operations/connection/create-google-sheets.md
           - name: Creating a {{ MY }} connection
             href: operations/connection/create-mysql.md
           - name: Creating a {{ PG }} connection
             href: operations/connection/create-postgresql.md
           - name: Creating a {{ MS }} connection
             href: operations/connection/create-mssql-server.md
-          - name: Creating a BigQuery connection
-            href: operations/connection/create-big-query.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
           - name: Creating a {{ ydb-short-name }} connection
             href: operations/connection/create-ydb.md
           - name: Creating a {{ GP }} connection
             href: operations/connection/create-greenplum.md
+          - name: Creating a connection to a file
+            href: operations/connection/create-file.md
+          - name: Creating a Google Sheets connection
+            href: operations/connection/create-google-sheets.md
+          - name: Creating a BigQuery connection
+            href: operations/connection/create-big-query.md
           - name: Creating a {{ prometheus-name }} connection
             href: operations/connection/create-prometheus.md
           - name: Creating a {{ monitoring-full-name }} connection
@@ -131,9 +99,21 @@ items:
             href: operations/connection/create-appmetrica.md
           - name: Creating a {{ yandex-cloud }} Billing connection
             href: operations/connection/create-cloud-billing.md
-          - name: Managing connection access
-            href: operations/connection/manage-access.md
-      - name: Working with datasets
+          - name: Creating a Snowflake connection
+            href: operations/connection/create-snowflake.md
+  - name: Datasets
+    items:
+      - name: Overview
+        href: concepts/dataset/index.md
+      - name: Data model
+        href: concepts/dataset/data-model.md
+      - name: Data types
+        href: concepts/data-types.md
+      - name: Data type mapping
+        href: dataset/types-lookup-table.md
+      - name: Dataset settings
+        href: concepts/dataset/settings.md
+      - name: Step-by-step guides
         items:
           - name: Creating a dataset
             href: operations/dataset/create.md
@@ -149,37 +129,541 @@ items:
             href: operations/dataset/update-field.md
           - name: Describing a dataset via a source SQL query
             href: operations/dataset/add-data.md
-          - name: Managing dataset access
-            href: operations/dataset/manage-access.md
-          - name: Managing access to data rows
-            href: operations/dataset/manage-row-level-security.md
           - name: Adding parameters to a dataset
             href: operations/dataset/add-parameter-dataset.md
-      - name: Working with charts
+  - name: Calculated fields
+    items:
+      - name: Overview
+        href: concepts/calculations/index.md
+      - name: Formula syntax
+        href: concepts/calculations/formula-syntax.md
+      - name: Function reference
         items:
-          - name: Creating a chart
-            href: operations/chart/create-chart.md
+          - name: All Functions
+            href: function-ref/all.md
+          - name: Aggregate functions
+            items:
+              - name: Overview
+                href: function-ref/aggregation-functions.md
+              - name: ALL_CONCAT
+                href: function-ref/ALL_CONCAT.md
+              - name: ANY
+                href: function-ref/ANY.md
+              - name: ARG_MAX
+                href: function-ref/ARG_MAX.md
+              - name: ARG_MIN
+                href: function-ref/ARG_MIN.md
+              - name: AVG
+                href: function-ref/AVG.md
+              - name: AVG_IF
+                href: function-ref/AVG_IF.md
+              - name: COUNT
+                href: function-ref/COUNT.md
+              - name: COUNTD
+                href: function-ref/COUNTD.md
+              - name: COUNTD_APPROX
+                href: function-ref/COUNTD_APPROX.md
+              - name: COUNTD_IF
+                href: function-ref/COUNTD_IF.md
+              - name: COUNT_IF
+                href: function-ref/COUNT_IF.md
+              - name: MAX
+                href: function-ref/MAX.md
+              - name: MEDIAN
+                href: function-ref/MEDIAN.md
+              - name: MIN
+                href: function-ref/MIN.md
+              - name: QUANTILE
+                href: function-ref/QUANTILE.md
+              - name: QUANTILE_APPROX
+                href: function-ref/QUANTILE_APPROX.md
+              - name: STDEV
+                href: function-ref/STDEV.md
+              - name: STDEVP
+                href: function-ref/STDEVP.md
+              - name: SUM
+                href: function-ref/SUM.md
+              - name: SUM_IF
+                href: function-ref/SUM_IF.md
+              - name: TOP_CONCAT
+                href: function-ref/TOP_CONCAT.md
+              - name: VAR
+                href: function-ref/VAR.md
+              - name: VARP
+                href: function-ref/VARP.md
+          - name: Array functions
+            items:
+              - name: Overview
+                href: function-ref/array-functions.md
+              - name: ARRAY
+                href: function-ref/ARRAY.md
+              - name: ARR_AVG
+                href: function-ref/ARR_AVG.md
+              - name: ARR_MAX
+                href: function-ref/ARR_MAX.md
+              - name: ARR_MIN
+                href: function-ref/ARR_MIN.md
+              - name: ARR_PRODUCT
+                href: function-ref/ARR_PRODUCT.md
+              - name: ARR_REMOVE
+                href: function-ref/ARR_REMOVE.md
+              - name: ARR_STR
+                href: function-ref/ARR_STR.md
+              - name: ARR_SUM
+                href: function-ref/ARR_SUM.md
+              - name: CAST_ARR_FLOAT
+                href: function-ref/CAST_ARR_FLOAT.md
+              - name: CAST_ARR_INT
+                href: function-ref/CAST_ARR_INT.md
+              - name: CAST_ARR_STR
+                href: function-ref/CAST_ARR_STR.md
+              - name: CONTAINS
+                href: function-ref/CONTAINS_ARRAY.md
+              - name: CONTAINS_ALL
+                href: function-ref/CONTAINS_ALL.md
+              - name: CONTAINS_ANY
+                href: function-ref/CONTAINS_ANY.md
+              - name: CONTAINS_SUBSEQUENCE
+                href: function-ref/CONTAINS_SUBSEQUENCE.md
+              - name: COUNT_ITEM
+                href: function-ref/COUNT_ITEM.md
+              - name: GET_ITEM
+                href: function-ref/GET_ITEM.md
+              - name: REPLACE
+                href: function-ref/REPLACE_ARRAY.md
+              - name: SLICE
+                href: function-ref/SLICE.md
+              - name: STARTSWITH
+                href: function-ref/STARTSWITH_ARRAY.md
+              - name: UNNEST
+                href: function-ref/UNNEST.md
+          - name: Date/Time functions
+            items:
+              - name: Overview
+                href: function-ref/date-functions.md
+              - name: DATEADD
+                href: function-ref/DATEADD.md
+              - name: DATEPART
+                href: function-ref/DATEPART.md
+              - name: DATETRUNC
+                href: function-ref/DATETRUNC.md
+              - name: DAY
+                href: function-ref/DAY.md
+              - name: DAYOFWEEK
+                href: function-ref/DAYOFWEEK.md
+              - name: HOUR
+                href: function-ref/HOUR.md
+              - name: MINUTE
+                href: function-ref/MINUTE.md
+              - name: MONTH
+                href: function-ref/MONTH.md
+              - name: NOW
+                href: function-ref/NOW.md
+              - name: QUARTER
+                href: function-ref/QUARTER.md
+              - name: SECOND
+                href: function-ref/SECOND.md
+              - name: TODAY
+                href: function-ref/TODAY.md
+              - name: WEEK
+                href: function-ref/WEEK.md
+              - name: YEAR
+                href: function-ref/YEAR.md
+          - name: Logical functions
+            items:
+              - name: Overview
+                href: function-ref/logical-functions.md
+              - name: CASE
+                href: function-ref/CASE.md
+              - name: IF
+                href: function-ref/IF.md
+              - name: IFNULL
+                href: function-ref/IFNULL.md
+              - name: ISNULL
+                href: function-ref/ISNULL.md
+              - name: ZN
+                href: function-ref/ZN.md
+          - name: Mathematical functions
+            items:
+              - name: Overview
+                href: function-ref/numeric-functions.md
+              - name: ABS
+                href: function-ref/ABS.md
+              - name: ACOS
+                href: function-ref/ACOS.md
+              - name: ASIN
+                href: function-ref/ASIN.md
+              - name: ATAN
+                href: function-ref/ATAN.md
+              - name: ATAN2
+                href: function-ref/ATAN2.md
+              - name: CEILING
+                href: function-ref/CEILING.md
+              - name: COMPARE
+                href: function-ref/COMPARE.md
+              - name: COS
+                href: function-ref/COS.md
+              - name: COT
+                href: function-ref/COT.md
+              - name: DEGREES
+                href: function-ref/DEGREES.md
+              - name: DIV
+                href: function-ref/DIV.md
+              - name: DIV_SAFE
+                href: function-ref/DIV_SAFE.md
+              - name: EXP
+                href: function-ref/EXP.md
+              - name: FDIV_SAFE
+                href: function-ref/FDIV_SAFE.md
+              - name: FLOOR
+                href: function-ref/FLOOR.md
+              - name: GREATEST
+                href: function-ref/GREATEST.md
+              - name: LEAST
+                href: function-ref/LEAST.md
+              - name: LN
+                href: function-ref/LN.md
+              - name: LOG
+                href: function-ref/LOG.md
+              - name: LOG10
+                href: function-ref/LOG10.md
+              - name: PI
+                href: function-ref/PI.md
+              - name: POWER
+                href: function-ref/POWER.md
+              - name: RADIANS
+                href: function-ref/RADIANS.md
+              - name: ROUND
+                href: function-ref/ROUND.md
+              - name: SIGN
+                href: function-ref/SIGN.md
+              - name: SIN
+                href: function-ref/SIN.md
+              - name: SQRT
+                href: function-ref/SQRT.md
+              - name: SQUARE
+                href: function-ref/SQUARE.md
+              - name: TAN
+                href: function-ref/TAN.md
+          - name: Operators
+            items:
+              - name: Overview
+                href: function-ref/operator-functions.md
+              - name: AND
+                href: function-ref/AND.md
+              - name: Addition and concatenation (+)
+                href: function-ref/OP_PLUS.md
+              - name: BETWEEN
+                href: function-ref/BETWEEN.md
+              - name: Comparison
+                href: function-ref/OP_COMPARISON.md
+              - name: Division (/)
+                href: function-ref/OP_DIV.md
+              - name: IN
+                href: function-ref/IN.md
+              - name: IS FALSE
+                href: function-ref/ISFALSE.md
+              - name: IS TRUE
+                href: function-ref/ISTRUE.md
+              - name: LIKE
+                href: function-ref/LIKE.md
+              - name: Modulo (%)
+                href: function-ref/OP_MOD.md
+              - name: Multiplication (*)
+                href: function-ref/OP_MULT.md
+              - name: NOT
+                href: function-ref/OP_NOT.md
+              - name: Negation (-)
+                href: function-ref/OP_NEGATION.md
+              - name: OR
+                href: function-ref/OR.md
+              - name: Power (^)
+                href: function-ref/OP_POWER.md
+              - name: Subtraction (-)
+                href: function-ref/OP_MINUS.md
+          - name: String functions
+            items:
+              - name: Overview
+                href: function-ref/string-functions.md
+              - name: ASCII
+                href: function-ref/ASCII.md
+              - name: CHAR
+                href: function-ref/CHAR.md
+              - name: CONCAT
+                href: function-ref/CONCAT.md
+              - name: CONTAINS
+                href: function-ref/CONTAINS.md
+              - name: ENDSWITH
+                href: function-ref/ENDSWITH.md
+              - name: FIND
+                href: function-ref/FIND.md
+              - name: ICONTAINS
+                href: function-ref/ICONTAINS.md
+              - name: IENDSWITH
+                href: function-ref/IENDSWITH.md
+              - name: ISTARTSWITH
+                href: function-ref/ISTARTSWITH.md
+              - name: LEFT
+                href: function-ref/LEFT.md
+              - name: LEN
+                href: function-ref/LEN.md
+              - name: LOWER
+                href: function-ref/LOWER.md
+              - name: LTRIM
+                href: function-ref/LTRIM.md
+              - name: REGEXP_EXTRACT
+                href: function-ref/REGEXP_EXTRACT.md
+              - name: REGEXP_EXTRACT_NTH
+                href: function-ref/REGEXP_EXTRACT_NTH.md
+              - name: REGEXP_MATCH
+                href: function-ref/REGEXP_MATCH.md
+              - name: REGEXP_REPLACE
+                href: function-ref/REGEXP_REPLACE.md
+              - name: REPLACE
+                href: function-ref/REPLACE.md
+              - name: RIGHT
+                href: function-ref/RIGHT.md
+              - name: RTRIM
+                href: function-ref/RTRIM.md
+              - name: SPACE
+                href: function-ref/SPACE.md
+              - name: SPLIT
+                href: function-ref/SPLIT.md
+              - name: STARTSWITH
+                href: function-ref/STARTSWITH.md
+              - name: SUBSTR
+                href: function-ref/SUBSTR.md
+              - name: TRIM
+                href: function-ref/TRIM.md
+              - name: UPPER
+                href: function-ref/UPPER.md
+              - name: UTF8
+                href: function-ref/UTF8.md
+          - name: Text markup functions
+            items:
+              - name: Overview
+                href: function-ref/markup-functions.md
+              - name: BOLD
+                href: function-ref/BOLD.md
+              - name: ITALIC
+                href: function-ref/ITALIC.md
+              - name: MARKUP
+                href: function-ref/MARKUP.md
+              - name: URL
+                href: function-ref/URL.md
+          - name: Time series functions
+            items:
+              - name: Overview
+                href: function-ref/time-series-functions.md
+              - name: AGO
+                href: function-ref/AGO.md
+              - name: AT_DATE
+                href: function-ref/AT_DATE.md
+          - name: Type conversion functions
+            items:
+              - name: Overview
+                href: function-ref/type-conversion-functions.md
+              - name: BOOL
+                href: function-ref/BOOL.md
+              - name: DATE
+                href: function-ref/DATE.md
+              - name: DATETIME
+                href: function-ref/DATETIME.md
+              - name: DATETIME_PARSE
+                href: function-ref/DATETIME_PARSE.md
+              - name: DATE_PARSE
+                href: function-ref/DATE_PARSE.md
+              - name: DB_CAST
+                href: function-ref/DB_CAST.md
+              - name: FLOAT
+                href: function-ref/FLOAT.md
+              - name: GEOPOINT
+                href: function-ref/GEOPOINT.md
+              - name: GEOPOLYGON
+                href: function-ref/GEOPOLYGON.md
+              - name: INT
+                href: function-ref/INT.md
+              - name: STR
+                href: function-ref/STR.md
+          - name: Window functions
+            items:
+              - name: Overview
+                href: function-ref/window-functions.md
+              - name: AVG
+                href: function-ref/AVG_WINDOW.md
+              - name: AVG_IF
+                href: function-ref/AVG_IF_WINDOW.md
+              - name: COUNT
+                href: function-ref/COUNT_WINDOW.md
+              - name: COUNT_IF
+                href: function-ref/COUNT_IF_WINDOW.md
+              - name: FIRST
+                href: function-ref/FIRST.md
+              - name: LAG
+                href: function-ref/LAG.md
+              - name: LAST
+                href: function-ref/LAST.md
+              - name: MAVG
+                href: function-ref/MAVG.md
+              - name: MAX
+                href: function-ref/MAX_WINDOW.md
+              - name: MCOUNT
+                href: function-ref/MCOUNT.md
+              - name: MIN
+                href: function-ref/MIN_WINDOW.md
+              - name: MMAX
+                href: function-ref/MMAX.md
+              - name: MMIN
+                href: function-ref/MMIN.md
+              - name: MSUM
+                href: function-ref/MSUM.md
+              - name: RANK
+                href: function-ref/RANK.md
+              - name: RANK_DENSE
+                href: function-ref/RANK_DENSE.md
+              - name: RANK_PERCENTILE
+                href: function-ref/RANK_PERCENTILE.md
+              - name: RANK_UNIQUE
+                href: function-ref/RANK_UNIQUE.md
+              - name: RAVG
+                href: function-ref/RAVG.md
+              - name: RCOUNT
+                href: function-ref/RCOUNT.md
+              - name: RMAX
+                href: function-ref/RMAX.md
+              - name: RMIN
+                href: function-ref/RMIN.md
+              - name: RSUM
+                href: function-ref/RSUM.md
+              - name: SUM
+                href: function-ref/SUM_WINDOW.md
+              - name: SUM_IF
+                href: function-ref/SUM_IF_WINDOW.md
+          - name: Function Availability
+            href: function-ref/availability.md
+      - name: Function tutorials
+        items:
+          - name: Aggregate functions
+            href: concepts/aggregation-tutorial.md
+          - name: Window functions
+            href: concepts/window-function-tutorial.md
+          - name: LOD expressions and filtering in aggregate functions
+            href: concepts/lod-aggregation.md
+      - name: Parameters
+        href: concepts/parameters.md
+  - name: Charts
+    items:
+      - name: Overview
+        href: concepts/chart/index.md
+      - name: Wizard charts
+        items:
+          - name: Overview
+            href: concepts/chart/dataset-based-charts.md
+          - name: Chart settings
+            href: concepts/chart/settings.md
+          - name: Measure Values and Measure Names
+            href: concepts/chart/measure-values.md
+          - name: Multi-dataset charts
+            href: concepts/chart/multidataset-chart.md
+          - name: Step-by-step guides
+            items:
+              - name: Creating a chart
+                href: operations/chart/create-chart.md
+              - name: Creating a multi-dataset chart
+                href: operations/chart/create-multidataset-chart.md
+              - name: Adding a hierarchy
+                href: operations/chart/add-hierarchy.md
+              - name: Configuring the navigator
+                href: operations/chart/config-chart-navigator.md
+              - name: Configuring the display of null values
+                href: operations/chart/chart-null-settings.md
+              - name: Creating a color palette
+                href: operations/chart/create-palette.md
+      - name: QL charts
+        items:
+          - name: Overview
+            href: concepts/chart/ql-charts.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
-          - name: Creating a multi-dataset chart
-            href: operations/chart/create-multidataset-chart.md
-          - name: Adding a hierarchy
-            href: operations/chart/add-hierarchy.md
-          - name: Configuring the navigator
-            href: operations/chart/config-chart-navigator.md
-          - name: Publishing a chart
-            href: operations/chart/publish.md
-          - name: Managing chart access
-            href: operations/chart/manage-access.md
+      - name: Visualization reference
+        items:
+          - name: All visualizations
+            href: visualization-ref/index.md
+          - name: Line chart
+            href: visualization-ref/line-chart.md
+          - name: Stacked area chart
+            href: visualization-ref/area-chart.md
+          - name: Normalized stacked area chart
+            href: visualization-ref/normalized-area-chart.md
+          - name: Column chart
+            href: visualization-ref/column-chart.md
+          - name: Normalized column chart
+            href: visualization-ref/normalized-column-chart.md
+          - name: Bar chart
+            href: visualization-ref/bar-chart.md
+          - name: Normalized bar chart
+            href: visualization-ref/normalized-bar-chart.md
+          - name: Scatter chart
+            href: visualization-ref/scatter-chart.md
+          - name: Pie chart
+            href: visualization-ref/pie-chart.md
+          - name: Combined chart
+            href: visualization-ref/combined-chart.md
+          - name: Tree chart
+            href: visualization-ref/tree-chart.md
+          - name: Donut chart
+            href: visualization-ref/ring-chart.md
+          - name: Table
+            href: visualization-ref/table-chart.md
+          - name: Pivot table
+            href: visualization-ref/pivot-table-chart.md
+          - name: Indicator
+            href: visualization-ref/indicator-chart.md
+          - name: Map
+            items:
+              - name: Overview
+                href: visualization-ref/map-chart.md
+              - name: Point map
+                href: visualization-ref/point-map-chart.md
+              - name: Point map with clusters
+                href: visualization-ref/cluster-point-map-chart.md
+              - name: Polyline map
+                href: visualization-ref/polyline-map-chart.md
+              - name: Choropleth map
+                href: visualization-ref/choropleth-map-chart.md
+              - name: Heat map
+                href: visualization-ref/heat-map-chart.md
+      - name: Chart parameters
+        items:
           - name: Adding ID as a parameter
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
-          - name: Configuring the display of null values
-            href: operations/chart/chart-null-settings.md
-          - name: Creating a color palette
-            href: operations/chart/create-palette.md
-      - name: Working with dashboards
+      - name: Versioning
+        href: concepts/chart/versioning.md
+      - name: Chart inspector
+        href: concepts/chart/inspector.md
+      - name: Access management
+        href: concepts/chart/access-management.md
+  - name: Dashboards
+    items:
+      - name: Overview
+        href: concepts/dashboard.md
+      - name: Widgets
+        href: dashboard/widget.md
+      - name: Link
+        href: dashboard/link.md
+      - name: Selectors
+        href: dashboard/selector.md
+      - name: Dashboard settings
+        href: dashboard/settings.md
+      - name: Versioning
+        href: dashboard/versioning.md
+      - name: Parameters
+        href: dashboard/dashboard_parameters.md
+      - name: Markdown
+        href: dashboard/markdown.md
+      - name: Step-by-step guides
         items:
           - name: Creating dashboards
             href: operations/dashboard/create.md
@@ -197,8 +681,6 @@ items:
             href: operations/dashboard/create-alias.md
           - name: Deleting an alias field
             href: operations/dashboard/edit-alias.md
-          - name: Publishing dashboards
-            href: operations/dashboard/publish.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
           - name: Adding parameters to a dashboard
@@ -207,503 +689,71 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
-      - name: Working with permissions
+  - name: Access settings
+    items:
+      - name: Overview
+        href: security/index.md
+      - name: Adding users
+        href: security/add-new-user.md
+      - name: '{{ datalens-short-name }} roles'
+        href: security/roles.md
+      - name: Organizations in {{ datalens-name }}
         items:
+          - name: Overview
+            href: concepts/organizations.md
+          - name: Switching between {{ datalens-name }} instances
+            href: operations/organizations/change-organization.md
+      - name: Object access
+        items:
+          - name: Permissions
+            href: security/manage-access.md
           - name: Granting permissions
             href: operations/permission/grant.md
           - name: Deleting permissions
             href: operations/permission/revoke.md
           - name: Request permissions
             href: operations/permission/request.md
-      - name: Working with {{ datalens-name }} Marketplace
-        items:
-          - name: Adding a product from Marketplace
-            href: operations/marketplace/add-marketplace-product.md
-          - name: Removing a product from Marketplace
-            href: operations/marketplace/delete-marketplace-product.md
-          - name: Creating and connecting a connector (for partners)
-            href: operations/marketplace/create-connector-for-partners.md
-      - name: Working with organizations
-        items:
-          - name: Switching between {{ datalens-name }} instances
-            href: operations/organizations/change-organization.md
-  - name: Access management
-    items:
-      - name: Managing access to {{ datalens-name }}
-        href: security/index.md
-      - name: Managing access at the data row level
+      - name: Access to data rows
         href: security/row-level-security.md
+      - name: Public access
+        href: concepts/datalens-public.md
+  - name: Marketplace
+    items:
+      - name: Overview
+        href: concepts/marketplace.md
+      - name: Adding a product from Marketplace
+        href: operations/marketplace/add-marketplace-product.md
+      - name: Creating a partner connector
+        href: operations/marketplace/create-connector-for-partners.md
   - name: Pricing policy
     href: pricing.md
-  - name: Visualization reference
-    items:
-      - name: All visualizations
-        href: visualization-ref/index.md
-      - name: Line chart
-        href: visualization-ref/line-chart.md
-      - name: Stacked area chart
-        href: visualization-ref/area-chart.md
-      - name: Normalized stacked area chart
-        href: visualization-ref/normalized-area-chart.md
-      - name: Column chart
-        href: visualization-ref/column-chart.md
-      - name: Normalized column chart
-        href: visualization-ref/normalized-column-chart.md
-      - name: Bar chart
-        href: visualization-ref/bar-chart.md
-      - name: Normalized bar chart
-        href: visualization-ref/normalized-bar-chart.md
-      - name: Scatter chart
-        href: visualization-ref/scatter-chart.md
-      - name: Pie chart
-        href: visualization-ref/pie-chart.md
-      - name: Indicator
-        href: visualization-ref/indicator-chart.md
-      - name: Tree chart
-        href: visualization-ref/tree-chart.md
-      - name: Donut chart
-        href: visualization-ref/ring-chart.md
-      - name: Table
-        href: visualization-ref/table-chart.md
-      - name: Pivot table
-        href: visualization-ref/pivot-table-chart.md
-      - name: Map
-        items:
-          - name: Overview
-            href: visualization-ref/map-chart.md
-          - name: Point map
-            href: visualization-ref/point-map-chart.md
-          - name: Point map with clusters
-            href: visualization-ref/cluster-point-map-chart.md
-          - name: Polyline map
-            href: visualization-ref/polyline-map-chart.md
-          - name: Choropleth map
-            href: visualization-ref/choropleth-map-chart.md
-          - name: Heat map
-            href: visualization-ref/heat-map-chart.md
-      - name: Combined chart
-        href: visualization-ref/combined-chart.md
-  - name: Function reference
-    items:
-      - name: All Functions
-        href: function-ref/all.md
-      - name: Aggregate functions
-        items:
-          - name: Overview
-            href: function-ref/aggregation-functions.md
-          - name: ALL_CONCAT
-            href: function-ref/ALL_CONCAT.md
-          - name: ANY
-            href: function-ref/ANY.md
-          - name: ARG_MAX
-            href: function-ref/ARG_MAX.md
-          - name: ARG_MIN
-            href: function-ref/ARG_MIN.md
-          - name: AVG
-            href: function-ref/AVG.md
-          - name: AVG_IF
-            href: function-ref/AVG_IF.md
-          - name: COUNT
-            href: function-ref/COUNT.md
-          - name: COUNTD
-            href: function-ref/COUNTD.md
-          - name: COUNTD_APPROX
-            href: function-ref/COUNTD_APPROX.md
-          - name: COUNTD_IF
-            href: function-ref/COUNTD_IF.md
-          - name: COUNT_IF
-            href: function-ref/COUNT_IF.md
-          - name: MAX
-            href: function-ref/MAX.md
-          - name: MEDIAN
-            href: function-ref/MEDIAN.md
-          - name: MIN
-            href: function-ref/MIN.md
-          - name: QUANTILE
-            href: function-ref/QUANTILE.md
-          - name: QUANTILE_APPROX
-            href: function-ref/QUANTILE_APPROX.md
-          - name: STDEV
-            href: function-ref/STDEV.md
-          - name: STDEVP
-            href: function-ref/STDEVP.md
-          - name: SUM
-            href: function-ref/SUM.md
-          - name: SUM_IF
-            href: function-ref/SUM_IF.md
-          - name: TOP_CONCAT
-            href: function-ref/TOP_CONCAT.md
-          - name: VAR
-            href: function-ref/VAR.md
-          - name: VARP
-            href: function-ref/VARP.md
-      - name: Array functions
-        items:
-          - name: Overview
-            href: function-ref/array-functions.md
-          - name: ARRAY
-            href: function-ref/ARRAY.md
-          - name: ARR_AVG
-            href: function-ref/ARR_AVG.md
-          - name: ARR_MAX
-            href: function-ref/ARR_MAX.md
-          - name: ARR_MIN
-            href: function-ref/ARR_MIN.md
-          - name: ARR_PRODUCT
-            href: function-ref/ARR_PRODUCT.md
-          - name: ARR_REMOVE
-            href: function-ref/ARR_REMOVE.md
-          - name: ARR_STR
-            href: function-ref/ARR_STR.md
-          - name: ARR_SUM
-            href: function-ref/ARR_SUM.md
-          - name: CAST_ARR_FLOAT
-            href: function-ref/CAST_ARR_FLOAT.md
-          - name: CAST_ARR_INT
-            href: function-ref/CAST_ARR_INT.md
-          - name: CAST_ARR_STR
-            href: function-ref/CAST_ARR_STR.md
-          - name: CONTAINS
-            href: function-ref/CONTAINS_ARRAY.md
-          - name: CONTAINS_ALL
-            href: function-ref/CONTAINS_ALL.md
-          - name: CONTAINS_ANY
-            href: function-ref/CONTAINS_ANY.md
-          - name: CONTAINS_SUBSEQUENCE
-            href: function-ref/CONTAINS_SUBSEQUENCE.md
-          - name: COUNT_ITEM
-            href: function-ref/COUNT_ITEM.md
-          - name: GET_ITEM
-            href: function-ref/GET_ITEM.md
-          - name: REPLACE
-            href: function-ref/REPLACE_ARRAY.md
-          - name: SLICE
-            href: function-ref/SLICE.md
-          - name: STARTSWITH
-            href: function-ref/STARTSWITH_ARRAY.md
-          - name: UNNEST
-            href: function-ref/UNNEST.md
-      - name: Date/Time functions
-        items:
-          - name: Overview
-            href: function-ref/date-functions.md
-          - name: DATEADD
-            href: function-ref/DATEADD.md
-          - name: DATEPART
-            href: function-ref/DATEPART.md
-          - name: DATETRUNC
-            href: function-ref/DATETRUNC.md
-          - name: DAY
-            href: function-ref/DAY.md
-          - name: DAYOFWEEK
-            href: function-ref/DAYOFWEEK.md
-          - name: HOUR
-            href: function-ref/HOUR.md
-          - name: MINUTE
-            href: function-ref/MINUTE.md
-          - name: MONTH
-            href: function-ref/MONTH.md
-          - name: NOW
-            href: function-ref/NOW.md
-          - name: QUARTER
-            href: function-ref/QUARTER.md
-          - name: SECOND
-            href: function-ref/SECOND.md
-          - name: TODAY
-            href: function-ref/TODAY.md
-          - name: WEEK
-            href: function-ref/WEEK.md
-          - name: YEAR
-            href: function-ref/YEAR.md
-      - name: Logical functions
-        items:
-          - name: Overview
-            href: function-ref/logical-functions.md
-          - name: CASE
-            href: function-ref/CASE.md
-          - name: IF
-            href: function-ref/IF.md
-          - name: IFNULL
-            href: function-ref/IFNULL.md
-          - name: ISNULL
-            href: function-ref/ISNULL.md
-          - name: ZN
-            href: function-ref/ZN.md
-      - name: Mathematical functions
-        items:
-          - name: Overview
-            href: function-ref/numeric-functions.md
-          - name: ABS
-            href: function-ref/ABS.md
-          - name: ACOS
-            href: function-ref/ACOS.md
-          - name: ASIN
-            href: function-ref/ASIN.md
-          - name: ATAN
-            href: function-ref/ATAN.md
-          - name: ATAN2
-            href: function-ref/ATAN2.md
-          - name: CEILING
-            href: function-ref/CEILING.md
-          - name: COMPARE
-            href: function-ref/COMPARE.md
-          - name: COS
-            href: function-ref/COS.md
-          - name: COT
-            href: function-ref/COT.md
-          - name: DEGREES
-            href: function-ref/DEGREES.md
-          - name: DIV
-            href: function-ref/DIV.md
-          - name: DIV_SAFE
-            href: function-ref/DIV_SAFE.md
-          - name: EXP
-            href: function-ref/EXP.md
-          - name: FDIV_SAFE
-            href: function-ref/FDIV_SAFE.md
-          - name: FLOOR
-            href: function-ref/FLOOR.md
-          - name: GREATEST
-            href: function-ref/GREATEST.md
-          - name: LEAST
-            href: function-ref/LEAST.md
-          - name: LN
-            href: function-ref/LN.md
-          - name: LOG
-            href: function-ref/LOG.md
-          - name: LOG10
-            href: function-ref/LOG10.md
-          - name: PI
-            href: function-ref/PI.md
-          - name: POWER
-            href: function-ref/POWER.md
-          - name: RADIANS
-            href: function-ref/RADIANS.md
-          - name: ROUND
-            href: function-ref/ROUND.md
-          - name: SIGN
-            href: function-ref/SIGN.md
-          - name: SIN
-            href: function-ref/SIN.md
-          - name: SQRT
-            href: function-ref/SQRT.md
-          - name: SQUARE
-            href: function-ref/SQUARE.md
-          - name: TAN
-            href: function-ref/TAN.md
-      - name: Operators
-        items:
-          - name: Overview
-            href: function-ref/operator-functions.md
-          - name: AND
-            href: function-ref/AND.md
-          - name: Addition and concatenation (+)
-            href: function-ref/OP_PLUS.md
-          - name: BETWEEN
-            href: function-ref/BETWEEN.md
-          - name: Comparison
-            href: function-ref/OP_COMPARISON.md
-          - name: Division (/)
-            href: function-ref/OP_DIV.md
-          - name: IN
-            href: function-ref/IN.md
-          - name: IS FALSE
-            href: function-ref/ISFALSE.md
-          - name: IS TRUE
-            href: function-ref/ISTRUE.md
-          - name: LIKE
-            href: function-ref/LIKE.md
-          - name: Modulo (%)
-            href: function-ref/OP_MOD.md
-          - name: Multiplication (*)
-            href: function-ref/OP_MULT.md
-          - name: NOT
-            href: function-ref/OP_NOT.md
-          - name: Negation (-)
-            href: function-ref/OP_NEGATION.md
-          - name: OR
-            href: function-ref/OR.md
-          - name: Power (^)
-            href: function-ref/OP_POWER.md
-          - name: Subtraction (-)
-            href: function-ref/OP_MINUS.md
-      - name: String functions
-        items:
-          - name: Overview
-            href: function-ref/string-functions.md
-          - name: ASCII
-            href: function-ref/ASCII.md
-          - name: CHAR
-            href: function-ref/CHAR.md
-          - name: CONCAT
-            href: function-ref/CONCAT.md
-          - name: CONTAINS
-            href: function-ref/CONTAINS.md
-          - name: ENDSWITH
-            href: function-ref/ENDSWITH.md
-          - name: FIND
-            href: function-ref/FIND.md
-          - name: ICONTAINS
-            href: function-ref/ICONTAINS.md
-          - name: IENDSWITH
-            href: function-ref/IENDSWITH.md
-          - name: ISTARTSWITH
-            href: function-ref/ISTARTSWITH.md
-          - name: LEFT
-            href: function-ref/LEFT.md
-          - name: LEN
-            href: function-ref/LEN.md
-          - name: LOWER
-            href: function-ref/LOWER.md
-          - name: LTRIM
-            href: function-ref/LTRIM.md
-          - name: REGEXP_EXTRACT
-            href: function-ref/REGEXP_EXTRACT.md
-          - name: REGEXP_EXTRACT_NTH
-            href: function-ref/REGEXP_EXTRACT_NTH.md
-          - name: REGEXP_MATCH
-            href: function-ref/REGEXP_MATCH.md
-          - name: REGEXP_REPLACE
-            href: function-ref/REGEXP_REPLACE.md
-          - name: REPLACE
-            href: function-ref/REPLACE.md
-          - name: RIGHT
-            href: function-ref/RIGHT.md
-          - name: RTRIM
-            href: function-ref/RTRIM.md
-          - name: SPACE
-            href: function-ref/SPACE.md
-          - name: SPLIT
-            href: function-ref/SPLIT.md
-          - name: STARTSWITH
-            href: function-ref/STARTSWITH.md
-          - name: SUBSTR
-            href: function-ref/SUBSTR.md
-          - name: TRIM
-            href: function-ref/TRIM.md
-          - name: UPPER
-            href: function-ref/UPPER.md
-          - name: UTF8
-            href: function-ref/UTF8.md
-      - name: Text markup functions
-        items:
-          - name: Overview
-            href: function-ref/markup-functions.md
-          - name: BOLD
-            href: function-ref/BOLD.md
-          - name: ITALIC
-            href: function-ref/ITALIC.md
-          - name: MARKUP
-            href: function-ref/MARKUP.md
-          - name: URL
-            href: function-ref/URL.md
-      - name: Time series functions
-        items:
-          - name: Overview
-            href: function-ref/time-series-functions.md
-          - name: AGO
-            href: function-ref/AGO.md
-          - name: AT_DATE
-            href: function-ref/AT_DATE.md
-      - name: Type conversion functions
-        items:
-          - name: Overview
-            href: function-ref/type-conversion-functions.md
-          - name: BOOL
-            href: function-ref/BOOL.md
-          - name: DATE
-            href: function-ref/DATE.md
-          - name: DATETIME
-            href: function-ref/DATETIME.md
-          - name: DATETIME_PARSE
-            href: function-ref/DATETIME_PARSE.md
-          - name: DATE_PARSE
-            href: function-ref/DATE_PARSE.md
-          - name: DB_CAST
-            href: function-ref/DB_CAST.md
-          - name: FLOAT
-            href: function-ref/FLOAT.md
-          - name: GEOPOINT
-            href: function-ref/GEOPOINT.md
-          - name: GEOPOLYGON
-            href: function-ref/GEOPOLYGON.md
-          - name: INT
-            href: function-ref/INT.md
-          - name: STR
-            href: function-ref/STR.md
-      - name: Window functions
-        items:
-          - name: Overview
-            href: function-ref/window-functions.md
-          - name: AVG
-            href: function-ref/AVG_WINDOW.md
-          - name: AVG_IF
-            href: function-ref/AVG_IF_WINDOW.md
-          - name: COUNT
-            href: function-ref/COUNT_WINDOW.md
-          - name: COUNT_IF
-            href: function-ref/COUNT_IF_WINDOW.md
-          - name: FIRST
-            href: function-ref/FIRST.md
-          - name: LAG
-            href: function-ref/LAG.md
-          - name: LAST
-            href: function-ref/LAST.md
-          - name: MAVG
-            href: function-ref/MAVG.md
-          - name: MAX
-            href: function-ref/MAX_WINDOW.md
-          - name: MCOUNT
-            href: function-ref/MCOUNT.md
-          - name: MIN
-            href: function-ref/MIN_WINDOW.md
-          - name: MMAX
-            href: function-ref/MMAX.md
-          - name: MMIN
-            href: function-ref/MMIN.md
-          - name: MSUM
-            href: function-ref/MSUM.md
-          - name: RANK
-            href: function-ref/RANK.md
-          - name: RANK_DENSE
-            href: function-ref/RANK_DENSE.md
-          - name: RANK_PERCENTILE
-            href: function-ref/RANK_PERCENTILE.md
-          - name: RANK_UNIQUE
-            href: function-ref/RANK_UNIQUE.md
-          - name: RAVG
-            href: function-ref/RAVG.md
-          - name: RCOUNT
-            href: function-ref/RCOUNT.md
-          - name: RMAX
-            href: function-ref/RMAX.md
-          - name: RMIN
-            href: function-ref/RMIN.md
-          - name: RSUM
-            href: function-ref/RSUM.md
-          - name: SUM
-            href: function-ref/SUM_WINDOW.md
-          - name: SUM_IF
-            href: function-ref/SUM_IF_WINDOW.md
-      - name: Function Availability
-        href: function-ref/availability.md
-  - name: Function tutorials
-    items:
-      - name: Aggregate functions
-        href: concepts/aggregation-tutorial.md
-      - name: Window functions
-        href: concepts/window-function-tutorial.md
-      - name: LOD expressions and filtering in aggregate functions
-        href: concepts/lod-aggregation.md
-  - name: Courses
-    href: training.md
   - name: Troubleshooting
     expanded: true
     items:
-      - name: Questions and answers
-        href: qa/index.md
+      - name: Optimization best practices
+        href: concepts/optimization_recommendations.md
       - name: '{{ datalens-name }} errors'
         href: troubleshooting/errors/all.md
+      - name: FAQ
+        items:
+          - name: All questions
+            href: qa/index.md
+          - name: Permissions
+            href: qa/permissions.md
+          - name: Connections
+            href: qa/connections.md
+          - name: Datasets
+            href: qa/datasets.md
+          - name: Charts
+            href: qa/charts.md
+          - name: Calculated fields
+            href: qa/calculation-fields.md
+          - name: Dashboards
+            href: qa/dashboards.md
+          - name: Other
+            href: qa/other.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md

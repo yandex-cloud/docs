@@ -78,6 +78,11 @@ A _provisioned instance_ is a function instance that, when started, is guarantee
 
 If the number of function calls exceeds the number of provisioned instances, {{ sf-name }} scales the function within the [quotas](limits.md#functions-quotas), but unprovisioned instances have a cold start when they are first started.
 
+Provisioned instances count towards the following [quotas](limits.md) even when they are not running:
+* Number of function instances per availability zone.
+* Total RAM for all running functions per availability zone.
+* Number of provisioned function instances per cloud.
+
 #### See also
 
 * [Creating a function version](../operations/function/version-manage.md).

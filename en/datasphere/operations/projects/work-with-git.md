@@ -24,7 +24,7 @@ Clone an existing private repository:
 1. In the top menu, click **Git** and select **Clone**.
 1. In the window that opens, enter the repository URI and click **Clone**.
 1. You will see an error message saying `fatal: could not read Username for 'https://github.com': terminal prompts disabled`. Click **Refine the data**.
-1. In the window that opens, enter the username, select a secret with a token to access GitHub, and click **Submit**.
+1. In the window that opens, enter the username and token to access GitHub, and then click **Submit**.
 
 The cloned repository folder appears in the ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
 
@@ -97,13 +97,13 @@ To push the saved changes to the remote repository:
 1. In the window that opens:
 
    1. Enter the name of a user with write access to the remote repository.
-   1. Select a secret with a personal access token to GitHub from the list.
+   1. Enter your personal access token for GitHub.
 
 1. Click **OK**.
 1. Wait until **Git Push completed successfully** appears.
 1. Click **Dismiss**.
 
-Changes are pushed to the remote repository.
+   Changes are pushed to the remote repository.
 
 ## Pulling changes from a remote repository {#pull}
 
@@ -135,7 +135,7 @@ To save a project code to a new repository on GitHub:
 
    Where:
    * `<GitHub_user_name_>`: Username of the GitHub user you are going to work under.
-   * `<personal_access_token>`: Content of the secret with the GitHub access token.
+   * `<personal_access_token>`: Contents of the token to access GitHub.
    * `<repository_address>`: Path to the repository in `<username>/<repository_name>.git` format.
 
 1. Initialize the local repository once again:

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/delete.md
+sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/delete.md
 ---
 
 # IoT Core Broker Service, REST: Broker.delete
@@ -10,7 +10,7 @@ Deletes the specified broker.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}
+DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 ```
  
 ## Path parameters {#path_params}

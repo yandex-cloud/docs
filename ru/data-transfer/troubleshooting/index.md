@@ -6,8 +6,10 @@
 * [{#T}](#api)
 * [{#T}](#network)
 * [{#T}](#clickhouse)
+* [{#T}](#elasticsearch)
 * [{#T}](#mongodb)
 * [{#T}](#mysql)
+* [{#T}](#opensearch)
 * [{#T}](#postgresql)
 * [{#T}](#ydb)
 * [{#T}](#yds)
@@ -16,6 +18,8 @@
 Особенности подготовки источников и приемников к трансферу описаны в [соответствующем разделе](../operations/prepare.md).
 
 Ограничения на работу с источниками и приемниками во время работы трансфера указаны в разделе [{#T}](../operations/db-actions.md).
+
+Вы можете запросить записи о том, что происходило с вашими ресурсами, из логов сервисов {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../../support/request.md).
 
 ## Общие {#common}
 
@@ -55,6 +59,12 @@
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/table-names.md) %}
 
+## {{ ES }} {#elasticsearch}
+
+{% include [ambiguous-object-resolution-es](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
+
+{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+
 ## {{ MG }} {#mongodb}
 
 {% include [string-size](../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
@@ -64,6 +74,8 @@
 {% include [no-tables](../../_includes/data-transfer/troubles/mongodb/no-tables.md) %}
 
 {% include [sharded](../../_includes/data-transfer/troubles/mongodb/sharded.md) %}
+
+{% include [timeseries](../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
 
 ## {{ MY }} {#mysql}
 
@@ -76,6 +88,16 @@
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+## {{ OS }} {#opensearch}
+
+{% include [ambiguous-object-resolution-os](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
+
+{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
 ## {{ PG }} {#postgresql}
 
@@ -110,6 +132,8 @@
 {% include [external-replication](../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

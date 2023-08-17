@@ -14,7 +14,7 @@
       * (optional) A **description** with further information about the registry.
       * A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password - you will need it later.
       * (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
-   1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
+   1. (Optional) Add [certificates](../../operations/certificates/create-certificates.md):
       * To add a file:
          1. Choose the **File** method.
          1. Click **Select file**.
@@ -113,7 +113,7 @@
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
 
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.

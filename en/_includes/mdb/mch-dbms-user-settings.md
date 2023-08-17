@@ -10,7 +10,7 @@
 
    By default, DDL queries are allowed.
 
-   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_allow_ddl).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings_allow_ddl).
 
    See also the [Readonly](#setting-readonly) setting.
 
@@ -63,7 +63,7 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#async-insert).
 
-* **Async insert busy timeout ms**{#setting-async-insert-busy-timeout-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert busy timeout**{#setting-async-insert-busy-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    Maximum timeout (ms) before inserting data after the first `INSERT` query.
 
@@ -79,9 +79,9 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#async-insert-max-data-size).
 
-* **Async insert stale timeout ms**{#setting-async-insert-stale-timeout-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Async insert stale timeout**{#setting-async-insert-stale-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-   Maximum timeout (ms) before inserting data after the last `INSERT` query. If the value is different from zero, the [**Async insert busy timeout ms**](#setting-async-insert-busy-timeout-ms) is extended with each `INSERT` query until the [**Async insert max data size**](#setting-async-insert-max-data-size) value is exceeded.
+   Maximum timeout (ms) before inserting data after the last `INSERT` query. If the value is different from zero, the [**Async insert busy timeout**](#setting-async-insert-busy-timeout) is extended with each `INSERT` query until the [**Async insert max data size**](#setting-async-insert-max-data-size) value is exceeded.
 
    The default value is `0`. If `0`, there is no timeout.
 
@@ -95,7 +95,7 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#async-insert-threads).
 
-* **Cancel http readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    If enabled, the service cancels HTTP readonly queries (like a SELECT) when the client aborts a connection before a response is returned.
 
@@ -103,15 +103,15 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
 
-* **Compile**{#setting-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Compile**{#setting-compile} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Defines whether to compile queries when running them. With compilation enabled, structurally identical queries may run faster by using their compiled parts.
+   This setting is deprecated.
+
+   It defines whether to compile queries when running them. With compilation enabled, structurally identical queries may run faster by using their compiled parts.
 
    Use this setting in combination with the [Min count to compile](#setting-min-count-to-compile) setting.
 
    Compilation is disabled by default.
-
-   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#compile).
 
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -125,13 +125,13 @@
 
    Connection timeout in milliseconds.
 
-   Minimum value is `1`. Default value is `10000` (10 seconds).
+   The minimum value is `1`, while the default one is `10000` (10 seconds).
 
-* **Connect timeout with failover ms**{#setting-connect-timeout-with-failover-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Connect timeout with failover**{#setting-connect-timeout-with-failover} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    Remote server connect timeout (ms) for `Distributed` table engines if a cluster uses sharding and replication.
 
-   If unable to connect to the server, attempts are made to connect to its replicas.
+   If unable to connect to the server, the system will attempt to connect to its replicas.
 
    The default value is `50`.
 
@@ -165,7 +165,7 @@
    * `iso`: ISO format.
    * `unix_timestamp`: Unix format.
 
-   Defaults to `simple`.
+   The default value is `simple`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-date_time_output_format).
 
@@ -197,12 +197,12 @@
 
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
 
-   Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query isn't executed on all hosts, a response contains the timeout error and the query is run in asynchronous mode. Possible values:
-   * A positive integer: The timeout is equal to this integer (in seconds).
+   Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query is not run on all hosts, the response will contain the timeout error and the query will be run in asynchronous mode. Possible values:
+   * Positive integer: Timeout is equal to this integer (in seconds).
    * `0`: Asynchronous mode.
-   * A negative number: Infinite timeout.
+   * Negative number: Infinite timeout.
 
-   By default, `180`.
+   The default value is `180`.
 
 * **Distributed product mode**{#setting-distributed-product-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -222,11 +222,11 @@
    * Disabled (default): {{ CH }} returns a single-line result consisting of `NULL `values for aggregation functions, in accordance with SQL standard.
    * Enabled: {{ CH }} returns an empty result.
 
-* **Enable http compression**{#setting-enable-http-compression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Enable HTTP compression**{#setting-enable-http-compression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Defines whether the data in a response to an HTTP request will be compressed.
 
-   By default, {{ CH }} stores data in a compressed format. The request output is uncompressed. For {{ CH }} to compress request outputs when sending them over HTTP, enable this option and pass the selected compression method in the `Accept-Encoding` request  header.
+   By default, {{ CH }} stores data in a compressed format. The request output is uncompressed. For {{ CH }} to compress request outputs when sending them over HTTP, enable this option and include the selected compression method in the `Accept-Encoding` request header.
    * `gzip`
    * `br`
    * `deflate`
@@ -253,8 +253,8 @@
 
    Possible values:
 
-   * `0`: A nested column is converted into an array of tuples.
-   * `1`: A nested column is converted into individual arrays.
+   * `0`: Nested column is converted into an array of tuples.
+   * `1`: Nested column is converted into individual arrays.
 
    The default value is `1`.
 
@@ -262,23 +262,23 @@
 
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Disables queries if you can't use an index by date. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
+   Disables queries if you cannot use an index by date. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
 
-   By default, the setting is disabled (query execution is enabled).
+   By default, this setting is disabled, which means query execution is enabled.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-force_index_by_date).
 
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Disables queries if you can't use an index by primary key. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
+   Disables queries if you cannot use an index by primary key. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
 
-   By default, the setting is disabled (query execution is enabled).
+   By default, this setting is disabled, which means query execution is enabled.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-force_primary_key).
 
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
-   Sets a regular expression in [re2 format](https://github.com/google/re2/wiki/Syntax) to be applied to each row of imported data. The number of subtemplates (parenthetical groups) in the expression must be equal to the number of columns in the table the data is imported to. Use the `\n` or `\r\n` line break characters as delimiters, line breaks can't be escaped. If a row doesn't match the regular expression, it's skipped.
+   Sets a regular expression in [re2 format](https://github.com/google/re2/wiki/Syntax) to be applied to each row of imported data. The number of subtemplates (parenthetical groups) in the expression must be equal to the number of columns in the table the data is imported to. Use the `\n` or `\r\n` line break characters as delimiters; line breaks cannot be escaped. If a row does not match the regular expression, it is skipped.
 
    No value is set by default.
 
@@ -286,16 +286,17 @@
 
    Sets the escaping rule for the regular expression specified in the [Format regexp](#setting-format-regexp) setting:
    * `CSV`
-   * `JSON`
    * `Escaped`
+   * `JSON`
    * `Quoted`
    * `Raw`
+   * `XML`
 
-   Defaults to `Raw` (no escaping).
+   The default value is `Raw` (no escaping).
 
 * **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} {{ tag-con }} {{ tag-sql }}
 
-   Outputs an error message if a row in imported data can't be split by the template specified in the [Format regexp](#setting-format-regexp) setting.
+   Outputs an error message if a row in imported data cannot be split by the template specified in the [Format regexp](#setting-format-regexp) setting.
 
    By default, no message is output (`0`).
 
@@ -320,25 +321,25 @@
 
    Minimum value is `0` (not set). Default is `50000000`.
 
-* **Http connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the HTTP connection timeout in milliseconds.
 
    Minimum value is `1`. Default is `1000` (one second).
 
-* **Http headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the minimum interval between progress notifications with the `X-ClickHouse-Progress` HTTP header, in milliseconds.
 
    Minimum value is `1`. Default is `100`.
 
-* **Http receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the HTTP receive timeout (in milliseconds).
 
    Minimum value is `1`. Default is `1800000` (30 minutes).
 
-* **Http send timeout**{#setting-http-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP send timeout**{#setting-http-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the HTTP send timeout (in milliseconds).
 
@@ -354,7 +355,7 @@
 
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
-   Defines if `NULL` cells should be filled in with the default values if the cell data type doesn't allow storing `NULL`.
+   Defines if `NULL` cells should be filled in with the default values if the cell data type does not allow storing `NULL`.
 
    Enabled by default (`NULL` cells are filled in with the defaults).
 
@@ -386,7 +387,7 @@
 
    Possible values:
 
-   * `0`: Inserting `NULL` in a column that doesn't allow `NULL` will throw an exception.
+   * `0`: Inserting `NULL` in a column that does not allow `NULL` will throw an exception.
    * `1`: The default column value is inserted instead of `NULL`.
 
    The default value is `1`.
@@ -407,7 +408,7 @@
 
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
 
-   If this setting is enabled, multiple `INSERT` queries with quorum write can be run in parallel . If disabled, only one `INSERT` query with quorum write is made to the same table.
+   If this setting is enabled, multiple `INSERT` queries with quorum write can be run in parallel. If disabled, only one `INSERT` query with quorum write is made to the same table.
 
    This setting is enabled by default.
 
@@ -417,13 +418,34 @@
 
    The minimum value is `1000` (1 second). The default is `60000` (1 minute).
 
+* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
+
+   Determines whether to insert JSON data with nested objects.
+
+   By default, such data inserts are disabled.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/operations/settings/settings/#settings-input_format_import_nested_json).
+
+* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
+
+   Determines whether to split incoming data into parts and parse each of them concurrently while preserving the original sequence. Only supported for [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv), and [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow) formats.
+
+   By default, such splitting of incoming data is enabled.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#input-format-parallel-parsing).
+
 * **Join algorithm**{#setting-join-algorithm} {{ tag-con }} {{ tag-sql }}
 
    Defines the `JOIN` algorithm:
-   * `hash`: Hash join.
-   * `partial_merge`: Join by merging sorted lists (sort-merge join).
-   * `prefer_partial_merge`: Use merge join whenever possible.
    * `auto`: Hash join is used but, if the server is running out of memory, {{ CH }} tries to use merge join.
+   * `direct`: Join via a search by rows in the right-hand table, which are keys in the left-hand table. Joins are only possible if the following two conditions are met:
+      * Storage in the right-hand table supports key-value queries, such as [Dictionary]({{ ch.docs }}/engines/table-engines/special/dictionary#dictionary) or [EmbeddedRocksDB]({{ ch.docs }}/engines/table-engines/integrations/embedded-rocksdb).
+      * `LEFT` and `INNER JOIN` queries are executed.
+   * `hash`: Hash join.
+   * `parallel_hash`: Type of hash join with data split into segments and multiple hash tables created at the same time instead of a single hash table.
+   * `partial_merge`: Type of join by merging sorted lists (sort-merge join) with only the right-hand part of the table sorted completely.
+   * `prefer_partial_merge`: `Partial_merge` algorithm. Used whenever possible; otherwise, `hash` is used.
+   * `sorting_merge`: Join by merging sorted lists (sort-merge join).
 
    The default algorithm is `hash`.
 
@@ -436,10 +458,10 @@
    * `max_rows_in_join`
 
    Possible values:
-   * `THROW`: {{ CH }} throws an exception and breaks the operation.
-   * `BREAK`: {{ CH }} breaks the operation without throwing an exception.
+   * `throw`: {{ CH }} throws an exception and breaks the operation.
+   * `break`: {{ CH }} breaks the operation without throwing an exception.
 
-   Defaults to `THROW`.
+   By default, `throw` is used.
 
 * **Join use nulls**{#setting-join-use-nulls} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -466,6 +488,19 @@
    ```
 
    This setting is disabled by default.
+
+* **Local filesystem read method**{#setting-local-filesystem-read-method} {{ tag-con }}
+
+   Determines how to read data from the local file system.
+
+   Possible values:
+
+   * `nmap`
+   * `pread`
+   * `pread_threadpool`
+   * `read`
+
+   The default value is `pread`.
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -511,7 +546,7 @@
 
    Data accumulated during the `GROUP BY` aggregation are stored in RAM for a certain period of time. This parameter sets a threshold (in bytes) which, when exceeded, will cause data to be flushed to disk to save RAM.
 
-   It is useful if queries fail because there isn't enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
+   It is useful if queries fail because there is not enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
 
    Minimum value is `0` (`GROUP BY` in external memory disabled). Default is `0`.
 
@@ -571,7 +606,7 @@
 
    The maximum number of concurrently processed user queries to a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table.
 
-   The minimum value is `0` (no limit), defaults to `450`.
+   The minimum value is `0` (no limit), while the default one is `450`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max-concurrent-queries-for-user).
 
@@ -591,7 +626,15 @@
 
    The default value is `500000`. If too small a value is set, it may render ClickHouse unable to execute even simple queries.
 
-* **Max http get redirects**{#setting-max-http-get-redirects} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+* **Max final threads**{#setting-max-final-threads} {{ tag-con }}
+
+   Maximum number of parallel threads for a `SELECT` query with the [FINAL]({{ ch.docs }}/sql-reference/statements/select/from/#select-from-final) modifier.
+
+   The default value is equal to the [Max threads](#setting-max-threads) setting value.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#max-final-threads).
+
+* **Max HTTP get redirects**{#setting-max-http-get-redirects} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    Sets the maximum number of redirects in tables with the [URL engine]({{ ch.docs }}/engines/table-engines/special/url/) for HTTP GET requests.
 
@@ -613,7 +656,7 @@
 
    The maximum amount of RAM (in bytes) to execute a query on a single server. This setting does not account for the amount of free memory or the total amount of a machine's memory. It applies to a single query on a single server.
 
-   Minimum value is `0` (no limit). Default is `10737418240` (10 GB). The maximum value is limited to the Max server memory usage setting value, which can't be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md).
+   Minimum value is `0` (no limit). Default is `10737418240` (10 GB). The maximum value is limited to the Max server memory usage setting value, which cannot be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md).
 
    If you are using [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort), we recommend setting their values to half of Max memory usage.
 
@@ -643,7 +686,7 @@
 
    Limits the maximum number of partitions per insert block.
 
-   The minimum value is `0` (no limit), defaults to `100`.
+   The minimum value is `0` (no limit), while the default one is `100`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity/#max-partitions-per-insert-block).
 
@@ -652,6 +695,12 @@
    Limits the size of the largest part of a query (in bytes) that can be transferred to RAM for parsing using the SQL parser.
 
    Minimum value is `1`. Default is `262144`.
+
+* **Max read buffer size**{#setting-max-read-buffer-size} {{ tag-con }}
+
+   Maximum buffer size (in bytes) to read data from the file system.
+
+   The default value is `1048576` (1 MB).
 
 * **Max replica delay for distributed queries**{#setting-max-replica-delay-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -722,6 +771,7 @@
    The maximum number of temporary columns concurrently stored in RAM when executing a query (including permanent columns).
 
    The minimum and default value is `0` (no limitation is set).
+
 * **Max temporary non const columns**{#setting-max-temporary-non-const-columns} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    The maximum number of temporary columns concurrently stored in RAM when executing a query (excluding permanent columns).
@@ -736,17 +786,17 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-max_threads).
 
+* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+   The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability does not depend on the size of the allocated or released memory.
+
+   Possible values are from `0` to `1`. The default value is `0`.
+
 * **Memory profiler step**{#setting-memory-profiler-step} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    Memory profiler step in bytes. If, at the next query execution step, memory usage increases by the number of bytes specified in this setting, the profiler saves the allocated stack trace. A value less than several MB slows down query processing.
 
-   Defaults to `4194304` (4 MB). If `0`, the memory profiler is disabled.
-
-* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
-
-   The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability doesn't depend on the size of memory allocated/released.
-
-   Possible values are from `0` to `1`. By default: `0`.
+   The default value is `4194304` (4 MB). If `0`, the memory profiler is disabled.
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -780,29 +830,31 @@
 
    The amount of data (in bytes) required for direct reading (Direct I/O) from disk.
 
-   By default, {{ CH }} doesn't read data directly from a disk, relying on the filesystem and its cache instead. This reading strategy is effective for small amounts of data. If a reading operation involves large amounts of data, it is more efficient to read the data directly from the disk and bypassing the filesystem cache.
+   By default, {{ CH }} does not read data directly from a disk, relying on the file system and its cache instead. This reading strategy is effective for small amounts of data. If a reading operation involves large amounts of data, it is more efficient to read the data directly from the disk and bypassing the filesystem cache.
 
    If the total amount of data stored for reading is greater than the value of this parameter, {{ CH }} will fetch the data directly from the disk.
 
    Minimum value and default value are `0` (direct reads disabled).
 
-* **Min count to compile**{#setting-min-count-to-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min count to compile**{#setting-min-count-to-compile} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+   This setting is deprecated.
 
    Sets the minimum count of structurally identical queries to start [compilation](#setting-compile) from.
 
-   For a value of `0`, compilation is performed in synchronous mode: a query waits for compilation to finish then continues to run. It is recommended to set this value only for testing purposes.
+   For a value of `0`, compilation is performed in synchronous mode: a query waits for the compilation to finish, and then continues running. We recommend setting this value only for testing purposes.
 
-   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it's available, including by currently running queries.
+   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
-   Minimum value is `0`. Default is `3`.
+   The minimum value is `0`, while the default one is `3`.
 
 * **Min count to compile expression**{#setting-min-count-to-compile-expression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the minimum count of identical expressions to start [expression compilation](#setting-compile-expressions) with.
 
-   For a value of `0`, compilation is performed in synchronous mode: an expression waits for compilation to finish then query execution continues. It is recommended to set this value only for testing purposes.
+   For a value of `0`, compilation is performed in synchronous mode: an expression waits for the compilation to finish, after which the query continues running. We recommend setting this value only for testing purposes.
 
-   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it's available, including by currently running queries.
+   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
    Minimum value is `0`. Default is `3`.
 
@@ -830,7 +882,7 @@
 
    The minimum block size (in bytes) that can be inserted into a table by an `INSERT` query. Smaller blocks are [merged]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
-   Minimum value is `0` (block squashing disabled). Default is ‭`268435456`‬‬ (256 MB).
+   The minimum value is `0` (block merges are disabled), while the default one is `268435456` (256 MB).
 
 * **Min insert block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -846,7 +898,7 @@
 
 * **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Defines the format of numbers in the JSON output. If this setting is enabled, 64-bit integers (`UInt64` and `Int64`) are put in quotes when output in JSON to maintain compatibility with most JavaScript engines, otherwise quotes aren't used.
+   Defines the format of numbers in the JSON output. If this setting is enabled, 64-bit integers (`UInt64` and `Int64`) are put in quotes when output in JSON to maintain compatibility with most JavaScript engines; otherwise, no quotes are used.
 
    By default, using quotes around 64-bit integers is disabled.
 
@@ -861,7 +913,7 @@
 
    If {{ CH }} receives a query with a higher priority, execution of lower-priority queries is suspended until this incoming query is completed.
 
-   The minimum value is `0` (default).
+   The minimum and default value is `0`.
 
 * **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -889,7 +941,7 @@
    * `1`: Only read data queries are allowed.
    * `2`: Read data and edit settings queries are allowed.
 
-   This setting doesn't affect running DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting.
+   This setting does not affect running DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting.
 
    See the [example of creating a user with read-only access](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
 
@@ -924,7 +976,7 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-select_sequential_consistency).
 
-* **Send progress in http headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Enables the sending of notifications regarding query execution status using `X-ClickHouse-Progress` headers.
 

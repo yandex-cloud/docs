@@ -1,5 +1,5 @@
 ```bash
-mkdir --parents ~/.clickhouse-client && \
+mkdir -p ~/.clickhouse-client && \
 wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
   --output-document ~/.clickhouse-client/config.xml
 ```

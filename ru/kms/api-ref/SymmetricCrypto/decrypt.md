@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/decrypt.md
+sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/decrypt.md
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.decrypt
