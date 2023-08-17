@@ -33,7 +33,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a network load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the network load balancer description.
@@ -76,6 +76,10 @@
    Use the [delete](../api-ref/NetworkLoadBalancer/delete.md) API method and provide the load balancer ID in the `networkLoadBalancerId` request parameter.
 
    You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
+
+- API
+
+   To delete a network load balancer, use the [delete](../api-ref/NetworkLoadBalancer/delete.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Delete](../api-ref/grpc/network_load_balancer_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

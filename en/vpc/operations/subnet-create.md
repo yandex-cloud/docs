@@ -20,7 +20,7 @@
    1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, enter the subnet IP address and mask.
       For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
       If you need to enter more CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-   1. (optional) Configure **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**: To do this:
+   1. (Optional) Set **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. To do this:
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** field, specify a DNS domain to search for unqualified names.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** and enter the address of your DNS server. You can specify multiple DNS servers.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** and enter the address of your NTP server. You can specify multiple NTP servers.

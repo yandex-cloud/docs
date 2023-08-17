@@ -30,7 +30,7 @@ For setup instructions, see [{#T}](custom-image.md).
 ## Upload an image file to {{ objstorage-name }} {#upload-file}
 
 Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
-1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
+1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one with restricted access.
 1. Upload the image [using the management console](../../../storage/operations/objects/upload.md), the [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md), for example. In {{ objstorage-name }} terms, the uploaded image is called an _object_.
 1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
 

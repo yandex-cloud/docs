@@ -102,8 +102,10 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the upper-right corner.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
    1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
-   1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section:
-      * Choose the [platform](../../concepts/vm-platforms.md) Intel Broadwell with NVIDIA® Tesla® V100.
+   1. Change the [configuration](../../concepts/performance-levels.md) of the VM in the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section:
+      * Choose a [platform](../../concepts/vm-platforms.md#gpu-platforms).
+
+
       * Specify the required number of GPUs.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
    1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the upper-right corner.
@@ -148,10 +150,10 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
         --gpus=1
       ```
 
-      This command changes the following VM characteristics:
+      This command changes the following VM specs:
       * **Platform** to {{ t4-ice-lake }}.
 
-        
+
       * **Number of vCPUs** to 8.
       * **RAM** to 32 GB.
       * **GPU** to 1.
@@ -225,8 +227,8 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
       ```
 
       This command changes the number of GPUs to 2.
-      
-      Values of `--cores` (number of vCPUs) and `--memory` (RAM in GB) depend on the GPU platform and the number of GPUs. See the [list of available configurations](../../concepts/gpus.md#config).
+
+      The values of `--cores` (number of vCPUs) and `--memory` (amount of RAM in GB) parameters depend on the platform and the number of GPUs. See also [List of available configurations](../../concepts/gpus.md#config).
 
    1. Run the VM:
 

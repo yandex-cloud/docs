@@ -10,13 +10,13 @@ To update an [instance group](../../concepts/instance-groups/index.md) based on 
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   Run the following command:
+   Run the command below by specifying the instance group name or ID and the YAML specification file path:
 
    ```
-   {{ yc-compute-ig }} update --file specification.yaml
+   {{ yc-compute-ig }} update <instance_group_name>|<instance_group_ID> --file specification.yaml
    ```
 
-   For more information about the `{{ yc-compute-ig}} update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
+   For more information about the `{{ yc-compute-ig }} update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
 
 - API
 

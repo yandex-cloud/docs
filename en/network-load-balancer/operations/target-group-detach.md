@@ -37,7 +37,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To detach a [target group](../concepts/target-resources.md) from a network load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
@@ -70,7 +70,7 @@
 
 - API
 
-   Use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method and include the following in the request:
+   To detach a target group from a network load balancer, use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/DetachTargetGroup](../api-ref/grpc/network_load_balancer_service.md#DetachTargetGroup) gRPC API call and provide the following in the request:
 
    * Load balancer ID in the `networkLoadBalancerId` parameter.
    * Target group ID in the `targetGroupId` parameter.

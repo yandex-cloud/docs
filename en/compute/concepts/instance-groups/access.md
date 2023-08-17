@@ -8,6 +8,12 @@ Service accounts are special accounts that can be used by services and applicati
 
 An instance group may only have one service account created in the same folder as the group.
 
+{% note info %}
+
+{% include [sa-dependence](../../../_includes/instance-groups/sa-dependence.md) %}
+
+{% endnote %}
+
 #### See also {#see-also}
 
 - [{#T}](../../quickstart/ig.md).

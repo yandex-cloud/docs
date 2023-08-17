@@ -18,6 +18,43 @@
          1. Specify the device name for accessing file storage in the VM.
          1. Click **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
 
+   - {{ TF }}
+
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
+
+      To attach file storage to the VM, add the `filesystem` section with the `filesystem_id` parameter to the VM description (see the example below).
+
+      1. Open the {{ TF }} configuration file and add a fragment with the storage description to the VM description:
+
+         {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
+
+         ```hcl
+         ...
+         resource "yandex_compute_instance" "vm-1" {
+           name        = "test-vm"
+           platform_id = "standard-v3"
+           zone        = "{{ region-id }}-a"
+
+           filesystem {
+             filesystem_id = "fhmaikp755grp4mlvvem"
+           }
+         ...
+         ```
+
+         {% endcut %}
+
+      1. Apply the changes:
+
+         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify that the storage has been added to the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc compute instance get <VM_name>
+      ```
+
    - API
 
      Use the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API call.
@@ -29,7 +66,7 @@
    1. Run this command:
 
       ```bash
-      sudo mount -t virtiofs <device name> <mount path>
+      sudo mount -t virtiofs <device_name> <mount_path>
       ```
 
    1. Check that the file storage has been mounted:
@@ -54,6 +91,6 @@
 
    1. In order for file storage to be mounted every time the VM is started, add a line to the `/etc/fstab` file in the following format:
 
-      ```text
-      <device name>  <mount path> virtiofs    rw    0   0
+      ```
+      <device_name>  <mount_path> virtiofs    rw    0   0
       ```

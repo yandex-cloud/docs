@@ -24,7 +24,7 @@ Make sure the uploaded image is in the `READY` status.
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
+      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image:
 
@@ -45,7 +45,7 @@ Make sure the uploaded image is in the `READY` status.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
    
-   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../../concepts/filesystem.md):
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select a file store.
@@ -81,6 +81,8 @@ Make sure the uploaded image is in the `READY` status.
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
+
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -149,18 +151,19 @@ Make sure the uploaded image is in the `READY` status.
       ```hcl
       resource "yandex_compute_instance" "vm-1" {
 
-        name        = "vm-from-image"
-        platform_id = "standard-v3"
-        zone        = "<availability zone>"
+        name                      = "vm-from-image"
+        allow_stopping_for_update = true
+        platform_id               = "standard-v3"
+        zone                      = "<availability_zone>"
 
         resources {
-          cores  = <number of vCPU cores>
-          memory = <RAM amount, GB>
+          cores  = <number_of_vCPU_cores>
+          memory = <amount_of_RAM_in_GB>
         }
 
         boot_disk {
           initialize_params {
-            image_id = "<image ID>"
+            image_id = "<image_ID>"
           }
         }
 
@@ -170,7 +173,7 @@ Make sure the uploaded image is in the `READY` status.
         }
 
         metadata = {
-          ssh-keys = "<username>:<SSH key contents>"
+          ssh-keys = "<username>:<SSH_key_contents>"
         }
       }
 
@@ -180,7 +183,7 @@ Make sure the uploaded image is in the `READY` status.
 
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
-        zone       = "<availability zone>"
+        zone       = "<availability_zone>"
         network_id = "${yandex_vpc_network.network-1.id}"
       }
       ```
@@ -188,6 +191,7 @@ Make sure the uploaded image is in the `READY` status.
       Where:
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
+         * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
@@ -204,23 +208,10 @@ Make sure the uploaded image is in the `READY` status.
       {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
 
-         ```bash
-         terraform plan
-         ```
+   1. Create resources:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Deploy cloud resources.
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm that you want to create the resources.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 

@@ -838,6 +838,8 @@ default:
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
+  api-host-monitoring-1: monitoring.api.cloud.yandex.net
+  api-host-monitoring-2: monitoring.cloud.yandex.ru
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -5439,7 +5441,6 @@ default:
             field_instance-group-network: Сеть
             field_key: SSH-ключ
             field_name: Имя
-            field_password: Пароль
             field_serial-port-enable: Разрешить доступ к серийной консоли
             field_service-account: Сервисный аккаунт
             field_user: Логин
@@ -7476,6 +7477,8 @@ default:
         general: Общие настройки
         link: Привязать
         manage-labels: Управление метками
+        member:
+          remove: Удалить
         members: Участники
         more: Еще
         name: Имя

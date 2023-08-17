@@ -65,7 +65,7 @@ description: "Use this tutorial to create a Linux VM."
 
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
-      * `image-family`: An [image family](../../concepts/image.md#family), such as `centos-7`. This option lets you install the latest version of the OS from the specified family.
+      * `image-family`: [Image family](../../concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the OS from the specified family.
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP, disable this parameter.
       * `ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
 
@@ -203,18 +203,19 @@ description: "Use this tutorial to create a Linux VM."
       ```hcl
       resource "yandex_compute_instance" "vm-1" {
 
-        name        = "linux-vm"
-        platform_id = "standard-v3"
-        zone        = "<availability zone>"
+        name                      = "linux-vm"
+        allow_stopping_for_update = true
+        platform_id               = "standard-v3"
+        zone                      = "<availability_zone>"
 
         resources {
-          cores  = "<number of vCPU cores>"
-          memory = "<RAM amount, GB>"
+          cores  = "<number_of_vCPU_cores>"
+          memory = "<amount_of_RAM_in_GB>"
         }
 
         boot_disk {
           initialize_params {
-            image_id = "<image ID>"
+            image_id = "<image_ID>"
           }
         }
 
@@ -224,7 +225,7 @@ description: "Use this tutorial to create a Linux VM."
         }
 
         metadata = {
-          ssh-keys = "<username>:<SSH key contents>"
+          ssh-keys = "<username>:<SSH_key_contents>"
         }
       }
 
@@ -234,7 +235,7 @@ description: "Use this tutorial to create a Linux VM."
 
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
-        zone           = "<availability zone>"
+        zone           = "<availability_zone>"
         v4_cidr_blocks = ["192.168.10.0/24"]
         network_id     = "${yandex_vpc_network.network-1.id}"
       }
@@ -243,6 +244,7 @@ description: "Use this tutorial to create a Linux VM."
       Where:
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
+         * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
@@ -259,25 +261,12 @@ description: "Use this tutorial to create a Linux VM."
       {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
 
-         ```bash
-         terraform plan
-         ```
+   1. Create resources:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Deploy cloud resources.
-      1. If the configuration does not contain any errors, run this command:
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm that you want to create the resources.
-
-      Once you are done, all the resources you need will be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -285,4 +274,4 @@ description: "Use this tutorial to create a Linux VM."
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md).
+* [{#T}](../vm-connect/ssh.md)

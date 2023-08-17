@@ -21,7 +21,9 @@ To create a key pair:
 
 - Windows 10
 
-   1. Run `cmd.exe` or `powershell.exe`.
+   If you do not have [OpenSSH](https://en.wikipedia.org/wiki/OpenSSH) installed yet, install it by following this [guide](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui).
+
+   1. Run `cmd.exe` or `powershell.exe` (make sure to update PowerShell first).
    1. Use the `ssh-keygen` command to create a new key. Run this command:
 
       ```shell
@@ -39,12 +41,12 @@ To create a key pair:
    To create keys for Windows, use the PuTTY application.
    1. [Download](https://www.putty.org) and install PuTTY.
    1. Make sure that the directory where you installed PuTTY is included in `PATH`:
-      1. Right-click on **My computer**. Click **Properties**.
+      1. Right-click **My computer**. Click **Properties**.
       1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
       1. Under **System variables**, find `PATH` and click **Edit**.
       1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
    1. Launch the PuTTYgen app.
-   1. Select **Ed25519** as the pair type to generate. Click **Generate** and move the cursor in the field above it until key creation is complete.
+   1. Select **EdDSA** as the pair type to generate. Click **Generate** and move the cursor in the field above it until key creation is complete.
 
       ![ssh_generate_key](../_assets/compute/ssh-putty/ssh_generate_key.png)
 

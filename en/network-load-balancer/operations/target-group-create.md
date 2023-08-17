@@ -84,4 +84,10 @@
 
    You can add targets after creating the target group. To do this, use the [addTargets](../api-ref/TargetGroup/addTargets) API method.
 
+- API
+
+   To create a new target group, use the [create](../api-ref/TargetGroup/create.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create) gRPC API call.
+
+   Once the target group has been created, add targets that the load will be distributed across. To do this, use the [addTargets](../api-ref/TargetGroup/addTargets) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets) gRPC API call.
+
 {% endlist %}

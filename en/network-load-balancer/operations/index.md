@@ -9,7 +9,7 @@ description: "Step-by-step guide for working with a network load balancer in {{ 
 
 - [{#T}](load-balancer-list.md)
 - [{#T}](load-balancer-create.md)
-- [{#T}](load-balancer-stop.md)
+- [{#T}](load-balancer-start-and-stop.md)
 - [{#T}](load-balancer-update.md)
 - [{#T}](load-balancer-delete.md)
 - [{#T}](check-resource-health.md)

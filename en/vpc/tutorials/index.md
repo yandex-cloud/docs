@@ -8,3 +8,4 @@
 * [Connecting to a cloud network using OpenVPN](openvpn.md)
 * [Creating and configuring a UserGate gateway in proxy server mode](usergate-proxy.md)
 * [Configuring networks for {{ dataproc-full-name }}](dataproc-nat-instance.md)
+* [Multi-folder VPC](multi-folder-vpc.md)

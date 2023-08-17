@@ -1,6 +1,6 @@
 # Creating a high-performance SSD
 
-You can create a separate [high-performance](../../concepts/disk.md#nr-disks) SSD combining the high speed of a non-replicated disk with redundancy.
+You can create a separate [high-performance](../../concepts/disk.md#nr-disks) SSD that combines the high speed of a non-replicated disk with redundancy.
 
 The size of a disk must be a multiple of 93 GB.
 
@@ -8,7 +8,7 @@ The size of a disk must be a multiple of 93 GB.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -16,7 +16,7 @@ The size of a disk must be a multiple of 93 GB.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-   1. Add a disk description, if required.
+   1. Add a description for the disk, if required.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
 
       
@@ -38,7 +38,7 @@ The size of a disk must be a multiple of 93 GB.
       yc compute disk create --help
       ```
 
-   1. To create a high-performance disk with the name `ssd-io-disk`, run this command:
+   1. To create a high-performance disk named `ssd-io-disk`, run this command:
 
       ```bash
       yc compute disk create \

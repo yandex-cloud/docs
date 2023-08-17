@@ -98,6 +98,8 @@ items:
         href: tutorials/dataproc-nat-instance.md
       - name: Network between folders
         href: tutorials/multi-folder-vpc.md
+      - name: Setting up PT Application Firewall
+        href: tutorials/pt-application-firewall.md
   - name: Concepts
     items:
       - name: Relationships between service resources

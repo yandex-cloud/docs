@@ -76,23 +76,23 @@ The internal load balancer's listener is assigned a random IP address from the r
    1. To create an internal load balancer with a [listener](../concepts/listener.md) and a [target group](../concepts/target-resources.md), run this command:
 
       ```bash
-      yc load-balancer network-load-balancer create <load balancer name> \
+      yc load-balancer network-load-balancer create <load_balancer_name> \
          --type=internal \
-         --listener name=<listener name>,`
+         --listener name=<listener_name>,`
                    `port=<port>,`
-                   `target-port=<target port>,`
-                   `protocol=<protocol: TCP or UDP>,`
-                   `internal-subnet-id=<subnet ID>,`
-                   `internal-ip-version=<IP address version: ipv4 or ipv6> \
-         --target-group target-group-id=<target group ID>,`
-                       `healthcheck-name=<health check name>,`
-                       `healthcheck-interval=<interval between health checks>s,`
-                       `healthcheck-timeout=<health check timeout>s,`
-                       `healthcheck-unhealthythreshold=<number of failed health checks for Unhealthy status>,`
-                       `healthcheck-healthythreshold=<number of successful health checks for Healthy status>,`
-                       `healthcheck-tcp-port=<TCP port>,`
-                       `healthcheck-http-port=<HTTP port>,`
-                       `healthcheck-http-path=<URL for health checks>
+                   `target-port=<target_port>,`
+                   `protocol=<protocol:_tcp_or_udp>,`
+                   `internal-subnet-id=<subnet_ID>,`
+                   `internal-ip-version=<IP_version:_ipv4_or_ipv6> \
+         --target-group target-group-id=<target_group_ID>,`
+                       `healthcheck-name=<health_check_name>,`
+                       `healthcheck-interval=<health_check_interval>s,`
+                       `healthcheck-timeout=<health_check_timeout>s,`
+                       `healthcheck-unhealthythreshold=<number_of_failed_health_checks_for_Unhealthy_status>,`
+                       `healthcheck-healthythreshold=<number_of_successful_health_checks_for_Healthy_status>,`
+                       `healthcheck-tcp-port=<TCP_port>,`
+                       `healthcheck-http-port=<HTTP_port>,`
+                       `healthcheck-http-path=<URL_to_perform_health_checks_at>
       ```
 
       Where:
@@ -122,22 +122,23 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network load balancer name>"
+        name = "<network_load_balancer_name>"
         type = "internal"
+        deletion_protection = "<deletion_protection:_true_or_false>"
         listener {
-          name = "<listener name>"
-          port = <port number>
+          name = "<listener_name>"
+          port = <port_number>
           internal_address_spec {
-            subnet_id = "<subnet ID>"
-            ip_version = "<IP address version: ipv4 or ipv6>"
+            subnet_id = "<subnet_ID>"
+            ip_version = "<IP_version:_ipv4_or_ipv6>"
           }
         attached_target_group {
-          target_group_id = "<target group ID>"
+          target_group_id = "<target_group_ID>"
           healthcheck {
-            name = "<health check name>"
+            name = "<health_check_name>"
               http_options {
-                port = <port number>
-                path = "<URL for health checks>"
+                port = <port_number>
+                path = "<URL_to_perform_health_checks_at>"
               }
           }
         }
@@ -148,6 +149,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       * `name`: Name of the network load balancer.
       * `type`: Type of the network load balancer. Use `internal` to create an internal network load balancer.
+      * `deletion_protection`: Internal network load balancer deletion protection. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
       * `listener`: Listener parameters:
          * `name`: Name of the listener.
          * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
@@ -160,13 +162,11 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure the settings are correct.
+   1. Create a network load balancer:
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   1. Create a network load balancer.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -179,6 +179,10 @@ The internal load balancer's listener is assigned a random IP address from the r
    * [Target group](../concepts/target-resources.md) IDs and settings of its [resource health checks](../concepts/health-check.md) in the `attachedTargetGroups` parameter.
 
    You can get the target group IDs with a [list of target groups in the folder](target-group-list.md#list).
+
+- API
+
+   To create an internal network load balancer, use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -207,9 +211,10 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
       resource "yandex_lb_network_load_balancer" "foo" {
         name = "internal-lb-test-1"
         type = "internal"
+        deletion_protection = "true"
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -225,7 +230,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
 
    ```api
    {
-     "folderId": "<folder ID>",
+     "folderId": "<folder_ID>",
      "name": "internal-lb-test-1",
      "type": "INTERNAL"
    }
@@ -243,9 +248,9 @@ Create an internal network load balancer with a listener and attached target gro
    * Port: `80`.
    * Target port: `81`.
    * Protocol: `TCP`.
-   * Subnet ID: `b0cp4drld130kuprafls`.
+   * Subnet ID: `b0cp4drld130********`.
    * IP version: `ipv4`.
-* Target group ID: `enpu2l7q9kth8906spjn`.
+* Target group ID: `enpu2l7q9kth********`.
 * Target group health check parameters:
    * Name: `HTTP`.
    * Health check interval: `2` seconds.
@@ -268,9 +273,9 @@ Create an internal network load balancer with a listener and attached target gro
                 `port=80,`
                 `target-port=81,`
                 `protocol=tcp,`
-                `internal-subnet-id=b0cp4drld130kuprafls,`
+                `internal-subnet-id=b0cp4drld130********,`
                 `internal-ip-version=ipv4 \
-      --target-group target-group-id=enpu2l7q9kth8906spjn,`
+      --target-group target-group-id=enpu2l7q9kth********,`
                     `healthcheck-name=http,`
                     `healthcheck-interval=2s,`
                     `healthcheck-timeout=1s,`
@@ -288,18 +293,19 @@ Create an internal network load balancer with a listener and attached target gro
       resource "yandex_lb_network_load_balancer" "internal-lb-test" {
         name = "internal-lb-test-2"
         type = "internal"
+        deletion_protection = "true"
         listener {
           name        = "test-listener"
           port        = 80
           target_port = 81
           protocol    = "tcp"
           internal_address_spec {
-            subnet_id  = "b0cp4drld130kuprafls"
+            subnet_id  = "b0cp4drld130********"
             ip_version = "ipv4"
           }
         }
         attached_target_group {
-          target_group_id = "enpu2l7q9kth8906spjn"
+          target_group_id = "enpu2l7q9kth********"
           healthcheck {
             name                = "http"
             interval            = 2
@@ -315,7 +321,7 @@ Create an internal network load balancer with a listener and attached target gro
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -331,7 +337,7 @@ Create an internal network load balancer with a listener and attached target gro
 
    ```api
    {
-     "folderId": "<folder ID>",
+     "folderId": "<folder_ID>",
      "name": "internal-lb-test-2",
      "type": "INTERNAL",
      "listenerSpecs": [
@@ -341,14 +347,14 @@ Create an internal network load balancer with a listener and attached target gro
          "protocol": "TCP",
          "targetPort": "81",
          "internalAddressSpec": {
-           "subnetId": "b0cp4drld130kuprafls",
+           "subnetId": "b0cp4drld130********",
            "ipVersion": "IPV4"
          }
        }
      ],
      "attachedTargetGroups": [
        {
-         "targetGroupId": "enpu2l7q9kth8906spjn",
+         "targetGroupId": "enpu2l7q9kth********",
          "healthChecks": [
            {
              "name": "http",

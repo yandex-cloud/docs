@@ -21,7 +21,10 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.  In {{ ig-name }}, all operations are performed on behalf of a service account.
+      * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
+
+         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
       * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option if needed. You cannot delete a group with this option enabled.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones and regions](../../../overview/concepts/geo-scope.md).
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set up the configuration for a basic instance:
@@ -109,6 +112,9 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
          Where:
          * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
          * `service_account_id`: Service account ID.
+
+            {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
          * `description`: Description of the instance group.
       * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
@@ -121,11 +127,11 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
            boot_disk_spec:
              mode: READ_WRITE
              disk_spec:
-               image_id: fdvk34al8k5nltb58shr
+               image_id: fdvk34al8k5n********
                type_id: network-hdd
                size: 32g
            network_interface_specs:
-             - network_id: c64mknqgnd8avp6edhbt
+             - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
            scheduling_policy:
              preemptible: false
@@ -163,6 +169,10 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
          allocation_policy:
            zones:
              - zone_id: {{ region-id }}-a
+               instance_tags_pool:
+               - first
+               - second
+               - third
          ```
 
          Where:
@@ -184,39 +194,43 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
          For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
 
-   Full code for the `specification.yaml` file:
+     Full code for the `specification.yaml` file:
 
-   ```yaml
-   name: first-fixed-group-with-balancer
-   service_account_id: <ID>
-   description: "This instance group was created from YAML config."
-   instance_template:
-     platform_id: standard-v3
-     resources_spec:
-       memory: 2g
-       cores: 2
-     boot_disk_spec:
-       mode: READ_WRITE
-       disk_spec:
-         image_id: fdvk34al8k5nltb58shr
-         type_id: network-hdd
-         size: 32g
-     network_interface_specs:
-       - network_id: c64mknqgnd8avp6edhbt
-         primary_v4_address_spec: {}
-     deploy_policy:
-       max_unavailable: 1
-       max_expansion: 0
-     scale_policy:
-       fixed_scale:
-         size: 3
-     allocation_policy:
-       zones:
-         - zone_id: {{ region-id }}-a
-     load_balancer_spec:
-       target_group_spec:
-         name: first-target-group
-   ```
+     ```yaml
+     name: first-fixed-group-with-balancer
+     service_account_id: <ID>
+     description: "This instance group was created from YAML config."
+     instance_template:
+       platform_id: standard-v3
+       resources_spec:
+         memory: 2g
+         cores: 2
+       boot_disk_spec:
+         mode: READ_WRITE
+         disk_spec:
+           image_id: fdvk34al8k5n********
+           type_id: network-hdd
+           size: 32g
+       network_interface_specs:
+         - network_id: c64mknqgnd8a********
+           primary_v4_address_spec: {}
+       deploy_policy:
+         max_unavailable: 1
+         max_expansion: 0
+       scale_policy:
+         fixed_scale:
+           size: 3
+       allocation_policy:
+         zones:
+           - zone_id: {{ region-id }}-a
+             instance_tags_pool:
+             - first
+             - second
+             - third
+       load_balancer_spec:
+         target_group_spec:
+           name: first-target-group
+     ```
 
    1. Create an instance group in the default folder:
 
@@ -237,7 +251,7 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -247,26 +261,27 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
         role      = "editor"
-        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+        member   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
       }
 
       resource "yandex_compute_instance_group" "ig-1" {
-        name               = "fixed-ig-with-balancer"
-        folder_id          = "<folder ID>"
-        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
+        name                = "fixed-ig-with-balancer"
+        folder_id           = "<folder_ID>"
+        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
+        deletion_protection = "<deletion_protection:_true_or_false>"
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <amount of RAM in GB>
-            cores  = <number of vCPU cores>
+            memory = <amount_of_RAM_in_GB>
+            cores  = <number_of_vCPU_cores>
           }
 
           boot_disk {
             mode = "READ_WRITE"
             initialize_params {
-              image_id = "<image ID>"
+              image_id = "<image_ID>"
             }
           }
 
@@ -276,13 +291,13 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
           }
 
           metadata = {
-            ssh-keys = "<username>:<SSH key contents>"
+            ssh-keys = "<username>:<SSH_key_contents>"
           }
         }
 
         scale_policy {
           fixed_scale {
-            size = <number of instances in the group>
+            size = <number_of_instances_in_the_group>
           }
         }
 
@@ -338,12 +353,16 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
       Where:
       * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+
+         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
+      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.
             * `folder_id`: ID of the folder.
             * `service_account_id`: Service account ID.
+            * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
             * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
@@ -359,7 +378,7 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
          * {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md):
             * `target_group_name`: {{ network-load-balancer-name }} target group name.
             * `target_group_description`: {{ network-load-balancer-name }} target group description.
-               For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
+               For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.
       * `yandex_lb_network_load_balancer`: Description of the [{{ network-load-balancer-name }} load balancer](../../../network-load-balancer/concepts/index.md) to attach the target group to.
@@ -371,25 +390,11 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
       {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+   1. Create resources:
 
-         ```bash
-         terraform plan
-         ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Deploy cloud resources.
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm that you want to create the resources.
-
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API
 

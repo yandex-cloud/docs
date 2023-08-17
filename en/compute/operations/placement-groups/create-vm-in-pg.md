@@ -146,7 +146,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the virtual machine has been created and added to the placement group from the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can verify that the virtual machine has been created and added to the placement group from the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

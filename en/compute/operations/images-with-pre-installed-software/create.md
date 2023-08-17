@@ -16,7 +16,7 @@ To create a [VM](../../concepts/vm.md):
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place the VM in.
+      * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
    1. (Optional) If you want to add more [disks](../../concepts/disk.md) to the VM, [select them](../vm-create/create-from-disks.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** by clicking the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab.
 
@@ -56,6 +56,9 @@ To create a [VM](../../concepts/vm.md):
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
       * (Optional) Enable access to the [serial console](../index.md#serial-console) in the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, if required.
+
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configuring software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
@@ -192,7 +195,7 @@ To create a [VM](../../concepts/vm.md):
 
       {% endnote %}
 
-      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:

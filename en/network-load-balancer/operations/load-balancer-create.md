@@ -72,21 +72,21 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
    1. To create a load balancer with a [listener](../concepts/listener.md) and a [target group](../concepts/target-resources.md), run this command:
 
       ```bash
-      yc load-balancer network-load-balancer create <load balancer name> \
-         --listener name=<listener name>,`
+      yc load-balancer network-load-balancer create <load_balancer_name> \
+         --listener name=<listener_name>,`
                    `port=<port>,`
-                   `target-port=<target port>,`
-                   `protocol=<protocol: TCP or UDP>,`
-                   `external-ip-version=<IP address version: ipv4 or ipv6> \
-         --target-group target-group-id=<target group ID>,`
-                       `healthcheck-name=<health check name>,`
-                       `healthcheck-interval=<interval between health checks>s,`
-                       `healthcheck-timeout=<health check timeout>s,`
-                       `healthcheck-unhealthythreshold=<number of failed health checks for Unhealthy status>,`
-                       `healthcheck-healthythreshold=<number of successful health checks for Healthy status>,`
+                   `target-port=<target_port>,`
+                   `protocol=<protocol:_tcp_or_udp>,`
+                   `external-ip-version=<IP_version:_ipv4_or_ipv6> \
+         --target-group target-group-id=<target_group_ID>,`
+                       `healthcheck-name=<health_check_name>,`
+                       `healthcheck-interval=<health_check_interval>s,`
+                       `healthcheck-timeout=<health_check_timeout>s,`
+                       `healthcheck-unhealthythreshold=<number_of_failed_health_checks_for_Unhealthy_status>,`
+                       `healthcheck-healthythreshold=<number_of_successful_health_checks_for_Healthy_status>,`
                        `healthcheck-tcp-port=<TCP port>,`
                        `healthcheck-http-port=<HTTP port>,`
-                       `healthcheck-http-path=<URL for health checks>
+                       `healthcheck-http-path=<URL_to_perform_health_checks_at>
       ```
 
       Where:
@@ -107,21 +107,22 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
-        name = "<network load balancer name>"
+        name = "<network_load_balancer_name>"
+        deletion_protection = "<deletion_protection:_true_or_false>"
         listener {
-          name = "<listener name>"
-          port = <port number>
+          name = "<listener_name>"
+          port = <port_number>
           external_address_spec {
-            ip_version = "<IP address version: ipv4 or ipv6>"
+            ip_version = "<IP_version:_ipv4_or_ipv6>"
           }
         }
         attached_target_group {
-          target_group_id = "<target group ID>"
+          target_group_id = "<target_group_ID>"
           healthcheck {
-            name = "<health check name>"
+            name = "<health_check_name>"
             http_options {
-              port = <port number>
-              path = "<URL for health checks>"
+              port = <port_number>
+              path = "<URL_to_perform_health_checks_at>"
             }
           }
         }
@@ -131,6 +132,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       Where:
 
       * `name`: Name of the network load balancer.
+      * `deletion_protection`: Network load balancer deletion protection. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
       * `listener`: Listener parameters:
          * `name`: Name of the listener.
          * `port`: Port in the range of `1` to `32767` that the network load balancer will receive incoming traffic on.
@@ -140,7 +142,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
          * `target_group_id`: Target group ID.
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -160,6 +162,10 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
    * [Target group](../concepts/target-resources.md) IDs and settings of its [resource health checks](../concepts/health-check.md) in the `attachedTargetGroups` parameter.
 
    You can get the target group IDs with a [list of target groups in the folder](target-group-list.md#list).
+
+- API
+
+   To create a new network load balancer, use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -186,10 +192,11 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
         name = "test-load-balancer-1"
+        deletion_protection = "true"
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -205,7 +212,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 
    ```api
    {
-     "folderId": "<folder ID>",
+     "folderId": "<folder_ID>",
      "name": "test-load-balancer-1",
      "type": "EXTERNAL"
    }
@@ -224,7 +231,7 @@ Create a network load balancer with a listener and attached target group with th
    * Target port: `81`.
    * Protocol: `TCP`.
    * IP version: `ipv4`.
-* Target group ID: `enpu2l7q9kth8906spjn`.
+* Target group ID: `enpu2l7q9kth********`.
 * Target group resource health check parameters:
    * Name: `HTTP`.
    * Health check interval: `2` seconds.
@@ -247,7 +254,7 @@ Create a network load balancer with a listener and attached target group with th
                 `target-port=81,`
                 `protocol=tcp,`
                 `external-ip-version=ipv4 \
-      --target-group target-group-id=enpu2l7q9kth8906spjn,`
+      --target-group target-group-id=enpu2l7q9kth********,`
                     `healthcheck-name=http,`
                     `healthcheck-interval=2s,`
                     `healthcheck-timeout=1s,`
@@ -264,6 +271,7 @@ Create a network load balancer with a listener and attached target group with th
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
         name = "test-load-balancer-2"
+        deletion_protection = "true"
         listener {
           name        = "test-listener"
           port        = 80
@@ -274,7 +282,7 @@ Create a network load balancer with a listener and attached target group with th
           }
         }
         attached_target_group {
-          target_group_id = "enpu2l7q9kth8906spjn"
+          target_group_id = "enpu2l7q9kth********"
           healthcheck {
             name                = "http"
             interval            = 2
@@ -290,7 +298,7 @@ Create a network load balancer with a listener and attached target group with th
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -306,7 +314,7 @@ Create a network load balancer with a listener and attached target group with th
 
    ```api
    {
-     "folderId": "<folder ID>",
+     "folderId": "<folder_ID>",
      "name": "test-load-balancer-2",
      "type": "EXTERNAL",
      "listenerSpecs": [
@@ -322,7 +330,7 @@ Create a network load balancer with a listener and attached target group with th
      ],
      "attachedTargetGroups": [
        {
-         "targetGroupId": "b7rjtf12qdeehrj31hri",
+         "targetGroupId": "b7rjtf12qdee********",
          "healthChecks": [
            {
              "name": "http",

@@ -165,7 +165,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 
-# GPU clusters {#gpu-cluster}
+## GPU clusters {#gpu-cluster}
 
 * [{#T}](gpu-cluster/gpu-cluster-create.md)
 * [{#T}](gpu-cluster/gpu-add-to-cluster.md)

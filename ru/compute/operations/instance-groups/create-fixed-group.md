@@ -181,18 +181,18 @@
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
-       folder_id = "<идентификатор_каталога>"
-       role      = "editor"
-       member   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+       folder_id  = "<идентификатор_каталога>"
+       role       = "editor"
+       member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
        depends_on = [
          yandex_iam_service_account.ig-sa,
        ]
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
-       name               = "fixed-ig"
-       folder_id          = "<идентификатор_каталога>"
-       service_account_id = "${yandex_iam_service_account.ig-sa.id}"
+       name                = "fixed-ig"
+       folder_id           = "<идентификатор_каталога>"
+       service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
        deletion_protection = "<защита_от_удаления:_true_или_false>"
        depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
        instance_template {
@@ -231,7 +231,7 @@
 
        deploy_policy {
          max_unavailable = 1
-         max_expansion = 0
+         max_expansion   = 0
        }
      }
 

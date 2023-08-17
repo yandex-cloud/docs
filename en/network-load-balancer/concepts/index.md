@@ -15,7 +15,7 @@ When creating a network load balancer, a pre-created [target group](target-resou
 
 By hosting resources in different availability zones, you ensure their fault tolerance: if there are targets in every availability zone and they are ready to receive traffic, the traffic is distributed across all zones. If all targets in an availability zone fail, the traffic will no longer be routed to this zone and will be distributed across the remaining zones.
 
-For detailed recommendations on how to use a load balancer, see [Best practices](../best-practices.md).
+For detailed recommendations on how to use a load balancer, see [Best practices](../best-practices/index.md).
 
 
 ## Network load balancer status {#lb-statuses}

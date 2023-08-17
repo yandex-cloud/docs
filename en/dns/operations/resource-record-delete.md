@@ -10,7 +10,7 @@ To delete a [resource record](../concepts/resource-record.md):
    1. Select **{{ dns-name }}**.
    1. Select the zone from the list.
    1. Click ![image](../../_assets/options.svg) in the row next to the record to delete.
-   1. In the resulting menu, click **Delete**.
+   1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -38,7 +38,7 @@ To delete a [resource record](../concepts/resource-record.md):
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a record created using {{ TF }} from the DNS zone:
 
@@ -63,23 +63,23 @@ To delete a [resource record](../concepts/resource-record.md):
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -93,5 +93,9 @@ To delete a [resource record](../concepts/resource-record.md):
       ```
       yc dns zone list-records <DNS zone name>
       ```
+
+- API
+
+   To delete a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 
 {% endlist %}

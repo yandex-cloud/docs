@@ -7,7 +7,7 @@ Create [DNS zones](concepts/dns-zone.md), add `A` records for your test [VMs](..
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 
 
-1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
 
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default [virtual network](../vpc/concepts/network.md#network) with [subnets](../vpc/concepts/network.md#subnet) in all [availability zones](../overview/concepts/geo-scope.md).

@@ -51,6 +51,7 @@ You can see an [example](#example) of substitution stages below.
 | `{instance.index}` | Unique instance number in the group.</br>The possible values are 1 to N, where N is the number of instances in the group. |
 | `{instance.index_in_zone}` | Instance number in the zone. It is unique for a specific group</br>of instances within a zone. |
 | `{instance.short_id}` | Instance ID that is unique within the group. It consists of four alphabetic characters. |
+| `{instance.tag}` | Tag of an instance in the group within the availability zone. For more information, see the [Allocation policy](policies/allocation-policy.md). |
 | `{instance.zone_id}` | Zone ID |
 
 > For example, when creating an instance group, {{ ig-name }} will assign an ID to the group and substitute `{instance_group.id}` of each instance with it.

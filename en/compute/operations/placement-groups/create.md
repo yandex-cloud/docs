@@ -65,7 +65,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
    1. In the configuration file, describe the placement group parameters:
 
-      * `name`: The placement group name. in the following format:
+      * `name`: The placement group name. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -114,7 +114,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc compute placement-group list
@@ -125,4 +125,4 @@ Create a [placement group](../../concepts/placement-groups.md).
 ## See also {see-also}
 
 * [How to add a VM instance to a placement group](add-vm.md).
-* [How to create a VM instance in a placement group](create-vm-in-pg.md).
+* [How to create a VM in a placement group](create-vm-in-pg.md).

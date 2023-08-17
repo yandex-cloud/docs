@@ -76,7 +76,7 @@
   1. Чтобы создать внутренний балансировщик с [обработчиком](../concepts/listener.md) и [целевой группой](../concepts/target-resources.md), выполните команду:
   
      ```bash
-     yc load-balancer network-load-balancer create <имя балансировщика> \
+     yc load-balancer network-load-balancer create <имя_балансировщика> \
         --type=internal \
         --listener name=<имя_обработчика>,`
                   `port=<порт>,`

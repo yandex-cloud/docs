@@ -250,7 +250,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 - AWS CLI
 
-   1. Create a blue bucket for the backend stable version:
+   1. Create a "blue" bucket for the backend stable version:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \

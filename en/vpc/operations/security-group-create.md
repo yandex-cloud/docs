@@ -47,10 +47,26 @@ To create a new [security group](../concepts/security-groups.md):
       * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
       * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
       * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
+      * `network-id`: ID of the network the security group will be connected to.
 
-- API
+   To create a group with a rule that allows traffic from all resources of a different security group, run this command:
 
-   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call.
+   ```bash
+   yc vpc security-group create \
+     --name allow-connection-from-app \
+     --rule "direction=ingress,port=5642,protocol=tcp,security-group-id=enp099cqehlfvabec36d" \
+     --network-name infra2
+   ```
+
+   Where:
+
+   * `name`: Security group name.
+   * `rule`: Rule description:
+      * `direction`: Traffic direction. `ingress`: incoming traffic, `egress`: outgoing traffic.
+      * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
+      * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+      * `security-group-id`: ID of the security group for which traffic is allowed to the new security group through port 443.
+   * `network-name`: Name of the network the security group will be connected to.
 
 - {{ TF }}
 
@@ -76,7 +92,7 @@ To create a new [security group](../concepts/security-groups.md):
       
       ```
       provider "yandex" {
-        token     = "<OAuth or static key of service account>"
+        token     = "<service account OAuth or static key>"
         folder_id = "<folder ID>"
         zone      = "{{ region-id }}-a"
       }
@@ -92,6 +108,21 @@ To create a new [security group](../concepts/security-groups.md):
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
+
+         ingress {
+           protocol          = "ANY"
+           description       = "Enables interaction between resources of the current security group"
+           predefined_target = "self_security_group"
+           from_port         = 0
+           to_port           = 65535
+         }
+
+         ingress {
+           protocol           = "TCP"
+           description        = "Allows connections through port 27017 from the resources to the sg-frontend security group"
+           security_group_id  = yandex_vpc_security_group.sg-frontend.id
+           port               = 27017
+         }
 
         egress {
           protocol       = "ANY"
@@ -125,6 +156,10 @@ To create a new [security group](../concepts/security-groups.md):
       2. Confirm that you want to create the resources.
 
       All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+
+- API
+
+   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call.
 
 {% endlist %}
 

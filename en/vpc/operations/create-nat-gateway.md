@@ -14,7 +14,7 @@ To create and set up a NAT gateway:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. (optional) Add a gateway description.
+   1. (Optional) Add a gateway description.
    1. The default gateway type is `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
    1. Click **{{ ui-key.yacloud.common.save }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.

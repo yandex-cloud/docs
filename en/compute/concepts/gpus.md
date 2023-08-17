@@ -81,7 +81,7 @@ The computing resources may have the following configurations:
   | 4 | 320 | 112 | 476 |
   | 8 | 640 | 224 | 952 |
 
-* {{ t4-ice-lake }} (`standard-v3-t4`):
+* {{ t4-ice-lake }} (`gpu-standard-v3-t4`):
 
   
   | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |

@@ -50,6 +50,9 @@ To create a fixed-size instance group:
          Where:
          * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
          * `service_account_id`: Service account ID.
+
+            {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
          * `description`: Description of the instance group.
       * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
@@ -62,11 +65,11 @@ To create a fixed-size instance group:
            boot_disk_spec:
              mode: READ_WRITE
              disk_spec:
-               image_id: fdvk34al8k5nltb58shr
+               image_id: fdvk34al8k5n********
                type_id: network-hdd
                size: 32g
            network_interface_specs:
-             - network_id: c64mknqgnd8avp6edhbt
+             - network_id: c64mknqgnd8a********
                primary_v4_address_spec: {}
            scheduling_policy:
              preemptible: false
@@ -85,13 +88,13 @@ To create a fixed-size instance group:
          * `type_id`: Disk type.
          * `size`: Disk size.
          * `network_id`: ID of `default-net`.
-         * `primary_v4_address_spec`: IPv4 specification. You can allow public access to group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
          * `scheduling_policy`: Scheduling policy configuration.
          * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
-             * `true`: Create a preemptible VM.
-             * `false` (default): Create a regular VM.
+           * `true`: Create a preemptible VM.
+           * `false` (default): Create a regular VM.
 
-           When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase in {{ yandex-cloud }} computing resource utilization.
+           When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It is possible that {{ ig-name }} will not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
       * [Policies](../../concepts/instance-groups/policies/index.md):
 
          ```yaml
@@ -104,6 +107,10 @@ To create a fixed-size instance group:
          allocation_policy:
            zones:
              - zone_id: {{ region-id }}-a
+               instance_tags_pool:
+               - first
+               - second
+               - third
          ```
 
          Where:
@@ -111,36 +118,40 @@ To create a fixed-size instance group:
          * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
          * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) VM instances by [availability zone](../../../overview/concepts/geo-scope.md) and region.
 
-   Full code for the `specification.yaml` file:
+     Full code for the `specification.yaml` file:
 
-   ```yaml
-   name: first-fixed-group
-   service_account_id: ajed6ilf11qg839dcl1e
-   description: "This instance group was created from YAML config."
-   instance_template:
-     platform_id: standard-v3
-     resources_spec:
-       memory: 2g
-       cores: 2
-     boot_disk_spec:
-       mode: READ_WRITE
-       disk_spec:
-         image_id: fdvk34al8k5nltb58shr
-         type_id: network-hdd
-         size: 32g
-     network_interface_specs:
-       - network_id: c64mknqgnd8avp6edhbt
-         primary_v4_address_spec: {}
-   deploy_policy:
-     max_unavailable: 1
-     max_expansion: 0
-   scale_policy:
-     fixed_scale:
-       size: 3
-   allocation_policy:
-     zones:
-       - zone_id: {{ region-id }}-a
-   ```
+     ```yaml
+     name: first-fixed-group
+     service_account_id: ajed6ilf11qg********
+     description: "This instance group was created from YAML config."
+     instance_template:
+       platform_id: standard-v3
+       resources_spec:
+         memory: 2g
+         cores: 2
+       boot_disk_spec:
+         mode: READ_WRITE
+         disk_spec:
+           image_id: fdvk34al8k5n********
+           type_id: network-hdd
+           size: 32g
+       network_interface_specs:
+         - network_id: c64mknqgnd8a********
+           primary_v4_address_spec: {}
+     deploy_policy:
+       max_unavailable: 1
+       max_expansion: 0
+     scale_policy:
+       fixed_scale:
+         size: 3
+     allocation_policy:
+       zones:
+         - zone_id: {{ region-id }}-a
+           instance_tags_pool:
+           - first
+           - second
+           - third
+     ```
 
    1. Create an instance group in the default folder:
 
@@ -158,7 +169,7 @@ To create a fixed-size instance group:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -168,7 +179,7 @@ To create a fixed-size instance group:
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
-        folder_id  = "<folder ID>"
+        folder_id  = "<folder_ID>"
         role       = "editor"
         member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
         depends_on = [
@@ -177,21 +188,22 @@ To create a fixed-size instance group:
       }
 
       resource "yandex_compute_instance_group" "ig-1" {
-        name               = "fixed-ig"
-        folder_id          = "<folder ID>"
-        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
-        depends_on         = [yandex_resourcemanager_folder_iam_member.editor]
+        name                = "fixed-ig"
+        folder_id           = "<folder_ID>"
+        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
+        deletion_protection = "<deletion_protection:_true_or_false>"
+        depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <amount of RAM in GB>
-            cores  = <number of vCPU cores>
+            memory = <amount_of_RAM_in_GB>
+            cores  = <number_of_vCPU_cores>
           }
 
           boot_disk {
             mode = "READ_WRITE"
             initialize_params {
-              image_id = "<image ID>"
+              image_id = "<image_ID>"
             }
           }
 
@@ -201,13 +213,13 @@ To create a fixed-size instance group:
           }
 
           metadata = {
-            ssh-keys = "<username>:<SSH key contents>"
+            ssh-keys = "<username>:<SSH_key_contents>"
           }
         }
 
         scale_policy {
           fixed_scale {
-            size = <number of instances in group>
+            size = <number_of_instances_in_the_group>
           }
         }
 
@@ -217,7 +229,7 @@ To create a fixed-size instance group:
 
         deploy_policy {
           max_unavailable = 1
-          max_expansion = 0
+          max_expansion   = 0
         }
       }
 
@@ -235,12 +247,16 @@ To create a fixed-size instance group:
 
       Where:
       * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+
+         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
+
+      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.
             * `folder_id`: ID of the folder.
             * `service_account_id`: Service account ID.
+            * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
             * `platform_id`: [Platform](../../concepts/vm-platforms.md).
             * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
@@ -263,25 +279,11 @@ To create a fixed-size instance group:
          {% endnote %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure the configuration files are valid.
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+   1. Create resources:
 
-         ```bash
-         terraform plan
-         ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Deploy cloud resources.
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm that you want to create the resources.
-
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API
 

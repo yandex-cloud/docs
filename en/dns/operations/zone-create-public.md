@@ -59,15 +59,14 @@ To create a public [DNS zone](../concepts/dns-zone.md):
          * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
-         * `labels`: A set of DNS zone labels. This is an optional parameter.
+         * `labels`: Set of DNS zone labels. This is an optional parameter.
          * `public`: Zone visibility (public or internal). This is an optional parameter.
 
       1. DNS record parameters:
 
-
-         * `zone_id`: ID of the zone where the record set will be located. Required parameter.
-         * `name`: Domain name. Required parameter.
-         * `type`: DNS record type. Required parameter.
+         * `zone_id`: ID of the zone where the record set will be located. This parameter is required.
+         * `name`: Domain name. This parameter is required.
+         * `type`: DNS record type. This parameter is required.
          * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
          * `data`: Record value. This is an optional parameter.
 
@@ -120,11 +119,15 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
    1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
       yc dns zone get <DNS zone name>
       ```
+
+- API
+
+   To create a public DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create) gRPC API call.
 
 {% endlist %}
 

@@ -23,6 +23,7 @@
    - `managed-kubernetes` — {{ managed-k8s-name }}.
    - `managed-mongodb` — {{ mmg-name }}.
    - `managed-mysql` — {{ mmy-name }}.
+   - `managed-opensearch` — {{ mos-name }}.
    - `managed-postgresql` — {{ mpg-name }}.
    - `managed-redis` — {{ mrd-name }}.
    - `managed-sqlserver` — {{ mms-name }}.
