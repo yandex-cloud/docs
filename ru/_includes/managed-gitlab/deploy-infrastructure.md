@@ -25,7 +25,7 @@
 
   1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-  1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-and-registry-for-gitlab.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-gl.tf).
+  1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-gl.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-gl.tf).
 
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
@@ -35,7 +35,7 @@
      * Кластер {{ managed-k8s-name }}.
      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group).
      * [Реестр](../../container-registry/concepts/registry.md) {{ container-registry-full-name }}.
-  1. Укажите в файле `k8s-and-registry-for-gitlab.tf`:
+  1. Укажите в файле `k8s-gl.tf`:
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * [Версию {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
      * CIDR кластера {{ managed-k8s-name }}.
