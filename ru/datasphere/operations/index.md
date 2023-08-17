@@ -14,6 +14,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
 * [{#T}](community/delete.md)
+* [{#T}](community/delete-user.md)
 
 ## Управление проектом {#project}
 
@@ -25,6 +26,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/update.md)
 * [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
+* [{#T}](projects/delete-user.md)
 
 ## Работа в ноутбуке {#notebook}
 

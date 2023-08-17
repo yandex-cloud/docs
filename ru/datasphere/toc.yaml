@@ -27,6 +27,8 @@ items:
             href: operations/community/billing-details.md
           - name: Удалить сообщество
             href: operations/community/delete.md
+          - name: Удалить пользователя из сообщества
+            href: operations/community/delete-user.md
       - name: Управление проектом
         items:
           - name: Создать проект
@@ -45,6 +47,8 @@ items:
             href: operations/projects/restrictions.md
           - name: Удалить ноутбук или проект
             href: operations/projects/delete.md
+          - name: Удалить пользователя из проекта
+            href: operations/projects/delete-user.md
       - name: Работа в ноутбуке
         items:
           - name: Выбрать вычислительные ресурсы

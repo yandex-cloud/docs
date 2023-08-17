@@ -9,7 +9,17 @@ To create a VM:
 
       {% include [name-fqdn](../name-fqdn.md) %}
 
-   * Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
+   * Select an [availability zone](../../../overview/concepts/geo-scope.md) to place your virtual machine in.
+
+      
+      {% include [gpu-zones](../gpu-zones.md) %}
+
+
+
+      
+      {% include [gpu-zones](../gpu-zones.md) %}
+
+
 
 1. Select one of the [GPU-oriented images](/marketplace?search=gpu) and OS version under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
 
@@ -20,7 +30,7 @@ To create a VM:
    * Specify the required disk size.
 
 
-1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../../../compute/concepts/filesystem.md):
+1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../../compute/concepts/filesystem.md):
 
    * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
    * In the window that opens, select a file store.
@@ -30,12 +40,18 @@ To create a VM:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
-      * {{ v100-broadwell }}.
-      * {{ v100-cascade-lake }}.
-      * {{ t4-ice-lake }}.
-      * {{ a100-epyc }}.
+
+      
+      * {{ v100-broadwell }}
+      * {{ v100-cascade-lake }}
+      * {{ a100-epyc }}
+      * {{ t4-ice-lake }}
+
+
+
    * Select a VM [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPUs.
    * Make your VM [preemptible](../../../compute/concepts/preemptible-vm.md), if required.
+
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -55,12 +71,11 @@ To create a VM:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
-      For VMs with a Windows-based operating system:
-      * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **{{ ui-key.yacloud.compute.instances.create.field_password }}** field, set a password for this user to log in to the VM via RDP.
+      * (Optional) Enable access to the [serial console](../../../compute/operations/index.md#serial-console), if required.
 
-         {% include [password-requirements](../../compute/password-requirements.md) %}
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
-      * (optional) Enable access to the [serial console](../../../compute/operations/index.md#serial-console), if required.
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

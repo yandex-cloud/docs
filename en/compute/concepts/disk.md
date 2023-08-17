@@ -33,7 +33,7 @@ In case you create a disk from a snapshot or image, its information will contain
 * High-performance SSD (`network-ssd-io-m3`): Network drive with the same characteristics as `network-ssd-nonreplicated`, plus redundancy. High-performance SSDs are currently at the [Preview](../../overview/concepts/launch-stages.md) stage. Using high performance SSDs will be charged starting September 1, 2023.
 * [Local disk drives](dedicated-host.md#resource-disks) on dedicated hosts.
 
-Network SSDs, network HDDs, and high-performance SSDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even if multiple physical disks fail at the same time. Non-replicated disks do not ensure data security.
+Network SSDs, high-performance SSDs, and network HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not ensure data security.
 
 If a physical disk hosting a network drive fails, the VM will continue running and will quickly regain full access to its data.
 
@@ -54,7 +54,9 @@ Our recommendation is to avoid using a non-replicated disk as your boot drive. T
 
 {% endnote %}
 
+
 If you need enhanced performance and guaranteed fault tolerance, we recommend using high-performance SSDs. Currently, high-performance SSDs have the same limitations on creating images and snapshots as non-replicated disks. We will soon add support for creating snapshots with write freeze and, moving forward, full-featured snapshots with no write freeze.
+
 
 ## Maximum disk size {#maximum-disk-size}
 
@@ -79,7 +81,7 @@ If you would like to delete a disk with a VM, specify this option when creating 
 Backups are required to make sure no data is lost if damaged. Different disk types allow using different backup methods:
 
 * [{{ backup-name }}](../../backup/) enables you to create consistent data copies on VMs with any disk types. The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-* [Disk snapshots](snapshot.md): Use them to manually or automatically create [scheduled](snapshot-schedule.md) snapshots of network SSDs and HDDs. You cannot take snapshots of non-replicated disks and high-performance SSDs.
+* [Disk snapshots](snapshot.md): Use them to manually or automatically create [scheduled](snapshot-schedule.md) snapshots of network SSDs and HDDs. You cannot take snapshots of non-replicated and high-performance SSDs.
 
 Snapshots are replicated across all availability zones, which allows you to migrate disks from one zone to another.
 

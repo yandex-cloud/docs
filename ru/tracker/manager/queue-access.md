@@ -64,6 +64,16 @@
 >
 > Если пользователь является одновременно автором и исполнителем задачи, у него будут права на **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}** и **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}**.
 
+## У кого всегда есть доступ к очереди {#implicit-access}
+
+У некоторых пользователей всегда есть доступ к очереди, и их права доступа нельзя ограничить. Это следующиие пользователи:
+
+
+* [Администраторы организации](../role-model.md#admin).
+* Робот сервиса {{ tracker-name }}.
+
+
+
 ## Добавить сообщение для пользователей, у которых нет доступа {#deny-message}
 
 По умолчанию при попытке открыть задачу очереди, к которой нет доступа, пользователи видят сообщение <q>Обратитесь к владельцу очереди</q> и имя владельца.

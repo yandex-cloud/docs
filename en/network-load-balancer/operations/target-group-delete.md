@@ -47,7 +47,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a target group created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
@@ -76,7 +76,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
 - API
 
-   Use the [delete](../api-ref/TargetGroup/delete.md) API method and provide the target group ID in the `targetGroupId` request parameter.
+   To delete a target group, use the [delete](../api-ref/TargetGroup/delete.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete) gRPC API call.
 
    You can get the target group ID with a [list of target groups in the folder](target-group-list.md#list).
 

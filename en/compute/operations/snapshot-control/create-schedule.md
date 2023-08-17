@@ -1,5 +1,7 @@
 # Creating a disk snapshot schedule
 
+## Configuring automatic scheduled creation of disk snapshots {#set-schedule}
+
 To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation of [disk snapshots](../../concepts/snapshot.md):
 
 {% list tabs %}
@@ -128,6 +130,55 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
       snapshot_count: "3"
       snapshot_spec: {}
       ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
+
+      ```hcl
+      resource "yandex_compute_snapshot_schedule" "default" {
+        name = "<schedule_name>"
+
+        schedule_policy {
+          expression = "<cron_expression>"
+        }
+
+        snapshot_count = <number_of_snapshots_per_disk>
+
+        snapshot_spec {
+            description = "<snapshot_description>"
+            labels = {
+              <snapshot_label_key> = "<_snapshot_label_value>"
+            }
+        }
+
+        disk_ids = ["<ID_of_disk_1>", "<ID_of_disk_2>"]
+      }
+      ```
+
+      Where:
+
+      * `name`: Schedule name. This parameter is required.
+      * `schedule_policy`: Section with schedule parameters. It contains the `expression` field with a [cron expression](../../concepts/snapshot-schedule.md#cron). This parameter is required.
+      * `snapshot_count`: Maximum number of snapshots per disk. This is an optional parameter.
+      * `snapshot_spec`: Section with additional snapshot parameters. This is an optional parameter. It may contain the following fields:
+         * `description`: Snapshot description.
+         * `labels`: Snapshot [label](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
+      * `disk_ids`: IDs of disks to create snapshots for. This parameter is required.
+
+      For more information about the `yandex_compute_snapshot_schedule` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   This will create a schedule in the specified folder. You can verify that the schedule is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc compute snapshot-schedule get <schedule_name>
+   ```
 
 - API
 

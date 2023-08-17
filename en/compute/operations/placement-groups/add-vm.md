@@ -172,10 +172,10 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the virtual machine has been added to the placement group from the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can verify that the virtual machine has been added to the placement group from the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
 ## See also {#see-also}
 
-* [How to create a VM instance in a placement group](create-vm-in-pg.md).
+* [How to create a VM in a placement group](create-vm-in-pg.md).

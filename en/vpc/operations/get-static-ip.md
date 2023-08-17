@@ -42,8 +42,8 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       Result:
 
       ```bash
-      id: e9b6un9gkso6stdh6b3p
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e9b6un9gkso6********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-01-19T17:52:42Z"
       external_ipv4_address:
         address: 178.154.253.52
@@ -70,6 +70,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
          {% include [name-format](../../_includes/name-format.md) %}
 
+      * `deletion_protection`: Static public IP deletion protection. You cannot delete an IP address with this option enabled. The default value is `false`.
       * `external_ipv4_address`: IPv4 address description:
          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
@@ -77,40 +78,24 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
       ```hcl
       resource "yandex_vpc_address" "addr" {
-        name = "<static public IP address name>"
+        name = "<static_public_IP_name>"
+        deletion_protection = "<deletion_protection:_true_or_false>"
         external_ipv4_address {
-          zone_id = "<availability zone>"
+          zone_id = "<availability_zone>"
         }
       }
       ```
 
-      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
+      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
 
-   1. Make sure the configuration files are valid.
+   1. Create resources:
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-         ```
-         terraform plan
-         ```
+      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
-
-         ```
-         yc vpc address list
-         ```
+      ```bash
+      yc vpc address list
+      ```
 
 {% endlist %}

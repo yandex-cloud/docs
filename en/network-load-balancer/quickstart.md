@@ -4,11 +4,11 @@
 
 Create a network load balancer with a [listener](concepts/listener.md), attach a [group of target resources](concepts/target-resources), and set up [health checks](concepts/health-check.md) using {{ network-load-balancer-name }}.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-   1. On the [billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
+1. Log in to or register in the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md).
 1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to the network load balancer. For testing, you can use inexpensive [preemptible VMs](../compute/concepts/preemptible-vm.md).
 
 ## Create a target group {#create-target-group}
@@ -60,7 +60,7 @@ To create a network load balancer:
    * Select the VMs to add to the target group.
    * Click **Create**.
 
-1. (optional) Under **Health check**, click **Configure** and in the window that opens:
+1. (Optional) Under **Health check**, click **Configure** and in the window that opens:
 
    * Enter the health check name.
 
@@ -102,4 +102,4 @@ Then [delete the target group](operations/target-group-delete.md) and [VMs](../c
 ## What's next {#what-is-next}
 
 * Learn more about how [network load balancers](concepts/index.md) work.
-* See our [recommendations](best-practices.md) for working with load balancers.
+* See our [recommendations](best-practices/index.md) for working with load balancers.

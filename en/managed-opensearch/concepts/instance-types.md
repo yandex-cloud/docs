@@ -1,6 +1,6 @@
 # Host classes {{ OS }}
 
-The host class determines the computing power allocated for each host group with the specific role in the cluster. When you change the host class for a host group in the cluster, the characteristics change for all of the hosts that were created earlier in the group. For more information about host groups, see [{#T}](./host-groups.md).
+The host class determines the computing power allocated for each host group with the specific role in the cluster. When you change the host class for a host group in the cluster, the configuration of all hosts previously created in this group changes accordingly. For more information about host groups, see [{#T}](./host-groups.md).
 
 
 The available storage does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
@@ -8,7 +8,7 @@ The available storage does not depend on the host class. For storage limitations
 
 ## Available host classes {#available-flavors}
 
-Hosts in {{ mos-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these virtual machines on any standard platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mos-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any standard platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host group configurations on each platform is provided below.
 
@@ -16,9 +16,9 @@ Configuration types:
 
 
 
-* **s2**, **s3**: Standard configurations, with 4:1 GB RAM to vCPU ratio.
-* **m2**, **m3**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations can be useful for clusters with higher cache requirements.
-* **b3**: Configuration with a guaranteed vCPU share under 100%. This class of hosts is intended for test load, with the minimum recommended host configuration for production solutions being 2 vCPUs with a guaranteed share of 50%.
+* **s2**, **s3**: Standard configurations, with 4:1 RAM GB to vCPU ratio.
+* **m2**, **m3**: Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations may be useful for clusters with higher cache requirements.
+* **b3**: Configuration with a guaranteed vCPU share under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
 
 | Host class name | Number of vCPUs | Guaranteed<br>vCPU performance | RAM, GB | Disk<br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|

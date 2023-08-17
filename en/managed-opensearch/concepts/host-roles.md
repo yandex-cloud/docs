@@ -8,11 +8,11 @@ Hosts with this role store one or more indexes and handle search, write, and ana
 
 {% note info %}
 
-There should be at least one host with the `DATA` role in the cluster. A single-host cluster does not guarantee fault tolerance.
+There should be at least one host with the `DATA` role in the cluster. A single-host cluster is not fault tolerant.
 
 {% endnote %}
 
-To ensure fault tolerance, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add an `{{ OS }}` host group with the `MANAGER` role.
+For fault tolerance reasons, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add an `{{ OS }}` host group with the `MANAGER` role.
 
 ## Hosts with the MANAGER role {#manager}
 
@@ -20,7 +20,7 @@ Hosts with this role monitor the state of the cluster and manage its configurati
 
 When using hosts with the `MANAGER` role, the cluster will be added a host group containing three hosts like this.
 
-If no hosts with the `MANAGER` role are used, this role will be supported by hosts with the `DATA` role. However, the presence of dedicated hosts with the `MANAGER` role increases the overall cluster reliability and reduces the load on hosts with the `DATA` role.
+If no hosts with the `MANAGER` role are used, this role will be supported by hosts with the `DATA` role. However, with dedicated hosts with the `MANAGER` role, you can increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
 
 ## Hosts with the DASHBOARDS role {#dashboards}
 

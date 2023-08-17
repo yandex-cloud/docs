@@ -1,4 +1,4 @@
-# Setting up and testing PT Application Firewall
+# Setting up PT Application Firewall
 
 [PT Application Firewall](https://www.ptsecurity.com/ww-en/products/af/) is a [web application firewall](https://en.wikipedia.org/wiki/Web_application_firewall) that ensures continuous protection for web applications, users, and network infrastructure while helping meet security standards.
 

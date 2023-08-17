@@ -24,7 +24,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. (optional) Add a description of a route table.
+   1. (Optional) Add a description of a route table.
    1. Select the network to create the route table in.
    1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
    1. In the window that opens, enter the prefix of the destination subnet in CIDR notation.

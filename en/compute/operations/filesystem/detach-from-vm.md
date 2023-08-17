@@ -43,6 +43,42 @@
       1. In the line of the appropriate VM, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
       1. In the window that opens, confirm the detach operation.
 
+   - {{ TF }}
+
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+      Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
+
+      1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
+
+         {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
+
+         ```hcl
+         ...
+         resource "yandex_compute_instance" "vm-1" {
+
+            name        = "test-vm"
+            platform_id = "standard-v3"
+            zone        = "{{ region-id }}-a"
+
+            filesystem {
+               filesystem_id = "fhmaikp755grp4mlvvem"
+            }
+         ...
+         ```
+
+         {% endcut %}
+
+      1. Apply the changes:
+
+         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify that the storage has been detached from the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc compute instance get <VM_name>
+      ```
+
    - API
 
       Use the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API call.

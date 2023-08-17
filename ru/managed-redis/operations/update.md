@@ -20,11 +20,6 @@
 * [Изменить группы безопасности](#change-sg-set).
 
 
-{% note info %}
-
-О том, как изменить версию {{ RD }} кластера, читайте в разделе [{#T}](cluster-version-update.md).
-
-{% endnote %}
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
@@ -421,7 +416,7 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

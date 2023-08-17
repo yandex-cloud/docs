@@ -268,9 +268,9 @@
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
-       name               = "fixed-ig-with-balancer"
-       folder_id          = "<идентификатор_каталога>"
-       service_account_id = "${yandex_iam_service_account.ig-sa.id}"
+       name                = "fixed-ig-with-balancer"
+       folder_id           = "<идентификатор_каталога>"
+       service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
        deletion_protection = "<защита_от_удаления:_true_или_false>"
        instance_template {
          platform_id = "standard-v3"

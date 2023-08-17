@@ -36,7 +36,7 @@ links:
     href: concepts/limits
   - title: Рекомендации по работе с сервисом
     description: Советы по настройке балансировки трафика
-    href: concepts/best-practices.html
+    href: concepts/best-practices
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

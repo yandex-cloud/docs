@@ -84,9 +84,13 @@ The problem may occur due to an error in the SSH, [security group](../../../vpc/
 
 {% endlist %}
 
+## An SSH key is lost {#lost-ssh}
+
+{% include [new-connect-ssh](../../../_qa/compute/new-connect-ssh.md) %}
+
 ## A VM fails to start {#os-recovery}
 
-If you can't start a VM, gain access to data on the disk as follows:
+If you cannot start a VM, get access to data on the disk as follows:
 1. [Create a snapshot](../disk-control/create-snapshot.md) of the disk of the VM that you want to restore access to.
 1. [Create a disk](../disk-create/empty.md) from the snapshot. When creating a disk, choose `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` in the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field and specify the created snapshot.
 1. [Attach the disk](../vm-control/vm-attach-disk.md) as secondary to the auxiliary VM.

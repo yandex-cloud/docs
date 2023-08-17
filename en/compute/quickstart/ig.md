@@ -5,7 +5,7 @@ Create an instance group using the [Instance Groups](../concepts/instance-groups
 ## Getting started {#before-you-begin}
 
 1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an instance group {#create-ig}
@@ -27,6 +27,8 @@ To create an instance group:
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
    * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. In {{ ig-name }}, all operations are performed on behalf of a service account.
+
+      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
 1. In the **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** section, select the desired availability zones. Group instances may reside in different availability zones and regions. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 1. In the **{{ ui-key.yacloud.compute.groups.create.section_instance }}** section, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set the base instance configuration:

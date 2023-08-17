@@ -75,9 +75,11 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
 
-  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
-  The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+   The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
 - CLI
 

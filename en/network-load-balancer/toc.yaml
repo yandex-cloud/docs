@@ -16,7 +16,7 @@ items:
           - name: Creating an internal load balancer
             href: operations/internal-lb-create.md
           - name: Stopping and starting a load balancer
-            href: operations/load-balancer-stop.md
+            href: operations/load-balancer-start-and-stop.md
           - name: Changing load balancer settings
             href: operations/load-balancer-update.md
           - name: Deleting a load balancer
@@ -53,8 +53,12 @@ items:
         href: concepts/health-check.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Best practices for using the service
-    href: best-practices.md
+  - name: Recommendations on how to use the network load balancer
+    items:
+      - name: General recommendations
+        href: best-practices/index.md
+      - name: Internal load balancer features
+        href: best-practices/internal-balancer-features.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -82,7 +82,7 @@ Snapshots are billable and count towards [quotas]({{ link-console-quotas }}) wit
    * Role for the folder: `viewer` or `compute.images.user`.
 
 
-   For details, see the instructions [{#T}](../../iam/operations/roles/grant.md).
+   See also the instructions [{#T}](../../iam/operations/roles/grant.md).
 1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.switch_snapshots }}** or from the disk itself under **{{ ui-key.yacloud.compute.switch_disks }}**.
 
 A user in another cloud must:
@@ -154,4 +154,12 @@ If you would like to delete a disk with a VM, specify this option when creating 
 
 You don't have to stop the VM. However, keep in mind that a snapshot contains only the data written to disk when creating the snapshot. You need to take care of the data integrity yourself. For information about how to create disk snapshots, see [{#T}](../../compute/operations/disk-control/create-snapshot.md).
 
-A snapshot is created asynchronously. You can resume writing data to disk immediately after running the create snapshot command, without waiting for the snapshot creation to be completed.
+A snapshot is created asynchronously. You can resume writing data to a disk immediately after running the create snapshot command, without waiting for the snapshot creation to be completed.
+
+#### How do I detect processes that put a heavy load on a disk? {#disk-heavy-load}
+
+You can detect these processes using the [iotop](https://manpages.ubuntu.com/manpages/xenial/man8/iotop.8.html) utility. Run it on a schedule with [cron](https://en.wikipedia.org/wiki/Cron) and save a log with processes that have a data transfer speed of more than 1000 KB/s:
+
+```bash
+/usr/sbin/iotop -botqqqk --iter=60 | grep -P "\d\d\d\d.\d\d K/s" >> /var/log/iotop.log
+```

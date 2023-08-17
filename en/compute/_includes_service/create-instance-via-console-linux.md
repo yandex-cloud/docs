@@ -9,7 +9,7 @@ To create a [VM](../concepts/vm.md):
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-   * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+   * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../concepts/image.md) and a Linux-based OS version.
 1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure a boot [disk](../concepts/disk.md):
    * Select the [disk type](../concepts/disk.md#disks_types).
@@ -26,7 +26,7 @@ To create a [VM](../concepts/vm.md):
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
 
-1. (optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../concepts/filesystem.md):
+1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../concepts/filesystem.md):
    * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
    * In the window that opens, specify the file storage.
    * Enter the device name.
@@ -59,7 +59,10 @@ To create a [VM](../concepts/vm.md):
 
    * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
    * If required, grant access to the [serial console](../operations/serial-console/index.md).
-1. (optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../concepts/placement-groups.md).
+
+   {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
+
+1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../concepts/placement-groups.md).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 The VM appears in the list. Once created, the VM is assigned an [IP address](../../vpc/concepts/address.md) and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).

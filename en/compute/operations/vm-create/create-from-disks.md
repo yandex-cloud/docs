@@ -66,9 +66,12 @@ To create a VM from a set of disks:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
-  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+   The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
 
 - CLI
 
@@ -135,23 +138,24 @@ To create a VM from a set of disks:
      ```hcl
      resource "yandex_compute_instance" "vm-1" {
 
-       name        = "vm-from-disks"
-       platform_id = "standard-v3"
-       zone        = "<availability zone>"
+        name                      = "vm-from-disks"
+        allow_stopping_for_update = true
+        platform_id               = "standard-v3"
+        zone                      = "<availability_zone>"
 
        resources {
-         cores  = <number of vCPU cores>
-         memory = <RAM amount, GB>
+         cores  = <number_of_vCPU_cores>
+         memory = <amount_of_RAM_in_GB>
        }
 
        boot_disk {
          initialize_params {
-           disk_id = "<boot disk ID>"
+           disk_id = "<boot_disk_ID>"
          }
        }
 
        secondary_disk {
-         disk_id = "<secondary disk ID>"
+         disk_id = "<secondary_disk_ID>"
        }
 
        network_interface {
@@ -160,7 +164,7 @@ To create a VM from a set of disks:
        }
 
        metadata = {
-         ssh-keys = "<username>:<SSH key contents>"
+         ssh-keys = "<username>:<SSH_key_contents>"
        }
      }
 
@@ -170,7 +174,7 @@ To create a VM from a set of disks:
 
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
-        zone       = "<availability zone>"
+        zone       = "<availability_zone>"
         network_id = "${yandex_vpc_network.network-1.id}"
       }
       ```
@@ -178,43 +182,31 @@ To create a VM from a set of disks:
       Where:
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
+         * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `zone`: ID of the availability zone that will host your VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the ID of a public image using the `image_id` parameter.
 
-         {% include [id-info](../../../_includes/compute/id-info.md) %}
+            {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-       * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
-       * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
-       * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network`: Description of the cloud network.
-     * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
+         * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you do not have a disk, [create](../disk-create/empty.md) one.
+         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+         * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Description of the cloud network.
+      * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
-     {% note info %}
+      {% note info %}
 
-     If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+      If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
 
-     {% endnote %}
+      {% endnote %}
 
-     For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-  1. Make sure the configuration files are valid.
-     1. In the command line, go to the directory where you created the configuration file.
-     1. Run the check using this command:
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-        ```bash
-        terraform plan
-        ```
+   1. Create resources:
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm that you want to create the resources.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
 

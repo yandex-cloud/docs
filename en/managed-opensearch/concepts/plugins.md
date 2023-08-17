@@ -1,6 +1,6 @@
 # {{ OS }} plugins
 
-{{ mos-name }} has a number of [pre-installed plugins]({{ os.docs }}/install-and-configure/install-opensearch/plugins/#bundled-plugins). When creating or updating a cluster in {{ mos-short-name }}, you can also specify a list of [additional plugins](#opensearch) and they will be installed in the cluster automatically.
+{{ mos-name }} has a number of [pre-installed plugins]({{ os.docs }}/install-and-configure/install-opensearch/plugins/#bundled-plugins). When creating or updating a cluster in {{ mos-short-name }}, you can also specify a list of [additional plugins](#opensearch), which will be installed in the cluster automatically.
 
 ## Additional {{ OS }} plugins {#opensearch}
 
@@ -20,7 +20,7 @@ All supported additional plugins are listed here:
 
 * analysis-phonetic
 
-   Provides lexeme filters which convert expressions to their phonetic representation using Soundex, Metaphone, and other algorithms.
+   Provides lexeme filters that convert expressions to their phonetic representation using Soundex, Metaphone, and other algorithms.
 
 * analysis-smartcn
 

@@ -59,7 +59,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       ```
 
       This command will create a VM:
-      * With Ubuntu.
+      * With [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
       * Named `first-instance`.
       * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
       * With the serial console active.

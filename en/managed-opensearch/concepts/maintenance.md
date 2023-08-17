@@ -8,6 +8,6 @@ Maintenance means:
 
 Changing a major DBMS version is not part of maintenance. For more information about major version changes, see [{#T}](../operations/cluster-version-update.md).
 
-In {{ mos-name }} single-host clusters, a single host undergoes maintenance. So, such a cluster becomes unavailable if a single host needs to be restarted during maintenance.
+In {{ mos-name }} single-host clusters, a single host undergoes maintenance. This means, if a cluster needs to be restarted during maintenance, it will become unavailable.
 
-In multi-host clusters, hosts undergo maintenance consecutively. The hosts are queued randomly. If a host needs to be restarted during maintenance, it becomes unavailable while it's being restarted. If you access the cluster using the FQDN or IP address of the {{ OS }} host, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#special-fqdns) always pointing to the available host.
+In multi-host clusters, hosts undergo maintenance one by one. The hosts are queued randomly. If a host needs to be restarted during maintenance, it becomes unavailable while being restarted. If you access the cluster using the FQDN or IP address of the {{ OS }} host, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#special-fqdns) always pointing to the available host.

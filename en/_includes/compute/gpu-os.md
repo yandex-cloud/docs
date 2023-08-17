@@ -1,4 +1,4 @@
-For virtual machines with GPUs, you can use special images of operating systems, which have the NVIDIA drivers installed:
+For VMs with GPUs, you can use the following special images of operating systems with NVIDIA drivers:
 
 
 {{ v100-broadwell }} and {{ v100-cascade-lake }}

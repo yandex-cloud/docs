@@ -8,12 +8,11 @@
 
 {% include [storage-type](../../_includes/mdb/mos/storage-type.md) %}
 
-## Choice of storage type during cluster creation {#storage-type-selection}
 
 
-## Selecting storage type during cluster creation {#storage-type-selection}
+## Selecting storage type when creating a cluster {#storage-type-selection}
 
-The number of hosts with the `DATA` role that can be created together with an {{ OS }} cluster depends on the selected type of storage:
+The number of hosts with the `DATA` role that can be created along with an {{ OS }} cluster depends on the selected type of storage:
 
 * With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 

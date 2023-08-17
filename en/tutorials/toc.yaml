@@ -73,6 +73,8 @@ items:
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
+      - name: Deploying the GlusterFS parallel file system
+        href: archive/ha-regional-glusterfs.md
       - name: Digitizing image archives in {{ vision-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment

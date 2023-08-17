@@ -6,7 +6,7 @@ You can create an empty disk of the specified size.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -14,11 +14,11 @@ You can create an empty disk of the specified size.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-   1. If necessary, add a description of the disk.
+   1. Add a disk description, if required.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
-   1. Select the required disk type: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-hdd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
-   1. Select the proper block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB.
-   1. Specify the required disk size. The maximum disk size depends on the specified block size.
+   1. Select the desired disk type: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-hdd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
+   1. Select the desired block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB.
+   1. Specify the desired disk size. The maximum disk size depends on the specified block size.
    1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}

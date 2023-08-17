@@ -23,7 +23,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run this command:
+   Run the following command:
 
    ```bash
    yc dns zone add-records --name <DNS zone name> \
@@ -75,7 +75,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       1. `yandex_dns_zone` parameters:
 
-         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. This parameter is required.
+         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. This parameter is required.
          * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
@@ -113,11 +113,15 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
    1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
       yc dns zone list-records <DNS zone name>
       ```
+
+- API
+
+   To create a resource record in a DNS zone, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 
 {% endlist %}
 

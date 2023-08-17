@@ -5430,7 +5430,6 @@ default:
             field_instance-group-network: Network
             field_key: SSH key
             field_name: Name
-            field_password: Password
             field_serial-port-enable: Grant access to serial console
             field_service-account: Service account
             field_user: Login
@@ -7469,6 +7468,8 @@ default:
         general: General settings
         link: Link
         manage-labels: Manage labels
+        member:
+          remove: Remove
         members: Members
         more: More
         name: Name

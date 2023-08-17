@@ -199,12 +199,6 @@ The price with a CVoS is only available for regular VMs.
 
 
 
-{% note info %}
-
-[Intel Ice Lake (Compute Optimized)](concepts/vm-platforms.md#compute-optimized-platforms) will be available and you will be charged for it starting July 1, 2023.
-
-{% endnote %}
-
 ### Operating systems {#prices-os}
 
 
@@ -235,7 +229,7 @@ The price with a CVoS is only available for regular VMs.
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
-The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19200 GB of storage on local SSDs. For details, see the example of cost calculation [above](#dedicated-hosts).
+The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19200 GB of storage on local SSDs. See also the example of cost calculation [above](#dedicated-hosts).
 
 
 

@@ -14,7 +14,7 @@ To create file [storage](../../concepts/filesystem.md):
 
       {% include [name-format-2](../../../_includes/name-format-2.md) %}
 
-   1. (optional) Add a description.
+   1. (Optional) Add a storage description.
    1. Select an [availability zone](../../../overview/concepts/geo-scope.md): either `{{ region-id }}-a` or `{{ region-id }}-b`. You can only attach storage to VMs from the same availability zone.
    1. Select the [storage type](../../concepts/filesystem.md#types).
 
@@ -26,6 +26,52 @@ To create file [storage](../../concepts/filesystem.md):
 
    1. Specify the block and storage disk size.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of the resources you want to create:
+
+      
+      ```
+      provider "yandex" {
+        zone = "{{ region-id }}-a"
+      }
+
+      resource "yandex_compute_filesystem" "default" {
+        name   = "<storage_name>"
+        type   = "<storage_type>"
+        zone   = "<availability_zone>"
+        size   = <storage_size>
+        labels = {
+          <key_of_label_1> = "<value_of_label_1>"
+          <key_of_label_2> = "<value_of_label_2>"
+       }
+      }
+      ```
+
+
+
+      Where:
+
+      * `name`: Storage name. This parameter is required.
+      * `type`: [Storage type](../../concepts/filesystem.md#types). Possible values: `network-hdd` or `network-ssd`. The default storage type is `network-hdd`. This is an optional parameter.
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). Possible values: `{{ region-id }}-a` or `{{ region-id }}-b`. This is an optional parameter.
+      * `size`: Storage size in GB. This is an optional parameter. The default value is 150 GB.
+      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
+
+      For more information about the parameters of the `yandex_compute_filesystem` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/compute_filesystem).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   This will create a storage in the specified folder. You can verify that the storage is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc compute filesystem get <storage_name>
+   ```
 
 - API
 

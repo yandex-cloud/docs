@@ -8,7 +8,7 @@
 
 - **Major versions**.
 
-   Two major versions are supported: the current one and the previous one. When a new major version is released in {{ mos-name }}, the oldest available major version support is discontinued.
+   Two major versions are supported: the current and the previous one. When a new major version is released in {{ mos-name }}, the oldest available major version support is discontinued.
 
    The only exception is major version 1, which is not supported. Until major version 3 is released, only major version 2 is supported.
 
@@ -18,8 +18,8 @@
 
 {% note warning %}
 
-* You can't create new hosts in clusters on a discontinued version of {{ OS }}.
-* Clusters on a deprecated version of {{ OS }} are automatically updated according to the [update policy](#update-policy).
+* You cannot create new hosts in clusters on a discontinued version of {{ OS }}.
+* Clusters based on a deprecated {{ OS }} version are automatically updated according to the [update policy](#update-policy).
 
 {% endnote %}
 
@@ -39,4 +39,4 @@
 
 {% endlist %}
 
-The owner of the affected clusters receives a notice of the expected automatic update. When your {{ OS }} version approaches its EOL, we recommend that you update the cluster to a newer version.
+The owner of the affected clusters receives an email notification on the expected automatic update. When your {{ OS }} version approaches its EOL, we recommend that you update the cluster to a newer version.

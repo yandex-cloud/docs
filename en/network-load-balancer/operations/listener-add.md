@@ -52,7 +52,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and add the `listener` section to the network load balancer description.
 
@@ -102,6 +102,10 @@
    * Listener external address specification in the `listenerSpec.externalAddressSpec` parameter.
 
    You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
+
+- API
+
+   To add a listener to the network load balancer, use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../api-ref/grpc/network_load_balancer_service.md#AddListener) gRPC API call.
 
 {% endlist %}
 

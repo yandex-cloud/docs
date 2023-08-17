@@ -14,9 +14,9 @@ You can also use a template to enable creating [preemptible](../preemptible-vm.m
 
 ## Disks {#disks}
 
-Each instance must have at least one disk attached, which is a boot disk. Each boot disk is created automatically and attached to a single instance when creating an instance group.
+Each instance must have at least one disk attached, which is a boot disk. Each boot disk is created automatically and attached to a single instance when creating an instance group. For more information, see [{#T}](../disk.md).
 
-You can also attach additional disks to each instance. You can create an additional disk along with an instance group. You can create an empty disk or restore it from a snapshot or an image. You can only attach or detach additional disks when creating or updating a group. For more information, see [{#T}](../disk.md).
+You can also attach additional disks to each instance. You can create an additional disk along with an instance group. You can create an empty disk or restore it from a snapshot or an image. You can only attach or detach additional disks when creating or updating a group. You can [update secondary disks](./deploy/secondary-disk.md) by updating [YAML specification](./specification.md).
 
 {% note alert %}
 
@@ -60,13 +60,20 @@ instance_template:
   boot_disk_spec:
     mode: READ_WRITE
     disk_spec:
-      image_id: ff8nb7ecsbrj76dfaa8b
+      image_id: jk9ib7ecsbrj********
       type_id: network-hdd
       size: 50G
+  secondary_disk_specs:
+    - name: disk-2
+      mode: READ_WRITE
+      disk_spec:
+        preserve_after_instance_delete: false
+        type_id: network-hdd
+        size: 21474836480
   network_interface_specs:
-    - network_id: rnp6rq7pmi0542gtuame
+    - network_id: adv1rq7pmi05********
       subnet_ids:
-        - e9b9v2v5f3rrpuot2mvl
+        - u8zxv2v5f3rr********
       primary_v4_address_spec: {
         one_to_one_nat_spec: {
           ip_version: IPV4
@@ -95,20 +102,27 @@ instance_template:
 
 Keys (the table lists keys that directly define the base instance configuration):
 
-| Key | Value |
-| ----- | ----- |
-| `platform_id` | ID of the instance's hardware platform. |
-| `memory` | Amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
-| `cores` | Number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |
-| `core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
-| `mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
-| `image_id` | ID of the image that will be used for disk creation. |
-| `type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md). |
-| `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
-| `network_id` | ID of the network. |
-| `subnet_ids` | IDs of cloud subnets. |
-| `ip_version` | IP version for the public IP address. |
-| `metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
-| `user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program. |
+Key | Value
+----- | -----
+`platform_id` | ID of the instance's hardware platform.
+`resources_spec.memory` | Amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB).
+`resources_spec.cores` | Number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type.
+`resources_spec.core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
+`boot_disk_spec` | Boot disk parameters.
+`boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
+`boot_disk_spec.disk_spec.image_id` | ID of the image that will be used for disk creation. |
+`boot_disk_spec.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md).
+`boot_disk_spec.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
+`secondary_disk_specs` | (Optional) Secondary disks parameters.
+`secondary_disk_specs.name` | (Optional) Secondary disk name. In the same specification, names should be assigned either to all secondary disks or none of them. For more information, see [{#T}](./deploy/secondary-disk.md).
+`secondary_disk_specs.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
+`secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
+`secondary_disk_specs.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md).
+`secondary_disk_specs.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
+`network_interface_specs.network_id` | ID of the network.
+`network_interface_specs.subnet_ids` | IDs of cloud subnets.
+`network_interface_specs.ip_version` | IP version for the public IP address.
+`metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md).
+`metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program.
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).

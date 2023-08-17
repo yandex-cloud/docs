@@ -36,7 +36,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update a DNS record created using {{ TF }}:
 
@@ -58,23 +58,23 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
       {% endcut %}
 
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
       ```
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -88,6 +88,10 @@ You can update the value of a [resource record](../concepts/resource-record.md).
       ```
       yc dns zone list-records <DNS zone name>
       ```
+
+- API
+
+   To update a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 
 {% endlist %}
 

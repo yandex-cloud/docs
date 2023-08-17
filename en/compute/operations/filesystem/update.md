@@ -2,6 +2,12 @@
 
 After creating file storage, you can change its name, description, and size.
 
+{% note info %}
+
+You can only change the storage size by using the CLI or API.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -30,19 +36,19 @@ After creating file storage, you can change its name, description, and size.
 
       * To change the name, description, or size:
 
-         ```
+         ```bash
          yc compute filesystem update --help
          ```
 
       * To change the size:
 
-         ```
+         ```bash
          yc compute filesystem resize --help
          ```
 
    1. Get a list of available storage:
 
-      ```
+      ```bash
       yc compute filesystem list --format yaml
       ```
 
@@ -74,7 +80,7 @@ After creating file storage, you can change its name, description, and size.
 
       * The name and description:
 
-         ```
+         ```bash
          yc compute filesystem update \
            --name storage-1 \
            --new-name storage-3 \
@@ -98,7 +104,7 @@ After creating file storage, you can change its name, description, and size.
 
       * Size:
 
-         ```
+         ```bash
          yc compute filesystem resize \
            --name storage-1 \
            --size 2GB
@@ -117,6 +123,37 @@ After creating file storage, you can change its name, description, and size.
          block_size: "4096"
          status: READY
          ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and edit the fragment with the storage description:
+
+      {% cut "Sample storage description in the {{ TF }} configuration" %}
+
+      ```hcl
+      ...
+      resource "yandex_compute_filesystem" "default" {
+        name  = "fs-name"
+        type  = "network-ssd"
+        zone  = "{{ region-id }}-a"
+        size  = 150
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can verify that the storage has been updated and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc compute filesystem get <storage_name>
+   ```
 
 - API
 

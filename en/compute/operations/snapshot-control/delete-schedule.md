@@ -77,6 +77,47 @@ To delete a disk snapshot schedule:
       done (5s)
       ```
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the schedule description:
+
+      {% cut "Sample schedule description in the {{ TF }} configuration" %}
+
+      ```hcl
+      resource "yandex_compute_snapshot_schedule" "default" {
+        name = "my-name"
+
+        schedule_policy {
+          expression = "0 0 * * *"
+        }
+
+        snapshot_count = 1
+
+        snapshot_spec {
+            description = "snapshot-description"
+            labels = {
+              snapshot-label = "my-snapshot-label-value"
+            }
+        }
+
+        disk_ids = ["test_disk_id", "another_test_disk_id"]
+      }
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can verify that the schedule has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc compute snapshot-schedule list
+   ```
+
 - API
 
    1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.

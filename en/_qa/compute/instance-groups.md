@@ -23,3 +23,7 @@ To select the appropriate number of instances and minimize costs:
 
 - Estimate the amount of computing resources required for your service and see the calculation examples and [pricing policy](../../compute/pricing.md) for {{ compute-full-name }}.
 - Try to frequently monitor the load on the service at different times of day.
+
+#### Why can't I delete a service account linked to an instance group? {#sa-deletion}
+
+{% include [sa-dependence](../../_includes/instance-groups/sa-dependence.md) %}

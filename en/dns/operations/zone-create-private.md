@@ -60,7 +60,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
       1. DNS zone parameters:
 
-         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This parameter is required.
+         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This parameter is required.
          * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
@@ -126,10 +126,14 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
    1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
       yc dns zone get <DNS zone name>
       ```
+
+- API
+
+   To create a private DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create) gRPC API call.
 
 {% endlist %}

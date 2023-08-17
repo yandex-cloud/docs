@@ -88,7 +88,8 @@ You cannot move a VM to another cloud; however, you can create an image from its
       yc compute image create \
         --name <new_image_name> \
         --source-image-id <source_image_ID> \
-        --cloud-id <source_cloud_ID>
+        --cloud-id <target_cloud_ID> \
+        --folder-id <target_folder_ID>
       ```
 
    - API

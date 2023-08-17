@@ -361,7 +361,7 @@ items:
                 href: concepts/instance-groups/deploy/deploy.md
               - name: Rules for updating virtual machines
                 href: concepts/instance-groups/deploy/instance.md
-              - name: Changing secondary disks in an instance template
+              - name: Updating secondary disks in instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Integration with network and L7 load balancers
             href: concepts/instance-groups/balancers.md

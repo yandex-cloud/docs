@@ -207,7 +207,7 @@
            --maintenance-window type=<тип>[,day=<день недели>,hour=<час дня>]
         ```
 
-        Где:
+        Где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

@@ -10,3 +10,4 @@
 * [Backup to {{ objstorage-full-name }} via Duplicati](object-storage-duplicati.md)
 * [Backup to {{ objstorage-full-name }} via Bacula](backup-with-bacula.md)
 * [Backup to {{ objstorage-full-name }} via Veritas Backup Exec](object-storage-veritas.md)
+* [Deploying the GlusterFS parallel file system](ha-regional-glusterfs.md)
