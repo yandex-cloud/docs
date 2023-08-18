@@ -211,10 +211,6 @@ To enable a dataset:
 
 ## Sharing a dataset {#share}
 
-Only a community admin can share a dataset in the community.
-
-To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
-
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Select the appropriate dataset from the list.

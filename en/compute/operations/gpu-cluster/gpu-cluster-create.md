@@ -2,6 +2,12 @@
 
 {% note info %}
 
+GPU clusters will become [generally available](../../../overview/concepts/launch-stages.md) and billable on September 1st 2023.
+
+{% endnote %}
+
+{% note info %}
+
 By default, the cloud has a zero [quota](../../concepts/limits.md#compute-quotas) for creating GPU clusters. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
 {% endnote %}

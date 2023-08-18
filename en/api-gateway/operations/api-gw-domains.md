@@ -33,7 +33,7 @@ To connect a domain to an API gateway:
 
    1. In the list of services, select **Certificate Manager** and:
 
-      1. Create a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md).
+      1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [custom certificate](../../certificate-manager/operations/import/cert-create.md).
 
          {% note info %}
 

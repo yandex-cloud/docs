@@ -4986,6 +4986,7 @@ default:
             account_label_new: New payer
             account-type_label_company: Business account
             account-type_label_individual: Individual account
+            label_title: Create a billing account
             payment-type_label_card: Bank card
             payment-type_label_invoice: Bank transfer
             section_persons: Payers
@@ -5051,8 +5052,10 @@ default:
             usage-type_label_paid: Paid version
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
+            action_download-without-facsimile: Download unsigned report
             action_request-report: Request reconciliation report
             action_request-report-short: Request
+            field_actions: Actions
             value_completed: Done
           switch_acts: Reporting documents
           switch_budgets: Budgets

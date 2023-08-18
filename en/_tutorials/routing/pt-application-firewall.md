@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this infrastructure includes:
+The infrastructure support costs include:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
@@ -29,7 +29,7 @@ The cost of this infrastructure includes:
 
 ## Create a web server {#create-web-server}
 
-1. Create a `dvwa-server` VM with Ubuntu:
+1. Create a `dvwa-server` VM with [Ubuntu](/marketplace/products/yc/ubuntu-22-04-lts):
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
    1. In the list of services, select **{{ compute-name }}**.
@@ -37,7 +37,7 @@ The cost of this infrastructure includes:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter the name: `dvwa-server`.
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select Ubuntu 20.04.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-22-04-lts).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Enter the `ycuser` username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
@@ -45,7 +45,7 @@ The cost of this infrastructure includes:
 
    {% note info %}
 
-   A public and private IP addresses are assigned to the VM at creation. Write them down, as you will need them to access the VM and set up the firewall.
+   A public and a private IP addresses are assigned to the VM at creation. Write them down, as you will need them to access the VM and set up the firewall.
 
    {% endnote %}
 
@@ -84,7 +84,7 @@ The cost of this infrastructure includes:
 
 ## Set up the firewall {#configure-firewall}
 
-1. Create a `pt-firewall` VM from the `PT Application Firewall` public image:
+1. Create a `pt-firewall` VM from the [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) public image:
 
    {% list tabs %}
 
@@ -97,7 +97,7 @@ The cost of this infrastructure includes:
          * Enter the name: `pt-firewall`.
          * Choose the same availability zone that the `dvwa-server` VM is in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
-      1. Select the current `PT Application Firewall` image.
+      1. Select the current [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) image.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Enter the `ycuser` username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
@@ -108,7 +108,7 @@ The cost of this infrastructure includes:
 
    {% note info %}
 
-   A public and private IP addresses are assigned to the VM at creation. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
+   A public and a private IP addresses are assigned to the VM at creation. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
 
    {% endnote %}
 

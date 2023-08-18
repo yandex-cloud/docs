@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this infrastructure includes:
+The infrastructure support costs include:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
@@ -84,7 +84,7 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
 
       {% note info %}
 
-      To create resources using the CLI, [authenticate](../../cli/operations/authentication/service-account.md#auth-as-sa) using the [service account](../../iam/concepts/users/service-accounts.md) having the `admin` [role](../../iam/concepts/access-control/roles.md) for the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+      To create resources using the CLI, [authenticate](../../cli/operations/authentication/service-account.md#auth-as-sa) using the [service account](../../iam/concepts/users/service-accounts.md) that has the `admin` [role](../../iam/concepts/access-control/roles.md) for the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
       {% endnote %}
 
@@ -122,6 +122,54 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
           }
          }
          ```
+
+      1. Describe the input variables:
+
+         ```
+         variable "cloud_id" {
+           description = "YC cloud-id. Taken from environment variable."
+         }
+         ```
+
+      1. Describe the targets (cloud folders):
+
+         ```
+         # ========
+         # Folders
+         # ========
+         resource "yandex_resourcemanager_folder" "net_folder" {
+           cloud_id = var.cloud_id
+           name     = "net-folder"
+         }
+
+         resource "yandex_resourcemanager_folder" "dev_folder" {
+           cloud_id = var.cloud_id
+           name     = "dev-folder"
+         }
+
+         resource "yandex_resourcemanager_folder" "prod_folder" {
+           cloud_id = var.cloud_id
+           name     = "prod-folder"
+         }
+         ```
+
+      1. Create the required infrastructure:
+
+         1. Run the following commands:
+
+            ```bash
+            export TF_VAR_cloud_id=$(yc config get cloud-id)
+            export YC_TOKEN=$(yc iam create-token)
+            terraform apply
+            ```
+
+         1. Confirm the resources have been updated and wait for the operation to complete.
+
+   - API
+
+      To create a folder, use:
+      * The [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) (`REST API`) method for the [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) resource.
+      * The [FolderService/Create](https://cloud.yandex.ru/docs/resource-manager/api-ref/grpc/folder_service#Create) (`gRPC API`) call.
 
       1. Describe the input variables:
 
@@ -211,6 +259,16 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
       1. Create a cloud network named `shared-net` in `net-folder`:
 
+      1. Describe the target (cloud network):
+
+         ```
+         # =============
+         # VPC Resources
+         # =============
+         resource "yandex_vpc_network" "shared_net" {
+           folder_id = yandex_resourcemanager_folder.net_folder.id
+           name      = "shared-net"
+         }
          ```
          yc vpc network create --folder-name net-folder --name shared-net
          ```
@@ -246,6 +304,16 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
       To create a cloud network, use:
       * The [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource
       * The [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`) call
+
+      1. Confirm the resources have been updated.
+
+      1. Wait for the operation to complete.
+
+   - API
+
+      To create a cloud network, use:
+      * The [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource.
+      * The [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`) call.
 
    {% endlist %}
 
@@ -397,7 +465,7 @@ Create VMs with the following parameters:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter the name: `net-vm`.
       * Select an availability zone `{{ region-id }}-a`.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select Ubuntu 20.04.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the `subnet-a` subnet.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Enter the `ycuser` username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.

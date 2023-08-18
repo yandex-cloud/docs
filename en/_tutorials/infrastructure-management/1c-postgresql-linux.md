@@ -11,7 +11,7 @@ To use 1C:Enterprise, you need a license. For more information about licenses an
 To configure 1C:Enterprise servers:
 
 1. [Prepare your cloud](#before-you-begin).
-1. [Prepare the infrastructure](#prepare).
+1. [Prepare your infrastructure](#prepare).
 1. [Create a VM for the 1C:Enterprise server](#create-1c-vm).
 1. [Create a VM for the license server](#create-1c-license-vm).
 1. [Create a {{ mpg-name }} cluster](#create-pg-cluster).
@@ -36,7 +36,7 @@ The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes
 
 * Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for continuously running cluster {{ mpg-name }} (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Prepare the infrastructure {#prepare}
@@ -81,7 +81,7 @@ To create a VM:
 
 1. Click **Create VM**.
 
-Creating the VM may take several minutes.
+It may take a few minutes to create a VM.
 
 ## Create a VM for the license server {#create-1c-license-vm}
 
@@ -95,7 +95,7 @@ To create a VM:
 
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS Stream** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS Stream](/marketplace/products/yc/centos-stream-8) image.
 
 1. Under **Computing resources**:
    - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -114,7 +114,7 @@ To create a VM:
 
 1. Click **Create VM**.
 
-Creating the VM may take several minutes.
+It may take a few minutes to create a VM.
 
 ## Create a {{ mpg-name }} cluster {#create-pg-cluster}
 
@@ -133,12 +133,12 @@ To create a {{ mpg-name }} cluster optimized for 1C:
 1. Under **Storage size**, enter **local-ssd** and 100 GB.
 
 1. Under **Database**, enter:
-    - **DB name**: `1c-database`.
-    - **Username**: `user1`.
-    - **Password**: The password you'll use to access the database.
-    - **Network**: The network where the cluster will reside.
-    - **Sorting locale**: `ru_RU.UTF-8`.
-    - **Character set locale**: `ru_RU.UTF-8`.
+   - **DB name**: `1c-database`.
+   - **Username**: `user1`.
+   - **Password**: Password you will use to access the database.
+   - **Network**: Network in which the cluster will reside.
+   - **Sorting locale**: `ru_RU.UTF-8`.
+   - **Character set locale**: `ru_RU.UTF-8`.
 
 1. Under **Hosts**, select different availability zones for your hosts to ensure their fault tolerance.
 
@@ -242,10 +242,10 @@ Install the 1C:Enterprise server on the VM:
 1. Upload the distribution archive to your VM's `1c-files` directory.
 1. Unpack the distribution and run the installation:
 
-```
-sudo tar –xvf  /1c-files/<archive name>
-sudo yum localinstall /1c-files/*.rpm
-```
+   ```
+   sudo tar –xvf  /1c-files/<archive name>
+   sudo yum localinstall /1c-files/*.rpm
+   ```
 
 1. Start the 1C server:
 
@@ -358,10 +358,11 @@ sudo yum localinstall /1c-files/*.rpm
 Install the 1C:Enterprise server on the VM:
 
 1. Upload the distribution archive to your VM's `1c-files` directory.
+
 1. Unpack the distribution and run the installation:
 
    ```
-   sudo tar –xvf  /1c-files/<archive name>
+   sudo tar –xvf /1c-files/<archive name>
    sudo yum localinstall /1c-files/*.rpm
    ```
 

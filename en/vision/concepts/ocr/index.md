@@ -87,6 +87,17 @@ Example of a recognized word with coordinates:
 }
 ```
 
+### Errors determining coordinates {#coordinate-definition-issue}
+
+Coordinates returned by the service may in some cases mismatch the text displayed in the user's image processor. This is due to incorrect handling of `exif` metadata by the user's image processor.
+
+During recognition, the service considers data about image rotation set by the `Orientation` attribute in the `exif` section. Some tools used for viewing images may ignore the rotation values set in `exif`. This causes a mismatch between the obtained results and the displayed image.
+
+To fix this error, do one of the following:
+
+* Change the image processor settings so that the rotation angle specified in the `exif` section is considered while viewing images.
+* Remove the `Orientation` attribute from the image `exif` section during transfer to the service or set it to `0`.
+
 ### Recognition confidence {#confidence}
 
 The recognition confidence shows the service's confidence in the result. For example, the value `"confidence": 0.9412244558` for the line <q>we like you</q> means that the text is recognized correctly with a probability of 94%.

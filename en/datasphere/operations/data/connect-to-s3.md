@@ -1,59 +1,47 @@
-# Connecting to S3 storage
+# Connecting to S3 using the boto3 library
 
-On your project page in the {{ ml-platform-name }} interface, you can manage your connection to an S3 object storage by using the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource.
+This guide describes how to connect to an S3 object storage in {{ jlab }} Notebook using the `boto3` library. To connect to an object storage, you can use an [S3 connector](s3-connectors.md):
 
-{% note info %}
+{% include [fuse-disclaimer](../../../_includes/datasphere/fuse-disclaimer.md) %}
 
-Try not to use S3 storage in [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) mode for buckets with single-layer (non-recursive) folders that include many files. This usage scenario decreases storage performance significantly.
+To set up an S3 connection from the notebook code:
 
-{% endnote %}
+1. [Create the secrets](secrets.md#create): `token` (with ID) and `key_value` (with a the secret part of the [static access key](../../../iam/operations/sa/create-access-key.md) for the service account).
+1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
+1. Import the libraries:
 
-## Before you begin {#before-begin}
+   ```python
+   import boto3
+   import os
+   from os import path
+   ```
 
-1. Get an access key from your S3 storage provider. Follow these steps in {{ objstorage-full-name }}:
-1. [Create a service account](../../../iam/operations/sa/create.md).
-1. To the created account, [assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
-1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+1. Enter the name of your bucket in the storage.
 
-## Creating an S3 connector {#create}
+   ```python
+   bucket_name = '<bucket_name>'
+   ```
 
-To create an S3 connector:
+1. Establish a connection:
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. If you're creating a connection to an {{ objstorage-name }} bucket, in the project settings, [specify](../projects/update.md) the service account on behalf of which {{ ml-platform-name }} will connect to it.
-1. (Optional) In the top right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the window that pops up, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of a static access key for the service account. You can also create a secret when creating an S3 connector.
-1. In the top right-hand corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. Complete the fields below:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the connector being created.
-   * (Optional) **{{ ui-key.yc-ui-datasphere.common.description }}** of the new connector.
-   * **{{ ui-key.yc-ui-datasphere.common.endpoint }}**: Storage host. For {{ objstorage-full-name }}, this is `https://{{ s3-storage-host }}/`.
-   * **{{ ui-key.yc-ui-datasphere.common.bucket }}**: Name of the storage bucket.
+   ```python
+   session = boto3.session.Session()
 
-      {% note warning %}
+   ENDPOINT = "https://storage.yandexcloud.net"
 
-      Don't use buckets that have dots in their names for connecting. [Learn more about buckets](../../../storage/concepts/bucket.md).
+   session = boto3.Session(
+       aws_access_key_id=(os.environ['token']),
+       aws_secret_access_key=(os.environ['key_value']),
+       region_name="ru-central1",
+   )
 
-      {% endnote %}
+   s3 = session.client(
+       "s3", endpoint_url=ENDPOINT)
+   ```
 
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}**: In the list, select a [secret](../../concepts/secrets.md) that contains the secret part of the static access key or create a new secret.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}**: Object storage access mode (**{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** or **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**).
-   * **{{ ui-key.yc-ui-datasphere.common.backend }}**: Backend mode (**{{ ui-key.yc-ui-datasphere.common.default }}**, **{{ ui-key.yc-ui-datasphere.new-s3-page.backend-geesefs }}**, or **{{ ui-key.yc-ui-datasphere.new-s3-page.backend-s3fs }}**).
-1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Enter the bucket name and retrieve a list of objects contained in it.
 
-## Attaching an S3 storage to a project {#mount}
-
-Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket is available in the {{ jlab }} Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, and you can view it as a file system.
-
-## Using an S3 storage in a project {#usage}
-
-You can access files in the connected bucket from the project code. Choose the desired file in the connected S3 storage on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, right-click it, then select **Copy path**. The file path is copied to the clipboard. Paste the copied path wherever you want in the project.
-
-## Detaching an S3 storage {#unmount}
-
-1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. Select the desired connector and go to the resource page.
-1. Click **{{ ui-key.yc-ui-datasphere.common.deactivate }}** in the top right corner of the page.
-
-You can attach the S3 storage to your project again when needed.
+   ```python
+   for key in s3.list_objects(Bucket='<имя_бакета>')['Contents']:
+       print(key['Key'])
+   ```

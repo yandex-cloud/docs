@@ -26,6 +26,8 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
+{% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
+
 ### Recognize text from a PDF file {#pdf}
 
 1. The PDF file must contain up to 8 pages. If there are more pages, split it into files with 8 pages or less.
@@ -47,7 +49,7 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
                     "language_codes": ["*"]
                 }
             }]
-       }]
+        }]
     }
     ```
 
@@ -298,10 +300,10 @@ The examples below show the script code for text recognition. Authentication is 
            },
        }
 
-        body, err := json.Marshal(&request)
-        if err != nil {
-            return "", err
-        }
+       body, err := json.Marshal(&request)
+       if err != nil {
+           return "", err
+       }
 
        req, err := http.NewRequest("POST", visionURL, bytes.NewReader(body))
        if err != nil {

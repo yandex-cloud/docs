@@ -198,13 +198,27 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 
+
+### Кластеры GPU {#prices-gpu-clusters}
+
+{% note info %}
+
+Кластеры GPU переходят в [общий доступ](../overview/concepts/launch-stages.md) и начнут тарифицироваться 1 сентября 2023 года.
+
+{% endnote %}
+
+
+{% include [rub-gpu-clusters.md](../_pricing/compute/rub-gpu-clusters.md) %}
+
+
+
+
+
 ### Операционные системы {#prices-os}
 
 
 
 {% include [rub-os.md](../_pricing/compute/rub-os.md) %}
-
-
 
 
 

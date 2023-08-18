@@ -2,6 +2,12 @@
 
 {% note info %}
 
+Кластеры GPU переходят в [общий доступ](../../../overview/concepts/launch-stages.md) и начнут тарифицироваться 1 сентября 2023 года.
+
+{% endnote %}
+
+{% note info %}
+
 По умолчанию в облаке установлена нулевая [квота](../../concepts/limits.md#compute-quotas) на создание кластеров GPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 {% endnote %}

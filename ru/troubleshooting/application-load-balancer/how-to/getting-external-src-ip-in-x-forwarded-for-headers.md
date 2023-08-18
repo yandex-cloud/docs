@@ -20,7 +20,7 @@
 
 - Nginx
 
-    Если в качестве бэкенда используется веб-сервер Nginx, то в конфигурации службы Nginx внутри блока `log_format` должна содержаться переменная `http_x_forwarded_for`: 
+    Если в качестве бэкенда используется веб-сервер Nginx, то в конфигурации службы Nginx внутри блока `log_format` должна содержаться переменная `http_x_forwarded_for`:
     ```
     log_format main '$remote_addr - $http_x_forwarded_for - $remote_user [$time_local] "$request" '
                     '$status $body_bytes_sent "$http_referer" '
@@ -42,14 +42,14 @@
 {% endlist %}
 
 После изменения конфигурации веб-сервера и его перезапуска вы увидите в журналах внешние IP-адреса клиентов.
-Например, если на Ingress приходит запрос с ip 123.34.56.67:
+Например, если на Ingress приходит запрос с IP 123.34.56.67:
 
 ```text
 kubectl logs nginx-ingress-nginx-ingress-xxxxx
 123.34.56.67 - - [28/Jun/2022:09:11:32 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.68.0" "-"
 ```
 
-В логах пода с бэкендом этот адрес будет фигурировтаь внутри заголовка `X-Forwarded-For:
+В логах пода с бэкендом этот адрес будет фигурировтаь внутри заголовка `X-Forwarded-For`:
 
 ```text
 kubectl logs -n demo-ns pod/nginx

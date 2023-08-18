@@ -4997,6 +4997,7 @@ default:
             account_label_new: Новый плательщик
             account-type_label_company: Бизнес-аккаунт
             account-type_label_individual: Личный аккаунт
+            label_title: Создание платежного аккаунта
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_persons: Плательщики
@@ -5062,8 +5063,10 @@ default:
             usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
+            action_download-without-facsimile: Скачать акт без подписи
             action_request-report: Заказать акт сверки
             action_request-report-short: Заказать
+            field_actions: Действия
             value_completed: Готово
           switch_acts: Отчётные документы
           switch_budgets: Бюджеты

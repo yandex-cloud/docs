@@ -7,10 +7,10 @@ description: "With {{ sf-name }}, you can run applications written in the PHP pr
 
 With {{ sf-name }}, you can run applications written in the [PHP](https://www.php.net/) programming language. The service provides [runtime environments](../../concepts/runtime/index.md) with the following versions:
 
-| Name | PHP version | Operating <br>system |
-|----|----|----|
-| php74 | 7.4.28 | Ubuntu 18.04 LTS |
-| php8 | 8.0.25 | Ubuntu 18.04 LTS |
+| Name | PHP version | Operating <br>system | Preloaded |
+|----|----|----|----|
+| php74 | 7.4.28 | Ubuntu 18.04 LTS | No |
+| php8 | 8.0.25 | Ubuntu 18.04 LTS | No |
 
 When creating a new [function version](../../concepts/function.md#version) {{ sf-name }} may automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

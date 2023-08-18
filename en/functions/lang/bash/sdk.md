@@ -2,20 +2,24 @@
 
 The runtime environment has the [YC CLI](../../../cli/) installed by default to work with the {{ yandex-cloud }} API.
 
-The user interacts with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the Bash function. This doesn't require any additional actions from the user: the utility applies the service account automatically.
+The user interacts with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the Bash function. This does not require any additional actions from the user: the utility applies the service account automatically.
 
-For example, you can get a list of available clouds using the following script:
+For example, you can get a list of cloud folders using the following script:
 
 ```shell script
 #!/bin/bash
 set -e
 
-HOME=/tmp yc --format json resource-manager cloud list | jq -c '{body:. | tostring}'
+HOME=/tmp yc --format json resource-manager folder list --cloud-id bqg1a8m7acm******** | jq -c '{body:. | tostring}'
 ```
 
-To work with {{ yandex-cloud }} compatible services, such as [Yandex Object Storage](../../../storage/) and [Yandex Message Queue](../../../message-queue/) the runtime environment comes pre-packaged with the [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
+For YC CLI commands to run successfully, make sure they specify the appropriate [folder](../../../resource-manager/operations/folder/get-id.md) or [cloud](../../../resource-manager/operations/cloud/get-id.md) ID with a `--folder-id` or `--cloud-id` flag, respectively.
 
-In this case, copy the [static access keys for the service account](../../../iam/operations/sa/create-access-key.md) and pass them, for example, using the function's [environment variables](../../concepts/runtime/environment-variables.md).
+To work with {{ yandex-cloud }} compatible services, such as [Yandex Object Storage](../../../storage/) and [Yandex Message Queue](../../../message-queue/), the runtime environment comes with pre-installed [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
 
-For more information and sample commands, see [AWS Command Line Interface](../../../storage/tools/aws-cli.md) and the [Yandex Message Queue](../../../message-queue/instruments/index.md) documentation.
+In this case, copy the [static access keys for the service account](../../../iam/operations/sa/create-access-key.md) and provide them, e.g., using the function's [environment variables](../../concepts/runtime/environment-variables.md).
+
+For more information and sample commands, see [AWS Command Line Interface](../../../storage/tools/aws-cli.md) and the [Yandex Message Queue](../../../message-queue/instruments/index.md).
+
+
 

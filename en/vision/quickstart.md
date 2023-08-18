@@ -16,7 +16,7 @@ You can use any of the analysis features from the [list](concepts/index.md#featu
 
     * Supported file formats: JPEG, PNG, PDF.
     * Maximum file size: 1 MB.
-    * Image size must not exceed 20 MP (height x width).
+    * Image size should not exceed 20 MP (height x width).
 
     {% note info %}
 
@@ -25,6 +25,8 @@ You can use any of the analysis features from the [list](concepts/index.md#featu
     {% endnote %}
 
 {% include [text-detection-steps](../_includes/vision/text-detection-steps.md) %}
+
+{% include [coordinate-definition-issue-note](../_includes/vision/coordinate-definition-issue-note.md) %}
 
 #### What's next {#what-is-next}
 

@@ -12,7 +12,7 @@ You can use resources in multiple projects without recreating them. To make a re
 * [Secrets](secrets.md)
 * [Docker images](docker.md)
 * [Datasets](dataset.md)
-* [S3 connectors](../operations/data/connect-to-s3.md)
+* [S3 connectors](s3-connector.md)
 * [Nodes and aliases](deploy/index.md#python-nodes)
 
 For more information about the {{ ml-platform-name }} resource model, see [{#T}](resource-model.md).

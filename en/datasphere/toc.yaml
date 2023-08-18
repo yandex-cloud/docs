@@ -71,9 +71,13 @@ items:
             href: operations/user-images.md
           - name: Working with datasets
             href: operations/data/dataset.md
+          - name: Working with S3 connectors
+            href: operations/data/s3-connectors.md
       - name: Connecting to data sources
         items:
           - name: Connecting to S3 storage
+            href: operations/data/s3-connectors.md
+          - name: Connecting to S3 using the boto3 library
             href: operations/data/connect-to-s3.md
           - name: Connecting to a {{ CH }} database
             href: operations/data/connect-to-clickhouse.md
@@ -155,6 +159,8 @@ items:
             href: concepts/dataset.md
           - name: '{{ dataproc-name }} templates'
             href: concepts/data-proc-template.md
+          - name: S3 connectors
+            href: concepts/s3-connector.md
       - name: Deploying models
         href: concepts/deploy/index.md
       - name: Quotas and limits
@@ -181,6 +187,8 @@ items:
         href: tutorials/regular-launch.md
       - name: Running computations using the API
         href: tutorials/batch-code-execution.md
+      - name: Training a model on data from {{ objstorage-full-name }}
+        href: tutorials/s3-to-datasphere.md
   - name: API reference
     items:
       - name: Overview
