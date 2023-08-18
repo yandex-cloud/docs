@@ -33,7 +33,7 @@ items:
       - name: Устранение ошибки Unauthorized при создании платежного аккаунта
         href: >-
           billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
-      - name: Платежный аккаунт находится в статусе SUSPENDED
+      - name: Платежный аккаунт находится в статусе PAYMENT_REQUIRED
         href: billing/known-issues/account-blocked-due-to-debt.md
       - name: Закончился пробный период
         href: billing/known-issues/trial-expired-issue.md
@@ -628,7 +628,7 @@ items:
       - name: Примеры сценариев использования Консоли управления
         href: console/how-to/index.md
         hidden: true
-      - name: Как увеличить квоту
+      - name: Как увеличить квоты
         href: console/how-to/increase-quota.md
   - name: Terraform-провайдер Yandex Cloud
     items:

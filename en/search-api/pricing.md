@@ -24,6 +24,6 @@ The level of non-tariff consumption (free tier) for each user is 1000 requests p
 {% include [usd](../_pricing/search-api/usd.md) %}
 
 
-There is a quota of 30,000 requests per month (1000 requests per day) for all new users of the service. For more information about restrictions, see [Quotas and limits](concepts/limits.md). To change the quota values, contact [technical support] ({{ link-console-support }}) or your account manager.
+There is a quota of 30,000 requests per month (1,000 requests per day) for all new users of the service. For more information about restrictions, see [Quotas and limits](concepts/limits.md). To change the quota values, contact [technical support]({{ link-console-support }}) or your account manager.
 
 ^1^ The time is indicated in the time zone [UTC+3](https://en.wikipedia.org/wiki/UTC%2B03:00).

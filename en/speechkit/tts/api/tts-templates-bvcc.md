@@ -13,8 +13,8 @@ To synthesize a phrase based on a template:
 
 Template parameter restrictions are as follows:
 
-* The phrase for synthesis must not be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase optimal for perception is up to 16 seconds long as in a regular conversation.
-* The pattern must not be longer than {{ tts-v3-count }} of normalized text.
+* A phrase for synthesis must not be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase ideal for perception is under 16 seconds, as in a regular conversation.
+* Pattern length: not more than {{ tts-v3-count }} of normalized text.
 * The text of the variable part must not exceed 25% of the pattern length.
 
 {% include [prepare-template-synthesis](../../../_includes/speechkit/prepare-template-synthesis.md) %}

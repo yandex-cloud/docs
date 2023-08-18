@@ -12,3 +12,4 @@ description: "Here is a variety of {{ ml-platform-full-name }} use cases: servic
 * [{#T}](stable-diffusion.md)
 * [{#T}](regular-launch.md)
 * [{#T}](batch-code-execution.md)
+* [{#T}](s3-to-datasphere.md)

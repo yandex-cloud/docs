@@ -1,4 +1,4 @@
-# Linking a billing account
+# Link a billing account
 
 [Billing account](../../../billing/concepts/billing-account.md) is used to assign the user who pays for the computing resources, operation of [nodes](../../concepts/deploy/index.md#node), and storing of resources for all the community's projects.
 

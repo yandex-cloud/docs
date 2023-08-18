@@ -21,12 +21,12 @@ To synthesize a phrase based on a template:
 
 ## Prepare an audio recording template {#prepare-template}
 
-A template consists of a pattern phrase audio recording and its marked-up text.
+A template consists of a pattern phrase audio recording and its text with markup.
 
 Template parameter restrictions are as follows:
 
-* The phrase for synthesis must not be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase optimal for perception is up to 16 seconds long as in a regular conversation.
-* The pattern must not be longer than {{ tts-v3-count }} of normalized text.
+* A phrase for synthesis must not be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase ideal for perception is under 16 seconds, as in a regular conversation.
+* Pattern length: not more than {{ tts-v3-count }} of normalized text.
 
 {% note warning %}
 
@@ -59,7 +59,7 @@ Create and run a client app to send your data to the API:
 
       You need the `grpcio-tools` package to generate client interface code for the API v3 synthesis.
 
-      The `pydub` package is needed to process the received audio files.
+      The `pydub` package is needed to process the resulting audio files.
 
    1. [Download the FFmpeg utility](https://www.ffmpeg.org/download.html) for correct operation of the `pydub` package.
    1. Add the path to the directory with the FFmpeg executable file to the `PATH` variable:
@@ -109,26 +109,26 @@ Create and run a client app to send your data to the API:
               ),
               loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS,
               text_template = tts_pb2.TextTemplate(
-                              text_template = template,
-                              variables = [
-                                  # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
-                                  tts_pb2.TextVariable(
-                                      variable_name = "<variable_name_in_the_pattern>",
-                                      # Example: '{time}'
-                                      variable_value = "<text_for_synthesis>"
-                                      # Example: 'eight thirty'
-                                  )
-                              ]
-                         ),
+                  text_template = template,
+                  variables = [
+                      # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
+                      tts_pb2.TextVariable(
+                          variable_name = "<variable_name_in_the_pattern>",
+                          # Example: '{time}'
+                          variable_value = "<text_for_synthesis>"
+                          # Example: 'eight thirty'
+                      )
+                  ]
+              ),
               hints = [
-                 tts_pb2.Hints(
+                  tts_pb2.Hints(
                       audio_template = tts_pb2.AudioTemplate(
                           audio = tts_pb2.AudioContent(
-                              # Source audio for the template
+                              # Source audio for the template.
                               content = bytes_array,
                               audio_spec = tts_pb2.AudioFormatOptions(
                                   container_audio = tts_pb2.ContainerAudio(
-                                  container_audio_type = tts_pb2.ContainerAudio.WAV
+                                      container_audio_type = tts_pb2.ContainerAudio.WAV
                                   )
                               )
                           ),
@@ -155,7 +155,7 @@ Create and run a client app to send your data to the API:
                       )
                  ),
                  tts_pb2.Hints(
-                    voice = "<your_voice_ID>"
+                     voice = "<your_voice_ID>"
                  )
               ],
           )

@@ -28,7 +28,10 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
       * In the **Type** field, select **Timer**.
       * In the **Launched resource** field, select **Function**.
 
-   1. Under **Timer settings**, specify the function invocation schedule in a [cron expression](../../concepts/trigger/timer.md#cron-expression).
+   1. Under **Timer settings**:
+
+      * In the **Cron expression** field, specify the function invocation schedule in the [cron expression](../../concepts/trigger/timer.md#cron-expression) format.
+      * (Optional) In the **Data** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. Data type: string limited to 4,096 characters.
 
    1. Under **Function settings**, select a function and specify:
 
@@ -52,20 +55,22 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    ```bash
    yc serverless trigger create timer \
-     --name <timer name> \
-     --cron-expression '<cron expression>' \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --name <timer_name> \
+     --cron-expression '<cron_expression>' \
+     --payload <message> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
    Where:
 
    * `--name`: Timer name.
    * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
+   * `--payload`: Message to be delivered to the function if the timer triggers. String length should not exceed 4,096 characters.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -79,6 +84,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
    rule:
      timer:
        cron_expression: 5 12 * * ? *
+       payload: <message>
        invoke_function_with_retry:
          function_id: d4eofc7n0m**********
          function_tag: $latest
@@ -108,7 +114,8 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       * `description`: Trigger description.
       * `timer`: Trigger settings:
-         * `cron_expression`: Function invocation schedule in [cron expression](../../concepts/trigger/timer.md#cron-expression) format.
+         * `cron_expression`: Function invocation schedule in the [cron expression](../../concepts/trigger/timer.md#cron-expression) format.
+         * `payload`: Message to be delivered to the function if the timer triggers. String length should not exceed 4,096 characters.
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
 
@@ -116,18 +123,19 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
-        name        = "<timer name>"
-        description = "<trigger description>"
+        name        = "<timer_name>"
+        description = "<trigger_description>"
         timer {
           cron_expression = "* * * * ? *"
+          payload         = "<message>"
         }
         function {
-          id = "<function ID>"
+          id = "<function_ID>"
         }
       }
       ```
 
-      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
    1. Make sure the configuration files are valid.
 
@@ -153,7 +161,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
          All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
          ```
-         yc serverless trigger get <trigger ID>
+         yc serverless trigger get <trigger_ID>
          ```
 
 - API

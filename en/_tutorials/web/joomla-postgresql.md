@@ -60,7 +60,7 @@ The cost of hosting a Joomla-powered website includes:
 
       The minimum configuration is enough for functional testing:
       * **Platform**: Intel Ice Lake.
-      * **Guaranteed vCPU share**: 20%
+      * **Guaranteed vCPU share**: 20%.
       * **vCPU**: 2.
       * **RAM**: 1 GB.
    1. In **Network settings**, select the subnet to connect the VM to once it is created.
@@ -114,7 +114,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`:
 
    The recommended authentication method when connecting over SSH is using a key pair. Don't forget to configure using the generated key pair: the private key must match the public key sent to the VM.
 
-1. Download and unpack the Joomla archive:
+1. Download and unpack the Joomla 3.8.7 archive:
 
    {% list tabs %}
 
@@ -122,7 +122,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`:
 
       ```bash
       sudo mkdir -p /var/www/html/
-      curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
+      curl https://github.com/joomla/joomla-cms/releases/download/3.8.7/Joomla_3.8.7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
       sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
       (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
       sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz
@@ -240,7 +240,7 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    1. Open the **Hosts** tab.
    1. Copy the host addresses from the **Host name** column.
 
-1. At the **Database** step, fill in the following fields  in the Joomla web installer:
+1. At the **Database** step, fill in the following fields in the Joomla web installer:
    * **Database type**: `{{ PG }}`.
    * **DB server name**:
 

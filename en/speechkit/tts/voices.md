@@ -29,12 +29,20 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `madirus` | M | — | v1, v3 |
 | `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
+| `ru-RU` | Russian | `dasha` | F | — | v3 |
+| `ru-RU` | Russian | `julia` | F | — | v3 |
+| `ru-RU` | Russian | `lera` | F | — | v3 |
+| `ru-RU` | Russian | `marina` | F | — | v3 |
+| `ru-RU` | Russian | `alexander` | M | — | v3 |
+| `ru-RU` | Russian | `kirill` | M | — | v3 |
+| `ru-RU` | Russian | `anton` | M | — | v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 
-The `oksana` and `alena` voices were created from the recordings of a single voice artist. The `oksana` voice is no longer on the list of supported voices. Use the `alena` voice with `good` role instead. The `oksana` voice is still available for legacy projects.
+
+The `oksana` and `alena` voices were created from the recordings of a single voice artist. The `oksana` voice is no longer on the list of supported voices. Use the `alena` voice with the `good` role instead. The `oksana` voice is still available for legacy projects.
 
 {% note tip %}
 
-If existing voices are not suitable for your project, {{ speechkit-name }} can create a voice specifically for you. For more information about creating unique voices, see [{{ brand-voice-full-name }}](brand-voice/index.md).
+If the existing voices are not suitable for your project, {{ speechkit-name }} can create a voice specifically for you. For more information about creating unique voices, see [{{ brand-voice-full-name }}](brand-voice/index.md).
 
 {% endnote %}

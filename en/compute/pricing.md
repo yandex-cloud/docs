@@ -199,6 +199,22 @@ The price with a CVoS is only available for regular VMs.
 
 
 
+
+### GPU Clusters {#prices-gpu-clusters}
+
+{% note info %}
+
+GPU clusters will become [generally available](../overview/concepts/launch-stages.md) and billable on September 1st 2023.
+
+{% endnote %}
+
+
+
+
+{% include [usd-gpu-clusters.md](../_pricing/compute/usd-gpu-clusters.md) %}
+
+
+
 ### Operating systems {#prices-os}
 
 

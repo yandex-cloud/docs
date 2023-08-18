@@ -103,6 +103,7 @@
 - API
 
   1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
+  
   1. Назначьте сервисному аккаунту в текущем каталоге роли:
 
      * `compute.admin` — для управления группой ВМ.

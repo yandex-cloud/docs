@@ -5,12 +5,13 @@ description: "With {{ sf-name }}, you can run applications written in R. The ser
 
 # Developing in R. Overview
 
-With {{ sf-name }}, you can run applications written in [R](https://www.r-project.org/index.html). The service provides the [runtime environments](../../concepts/runtime/index.md) with the following versions:
+With {{ sf-name }}, you can run applications written in [R](https://www.r-project.org/index.html). The service provides [runtime environments](../../concepts/runtime/index.md) with the following versions:
 
-| Name | Version of R | Operating <br>system |
-|----|----|----|
-| r40 | 4.0.5 | Ubuntu 18.04 LTS |
-| r42 | 4.2.2 | Ubuntu 18.04 LTS |
+| Name | Version of R | Operating <br>system | Preloaded |
+|----|----|----|----|
+| r402 | 4.0.2 | Ubuntu 18.04 LTS | No |
+| r40 | 4.0.5 | Ubuntu 18.04 LTS | No |
+| r42 | 4.2.2 | Ubuntu 18.04 LTS | No |
 
 When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically install dependencies required for the function to run. For more information about the requirements and restrictions, see [{#T}](dependencies.md).
 

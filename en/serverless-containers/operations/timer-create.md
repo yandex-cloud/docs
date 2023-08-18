@@ -28,7 +28,10 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
       * In the **Type** field, select **Timer**.
       * In the **Launched resource** field, select **Container**.
 
-   1. Under **Timer settings**, specify the container invocation schedule in a [cron expression](../concepts/trigger/timer.md#cron-expression).
+   1. Under **Timer settings**:
+
+      * In the **Cron expression** field, specify the function invocation schedule in the [cron expression](../concepts/trigger/timer.md#cron-expression) format.
+      * (Optional) In the **Data** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. Data type: string limited to 4,096 characters.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -52,6 +55,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    yc serverless trigger create timer \
      --name <timer_name> \
      --cron-expression '<cron_expression>' \
+     --payload <message> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
@@ -64,6 +68,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    * `--name`: Timer name.
    * `--cron-expression`: Container invocation schedule in [cron expression](../concepts/trigger/timer.md#cron-expression) format.
+   * `--payload`: Message to be delivered to the function if the timer triggers. String length should not exceed 4,096 characters.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -77,6 +82,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    rule:
      timer:
        cron_expression: 5 10 ? * * *
+       payload: <message>
        invoke_container_with_retry:
          container_id: bba5jb38o8**********
          service_account_id: aje3932acd**********

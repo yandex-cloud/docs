@@ -6,11 +6,16 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+### Release on 27/07/23 {#270723}
+
+1. Added the `pitch_shift` parameter to [API v3](tts-v3/api-ref/grpc/tts_service.md). You can use it to increase the pitch contour of an entire synthesized audio by a fixed value in Hz. Shifting the contour makes a voice sound more lively.
+1. Seven new [voices](tts/voices.md) are now available for speech synthesis in Russian: `dasha`, `julia`, `lera`, `marina`, `alexander`, `kirill`, and `anton`.
+
+## Previous versions {#previous}
+
 ### Release on 19/06/23 {#190623}
 
 Improved the quality of pronunciation of car brands for Uzbek.
-
-## Previous versions {#previous}
 
 ### Release 08/06/23 {#080623}
 

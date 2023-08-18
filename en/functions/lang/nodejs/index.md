@@ -3,12 +3,13 @@ title: "Developing in Node.js in {{ sf-full-name }}. Overview"
 description: "With {{ sf-name }}, you can run applications written in Node.js. The service provides several runtime environments with different OS versions."
 ---
 
-# Developing in Node.js Overview
+# Developing in Node.js. Overview
 
 With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs.org/en/docs/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
 | Name | Node.js version | <br>{{ yandex-cloud }} SDK version | Operating <br>system | Preloaded |
 |----|----|----|----|----|
+| nodejs10 | 10.16.3 | 1.3.3 | Ubuntu 18.04 LTS | No |
 | nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 LTS | No |
 | nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 LTS | No |
 | nodejs16 | 16.14.1 | None | Ubuntu 18.04 LTS | Yes |

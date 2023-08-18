@@ -47,6 +47,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 ## Connecting to data sources {#connections-to-data-sources}
 
+* [{#T}](data/s3-connectors.md)
 * [{#T}](data/connect-to-s3.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
@@ -75,3 +76,4 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 ## Additional {{ ml-platform-name }} features {#additional-feature}
 
 * [{#T}](migration.md)
+

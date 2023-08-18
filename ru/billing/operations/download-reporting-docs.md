@@ -48,7 +48,7 @@
     1. Перейдите в раздел **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}**.
     1. Нажмите на кнопку **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. В открывшемся окне выберите период, за который требуется сформировать акт сверки, и нажмите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
-    1. Когда статус запроса изменится на **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, в столбце **Действие** появится кнопка для скачивания. Выберите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** или **Скачать без подписи**.
+    1. Когда статус запроса изменится на **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, в столбце **{{ ui-key.yacloud.billing.account.reconciliation-reports.field_actions }}** появится кнопка для скачивания. Выберите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** или **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
 
        {% cut "Обмен оригиналами документов" %}
 

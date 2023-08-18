@@ -245,7 +245,7 @@ zip src.zip index.go go.mod
     1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
     1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
     1. На странице **{{ ui-key.yacloud.billing.account.label_accounts }}** выберите платежный аккаунт.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_budgets }}** и нажмите **Создать бюджет**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.billing.account.switch_budgets }}** и нажмите **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
         * Имя бюджета — `vm-budget`.
         * Тип бюджета — `{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}`.
