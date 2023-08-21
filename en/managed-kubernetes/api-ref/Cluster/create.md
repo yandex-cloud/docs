@@ -23,6 +23,13 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
   "labels": "object",
   "networkId": "string",
   "masterSpec": {
+    "locations": [
+      {
+        "zoneId": "string",
+        "subnetId": "string"
+      }
+    ],
+    "etcdClusterSize": "string",
     "version": "string",
     "maintenancePolicy": {
       "autoUpgrade": true,
@@ -138,6 +145,10 @@ description | **string**<br><p>Description of the Kubernetes cluster.</p> <p>The
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 networkId | **string**<br><p>Required. ID of the network.</p> 
 masterSpec | **object**<br>Required. Master specification of the Kubernetes cluster.
+masterSpec.<br>locations[] | **object**<br><p>Locations specification for Kubernetes control-plane (master) instances. Works in conjunction with ``etcdClusterSize``. See it's documentation for details. Possible combinations:</p> <ul> <li>1 location and etcd_cluster_size = 1 - a single node cluster whose availability is limited by the availability of a single Compute Instance; downtime is expected during cluster updates.</li> <li>1 location and etcd_cluster_size = 3 - a highly available cluster within a single availability zone; can survive the failure of a Compute Instance, a server, or an individual server rack.</li> <li>3 location and etcd_cluster_size = 3 - a highly available cluster with each etcd instance located within separate availability zone; can survive the failure of a single availability zone.</li> </ul> 
+masterSpec.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the master resides.</p> 
+masterSpec.<br>locations[].<br>subnetId | **string**<br><p>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.</p> 
+masterSpec.<br>etcdClusterSize | **string** (int64)<br><p>Number of etcd nodes in cluster. Works in conjunction with ``locations``. See it's documentation for details. Optional. If not set, will be assumed equal to the number of locations.</p> <p>Value must be one of 0, 1 or 3.</p> 
 masterSpec.<br>version | **string**<br><p>Version of Kubernetes components that runs on the master.</p> 
 masterSpec.<br>maintenancePolicy | **object**<br>Maintenance policy of the master.
 masterSpec.<br>maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br><p>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.</p> 

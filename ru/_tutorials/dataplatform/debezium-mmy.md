@@ -196,14 +196,14 @@
         * Префикс `__debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
         * Имя сервера `mmy` указано в параметре `database.server.name`.
 
-    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `{{ ui-key.datalens.dc.kafka.topics.value_cleanup-policy-compact }}`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Compact`.
 
     Если необходимо получать данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 
 1. Создайте служебный топик для отслеживания изменений в схеме формата данных:
 
     * **{{ ui-key.yacloud.common.name }}** — `dbhistory.mmy`.
-    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `{{ ui-key.datalens.dc.kafka.topics.value_cleanup-policy-delete }}`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Delete`.
     * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
 
 1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.

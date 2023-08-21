@@ -336,36 +336,36 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 - Management console
 
   1. Select the cluster `s3-logs`.
-  1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
-  1. In the window that opens, click **{{ ui-key.datalens.connections.form.button_add-connection }}**.
+  1. Click the **DataLens** tab.
+  1. In the window that opens, click **Create connection**.
   1. Fill in the connection settings:
 
      1. Add a connection name: `s3-logs-con`.
-     1. In the **{{ ui-key.datalens.connections.form.field_cluster }}** field, select `s3-logs`.
-     1. In the **{{ ui-key.datalens.connections.form.field_host-name }}** field, select the {{ CH }} host from the drop-down list.
+     1. In the **Cluster** field, select `s3-logs`.
+     1. In the **Hostname** field, select the {{ CH }} host from the drop-down list.
      1. Enter the DB user's name and password.
 
-   1. Click **{{ ui-key.datalens.connections.form.button_verify }}**.
-   1. After checking the connection, click **{{ ui-key.datalens.connections.form.button_create-connection }}**.
-   1. In the window that opens, enter a name for the connection and click **{{ ui-key.datalens.connections.form.button_create }}**.
+   1. Click **Check connection**.
+   1. After checking the connection, click **Create connection**.
+   1. In the window that opens, enter a name for the connection and click **Create**.
 
 {% endlist %}
 
 ## Create a dataset in {{ datalens-short-name }} {#create-dataset}
 
-1. Click **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
+1. Click **Create dataset**.
 1. In the created dataset, move the `s3_data.s3logs` table to the workspace.
-1. Click the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}** tab.
-1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
+1. Click the **Fields** tab.
+1. Click ![image](../../_assets/plus-sign.svg) **Add field**.
 1. Create a calculated field with the file type:
 
    * Field name: `object_type`.
    * Formula: `SPLIT([object_key], '.', -1)`.
 
-1. Click **{{ ui-key.datalens.component.dl-field-editor.view.button_create }}**.
-1. In the top-right corner, click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
-1. Enter the dataset name `s3-dataset` and click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
-1. When the dataset is saved, click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}** in the top-right corner.
+1. Click **Create**.
+1. In the top-right corner, click **Save**.
+1. Enter the dataset name `s3-dataset` and click **Create**.
+1. When the dataset is saved, click **Create chart** in the top-right corner.
 
 ## Create charts in {{ datalens-short-name }} {#create-charts}
 
@@ -373,11 +373,11 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 To visualize the number of requests to a bucket using different methods, create a pie chart:
 
-1. Select the **{{ ui-key.datalens.wizard.label_visualization-pie }}** visualization type.
-1. Drag the `method` field from the **{{ ui-key.datalens.wizard.section_dimensions }}** section to the **{{ ui-key.datalens.wizard.section_color }}** section.
-1. Drag the `request_id` field from the **{{ ui-key.datalens.wizard.section_dimensions }}** section to the **{{ ui-key.datalens.wizard.section_measures }}** section.
-1. In the top-right corner, click **{{ ui-key.datalens.wizard.button_save }}**.
-1. In the window that opens, enter the name of the chart: `S3 - Method pie` and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. Select the **Pie chart** visualization type.
+1. Drag the `method` field from the **Dimension** section to the **Color** section.
+1. Drag the `request_id` field from the **Dimensions** section to the **Measures** section.
+1. In the top-right corner, click **Save**.
+1. In the window that opens, enter the name of the chart: `S3 - Method pie` and click **Save**.
 
 ### Create the second chart {#create-column-chart}
 
@@ -385,13 +385,13 @@ To visualize the ratio of the number of requests by object type, create a bar ch
 
 1. Copy the chart from the previous step:
 
-   1. In the top-right corner, click the down arrow next to the **{{ ui-key.datalens.wizard.button_save }}** button.
-   1. Click **{{ ui-key.datalens.wizard.button_save-as }}**.
-   1. In the window that opens, enter the name of the new chart: `S3 - Object type bars` and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+   1. In the top-right corner, click the down arrow next to the **Save** button.
+   1. Click **Save as**.
+   1. In the window that opens, enter the name of the new chart: `S3 - Object type bars` and click **Save**.
 
-1. Select the **{{ ui-key.datalens.wizard.label_visualization-column }}** visualization type. The `method` and `request_id` fields will automatically appear in the **{{ ui-key.datalens.wizard.section_x }}** and **{{ ui-key.datalens.wizard.section_y }}** sections, respectively.
-1. Delete the `method` field from the **{{ ui-key.datalens.wizard.section_x }}** section and drag the `object_type` field there.
-1. In the top-right corner, click **{{ ui-key.datalens.wizard.button_save }}**.
+1. Select the **Column chart** visualization type. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
+1. Delete the `method` field from the **X** field there.
+1. In the top-right corner, click **Save**.
 
 ### Create the third chart {#create-column-chart-2}
 
@@ -399,24 +399,24 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 
 1. Copy the chart from the previous step:
 
-   1. In the top-right corner, click the down arrow next to the **{{ ui-key.datalens.wizard.button_save }}** button.
-   1. Click **{{ ui-key.datalens.wizard.button_save-as }}**.
-   1. In the window that opens, enter the name of the new chart: `S3 - Traffic generated by days` and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+   1. In the top-right corner, click the down arrow next to the **Save** button.
+   1. Click **Save as**.
+   1. In the window that opens, enter the name of the new chart: `S3 - Traffic generated by days` and click **Save**.
 
-1. Drag the `object_type` field from the **{{ ui-key.datalens.wizard.section_x }}** section to the **{{ ui-key.datalens.wizard.section_filters }}** section.
-1. In the window that opens, select the types of objects that you want to display in the chart and click **{{ ui-key.datalens.wizard.button_apply-filter }}**.
-1. Drag the `timestamp` field from the **{{ ui-key.datalens.wizard.section_dimensions }}** section to the **{{ ui-key.datalens.wizard.section_x }}** section.
-1. Delete the `request_id` field from the **{{ ui-key.datalens.wizard.section_y }}** section and drag the `bytes_send` the field there.
-1. In the top-right corner, click **{{ ui-key.datalens.wizard.button_save }}**.
+1. Drag the `object_type` field from the **X** section to the **Column chart** section.
+1. In the window that opens, select the types of objects that you want to display in the chart and click **Apply filter**.
+1. Drag the `timestamp` field from the **Dimensions** section to the **X** section.
+1. Delete the `request_id` field from the **Y** section and drag the `bytes_send` the field there.
+1. In the top-right corner, click **Save**.
 
 ## Create a dashboard in {{ datalens-short-name }} and add charts there {#create-dashboard}
 
 1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. Click **{{ ui-key.datalens.main.landing.view.button_create-dashboards }}**.
-1. Enter `S3 Logs Analysis` as the dashboard name and click **{{ ui-key.datalens.component.navigation.view.button_create }}**.
-1. In the upper-right corner, click **{{ ui-key.datalens.dash.action-panel.view.button_add }}** and select **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
-1. In the **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** chart, click **{{ ui-key.datalens.dash.navigation-input.edit.button_choose }}** and choose the `S3 - Method pie` chart from the list.
-1. Click **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**. The chart will be displayed on the dashboard.
+1. Click **Create dashboard**.
+1. Enter `S3 Logs Analysis` as the dashboard name and click **Create**.
+1. In the upper-right corner, click **Add** and select **Chart**.
+1. In the **Chart** chart, click **Select** and choose the `S3 - Method pie` chart from the list.
+1. Click **Add**. The chart will be displayed on the dashboard.
 1. Repeat the previous steps for the `S3 - Object type bars` and `S3 - Traffic generated by days` charts.
 
 ## How to delete the resources you created {#clear-out}

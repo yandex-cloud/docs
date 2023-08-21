@@ -46,7 +46,7 @@
         * 95% от размера хранилища для `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`;
         * 90% от размера хранилища для `{{ ui-key.yacloud_monitoring.alert.status_warn }}`.
 
-    1. **{{ ui-key.datalens.component.chartkit-alerts.view.section_additional-settings }}**:
+    1. **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**:
 
         * **{{ ui-key.yacloud_monitoring.service.field.function }}** — `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
         * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.

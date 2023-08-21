@@ -3218,183 +3218,6 @@ default:
           edit: Редактировать
         blocks_w-grid-preview:
           data_type: Тип данных
-    datalens:
-      chartkit:
-        menu:
-          export:
-            format_markdown: Markdown
-      collections:
-        action_create: Создать
-      component:
-        chart-save-controls:
-          button_save-as-new: Сохранить как копию
-        chartkit-alerts:
-          view:
-            button_save: Сохранить
-            section_additional-settings: Дополнительные настройки
-        dialog-create-editor-chart:
-          view:
-            button_apply: Сохранить
-        dialog-rename-entry:
-          view:
-            button_apply: Готово
-        dl-dialog-filter:
-          view:
-            button_apply: Применить фильтр
-            label_operation: Операция
-            label_select-column-left-title: Доступны
-        dl-field-editor:
-          view:
-            button_create: Создать
-        navigation:
-          view:
-            button_create: Создать
-            button_create-connection: Создать подключение
-            button_create-dashboard: Создать дашборд
-            button_create-dataset: Создать датасет
-            switch_dashboards: Дашборды
-            switch_root: Все объекты
-        operations:
-          label_operation-in: Принадлежит множеству
-      connections:
-        connectors-list:
-          view:
-            label_connector-ch_billing_analytics: Yandex Cloud Billing
-            label_connector-clickhouse: ClickHouse
-        file:
-          view:
-            label_action-delete: Удалить
-        form:
-          button_add-connection: Создать подключение
-          button_create: Создать
-          button_create-connection: Создать подключение
-          button_create-dataset: Создать датасет
-          button_create-mdb-cluster: Создать новый
-          button_remove: Удалить
-          button_save-connection: Сохранить
-          button_specify-manually: Указать вручную
-          button_verify: Проверить подключение
-          field_cache-ttl-sec: "Время жизни кeша в\_секундах"
-          field_click-house-port: Порт HTTP-интерфейса
-          field_cloud-and-folder: Облако и каталог
-          field_cluster: Кластер
-          field_fill-mode: Подключение
-          field_host-name: Имя хоста
-          field_password: Пароль
-          field_raw-sql-level: Уровень доступа SQL запросов
-          field_username: Имя пользователя
-          value_default: По умолчанию
-          value_fill-mode-cloud: Выбрать в каталоге
-          value_fill-mode-manually: Указать вручную
-          value_permission-explicit: Доступно для компании
-          value_permission-owner-only: Доступно только мне
-          value_raw-sql-level-off: Запретить
-      dash:
-        action-panel:
-          view:
-            button_add: Добавить
-            button_connections: Связи
-            button_edit: Редактировать
-            button_tabs: Вкладки
-            value_rename: Переименовать
-            value_widget: Чарт
-        chartkit-menu:
-          view:
-            button_edit: Редактировать
-        connections-dialog:
-          edit:
-            button_add: Добавить
-            button_save: Сохранить
-            value_output: Исх. связь
-        control-dialog:
-          edit:
-            button_add: Добавить
-            button_save: Сохранить
-            field_dataset: Датасет
-            field_field: Поле
-            field_multiselectable: Множественный выбор
-            field_title: Название
-            label_default-value: Значение по умолчанию
-        navigation-input:
-          edit:
-            button_choose: Выбрать
-        tabs-dialog:
-          edit:
-            button_add-tab: Добавить
-            button_save: Сохранить
-        widget-dialog:
-          edit:
-            button_add: Добавить
-            button_save: Сохранить
-            field_autoheight: Автовысота
-            field_description: Описание
-            field_title: Название
-            field_widget: Чарт
-      dataset:
-        dataset-editor:
-          modify:
-            button_add-field: Добавить поле
-            button_create: Создать
-            button_create-widget: Создать чарт
-            button_save: Сохранить
-            column_aggregation: Агрегация
-            value_dataset: Поля
-            value_sum: Сумма
-        sources-tab:
-          modify:
-            button_add-connection: Добавить
-            label_sources: Подключения
-      dc:
-        billing:
-          column_cost: Cost
-          column_credit: Credit
-        kafka:
-          topics:
-            value_cleanup-policy-compact: Compact
-            value_cleanup-policy-delete: Delete
-        mdb:
-          section_resource: Resources
-      main:
-        landing:
-          view:
-            button_connect-data-source: Создать подключение
-            button_create-dashboards: Создать дашборд
-            button_create-dataset: Создать датасет
-            button_create-widget: Создать чарт
-      wizard:
-        add_field_item: Поле
-        button_apply: Применить
-        button_apply-filter: Применить фильтр
-        button_choose-dataset: Выберите датасет
-        button_save: Сохранить
-        button_save-as: Сохранить как
-        label_bars-color: Цвет
-        label_datasets: Датасеты
-        label_gradient-type: Тип градиента
-        label_thresholds: Задать пороговые значения
-        label_visualization-area: Накопительная диаграмма с областями
-        label_visualization-column: Столбчатая диаграмма
-        label_visualization-flat-table: Таблица
-        label_visualization-pie: Круговая диаграмма
-        label_visualization-pivot-table: Сводная таблица
-        number-field-formatting:
-          view:
-            field_format: Формат
-            field_precision: Знаков после запятой
-            field_rank-delimiter: Отображать группы разрядов
-            value_format-percent: Процент
-            value_rank-delimiter-hide: Слитно
-            value_unit-m: Миллионы, M
-        section_color: Цвет
-        section_colors: Цвета
-        section_columns: Столбцы
-        section_dimensions: Измерения
-        section_filters: Фильтры
-        section_measures: Показатели
-        section_rows: Строки
-        section_sort: Сортировка
-        section_x: X
-        section_y: 'Y'
     forms:
       common:
         blocks_correct-answers:
@@ -5160,7 +4983,6 @@ default:
         label_auto: Автоматически
         label_create-new_female: Создать новую
         label_http: HTTP
-        label_https: HTTPS
         label_key: Ключ
         label_list: Список
         label_seconds_many: секунд
@@ -5844,6 +5666,7 @@ default:
             label_service-account: Сервисный аккаунт
             label_services: Сервисы
             label_status: Статус
+            section_additional: Дополнительные настройки
             section_resource: Ресурсы
           shards:
             button_action-remove: Удалить
@@ -5875,10 +5698,6 @@ default:
           button_action-stop: Остановить
           button_create: Создать кластер
           column_availability: Доступность
-        datalens:
-          button-action_activate: Активировать
-          button-action_new-connection: Создать подключение
-          label_activate-datalens-title: DataLens ещё не активирован
         dialogs:
           button_add-database: Добавить базу данных
           popup_button_move-cluster: Переместить
@@ -5973,6 +5792,10 @@ default:
           dialog:
             button_choose: Сохранить
             field_public_ip: Публичный доступ
+      metastore:
+        field_s3config-access-key-id: Идентификатор ключа доступа
+        field_s3config-secret-access-key: Секретный ключ
+        title_s3config: Настройки доступа к S3
       mongodb:
         cluster:
           shards:
@@ -7492,6 +7315,7 @@ default:
         prefix: Префикс
         resize: Изменить размер
         response: Ответ
+        restrictions: Ограничения
         save: Сохранить
         serverless: Serverless
         share: Поделиться
@@ -7631,6 +7455,7 @@ default:
         content: Значение
         name: Имя
       spaces-page:
+        access-in-project: Доступность в проекте
         community-resources: Ресурсы сообщества
       transferring:
         title: Перенос проектов

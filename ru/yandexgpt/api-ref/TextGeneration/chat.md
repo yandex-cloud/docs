@@ -32,19 +32,19 @@ POST https://llm.{{ api-host }}/llm/v1alpha/chat
   "instructionText": "string"
 }
 ```
-
+Describe your chat query: set generation options, context in the instruction part and message history.
  
 Field | Description
 --- | ---
-model | **string**
-generationOptions | **object**<br><p>Sets the generation options.</p> 
+model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
+generationOptions | **object**<br>Generation options
 generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of the partially generated text.</p> 
 generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness.</p> 
 generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. It is a int number between 1 and 2000.</p> 
-messages[] | **object**
-messages[].<br>role | **string**
-messages[].<br>text | **string**
-instructionText | **string**
+messages[] | **object**<br><p>Message history.</p> 
+messages[].<br>role | **string**<br><p>Message sender.</p> 
+messages[].<br>text | **string**<br><p>Text of the message.</p> 
+instructionText | **string**<br><p>Text of the instruction.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -58,11 +58,11 @@ instructionText | **string**
   "numTokens": "string"
 }
 ```
-
+Contains a model-generated assistant's response for the chat query
  
 Field | Description
 --- | ---
-message | **object**
-message.<br>role | **string**
-message.<br>text | **string**
-numTokens | **string** (int64)
+message | **object**<br><p>Assistant's message</p> <p>Contains description of the message for Chat.</p> 
+message.<br>role | **string**<br><p>Message sender.</p> 
+message.<br>text | **string**<br><p>Text of the message.</p> 
+numTokens | **string** (int64)<br><p>Total number of tokens for chat request and chat response</p> 

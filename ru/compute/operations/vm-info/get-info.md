@@ -241,39 +241,36 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```hcl
      ...
      resource "yandex_compute_instance" "test-vm" {
+       ... 
        metadata_options {
-         gce-http-endpoint = "enabled"
+         aws_v1_http_endpoint = 2
+         aws_v1_http_token    = 2
+         gce_http_endpoint    = 0
+         gce_http_token       = 0
        }
+       ...
      }
      ...
      ```
 
+     Где:
+     * `yandex_compute_instance` — описание ВМ:
+       * `metadata_options` — параметры метаданных:
+         * `aws_v1_http_endpoint` — обеспечивает доступ к метаданным с использованием формата AWS (IMDSv1). Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
+         * `aws_v1_http_token` — обеспечивает доступ к учетным данным {{ iam-name }} с использованием формата AWS (IMDSv1). Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
+         * `gce_http_endpoint` — обеспечивает доступ к метаданным с использованием формата Google Compute Engine. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
+         * `gce_http_token` — обеспечивает доступ к учетным данным {{ iam-name }} с использованием формата Google Compute Engine. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
+
      Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
-  1. Проверьте конфигурацию командой:
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы с заданными настройками. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
-     terraform validate
+     yc compute instance get <имя_ВМ>
      ```
-
-     Если конфигурация является корректной, появится сообщение:
-
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```bash
-     terraform plan
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Примените изменения конфигурации:
-
-     ```bash
-     terraform apply
-     ```
-
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
 {% endlist %}

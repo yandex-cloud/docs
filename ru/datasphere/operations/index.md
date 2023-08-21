@@ -10,6 +10,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
 * [{#T}](community/manage-community-labels.md)
+* [{#T}](community/manage-community-config.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)

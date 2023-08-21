@@ -151,7 +151,7 @@
        | ⩽ 600               | `1G` (1 ГБ) | `1500M` (1,5 ГБ) |
        | > 600               | `6G` (6 ГБ) | `10G` (10 ГБ)    |
 
-   * **{{ ui-key.datalens.component.chartkit-alerts.view.section_additional-settings }}** → **{{ ui-key.yacloud_monitoring.service.field.function }}** — выберите значение `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
+   * **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** → **{{ ui-key.yacloud_monitoring.service.field.function }}** — выберите значение `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

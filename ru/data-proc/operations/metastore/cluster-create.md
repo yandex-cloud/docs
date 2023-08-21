@@ -46,10 +46,12 @@
     1. На левой панели выберите страницу ![image](../../../_assets/data-proc/metastore.svg) **Metastore-сервер**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
-    1. (Опционально) Введите описание сервера.
+    1. (Опционально) Введите описание кластера.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть и подсеть, в которых будет размещен кластер {{ metastore-name }}.
 
         В выбранной подсети нужно [настроить NAT-шлюз](../../../vpc/operations/create-nat-gateway.md). Подробнее см. в разделе [{#T}](#set-up-network).
+
+    1. Если необходимо, чтобы кластер {{ metastore-name }} мог взаимодействовать с объектным хранилищем [S3](../../../glossary/s3.md), в блоке **{{ ui-key.yacloud.metastore.title_s3config }}** укажите **{{ ui-key.yacloud.metastore.field_s3config-access-key-id }}** и **{{ ui-key.yacloud.metastore.field_s3config-secret-access-key }}** [AWS-совместимого статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
 
     1. При необходимости включите защиту кластера от непреднамеренного удаления пользователем.
 

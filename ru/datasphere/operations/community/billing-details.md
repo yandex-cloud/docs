@@ -3,8 +3,8 @@
 Вы можете получить подробные сведения о расходах в {{ ml-platform-name }} с детализацией до проекта, собрав дашборд в [{{ datalens-full-name }}](../../../datalens/). Для этого:
 
 1. Откройте или создайте новый экземпляр на [главной странице {{ datalens-name }}]({{ link-datalens-main }}). 
-1. Создайте подключение с типом коннектора **{{ ui-key.datalens.connections.connectors-list.view.label_connector-ch_billing_analytics }}**.
-1. Задайте название подключения и нажмите кнопку **{{ ui-key.datalens.collections.action_create }}**.
+1. Создайте подключение с типом коннектора **Yandex Cloud Billing**.
+1. Задайте название подключения и нажмите кнопку **Создать**.
 1. Откройте **{{ yandex-cloud }} Billing Dashboard** и перейдите на вкладку **Labels**.
 1. Выберите: 
    * **Usage date** — нужные даты;

@@ -69,6 +69,8 @@ Field | Description
 master_type | **oneof:** `zonal_master` or `regional_master`<br>
 &nbsp;&nbsp;zonal_master | **[ZonalMaster](#ZonalMaster)**<br>Parameters of the availability zone for the master. 
 &nbsp;&nbsp;regional_master | **[RegionalMaster](#RegionalMaster)**<br>Parameters of the region for the master. 
+locations[] | **[Location](#Location)**<br>Locations specification for Kubernetes control-plane (master) instances. 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth)**<br>Master authentication parameters are used to establish trust between the master and a client. 
@@ -95,6 +97,14 @@ region_id | **string**<br>ID of the region where the master resides.
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
+
+
+### Location {#Location}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. 
 
 
 ### MasterEndpoints {#MasterEndpoints}
@@ -273,6 +283,8 @@ Field | Description
 master_type | **oneof:** `zonal_master` or `regional_master`<br>
 &nbsp;&nbsp;zonal_master | **[ZonalMaster](#ZonalMaster1)**<br>Parameters of the availability zone for the master. 
 &nbsp;&nbsp;regional_master | **[RegionalMaster](#RegionalMaster1)**<br>Parameters of the region for the master. 
+locations[] | **[Location](#Location1)**<br>Locations specification for Kubernetes control-plane (master) instances. 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints1)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth1)**<br>Master authentication parameters are used to establish trust between the master and a client. 
@@ -299,6 +311,14 @@ region_id | **string**<br>ID of the region where the master resides.
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
+
+
+### Location {#Location1}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. 
 
 
 ### MasterEndpoints {#MasterEndpoints1}
@@ -458,6 +478,8 @@ Field | Description
 master_type | **oneof:** `zonal_master_spec` or `regional_master_spec`<br>
 &nbsp;&nbsp;zonal_master_spec | **[ZonalMasterSpec](#ZonalMasterSpec)**<br>Specification of the zonal master. 
 &nbsp;&nbsp;regional_master_spec | **[RegionalMasterSpec](#RegionalMasterSpec)**<br>Specification of the regional master. 
+locations[] | **[LocationSpec](#LocationSpec)**<br>Locations specification for Kubernetes control-plane (master) instances. Works in conjunction with `etcd_cluster_size`. See it's documentation for details. Possible combinations: <ul><li>1 location and etcd_cluster_size = 1 - a single node cluster whose availability is limited by the availability of a single Compute Instance; downtime is expected during cluster updates. </li><li>1 location and etcd_cluster_size = 3 - a highly available cluster within a single availability zone; can survive the failure of a Compute Instance, a server, or an individual server rack. </li><li>3 location and etcd_cluster_size = 3 - a highly available cluster with each etcd instance located within separate availability zone; can survive the failure of a single availability zone.</li></ul> 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. Works in conjunction with `locations`. See it's documentation for details. Optional. If not set, will be assumed equal to the number of locations. Value must be equal to 0,1,3.
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy2)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
@@ -503,6 +525,14 @@ Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone. 
 internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
+
+
+### LocationSpec {#LocationSpec}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required. ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
 
 
 ### MasterMaintenancePolicy {#MasterMaintenancePolicy2}
@@ -654,6 +684,8 @@ Field | Description
 master_type | **oneof:** `zonal_master` or `regional_master`<br>
 &nbsp;&nbsp;zonal_master | **[ZonalMaster](#ZonalMaster2)**<br>Parameters of the availability zone for the master. 
 &nbsp;&nbsp;regional_master | **[RegionalMaster](#RegionalMaster2)**<br>Parameters of the region for the master. 
+locations[] | **[Location](#Location2)**<br>Locations specification for Kubernetes control-plane (master) instances. 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints2)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth2)**<br>Master authentication parameters are used to establish trust between the master and a client. 
@@ -680,6 +712,14 @@ region_id | **string**<br>ID of the region where the master resides.
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
+
+
+### Location {#Location2}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. 
 
 
 ### MasterEndpoints {#MasterEndpoints2}
@@ -744,6 +784,7 @@ version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Specification of the ma
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
 master_logging | **[MasterLogging](#MasterLogging3)**<br>Cloud Logging for master components. 
+locations[] | **[LocationSpec](#LocationSpec)**<br>Update master instance locations. 
 
 
 ### UpdateVersionSpec {#UpdateVersionSpec}
@@ -813,6 +854,14 @@ audit_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for audi
 cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
 kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
 events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
+
+
+### LocationSpec {#LocationSpec1}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required. ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
 
 
 ### NetworkPolicy {#NetworkPolicy3}
@@ -890,6 +939,8 @@ Field | Description
 master_type | **oneof:** `zonal_master` or `regional_master`<br>
 &nbsp;&nbsp;zonal_master | **[ZonalMaster](#ZonalMaster3)**<br>Parameters of the availability zone for the master. 
 &nbsp;&nbsp;regional_master | **[RegionalMaster](#RegionalMaster3)**<br>Parameters of the region for the master. 
+locations[] | **[Location](#Location3)**<br>Locations specification for Kubernetes control-plane (master) instances. 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints3)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth3)**<br>Master authentication parameters are used to establish trust between the master and a client. 
@@ -916,6 +967,14 @@ region_id | **string**<br>ID of the region where the master resides.
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
+
+
+### Location {#Location3}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. 
 
 
 ### MasterEndpoints {#MasterEndpoints3}
@@ -1072,6 +1131,8 @@ Field | Description
 master_type | **oneof:** `zonal_master` or `regional_master`<br>
 &nbsp;&nbsp;zonal_master | **[ZonalMaster](#ZonalMaster4)**<br>Parameters of the availability zone for the master. 
 &nbsp;&nbsp;regional_master | **[RegionalMaster](#RegionalMaster4)**<br>Parameters of the region for the master. 
+locations[] | **[Location](#Location4)**<br>Locations specification for Kubernetes control-plane (master) instances. 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints4)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth4)**<br>Master authentication parameters are used to establish trust between the master and a client. 
@@ -1098,6 +1159,14 @@ region_id | **string**<br>ID of the region where the master resides.
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
+
+
+### Location {#Location4}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. 
 
 
 ### MasterEndpoints {#MasterEndpoints4}
@@ -1292,6 +1361,8 @@ Field | Description
 master_type | **oneof:** `zonal_master` or `regional_master`<br>
 &nbsp;&nbsp;zonal_master | **[ZonalMaster](#ZonalMaster5)**<br>Parameters of the availability zone for the master. 
 &nbsp;&nbsp;regional_master | **[RegionalMaster](#RegionalMaster5)**<br>Parameters of the region for the master. 
+locations[] | **[Location](#Location5)**<br>Locations specification for Kubernetes control-plane (master) instances. 
+etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints5)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth5)**<br>Master authentication parameters are used to establish trust between the master and a client. 
@@ -1318,6 +1389,14 @@ region_id | **string**<br>ID of the region where the master resides.
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
+
+
+### Location {#Location5}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>ID of the availability zone where the master resides. 
+subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. 
 
 
 ### MasterEndpoints {#MasterEndpoints5}

@@ -43,6 +43,11 @@ apiGatewayId | <p>Required. ID of the API gateway to update.</p> <p>To get a API
     // end of the list of possible fields`logOptions`
 
   },
+  "variables": "object",
+  "canary": {
+    "weight": "string",
+    "variables": "object"
+  },
   "openapiSpec": "string"
 }
 ```
@@ -62,6 +67,10 @@ logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from API gatewa
 logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
 logOptions.<br>logGroupId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> 
 logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> 
+variables | **object**<br><p>Values of variables defined in the specification.</p> 
+canary | **object**<br>Canary release of the gateway.
+canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 1 to 99, inclusive.</p> 
+canary.<br>variables | **object**<br><p>Required. Values specification variables, associated with canary.</p> <p>At least one per resource.</p> 
 openapiSpec | **string**<br><p>The text of specification, JSON or YAML.</p> 
  
 ## Response {#responses}

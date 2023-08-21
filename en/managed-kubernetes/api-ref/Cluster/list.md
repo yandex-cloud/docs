@@ -39,6 +39,13 @@ filter | <p>A filter expression that filters resources listed in the response. T
       "health": "string",
       "networkId": "string",
       "master": {
+        "locations": [
+          {
+            "zoneId": "string",
+            "subnetId": "string"
+          }
+        ],
+        "etcdClusterSize": "string",
         "version": "string",
         "endpoints": {
           "internalV4Endpoint": "string",
@@ -162,6 +169,10 @@ clusters[].<br>status | **string**<br>Status of the Kubernetes cluster.<br><ul> 
 clusters[].<br>health | **string**<br>Health of the Kubernetes cluster.<br><ul> <li>HEALTHY: Kubernetes cluster is alive and well.</li> <li>UNHEALTHY: Kubernetes cluster is inoperable.</li> </ul> 
 clusters[].<br>networkId | **string**<br><p>ID of the network the Kubernetes cluster belongs to.</p> 
 clusters[].<br>master | **object**<br>Properties of the master for the Kubernetes cluster.
+clusters[].<br>master.<br>locations[] | **object**<br><p>Locations specification for Kubernetes control-plane (master) instances.</p> 
+clusters[].<br>master.<br>locations[].<br>zoneId | **string**<br><p>ID of the availability zone where the master resides.</p> 
+clusters[].<br>master.<br>locations[].<br>subnetId | **string**<br><p>ID of the VPC network's subnet where the master resides.</p> 
+clusters[].<br>master.<br>etcdClusterSize | **string** (int64)<br><p>Number of etcd nodes in cluster.</p> 
 clusters[].<br>master.<br>version | **string**<br><p>Version of Kubernetes components that runs on the master.</p> 
 clusters[].<br>master.<br>endpoints | **object**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster.
 clusters[].<br>master.<br>endpoints.<br>internalV4Endpoint | **string**<br><p>Internal endpoint that can be used to connect to the master from cloud networks.</p> 

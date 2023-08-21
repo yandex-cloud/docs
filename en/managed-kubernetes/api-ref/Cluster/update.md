@@ -86,7 +86,13 @@ clusterId | <p>Required. ID of the Kubernetes cluster to update. To get the Kube
       "folderId": "string",
       // end of the list of possible fields`masterSpec.masterLogging`
 
-    }
+    },
+    "locations": [
+      {
+        "zoneId": "string",
+        "subnetId": "string"
+      }
+    ]
   },
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
@@ -144,6 +150,9 @@ masterSpec.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br
 masterSpec.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 
 masterSpec.<br>masterLogging.<br>logGroupId | **string** <br>`masterSpec.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the log group where logs of master components should be stored.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 masterSpec.<br>masterLogging.<br>folderId | **string** <br>`masterSpec.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the folder where logs should be stored (in default group).</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+masterSpec.<br>locations[] | **object**<br><p>Update master instance locations.</p> 
+masterSpec.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the master resides.</p> 
+masterSpec.<br>locations[].<br>subnetId | **string**<br><p>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.</p> 
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have ``edit`` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 networkPolicy | **object**

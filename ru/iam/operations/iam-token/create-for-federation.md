@@ -10,6 +10,8 @@
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   1. [Аутентифицируйтесь в CLI от имени федеративного пользователя](../../../cli/operations/authentication/federated-user.md).
 
   1. Получите IAM-токен:
