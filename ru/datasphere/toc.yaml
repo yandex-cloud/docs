@@ -19,6 +19,8 @@ items:
             href: operations/community/add-user.md
           - name: Управление метками сообщества
             href: operations/community/manage-community-labels.md
+          - name: Управление конфигурациями сообщества
+            href: operations/community/manage-community-config.md
           - name: Добавить канал связи
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт

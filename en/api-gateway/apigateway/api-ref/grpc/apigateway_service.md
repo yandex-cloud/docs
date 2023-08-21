@@ -53,6 +53,8 @@ log_group_id | **string**<br>ID of the log group for the API gateway.
 attached_domains[] | **[AttachedDomain](#AttachedDomain)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the API gateway. 
+variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
+canary | **[Canary](#Canary)**<br>Canary release of the gateway. 
 
 
 ### AttachedDomain {#AttachedDomain}
@@ -82,6 +84,14 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### Canary {#Canary}
+
+Field | Description
+--- | ---
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 
 ## List {#List}
@@ -124,6 +134,8 @@ log_group_id | **string**<br>ID of the log group for the API gateway.
 attached_domains[] | **[AttachedDomain](#AttachedDomain1)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the API gateway. 
+variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
+canary | **[Canary](#Canary1)**<br>Canary release of the gateway. 
 
 
 ### AttachedDomain {#AttachedDomain1}
@@ -155,6 +167,14 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
+### Canary {#Canary1}
+
+Field | Description
+--- | ---
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
+
+
 ## Create {#Create}
 
 Creates an API gateway in the specified folder.
@@ -177,6 +197,8 @@ spec | **oneof:** `openapi_spec`<br>OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the API gateway. 
+variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
+canary | **[Canary](#Canary2)**<br>Canary release of the gateway. 
 
 
 ### Connectivity {#Connectivity2}
@@ -196,6 +218,14 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### Canary {#Canary2}
+
+Field | Description
+--- | ---
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 
 ### Operation {#Operation}
@@ -237,6 +267,8 @@ log_group_id | **string**<br>ID of the log group for the API gateway.
 attached_domains[] | **[AttachedDomain](#AttachedDomain2)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the API gateway. 
+variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
+canary | **[Canary](#Canary3)**<br>Canary release of the gateway. 
 
 
 ### AttachedDomain {#AttachedDomain2}
@@ -272,6 +304,8 @@ spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the API gateway. 
+variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
+canary | **[Canary](#Canary3)**<br>Canary release of the gateway. 
 
 
 ### Connectivity {#Connectivity3}
@@ -291,6 +325,14 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destinatio
 &nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
 &nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
 min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
+### Canary {#Canary3}
+
+Field | Description
+--- | ---
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 
 ### Operation {#Operation1}
@@ -332,6 +374,8 @@ log_group_id | **string**<br>ID of the log group for the API gateway.
 attached_domains[] | **[AttachedDomain](#AttachedDomain3)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the API gateway. 
+variables | **map<string,VariableInput>**<br>Values of variables defined in the specification. 
+canary | **[Canary](#Canary4)**<br>Canary release of the gateway. 
 
 
 ### AttachedDomain {#AttachedDomain3}

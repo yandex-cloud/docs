@@ -163,6 +163,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_22)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_17}
@@ -309,6 +310,30 @@ Field | Description
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt1)**<br> 
 analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
+### PXFConfigSet {#PXFConfigSet}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
 
 
 ## List {#List}
@@ -458,6 +483,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_221)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet1)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig1)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet1)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_171}
@@ -606,6 +632,30 @@ analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/p
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
+### PXFConfigSet {#PXFConfigSet1}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig1)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig1)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig1)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig1}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
+
+
 ## Create {#Create}
 
 Creates a Greenplum® cluster in the specified folder.
@@ -717,6 +767,7 @@ greenplum_config | **oneof:** `greenplum_config_6_17`, `greenplum_config_6_19`, 
 &nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_222)**<br> 
 pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig2)**<br> 
+pxf_config | **[PXFConfig](#PXFConfig2)**<br> 
 
 
 ### GreenplumConfig6_17 {#GreenplumConfig6_172}
@@ -820,6 +871,21 @@ analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/p
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
+### PXFConfig {#PXFConfig2}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -915,6 +981,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_222)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet2)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig3)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet2)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_172}
@@ -960,6 +1027,15 @@ Field | Description
 effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet2) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet2)). 
 user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>User-defined settings for an Odyssey® pooler. 
 default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Default configuration for an Odyssey® pooler. 
+
+
+### PXFConfigSet {#PXFConfigSet2}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig3)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig3)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig3)**<br>Default configuration 
 
 
 ## Update {#Update}
@@ -1067,6 +1143,7 @@ greenplum_config | **oneof:** `greenplum_config_6_17`, `greenplum_config_6_19`, 
 &nbsp;&nbsp;greenplum_config_6_22 | **[GreenplumConfig6_22](#GreenplumConfig6_223)**<br> 
 pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig3)**<br> 
+pxf_config | **[PXFConfig](#PXFConfig3)**<br> 
 
 
 ### GreenplumConfig6_17 {#GreenplumConfig6_173}
@@ -1170,6 +1247,21 @@ analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/p
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 
 
+### PXFConfig {#PXFConfig3}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -1265,6 +1357,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_223)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet3)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig4)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet3)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_173}
@@ -1310,6 +1403,15 @@ Field | Description
 effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet3) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet3)). 
 user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>User-defined settings for an Odyssey® pooler. 
 default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Default configuration for an Odyssey® pooler. 
+
+
+### PXFConfigSet {#PXFConfigSet3}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig4)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig4)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig4)**<br>Default configuration 
 
 
 ## Expand {#Expand}
@@ -1478,6 +1580,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_224)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet4)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig4)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet4)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_174}
@@ -1624,6 +1727,30 @@ Field | Description
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt5)**<br> 
 analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
+### PXFConfigSet {#PXFConfigSet4}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig4)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig4)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig4)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig4}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
 
 
 ## Delete {#Delete}
@@ -1829,6 +1956,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_225)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet5)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig5)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet5)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_175}
@@ -1975,6 +2103,30 @@ Field | Description
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt6)**<br> 
 analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
+### PXFConfigSet {#PXFConfigSet5}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig5)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig5)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig5)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig5}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
 
 
 ## Stop {#Stop}
@@ -2140,6 +2292,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_226)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet6)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig6)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet6)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_176}
@@ -2286,6 +2439,30 @@ Field | Description
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt7)**<br> 
 analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
+### PXFConfigSet {#PXFConfigSet6}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig6)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig6)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig6)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig6}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
 
 
 ## ListOperations {#ListOperations}
@@ -2718,6 +2895,7 @@ greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set
 &nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_227)**<br> 
 pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet7)**<br>Odyssey® pool settings. 
 background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig7)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet7)**<br> 
 
 
 ### GreenplumConfigSet6_17 {#GreenplumConfigSet6_177}
@@ -2864,5 +3042,29 @@ Field | Description
 start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt8)**<br> 
 analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
 vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
+### PXFConfigSet {#PXFConfigSet7}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig7)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig7)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig7)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig7}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
 
 

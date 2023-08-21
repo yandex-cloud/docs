@@ -3209,183 +3209,6 @@ default:
           edit: Edit
         blocks_w-grid-preview:
           data_type: Data type
-    datalens:
-      chartkit:
-        menu:
-          export:
-            format_markdown: Markdown
-      collections:
-        action_create: Create
-      component:
-        chart-save-controls:
-          button_save-as-new: Save as copy
-        chartkit-alerts:
-          view:
-            button_save: Save
-            section_additional-settings: Additional settings
-        dialog-create-editor-chart:
-          view:
-            button_apply: Save
-        dialog-rename-entry:
-          view:
-            button_apply: Done
-        dl-dialog-filter:
-          view:
-            button_apply: Apply filter
-            label_operation: Operation
-            label_select-column-left-title: Available
-        dl-field-editor:
-          view:
-            button_create: Create
-        navigation:
-          view:
-            button_create: Create
-            button_create-connection: Create connection
-            button_create-dashboard: Create dashboard
-            button_create-dataset: Create dataset
-            switch_dashboards: Dashboards
-            switch_root: All objects
-        operations:
-          label_operation-in: Belongs to a set
-      connections:
-        connectors-list:
-          view:
-            label_connector-ch_billing_analytics: Yandex Cloud Billing
-            label_connector-clickhouse: ClickHouse
-        file:
-          view:
-            label_action-delete: Delete
-        form:
-          button_add-connection: Create connection
-          button_create: Create
-          button_create-connection: Create connection
-          button_create-dataset: Create dataset
-          button_create-mdb-cluster: Create new
-          button_remove: Delete
-          button_save-connection: Save
-          button_specify-manually: Specify manually
-          button_verify: Check connection
-          field_cache-ttl-sec: "Cache TTL in\_seconds"
-          field_click-house-port: HTTP interface port
-          field_cloud-and-folder: Cloud and folder
-          field_cluster: Cluster
-          field_fill-mode: Connection
-          field_host-name: Hostname
-          field_password: Password
-          field_raw-sql-level: Raw SQL level
-          field_username: Username
-          value_default: Default
-          value_fill-mode-cloud: Select in folder
-          value_fill-mode-manually: Specify manually
-          value_permission-explicit: Available to the company
-          value_permission-owner-only: Available only to me
-          value_raw-sql-level-off: Forbid
-      dash:
-        action-panel:
-          view:
-            button_add: Add
-            button_connections: Links
-            button_edit: Edit
-            button_tabs: Tabs
-            value_rename: Rename
-            value_widget: Chart
-        chartkit-menu:
-          view:
-            button_edit: Edit
-        connections-dialog:
-          edit:
-            button_add: Add
-            button_save: Save
-            value_output: Outgoing link
-        control-dialog:
-          edit:
-            button_add: Add
-            button_save: Save
-            field_dataset: Dataset
-            field_field: Field
-            field_multiselectable: Multiple choice
-            field_title: Title
-            label_default-value: Default value
-        navigation-input:
-          edit:
-            button_choose: Select
-        tabs-dialog:
-          edit:
-            button_add-tab: Add
-            button_save: Save
-        widget-dialog:
-          edit:
-            button_add: Add
-            button_save: Save
-            field_autoheight: Auto height
-            field_description: Description
-            field_title: Title
-            field_widget: Chart
-      dataset:
-        dataset-editor:
-          modify:
-            button_add-field: Add field
-            button_create: Create
-            button_create-widget: Create chart
-            button_save: Save
-            column_aggregation: Aggregation
-            value_dataset: Fields
-            value_sum: Sum
-        sources-tab:
-          modify:
-            button_add-connection: Add
-            label_sources: Connections
-      dc:
-        billing:
-          column_cost: Cost
-          column_credit: Credit
-        kafka:
-          topics:
-            value_cleanup-policy-compact: Compact
-            value_cleanup-policy-delete: Delete
-        mdb:
-          section_resource: Resources
-      main:
-        landing:
-          view:
-            button_connect-data-source: Create connection
-            button_create-dashboards: Create dashboard
-            button_create-dataset: Create dataset
-            button_create-widget: Create chart
-      wizard:
-        add_field_item: Field
-        button_apply: Apply
-        button_apply-filter: Apply filter
-        button_choose-dataset: Select dataset
-        button_save: Save
-        button_save-as: Save as
-        label_bars-color: Color
-        label_datasets: Datasets
-        label_gradient-type: Gradient type
-        label_thresholds: Set threshold values
-        label_visualization-area: Stacked area chart
-        label_visualization-column: Column chart
-        label_visualization-flat-table: Table
-        label_visualization-pie: Pie chart
-        label_visualization-pivot-table: Pivot table
-        number-field-formatting:
-          view:
-            field_format: Format
-            field_precision: Precision
-            field_rank-delimiter: Show thousands separator
-            value_format-percent: Percent
-            value_rank-delimiter-hide: Hide
-            value_unit-m: Millions, M
-        section_color: Color
-        section_colors: Colors
-        section_columns: Columns
-        section_dimensions: Dimensions
-        section_filters: Chart filters
-        section_measures: Measures
-        section_rows: Rows
-        section_sort: Sorting
-        section_x: X
-        section_y: 'Y'
     forms:
       common:
         blocks_correct-answers:
@@ -5149,7 +4972,6 @@ default:
         label_auto: Auto
         label_create-new_female: Create new
         label_http: HTTP
-        label_https: HTTPS
         label_key: Key
         label_list: List
         label_seconds_many: seconds
@@ -5833,6 +5655,7 @@ default:
             label_service-account: Service account
             label_services: Services
             label_status: Status
+            section_additional: Advanced settings
             section_resource: Resources
           shards:
             button_action-remove: Remove
@@ -5864,10 +5687,6 @@ default:
           button_action-stop: Stop
           button_create: Create cluster
           column_availability: Availability
-        datalens:
-          button-action_activate: Activate
-          button-action_new-connection: Create connection
-          label_activate-datalens-title: DataLens not activated
         dialogs:
           button_add-database: Add database
           popup_button_move-cluster: Move
@@ -5962,6 +5781,10 @@ default:
           dialog:
             button_choose: Save
             field_public_ip: Public access
+      metastore:
+        field_s3config-access-key-id: Access key ID
+        field_s3config-secret-access-key: Secret key
+        title_s3config: S3 access settings
       mongodb:
         cluster:
           shards:
@@ -7483,6 +7306,7 @@ default:
         prefix: Prefix
         resize: Resize
         response: Response
+        restrictions: Restrictions
         save: Save
         serverless: Serverless
         share: Share
@@ -7622,6 +7446,7 @@ default:
         content: Value
         name: Name
       spaces-page:
+        access-in-project: Available in project
         community-resources: Community resources
       transferring:
         title: Transfer projects

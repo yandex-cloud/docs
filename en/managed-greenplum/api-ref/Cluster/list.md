@@ -139,6 +139,41 @@ filter | <p>A filter expression that filters resources listed in the response.</
             "vacuumTimeout": "integer"
           }
         },
+        "pxfConfig": {
+          "effectiveConfig": {
+            "connectionTimeout": "integer",
+            "uploadTimeout": "integer",
+            "maxThreads": "integer",
+            "poolAllowCoreThreadTimeout": true,
+            "poolCoreSize": "integer",
+            "poolQueueCapacity": "integer",
+            "poolMaxSize": "integer",
+            "xmx": "integer",
+            "xms": "integer"
+          },
+          "userConfig": {
+            "connectionTimeout": "integer",
+            "uploadTimeout": "integer",
+            "maxThreads": "integer",
+            "poolAllowCoreThreadTimeout": true,
+            "poolCoreSize": "integer",
+            "poolQueueCapacity": "integer",
+            "poolMaxSize": "integer",
+            "xmx": "integer",
+            "xms": "integer"
+          },
+          "defaultConfig": {
+            "connectionTimeout": "integer",
+            "uploadTimeout": "integer",
+            "maxThreads": "integer",
+            "poolAllowCoreThreadTimeout": true,
+            "poolCoreSize": "integer",
+            "poolQueueCapacity": "integer",
+            "poolMaxSize": "integer",
+            "xmx": "integer",
+            "xms": "integer"
+          }
+        },
 
         // `clusters[].clusterConfig` includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`
         "greenplumConfigSet_6_17": {
@@ -372,6 +407,37 @@ clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>s
 clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
 clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
 clusters[].<br>clusterConfig.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig | **object**
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig | **object**<br><p>Required.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>uploadTimeout | **integer** (int64)<br><p>Acceptable values are 5 to 600, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>maxThreads | **integer** (int64)<br><p>Thread pool</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>poolCoreSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>poolMaxSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>Acceptable values are 64 to 16384, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>effectiveConfig.<br>xms | **integer** (int64)<br><p>Acceptable values are 64 to 16384, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig | **object**<br><p>User-defined settings</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>uploadTimeout | **integer** (int64)<br><p>Acceptable values are 5 to 600, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>maxThreads | **integer** (int64)<br><p>Thread pool</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>poolCoreSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>poolMaxSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>Acceptable values are 64 to 16384, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>userConfig.<br>xms | **integer** (int64)<br><p>Acceptable values are 64 to 16384, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig | **object**<br><p>Default configuration</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>uploadTimeout | **integer** (int64)<br><p>Acceptable values are 5 to 600, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>maxThreads | **integer** (int64)<br><p>Thread pool</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>poolCoreSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>poolMaxSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>Acceptable values are 64 to 16384, inclusive.</p> 
+clusters[].<br>clusterConfig.<br>pxfConfig.<br>defaultConfig.<br>xms | **integer** (int64)<br><p>Acceptable values are 64 to 16384, inclusive.</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_17 | **object** <br>`clusters[].clusterConfig` includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`<br><br><p>Configuration settings version 6.17</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_17.<br>effectiveConfig | **object**<br><p>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_17.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment.</p> 

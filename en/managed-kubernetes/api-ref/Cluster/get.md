@@ -34,6 +34,13 @@ clusterId | <p>Required. ID of the Kubernetes cluster to return.</p>
   "health": "string",
   "networkId": "string",
   "master": {
+    "locations": [
+      {
+        "zoneId": "string",
+        "subnetId": "string"
+      }
+    ],
+    "etcdClusterSize": "string",
     "version": "string",
     "endpoints": {
       "internalV4Endpoint": "string",
@@ -153,6 +160,10 @@ status | **string**<br>Status of the Kubernetes cluster.<br><ul> <li>PROVISIONIN
 health | **string**<br>Health of the Kubernetes cluster.<br><ul> <li>HEALTHY: Kubernetes cluster is alive and well.</li> <li>UNHEALTHY: Kubernetes cluster is inoperable.</li> </ul> 
 networkId | **string**<br><p>ID of the network the Kubernetes cluster belongs to.</p> 
 master | **object**<br>Properties of the master for the Kubernetes cluster.
+master.<br>locations[] | **object**<br><p>Locations specification for Kubernetes control-plane (master) instances.</p> 
+master.<br>locations[].<br>zoneId | **string**<br><p>ID of the availability zone where the master resides.</p> 
+master.<br>locations[].<br>subnetId | **string**<br><p>ID of the VPC network's subnet where the master resides.</p> 
+master.<br>etcdClusterSize | **string** (int64)<br><p>Number of etcd nodes in cluster.</p> 
 master.<br>version | **string**<br><p>Version of Kubernetes components that runs on the master.</p> 
 master.<br>endpoints | **object**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster.
 master.<br>endpoints.<br>internalV4Endpoint | **string**<br><p>Internal endpoint that can be used to connect to the master from cloud networks.</p> 

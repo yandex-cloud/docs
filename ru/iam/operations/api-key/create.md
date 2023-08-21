@@ -14,6 +14,8 @@
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды создания API-ключа:

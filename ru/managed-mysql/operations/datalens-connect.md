@@ -29,22 +29,22 @@ description: "Из статьи вы узнаете, как подключить
   1. Убедитесь, что сервис {{ datalens-name }} [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
+  1. Нажмите кнопку **Создать подключение**.
 
-     {% cut "У меня нет кнопки «{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}»" %}
+     {% cut "У меня нет кнопки «Создать подключение»" %}
 
-     Если вместо кнопки **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** вы видите сообщение «{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}», значит вы либо ещё не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
+     Если вместо кнопки **Создать подключение** вы видите сообщение «DataLens ещё не активирован», значит вы либо ещё не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
 
      {% endcut %}
 
   1. Задайте [настройки подключения](#connector-settings).
   1. В правом верхнем углу выберите область видимости подключения из выпадающего списка:
-     * {{ ui-key.datalens.connections.form.value_permission-owner-only }}.
-     * {{ ui-key.datalens.connections.form.value_permission-explicit }}.
-  1. Проверьте, что настройки заданы корректно, нажав кнопку **{{ ui-key.datalens.connections.form.button_verify }}**.
-  1. После успешной проверки нажмите кнопку **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
+     * Доступно только мне.
+     * Доступно для компании.
+  1. Проверьте, что настройки заданы корректно, нажав кнопку **Проверить подключение**.
+  1. После успешной проверки нажмите кнопку **Создать подключение**.
   1. Задайте имя подключения.
-  1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -74,8 +74,8 @@ description: "Из статьи вы узнаете, как подключить
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
   1. Измените [настройки](#connector-settings) и область видимости подключения.
-  1. Проверьте, что настройки заданы корректно, нажав кнопку **{{ ui-key.datalens.connections.form.button_verify }}**.
-  1. После успешной проверки подключения нажмите кнопку **{{ ui-key.datalens.connections.form.button_save-connection }}**.
+  1. Проверьте, что настройки заданы корректно, нажав кнопку **Проверить подключение**.
+  1. После успешной проверки подключения нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
@@ -85,11 +85,11 @@ description: "Из статьи вы узнаете, как подключить
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **Managed Service for MySQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
-  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) вверху страницы и выберите **{{ ui-key.datalens.connections.file.view.label_action-delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.datalens.connections.form.button_remove }}**.
+  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) вверху страницы и выберите **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}
 
@@ -100,13 +100,13 @@ description: "Из статьи вы узнаете, как подключить
 - Консоль управления
 
   Если кластер и {{ datalens-name }} находятся в одном каталоге:
-  1. Откройте вкладку **{{ ui-key.datalens.connections.form.value_fill-mode-cloud }}**.
-  1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **{{ ui-key.datalens.connections.form.button_create-mdb-cluster }}**.
+  1. Откройте вкладку **Выбрать в каталоге**.
+  1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **Создать новый**.
   1. Выберите базу данных и пользователя из выпадающих списков.
   1. Введите пароль пользователя. См. также [{#T}](../../datalens/operations/connection/create-mysql.md) и [{#T}](../../datalens/concepts/dataset/settings.md#access-management) в документации {{ datalens-name }}.
 
   Если кластер и {{ datalens-name }} находятся в разных каталогах:
-  1. Перейдите на вкладку **{{ ui-key.datalens.connections.form.value_fill-mode-manually }}**.
+  1. Перейдите на вкладку **Указать вручную**.
   1. Используйте настройки из [инструкции](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
 
 {% endlist %}

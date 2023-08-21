@@ -336,36 +336,36 @@
 - Консоль управления
 
   1. Выберите кластер `s3-logs`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
-  1. В открывшемся окне нажмите **{{ ui-key.datalens.connections.form.button_add-connection }}**.
+  1. Перейдите на вкладку **DataLens**.
+  1. В открывшемся окне нажмите **Создать подключение**.
   1. Заполните настройки подключения:
 
      1. Добавьте название подключения: `s3-logs-con`.
-     1. В поле **{{ ui-key.datalens.connections.form.field_cluster }}** выберите `s3-logs`.
-     1. В поле **{{ ui-key.datalens.connections.form.field_host-name }}** выберите хост {{ CH }} из выпадающего списка. 
+     1. В поле **Кластер** выберите `s3-logs`.
+     1. В поле **Имя хоста** выберите хост {{ CH }} из выпадающего списка. 
      1. Введите имя пользователя БД и пароль.
 
-  1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_verify }}**.
-  1. После проверки подключения нажмите **{{ ui-key.datalens.connections.form.button_create-connection }}**.
-  1. В открывшемся окне введите имя подключения и нажмите кнопку **{{ ui-key.datalens.connections.form.button_create }}**.
+  1. Нажмите кнопку **Подтвердить подключение**.
+  1. После проверки подключения нажмите **Создать подключение**.
+  1. В открывшемся окне введите имя подключения и нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ## Создайте датасет в {{ datalens-short-name }} {#create-dataset}
 
-1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
+1. Нажмите кнопку **Создать датасет**.
 1. В созданном датасете перенесите таблицу `s3_data.s3logs` на рабочую область.
-1. Перейдите на вкладку **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}**.
-1. Нажмите значок ![image](../../_assets/plus-sign.svg)**{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
+1. Перейдите на вкладку **Поля**.
+1. Нажмите значок ![image](../../_assets/plus-sign.svg)**Добавить поле**.
 1. Создайте расчетное поле с типом файла:
    
    * Название поля — `object_type`.
    * Формула — `SPLIT([object_key], '.', -1)`.
 
-1. Нажмите кнопку **{{ ui-key.datalens.component.dl-field-editor.view.button_create }}**.
-1. В правом верхнем углу нажмите **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
-1. Введите имя датасета `s3-dataset` и нажмите **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
-1. После сохранения датасета в правом верхнем углу нажмите **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}**.
+1. Нажмите кнопку **Создать**.
+1. В правом верхнем углу нажмите **Сохранить**.
+1. Введите имя датасета `s3-dataset` и нажмите **Создать**.
+1. После сохранения датасета в правом верхнем углу нажмите **Создать чарт**.
 
 ## Создайте чарты в {{ datalens-short-name }} {#create-charts}
 
@@ -373,11 +373,11 @@
 
 Чтобы визуализировать количество запросов к бакету разными методами, создайте чарт — круговую диаграмму:
 
-1. Выберите тип визуализации **{{ ui-key.datalens.wizard.label_visualization-pie }}**.
-1. Перетащите поле `method` из раздела **{{ ui-key.datalens.wizard.section_dimensions }}** в секцию **{{ ui-key.datalens.wizard.section_color }}**.
-1. Перетащите поле `request_id` из раздела **{{ ui-key.datalens.wizard.section_dimensions }}** в секцию **{{ ui-key.datalens.wizard.section_measures }}**.
-1. В правом верхнем углу нажмите **{{ ui-key.datalens.wizard.button_save }}**.
-1. В открывшемся окне введите название чарта `S3 - Method pie` и нажмите **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. Выберите тип визуализации **Круговая диаграмма**.
+1. Перетащите поле `method` из раздела **Измерения** в секцию **Цвет**.
+1. Перетащите поле `request_id` из раздела **Измерения** в секцию **Показатели**.
+1. В правом верхнем углу нажмите **Сохранить**.
+1. В открывшемся окне введите название чарта `S3 - Method pie` и нажмите **Сохранить**.
 
 ### Создайте второй чарт {#create-column-chart}
 
@@ -385,13 +385,13 @@
 
 1. Скопируйте чарт, получившийся на предыдущем шаге:
 
-   1. В правом верхнем углу нажмите галочку рядом с кнопкой **{{ ui-key.datalens.wizard.button_save }}**.
-   1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save-as }}**.
-   1. В открывшемся окне введите название нового чарта `S3 - Object type bars` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+   1. В правом верхнем углу нажмите галочку рядом с кнопкой **Сохранить**.
+   1. Нажмите кнопку **Сохранить как**.
+   1. В открывшемся окне введите название нового чарта `S3 - Object type bars` и нажмите кнопку **Сохранить**.
 
-1. Выберите тип визуализации **{{ ui-key.datalens.wizard.label_visualization-column }}**. Поля `method` и `request_id` автоматически попадут в секции **{{ ui-key.datalens.wizard.section_x }}** и **{{ ui-key.datalens.wizard.section_y }}** соответственно.
-1. Удалите поле `method` из секции **{{ ui-key.datalens.wizard.section_x }}** и перетащите туда поле `object_type`.
-1. В правом верхнем углу нажмите **{{ ui-key.datalens.wizard.button_save }}**.
+1. Выберите тип визуализации **Столбчатая диаграмма**. Поля `method` и `request_id` автоматически попадут в секции **X** и **Y** соответственно.
+1. Удалите поле `method` из секции **X** и перетащите туда поле `object_type`.
+1. В правом верхнем углу нажмите **Сохранить**.
 
 ### Создайте третий чарт {#create-column-chart-2}
 
@@ -399,24 +399,24 @@
 
 1. Скопируйте чарт, получившийся на предыдущем шаге:
 
-   1. В правом верхнем углу нажмите галочку рядом с кнопкой **{{ ui-key.datalens.wizard.button_save }}**.
-   1. Нажмите кнопку **{{ ui-key.datalens.wizard.button_save-as }}**.
-   1. В открывшемся окне введите название нового чарта `S3 - Traffic generated by days` и нажмите кнопку **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+   1. В правом верхнем углу нажмите галочку рядом с кнопкой **Сохранить**.
+   1. Нажмите кнопку **Сохранить как**.
+   1. В открывшемся окне введите название нового чарта `S3 - Traffic generated by days` и нажмите кнопку **Сохранить**.
 
-1. Перетащите поле `object_type` из секции **{{ ui-key.datalens.wizard.section_x }}** в секцию **{{ ui-key.datalens.wizard.section_filters }}**.
-1. В открывшемся окне выберите типы объектов, которые нужно отобразить на диаграмме, и нажмите **{{ ui-key.datalens.wizard.button_apply-filter }}**.
-1. Перетащите поле `timestamp` из раздела **{{ ui-key.datalens.wizard.section_dimensions }}** в секцию **{{ ui-key.datalens.wizard.section_x }}**.
-1. Удалите поле `request_id` из секции **{{ ui-key.datalens.wizard.section_y }}** и перетащите туда поле `bytes_send`.
-1. В правом верхнем углу нажмите **{{ ui-key.datalens.wizard.button_save }}**.
+1. Перетащите поле `object_type` из секции **X** в секцию **Фильтры**.
+1. В открывшемся окне выберите типы объектов, которые нужно отобразить на диаграмме, и нажмите **Применить фильтры**.
+1. Перетащите поле `timestamp` из раздела **Измерения** в секцию **X**.
+1. Удалите поле `request_id` из секции **Y** и перетащите туда поле `bytes_send`.
+1. В правом верхнем углу нажмите **Сохранить**.
 
 ## Создайте дашборд в {{ datalens-short-name }} и добавьте на него чарты {#create-dashboard}
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. Нажмите кнопку **{{ ui-key.datalens.main.landing.view.button_create-dashboards }}**.
-1. Введите название дашборда `S3 Logs Analysis` и нажмите **{{ ui-key.datalens.component.navigation.view.button_create }}**.
-1. В правом верхнем углу нажмите **{{ ui-key.datalens.dash.action-panel.view.button_add }}** и выберите **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
-1. В поле **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** нажмите **{{ ui-key.datalens.dash.navigation-input.edit.button_choose }}** и выберите из списка чарт `S3 - Method pie`.
-1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**. Чарт появится на дашборде.
+1. Нажмите кнопку **Создать дашборд**.
+1. Введите название дашборда `S3 Logs Analysis` и нажмите **Создать**.
+1. В правом верхнем углу нажмите **Добавить** и выберите **Чарт**.
+1. В поле **Чарт** нажмите **Выбрать** и выберите из списка чарт `S3 - Method pie`.
+1. Нажмите кнопку **Добавить**. Чарт появится на дашборде.
 1. Повторите предыдущие шаги для чартов `S3 - Object type bars` и `S3 - Traffic generated by days`.
 
 ## Как удалить созданные ресурсы {#clear-out}

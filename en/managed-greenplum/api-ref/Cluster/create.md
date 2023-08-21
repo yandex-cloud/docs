@@ -101,6 +101,17 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
         "vacuumTimeout": "integer"
       }
     },
+    "pxfConfig": {
+      "connectionTimeout": "integer",
+      "uploadTimeout": "integer",
+      "maxThreads": "integer",
+      "poolAllowCoreThreadTimeout": true,
+      "poolCoreSize": "integer",
+      "poolQueueCapacity": "integer",
+      "poolMaxSize": "integer",
+      "xmx": "integer",
+      "xms": "integer"
+    },
 
     // `configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`
     "greenplumConfig_6_17": {
@@ -215,6 +226,16 @@ configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>hours | *
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>start.<br>minutes | **string** (int64)<br><p>Acceptable values are 0 to 59, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>analyzeTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
 configSpec.<br>backgroundActivities.<br>analyzeAndVacuum.<br>vacuumTimeout | **integer** (int64)<br><p>in seconds 24<em>60</em>60-1 = 86399</p> <p>Acceptable values are 0 to 86399, inclusive.</p> 
+configSpec.<br>pxfConfig | **object**
+configSpec.<br>pxfConfig.<br>connectionTimeout | **integer** (int64)<br><p>Connection</p> <p>Acceptable values are 5 to 600, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>uploadTimeout | **integer** (int64)<br><p>Acceptable values are 5 to 600, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>maxThreads | **integer** (int64)<br><p>Thread pool</p> <p>Acceptable values are 1 to 1024, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>poolAllowCoreThreadTimeout | **boolean** (boolean)
+configSpec.<br>pxfConfig.<br>poolCoreSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>poolQueueCapacity | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>pxfConfig.<br>poolMaxSize | **integer** (int64)<br><p>Acceptable values are 1 to 1024, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>xmx | **integer** (int64)<br><p>JVM</p> <p>Acceptable values are 64 to 16384, inclusive.</p> 
+configSpec.<br>pxfConfig.<br>xms | **integer** (int64)<br><p>Acceptable values are 64 to 16384, inclusive.</p> 
 configSpec.<br>greenplumConfig_6_17 | **object** <br>`configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`<br>
 configSpec.<br>greenplumConfig_6_17.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment.</p> 
 configSpec.<br>greenplumConfig_6_17.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>The maximum size of WAL files that replication slots are allowed to retain in the ``pg_wal`` directory at checkpoint time.</p> <p>More info in <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html">PostgreSQL® documentation</a>.</p> 

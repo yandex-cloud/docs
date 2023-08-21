@@ -180,74 +180,74 @@ Skip this section if you are using your own tag data.
 
 1. In the [management console]({{ link-console-main }}), open the page of the {{ CH }} cluster you created.
 1. In the list on the left, select ![datalens](../../_assets/datalens/datalens.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
-1. In the window that opens, select the folder with your {{ datalens-short-name }}, then click **{{ ui-key.yacloud.mdb.datalens.button-action_activate }}**.
+1. In the window that opens, select the folder with your {{ datalens-short-name }}, then click **Activate**.
 
 ### 3.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
-1. Click **{{ ui-key.datalens.main.landing.view.button_connect-data-source }}**.
-1. Select a **{{ ui-key.datalens.connections.connectors-list.view.label_connector-clickhouse }}** connection.
+1. Click **Create connection**.
+1. Select a **ClickHouse** connection.
 1. Fill in the connection settings:
-   1. Select a cluster from the **{{ ui-key.datalens.connections.form.field_cluster }}** drop-down list or create a new one. If the cluster is missing in the list, click **{{ ui-key.datalens.connections.form.button_specify-manually }}** and specify the [{{ CH }} cluster name](#ch-connection).
-   1. Select the [{{ CH }} host](#ch-connection) from the **{{ ui-key.datalens.connections.form.field_host-name }}** drop-down list.
+   1. Select a cluster from the **Cluster ** drop-down list or create a new one. If the cluster is missing in the list, click **Specify manually** and specify the [{{ CH }} cluster name](#ch-connection).
+   1. Select the [{{ CH }} host](#ch-connection) from the **Hostname** drop-down list.
    1. Select the [username](#ch-connection).
-   1. Enter [password](#ch-connection) and click **{{ ui-key.datalens.connections.form.button_verify }}**.
-   1. When the connection check succeeds, click **{{ ui-key.datalens.connections.form.button_create-connection }}**. In the window that opens, enter the connection name and click **{{ ui-key.datalens.connections.form.button_create }}**.
+   1. Enter [password](#ch-connection) and click **Check**.
+   1. When the connection check succeeds, click **Create connection**. In the window that opens, enter the connection name and click **Create**.
 
 ### 3.3. Create a dataset based on the connection {#creating-dataset-based-on-connection}
 
-1. In the top-right corner, click **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
+1. In the top-right corner, click **Create dataset**.
 1. Select the `metrica_data.hits` table as a source. To do this, drag the table from the list on the left to the editing area.
-1. Open the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}** tab.
-1. In the top-right corner, click ![plus](../../_assets/datalens/plus.svg) **{{ ui-key.datalens.dataset.dataset-editor.modify.button_add-field }}**.
-1. To calculate the number of hits, create a calculated field: name it `Hits`, enter `1` in the workspace, and click **{{ ui-key.datalens.component.dl-field-editor.view.button_create }}**.
-1. For the `Hits` field, select the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_sum }}** value in the **{{ ui-key.datalens.dataset.dataset-editor.modify.column_aggregation }}** column.
+1. Open the **Fields** tab.
+1. In the top-right corner, click ![plus](../../_assets/datalens/plus.svg) **Add field**.
+1. To calculate the number of hits, create a calculated field: name it `Hits`, enter `1` in the workspace, and click **Create**.
+1. For the `Hits` field, select the **Sum** value in the **Aggregation** column.
 1. Rename the `Browser` field to `Browser`.
-1. In the top-right corner, click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
-1. Name the dataset `ch_metrica_data_hits` and click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
+1. In the top-right corner, click **Save**.
+1. Name the dataset `ch_metrica_data_hits` and click **Create**.
 
 ### 3.4. Create a stacked area chart {#creating-area-chart}
 
-1. In the top-right corner, click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}**.
+1. In the top-right corner, click **Create chart**.
 1. In the window that opens, drag the following fields to the chart section:
-   * `EventDate`, to the **{{ ui-key.datalens.wizard.section_x }}** section.
-   * `Browser`, to the **{{ ui-key.datalens.wizard.section_colors }}** section.
-   * `Hits`, to the **{{ ui-key.datalens.wizard.section_y }}** section.
-1. Change the chart type from **{{ ui-key.datalens.wizard.label_visualization-column }}** to **{{ ui-key.datalens.wizard.label_visualization-area }}**.
-1. Click **{{ ui-key.datalens.wizard.button_save }}**.
-1. In the window that opens, enter `ch_metrica_data_hits_area` as the chart name and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+   * `EventDate`, to the **X** section.
+   * `Browser`, to the **Colors ** section.
+   * `Hits`, to the **Y** section.
+1. Change the chart type from **Column** chart to **Stacked area** chart.
+1. Click **Save**.
+1. In the window that opens, enter `ch_metrica_data_hits_area` as the chart name and click **Save**.
 
 ### 3.5. Create a pivot table chart {#creating-pivot-table}
 
-1. In the top-right corner, click ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
-1. For the chart copy, enter `ch_metrica_data_hits_table` as the new name and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
-1. Select **{{ ui-key.datalens.wizard.label_visualization-pivot-table }}** as the new chart type.
+1. In the top-right corner, click ![save-button](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. For the chart copy, enter `ch_metrica_data_hits_table` as the new name and click **Save**.
+1. Select **Pivot table** as the new chart type.
 1. Add or drag the following fields to the chart area:
-   * `Browser`, to the **{{ ui-key.datalens.wizard.section_rows }}** section.
-   * `Hits`, to the **{{ ui-key.datalens.wizard.section_sort }}** section.
-1. Click **{{ ui-key.datalens.wizard.button_save }}**.
+   * `Browser`, to the **Rows** section.
+   * `Hits`, to the **Sorting** section.
+1. Click **Save**.
 
 ## 4. Create and configure a dashboard in {{ datalens-short-name }} {#creating-configuring-dashboard}
 
 ### 4.1. Create a dashboard {#creating-dashboard}
 
-1. In the left-hand panel, select ![dashboards](../../_assets/datalens/dashboard-0523.svg) **{{ ui-key.datalens.component.navigation.view.switch_dashboards }}** and click **{{ ui-key.datalens.component.navigation.view.button_create-dashboard }}**.
-1. Enter `ch_metrica_data` as the name of the dashboard and click **{{ ui-key.datalens.component.navigation.view.button_create }}**.
-1. Add the first chart to the dashboard. To do this, in the top-right corner, click **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**:
-   1. From the **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** drop-down list, select `ch_metrica_data_hits_area`.
-   1. In the **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}** field, enter **Hits by browser** as the chart name and click **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**.
+1. In the left-hand panel, select ![dashboards](../../_assets/datalens/dashboard-0523.svg) **Dashboards** and click **Create dashboard**.
+1. Enter `ch_metrica_data` as the name of the dashboard and click **Create**.
+1. Add the first chart to the dashboard. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**:
+   1. From the **Chart** drop-down list, select `ch_metrica_data_hits_area`.
+   1. In the **Title** field, enter **Hits by browser** as the chart name and click **Add**.
 1. Similarly, add the chart `ch_metrica_data_hits_table` named **Hits by browser for period**.
 1. Move the charts and resize them on the dashboard:
    1. Drag the table chart to the right of the diagram chart.
    1. To change the vertical dimensions of the charts, drag them by the lower-right corner.
-1. In the top-right corner, click **{{ ui-key.datalens.dash.widget-dialog.edit.button_save }}**.
+1. In the top-right corner, click **Save**.
 
 ### 4.2. Set up a dashboard {#configuring-dashboard}
 
-1. Add filtering to select a specific browser. To do this, in the top-right corner, click **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
-1. You can add the selector to a field from any dataset. From the **{{ ui-key.datalens.dash.control-dialog.edit.field_dataset }}** list, select the created dataset `ch_metrica_data_hits`.
-1. In the **{{ ui-key.datalens.dash.control-dialog.edit.field_field }}** list, select `Browser`.
-1. Enable **{{ ui-key.datalens.dash.control-dialog.edit.field_multiselectable }}**.
-1. In the **{{ ui-key.datalens.dash.control-dialog.edit.label_default-value }}** field, select the browsers:
+1. Add filtering to select a specific browser. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**.
+1. You can add the selector to a field from any dataset. From the **Dataset** list, select the created dataset `ch_metrica_data_hits`.
+1. In the **Field** list, select `Browser`.
+1. Enable **Multiple choice**.
+1. In the **Default value** field, select the browsers:
    * `android_browser`
    * `chrome`
    * `chromemobile`
@@ -258,10 +258,10 @@ Skip this section if you are using your own tag data.
    * `samsung_internet`
    * `yandex_browser`
    * `yandexsearch`
-1. In the **{{ ui-key.datalens.dash.control-dialog.edit.field_title }}** field, enter a name for the selector and enable the option.
-1. Click **{{ ui-key.datalens.dash.control-dialog.edit.button_add }}**.
+1. In the **Title** field, enter a name for the selector and enable the option.
+1. Click **Add**.
 1. Drag the selector to the top of the dashboard and stretch it horizontally.
-1. In the top-right corner, click **{{ ui-key.datalens.dash.control-dialog.edit.button_save }}**.
+1. In the top-right corner, click **Save**.
 
 ## 5. Build conversion funnels {#funnels}
 
@@ -276,50 +276,50 @@ Skip this section if you are using your own tag data.
 
 Create a new dataset based on the new table and the connection to {{ CH }}:
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) home page (or click ![datalens-console](../../_assets/datalens-console.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** in the left-hand panel) and click **{{ ui-key.datalens.main.landing.view.button_create-dataset }}**.
-1. Go to the **{{ ui-key.datalens.dataset.sources-tab.modify.label_sources }}** section and click ![image](../../_assets/plus-sign.svg) **{{ ui-key.datalens.dataset.sources-tab.modify.button_add-connection }}**.
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) home page (or click ![datalens-console](../../_assets/datalens-console.svg) **DataLens** in the left-hand panel) and click **Create dataset**.
+1. Go to the **Connections** section and click ![image](../../_assets/plus-sign.svg) **Add**.
 1. From the list of connections, select the connection name that you created in Step [3.2](#creation-datalens-connection-to-ch).
 1. Drag the new table `metrica_data.funnels_by_bro` to the editing area.
-1. Open the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}** tab:
+1. Open the **Field** tab:
    1. Rename the fields `step X` to `Step X`, where X is the step number.
-   1. Specify the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_sum }}** value in the **{{ ui-key.datalens.dataset.dataset-editor.modify.column_aggregation }}** column for the `Step X` fields and click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
-1. Name the dataset `ch_metrica_data_funnels_by_bro` and click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
+   1. Specify the **Sum** value in the **Aggregation** column for the `Step X` fields and click **Save**.
+1. Name the dataset `ch_metrica_data_funnels_by_bro` and click **Create**.
 
 ### 5.3. {{ datalens-short-name }}. Funnels by browser. Create a chart {#calculating-browser-funnels-chart}
 
 Create a chart based on the `ch_metrica_data_funnels_by_bro` dataset:
 
-1. Click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create-widget }}**.
-1. Select the **{{ ui-key.datalens.wizard.label_visualization-pivot-table }}** chart type.
+1. Click **Create chart**.
+1. Select the **Pivot table** chart type.
 1. Drag the fields to the chart sections:
-   * `Browser`, to the **{{ ui-key.datalens.wizard.section_rows }}** section.
-   * `Step X`, to the **{{ ui-key.datalens.wizard.section_measures }}** section, where X is the step sequence number.
-   * `Step 1`, to the **{{ ui-key.datalens.wizard.section_sort }}** section.
-1. Click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
-1. Enter `ch_metrica_data_funnels_by_bro_table` as the chart name and click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
+   * `Browser`, to the **Rows** section.
+   * `Step X`, to the **Measures** section, where X is the step sequence number.
+   * `Step 1`, to the **Sorting** section.
+1. Click **Save**.
+1. Enter `ch_metrica_data_funnels_by_bro_table` as the chart name and click **Save**.
 
 ### 5.4. {{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard {#add-browser-funnels-chart-on-dashboard}
 
 1. Go to the created dashboard from the [dashboards]({{ link-datalens-main }}/dashboards) page.
-1. Add a new chart. In the top-right corner, click **{{ ui-key.datalens.dash.action-panel.view.button_edit }}**:
-   1. Click **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
-   1. From the **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}** drop-down list, select the `ch_metrica_data_funnels_by_bro_table` chart.
-   1. In the **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}** field, enter `Funnels by browser` as the chart name and click **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**.
+1. Add a new chart. In the top-right corner, click **Edit**:
+   1. Click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**.
+   1. From the **Chart** drop-down list, select the `ch_metrica_data_funnels_by_bro_table` chart.
+   1. In the **Title** field, enter `Funnels by browser` as the chart name and click **Add**.
 1. Place the new chart to the right of the existing two. Stretch the chart so that it matches the others vertically and reaches the right border of the page.
-1. Click **{{ ui-key.datalens.dash.widget-dialog.edit.button_save }}**.
+1. Click **Save**.
 
 ### 5.5. {{ datalens-short-name }}. Funnels by browser. Set up a dashboard {#setting-browser-funnels-chart-on-dashboard}
 
 Configure relationships so that the selector affects the new chart from another dataset:
 
-1. Click **{{ ui-key.datalens.dash.action-panel.view.button_edit }}** → **{{ ui-key.datalens.dash.action-panel.view.button_connections }}**.
+1. Click **Edit** → **Links**.
 1. In the window that opens, select the `Browser` selector from the list.
 1. On the page with the other dashboard elements, scroll down to the `Funnels by browser` chart, and click on the list with the link.
-1. Select the **{{ ui-key.datalens.dash.connections-dialog.edit.value_output }}** link type.
-1. From each list, select the fields for the `Browser` link. Click **{{ ui-key.datalens.dash.connections-dialog.edit.button_add }}**.
-1. Click **{{ ui-key.datalens.dash.connections-dialog.edit.button_save }}**.
-1. In the top-left corner, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_rename }}**.
-1. Enter `Supermarket.ru — funnel and cohort analysis` as the name. Click **{{ ui-key.datalens.component.dialog-rename-entry.view.button_apply }}**.
+1. Select the **Ongoing link** link type.
+1. From each list, select the fields for the `Browser` link. Click **Add**.
+1. Click **Save**.
+1. In the top-left corner, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Rename**.
+1. Enter `Supermarket.ru — funnel and cohort analysis` as the name. Click **Done**.
 
 ## 6. Perform cohort analysis {#cohorts}
 
@@ -334,78 +334,78 @@ In {{ CH }}, the table `metrica_data.retention_users` is created, which contains
 
 Create a new dataset based on the new table and the connection to {{ CH }}:
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **{{ ui-key.datalens.component.navigation.view.button_create-dataset }}**.
-1. In the **{{ ui-key.datalens.dataset.sources-tab.modify.label_sources }}** section, click **{{ ui-key.datalens.component.navigation.view.button_create-dataset }}** and then click ![image](../../_assets/plus-sign.svg) **{{ ui-key.datalens.dataset.sources-tab.modify.button_add-connection }}**.
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **Create dataset**.
+1. In the **Connections** section, click **Create dataset** and then click ![image](../../_assets/plus-sign.svg) **Add**.
 1. From the list, select the [connection](#creation-datalens-connection-to-ch) you created.
 1. Drag the new table `metrica_data.retention_users` to the work area to connect to it.
-1. Open the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_dataset }}** tab and create the new calculated field `week_num`, which is equal to `([date]-[min_date])/7`.
+1. Open the **Fields** tab and create the new calculated field `week_num`, which is equal to `([date]-[min_date])/7`.
    This field indicates the number of weeks from the user's first visit.
-1. Click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
-1. For the `visits`, `purchases`, and `revenue` fields, select the **{{ ui-key.datalens.dataset.dataset-editor.modify.value_sum }}** value in the **{{ ui-key.datalens.dataset.dataset-editor.modify.column_aggregation }}** column.
+1. Click **Create**.
+1. For the `visits`, `purchases`, and `revenue` fields, select the **Sum** value in the **Aggregation** column.
 1. Rename the fields to `Visits`, `Purchases`, and `Revenue`, respectively.
 1. Save the dataset:
    1. Name the dataset `ch_metrica_data_users_visits`.
-   1. Click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
+   1. Click **Create**.
 1. Create a new chart based on the dataset:
-   1. Change the chart type to **{{ ui-key.datalens.wizard.label_visualization-pivot-table }}**.
-   1. Drag the `week_num` field to the **{{ ui-key.datalens.wizard.section_columns }}** section.
-   1. Drag the `min_date` field to the **{{ ui-key.datalens.wizard.section_rows }}** section.
-   1. Drag the `Visits` field to the **{{ ui-key.datalens.wizard.section_measures }}** section.
+   1. Change the chart type to **Pivot table**.
+   1. Drag the `week_num` field to the **Columns** section.
+   1. Drag the `min_date` field to the **Rows** section.
+   1. Drag the `Visits` field to the **Measures** section.
 
 ### 6.3. {{ datalens-short-name }}. Configure a chart with cohort visualization {#creating-chart-with-cohort}
 
 Filter out incomplete weeks of June 29, 2020 and September 28, 2020:
 
-1. Drag the `min_date` field to the **{{ ui-key.datalens.wizard.section_filters }}** section.
+1. Drag the `min_date` field to the **Chart filters** section.
    1. In the window that opens, select the start and end dates of the date range for filtering:
       * Start date: `June 06, 2020`.
       * End date: `September 27, 2020`.
-   1. Click **{{ ui-key.datalens.wizard.button_apply-filter }}**.
-1. Format the numbers in the values of the `week_num` field by removing the decimal places. To do this, in the **{{ ui-key.datalens.wizard.section_rows }}** section, in the `week_num` field, click the ![image](../../_assets/datalens/mesh.svg) icon. In the window that opens, set the following configuration:
-   1. Set the **{{ ui-key.datalens.wizard.number-field-formatting.view.field_precision }}** measure to `0`.
-   1. Set the **{{ ui-key.datalens.wizard.number-field-formatting.view.field_rank-delimiter }}** measure to `{{ ui-key.datalens.wizard.number-field-formatting.view.value_rank-delimiter-hide }}`.
-   1. Click **{{ ui-key.datalens.wizard.button_apply }}**.
-1. To color the table, add the `Visits` field to the **{{ ui-key.datalens.wizard.section_colors }}** section and click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, configure the colors:
-   1. Select **{{ ui-key.datalens.wizard.label_gradient-type }}**: `3 point`.
-   1. Select **{{ ui-key.datalens.wizard.label_bars-color }}**: `Orange-Violet-Blue`.
-   1. Enable **{{ ui-key.datalens.wizard.label_thresholds }}** and specify the values: `100`, `1000`, and `5000`.
-   1. Click **{{ ui-key.datalens.wizard.button_apply }}**.
-1. Click **{{ ui-key.datalens.wizard.button_save }}**.
-1. Name the chart `ch_metrica_data_users_visits_cohorts_abs` and click **{{ ui-key.datalens.component.dialog-create-editor-chart.view.button_apply }}**.
+   1. Click **Apply filter**.
+1. Format the numbers in the values of the `week_num` field by removing the decimal places. To do this, in the **Rows** section, in the `week_num` field, click the ![image](../../_assets/datalens/mesh.svg) icon. In the window that opens, set the following configuration:
+   1. Set the **Precision** measure to `0`.
+   1. Set the **Show thousands separator** measure to `Hide`.
+   1. Click **Apply**.
+1. To color the table, add the `Visits` field to the **Colors** section and click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, configure the colors:
+   1. Select **Gradient type**: `3 point`.
+   1. Select **Color**: `Orange-Violet-Blue`.
+   1. Enable **Set threshold values** and specify the values: `100`, `1000`, and `5000`.
+   1. Click **Apply**.
+1. Click **Save**.
+1. Name the chart `ch_metrica_data_users_visits_cohorts_abs` and click **Save**.
 
 ### 6.4. {{ datalens-short-name }}. Create a chart with retention {#creating-chart-with-retention}
 
 Create a chart with retention based on the `ch_metrica_data_users_visits_cohorts_abs` chart. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
-1. In the top-right corner, click ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
-1. Enter `ch_metrica_data_users_visits_cohorts_rel` as the name of the chart and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. In the top-right corner, click ![save-button](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. Enter `ch_metrica_data_users_visits_cohorts_rel` as the name of the chart and click **Save**.
 1. Create a new calculated field to calculate the retention rate relative to the first week:
-   1. In the left part of the screen, click ![image](../../_assets/plus-sign.svg) above the list of dataset fields and select **{{ ui-key.datalens.wizard.add_field_item }}**.
+   1. In the left part of the screen, click ![image](../../_assets/plus-sign.svg) above the list of dataset fields and select **Field**.
    1. Name the field `Visits from the first week`.
    1. Paste the following formula: `SUM([Visits])/RMAX(SUM([Visits]) among [week_num])`.
-   1. Click **{{ ui-key.datalens.dataset.dataset-editor.modify.button_create }}**.
-1. Drag the `Visits from the first week` field to the **{{ ui-key.datalens.wizard.section_measures }}** section.
-1. Drag the `Visits from the first week` field to the **{{ ui-key.datalens.wizard.section_colors }}** section in place of the `Visits` field.
-1. Select the format for `Visits from the first week`. To do this, click the ![image](../../_assets/datalens/mesh.svg) icon under **{{ ui-key.datalens.wizard.section_measures }}** in the `Visits from the first week` field. In the window that opens, set the following configuration:
-   1. Set the **{{ ui-key.datalens.wizard.number-field-formatting.view.field_format }}** measure to `{{ ui-key.datalens.wizard.number-field-formatting.view.value_format-percent }}`.
-   1. Click **{{ ui-key.datalens.wizard.button_apply }}**.
-1. Edit the threshold values for the measure's colors. Under **{{ ui-key.datalens.wizard.section_colors }}**, click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, enable **{{ ui-key.datalens.wizard.label_thresholds }}**, specify the threshold values of `0.01`, `0.025`, and `0.1`, and click **{{ ui-key.datalens.wizard.button_apply }}**.
-1. Click **{{ ui-key.datalens.wizard.button_save }}**.
+   1. Click **Create**.
+1. Drag the `Visits from the first week` field to the **Measures** section.
+1. Drag the `Visits from the first week` field to the **Colors** section in place of the `Visits` field.
+1. Select the format for `Visits from the first week`. To do this, click the ![image](../../_assets/datalens/mesh.svg) icon under **Measures** in the `Visits from the first week` field. In the window that opens, set the following configuration:
+   1. Set the **Format** measure to `Percent`.
+   1. Click **Apply**.
+1. Edit the threshold values for the measure's colors. Under **Colors**, click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, enable **Set threshold values**, specify the threshold values of `0.01`, `0.025`, and `0.1`, and click **Apply**.
+1. Click **Save**.
 
 ### 6.5. {{ datalens-short-name }}. Add charts to a new dashboard tab {#adding-charts-to-dashboard-tab}
 
-1. In the left-hand panel, click ![dashboards](../../_assets/datalens/dashboard-0523.svg) **{{ ui-key.datalens.component.navigation.view.switch_dashboards }}** and open the dashboard.
-1. Click **{{ ui-key.datalens.dash.action-panel.view.button_edit }}** → **{{ ui-key.datalens.dash.action-panel.view.button_tabs }}**.
+1. In the left-hand panel, click ![dashboards](../../_assets/datalens/dashboard-0523.svg) **Dashboards** and open the dashboard.
+1. Click **Edit** → **Tabs**.
 1. Rename the existing tab `Overview + Funnels`.
-1. Add a new tab and name it `Cohorts`. Click **{{ ui-key.datalens.dash.control-dialog.edit.button_save }}**.
+1. Add a new tab and name it `Cohorts`. Click **Save**.
 1. Go to the new `Cohort` tab:
    1. Add the chart `ch_metrica_data_users_visits_cohorts_abs` to the dashboard.
-   1. In the **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}** field, specify `Visits by cohort (absolute)`.
-1. To add a new tab, click **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}** on the left:
+   1. In the **Title** field, specify `Visits by cohort (absolute)`.
+1. To add a new tab, click **Add** on the left:
    1. In the new tab, add the chart `ch_metrica_data_users_visits_cohorts_rel`.
    1. Enter `Visits by cohort (relative)` as the name.
-   1. Click **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**.
-   1. Click **{{ ui-key.datalens.dash.widget-dialog.edit.button_save }}**.
+   1. Click **Add**.
+   1. Click **Save**.
 
 Now you have a chart with two switchable tabs.
 
@@ -413,19 +413,19 @@ Now you have a chart with two switchable tabs.
 
 Create a new chart based on the chart `ch_metrica_data_users_visits_cohorts_abs`. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
-1. In the top-right corner, click ![image](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
-1. Enter `ch_metrica_data_users_revenue_cohorts_abs` as the name of the chart and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
-1. Drag the `Revenue` field to the **{{ ui-key.datalens.wizard.section_measures }}** and **{{ ui-key.datalens.wizard.section_colors }}** sections on top of the `Visits` field.
+1. In the top-right corner, click ![image](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. Enter `ch_metrica_data_users_revenue_cohorts_abs` as the name of the chart and click **Save**.
+1. Drag the `Revenue` field to the **Measures** and **Colors** sections on top of the `Visits` field.
 1. In the `Revenue` section, click the ![image](../../_assets/datalens/mesh.svg) icon. Change the field formatting:
    1. Select `1` decimal place.
-   1. Select the `{{ ui-key.datalens.wizard.number-field-formatting.view.value_unit-m }}` scale.
+   1. Select the `Millions, M` scale.
    1. Change the color thresholds for the new field to `500000`, `1500000`, and `10000000`.
 1. Save the chart.
 
 Create another chart based on the `ch_metrica_data_users_visits_cohorts_rel` chart:
 
-1. In the top-right corner, click ![image](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.component.chart-save-controls.button_save-as-new }}**.
-1. Enter `ch_metrica_data_users_revenue_cohorts_rel` as the name of the chart and click **{{ ui-key.datalens.component.chartkit-alerts.view.button_save }}**.
+1. In the top-right corner, click ![image](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. Enter `ch_metrica_data_users_revenue_cohorts_rel` as the name of the chart and click **Save**.
 1. Change the `Visits from the first week` field:
    1. Rename the field `Revenue from the first week`.
    1. Change the formula to `SUM([Revenue])/RMAX(SUM([Revenue]) among [week_num])`.
@@ -436,14 +436,14 @@ Create another chart based on the `ch_metrica_data_users_visits_cohorts_rel` cha
 
 Add charts with cohort visualization to the dashboard:
 
-1. Click **{{ ui-key.datalens.dash.action-panel.view.button_edit }}**.
-1. Click **{{ ui-key.datalens.dash.action-panel.view.button_add }}** ![save-button](../../_assets/datalens/save-button.svg) → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
+1. Click **Edit**.
+1. Click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**.
 1. Select the chart `ch_metrica_data_users_revenue_cohorts_abs` from the chart list.
 1. Enter `Revenue by cohort (absolute)` as the name.
-1. Use the ![plus](../../_assets/datalens/plus.svg) **{{ ui-key.datalens.dash.tabs-dialog.edit.button_add-tab }}** button to create a new tab:
+1. Use the ![plus](../../_assets/datalens/plus.svg) **Add** button to create a new tab:
    1. In the new tab, select the chart `ch_metrica_data_users_revenue_cohorts_rel` from the chart list.
    1. Enter `Revenue by cohort (relative)` as the name.
-   1. In the upper-right corner, click **{{ ui-key.datalens.dash.tabs-dialog.edit.button_save }}**.
+   1. In the upper-right corner, click **Save**.
 1. Arrange the charts side by side.
 
 ## How to delete the resources you created {#clear-out}

@@ -21,6 +21,8 @@
 
 - CLI
 
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
     1. Посмотрите описание команды для назначения роли на сервисный аккаунт как на ресурс:
@@ -219,6 +221,8 @@
 
 - CLI
 
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
     Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
 
     {% note alert %}
@@ -381,6 +385,8 @@
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   1. Узнайте ID сервисного аккаунта, например, `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов (в профиле администратора):
 
       ```bash
@@ -457,6 +463,8 @@
 {% list tabs %}
 
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
@@ -604,6 +612,8 @@
 {% list tabs %}
 
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
 

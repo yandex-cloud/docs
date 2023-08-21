@@ -154,59 +154,59 @@ description: "Для визуализация данных из {{ tracker-short
 ## Создайте подключение в {{ datalens-short-name }} {#connection-create}
 
 1. Откройте [кластер](#database-create) **{{ mch-name}}**.
-1. Откройте вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
-1. Нажмите **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
+1. Откройте вкладку **DataLens**.
+1. Нажмите ** Создать подключение**.
 1. Укажите настройки подключения:
-    * **{{ ui-key.datalens.connections.form.field_fill-mode }}** — `Выбрать в каталоге`;
-    * **{{ ui-key.datalens.connections.form.field_cluster }}** — кластер, указанный при [создании базы данных](#database-create);
-    * **{{ ui-key.datalens.connections.form.field_host-name }}** — хост, указанный при [создании базы данных](#database-create);
-    * **{{ ui-key.datalens.connections.form.field_click-house-port }}** — `8443`;
-    * **{{ ui-key.datalens.connections.form.field_username }}** — имя пользователя, указанное при [создании базы данных](#database-create);
-    * **{{ ui-key.datalens.connections.form.field_password }}** — пароль, указанный при [создании базы данных](#database-create);
-    * **{{ ui-key.datalens.connections.form.field_cache-ttl-sec }}** — `{{ ui-key.datalens.connections.form.value_default }}`;
-    * **{{ ui-key.datalens.connections.form.field_raw-sql-level }}** — `{{ ui-key.datalens.connections.form.value_raw-sql-level-off }}`;
-    * **{{ ui-key.yacloud.common.label_https }}** — `{{ ui-key.yacloud.common.enabled }}`.
+    * **Подключение** — `Выбрать в каталоге`;
+    * **Кластер** — кластер, указанный при [создании базы данных](#database-create);
+    * **Имя хост** — хост, указанный при [создании базы данных](#database-create);
+    * **Порт HTTP-интерфейса** — `8443`;
+    * **Имя пользователя** — имя пользователя, указанное при [создании базы данных](#database-create);
+    * **Пароль** — пароль, указанный при [создании базы данных](#database-create);
+    * **Время жизни кeша в секундах** — `По умолчанию`;
+    * **Уровень доступа SQL запросов** — `Запретить`;
+    * **HTTPS** — `{{ ui-key.yacloud.common.enabled }}`.
     ![Настройки подключения](../../_assets/datalens/connection-settings.png =680x665)
-1. Нажмите кнопку **{{ ui-key.datalens.connections.form.button_create-connection }}**.
+1. Нажмите кнопку **Создать подключение**.
 
 ## Создайте датасет {#dataset-create}
 
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Выберите [подключение](#connection-create).
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.datalens.connections.form.button_create-dataset }}**.
+1. В правом верхнем углу нажмите кнопку **Создать датасет**.
 1. Перенесите на рабочую область одну или несколько таблиц:
     * `db1.v_tracker_issues` — текущий (последний) срез задач; 
     * `db1.v_tracker_changelog` — история изменения параметров задач;
     * `Db1.v_tracker_statuses` – время переходов между статусами на основе истории изменения задач.
-1. Нажмите кнопку **{{ ui-key.datalens.dataset.dataset-editor.modify.button_save }}**.
+1. Нажмите кнопку **Сохранить**.
 
 ## Создайте чарт {#chart-create}
 
 
 1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Нажмите кнопку **{{ ui-key.datalens.main.landing.view.button_create-widget }}**.
-1. В левом верхнем углу нажмите ![image](../../_assets/datalens/datasets.svg) **{{ ui-key.datalens.wizard.button_choose-dataset }}**.
-1. В выпадающем списке **{{ ui-key.datalens.wizard.label_datasets }}** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
+1. Нажмите кнопку **Создать чарт**.
+1. В левом верхнем углу нажмите ![image](../../_assets/datalens/datasets.svg) **Выберите датасет**.
+1. В выпадающем списке **Датасеты** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
 
 
-1. На верхней панели выберите [тип визуализации](../../datalens/visualization-ref/index.md). По умолчанию выбран тип **{{ ui-key.datalens.wizard.label_visualization-column }}**.
+1. На верхней панели выберите [тип визуализации](../../datalens/visualization-ref/index.md). По умолчанию выбран тип **Столбчатая диаграмма**.
 
 ## Создайте дашборд {#dashboard-create}
 
-1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **{{ ui-key.datalens.main.landing.view.button_create-dashboards }}**.
+1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **Создать дашборд**.
 1. В открывшемся окне введите название дашборда. Дашборд появится в списке на странице навигации.
 
 Подробнее о настройке дашбордов см. в разделе [Дашборд {{ datalens-full-name }}](../../datalens/concepts/dashboard.md).
 
 ## Добавьте чарты на дашборд {#add-charts}
 
-1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **{{ ui-key.datalens.dash.action-panel.view.button_add }}** → **{{ ui-key.datalens.dash.action-panel.view.value_widget }}**.
+1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **Добавить** → **Чарт**.
 1. Заполните параметры виджета. Обратите внимание на следующие поля:
-    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_title }}**. Задает имя виджета. Отображается на верхней части виджета.
-    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_widget }}**. Задает добавляемый виджет.
-    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_description }}**. Задает описание виджета. Отображается на нижней части виджета.
-    * **{{ ui-key.datalens.dash.widget-dialog.edit.field_autoheight }}**. Задает автоматическую высоту для виджетов типа **{{ ui-key.datalens.wizard.label_visualization-flat-table }}** и **{{ ui-key.datalens.chartkit.menu.export.format_markdown }}**. Если параметр отключен, то высоту виджета на странице можно установить с помощью мыши.
-1. Нажмите кнопку **{{ ui-key.datalens.dash.widget-dialog.edit.button_add }}**. Виджет отобразится на дашборде.
+    * **Название**. Задает имя виджета. Отображается на верхней части виджета.
+    * **Чарт**. Задает добавляемый виджет.
+    * **Описание**. Задает описание виджета. Отображается на нижней части виджета.
+    * **Автовысота**. Задает автоматическую высоту для виджетов типа **Таблица** и **Markdown**. Если параметр отключен, то высоту виджета на странице можно установить с помощью мыши.
+1. Нажмите кнопку **Добавить**. Виджет отобразится на дашборде.
 
 {% cut "Пример дашборда на основе данных из таблицы `v_tracker_issues`" %}
 

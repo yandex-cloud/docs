@@ -61,6 +61,11 @@ filter | <p>A filter expression that filters functions listed in the response.</
         "folderId": "string",
         // end of the list of possible fields`apiGateways[].logOptions`
 
+      },
+      "variables": "object",
+      "canary": {
+        "weight": "string",
+        "variables": "object"
       }
     }
   ],
@@ -94,4 +99,8 @@ apiGateways[].<br>logOptions.<br>disabled | **boolean** (boolean)<br><p>Is loggi
 apiGateways[].<br>logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
 apiGateways[].<br>logOptions.<br>logGroupId | **string** <br>`apiGateways[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> 
 apiGateways[].<br>logOptions.<br>folderId | **string** <br>`apiGateways[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> 
+apiGateways[].<br>variables | **object**<br><p>Values of variables defined in the specification.</p> 
+apiGateways[].<br>canary | **object**<br><p>Canary release of the gateway.</p> 
+apiGateways[].<br>canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 1 to 99, inclusive.</p> 
+apiGateways[].<br>canary.<br>variables | **object**<br><p>Required. Values specification variables, associated with canary.</p> <p>At least one per resource.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

@@ -68,11 +68,11 @@ num_tokens | **int64**<br>Number of tokens in the response.
 
 Field | Description
 --- | ---
-model | **string**<br> 
-generation_options | **[GenerationOptions](#GenerationOptions1)**<br> 
-messages[] | **[Message](#Message)**<br> 
-Instruction | **oneof:** `instruction_text`<br>
-&nbsp;&nbsp;instruction_text | **string**<br> 
+model | **string**<br>Possible value for now: `general`. The maximum string length in characters is 50.
+generation_options | **[GenerationOptions](#GenerationOptions1)**<br>Generation options 
+Instruction | **oneof:** `instruction_text`<br>Text precondition or context of the request. For example, the instruction may be "You are a helpful assistant".
+&nbsp;&nbsp;instruction_text | **string**<br>Text of the instruction. 
+messages[] | **[Message](#Message)**<br>Message history. 
 
 
 ### GenerationOptions {#GenerationOptions1}
@@ -88,15 +88,15 @@ max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protoc
 
 Field | Description
 --- | ---
-role | **string**<br> 
-text | **string**<br> 
+role | **string**<br>Message sender. 
+text | **string**<br>Text of the message. 
 
 
 ### ChatResponse {#ChatResponse}
 
 Field | Description
 --- | ---
-message | **[Message](#Message1)**<br> 
-num_tokens | **int64**<br> 
+message | **[Message](#Message1)**<br>Assistant's message 
+num_tokens | **int64**<br>Total number of tokens for chat request and chat response 
 
 
