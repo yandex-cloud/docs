@@ -18,6 +18,12 @@
 systemd-resolve --status
 ```
 
+Так как утилита `systemd-resolved` была переименована в `resolvectl`, для Ubuntu 22.04+ команда будет отличаться:
+
+```
+resolvectl status
+```
+
 Результат:
 
 ```
