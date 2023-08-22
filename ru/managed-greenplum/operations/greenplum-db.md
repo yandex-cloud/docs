@@ -6,7 +6,7 @@
 * [gpload](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
 * [psql](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/psql.html) — интерфейс командной строки для работы с {{ GP }}.
 
-Чтобы установить Greenplum Database 6 на рабочую или виртуальную машину под управлением OC Ubuntu 22.04:
+Чтобы установить Greenplum Database 6 на рабочую или виртуальную машину под управлением OC Ubuntu 22.04 или Ubuntu 20.04:
 
 1. Скачайте deb-пакеты, необходимые для установки Greenplum Database 6, из бакета {{ objstorage-full-name }} при помощи скрипта:
 
@@ -15,10 +15,18 @@
     - Ubuntu 22.04
 
         ```bash
-        curl storage.yandexcloud.net/greenplum-jammy-packages/install.sh | sudo bash
+        curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
         ```
 
-        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://storage.yandexcloud.net/greenplum-jammy-packages/install.sh).
+        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://{{ s3-storage-host }}/greenplum-jammy-packages/install.sh).
+
+    - Ubuntu 20.04
+
+        ```bash
+        curl {{ s3-storage-host }}/greenplum-focal-packages/install.sh | sudo bash
+        ```
+
+        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://{{ s3-storage-host }}/greenplum-focal-packages/install.sh).
 
     {% endlist %}
 
@@ -51,7 +59,7 @@
 
     ```bash
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1 && \
-         update-alternatives --install /usr/bin/python python /usr/bin/python3 2
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2
     ```
 
 1. Переключите активную версию интерпретатора:
