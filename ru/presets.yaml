@@ -1612,6 +1612,8 @@ default:
     reserved_resources:
       128k:
         12h|string: "0,8000\_₸"
+        1h|pricingRate:
+          744|string: "0,6000\_₸"
         1h|string: Не тарифицируется
         24h|string: "1,2000\_₸"
         4h|string: "0,7000\_₸"
@@ -2372,6 +2374,8 @@ default:
     reserved_resources:
       128k:
         12h|string: "0,1333\_₽"
+        1h|pricingRate:
+          744|string: "0,1000\_₽"
         1h|string: Не тарифицируется
         24h|string: "0,2000\_₽"
         4h|string: "0,1167\_₽"
@@ -3101,6 +3105,8 @@ default:
     reserved_resources:
       128k:
         12h|string: "0,001709\_$"
+        1h|pricingRate:
+          744|string: "0,001282\_$"
         1h|string: Не тарифицируется
         24h|string: "0,002564\_$"
         4h|string: "0,001496\_$"

@@ -1603,6 +1603,8 @@ default:
     reserved_resources:
       128k:
         12h|string: ₸0.8000
+        1h|pricingRate:
+          744|string: ₸0.6000
         1h|string: Free
         24h|string: ₸1.2000
         4h|string: ₸0.7000
@@ -2363,6 +2365,8 @@ default:
     reserved_resources:
       128k:
         12h|string: ₽0.1333
+        1h|pricingRate:
+          744|string: ₽0.1000
         1h|string: Free
         24h|string: ₽0.2000
         4h|string: ₽0.1167
@@ -3092,6 +3096,8 @@ default:
     reserved_resources:
       128k:
         12h|string: $0.001709
+        1h|pricingRate:
+          744|string: $0.001282
         1h|string: Free
         24h|string: $0.002564
         4h|string: $0.001496
