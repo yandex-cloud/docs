@@ -1,10 +1,10 @@
-* **Начало резервного копирования (UTC)** — время по UTC в 24-часовом формате, в которое начинается резервное копирование кластера. Если время не задано, резервное копирование начинается в 22:00 UTC.
+* **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — время по UTC в 24-часовом формате, в которое начинается резервное копирование кластера. Если время не задано, резервное копирование начинается в 22:00 UTC.
 
-* **Окно обслуживания** — настройки времени [технического обслуживания](../../../managed-clickhouse/concepts/maintenance.md):
+* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../../../managed-clickhouse/concepts/maintenance.md):
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
-* **Гибридное хранилище** — включите эту опцию, чтобы кластер использовал [гибридное хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Тип диска и его размер укажите в блоке **Размер хранилища**.
+* **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — включите эту опцию, чтобы кластер использовал [гибридное хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Тип диска и его размер укажите в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
 
    {% note alert %}
 
@@ -12,17 +12,17 @@
 
    {% endnote %}
 
-* **Доступ из {{ datalens-name }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
+* **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
 * {% include [datatransfer access](../console/datatransfer-access.md) %}
 
 
 
-* **Доступ из консоли управления** — опция разрешает выполнять SQL-запросы к базам кластера из консоли управления {{ yandex-cloud }}.
+* **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** — опция разрешает выполнять SQL-запросы к базам кластера из консоли управления {{ yandex-cloud }}.
 
-* **Доступ из Метрики и AppMetrica** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html) в кластер.
+* **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html) в кластер.
 
-* **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
+* **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
 
 
 

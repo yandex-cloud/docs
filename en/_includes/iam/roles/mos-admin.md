@@ -1,4 +1,4 @@
-### {{ roles.mos.admin }} {#mos-admin}
+#### {{ roles.mos.admin }} {#mos-admin}
 
 The `{{ roles.mos.admin }}` role enables you to edit and delete clusters, view information about clusters, runtime logs, and quotas, as well as manage cluster access.
 

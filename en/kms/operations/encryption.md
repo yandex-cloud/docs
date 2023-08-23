@@ -24,14 +24,14 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
    ```
    yc kms symmetric-crypto encrypt \
-     --id abj76v82ficsmn446ri7 \
+     --id abj76v82fics******** \
      --plaintext-file plaintext-file \
      --ciphertext-file ciphertext-file
    ```
 
 - API
 
-   Use the [encrypt](../api-ref/SymmetricCrypto/encrypt) method for the `SymmetricCrypto` resource.
+   To encrypt data, use the [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md) REST API method for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Encrypt](../../kms/api-ref/grpc/symmetric_crypto_service.md#Encrypt) gRPC API call.
 
 - {{ TF }}
 
@@ -53,6 +53,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
    {% include [tink](../../_includes/kms/google-encypt.md) %}
 
+
 {% endlist %}
 
 ## Decrypt data {#decryption}
@@ -65,20 +66,20 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
    * `--id`: ID of the [KMS key](../concepts/key.md), make sure you set either the `--id` or `--name` flag.
    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
-   * `--ciphertext-file`: Input file with the ciphertext.
+   * `--ciphertext-file`: Input file with plaintext.
    * `--aad-context-file` (optional): Input file with [AAD context](../concepts/encryption.md#add-context).
-   * `--plaintext-file`: Output file with plaintext.
+   * `--plaintext-file`: Output file with ciphertext.
 
    ```
    yc kms symmetric-crypto decrypt \
-     --id abj76v82ficsmn446ri7 \
+     --id abj76v82fics******** \
      --ciphertext-file ciphertext-file \
      --plaintext-file decrypted-file
    ```
 
 - API
 
-   Use the [decrypt](../api-ref/SymmetricCrypto/decrypt) method for the `SymmetricCrypto` resource.
+   To decrypt data, use the [decrypt](../../kms/api-ref/SymmetricCrypto/decrypt.md) REST API method for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource or the [SymmetricCryptoService/Decrypt](../../kms/api-ref/grpc/symmetric_crypto_service.md#Decrypt) gRPC API call.
 
 - SDK {{ yandex-cloud }}
 
@@ -91,6 +92,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 - Google Tink
 
    {% include [tink](../../_includes/kms/google-encypt.md) %}
+
 
 {% endlist %}
 

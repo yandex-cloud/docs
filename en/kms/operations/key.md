@@ -25,7 +25,7 @@ To create a key:
    Run the command with the following parameters:
    * `name`: Key name.
    * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `rotation-period`: Key rotation period. To create a key without automatic rotation, don't specify the `rotation-period` parameter.
+   * `rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `rotation-period` parameter.
 
    ```bash
    yc kms symmetric-key create \
@@ -34,17 +34,17 @@ To create a key:
      --rotation-period 24h
    ```
 
-   The key is created along with its first version. It's specified in the `primary_version` field.
+   The key is created along with its first version. It is specified in the `primary_version` field.
 
 - API
 
-   Use the [create](../api-ref/SymmetricKey/create) method for the `SymmetricKey` resource.
+   Use the [create](../../kms/api-ref/SymmetricKey/create.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create) gRPC API call.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-key-create](../../_includes/kms/terraform-key-create.md) %}
 
@@ -71,7 +71,7 @@ To edit a key:
    * `name`: Key name. If there are multiple keys with the same name in the folder, use the key ID.
    * `new-name`: New key name.
    * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `rotation-period`: Key rotation period. To disable automatic rotation for an updated key, don't specify the `rotation-period` parameter.
+   * `rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `rotation-period` parameter.
 
    ```bash
    yc kms symmetric-key update \
@@ -83,14 +83,14 @@ To edit a key:
 
 - API
 
-   Use the [update](../api-ref/SymmetricKey/update) method for the `SymmetricKey` resource.
+   Use the [update](../../kms/api-ref/SymmetricKey/update.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
    To edit a key:
    1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       ...
@@ -104,25 +104,25 @@ To edit a key:
       ```
 
       For more information about the `yandex_kms_symmetric_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```text
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -164,7 +164,7 @@ To rotate a key:
 
 - API
 
-   Use the [rotate](../api-ref/SymmetricKey/rotate) method for the `SymmetricKey` resource.
+   Use the [rotate](../../kms/api-ref/SymmetricKey/rotate.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Rotate](../../kms/api-ref/grpc/symmetric_key_service.md#Rotate) gRPC API call.
 
 {% endlist %}
 
@@ -174,7 +174,7 @@ By destroying a key you also destroy all its versions. You cannot delete a key d
 
 {% note alert %}
 
-3 days after the key is requested to be destroyed, the key and its versions are permanently destroyed: if you still have any data encrypted with this key, you can't decrypt the data.
+3 days after the key is requested to be destroyed, the key and its versions are permanently destroyed: if you still have any data encrypted with this key, you cannot decrypt the data.
 
 {% endnote %}
 
@@ -199,11 +199,11 @@ To destroy a key:
 
 - API
 
-   Use the [delete](../api-ref/SymmetricKey/delete) method for the `SymmetricKey` resource.
+   Use the [delete](../../kms/api-ref/SymmetricKey/delete.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete) gRPC API call.
 
 - {{ TF }}
 
-   To delete an key created with {{ TF }}:
+   To delete a key created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the key description.
 
       Example key description in the {{ TF }} configuration:
@@ -220,25 +220,25 @@ To destroy a key:
       ```
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Check the configuration using the command:
+   1. Check the configuration using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

@@ -26,10 +26,10 @@ Make sure this does not affect your applications:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster from the list and click **Edit cluster**.
-   1. In the **Version** field, select a new version number.
-   1. Click **Save changes**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Select the desired cluster from the list and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
    Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 

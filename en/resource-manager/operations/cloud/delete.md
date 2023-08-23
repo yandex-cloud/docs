@@ -18,7 +18,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a cloud created using {{ TF }}:
 
@@ -45,7 +45,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
       terraform validate
       ```
 
-      If the configuration is correct, the following message is returned:
+      If the configuration is correct, you will get this message:
 
       ```bash
       Success! The configuration is valid.

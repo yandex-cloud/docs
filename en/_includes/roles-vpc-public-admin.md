@@ -1,4 +1,4 @@
-### {{ roles-vpc-public-admin }} {#vpc-public-admin}
+#### {{ roles-vpc-public-admin }} {#vpc-public-admin}
 
 The `{{ roles-vpc-public-admin }}` role enables you to create and delete [static public IP addresses](../vpc/concepts/address.md). It also includes all permissions granted by the `{{ roles-vpc-viewer }}` role.
 

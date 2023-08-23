@@ -24,7 +24,7 @@ To enable sharding, you need:
 
 {% note info %}
 
-Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts of **b1.medium** and **b2.medium** classes. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
+Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts of **b1.medium** and **b2.medium** classes. If you do not see the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab, [upgrade the cluster host class](update.md#change-resource-preset) to the supported value.
 
 {% endnote %}
 
@@ -32,13 +32,13 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
-   1. Click **Enable**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
    1. Select a sharding type:
-      * **Standard**: Using a `MONGOINFRA` host.
+      * **{{ ui-key.yacloud.mongodb.cluster.shards.label_standard }}**: Using a `MONGOINFRA` host.
 
-      * **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
+      * **{{ ui-key.yacloud.mongodb.cluster.shards.label_custom }}**: Using `MONGOS` and `MONGOCFG` hosts.
 
 
          For more information, see [{#T}](../concepts/sharding.md).
@@ -50,7 +50,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       {% endnote %}
 
    1. Set the parameters of the hosts that will provide access to the sharded data.
-   1. Click **Enable sharding**.
+   1. Click **{{ ui-key.yacloud.mongodb.cluster.shards.button_enable_sharding }}**.
 
    The cluster will start updating, with the requested hosts and first shard of the cluster created.
 
@@ -246,8 +246,8 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
 - CLI
 
@@ -290,11 +290,11 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
-   1. Click **Add shard**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
    1. Enter a name for the shard and add the number of hosts you need.
-   1. Click **Create shard**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI
 
@@ -375,10 +375,10 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired shard and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired shard and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
 

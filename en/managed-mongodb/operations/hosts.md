@@ -8,9 +8,9 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster.
-   1. Go to the **Hosts** tab.
+   1. Select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 
 - CLI
 
@@ -67,15 +67,15 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 - Management console
 
    To add a host to your {{ mmg-name }} cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the {{ mmg-name }} cluster you need and go to the **Hosts** tab.
-   1. Click **Add host**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the {{ mmg-name }} cluster you need and go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
    1. Specify the host parameters:
       * [Availability zone](../../overview/concepts/geo-scope.md).
       * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).
-      * Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
       * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI
 
@@ -218,10 +218,10 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 - Management console
 
    To remove a host from a {{ mmg-name }} cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the {{ mmg-name }} cluster you need and select the **Hosts** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
-   1. In the window that opens, check **Delete host** and click **Confirm**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI
 
@@ -233,7 +233,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
    ```bash
    {{ yc-mdb-mg }} host delete <hostname>
-        --cluster-name <cluster name>
+     --cluster-name <cluster name>
    ```
 
    You can request the host name with a list of [{{ mmg-name }} cluster hosts](#list-hosts) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -287,9 +287,9 @@ During this operation:
 - Management console
 
    To forcibly resync a host:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the {{ mmg-name }} cluster you need and select the **Hosts** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the line of the necessary host and select **Resynchronize**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
 
 - CLI
 

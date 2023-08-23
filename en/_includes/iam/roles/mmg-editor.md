@@ -1,4 +1,4 @@
-### {{ roles.mmg.editor }} {#mmg-editor}
+#### {{ roles.mmg.editor }} {#mmg-editor}
 
 The `{{ roles.mmg.editor }}` role enables you to edit and delete clusters, as well as view information about clusters, runtime logs, and quotas.
 

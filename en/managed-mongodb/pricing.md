@@ -31,18 +31,18 @@ The following is charged:
 * Storage allocated for DB clusters.
 
 
-   * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
+* Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
-   * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+* Local SSD (`local-ssd`) storage can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
 
    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
-   * During an automatic backup, {{ mmg-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mmg-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
    * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
 
@@ -53,13 +53,13 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 The cost of using a cluster with the following parameters for 30 days:
 
 * **{{ MG }} hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM .
-* **Storage**: 100 GB of HDD network storage.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of HDD network storage.
 
 Cost calculation for {{ MG }} hosts:
 
 
 > 
-> 3 × (2 × $0.012800 + 8 × $0.007200) = $0.249600
+> 3 × (2&nbsp;×&nbsp;$0.012800 + 8&nbsp;×&nbsp;$0.007200) = $0.249600
 > 
 >
 > Total: $0.249600 is the cost per hour of {{ MG }} host operation.
@@ -76,17 +76,17 @@ Calculation for the storage cost and total cost:
 
 
 > 
-> 720 × $0.249600 + 100 × $0.025600 = $182.272000
+> 720 × $0.249600 + 100&nbsp;×&nbsp;$0.025600 = $182.272000
 > 
 >
 > Total: $182.272000 is the cost of using the cluster for 30 days.
 
 
 Where:
-* 720 is the number of hours in 30 days.
+* 720: Number of hours in 30 days.
 * $0.249600 is the cost per hour of {{ MG }} host operation.
-* 100 is the amount of HDD network storage (in GB).
-* 0.025600 $ is the cost of using 1 GB of network HDD storage per month.
+* 100: Amount of HDD network storage (in GB).
+* 0,025600&nbsp;$ is the cost of using 1 GB of network HDD storage per month.
 
 
 ## Pricing {#prices}
@@ -117,7 +117,7 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

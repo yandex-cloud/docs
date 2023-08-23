@@ -14,7 +14,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console
 
-   Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
 - CLI
 
@@ -48,12 +48,12 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the cluster you need.
 
    {% note tip %}
    
-   To request access to [Point-in-Time-Recovery](../concepts/backup.md) (PITR) in the [Preview](../../overview/concepts/launch-stages.md) mode, click **Request access** in the **Point-in-time recovery** line and fill out the form.
+   To request access to [Point-in-Time-Recovery](../concepts/backup.md) (PITR) in the [Preview](../../overview/concepts/launch-stages.md) mode, click **Request access** in the **{{ ui-key.yacloud.mdb.cluster.overview.label_mongodb-pitr }}** line and fill out the form.
 
 
    {% endnote %}
@@ -88,9 +88,9 @@ You can get the cluster ID with a [list of clusters in the folder](#list-cluster
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the cluster you need.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **Operations**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_operations }}**.
 
 - CLI
 
@@ -101,7 +101,7 @@ You can get the cluster ID with a [list of clusters in the folder](#list-cluster
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-mg }} cluster list-operations <cluster name and ID>
+   {{ yc-mdb-mg }} cluster list-operations <cluster name or ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).

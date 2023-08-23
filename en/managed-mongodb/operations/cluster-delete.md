@@ -19,8 +19,8 @@ description: "After you delete a MongoDB database cluster, its backups are kept 
 - Management console
 
    1. Open the [folder page]({{ link-console-main }}) in the management console.
-   1. Select **{{ mmg-name }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
 

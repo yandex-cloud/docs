@@ -1,4 +1,4 @@
-* **Окно обслуживания** — настройки времени [технического обслуживания](../../../managed-kafka/concepts/maintenance.md):
+* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../../../managed-kafka/concepts/maintenance.md):
 
     {% include [Maintenance window](../console/maintenance-window-description.md) %}
 

@@ -16,9 +16,9 @@ You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concept
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select a cluster and click **Edit**.
-   1. Open the list in the **Version** field.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
 
@@ -36,10 +36,10 @@ Make sure this does not affect your applications:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select a cluster and click **Edit**.
-   1. In the **Version** field, select the version {{ ES }}.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ ES }} version.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -123,10 +123,10 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select a cluster and click **Edit**.
-   1. In the **Edition** field, select the required {{ ES }} edition: `Basic` or `Platinum`.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** field, select the required {{ ES }} edition: `Basic` or `Platinum`.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

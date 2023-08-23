@@ -40,7 +40,7 @@ The following data schema formats are supported:
 * [JSON Schema](https://json-schema.org/).
 * [Protobuf](https://protobuf.dev/).
 
-Schema information is posted to a [service topic](./topics.md#service-topics) called `_schemas`. You cannot use standard tools to write data to this topic.
+Schema information is posted to a [service topic](./topics.md#service-topics) called `__schema_registry`. You cannot use standard tools to write data to this topic.
 
 To use this registry, enable the relevant option when [creating a cluster](../operations/cluster-create.md).
 

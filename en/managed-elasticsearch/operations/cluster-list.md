@@ -19,7 +19,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
+   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
 
 - CLI
 
@@ -45,7 +45,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the name of the cluster you need.
 
 - CLI
@@ -78,9 +78,9 @@ The operation list shows operations with clusters and related resources (for exa
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the name of the cluster you need.
-   1. Go to the **Operations** tab.
+   1. Click the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI
 

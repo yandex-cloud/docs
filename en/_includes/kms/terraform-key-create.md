@@ -4,8 +4,8 @@ To create a key:
 
    ```hcl
    resource "yandex_kms_symmetric_key" "key-a" {
-     name              = "<key name>"
-     description       = "<key description>"
+     name              = "<key_name>"
+     description       = "<key_description>"
      default_algorithm = "AES_128"
      rotation_period   = "8760h"
      lifecycle {
@@ -16,13 +16,13 @@ To create a key:
 
    Where:
 
-   * `name`: Key name. Name format:
+   * `name`: Key name. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    * `description`: Key description.
    * `default-algorithm`: Encryption algorithm. Possible values: `AES-128`, `AES-192`, or `AES-256`.
-   * `rotation-period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (default key version change frequency). To create a key without automatic rotation, don't specify the `rotation-period` parameter.
+   * `rotation-period`: [Rotation](../../kms/concepts/version.md#rotate-key) period (default key version change frequency). To create a key without automatic rotation, do not specify the `rotation-period` parameter.
 
    {% note warning %}
 
@@ -32,25 +32,25 @@ To create a key:
 
    For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
 
-1. Check the configuration using the command:
+1. Check the configuration using this command:
 
    ```bash
    terraform validate
    ```
 
-   If the configuration is correct, the following message is returned:
+   If the configuration is correct, you will get this message:
 
    ```text
    Success! The configuration is valid.
    ```
 
-1. Run the command:
+1. Run this command:
 
    ```bash
    terraform plan
    ```
 
-   The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+   The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
 1. Apply the configuration changes:
 
@@ -60,7 +60,7 @@ To create a key:
 
 1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+   All the resources you need will then be created in the specified folder. You can check if the resources are there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc kms symmetric-key list

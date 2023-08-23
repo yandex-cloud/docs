@@ -30,19 +30,19 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
-           {% note warning %}
+         {% note warning %}
 
-           You can only enable sharding when you create a new cluster. You can't shard an existing non-sharded cluster or disable sharding for a cluster that it's enabled for.
+         You can only enable sharding when you create a new cluster. You cannot shard an existing non-sharded cluster or disable sharding for a cluster that it is enabled for.
 
-           {% endnote %}
+         {% endnote %}
 
-       * If required, enable support for encrypted SSL connections to the cluster.
+      * If required, enable support for encrypted SSL connections to the cluster.
 
-           {% note warning %}
+         {% note warning %}
 
-           You can only enable connection encryption when creating a new cluster. You can't disable encryption for a cluster that it's enabled for.
+         You can only enable connection encryption when creating a new cluster. You cannot disable encryption for a cluster that it is enabled for.
 
-           {% endnote %}
+         {% endnote %}
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 

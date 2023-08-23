@@ -22,14 +22,14 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 
-   1. Select **{{ mmg-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click **Create cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Name the cluster in the **Cluster name** field. It must be unique within the folder.
-      * (optional) Enter a cluster **description**.
+      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+      * (Optional) Enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
@@ -39,7 +39,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
 
-   1. Under **Storage size**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Select the [disk type](../concepts/storage.md).
 
@@ -49,14 +49,14 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-   1. Under **Database**, specify the DB attributes:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
       * DB name.
       * Username.
-      * User password. Minimum of 8 characters.
+      * User password. Minimum 8 characters.
 
    
-   1. Under **Network settings**, select:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
       * Cloud network for the cluster.
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
@@ -68,20 +68,20 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
          {% endnote %}
 
 
-   1. Under **Hosts**, add the DB hosts created with the cluster:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add the DB hosts created with the cluster:
 
       
-      * Click **Add host**.
+      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
       * Select an [availability zone](../../overview/concepts/geo-scope.md).
       * Select the [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
-      * If the host must be available outside {{ yandex-cloud }}, enable **Public access**.
+      * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
       
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
       
 
-      By default, hosts are created in different availability zones. For details, see about [host management](hosts.md).
+      By default, hosts are created in different availability zones. See also about [host management](hosts.md).
 
    1. Configure additional cluster settings, if required:
 
@@ -91,7 +91,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
-   1. Click **Create cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 - CLI
 
@@ -129,7 +129,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
          --mongod-resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name> \
-         --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+         --mongod-disk-type <disk type> \
          --mongod-disk-size <storage size in GB> \
          --deletion-protection=<deletion protection for the cluster: true or false>
       ```

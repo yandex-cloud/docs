@@ -4726,9 +4726,11 @@ default:
           min: Минимум
       alert:
         button_create-alert: Создать алерт
+        label_alarm: Alarm
         label_evaluation-period: Окно вычисления
         label_evaluation-type: Функция агрегации
         label_trigger-condition: Условие срабатывания
+        label_warning: Warning
         status_alarm: Alarm
         status_warn: Warning
         title_aggregation-min: Минимум
@@ -4966,8 +4968,14 @@ default:
             button_submit-creds: Подключиться
             label_offset: Номер первой строки
             label_password: Пароль
+          switch_backups: Резервные копии
           switch_datalens: DataLens
+          switch_operations: Операции
           switch_users: Пользователи
+        hosts:
+          dialog:
+            field_copy_schema: Копировать схему данных
+        switch_backups: Резервные копии
         switch_list: Кластеры
       common:
         add: Добавить
@@ -5543,10 +5551,52 @@ default:
           switch_workloads: Рабочая нагрузка
       kafka:
         button_add-topic: Добавить топик
+        button_create-connector: Создать коннектор
+        button_create-topic: Создать топик
+        button_delete-topic: Удалить топик
+        button_edit-connector: Изменить коннектор
+        field_connector-access-key-id: Идентификатор ключа доступа
+        field_connector-alias: Псевдоним
+        field_connector-bootstrap-servers: Бутстрап-серверы
+        field_connector-bucket-name: Имя бакета
+        field_connector-compression-type: Механизм сжатия
+        field_connector-config-mirror-maker-source-cluster: Кластер-источник
+        field_connector-config-mirror-maker-target-cluster: Кластер-приёмник
+        field_connector-config-mirror-maker-topics: Топики
+        field_connector-endpoint: Эндпоинт
+        field_connector-file-max-records: Максимальное количество записей на файл
+        field_connector-region: Регион
+        field_connector-s3-connection: Подключение к S3
+        field_connector-sasl-mechanism: SASL механизм
+        field_connector-sasl-password: SASL пароль
+        field_connector-sasl-username: SASL имя пользователя
+        field_connector-secret-access-key: Секретный ключ
+        field_connector-security-protocol: Протокол безопасности
+        field_connector-ssl-truststore-certificates: Сертификат в формате PEM
+        field_schema-registry: Реестр схем данных
         field_unmanaged-topics: Управление топиками через API
+        label_brokers-per-az: Количество брокеров в зоне
+        label_connector-this-cluster: Использовать этот кластер
+        label_connectors: Коннекторы
+        label_filter_origin: Источник
+        label_max-message-bytes: Максимальный размер группы сообщений
+        label_min-insync-replicas: Минимальное число синхронных реплик
         label_partitions: Количество разделов
+        label_replication-factor: Фактор репликации
         label_topic: Топик
         label_topic-cleanup-policy: Политика очистки лога
+        label_topic-compression-type: Тип сжатия
+        label_topic-delete-delay: Задержка удаления, мс
+        label_topic-flush-messages: Максимальное число сообщений в памяти
+        label_topic-flush-ms: Время хранения сообщения в памяти, мс
+        label_topic-min-compaction-lag: Минимальная задержка сжатия, мс
+        label_topic-preallocate: Предварительное выделение файла сегмента
+        label_topic-retention-bytes: Максимальный размер раздела, байт
+        label_topic-retention-ms: Время жизни сегмента лога, мс
+        label_topics: Топики
+        section_properties: Дополнительные свойства
+        section_topic-config: Настройки топика
+        section_zookeeper-resources: Класс хоста ZooKeeper
       kms:
         symmetric-key:
           create:
@@ -5645,6 +5695,8 @@ default:
             label_sessions: Сессии
           hosts:
             button_add-host: Добавить хост
+            button_add-zookeeper: Добавить хосты ZooKeeper
+            button_create-zookeeper: Настроить хосты ZooKeeper
             button_manual-failover: Переключить мастер
             button_rebalance-cluster: Ребалансировать кластер
             button_rebalance-cluster-short: Ребалансировать
@@ -5656,6 +5708,8 @@ default:
             switch_overview: Обзор
           logs:
             button_load-more: Загрузить еще
+            label_hosts: Хосты
+            label_severity: Уровень логирования
           overview:
             button_action-connect: Подключиться
             button_action-delete: Удалить кластер
@@ -5689,11 +5743,13 @@ default:
           switch_users: Пользователи
           users:
             button_action-password: Изменить пароль
+            button_action-remove: Удалить
             button_action-update: Настроить
             button_add: Добавить
             button_advanced-settings: Дополнительные настройки
             button_remove: Удалить
             popup-add_button_add: Добавить
+            popup-button_add: Добавить
             popup-button_save: Сохранить
             popup-password_button_change: Изменить
         clusters:
@@ -5715,6 +5771,7 @@ default:
           popup-confirm-switch-master_label_confirmation: Я хочу переключить мастер
           popup-confirm-switch-master_label-title: Переключение мастера
         forms:
+          additional-field-cloud-storage: Гибридное хранилище
           additional-field-datalens: Доступ из DataLens
           additional-field-datatransfer: Доступ из Data Transfer в режиме Serverless
           additional-field-metrika: Доступ из Метрики и AppMetrica
@@ -5735,6 +5792,7 @@ default:
           button_create: Создать кластер
           button_create-shard: Создать шард
           button_edit: Сохранить изменения
+          button_expand-zookeeper-settings: Настроить ZooKeeper
           button_restore: Восстановить кластер
           config_field_bucket: Имя бакета
           config_field_form-bucket-type: Формат указания бакета
@@ -5789,15 +5847,21 @@ default:
           section_resource: Класс хоста
           section_service-settings: Сервисные настройки
           section_settings: Настройки СУБД
+          section_settings-kafka: Настройки Kafka
           section_storage: Хранилище
           section_subclusters: Подкластеры
           section_user: Пользователь
+          section_zookeeper-disk: Размер хранилища ZooKeeper
+          section_zookeeper-hosts: Хосты ZooKeeper
+          section_zookeeper-resource: Класс хоста ZooKeeper
           value_maintenance-type-anytime: произвольное
           value_maintenance-type-weekly: по расписанию
         hosts:
           dialog:
             button_choose: Сохранить
             field_public_ip: Публичный доступ
+            field_subnetworks: Подсеть
+            field_zones: Зона доступности
       metastore:
         field_s3config-access-key-id: Идентификатор ключа доступа
         field_s3config-secret-access-key: Секретный ключ

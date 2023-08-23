@@ -77,7 +77,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. To revoke a resource role from a subject, find the resource description in the configuration file:
 
@@ -97,7 +97,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
        For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-    1. Make sure that the configuration files are valid.
+    1. Make sure the configuration files are valid.
 
         1. In the command line, go to the directory where you created the configuration file.
         1. Run the check using the command:
@@ -106,11 +106,11 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-    1. Deploy the cloud resources.
+    1. Deploy cloud resources.
 
-        1. If the configuration doesn't contain any errors, run the following command:
+        1. If the configuration contains no errors, run the command:
 
            ```
            terraform apply
@@ -118,7 +118,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
         1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-           Afterwards, all the necessary resources are created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or via the following [CLI](../../../cli/quickstart.md) command:
+        All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
            ```
            yc resource-manager cloud list-access-bindings <cloud name>|<cloud ID>

@@ -53,7 +53,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
 
          You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
-      * Select the size of storage to be used for data.
+      * Select the storage size to use for data.
 
    
    1. Under **Network settings**:
@@ -125,7 +125,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
         --subnet-ids <subnet IDs> \
         --brokers-count <number of brokers per zone> \
         --resource-preset <host class> \
-        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --disk-type <disk type> \
         --disk-size <storage size, GB> \
         --assign-public-ip <public access> \
         --security-group-ids <list of security group IDs> \
@@ -259,7 +259,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 

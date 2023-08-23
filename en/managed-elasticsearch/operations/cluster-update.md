@@ -32,8 +32,8 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select the cluster and click **Edit** in the top panel.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
 - CLI
@@ -109,15 +109,15 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select the cluster and click **Edit** in the top panel.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. To change the class of {{ ES }} hosts with the *Data node* role:
-      1. Go to the **Data node** tab.
-      1. Under **Host class**, select the class for the host.
+      1. Select the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab.
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the class for the host.
    1. To change the class of {{ ES }} hosts with the *Master node* role:
       1. Go to the **Master node** tab.
-      1. Under **Host class**, select the class for the host.
-   1. Click **Save**.
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the class for the host.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -214,15 +214,15 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
    To increase the cluster storage size:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select the cluster and click **Edit** in the top panel.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. To increase disk size for {{ ES }} hosts with the *Data node* role:
-      1. Go to the **Data node** tab.
-      1. Under **Storage**, specify the disk size.
+      1. Select the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab.
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, specify the disk size.
    1. To increase disk size for {{ ES }} hosts with the *Master node* role:
       1. Go to the **Master node** tab.
-      1. Under **Storage**, specify the disk size.
-   1. Click **Save**.
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, specify the disk size.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -324,11 +324,11 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Select a cluster and click **![Pencil](../../_assets/pencil.svg) Edit cluster** on the top panel.
-   1. Change the [{{ ES }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
-   1. Click **Save**.
-   1. Click **Save changes**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![Pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Change the [{{ ES }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -380,10 +380,10 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select the cluster and click **Edit** in the top panel.
-   1. Enter a new password for `admin` in the **User** section.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Enter a new password for `admin` in the **{{ ui-key.yacloud.mdb.forms.section_user }}** section.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -475,8 +475,8 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-   1. Select the cluster and click **Edit** in the top panel.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select a cluster and click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change additional cluster settings:
 
       {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
@@ -485,7 +485,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       You can configure the `Fielddata cache size` parameter: a percentage or an absolute value of the dynamic memory structure allocated for the `fielddata` cache. For example, 10% or 512 MB.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

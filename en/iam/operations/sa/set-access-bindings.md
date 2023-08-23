@@ -12,7 +12,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Go to **Access rights**.
-   1. Click **Assign bindings**.
+   1. Click **Assign roles**.
    1. In the **Configure access bindings** window, click **Select user**.
    1. Select a user from the list or search for a user.
    1. Click **Add role**.

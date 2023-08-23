@@ -1,10 +1,109 @@
 # Adding data to {{ CH }}
 
-## Normal data insertion {#general-insert}
+For regular data inserts into tables, use an `INSERT INTO` statement:
 
-To add data to the database as part of a normal routine, use the `INSERT` statement described in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/insert-into/). The `INSERT` queries should be sent no more than once per second.
+```sql
+INSERT INTO db_name.table_name VALUES (v11, v12, v13), (v21, v22, v23), ...
+```
 
-To upload large data, use data compression during transmission: for example, you can enable it for HTTP or `clickhouse-client`. To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/).
+Insert queries should be run no more than once per second. To group multiple small queries into a large one, use [buffering](#buffer-insert).
+
+For more information about the `INSERT INTO` statement, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/insert-into#insert).
+
+## Inserting data from a file {#file-insert}
+
+To insert local file data into a table, use an `INSERT INTO` statement, such as:
+
+```sql
+INSERT INTO db_name.table_name FROM INFILE '<full file path>'
+[COMPRESSION '<compression format>'] FORMAT <data format>;
+```
+
+With the `COMPRESSION` option, you can transfer compressed files. Use it to upload large amounts of data. The option is supported when using [clickhouse-client]({{ ch.docs }}/interfaces/cli) or [HTTP interface]({{ ch.docs }}/interfaces/http). If no compression format is specified, it is identified by the file extension. The compression format may take the following values: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, and `bz2`.
+
+For a list of supported data formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats). To learn how to set up Cap'n Proto and Protobuf data format schemas, see [Managing data format schemas](../operations/format-schemas.md).
+
+## Inserting data through buffering {#buffer-insert}
+
+When you insert data into {{ CH }}, a part of computing resources is used for performing housekeeping operations. Each time you run an `INSERT` query, {{ CH }} creates a separate data chunk in storage. In addition to table rows, chunks like this contain auxiliary files with metadata. Next, {{ CH }} joins data chunks in the background. The more join queries are required, the more resources will be used.
+
+As a result, the load on the cluster from one thousand queries to insert a single row will exceed that from a single query to insert one thousand rows. Therefore, we recommend inserting data into tables in large chunks from 1,000 to 100,000 rows.
+
+If small chunks of data are delivered from various sources, use one of the following buffering options:
+
+* [Asynchronous inserts](#async-insert) (recommended)
+* [Buffer tables](#buffer-table)
+
+### Asynchronous data inserts {#async-insert}
+
+If the [Async insert](../concepts/settings-list.md#setting-async-insert) setting is configured at the user level, all insert queries from this user first get to the in-memory buffer. Data from the buffer is flushed to a table if one of the following conditions is met:
+
+* The buffer size has reached the [Async insert max data size](../concepts/settings-list.md#setting-async-insert-max-data-size) setting value.
+* The time set in the [Async insert busy timeout](../concepts/settings-list.md#setting-async-insert-busy-timeout) setting has passed since the first `INSERT` query run after flushing the data.
+
+To enable asynchronous data inserts, [set](../operations/update.md#change-clickhouse-config) the **Async insert** setting to `1`.
+
+Note that [row deduplication](https://clickhouse.com/docs/en/guides/developer/deduplication) is not available when using asynchronous inserts.
+
+For more information about asynchronous data inserts, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/cloud/bestpractices/asynchronous-inserts).
+
+### Inserting data via a buffer table {#buffer-table}
+
+A buffer table is created in RAM. It accumulates data it receives and then flushes the data to the main table if the preset conditions are met.
+
+To create a buffer table, the `Buffer` table engine is used. It accepts the following basic parameters as an input:
+
+```text
+Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_bytes, max_bytes)
+```
+
+Where:
+
+* `database`: DB name.
+* `table`: Name of the table to flush the data to.
+* `num_layers`: Number of buffers. A table is physically stored in memory as multiple independent buffers.
+* `min_time`, `max_time`, `min_rows`, `max_rows`, `min_bytes`, and `max_bytes`: Parameters that set conditions for flushing the data to the main table. The time is measured in seconds.
+
+The data is flushed to the main table upon reaching all minimum values or one of the maximum values. If the size of a received chunk exceeds the `max_rows` or `max_bytes` value, the data is written to the main table directly rather than buffered.
+
+To learn more about additional engine parameters and limits for tables based on the `Buffer` engine, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/special/buffer).
+
+#### Example {#buffer-table-example}
+
+1. Create a regular table named `users` in `db1`:
+
+   ```sql
+   CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
+   ENGINE = MergeTree() ORDER BY id;
+   ```
+
+1. Create a buffer table named `users_buffer` and link it to the `users` main table:
+
+   ```sql
+   CREATE TABLE db1.users_buffer AS db1.users ENGINE = Buffer(db1, users, 1, 10, 100, 10000, 1000000, 10000000, 100000000);
+   ```
+
+1. Send data to the buffer table:
+
+   ```sql
+   INSERT INTO db1.users_buffer VALUES (1, 'Vlad'), (2, 'John'), (3, 'Zara');
+   ```
+
+1. Check data in the main table, it will appear there in 100 seconds (`max_time`):
+
+   ```sql
+   SELECT * FROM db1.users;
+   ```
+
+Result:
+
+```text
+┌─id─┬─name─┐
+│  1 │ Vlad │
+│  2 │ John │
+│  3 │ Zara │
+└────┴──────┘
+```
 
 ## Inserting data and specifying the format schema {#insert-with-format-schema}
 
@@ -31,7 +130,7 @@ To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users`
 1. [Insert data](#insert-data).
 
 
-## Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 1. Examine the data format that will be used for insertion so that the correct format schemas are [prepared](#prepare-format-schemas).
 

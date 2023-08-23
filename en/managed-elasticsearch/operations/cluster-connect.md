@@ -40,10 +40,10 @@ Settings of rules depend on the connection method you select:
 
    [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP on ports 443 (Kibana GUI and Kibana API) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
 
-   * Port range: `443`, `9200`.
-   * Protocol: `TCP`.
-   * Source: `CIDR`.
-   * CIDR blocks: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`, `9200`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
    A separate rule is created for each port.
 
@@ -51,10 +51,10 @@ Settings of rules depend on the connection method you select:
 
    1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 443 (Kibana GUI and Kibana API) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 
-      * Protocol: `TCP`.
-      * Port range: `443`, `9200`.
-      * Source: `Security group`.
-      * Security group: If a cluster and a VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`, `9200`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) as the value. Otherwise, specify the VM security group.
 
       A separate rule is created for each port.
 
@@ -64,19 +64,19 @@ Settings of rules depend on the connection method you select:
 
       * For incoming traffic:
 
-         * Port range: `22`, `443`, and `9200`.
-         * Protocol: `TCP`.
-         * Source: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`, `443`, `9200`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
          A separate rule is created for each port.
 
       * For outgoing traffic:
 
-         * Port range: `{{ port-any }}`.
-         * Protocol: `Any`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
          This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
@@ -99,7 +99,7 @@ To use an encrypted connection, get an SSL certificate:
 
 {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
-## Automatic selection of a host for connection {#automatic-host-selection}
+## Automatically selecting a host for connection {#automatic-host-selection}
 
 When connecting to an {{ ES }} cluster, you can:
 

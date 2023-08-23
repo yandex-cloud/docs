@@ -159,10 +159,10 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
 
-* `Alarm`: 90% of disk space.
-* `Warning`: 70% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 70% of disk space.
 
 The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-* `Alarm`: `96636764160` bytes (90%).
-* `Warning`: `75161927680` bytes (70%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%).

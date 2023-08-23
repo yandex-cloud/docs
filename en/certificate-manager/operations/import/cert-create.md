@@ -53,8 +53,8 @@ To create a user certificate:
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Click **Add certificate**.
    1. In the menu that opens, select **User certificate**.
-   1. In the resulting window, use the **Name** field to enter a user certificate name.
-   1. (optional) Enter a certificate description in the **Description** field.
+   1. In the window that opens, enter a name of your user certificate in the **Name** field.
+   1. (Optional) Enter certificate description in the **Description** field.
    1. In the **Certificate** field, click **Add certificate**.
       1. Select **File** as the adding method.
       1. Click **Select file**.

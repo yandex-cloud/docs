@@ -47,40 +47,40 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 1. [Create a source endpoint](../data-transfer/operations/endpoint/source/data-streams.md):
 
-   * **Database type**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-        * **Connection settings**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **Database**: Select a {{ ydb-name }} database from the list.
-            * **Data stream**: Specify the name of the {{ yds-name }} data stream.
-            * **Service account**: Select or create a service account with the `yds.editor` role.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
-        * **Advanced settings**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **Conversion rules**: `AuditTrails.v1 parser`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`.
 
 1. [Create a target endpoint](../data-transfer/operations/endpoint/target/opensearch.md):
 
-    * **Database type**: `{{ OS }}`.
-    * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-       * **Connection settings**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
-            * **Connection settings**: `{{ mos-name }} cluster`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
 
-                * **{{ mch-name }} cluster**: Select the source cluster from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
-            * **User** and **Password**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../managed-opensearch/operations/cluster-users.md).
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../managed-opensearch/operations/cluster-users.md).
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a {{ dt-type-repl }} type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
 1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
 
 ## Check the result {#check-result}
 
 Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Connect to the target cluster using [{{ OS }} Dashboards](../managed-opensearch/operations/connect.md#dashboards).
 1. Select the `Global` tenant.
 1. Create a new index patten named `audit-trails*`:
@@ -168,8 +168,9 @@ Before deleting the created resources, [disable the transfer](../data-transfer/o
 If you no longer need the resources you created, delete them:
 
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. [Delete the {{ mos-name }} cluster](../managed-opensearch/operations/cluster-delete.md).
 1. [Delete the database{{ ydb-name }}](../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the created service accounts](../iam/operations/sa/delete.md).
 1. Delete the [{{ at-name }} trail](../audit-trails/concepts/trail.md).
+

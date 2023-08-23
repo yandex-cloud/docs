@@ -166,7 +166,7 @@
 
 1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
 
-    * **Имя** — `mpg.public.measurements`.
+    * **{{ ui-key.yacloud.common.name }}** — `mpg.public.measurements`.
 
         Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) по принципу `<имя сервера>.<имя схемы>.<имя таблицы>`.
 
@@ -179,7 +179,7 @@
 
 1. Создайте служебный топик для отслеживания состояния коннектора:
 
-    * **Имя** — `__debezium-heartbeat.mpg`.
+    * **{{ ui-key.yacloud.common.name }}** — `__debezium-heartbeat.mpg`.
 
         Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) по принципу `<префикс для heartbeat>.<имя сервера>`.
 
@@ -188,7 +188,7 @@
         * Префикс `__debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
         * Имя сервера `mpg` указано в параметре `database.server.name`.
 
-    * **Политика очистки лога** — `Compact`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Compact`.
 
     Если необходимо получать данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 

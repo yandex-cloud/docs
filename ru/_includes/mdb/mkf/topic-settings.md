@@ -1,6 +1,6 @@
 * **Cleanup policy** {{ tag-all }} {#settings-topic-cleanup-policy}
 
-    В консоли управления этой настройке соответствует **Политика очистки лога**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**.
 
     Политика хранения старых сообщений лога:
 
@@ -12,7 +12,7 @@
 
 * **Compression type** {{ tag-all }} {#settings-topic-compression-type }
 
-    В консоли управления этой настройке соответствует **Тип сжатия**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 
     См. описание настройки уровня кластера [Compression type](#settings-compression-type).
 
@@ -20,7 +20,7 @@
 
 * **Delete delay, ms** {{ tag-all }} {#settings-topic-file-delete-delay}
 
-    В консоли управления этой настройке соответствует **Задержка удаления, мс**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-delete-delay }}**.
 
     Время ожидания перед удалением файла из файловой системы.
 
@@ -34,7 +34,7 @@
 
 * **Flush messages** {{ tag-all }} {#settings-topic-flush-messages}
 
-    В консоли управления этой настройке соответствует **Максимальное число сообщений в памяти**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
 
     См. описание настройки уровня кластера [Log flush interval messages](#settings-log-flush-interval-messages).
 
@@ -42,7 +42,7 @@
 
 * **Flush, ms** {{ tag-all }} {#settings-topic-flush-ms}
 
-    В консоли управления этой настройке соответствует **Время хранения сообщения в памяти, мс**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-flush-ms }}**.
 
     См. описание настройки уровня кластера [Log flush interval ms](#settings-log-flush-interval-ms).
 
@@ -50,7 +50,7 @@
 
 * **Message max bytes** {{ tag-all }} {#settings-topic-message-max-bytes}
 
-    В консоли управления этой настройке соответствует **Максимальный размер группы сообщений**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_max-message-bytes }}**.
 
     Максимальный размер сообщения от производителя в байтах.
 
@@ -60,7 +60,7 @@
 
 * **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}
 
-    В консоли управления этой настройке соответствует **Минимальная задержка сжатия, мс**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-min-compaction-lag }}**.
 
     Минимальное время, в течение которого сообщение в логе будет оставаться несжатым.
 
@@ -68,7 +68,7 @@
 
 * **Minimum number of in-sync replicas** {{ tag-all }} {#settings-topic-min-insync-replicas}
 
-    В консоли управления этой настройке соответствует **Минимальное число синхронных реплик**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
 
     Минимальное количество реплик, от которых необходимо дождаться подтверждения записи, чтобы запись сообщения в топик считалась успешной. Используйте эту настройку, если производитель (Producer) ожидает подтверждения успешной записи от всех хостов-брокеров кластера слишком долго.
 
@@ -81,7 +81,7 @@
 
 * **Num partitions** {{ tag-all }} {#settings-topic-num-partitions}
 
-    В консоли управления этой настройке соответствует **Количество разделов**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_partitions }}**.
 
     Количество разделов лога на топик.
 
@@ -93,7 +93,7 @@
 
 * **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}
 
-    В консоли управления этой настройке соответствует **Предварительное выделение файла сегмента**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-preallocate }}**.
 
     См. также описание настройки уровня кластера [Log preallocate](#settings-log-preallocate).
 
@@ -103,7 +103,7 @@
 
 * **Replication factor** {{ tag-all }} {#settings-topic-replication-factor}
 
-    В консоли управления этой настройке соответствует **Фактор репликации**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_replication-factor }}**.
 
     Количество [копий данных](../../../managed-kafka/concepts/brokers.md) для топика.
 
@@ -115,7 +115,7 @@
 
 * **Retention, bytes** {{ tag-all }} {#settings-topic-retention-bytes}
 
-    В консоли управления этой настройке соответствует **Максимальный размер раздела, байт**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
 
     См. описание настройки уровня кластера [Log retention bytes](#settings-log-retention-bytes).
 
@@ -123,7 +123,7 @@
 
 * **Retention, ms** {{ tag-all }} {#settings-topic-log-retention-ms}
 
-    В консоли управления этой настройке соответствует **Время жизни сегмента лога, мс**.
+    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
 
     См. описание настройки уровня кластера [Log retention ms](#settings-log-retention-ms).
 

@@ -1,21 +1,10 @@
 # Storage in {{ mmg-name }}
 
 
-{{ mmg-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
+{{ mmg-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
 
-
-## Specifics of local SSD storage {#Local-storage-features}
-
-Local SSD storage does not provide fault tolerance for stored data and affects the overall pricing for the cluster:
-
-* This storage does not provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. This is why, when creating a new {{ mmg-name }} cluster using this disk type, a three-host fail-safe configuration is automatically set up.
-* You are charged for a cluster with this storage type even if it is stopped. You can find more information in the [pricing policy](../pricing.md).
-
-## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
-
-{% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
@@ -25,7 +14,7 @@ The number of hosts that can be created along with a {{ MG }} cluster depends on
 
    This cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. You can find more information in the [pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 

@@ -17,7 +17,7 @@ For example, if the data producer is an online store, you can create separate to
 While running, {{ mkf-name }} is able to create and use service topics.
 You cannot write user data to such topics.
 
-The `_schemas` service topic is used to support [{{ mkf-msr }}](./managed-schema-registry.md).
+The `__schema_registry` service topic is used to support [{{ mkf-msr }}](./managed-schema-registry.md).
 
 ## Partitions {#partitions}
 

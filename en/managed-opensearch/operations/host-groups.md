@@ -9,12 +9,12 @@ keywords:
 
 # Managing {{ OS }} host groups
 
-In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
+In {{ OS }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
 
-* [{#T}](#list-groups).
-* [{#T}](#add-host-group).
-* [{#T}](#update-host-group).
-* [{#T}](#delete-host-group).
+* [{#T}](#list-groups)
+* [{#T}](#add-host-group)
+* [{#T}](#update-host-group)
+* [{#T}](#delete-host-group)
 
 ## Getting a list of host groups in a cluster {#list-groups}
 
@@ -22,8 +22,8 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **Host groups** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 
 - API
 
@@ -39,12 +39,12 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **Host groups** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **Add host group**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
    1. Specify the group parameters:
 
-      * [Group type](../concepts/host-groups.md): `{{ OS }}` and `Dashboards`.
+      * [Group type](../concepts/host-groups.md): `{{ OS }}` or `Dashboards`.
       * Name, which must be unique within the cluster.
       * For the `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
       * Platform, host type, and host class.
@@ -60,14 +60,14 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
       * Number of hosts to create.
 
       
-      * Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
+      * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
 
-   1. Click **Create host group**.
+   1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
 
    {% note warning %}
 
-   Once you have added a host group, you will not be able to change the **Public access** option. You can only [change](#update-host-group) other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
+   Once you have added a host group, you will not be able to change the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option. You can only [change](#update-host-group) other configuration settings using the API. However, you can also create a new host group with a different configuration, if required.
 
    {% endnote %}
 
@@ -119,15 +119,15 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
 ## Deleting a host group {#delete-host-group}
 
-When deleting a host group, the following limitation applies: you can't delete the only host group with the `DATA` role.
+When deleting a host group, the following limitation applies: you cannot delete the only host group with the `DATA` role.
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **Host groups** tab.
-   1. Click ![image](../../_assets/options.svg) in the line with the appropriate group and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click ![image](../../_assets/options.svg) in the line with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
 - API
 

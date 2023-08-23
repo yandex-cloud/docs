@@ -20,7 +20,7 @@ Make sure the update does not affect your applications:
 
 1. See the {{ OS }} [changelog](https://opensearch.org/docs/latest/version-history/) to check how updates might affect your applications.
 1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Updating the version {#start-version-update}
 
@@ -28,7 +28,7 @@ Make sure the update does not affect your applications:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ OS }} version.
    1. Click **{{ ui-key.yacloud.common.save }}**.

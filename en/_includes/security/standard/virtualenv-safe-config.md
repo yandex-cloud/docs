@@ -90,8 +90,8 @@ When deploying virtual machines, we recommend:
    1. Run the command below to search for the VM disks that do not contain the ID of your benchmark image:
 
       ```bash
-      export ORG_ID=<Organization ID>
-      export IMAGE_ID=<Your reference image ID>
+      export ORG_ID=<organization ID>
+      export IMAGE_ID=<your reference image ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
       do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
@@ -119,7 +119,7 @@ We do not recommend using private information in {{ TF }} configuration files, s
 
 If you still need to enter private information in the configuration, take the following security measures:
 
-* Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan` and `terraform apply`.
+* Use [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) for private information to exclude it from the console output when running `terraform plan` and `terraform apply`.
 * Use [terraformremotestate](https://www.terraform.io/docs/language/state/remote.html). We recommend [uploading](../../../tutorials/infrastructure-management/terraform-state-storage.md) a {{ TF }} state to {{ objstorage-name }} and [setting up](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state) configuration locks using {{ ydb-name }} to prevent simultaneous edits by administrators.
 * Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in KeyManagementService features for [encrypting data in {{ TF }}](../../../kms/tutorials/terraform-secret.md) using a separate file with private data. [Learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073).
 

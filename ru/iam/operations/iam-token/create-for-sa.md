@@ -92,7 +92,7 @@ yc iam create-token
 
   ```
   {
-    "iss": "ajepg0mjt06siua65usm",
+    "iss": "ajepg0mjt06s********",
     "aud": "https://iam.{{ api-host }}/iam/v1/tokens",
     "iat": 1516239022,
     "exp": 1516240822

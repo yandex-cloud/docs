@@ -11,7 +11,7 @@ To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in
 1. [{#T}](#restore-snapshot)
 1. [{#T}](#finish-migration)
 
-If you no longer need the resources in use, [delete them](#clear-out).
+If you no longer need the resources you are using, [delete them](#clear-out).
 
 {% note warning %}
 
@@ -68,7 +68,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
       * Target cluster version.
       * {{ objstorage-name }} bucket name.
 
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -97,10 +97,10 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 1. [Set up the bucket ACL](../../storage/operations/buckets/edit-acl.md):
 
-   1. In the **Select user** drop-down list, specify the created service account.
-   1. Select the `READ + WRITE` permissions for the selected service account.
-   1. Click **Add**.
-   1. Click **Save**.
+   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the created service account.
+   1. Select the `READ and WRITE` permissions for the selected service account.
+   1. Click **{{ ui-key.yacloud.common.add }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 1. [Install the `repository-s3` plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) on all target cluster hosts.
 
@@ -274,7 +274,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 - Manually
 
    * [Delete the service account](../../iam/operations/sa/delete.md)
-   * [Delete the snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
+   * [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
    * [Delete the {{ mes-name }} cluster](../operations/cluster-delete.md).
 
 - Using {{ TF }}

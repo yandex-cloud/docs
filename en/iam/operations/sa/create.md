@@ -26,7 +26,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
       yc iam service-account create --name my-robot
       ```
 
-      Name format requirements:
+      The name format requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

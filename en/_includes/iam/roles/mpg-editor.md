@@ -1,4 +1,4 @@
-### {{ roles.mpg.editor }} {#mpg-editor}
+#### {{ roles.mpg.editor }} {#mpg-editor}
 
 The `{{ roles.mpg.editor }}` role enables you to edit and delete clusters, as well as view information about clusters, runtime logs, and quotas.
 

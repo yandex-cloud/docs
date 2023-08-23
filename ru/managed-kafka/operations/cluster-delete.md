@@ -18,10 +18,10 @@ description: "Вы можете удалить кластер Apache Kafka®, е
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого нужно удалить кластер.
-  1. Выберите сервис **{{ mkf-name }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. Прочитайте предупреждение.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - CLI
 

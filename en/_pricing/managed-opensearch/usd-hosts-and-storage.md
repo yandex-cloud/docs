@@ -1,6 +1,6 @@
 ### Host computing resources {#prices-hosts}
 
-| Resource       | Cost for 1 hour                                         | Cost with CVoS for 6 months                                                          | Cost with CVoS for 1 year                                                            |
+| Resource | Cost per hour | Cost with CVoS for 6 months | Cost with CVoS for 1 year |
 |----------------|---------------------------------------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | **Intel Cascade Lake**                                                                                                                                                                                                                                 |
 | 50% vCPU       | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c50|string }}  | —                                                                                    | —                                                                                    |

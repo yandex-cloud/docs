@@ -6,7 +6,7 @@
 {% include [storage-type](../../_includes/mdb/mmy/storage-type.md) %}
 
 
-## Choice of disk type during cluster creation {#storage-type-selection}
+## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created along with a {{ MY }} cluster depends on the selected disk type:
 
@@ -14,7 +14,7 @@ The number of hosts that can be created along with a {{ MY }} cluster depends on
 
    This cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: it is charged even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. You can find more information in the [pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the [current quota](./limits.md).
 

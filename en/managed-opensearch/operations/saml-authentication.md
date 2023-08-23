@@ -57,26 +57,26 @@ Incorrect settings may cause the cluster to fail.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Click the name of the cluster you need and select the **Authorization sources** tab.
-   1. Click **Configure**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
+   1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
    1. Specify the parameters of external authorization source:
 
-      * **idp_entity_id**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
+      * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
 
       * **idp_metadata_file**: The provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
 
-      * **sp_entity_id**: The application-defined SP Entity ID (Audience URI). Make sure it's the same as the ID specified when [configuring the IdP](#configuration-idp).
+      * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**: The application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
 
-      * **kibana_url**: The URL with a [special cluster FQDN](./connect.md#special-fqdns). Same as the **sp_entity_id**.
+      * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}**: The URL with a [special cluster FQDN](./connect.md#special-fqdns). Same as the **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
 
-      * **roles_key**: The SAML response parameter that stores the roles. If omitted, no roles are used.
+      * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: The SAML response parameter that stores the roles. If omitted, no roles are used.
 
-      * **subject_key**: The SAML response parameter that stores the subject. If omitted, the `NameID` parameter is used.
+      * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: The SAML response parameter that stores the subject. If omitted, the `NameID` parameter is used.
 
-      * **Activate**: Shows whether to activate an authorization source after creating it.
+      * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Shows whether to activate an authorization source after creating it.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
 - API
 
@@ -113,4 +113,4 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 1. On the IdP side, create a user that meets the role mappings defined in {{ OS }}.
 1. Grant this user access to the [previously created application](#configuration-idp).
 
-To log in to {{ OS }} using the new user's credentials, go to the **OpenSearch Dashboards** page.
+To log in to {{ OS }} using the new user's credentials, go to the **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** page.

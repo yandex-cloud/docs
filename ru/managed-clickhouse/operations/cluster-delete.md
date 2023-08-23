@@ -18,8 +18,8 @@ description: "После удаления кластера баз данных {
 
 - Консоль управления
   
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   
 - CLI
   

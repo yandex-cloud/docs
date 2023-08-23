@@ -102,7 +102,7 @@
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `{{ KF }}` и задайте для него:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
-    * Правила конвертации типа `json`. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** выберите `JSON спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
+    * Правила конвертации типа `json`. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` и в открывшуюся форму скопируйте следующую спецификацию полей:
 
     {% cut "sensors-specification" %}
 
