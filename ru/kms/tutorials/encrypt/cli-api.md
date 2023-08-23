@@ -11,10 +11,10 @@
 {% list tabs %}
 
 - CLI
-     
+ 
   Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
 
-  * `--id` —  идентификатор [ключа KMS](../../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
+  * `--id` — идентификатор [ключа KMS](../../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
   * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
   * `--version-id` — (опционально) [версия](../../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
   * `--plaintext-file` — входной файл с открытым текстом.
@@ -31,7 +31,7 @@
 - API 
 
   Чтобы зашифровать данные, воспользуйтесь методом REST API [encrypt](../../api-ref/SymmetricCrypto/encrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Encrypt](../../api-ref/grpc/symmetric_crypto_service.md#Encrypt).
-    
+
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
@@ -47,7 +47,7 @@
   * `--ciphertext-file` — входной файл с открытым текстом.
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../../concepts/encryption.md#add-context).
   * `--plaintext-file` — выходной файл с шифртекстом.
-  
+
   ```
   yc kms symmetric-crypto decrypt \
     --id abj76v82ficsmn446ri7 \
@@ -58,7 +58,7 @@
 - API 
 
   Чтобы расшифровать данные, воспользуйтесь методом REST API [decrypt](../../api-ref/SymmetricCrypto/decrypt.md) для ресурса [SymmetricCrypto](../../api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/Decrypt](../../api-ref/grpc/symmetric_crypto_service.md#Decrypt).
-    
+
 {% endlist %}
 
 #### См. также {#see-also}

@@ -36,7 +36,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
    ```json
    {
       "id": "lfkoe35hsk58aks301nl",
-      "service_account_id": "ajepg0mjt06siua65usm",
+      "service_account_id": "ajepg0mjt06s********",
       "created_at": "2019-03-20T10:04:56Z",
       "key_algorithm": "RSA_2048",
       "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
@@ -72,10 +72,10 @@ To create [authorized keys](../../concepts/authorization/key.md):
        "key": {
            "createdAt": "2018-10-30T15:55:00+00:00",
            "description": "",
-           "id": "lfkoe35hsk58aks301nl",
+           "id": "lfkoe35hsk58********",
            "keyAlgorithm": "RSA_2048",
            "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
-           "serviceAccountId": "ajepg0mjt06siua65usm"
+           "serviceAccountId": "ajepg0mjt06s********"
        },
        "privateKey": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
    }
@@ -96,9 +96,9 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
       ```
       resource "yandex_iam_service_account_key" "sa-auth-key" {
-        service_account_id = "<service account ID>"
-        description        = "<key description>"
-        key_algorithm      = "<key generation algorithm>"
+        service_account_id = "<service_account_ID>"
+        description        = "<key_description>"
+        key_algorithm      = "<key_generation_algorithm>"
         pgp_key            = "<pgp key>"
       }
       ```

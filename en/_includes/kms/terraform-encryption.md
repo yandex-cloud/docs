@@ -18,31 +18,31 @@ To encrypt data:
 
    {% note warning %}
 
-   `yandex_kms_secret_ciphertext` enables you to hide secrets when deploying an infrastructure. However, in general, it's not safe to openly specify the `plaintext` and `aad_context` in the configuration file. Secrets can be read from configuration files or execution logs and can end up in the {{ TF }} state.
+   `yandex_kms_secret_ciphertext` enables you to hide secrets when deploying an infrastructure. However, in general, it is not safe to openly specify the `plaintext` and `aad_context` in the configuration file. Secrets can be read from configuration files or execution logs and can end up in the {{ TF }} state.
 
    {% endnote %}
 
    For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_secret_ciphertext).
 
-1. Check the configuration using the command:
+1. Check the configuration using this command:
 
    ```
    terraform validate
    ```
 
-   If the configuration is correct, the following message is returned:
+   If the configuration is correct, you will get this message:
 
    ```
    Success! The configuration is valid.
    ```
 
-1. Run the command:
+1. Run this command:
 
    ```
    terraform plan
    ```
 
-   The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+   The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
 1. Apply the configuration changes:
 
@@ -55,7 +55,7 @@ To encrypt data:
    The ciphertext can then be accessed via the `ciphertext` variable, and the encrypted data via the `plaintext` variable.
 
 
-   To check, you can add the following code with the `decrypted_pass` output variable to a configuration file.
+   To check, you can add the following code with the `decrypted_pass` output variable to the configuration file.
 
    {% note alert %}
 

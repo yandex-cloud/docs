@@ -80,7 +80,7 @@ To delete a secret:
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and delete the fragment with the secret description:
+   1. Open the {{ TF }} configuration file and delete the part with the secret description:
 
       {% cut "Sample secret description in the {{ TF }} configuration" %}
 
@@ -106,12 +106,10 @@ To delete a secret:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-   You can verify that the secret has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   You can check if the secret has been deleted either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
    ```bash
-   yc lockbox secret list <secret_name>
+   yc lockbox secret list
    ```
 
 - API

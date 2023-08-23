@@ -151,7 +151,7 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
@@ -166,13 +166,13 @@
            {% endnote %}
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные [созданного ранее](#before-you-begin) пользователя {{ KF }}.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `Полное имя топика`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `cdc.sensors`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:

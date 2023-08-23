@@ -1,5 +1,5 @@
 
-Under **Host class**, select:
+Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select:
 
 * One of the available [platforms](../../../compute/concepts/vm-platforms.md)
 * Configuration type: **memory-optimized**, **standard**, or **burstable**.

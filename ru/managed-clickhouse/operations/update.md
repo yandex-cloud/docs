@@ -29,9 +29,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-    1. В разделе **Сервисные настройки** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В разделе **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
 
        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
@@ -54,11 +54,11 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Чтобы изменить класс хостов {{ CH }}, в блоке **Ресурсы** выберите платформу, тип виртуальной машины и нужный класс хоста.
-  1. Чтобы изменить класс хостов {{ ZK }}, в блоке **Класс хоста {{ ZK }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Чтобы изменить класс хостов {{ CH }}, в блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста.
+  1. Чтобы изменить класс хостов {{ ZK }}, в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -170,10 +170,10 @@
 
   Чтобы увеличить размер хранилища для кластера:
   
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Размер хранилища** укажите необходимое значение.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -267,11 +267,11 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Для [управления пользователями через SQL](./cluster-users.md#sql-user-management), в блоке **Настройки СУБД** включите настройку **Управление пользователями через SQL** и укажите пароль пользователя `admin`.
-  1. Для [управления базами данных через SQL](./databases.md#sql-database-management), в блоке **Настройки СУБД** включите настройки **Управление пользователями через SQL** и **Управление базами данных через SQL**, укажите пароль пользователя `admin`.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Для [управления пользователями через SQL](./cluster-users.md#sql-user-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройку **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и укажите пароль пользователя `admin`.
+  1. Для [управления базами данных через SQL](./databases.md#sql-database-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройки **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**, укажите пароль пользователя `admin`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -350,10 +350,10 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **Настроить** в блоке **Настройки СУБД**.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -477,13 +477,13 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Сервисные настройки** измените дополнительные настройки кластера:
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** измените дополнительные настройки кластера:
 
      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -642,11 +642,11 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
-    1. Выберите пункт **Переместить**.
+    1. Выберите пункт **{{ ui-key.yacloud.common.move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
-    1. Нажмите кнопку **Переместить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -689,9 +689,9 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI
 

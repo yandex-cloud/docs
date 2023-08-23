@@ -30,12 +30,12 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console
 
    To get a list of cluster backups:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
    To get a list of all backups in a folder:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the **Backups** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
 - CLI
 
@@ -79,12 +79,12 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console
 
    To get information about the backup of an existing cluster:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
    To get information about the backup of a previously deleted cluster:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the **Backups** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
 - CLI
 
@@ -116,9 +116,9 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - Management console
 
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
-   1. Click **Create backup**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -158,7 +158,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 ### Restoring clusters from backups {#restore}
 
 
-When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. You can manage the restore speed using [{{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
+When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. You can manage the restore speed using [{{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
 
 When creating a new cluster, set all required parameters.
 
@@ -167,19 +167,19 @@ When creating a new cluster, set all required parameters.
 - Management console
 
    To restore an existing cluster from a backup:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the name of the cluster you need and select the **Backup copies** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.common.folder }}** list.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    To restore a previously deleted cluster from a backup:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the **Backups** tab.
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Find the desired backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.name }}** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.common.folder }}** list.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    {{ mes-name }} launches the operation to create a cluster from the backup.
 
@@ -245,7 +245,7 @@ When creating a new cluster, set all required parameters.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).

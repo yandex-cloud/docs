@@ -11,6 +11,8 @@
 | Maximum number of subjects from groups per organization | 1,000 |
 | Maximum number of certificates per federation | 100 |
 | Maximum number of subjects per federation | 1,000 |
+| Maximum number of clouds per organization | 5 |
+| Maximum number of access bindings per organization | 2,000 |
 
 #### Limits {#organization-limits}
 

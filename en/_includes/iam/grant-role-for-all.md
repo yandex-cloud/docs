@@ -8,7 +8,7 @@ For example, allow any authenticated user to view folder information:
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. Go to the **Access bindings** tab.
-   1. Click **Assign bindings**.
+   1. Click **Assign roles**.
    1. In the **Configure access bindings** window, click **Select user**.
    1. Select the **Groups** section.
    1. Select the **All authenticated users** group.

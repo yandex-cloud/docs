@@ -1,7 +1,7 @@
 
-When creating a cluster, you can choose between the following storage types:
+When creating a cluster, you can select the following disk types for data storage:
 
-* **Network SSD storage** (`network-ssd`): Balanced solution. Such disks are slower than local SSD storage, but, unlike local disks, they ensure data integrity in case {{ yandex-cloud }} hardware goes down.
+* **Network SSD storage** (`network-ssd`): Balanced solution. Such disks are slower than local SSD storage, but, unlike local disks, they ensure data integrity in case of {{ yandex-cloud }} hardware failure.
 * **Non-replicated SSD storage** (`network-ssd-nonreplicated`): Network SSD storage with enhanced performance but without redundancy.
 
   This disk type is only available for **Intel Cascade Lake** and **Intel Ice Lake**. For a list of host classes and their respective platforms, see [{#T}](../../../managed-redis/concepts/instance-types.md).

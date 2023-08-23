@@ -6,19 +6,11 @@ Greenplum Database 6 features [some useful utilities](https://docs.vmware.com/en
 * [gpload](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpload.html): Utility to run jobs described in a YAML control file.
 * [psql](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/psql.html): Command line interface for working with {{ GP }}.
 
-To install Greenplum Database 6 on your PC or VM running Ubuntu 20.04 or Ubuntu 22.04:
+To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04:
 
 1. Download deb packages required to install Greenplum Database 6 from a {{ objstorage-full-name }} bucket using the script below:
 
    {% list tabs %}
-
-   - Ubuntu 20.04
-
-        ```bash
-        curl storage.yandexcloud.net/greenplum-focal-packages/install.sh| sudo bash
-        ```
-
-        To view the list of downloadable deb packages, download the [script file](http://storage.yandexcloud.net/greenplum-focal-packages/install.sh).
 
    - Ubuntu 22.04
 
@@ -40,14 +32,15 @@ To install Greenplum Database 6 on your PC or VM running Ubuntu 20.04 or Ubuntu 
 1. Delete the temporary files:
 
    ```bash
-   rm -rf /tmp/gp/packages
+   sudo rm -rf /tmp/gp-packages
    ```
 
-1. Add the following environment variable to `~/.bashrc`:
+1. Add the following environment variables to `~/.bashrc`:
 
    ```bash
    echo "export GPHOME=/opt/greenplum-db-6" >> ~/.bashrc && \
    echo "source \$GPHOME/greenplum_path.sh" >> ~/.bashrc && \
+   echo "export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}" >> ~/.bashrc && \
    source ~/.bashrc && \
    echo $GPHOME
    ```

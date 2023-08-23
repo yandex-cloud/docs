@@ -1,4 +1,4 @@
-### {{ roles.mmy.editor }} {#mmy-editor}
+#### {{ roles.mmy.editor }} {#mmy-editor}
 
 The `{{ roles.mmy.editor }}` role enables you to edit and delete clusters, as well as view information about clusters, runtime logs, and quotas.
 

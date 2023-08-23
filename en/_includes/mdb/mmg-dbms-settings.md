@@ -24,7 +24,7 @@
 
    Maximum number of inbound connections.
 
-   The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the total RAM size on the host in MB, with a maximum of `16384`. The default value is `1024`.
+   The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. Default value: `1024`.
 
    For more information, see [Connection limits](../../managed-mongodb/operations/connect/index.md#connection-limits).
 
@@ -152,11 +152,13 @@
 
       - **Engine config → Cache size gb**{#setting-engine-cache-size}
 
-         The maximum size of the internal cache used for data storage (in GB). This setting does not affect the amount of RAM used to create an index.
+         Maximum size of the internal cache used for data storage (in GB). This setting does not affect the amount of RAM used to create an index.
 
-         The minimum value is `0.25`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by these formulas:
+         Minimum value: `0.25` (256 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by these formulas:
 
          - Maximum value: `0.9 × <amount of RAM on the host>`
          - Default value: `0.5 × <amount of RAM on the host>`
+
+         For example, for {{ s1-medium }} class hosts, the maximum value of the setting is `28.8`, the default value is `16`.
 
          For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).

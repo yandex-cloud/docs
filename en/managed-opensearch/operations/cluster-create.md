@@ -26,9 +26,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
    To create a cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-   1. Select **{{ mos-name }}**.
-   1. Click **Create cluster**.
-   1. Under **Basic parameters**:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
       1. Enter a name for the cluster. It must be unique within the folder.
       1. (Optional) Enter a cluster description.
@@ -41,22 +41,18 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 
-   1. Under **Virtual host group**, configure the [host group](../concepts/host-groups.md):
+   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the[`{{ OS }}` host group](../concepts/host-groups.md):
 
-      1. Select the host group type: `{{ OS }}` and `Dashboards`.
+      1. Select the host group type: `{{ OS }}`
 
       1. Enter a name for the host group, which must be unique within the cluster.
 
-      1. For the `{{ OS }}` host group, select a [host role](../concepts/host-roles.md).
-
-   1. Under **User**, specify the `admin` user password.
-
-   1. Under **Resources**, configure hosts with the `DATA` [role](../concepts/host-roles.md#data) by opening the **Data node** tab:
+      1. Select the [host roles](../concepts/host-roles.md) `DATA` and `MANAGER`.
 
       1. Select the platform, host type, and host class.
 
@@ -71,7 +67,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the number of hosts to create.
 
       
-      1. Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
+
+         {% note tip %}
+
+         It is not recommended to enable public access for hosts with the `MANAGER` role, because this might be unsafe.
+
+         {% endnote %}
 
 
       {% note warning %}
@@ -80,26 +82,22 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       {% endnote %}
 
-   1. If necessary, configure hosts with the `MANAGER` and `DASHBOARDS` [roles](../concepts/host-roles.md#manager) by opening the **Manager node** or **Dashboards** tab, respectively:
+   1. If needed, configure the `Dashboards` [host group](../concepts/host-groups.md) under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
 
       1. Select the platform, host type, and host class.
-      1. Set up storage in the same way as for `DATA` hosts.
+      1. Set up storage in the same way as for `{{ OS }}` hosts.
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
 
       
-      1. Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
-
-         {% note tip %}
-
-         It's not recommended to enable public access for hosts with the `MANAGER` role, because this might be unsafe.
-
-         {% endnote %}
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
          {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
 
 
-   1. Under **Service settings**:
+   1. If required, click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-virtual-node-group }}** to add another host group or more.
+
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       1. Enter the password for the `admin` user.
 
@@ -109,7 +107,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
          {% include [Extra settings](../../_includes/mdb/mos/extra-settings.md) %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - API
 

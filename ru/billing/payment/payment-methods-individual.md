@@ -6,7 +6,7 @@
 
 ## Привязка банковской карты {#pin-card}
 
-Физические лица обязаны привязать банковскую карту к платежному аккаунту при его [создании](../quickstart/index.md).
+При [создании](../quickstart/index.md) платежного аккаунта необходимо привязать банковскую карту.
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 

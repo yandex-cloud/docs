@@ -99,7 +99,7 @@ To restore a user certificate from the certificate chain and key files:
       1. Click **Add certificate**.
       1. In the menu that opens, select **User certificate**.
       1. In the window that opens, enter a name for the certificate in the **Name** field.
-      1. (optional) In the **Description** field, enter a description for the certificate.
+      1. (Optional) In the **Description** field, enter a description for the certificate.
       1. In the **Intermediate certificate chain** field, click **Add chain**.
          1. Select **File** as the adding method.
          1. Click **Select file** and specify the certificate chain file.

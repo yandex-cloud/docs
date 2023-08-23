@@ -4715,9 +4715,11 @@ default:
           min: Minimum
       alert:
         button_create-alert: Create alert
+        label_alarm: Alarm
         label_evaluation-period: Evaluation window
         label_evaluation-type: Aggregation function
         label_trigger-condition: Condition
+        label_warning: Warning
         status_alarm: Alarm
         status_warn: Warning
         title_aggregation-min: Minimum
@@ -4955,8 +4957,14 @@ default:
             button_submit-creds: Connect
             label_offset: Query result offset
             label_password: Password
+          switch_backups: Backups
           switch_datalens: DataLens
+          switch_operations: Operations
           switch_users: Users
+        hosts:
+          dialog:
+            field_copy_schema: Copy data schema
+        switch_backups: Backups
         switch_list: Clusters
       common:
         add: Add
@@ -5532,10 +5540,52 @@ default:
           switch_workloads: Workload
       kafka:
         button_add-topic: Add topic
+        button_create-connector: Create connector
+        button_create-topic: Create topic
+        button_delete-topic: Delete topic
+        button_edit-connector: Edit connector
+        field_connector-access-key-id: Access key ID
+        field_connector-alias: Alias
+        field_connector-bootstrap-servers: Bootstrap servers
+        field_connector-bucket-name: Bucket
+        field_connector-compression-type: Compression type
+        field_connector-config-mirror-maker-source-cluster: Source cluster
+        field_connector-config-mirror-maker-target-cluster: Target cluster
+        field_connector-config-mirror-maker-topics: Topics
+        field_connector-endpoint: Endpoint
+        field_connector-file-max-records: Max record per file
+        field_connector-region: Region
+        field_connector-s3-connection: S3 connection
+        field_connector-sasl-mechanism: SASL mechanism
+        field_connector-sasl-password: SASL password
+        field_connector-sasl-username: SASL username
+        field_connector-secret-access-key: Secret access key
+        field_connector-security-protocol: Security protocol
+        field_connector-ssl-truststore-certificates: Certificate in PEM format
+        field_schema-registry: Schema registry
         field_unmanaged-topics: Manage topics via the API
+        label_brokers-per-az: Number of brokers in zone
+        label_connector-this-cluster: Use this cluster
+        label_connectors: Connectors
+        label_filter_origin: Origin
+        label_max-message-bytes: Maximum batch size
+        label_min-insync-replicas: Minimum number of in-sync replicas
         label_partitions: Number of partitions
+        label_replication-factor: Replication factor
         label_topic: Topic
         label_topic-cleanup-policy: Cleanup policy
+        label_topic-compression-type: Compression type
+        label_topic-delete-delay: Delete delay, ms
+        label_topic-flush-messages: Flush messages
+        label_topic-flush-ms: Flush, ms
+        label_topic-min-compaction-lag: Min compaction lag, ms
+        label_topic-preallocate: Pre-allocation of the segment file
+        label_topic-retention-bytes: Retention, bytes
+        label_topic-retention-ms: Retention, ms
+        label_topics: Topics
+        section_properties: Additional properties
+        section_topic-config: Topic settings
+        section_zookeeper-resources: ZooKeeper host class
       kms:
         symmetric-key:
           create:
@@ -5634,6 +5684,8 @@ default:
             label_sessions: Sessions
           hosts:
             button_add-host: Add host
+            button_add-zookeeper: Add ZooKeeper hosts
+            button_create-zookeeper: Set up ZooKeeper hosts
             button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
             button_rebalance-cluster-short: Rebalance
@@ -5645,6 +5697,8 @@ default:
             switch_overview: Overview
           logs:
             button_load-more: Load more
+            label_hosts: Hosts
+            label_severity: "\_Severity"
           overview:
             button_action-connect: Connect
             button_action-delete: Delete cluster
@@ -5678,11 +5732,13 @@ default:
           switch_users: Users
           users:
             button_action-password: Change password
+            button_action-remove: Delete
             button_action-update: Configure
             button_add: Add
             button_advanced-settings: Additional settings
             button_remove: Remove
             popup-add_button_add: Add
+            popup-button_add: Add
             popup-button_save: Save
             popup-password_button_change: Edit
         clusters:
@@ -5704,6 +5760,7 @@ default:
           popup-confirm-switch-master_label_confirmation: I want to switch the master
           popup-confirm-switch-master_label-title: Switch master host
         forms:
+          additional-field-cloud-storage: Hybrid storage
           additional-field-datalens: DataLens access
           additional-field-datatransfer: Data Transfer access
           additional-field-metrika: Access from Metrica and AppMetrica
@@ -5724,6 +5781,7 @@ default:
           button_create: Create cluster
           button_create-shard: Create shard
           button_edit: Save changes
+          button_expand-zookeeper-settings: Configure ZooKeeper
           button_restore: Restore cluster
           config_field_bucket: Bucket name
           config_field_form-bucket-type: Bucket ID format
@@ -5778,15 +5836,21 @@ default:
           section_resource: Host class
           section_service-settings: Service settings
           section_settings: DBMS settings
+          section_settings-kafka: Kafka Settings
           section_storage: Storage
           section_subclusters: Subclusters
           section_user: User
+          section_zookeeper-disk: ZooKeeper storage size
+          section_zookeeper-hosts: ZooKeeper hosts
+          section_zookeeper-resource: ZooKeeper host class
           value_maintenance-type-anytime: arbitrary
           value_maintenance-type-weekly: by schedule
         hosts:
           dialog:
             button_choose: Save
             field_public_ip: Public access
+            field_subnetworks: Subnet
+            field_zones: Availability zone
       metastore:
         field_s3config-access-key-id: Access key ID
         field_s3config-secret-access-key: Secret key

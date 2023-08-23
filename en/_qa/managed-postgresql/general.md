@@ -57,7 +57,7 @@ For detailed instructions, see [{#T}](../../managed-postgresql/quickstart.md).
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-postgresql/concepts/storage.md):
-* If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
+* If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3;
 * If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
 
 

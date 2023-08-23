@@ -292,17 +292,17 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
   ```bash
   curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindings": [{
-        "roleId": "editor",
-        "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-    },{
-        "roleId": "viewer",
-        "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-    }]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindings": [{
+          "roleId": "editor",
+          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+      },{
+          "roleId": "viewer",
+          "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+      }]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
 
 - {{ TF }}

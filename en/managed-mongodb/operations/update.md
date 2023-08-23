@@ -24,13 +24,13 @@ After creating a cluster, you can:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
 
    1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -129,10 +129,10 @@ After creating a cluster, you can:
 
    To increase the cluster storage size:
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Storage size**, specify the required value.
-   1. Click **Save changes**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -213,10 +213,10 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. To change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **Configure** under **DBMS settings**.
-   1. Click **Save changes**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. To change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -260,13 +260,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -299,7 +299,7 @@ You can change the DBMS settings of the hosts in your cluster.
       .
 
 
-      The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
+      The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
 
 
       Changing the retention period affects both new automatic backups and existing backups.
@@ -403,11 +403,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mmg-name }}**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
-   1. Click **Move**.
+   1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
    1. Select the folder you want to move the cluster to.
-   1. Click **Move**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -454,10 +454,10 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Network settings**, select security groups for cluster network traffic.
-   1. Click **Save changes**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 

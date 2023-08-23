@@ -22,14 +22,14 @@ For example, if the backup operation ended on August 10, 2020, 12:00 p.m. UTC, t
 
 {% endnote %}
 
-When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
+When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ MG }} backup cannot be restored as a {{ PG }} cluster).
 
-When restoring to the current state, the new cluster will reflect the state of:
+When restored to the current state, the new cluster will match the state of:
 
-* An existing cluster at the time of recovery.
-* A deleted cluster at the time of archiving the last oplog.
+* Existing cluster at the time of recovery.
+* Deleted cluster at the time of archiving the last oplog.
 
 {% include [mmg-pitr-preview-note](../../_includes/mdb/mmg-pitr-preview-note.md) %}
 
@@ -39,31 +39,31 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To restore an existing cluster from a backup:
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **Restore cluster**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
-   1. Click **Restore cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
    To restore a previously deleted cluster from a backup:
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the desired backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains the IDs in `<cluster ID>:<backup ID>` format.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **Restore cluster**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
-   1. Click **Restore cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
-   {{ mmg-name }} launches the operation to create a cluster from the backup.
+   {{ mmg-name }} will launch the operation to create a cluster from the backup.
 
 - CLI
 
@@ -113,7 +113,7 @@ When restoring to the current state, the new cluster will reflect the state of:
                 `subnet-id=<subnet ID> \
           --mongod-resource-preset <host class> \
           --mongod-disk-size <storage size in GB> \
-          --mongod-disk-type <disk type>
+          --mongod-disk-type <disk type: network-hdd or network-ssd>
       ```
 
 
@@ -136,9 +136,9 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
-   1. Click **Create backup**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -182,13 +182,13 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To get a list of cluster backups:
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
    These lists contain the following information:
 
@@ -247,12 +247,12 @@ When restoring to the current state, the new cluster will reflect the state of:
 - Management console
 
    To get information about the backup of an existing cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
 - CLI
 

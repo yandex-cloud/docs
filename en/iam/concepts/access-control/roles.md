@@ -68,6 +68,20 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [audit-trails-configviewer](../../../_includes/iam/roles/audit-trails-configviewer.md) %}
 
+## {{ billing-name }} {#billing-roles}
+
+{% include [billing-accounts-member](../../../_includes/iam/roles/billing-accounts-member.md) %}
+
+{% include [billing-accounts-owner](../../../_includes/iam/roles/billing-accounts-owner.md) %}
+
+{% include [billing-accounts-viewer](../../../_includes/iam/roles/billing-accounts-viewer.md) %}
+
+{% include [billing-accounts-editor](../../../_includes/iam/roles/billing-accounts-editor.md) %}
+
+{% include [billing-accounts-admin](../../../_includes/iam/roles/billing-accounts-admin.md) %}
+
+{% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
@@ -149,6 +163,7 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
 
 {% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
+
 
 ## {{ yds-full-name }} {#yds-roles}
 
@@ -518,6 +533,12 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
 
 
+## {{ wiki-full-name }} {#wiki-roles}
+
+{% include [wiki-viewer](../../../_includes/iam/roles/wiki-viewer.md) %}
+
+{% include [wiki-admin](../../../_includes/iam/roles/wiki-admin.md) %}
+
 ## {{ yq-full-name }} {#yq-roles}
 
 {% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
@@ -527,3 +548,4 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
+

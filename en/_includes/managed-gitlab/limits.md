@@ -3,7 +3,7 @@
 | Type of limit | Value |
 --- | ---
 | Number of instances per cloud | 5 |
-| Disk size | 300 GB |
+| Disk size | 500 GB |
 
 #### Limits {#limits}
 

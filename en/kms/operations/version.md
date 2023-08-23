@@ -43,6 +43,10 @@ To make a version primary:
         --version-id abj8cvn99nam26f0f4a3
       ```
 
+- API
+
+   Use the [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/symmetric_key_service.md#SetPrimaryVersion) gRPC API call.
+
 {% endlist %}
 
 The next encryption or decryption request omitting the key version will use the new primary version.
@@ -102,6 +106,10 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
       The status of the version switches to `SCHEDULED_FOR_DESTRUCTION` and the `destroy_at` field shows the time when destruction is scheduled for.
 
+- API
+
+   Use the [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#ScheduleVersionDestruction) gRPC API call.
+
 {% endlist %}
 
 ## Cancel version destruction {#cancel-delete}
@@ -149,5 +157,12 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
       The version reverts to the `ACTIVE` status.
 
+- API
+
+   Use the [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#CancelVersionDestruction) gRPC API call.
+
 {% endlist %}
+
+
+
 

@@ -40,11 +40,16 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
          ...
       ```
 
+- API
+
+   Specify the encryption key when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster. To do this, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) resource or the [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/cluster_service.md#Create) gRPC API call.
+   Provide the key ID in the respective parameter of the `kmsProvider` field.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    Specify a key when [creating a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md){{ k8s }}:
 
@@ -59,17 +64,13 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
       }
       ```
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure the configuration files are valid.
 
       {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
    1. Create a cluster.
 
       {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
-
-- API
-
-   Specify the encryption key when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster. To do this, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster) resource and pass the key ID in the `kmsProvider.keyId` parameter.
 
 {% endlist %}
 

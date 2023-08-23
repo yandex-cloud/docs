@@ -9,9 +9,9 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ mkf-name }}**.
-  1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Остановить кластер**.
-  1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-stop }}**.
+  1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI
 
@@ -37,16 +37,16 @@
 
 ## Запустить кластер {#start-cluster}
 
-Кластер в статусе **Stopped** можно запустить заново.
+Кластер в статусе `Stopped` можно запустить заново.
 
 {% list tabs %}
 
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ mkf-name }}**.
-  1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Запустить кластер**.
-  1. В открывшемся диалоге нажмите кнопку **Запустить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-start }}**.
+  1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
 - CLI
 

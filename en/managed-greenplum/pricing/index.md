@@ -122,7 +122,7 @@ Where:
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage, web traffic or computing resources for dedicated hosts this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
 
 {% endnote %}
 

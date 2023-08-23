@@ -12,8 +12,8 @@
 
 To view detailed information about the {{ mmg-name }} cluster status:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-1. Click on the name of the cluster and open the **Monitoring** tab.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -73,9 +73,9 @@ The following charts open on the page:
 
 To view detailed information about the status of individual {{ mmg-name }} hosts:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
-1. Select the host from the drop-down list. You'll see the host role (`PRIMARY` or `SECONDARY`) and type (`MONGOCFG`, `MONGOD`, `MONGOINFRA`, or `MONGOS`) next to the host name.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
+1. Select the host from the drop-down list. You will see the host role (`PRIMARY` or `SECONDARY`) and type (`MONGOCFG`, `MONGOD`, `MONGOINFRA`, or `MONGOS`) next to the host name.
 
 This page displays charts showing the load on an individual host in the cluster:
 
@@ -95,20 +95,20 @@ This page displays charts showing the load on an individual host in the cluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
-   1. Under **Service dashboards**, select:
+   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
-        * **{{ mes-name }}** to configure cluster alerts.
-        * **{{ mes-name }} Host Overview** to configure host alerts.
+      * **{{ mmg-name }}** to configure cluster alerts.
+      * **{{ mmg-name }} Host Overview** to configure host alerts.
 
-   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
-   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
+   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` threshold values to trigger the alert.
 
-   1. Click **Create alert**.
+   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
@@ -116,16 +116,16 @@ This page displays charts showing the load on an individual host in the cluster:
 
 Recommended threshold values:
 
-| Metric | Parameter                      | `Alarm`                   | `Warning`                 |
+| Metric | Parameter                      | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                 |
 |---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
 | DB write availability | `can_write`                      | `Equals 0`                 | —                         |
 | Replication delay              | `replset_status-replicationLag` | `180`,,,,,,,,,,,,,,,,,,,, | `30`,,,,,,,,,,,,,,,,,,,,, |
 | Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
 
-For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+For the `disk.used_bytes` metric, the values of the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
 
-* `Alarm`: `96636764160` bytes (90%).
-* `Warning`: `75161927680` bytes (70%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%).
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
 
@@ -142,16 +142,16 @@ To monitor storage usage on cluster hosts and get notifications when free space 
    `service={{ mmg-name }}` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
 
 1. Set the alert threshold values in the alert settings:
-   * **Trigger condition**: Set the `Less than or equal to` condition for the size of free disk space to trigger the alert.
+   * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the size of free disk space to trigger the alert.
 
       Recommended threshold values depending on the storage size:
 
-      | Storage size, GB | `Alarm` | `Warning` |
+      | Storage size, GB | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
       |---------------------|-------------|------------------|
       | ⩽ 600 | `1G` (1 GB) | `1500M` (1.5 GB) |
       | > 600 | `6G` (6 GB) | `10G` (10 GB) |
 
-   * **Additional settings** → **Aggregation function**: Select the `Minimum` value (the minimum metric value for the period).
+   * **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** → **{{ ui-key.yacloud_monitoring.service.field.function }}**: Select `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (a minimum metric value for the period).
 
 ## Cluster state and status {#cluster-health-and-status}
 
@@ -159,8 +159,8 @@ To monitor storage usage on cluster hosts and get notifications when free space 
 
 To view a cluster's state and status:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the row of the cluster you need.
 
 ### Cluster states {#cluster-health}
 

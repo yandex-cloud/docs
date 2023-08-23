@@ -1,6 +1,6 @@
 ---
 title: "Managing ClickHouse backups"
-description: "You can create backups and restore clusters from existing ClickHouse backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
+description: "You can create backups and restore clusters from existing ClickHouse backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
 ---
 
 # Managing backups in {{ mch-name }}
@@ -61,7 +61,7 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
 
@@ -86,7 +86,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **Folder** list.
    1. Click **Restore cluster**.
 
-   {{ mch-name }} launches the operation to create a cluster from the backup.
+   {{ mch-name }} will launch the operation to create a cluster from the backup.
 
 - CLI
 

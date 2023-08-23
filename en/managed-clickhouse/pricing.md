@@ -34,7 +34,7 @@ The incoming traffic and the number of requests to the hybrid storage are free-o
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in the [Host classes](concepts/instance-types.md) section, while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
 
-You can choose the host class for {{ CH }} and {{ ZK }} hosts (as appropriate for the expected replication load).
+You can choose host class both for {{ CH }} and {{ ZK }} hosts (according to the expected replication load).
 
 {% note warning %}
 
@@ -51,17 +51,17 @@ The following is charged:
 * Storage allocated for DB clusters.
 
 
-   * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
-   * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
+* Local SSD (`local-ssd`) storage can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+* Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
 
-* The size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage used by data backups:
+* The size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage used for data backups:
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
-   * If the combined size of the database and all backups exceeds the storage on the cluster, you only pay for the excess of this storage.
+   * If the combined size of the database and all backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
    * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
 
@@ -71,9 +71,9 @@ The following is charged:
 
    * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
 
-   * The storage used by backups is taken into account when calculating the cost of using {{ objstorage-name }} as well as the volume of the data itself.
+   * The cost of using {{ objstorage-name }} considers both the space used by the backups and the space used by the data itself.
 
-   * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -137,7 +137,7 @@ Where:
 * $0.172800: Cost per hour of {{ CH }} host operation.
 * $0.060480: Cost per hour of {{ ZK }} host operation.
 * 100: Amount of HDD network storage (in GB).
-* $0.025600 is the cost of using 1 GB of network HDD storage per month.
+* $0.025600: Cost of using 1 GB of network HDD storage per month.
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

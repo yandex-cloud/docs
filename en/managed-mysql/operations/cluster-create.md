@@ -239,17 +239,17 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the {{ mmy-name }} cluster description:
 
          ```hcl
-           resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-             ...
+         resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+           ...
              backup_retain_period_days = <retention period for automatic backups (in days)>
              ...
 
-           }
+         }
          ```
 
          Acceptable values are from `7` to `60`. The default value is `7`.
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
    1. Make sure the configuration files are valid.
 
       {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}

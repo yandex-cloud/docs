@@ -34,22 +34,22 @@
 
 1. В группах безопасности виртуальной машины [создайте правило](../../vpc/operations/security-group-add-rule.md) для входящего трафика, разрешающее подключение через порт `8081` — через него производитель и потребитель будут обращаться к реестру схем:
 
-    * **Диапазон портов**: `8081`.
-    * **Протокол**: `TCP`.
-    * **Назначение**: `CIDR`.
-    * **CIDR блоки**: `0.0.0.0/0` или диапазоны адресов подсетей, в которых работают производитель и потребитель.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8081`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0` или диапазоны адресов подсетей, в которых работают производитель и потребитель.
 
 
 ## Создайте топик для уведомлений об изменении схем форматов данных {#create-schemas-topic}
 
 1. [Создайте служебный топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `_schemas` со следующими настройками:
 
-    * **Количество разделов** — `1`.
-    * **Политика очистки лога** — `Compact`.
+    * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Compact`.
 
     {% note warning %}
 
-    Указанные значения настроек **Количество разделов** и **Политика очистки лога** необходимы для работы Confluent Schema Registry.
+    Указанные значения настроек **{{ ui-key.yacloud.kafka.label_partitions }}** и **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** необходимы для работы Confluent Schema Registry.
 
     {% endnote %}
 

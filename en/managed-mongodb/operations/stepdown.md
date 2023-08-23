@@ -10,9 +10,9 @@ For more information about selecting a different primary replica, see the [{{ MG
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
-   1. Click ![options](../../_assets/horizontal-ellipsis.svg) in the row of the `PRIMARY` host and select **Change master**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
+   1. Click ![options](../../_assets/horizontal-ellipsis.svg) in the row of the `PRIMARY` host and select **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
 - CLI
 

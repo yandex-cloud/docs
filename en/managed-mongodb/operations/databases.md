@@ -8,8 +8,8 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
 
 - CLI
 
@@ -42,11 +42,11 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the cluster you need.
-   1. Select the **Databases** tab.
-   1. Click **Add**.
-   1. Enter the database name and click **Add**.
+   1. Select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Enter the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -121,9 +121,9 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 

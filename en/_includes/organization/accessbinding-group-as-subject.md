@@ -124,7 +124,7 @@
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Once you are done, all the resources you need will be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc resource-manager folder list-access-bindings <folder-name>|<folder-id>

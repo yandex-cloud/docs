@@ -6,7 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **Реестр схем данных** и **Публичный доступ**.
+1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **{{ ui-key.yacloud.kafka.field_schema-registry }}** и **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
     1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:

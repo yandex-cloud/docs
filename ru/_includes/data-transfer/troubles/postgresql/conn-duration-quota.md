@@ -2,4 +2,4 @@
 
 В {{ mpg-full-name }} существует квота на длительность соединения — 12 часов.
 ​
-​**Решение:** если перенос базы данных требует больше времени, обратитесь в [техническую поддержку](../../../../support/overview.md) для увеличения квоты.
+​**Решение:** если перенос базы данных требует больше времени, [измените настройку кластера](../../../../managed-postgresql/operations/update.md#change-postgresql-config) {{ mpg-full-name }} [Session duration timeout](../../../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout).

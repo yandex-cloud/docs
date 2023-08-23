@@ -17,7 +17,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
+   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 
 - API
 
@@ -33,7 +33,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the name of the cluster you need.
 
 - API
@@ -52,8 +52,8 @@ The operation list shows operations with clusters and related resources (for exa
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mos-name }}**.
-   1. Click the name of the desired cluster and select the ![operations.svg](../../_assets/mdb/operations.svg) **Operations** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the name of the desired cluster and select the ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - API
 

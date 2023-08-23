@@ -10,8 +10,8 @@ To create a new [Let's Encrypt certificate](../../concepts/managed-certificate.m
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Click **Add certificate**.
    1. In the menu that opens, select **Let's Encrypt certificate**.
-   1. In the window that opens, enter a name for the certificate in the **Name** field.
-   1. (optional) In the **Description** field, enter a description for the certificate.
+   1. In the window that opens, enter a name of your certificate in the **Name** field.
+   1. (Optional) Enter certificate description in the **Description** field.
    1. In the **Domains** field, list the domains to create a certificate for.
    1. Select the [type of check for domain rights](../../concepts/challenges.md): `DNS` or `HTTP`.
    1. Click **Create**.

@@ -52,7 +52,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **Resources**:
 
-      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When changing the host class for the cluster, the configuration of all existing instances changes as well.
 
       
       * Select the [disk type](../concepts/storage.md).
@@ -262,7 +262,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       ```hcl
       resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
 
-      resource "yandex_vpc_subnet" "<name of subnet in {{ TF }}>" {
+      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
         network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
@@ -349,7 +349,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
    1. Check the {{ TF }} configuration files for errors:
 
@@ -488,8 +488,8 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
-Re   * Database name `db1`.
+   * With 20 GB of local SSD storage (`{{ disk-type-example }}`).
+   * Database name `db1`.
    * With a user named `user1` with the `user1user1` password.
 
    The configuration files for this cluster look like this:
@@ -538,8 +538,8 @@ Re   * Database name `db1`.
       These subnets will belong to the `cluster-net` network.
 
       * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-   * With 32 GB of local SSD storage (`{{ disk-type-example }}`) per each {{ CH }} cluster host.
-   * With 10 GB of local SSD storage (`{{ disk-type-example }}`) per each {{ ZK }} cluster host.
+   * With 32 GB of local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts.
+   * With 10 GB of local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts.
    * Database name `db1`.
    * With a user named `user1` with the `user1user1` password.
 

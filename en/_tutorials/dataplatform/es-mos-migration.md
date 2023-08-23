@@ -1,4 +1,4 @@
-# Migrating databases from {{ ES }} to {{ mos-full-name }}
+# Migrating data from {{ ES }} to {{ mos-full-name }}
 
 {% note warning %}
 
@@ -24,15 +24,15 @@ There are two mechanisms to move data from a source {{ ES }} cluster to a target
 
    You can use this mechanism to move your existing indices, aliases, or data streams. This method is good for all {{ ES }} clusters of version 7.
 
-## Migrating with snapshots {#snapshot}
+## Migration using snapshots {#snapshot}
 
 To migrate data from a source cluster in {{ ES }} to a target cluster in {{ mos-name }} using snapshots:
 
-1. [Create a snapshot of the source cluster](#create-snapshot).
-1. [Restore the snapshot on the target cluster](#restore-snapshot).
+1. [Create a snapshot in the source cluster](#create-snapshot).
+1. [Restore the snapshot in the target cluster](#restore-snapshot).
 1. [Complete your migration](#finish-migration-snapshot).
 
-If you no longer need the resources in use, [delete them](#clear-out-snapshot).
+If you no longer need the resources you are using, [delete them](#clear-out-snapshot).
 
 ### Getting started {#before-you-begin-snapshot}
 
@@ -57,10 +57,10 @@ If you no longer need the resources in use, [delete them](#clear-out-snapshot).
 
 1. [Set up the bucket ACL](../../storage/operations/buckets/edit-acl.md):
 
-   1. In the **Select user** drop-down list, specify the created service account.
+   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the created service account.
    1. Select the `READ and WRITE` permissions for the selected service account.
-   1. Click **Add**.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_add }}**.
+   1. Click **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 
 1. Set up the {{ ES }} source cluster:
 
@@ -193,9 +193,9 @@ If you no longer need the resources in use, [delete them](#clear-out-snapshot).
 
    With the default settings, an attempt to restore an index will fail in a cluster where the same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indices (such as `.apm-custom-link` or `.kibana_*`), which may interfere with the restore operation. To avoid this, use one of the following methods:
 
-   * Move only your custom indices. The existing system indices are not migrated. The import process only affects the user-created indices on the source cluster.
+   * Migrate only your custom indices. The existing system indices are not migrated. The import process only affects the user-created indices on the source cluster.
 
-   * Use the `rename_pattern` and `rename_replacement` parameters. Indices will be renamed as they are restored. To learn more, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
+   * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. To learn more, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
    Example of restoring the entire snapshot:
 
@@ -219,7 +219,7 @@ If you no longer need the resources in use, [delete them](#clear-out-snapshot).
         }'
    ```
 
-   Where a `list of indices` is a list of comma-separated indices to be restored, for example, `my_index*, my_index_2.*`.
+   Where `list of indices` is a list of comma-separated indices to be restored, for example, `my_index*, my_index_2.*`.
 
    Restoring a snapshot may take a long time. To check the restoring status, run this command:
 
@@ -256,7 +256,7 @@ If you no longer need the resources in use, [delete them](#clear-out-snapshot).
       1. Under **OpenSearch Plugins**, select **Index Management**.
       1. Go to **Indices**.
 
-      The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+      The list should contain the indices transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 
    {% endlist %}
 
@@ -267,10 +267,10 @@ If you no longer need the resources in use, [delete them](#clear-out-snapshot).
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Delete the service account](../../iam/operations/sa/delete.md).
-* [Delete the snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
+* [Delete snapshots](../../storage/operations/objects/delete.md) from the bucket and then delete the [entire bucket](../../storage/operations/buckets/delete.md).
 * [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
 
-## Migrating by reindexing {#reindex}
+## Migration using reindexing {#reindex}
 
 
 To migrate data from a source cluster in {{ ES }} to a target cluster in {{ mos-name }} through reindexing:
@@ -289,23 +289,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
 1. Install an SSL certificate:
 
-   {% list tabs %}
-
-   - Linux (Bash)
-
-      {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
-
-      The certificate will be saved in the `$HOME/.opensearch/root.crt` directory.
-
-   - Windows (PowerShell)
-
-      ```powershell
-      mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
-      ```
-
-      The certificate will be saved in the `$HOME\.opensearch\root.crt` directory.
-
-   {% endlist %}
+   {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
 1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect.md) using the {{ OS }} API and Dashboards.
 
@@ -427,7 +411,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 ### Check the result {#check-result-reindex}
 
 
-Make sure all the indexes you need have been transferred to the target {{ mos-name }} cluster and the number of documents in them is the same as in the source cluster:
+Make sure all the indices you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
 
 {% list tabs %}
 
@@ -442,7 +426,7 @@ Make sure all the indexes you need have been transferred to the target {{ mos-na
        --request GET 'https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
    ```
 
-   The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
+   The list should contain the indices transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
 - {{ OS }} Dashboards
 
@@ -452,7 +436,7 @@ Make sure all the indexes you need have been transferred to the target {{ mos-na
    1. Under **OpenSearch Plugins**, select **Index Management**.
    1. Go to **Indices**.
 
-   The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+   The list should contain the indices transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 
 {% endlist %}
 

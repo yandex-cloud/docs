@@ -22,8 +22,8 @@ description: "Из статьи вы узнаете, как осуществля
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ mkf-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
   
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -56,8 +56,8 @@ description: "Из статьи вы узнаете, как осуществля
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ mkf-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты** → **Мониторинги**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
   1. Выберите нужный хост из выпадающего списка.
 
   На этой странице выводятся графики, показывающие нагрузку на отдельный хост кластера:
@@ -81,12 +81,12 @@ description: "Из статьи вы узнаете, как осуществля
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-  1. В блоке **Сервисные дашборды** выберите **{{ mkf-name }} — Cluster Overview**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ mkf-name }} — Cluster Overview**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` для срабатывания алерта.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -94,17 +94,17 @@ description: "Из статьи вы узнаете, как осуществля
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                            | Обозначение                                             | `Alarm`                    | `Warning`                  |
+| Метрика                            | Обозначение                                             | `{{ ui-key.yacloud_monitoring.alert.label_alarm }}`                    | `{{ ui-key.yacloud_monitoring.alert.label_warning }}`                  |
 |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
 | Количество работоспособных хостов  | `kafka_is_alive`                                        | `<количество хостов> - 2`  | `<количество хостов> - 1`  |
 | Состояние репликации разделов      | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | —                          | `Больше 0`                 |
 | Число отстающих реплик             | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Больше 0`                 | —                          |
 | Объем использованного хранилища    | `disk.used_bytes`                                       | 90% от размера хранилища | 80% от размера хранилища |
 
-Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `96636764160` байтов (90%).
-* `Warning` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` — `96636764160` байт (90%).
+* `{{ ui-key.yacloud_monitoring.alert.label_warning }}` — `85899345920` байт (80%).
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-kafka).
 
@@ -115,8 +115,8 @@ description: "Из статьи вы узнаете, как осуществля
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mkf-name }}**.
-1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}
 

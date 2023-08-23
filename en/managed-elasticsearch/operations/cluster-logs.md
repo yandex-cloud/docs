@@ -21,14 +21,14 @@ keywords:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/managed-elasticsearch/logs.svg) **{{ ui-key.yacloud.common.logs }}** tab.
    1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
    1. Select the `ELASTICSEARCH` component from the drop-down list next to the date field.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
 
-   If there are too many records and only some of them are displayed, click the **Load more** link at the end of the list.
+   If there are too many records and only some of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
 
 - CLI
 

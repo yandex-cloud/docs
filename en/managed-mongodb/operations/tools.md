@@ -57,8 +57,8 @@ You can find the most detailed information about {{ MG }} performance in the log
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
 
 - CLI
 
@@ -66,7 +66,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To view the **{{ mmg-name }}** logs:
+   To view the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** logs:
 
    1. View a description of the CLI command to view the logs:
 

@@ -97,8 +97,8 @@ This section describes how to assign a role to a user with a Yandex account. The
    1. Add the resource parameters to the configuration file, specify the required role and a list of cloud users:
 
       * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id`instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: The role assigned. This parameter is required.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
+      * `role`: Role being assigned. Required parameter.
+      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
       Example of the configuration file structure:
 
@@ -137,7 +137,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
         1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-        Once you are done, all the resources you need will be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI] command (../../../cli/quickstart.md):
+        All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI] command (../../../cli/quickstart.md):
 
         ```
         yc resource-manager folder list-access-bindings <folder name>|<folder ID>
@@ -348,7 +348,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
    1. In the [management console]({{ link-console-main }}), [select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
    1. Click the **Access bindings** tab.
-   1. Click **Assign bindings**.
+   1. Click **Assign roles**.
    1. In the **Configuring access bindings** window, click **Select subject**.
       1. Go to **Groups** or search for a group by name.
       1. Click **Add role**.

@@ -6,10 +6,11 @@ editable: false
 
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
-You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You are charged for [correct requests](concepts/validation.md#service-response) that meet the following conditions:
+You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You are only charged for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. These requests must meet the following conditions:
 
-1. The correct `secret` and `token` values are provided.
-1. The correct `token` was issued no more than 10 minutes ago.
+* {{ captcha-name }} identifies a request as one sent by a human and not a bot.
+* The correct `secret` and `token` values are provided.
+* The unique `token` was issued no more than 10 minutes ago.
 
 {% note info %}
 
@@ -25,9 +26,9 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 1. A backend developer made a mistake and sent an incorrect `secret` or `token` in a `/validate` response. The API returns an error in the `message` field. You are not charged in this case.
 
-1. A malicious user passed the CAPTCHA test, obtained the `token`, and sent it 10 times during the first minute. Each of the 10 requests is charged, but the API only returns the `OK` status to the first request.
+1. A malicious user passed the CAPTCHA test, obtained the `token`, and sent it 10 times during the first minute. The API will only return the `ok` status to the first request and you will only be charged for the first request.
 
-1. A malicious user passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. You are not charged in this case.
+1. A malicious user passed the CAPTCHA test, obtained the `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of them.
 
 ## Pricing {#prices}
 

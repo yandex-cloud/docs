@@ -168,7 +168,7 @@ For a new cluster, you should set all the parameters that are required at creati
       If you do not change the setting, the cluster is restored to the state when the backup was completed.
    1. Click **Restore cluster**.
 
-   {{ mmy-name }} launches the operation to create a cluster from the backup.
+   {{ mmy-name }} will launch the operation to create a cluster from the backup.
 
 - CLI
 
@@ -229,7 +229,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ MY }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including the {{ MY }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).

@@ -8,13 +8,13 @@ To add a new user `user2` to an existing cluster with read-only access to the `d
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **Users** tab.
-   1. Click **Add**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter the `user2` username and password (from 8 to 128 characters).
-   1. Select the `db1` database from the **Add database** drop-down list.
+   1. Select the `db1` database from the **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** drop-down list.
    1. Select the role `read` from the drop-down list next to the `db1` database.
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 - CLI
 
@@ -37,12 +37,12 @@ To grant read-only access to the `db2` database to user `user1` of cluster `clus
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the `cluster1` cluster and select the ![image](../../_assets/mdb/user.svg) **Users** tab.
-   1. Click ![image](../../_assets/options.svg) next to `user1` and select **Configure**.
-   1. Click **Add database** and select `db2` as your database.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+   1. Click the name of the `cluster1` cluster and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/options.svg) next to `user1` and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select `db2` as your database.
    1. Click ![image](../../_assets/plus-sign.svg) and select the `read` role from the drop-down list next to the `db2` database.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 
@@ -83,7 +83,7 @@ To grant read-only access to the `db2` database to user `user1` of cluster `clus
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm the update of resources.
+      1. Confirm the resources have been updated.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

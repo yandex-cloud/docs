@@ -1,4 +1,4 @@
-### dataproc.agent {#mdb-dataproc-agent}
+#### dataproc.agent {#mdb-dataproc-agent}
 
 The `dataproc.agent` role allows the service account assigned to the {{ dataproc-name }} cluster to notify the service of the status of each host in the cluster.
 
@@ -6,7 +6,7 @@ This role must be assigned to the service account specified when [creating the c
 
 {% include [roles-restriction-only-parents](../roles-restriction-only-parents.md) %}
 
-### mdb.dataproc.agent {#mdb-dataproc-agent-deprecated}
+#### mdb.dataproc.agent {#mdb-dataproc-agent-deprecated}
 
 {% note warning %}
 

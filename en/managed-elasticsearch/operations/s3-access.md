@@ -31,13 +31,13 @@ To access {{ objstorage-name }} bucket data from a cluster:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the bucket you need. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
-   1. Select **{{ objstorage-name }}**.
-   1. Go to the **Buckets** tab.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Select the **{{ ui-key.yacloud.storage.switch_buckets }}** tab.
    1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
-      1. In the **Select user** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
+      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
       1. Select the `READ and WRITE` permissions for the selected service account.
-      1. Click **Add**.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.add }}**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
