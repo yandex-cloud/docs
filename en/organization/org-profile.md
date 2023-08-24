@@ -1,6 +1,6 @@
 ---
 title: "Editing organization data in {{ org-full-name }}"
-description: "From the article you will learn how to edit organization data in {{ org-name }}."
+description: "In this tutorial, you will learn how to edit organization data in {{ org-name }}."
 ---
 
 # Editing organization data
@@ -23,8 +23,4 @@ To edit your organization data:
 
 1. Click **Save**.
 
-{% note warning %}
-
-You can't delete an organization. If an organization isn't used, [delete the accounts of all users](edit-account.md) and [exit the organization](manage-organizations.md).
-
-{% endnote %}
+You cannot delete an organization on your own. If an organization is not in use, [remove](./edit-account.md) all users from it, [create]({{ link-console-support }}) a delete organization request, and submit it to the support team.

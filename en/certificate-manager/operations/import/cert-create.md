@@ -105,6 +105,52 @@ To create a user certificate:
       not_before: "2020-09-15T06:48:26Z"
       ```
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of the resources you want to create:
+
+      
+      ```hcl
+      resource "yandex_cm_certificate" "user-certificate" {
+        name    = "<certificate_name>"
+
+        self_managed {
+          certificate = <<-EOT
+                        -----BEGIN CERTIFICATE-----
+                        <certificate_contents>
+                        -----END CERTIFICATE-----
+                        EOT
+          private_key = <<-EOT
+                        -----BEGIN PRIVATE KEY-----
+                        <certificate_private_key_contents>
+                        -----END PRIVATE KEY-----
+                        EOT
+        }
+      }
+      ```
+
+
+
+      Where:
+
+      * `name`: Certificate name.
+      * `certificate`: Contents of the [certificate](../../concepts/imported-certificate.md) file.
+      * `private_key`: Contents of the private key file.
+
+      For more information about the `yandex_cm_certificate` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cm_certificate).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   This will create a certificate in the specified folder. You can check if the certificate is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+    ```bash
+    yc certificate-manager certificate get <certificate_name>
+    ```
+
 - API
 
    To create a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create) gRPC API call.

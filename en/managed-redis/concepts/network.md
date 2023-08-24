@@ -1,16 +1,16 @@
 # {{ mrd-short-name }} network and DB clusters
 
 
- When creating a cluster, you can:
+When creating a cluster, you can:
 
-* Set the network for the cluster itself.
-* Set the subnets for each host in the cluster.
-* Enable TLS support. You need TLS support if you plan to connect to cluster hosts from the internet.
+* Specify a network for the entire cluster.
+* Specify subnets for each host in the cluster.
+* Enable TLS support. You need TLS support if you are going to connect to cluster hosts from the internet.
 
 
 ## Hostname and FQDN {#hostname}
 
-{{ mrd-short-name }} generates a name for each cluster host during creation. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
+{{ mrd-short-name }} generates a name for each cluster host when it is being created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, the FQDN cannot be changed.
 
 
 You can use the FQDN to access the host within a single cloud network.
@@ -29,17 +29,13 @@ When you delete a host with a public IP, its respective FQDN is withdrawn.
 
 ## Security groups {#security-groups}
 
-{% note info %}
-
-{% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
-{% endnote %}
+{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure security groups](../operations/connect/index.md#configuring-security-groups) both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, make sure to [configure security groups](../operations/connect/index.md#configuring-security-groups) both for the cluster and for the connecting host.
 
 {% endnote %}
 

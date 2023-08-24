@@ -9,7 +9,7 @@ If you do not have a service account, [create one](create.md).
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
-   1. The **Overview** page will show the **ID** of the service account — a string in the format `aje9sb6....ffd2uv0i9`.
+   1. The **Overview** page will show the service account **ID** as a string in the `aje9sb6ffd2u********` format.
 
 - CLI
 
@@ -26,7 +26,7 @@ If you do not have a service account, [create one](create.md).
    Result:
 
    ```
-   id: aje6o61dvog2h6g9a33s
+   id: aje6o61dvog2********
    ...
    ```
 
@@ -42,8 +42,8 @@ If you do not have a service account, [create one](create.md).
    +----------------------+------------------+-------------------------------+
    |          ID          |       NAME       |          DESCRIPTION          |
    +----------------------+------------------+-------------------------------+
-   | aje6o61dvog2h6g9a33s | my-robot         |                               |
-   | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+   | aje6o61dvog2******** | my-robot         |                               |
+   | aje9sda1ufvq******** | account_name     | account_description           |
    +----------------------+------------------+-------------------------------+
    ```
 
@@ -53,7 +53,7 @@ If you do not have a service account, [create one](create.md).
    1. Get information about the service accounts in the folder using the [list](../../api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource:
 
       ```bash
-      export FOLDER_ID=b1gvmob95yysaplct532
+      export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -61,8 +61,8 @@ If you do not have a service account, [create one](create.md).
       {
        "serviceAccounts": [
         {
-         "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob95yysaplct532",
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "my-robot",
          "description": "my description"

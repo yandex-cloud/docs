@@ -77,6 +77,8 @@
 
 {% include [timeseries](../../_includes/data-transfer/troubles/mongodb/timeseries.md) %}
 
+{% include [cluster configuration](../../_includes/data-transfer/troubles/mongodb/cluster-configuration.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}

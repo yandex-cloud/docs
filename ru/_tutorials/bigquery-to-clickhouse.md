@@ -54,7 +54,7 @@
 1. [Создайте кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
 
       * укажите созданный ранее сервисный аккаунт.
-      * включите параметр **Доступ из DataLens**.
+      * включите параметр **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**.
 
 1. [Включите отказоустойчивость с помощью хостов Zookeeper](../managed-clickhouse/operations/zk-hosts.md).
 

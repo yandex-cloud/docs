@@ -1,6 +1,6 @@
 # Создание кластера {{ dataproc-name }}
 
-Для создания кластера {{ dataproc-name }} пользователю должны быть назначены роли `editor` и `dataproc.agent`. Подробнее см. в [описании ролей](../security/index.md#roles).
+Для создания кластера {{ dataproc-name }} пользователю должна быть [назначена роль](../security/index.md#grant-role) `dataproc.editor`. Подробнее см. в [описании ролей](../security/index.md#roles).
 
 
 ## Настройте сеть {#setup-network}
@@ -96,7 +96,7 @@
      {% endnote %}
 
   1. Вставьте в поле **SSH-ключ** публичную часть вашего SSH-ключа. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
-  1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру.
+  1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру. Сервисному аккаунту кластера должна быть [назначена роль](../security/index.md#grant-role) `dataproc.agent`.
   1. Выберите зону доступности для кластера.
   1. При необходимости задайте [свойства компонентов кластера, заданий и среды окружения](../concepts/settings-list.md).
   1. При необходимости укажите пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите:
@@ -235,7 +235,7 @@
 
         * `--bucket` — имя бакета в {{ objstorage-full-name }}, в котором будут храниться зависимости заданий и результаты их выполнения. Сервисный аккаунт кластера должен иметь разрешение `READ и WRITE` для этого бакета.
         * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой должны быть размещены хосты кластера.
-        * `--service-account-name` — имя [сервисного аккаунта кластера](../../iam/concepts/users/service-accounts.md). Сервисному аккаунту кластера должна быть назначена роль `mdb.dataproc.agent`.
+        * `--service-account-name` — имя [сервисного аккаунта кластера](../../iam/concepts/users/service-accounts.md). Сервисному аккаунту кластера должна быть [назначена роль](../security/index.md#grant-role) `dataproc.agent`.
         * `--version` — [версия образа](../concepts/environment.md).
 
             {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
@@ -386,13 +386,13 @@
 
        resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
          folder_id = "<идентификатор каталога>"
-         role      = "mdb.dataproc.agent"
+         role      = "dataproc.agent"
          member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
        }
 
        resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
          folder_id = "<идентификатор каталога>"
-         role      = "editor"
+         role      = "dataproc.editor"
          member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
        }
 

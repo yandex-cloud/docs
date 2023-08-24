@@ -153,6 +153,8 @@
 
     1. Убедитесь, что версия {{ MG }} на приемнике не ниже `4.0`.
 
+    1. {% include [mondodb cluster requirement](../../_includes/data-transfer/mongodb-cluster-requirement.md) %}
+
     1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../concepts/network.md#source-external). Чтобы настроить [кластер-источник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) для подключения из интернета:
 
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
@@ -896,6 +898,8 @@
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Убедитесь, версия {{ MG }} на приемнике не ниже чем на источнике.
+
+    1. {% include [mondodb cluster requirement](../../_includes/data-transfer/mongodb-cluster-requirement.md) %} 
 
     1. [Настройте кластер-приемник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
 

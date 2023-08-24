@@ -29,8 +29,8 @@
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
 
-        * **Имя кластера** — `chcluster`.
-        * **Тип диска** — выберите нужный тип дисков.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `chcluster`.
+        * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — выберите нужный тип дисков.
 
             От выбранного типа дисков зависит минимальное количество хостов в каждом шарде:
 
@@ -41,7 +41,7 @@
 
             Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
 
-        * **Имя БД** — `tutorial`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
 
         Хосты кластера должны быть доступны из интернета.
 

@@ -28,11 +28,11 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
-    1. Нажмите кнопку **Добавить схему**.
-    1. В диалоговом окне **Добавление схемы** заполните форму, указав в поле **URL** полученную ранее ссылку на файл со схемой формата.
-    1. Нажмите кнопку **Добавить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
+    1. В диалоговом окне **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** заполните форму, указав в поле **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** полученную ранее ссылку на файл со схемой формата.
+    1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.label_add }}**.
 
 - CLI
 
@@ -119,9 +119,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
-    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/options.svg) и выберите пункт **Изменить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-edit-format-schema }}**.
 
 - CLI
 
@@ -197,9 +197,9 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
-   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/options.svg) и выберите пункт **Удалить**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-delete-format-schema }}**.
 
 - CLI
 
@@ -251,8 +251,8 @@
 
  - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
 
 - CLI
 

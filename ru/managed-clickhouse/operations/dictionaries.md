@@ -18,8 +18,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
 
 - CLI
 
@@ -66,10 +66,10 @@
 
     {% endnote %}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
-    1. В правом верхнем углу экрана нажмите **Добавить словарь**.
-    1. Укажите [настройки словаря](#settings-console) и нажмите **Сохранить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
+    1. Укажите [настройки словаря](#settings-console) и нажмите **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
 
 - CLI
 
@@ -139,9 +139,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
-    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужного хоста и выберите пункт **Удалить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
 - CLI
 
@@ -191,7 +191,7 @@
 
 ### Консоль управления {#settings-console}
 
-* **Имя** — имя нового словаря.
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}** — имя нового словаря.
 
 #### Источник {#console-source}
 
@@ -199,54 +199,54 @@
 
 - {{ CH }}
 
-    * **Хост** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-    * **Порт** — порт для подключения к источнику.
-    * **Пользователь** — имя пользователя базы данных источника.
-    * **Пароль** — пароль для доступа к базе данных источника.
-    * **База данных** — имя базы данных источника.
-    * **Таблица** — имя таблицы источника.
-    * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
-    * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}** — имя таблицы источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
         Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 - HTTP(s)
 
-    * **URL** — URL HTTP(s)-источника.
-    * **Формат файла** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}** — URL HTTP(s)-источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
 - {{ MG }}
 
-    * **Хост** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-    * **Порт** — порт для подключения к источнику.
-    * **Пользователь** — имя пользователя базы данных источника.
-    * **Пароль** — пароль для доступа к базе данных источника.
-    * **База данных** — имя базы данных источника.
-    * **Коллекция** — имя коллекции источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}** — имя коллекции источника.
 
 - {{ MY }}
 
-    * **Реплики** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
         Для реплик можно задать общие параметры подключения или настроить порт, имя пользователя и пароль.
-    * **Порт** — порт для подключения к источнику.
-    * **Пользователь** — имя пользователя базы данных источника.
-    * **Пароль** — пароль для доступа к базе данных источника.
-    * **База данных** — имя базы данных источника.
-    * **Таблица** — имя таблицы источника.
-    * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
-    * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}** — имя таблицы источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
         Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 - {{ PG }}
 
-    * **Хосты** — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
-    * **Порт** — порт для подключения к источнику.
-    * **Пользователь** — имя пользователя базы данных источника.
-    * **Пароль** — пароль для доступа к базе данных источника.
-    * **База данных** — имя базы данных источника.
-    * **Таблица** — имя таблицы источника.
-    * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}** — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}** — имя таблицы источника.
+    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
         Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
-    * **SSL mode** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_postgresql-ssl-mode }}** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}.
         Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 {% endlist %}
@@ -255,32 +255,32 @@
 
 #### Способ размещения в памяти {#console-method}
 
-* **Размещение в памяти** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* **Размер кэша** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-* **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-* **Столбцы данных** — список столбцов с данными словаря:
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — список столбцов с данными словаря:
 
-    * **Имя** — имя столбца.
-    * **Тип** — тип данных столбца.
-    * (Опционально) **Значение по умолчанию** — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * (Опционально) **Выражение** — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
-    * **Иерархический** — признак поддержки иерархии.
-    * **Инъективность** — признак инъективности отображения `id` → `attribute`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}** — имя столбца.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}** — тип данных столбца.
+    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}** — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}** — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}** — признак поддержки иерархии.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}** — признак инъективности отображения `id` → `attribute`.
 
 Подробнее о параметрах столбцов читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
 #### Частота обновления {#console-rate}
 
-* **Период** — задайте периодичность обновления словаря:
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-interval }}** — задайте периодичность обновления словаря:
 
-    * **фиксированный** — фиксированный период между обновлениями словаря:
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}** — фиксированный период между обновлениями словаря:
 
-        * **Длительность периода** — период обновления данных словаря в секундах.
+        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}** — период обновления данных словаря в секундах.
 
-    * **переменный** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
 
-        * **Минимум** — минимальное значение периода между обновлениями словаря в секундах.
-        * **Максимум** — максимальное значение периода между обновлениями словаря в секундах.
+        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}** — минимальное значение периода между обновлениями словаря в секундах.
+        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}** — максимальное значение периода между обновлениями словаря в секундах.
 
 Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 

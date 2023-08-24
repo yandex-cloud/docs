@@ -133,7 +133,7 @@
 
 - Вручную
 
-    Укажите в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **Настройки СУБД** → **Rabbitmq**.
+    Укажите в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
 
 - С помощью {{ TF }}
 

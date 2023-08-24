@@ -21,10 +21,10 @@
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
 
-        * **Версия** — {{ mch-ck-version }} или выше.
-                * **Тип диска** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
-        * **Имя БД** — `tutorial`.
-        * **Гибридное хранилище** — `Включено`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — {{ mch-ck-version }} или выше.
+                * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
 
     1. [Настройте права доступа](../../managed-clickhouse/operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 

@@ -35,7 +35,7 @@ To create an API key:
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
       | aje6o61dvog2******** | my-robot         |                               |
-      | aje9sda1ufvq******** | blabla           | bla bla bla is my description |
+      | aje9sda1ufvq******** | account_name     | account_description           |
       +----------------------+------------------+-------------------------------+
       ```
 
@@ -63,7 +63,7 @@ To create an API key:
    1. Create an API key using the [create](../../api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
       ```bash
-      export SERVICEACCOUNT_ID=<service_account_id>
+      export SERVICEACCOUNT_ID=<service_account_ID>
       export IAM_TOKEN=CggaATEVAgA...
       curl -X POST \
         -H "Content-Type: application/json" \
@@ -79,15 +79,15 @@ To create an API key:
 
    1. Add parameters of resource to the configuration file:
 
-      * `service_account_id` = service account [ID](../sa/get-id.md). This parameter is required.
-      * `-description`: Key description. This is an optional parameter.
-      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
+      * `service_account_id` = service account [ID](../sa/get-id.md). Required parameter.
+      * `-description`: Key description. Optional parameter.
+      * `pgp_key`: Additional PGP key for encrypting a private key. Optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       Example of the configuration file structure:
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
-        service_account_id = "<service_account_id>"
+        service_account_id = "<service_account_ID>"
         description        = "<key_description>"
         pgp_key            = "<pgp_key>"
       }
@@ -142,7 +142,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 - API
 
    ```bash
-   export SERVICEACCOUNT_ID=<service_account_id>
+   export SERVICEACCOUNT_ID=<service_account_ID>
    export IAM_TOKEN=CggaATEVAgA...
    curl -X POST \
      -H "Content-Type: application/json" \
@@ -158,14 +158,14 @@ To make it easier to find an API key without knowing its ID, add a description w
 
    1. Add parameters of resource to the configuration file:
 
-      * `service_account_id`: Service account ID. This parameter is required.
-      * `-description`: Key description. This is an optional parameter.
+      * `service_account_id`: Service account ID. Required parameter.
+      * `-description`: Key description. Optional parameter.
 
       {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
-        service_account_id = "<service_account_id>"
+        service_account_id = "<service_account_ID>"
         description        = "this API-key is for my-robot"
       }
       ```
@@ -195,7 +195,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

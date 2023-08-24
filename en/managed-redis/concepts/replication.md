@@ -1,6 +1,6 @@
 ---
 title: "Replication and fault tolerance in {{ RD }}"
-description: "{{ mrd-name }} uses standard {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel."
+description: "{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel."
 keywords:
   - redis replication
   - redis
@@ -9,20 +9,20 @@ keywords:
 
 # Replication and fault tolerance
 
-{{ mrd-name }} uses standard {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.
+{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.
 
 ## Replication {#replication}
 
-{{ mrd-name }} clusters use asynchronous replication: the result of a write request is reflected on the master host, which then forwards the data to the cluster replicas. The replication process does not affect the master availability in any way, but it can make replicas temporarily unavailable (for up to a few seconds for large databases) when loading new data into memory.
+{{ mrd-name }} clusters use asynchronous replication, i.e., the result of a write request is committed to the master host, which then forwards the data to the cluster replicas. The replication process does not affect the master availability in any way, but it can make replicas temporarily unavailable (for up to a few seconds for large databases) when loading new data into memory.
 
-Because of replication's asynchronous nature, data on replicas may be out of date: while a replica is processing updates from the master, it continues sending existing data in response to requests ([replica-serve-stale-data yes](http://download.redis.io/redis-stable/redis.conf) flag is set).
-
-
-Due to limited resources, **b1**, **b2**, and **b3** class hosts aren't replicated.
+Since the replication is asynchronous, the data on replicas may be out of date: while a replica is processing updates from the master, it continues sending the existing data in response to requests, as the [replica-serve-stale-data](http://download.redis.io/redis-stable/redis.conf) flag is set to `yes`.
 
 
+Due to limited resources, **b1**, **b2**, and **b3** class hosts are not replicated.
 
-For more information about how replication works in {{ RD }}, read the [DBMS documentation](https://redis.io/topics/replication).
+
+
+For more information about how replication works in {{ RD }}, read the [relevant documentation](https://redis.io/topics/replication).
 
 ## Fault tolerance {#availability}
 
@@ -30,11 +30,11 @@ A master host can be changed both automatically as a result of a failure and [ma
 
 High data availability in an unsharded cluster is implemented using {{ RD }} Sentinel: in a cluster consisting of three or more hosts, Sentinel services automatically manage master selection and replica configurations.
 
-Sentinel requires most of its services to be healthy. As a result, it is more cost-efficient to deploy clusters with an odd number of hosts when using Sentinel. For example, a cluster with three hosts can lose one host and still continue to work. But no four-host cluster can lose more than one host, either: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
+Sentinel requires most of its services to be healthy. As a result, it is more cost-efficient to deploy clusters with an odd number of hosts when using Sentinel. For example, a cluster with three hosts can lose one host and still continue working. At the same time, a cluster with four hosts can also lose only one host: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
 
-A cluster consisting of two hosts does not provide full failover for the same reason: one of the two Sentinel instances will not be enough to assign one host as a master if the other one fails. In this situation, the cluster can only process read operations.
+A cluster consisting of two hosts does not provide full failover for the same reason: one of the two Sentinel instances will not be enough to select one host as a master if the other one fails. In this situation, the cluster can only process read operations.
 
-Owners of {{ mrd-name }} clusters cannot configure Sentinel services, but they can read the information that the services provide. Read more about Sentinel in the [DBMS documentation](https://redis.io/topics/sentinel).
+{{ mrd-name }} cluster owners cannot configure Sentinel services; however, they can read the information the services provide. You can read more about Sentinel in the [relevant documentation](https://redis.io/topics/sentinel).
 
 {% note info %}
 
@@ -44,15 +44,15 @@ Sentinel is only applied for clusters with {{ RD }} version 6.2. The `rdsync` [a
 
 ### Assigning a different host as a master if the primary master fails {#master-failover}
 
-If the master host fails, any of the cluster hosts available for replication becomes a new master. If the master assignment priority is set for the cluster hosts, the host with the lowest priority is selected as a new master. The minimum value is `0`, and the maximum (default) value is `100`. A host with `0` priority will never be selected as a master.
+If the master host fails, any of the cluster hosts available for replication may become a new master. If the master assignment priority is set for the cluster hosts, the host with the lowest priority will be selected as a new master. The minimum value is `0`, and the maximum (default) value is `100`. A host with the `0` priority will never be selected as a master.
 
 ## Persistence {#persistence}
 
-{{ mrd-name }} clusters use data persistence presets. You can disable persistence, if required, to improve server throughput because the DBMS will stop writing updates out to disk.
+{{ mrd-name }} clusters use data persistence presets. You can disable persistence, if required, to improve server throughput, as the DBMS will stop writing updates out to disk.
 
 {% note warning %}
 
-Only disable persistence if data integrity is unimportant to your application, for instance when using {{ mrd-name }} as cache. This will cause the most recent data captured in {{ RD }} to be stored in RAM only and to become lost if a server crashes.
+Disabling persistence is only fine in case data integrity is not important for your application, e.g., when using {{ mrd-name }} as cache. This is because, in this case, the most recent data captured in {{ RD }} will only be stored in RAM and may be lost if a server crashes.
 
 {% endnote %}
 
@@ -70,15 +70,15 @@ By default, cluster persistence is enabled and uses the following {{ RD }} setti
 
 * **no-appendfsync-on-rewrite yes**{#setting-no-appendfsync}
 
-   Since the AOF `fsync` policy is set to `everysec`, the AOF log background`BGSAVE` save or `BGREWRITEAOF` rewrite processes perform a lot of disk I/O. {{ RD }} can block `fsync()` calls for too long in some Linux configurations.
+   Since the AOF `fsync` policy is set to `everysec`, the AOF log background save process (`BGSAVE`) or the rewrite process (`BGREWRITEAOF`) performs a lot of disk I/O operations. {{ RD }} may block `fsync()` calls for too long in some Linux configurations.
 
    The setting prevents calling `fsync()` within the main system process when running `BGSAVE` or `BGREWRITEAOF`.
 
-   When `BGREWRITEAOF` is running, `fsync()` is called. {{ RD }} writes the shortest sequence of commands required to restore the current dataset to memory. You can control data size using the [aof-rewrite-incremental-fsync](#setting-rewrite-incremental) setting.
+   When `BGREWRITEAOF` is running, `fsync()` is called. {{ RD }} writes the shortest sequence of commands required to restore the current dataset to memory. You can manage data size using the [aof-rewrite-incremental-fsync](#setting-rewrite-incremental) setting.
 
 * **auto-aof-rewrite-percentage 100**{#setting-rewrite-percentage}
 
-   The AOF log size must exceed 100% for the AOF file to be automatically rewritten. Depends on the log file's [**auto-aof-rewrite-min-size**](#setting-rewrite-size) setting.
+   The AOF log size must exceed 100% for the AOF file to be automatically rewritten. This setting depends on the log file's [**auto-aof-rewrite-min-size**](#setting-rewrite-size) setting.
 
 * **auto-aof-rewrite-min-size 64mb**{#setting-rewrite-size}
 
@@ -86,7 +86,7 @@ By default, cluster persistence is enabled and uses the following {{ RD }} setti
 
 * **aof-load-truncated yes**{#setting-load-truncated}
 
-   Allows loading a truncated AOF file if the system crashes. A notice of loading the truncated file is logged.
+   Allows loading a truncated AOF file if the system crashes. The log notifies the user on loading the truncated file.
 
 * **aof-rewrite-incremental-fsync yes**{#setting-rewrite-incremental}
 
@@ -94,9 +94,9 @@ By default, cluster persistence is enabled and uses the following {{ RD }} setti
 
 * **aof-use-rdb-preamble yes**{#setting-rdb-preamble}
 
-   Enables using the RDB file as a preamble to the AOF file when rewriting or restoring it.
+   Enables using the RDB file as a prefix to the AOF file when rewriting or restoring it.
 
-For more information on {{ RD }} persistence mechanisms, refer to the [DBMS documentation](https://redis.io/topics/persistence) and the [redis.conf](https://github.com/redis/redis/blob/6.0/redis.conf) config file description.
+For more information on {{ RD }} persistence mechanisms, refer to the [Redis documentation](https://redis.io/topics/persistence) and the [redis.conf](https://github.com/redis/redis/blob/6.0/redis.conf) config file description.
 
 ### Disabling persistence {#persistence-off}
 
@@ -108,4 +108,4 @@ With persistence disabled, the following {{ RD }} settings take effect:
 
 * **appendonly no**
 
-   The AOF (Append Only File) is disabled.
+   AOF (Append Only File) mode is disabled.

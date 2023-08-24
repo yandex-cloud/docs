@@ -32,20 +32,20 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его и [наполните](../../storage/operations/objects/upload.md) необходимыми данными.
 
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
   1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md) или [ACL объекта](../../storage/operations/objects/edit-acl.md):
 
       1. В списке бакетов или объектов выберите нужный элемент и нажмите на значок ![image](../../_assets/options.svg).
-      1. Нажмите **ACL бакета** или **ACL объекта**.
-      1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_permissions }}** или **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+      1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
       1. Задайте нужные разрешения для сервисного аккаунта из выпадающего списка.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
       {% note info %}
 
-      При необходимости отзовите доступ у одного или нескольких пользователей, нажав кнопку **Отозвать** в нужной строке.
+      При необходимости отзовите доступ у одного или нескольких пользователей, нажав кнопку **{{ ui-key.yacloud.component.acl-dialog.button_remove-new }}** в нужной строке.
    
       {% endnote %}
 
