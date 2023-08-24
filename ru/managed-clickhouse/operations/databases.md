@@ -7,14 +7,14 @@
 
 ## Управление базами данных через SQL {#sql-database-management}
 
-Чтобы включить управление, выберите опции **Управление пользователями через SQL** и **Управление базами данных через SQL** при [создании](cluster-create.md) или [изменении настроек](./update.md#SQL-management) кластера.
+Чтобы включить управление, выберите опции **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** при [создании](cluster-create.md) или [изменении настроек](./update.md#SQL-management) кластера.
 
 В кластере с включенным управлением базами данных через SQL:
 
 * Управление базами данных и [пользователями](./cluster-users.md#sql-user-management) через стандартные интерфейсы {{ yandex-cloud }} (CLI, API, консоль управления) недоступно.
 * Невозможно включить управление пользователями и базами данных с помощью стандартных интерфейсов {{ yandex-cloud }}.
 * Существующие пользователи, настройки пользователей и базы данных, созданные с помощью стандартных интерфейсов {{ yandex-cloud }}, будут сохранены.
-* Управление осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опций **Управление пользователями через SQL** и **Управление базами данных через SQL**.
+* Управление осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опций **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**.
 
 ## Получить список баз данных в кластере {#list-db}
 
@@ -22,8 +22,8 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
 
 - CLI
 
@@ -63,11 +63,11 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера.
-  1. Выберите вкладку **Базы данных**.
-  1. Нажмите кнопку **Добавить**.
-  1. Введите имя для базы данных и нажмите кнопку **Добавить**.
+  1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+  1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
@@ -146,9 +146,9 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужной БД и выберите пункт **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
+  1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 

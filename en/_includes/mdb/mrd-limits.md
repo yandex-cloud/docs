@@ -4,7 +4,7 @@
 |:-------------------------------------------------------------------------------|:---------|
 | Number of clusters per cloud | 16 |
 | Total number of processor cores for all database hosts per cloud | 64 |
-| Total virtual memory for all DBs per cloud | 512 GB |
+| Total virtual memory for all database hosts per cloud | 512 GB |
 | Total storage capacity for all clusters per cloud | 4096 GB |
 
 #### Limits {#mrd-limits}

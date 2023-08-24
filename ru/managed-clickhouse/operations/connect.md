@@ -27,10 +27,10 @@
 
   [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порты 8443, 9440. Для этого создайте следующие правила для входящего трафика:
 
-  * Диапазон портов — `8443`, `9440`.
-  * Протокол — `TCP`.
-  * Источник — `CIDR`.
-  * CIDR блоки — `0.0.0.0/0`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `8443`, `9440`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
   На каждый порт создается отдельное правило.
 
@@ -38,10 +38,10 @@
 
   1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты 8123, 8443, 9000, 9440. Для этого создайте в этих группах следующие правила для входящего трафика:
 
-     * Диапазон портов — `8123` (или другой порт из перечисленных).
-     * Протокол — `TCP`.
-     * Источник — `Группа безопасности`.
-     * Группа безопасности — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `8123` (или другой порт из перечисленных).
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
 
      На каждый порт создается отдельное правило.
 
@@ -50,18 +50,18 @@
      Пример правил для ВМ:
 
      * Для входящего трафика:
-       * Диапазон портов — `22`.
-       * Протокол — `TCP`.
-       * Источник — `CIDR`.
-       * CIDR блоки — `0.0.0.0/0`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
        Это правило позволяет [подключаться](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу [SSH](../../glossary/ssh-keygen.md).
 
      * Для исходящего трафика:
-        * Диапазон портов — `{{ port-any }}`.
-        * Протокол — `Любой` (`Any`).
-        * Назначение — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
        Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -176,9 +176,9 @@ RUN apt-get update && \
 
 {% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 
-Чтобы подключиться к кластеру {{ mch-name }}, войдите в [консоль управления]({{ link-console-main }}), откройте страницу нужного кластера и перейдите на вкладку **SQL**.
+Чтобы подключиться к кластеру {{ mch-name }}, войдите в [консоль управления]({{ link-console-main }}), откройте страницу нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}**.
 
-Для разрешения подключения включите опцию **Доступ из консоли управления** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
+Для разрешения подключения включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
 
 Подробнее см. в разделе [{#T}](web-sql-query.md)
 

@@ -4963,20 +4963,50 @@ default:
       clickhouse:
         button_create-cluster: Создать кластер ClickHouse
         cluster:
+          databases:
+            popup-add_button_add: Добавить
           explore:
             button_execute: Выполнить
             button_submit-creds: Подключиться
             label_offset: Номер первой строки
             label_password: Пароль
+          format-schemas:
+            button-action_add-format-schema: Добавить схему
+            dialog:
+              field_format-schema-uri: URL
+              label_add: Добавить
+              title_add: Добавление схемы
+            table:
+              button_action-delete-format-schema: Удалить
+              button_action-edit-format-schema: Изменить
+          ml-models:
+            button_action-delete-ml-model: Удалить
+            button_action-edit-ml-model: Изменить
+            button-action_add-ml-model: Добавить модель
+            field_ml-model-name: Имя
+            field_ml-model-type: Тип
+            field_ml-model-uri: URL
+            label_add-ml-model: Добавить
           switch_backups: Резервные копии
+          switch_databases: Базы данных
           switch_datalens: DataLens
+          switch_dictionaries: Словари
+          switch_explore: SQL
+          switch_format-schemas: Схемы формата данных
+          switch_logs: Логи
+          switch_ml-models: Машинное обучение
+          switch_monitoring: Мониторинг
           switch_operations: Операции
+          switch_shard-groups: Группы шардов
+          switch_shards: Шарды
           switch_users: Пользователи
         hosts:
           dialog:
             field_copy_schema: Копировать схему данных
         switch_backups: Резервные копии
         switch_list: Кластеры
+        title_clickhouse: ClickHouse
+        title_zookeeper: ZooKeeper
       common:
         add: Добавить
         apply: Применить
@@ -5036,6 +5066,7 @@ default:
         user: Пользователь
       component:
         acl-dialog:
+          button_remove-new: Отменить
           label_select-placeholder: Выберите пользователя
         acl:
           update-dialog:
@@ -5084,6 +5115,7 @@ default:
         mdb:
           settings:
             button_reset: Сбросить
+            label_delete: Удалить
             popup_settings-submit: Сохранить
         navigation-menu:
           label_account: Учетная запись
@@ -5693,6 +5725,41 @@ default:
             label_profiling: Профайлинг
             label_queries: Запросы
             label_sessions: Сессии
+          dictionaries:
+            button_action-delete: Удалить словарь
+            button_submit: Сохранить
+            button-action_add-dictionary: Добавить словарь
+            column_attributes-expression: Выражение
+            column_attributes-hierarchical: Иерархический
+            column_attributes-injective: Инъективный
+            column_attributes-name: Имя
+            column_attributes-nullValue: Значение по умолчанию
+            column_attributes-type: Тип данных
+            field_collection: Коллекция
+            field_db: База данных
+            field_fixed-lifetime: Длительность периода
+            field_host: Хост
+            field_hosts: Хосты
+            field_http-format: Формат файла
+            field_http-url: URL
+            field_invalidate-query: Проверка статуса словаря
+            field_layout-type: Размещение в памяти
+            field_name: Имя
+            field_password: Пароль
+            field_port: Порт
+            field_postgresql-ssl-mode: SSL mode
+            field_range-lifetime-max: Максимум
+            field_range-lifetime-min: Минимум
+            field_replicas: Реплики
+            field_size-in-cells: Размер кэша
+            field_structure-attributes: Столбцы данных
+            field_structure-id: Числовой ключ
+            field_table: Таблица
+            field_update-interval: Период
+            field_user: Пользователь
+            field_where: Условие выбора
+            label_fixed-lifetime: фиксированный
+            label_range-lifetime: переменный
           hosts:
             button_add-host: Добавить хост
             button_add-zookeeper: Добавить хосты ZooKeeper
@@ -5726,9 +5793,11 @@ default:
             label_service-account: Сервисный аккаунт
             label_services: Сервисы
             label_status: Статус
+            label_storage-enabled: включено
             section_additional: Дополнительные настройки
             section_resource: Ресурсы
           shards:
+            button_action-edit: Изменить
             button_action-remove: Удалить
             button_add: Добавить шард
             button_sharding-enable: Включить
@@ -5755,11 +5824,14 @@ default:
         clusters:
           button_action-connect: Подключиться
           button_action-delete: Удалить
-          button_action-move: ' Переместить'
+          button_action-move: Переместить
           button_action-start: Запустить
           button_action-stop: Остановить
           button_create: Создать кластер
           column_availability: Доступность
+        datalens:
+          button-action_new-connection: Создать подключение
+          label_activate-datalens-title: DataLens ещё не активирован
         dialogs:
           button_add-database: Добавить базу данных
           popup_button_move-cluster: Переместить
@@ -5812,6 +5884,7 @@ default:
           database_field_user-password: Пароль
           field_assign-public-ip: Публичный доступ
           field_cluster-mode: Шардирование кластера
+          field_copy_schema: Копировать схему данных
           field_date: Дата и время восстановления (UTC)
           field_diagnostics-enabled: Сбор статистики
           field_diagnostics-sessions-interval: Интервал сбора сессий
@@ -5824,6 +5897,7 @@ default:
           host_column_subnetwork: Подсеть
           host_column_zone: Зона доступности
           label_deletion-protection: Защита от удаления
+          label_diskTypeId: Тип диска
           label_greenplum_pool_client-idle-timeout: Тайм-аут ожидания клиента
           label_greenplum_pool_mode: Режим
           label_greenplum_pool_size: Размер
@@ -5862,6 +5936,8 @@ default:
             field_public_ip: Публичный доступ
             field_subnetworks: Подсеть
             field_zones: Зона доступности
+        shard-groups:
+          button_add-group: Создать группу шардов
       metastore:
         field_s3config-access-key-id: Идентификатор ключа доступа
         field_s3config-secret-access-key: Секретный ключ
@@ -6192,6 +6268,7 @@ default:
               value_tcp: TCP
               value_udp: UDP
             label_destination-type-cidr: CIDR
+            label_destination-type-security-group: Группа безопасности
             label_egress: Исходящий трафик
             label_ingress: Входящий трафик
           switch_overview: Обзор

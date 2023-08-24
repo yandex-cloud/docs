@@ -10,7 +10,7 @@ To create a secret:
    1. In the **Name** field, enter a name for the secret.
    1. (Optional) In the **{{ kms-short-name }} Key** field, specify an existing key or [create a new one](../../kms/operations/key.md#create).
 
-      The specified {{ kms-short-name }} key is used to encrypt your secret. If you do not specify the key, the secret will be encrypted with a special system key.
+      The specified {{ kms-short-name }} key is used to encrypt your secret. If you do not specify a key, the secret will be encrypted with a special system key.
 
       {% note tip %}
 
@@ -124,7 +124,7 @@ To create a secret:
       * `deletion_protection`: Deletion protection flag. To enable protection, set `true`. To disable protection, set `false`. The default value is `false`. Optional parameter.
       * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. Optional parameter.
 
-      For more information about the parameters of the `yandex_lockbox_secret` resource in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/lockbox_secret).
+      For more information about the parameters of the `yandex_lockbox_secret` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lockbox_secret).
 
    1. Create resources:
 

@@ -24,8 +24,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
 
 - CLI
 
@@ -55,8 +55,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
 
 - CLI
 
@@ -98,17 +98,17 @@
 
     1. Выберите кластер:
 
-        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-        1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
-        1. Нажмите **Добавить модель**.
+        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+        1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
     1. Настройте параметры модели:
 
-        * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
-        * **Имя** — имя модели. Имя модели — один из аргументов функции `modelEvaluate()`, которая нужна для вызова модели в {{ CH }}.
-        * **URL** — адрес модели в {{ objstorage-full-name }}.
+        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
+        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — имя модели. Имя модели — один из аргументов функции `modelEvaluate()`, которая нужна для вызова модели в {{ CH }}.
+        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — адрес модели в {{ objstorage-full-name }}.
 
-    1. Нажмите **Добавить** и дождитесь окончания добавления модели.
+    1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** и дождитесь окончания добавления модели.
 
 - CLI
 
@@ -206,9 +206,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/dots.svg) и выберите пункт **Изменить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/dots.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
 - CLI
 
@@ -284,9 +284,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/dots.svg) и выберите пункт **Удалить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/dots.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-delete-ml-model }}**.
 
 - CLI
 
@@ -382,9 +382,9 @@
    ```
 
 1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
-    * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
-    * **Имя** — `ml_test`.
-    * **URL** — `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — `ml_test`.
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
   
 1. Протестируйте модель:
     1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.

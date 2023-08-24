@@ -4952,20 +4952,50 @@ default:
       clickhouse:
         button_create-cluster: Create ClickHouse cluster
         cluster:
+          databases:
+            popup-add_button_add: Add
           explore:
             button_execute: Execute
             button_submit-creds: Connect
             label_offset: Query result offset
             label_password: Password
+          format-schemas:
+            button-action_add-format-schema: Add schema
+            dialog:
+              field_format-schema-uri: URL
+              label_add: Add
+              title_add: Add schema
+            table:
+              button_action-delete-format-schema: Delete
+              button_action-edit-format-schema: Edit
+          ml-models:
+            button_action-delete-ml-model: Delete
+            button_action-edit-ml-model: Edit
+            button-action_add-ml-model: Add model
+            field_ml-model-name: Name
+            field_ml-model-type: Type
+            field_ml-model-uri: URL
+            label_add-ml-model: Add
           switch_backups: Backups
+          switch_databases: Databases
           switch_datalens: DataLens
+          switch_dictionaries: Dictionaries
+          switch_explore: SQL
+          switch_format-schemas: Data format schemas
+          switch_logs: Logs
+          switch_ml-models: Machine learning
+          switch_monitoring: Monitoring
           switch_operations: Operations
+          switch_shard-groups: Shard groups
+          switch_shards: Shards
           switch_users: Users
         hosts:
           dialog:
             field_copy_schema: Copy data schema
         switch_backups: Backups
         switch_list: Clusters
+        title_clickhouse: ClickHouse
+        title_zookeeper: ZooKeeper
       common:
         add: Add
         apply: Apply
@@ -5025,6 +5055,7 @@ default:
         user: User
       component:
         acl-dialog:
+          button_remove-new: Cancel
           label_select-placeholder: Select a user
         acl:
           update-dialog:
@@ -5073,6 +5104,7 @@ default:
         mdb:
           settings:
             button_reset: Reset
+            label_delete: Delete
             popup_settings-submit: Save
         navigation-menu:
           label_account: Account
@@ -5682,6 +5714,41 @@ default:
             label_profiling: Profiling
             label_queries: Queries
             label_sessions: Sessions
+          dictionaries:
+            button_action-delete: Delete dictionary
+            button_submit: Save
+            button-action_add-dictionary: Add dictionary
+            column_attributes-expression: Expression
+            column_attributes-hierarchical: Hierarchical
+            column_attributes-injective: Injective
+            column_attributes-name: Name
+            column_attributes-nullValue: Default value
+            column_attributes-type: Data type
+            field_collection: Collection
+            field_db: Database
+            field_fixed-lifetime: Period duration
+            field_host: Host
+            field_hosts: Hosts
+            field_http-format: File format
+            field_http-url: URL
+            field_invalidate-query: Check dictionary status
+            field_layout-type: Memory storage
+            field_name: Name
+            field_password: Password
+            field_port: Port
+            field_postgresql-ssl-mode: SSL mode
+            field_range-lifetime-max: Maximum
+            field_range-lifetime-min: Minimum
+            field_replicas: Replicas
+            field_size-in-cells: Cache size
+            field_structure-attributes: Data column
+            field_structure-id: Numeric key
+            field_table: Table
+            field_update-interval: Period
+            field_user: User
+            field_where: Selection condition
+            label_fixed-lifetime: fixed
+            label_range-lifetime: variable
           hosts:
             button_add-host: Add host
             button_add-zookeeper: Add ZooKeeper hosts
@@ -5715,9 +5782,11 @@ default:
             label_service-account: Service account
             label_services: Services
             label_status: Status
+            label_storage-enabled: enabled
             section_additional: Advanced settings
             section_resource: Resources
           shards:
+            button_action-edit: Edit
             button_action-remove: Remove
             button_add: Add shard
             button_sharding-enable: Enable
@@ -5749,6 +5818,9 @@ default:
           button_action-stop: Stop
           button_create: Create cluster
           column_availability: Availability
+        datalens:
+          button-action_new-connection: Create connection
+          label_activate-datalens-title: DataLens not activated
         dialogs:
           button_add-database: Add database
           popup_button_move-cluster: Move
@@ -5801,6 +5873,7 @@ default:
           database_field_user-password: Password
           field_assign-public-ip: Public access
           field_cluster-mode: Cluster sharding
+          field_copy_schema: Copy the data schema
           field_date: Date and time of recovery (UTC)
           field_diagnostics-enabled: Statistics sampling
           field_diagnostics-sessions-interval: Sessions sampling interval
@@ -5813,6 +5886,7 @@ default:
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
           label_deletion-protection: Deletion protection
+          label_diskTypeId: Disk type
           label_greenplum_pool_client-idle-timeout: Client Idle Timeout
           label_greenplum_pool_mode: Mode
           label_greenplum_pool_size: Size
@@ -5851,6 +5925,8 @@ default:
             field_public_ip: Public access
             field_subnetworks: Subnet
             field_zones: Availability zone
+        shard-groups:
+          button_add-group: Create shard group
       metastore:
         field_s3config-access-key-id: Access key ID
         field_s3config-secret-access-key: Secret key
@@ -6181,6 +6257,7 @@ default:
               value_tcp: TCP
               value_udp: UDP
             label_destination-type-cidr: CIDR
+            label_destination-type-security-group: Security group
             label_egress: Egress
             label_ingress: Ingress
           switch_overview: Overview

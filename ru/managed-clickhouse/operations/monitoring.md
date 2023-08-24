@@ -21,23 +21,23 @@ description: "Из статьи вы узнаете, как осуществля
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
 
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-  Если в кластере используется механизм репликации и распределения запросов с использованием [{{ ZK }}](../concepts/replication.md#zk), на вкладке **Мониторинг** появляются две вкладки:
+  Если в кластере используется механизм репликации и распределения запросов с использованием [{{ ZK }}](../concepts/replication.md#zk), на вкладке **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** появляются две вкладки:
 
-  * **Clickhouse** — графики, которые показывают работу всего кластера и хостов {{ CH }}.
-  * **Zookeeper** — графики, которые характеризуют работу хостов {{ ZK }}.
+  * **{{ ui-key.yacloud.clickhouse.title_clickhouse }}** — графики, которые показывают работу всего кластера и хостов {{ CH }}.
+  * **{{ ui-key.yacloud.clickhouse.title_zookeeper }}** — графики, которые характеризуют работу хостов {{ ZK }}.
 
-  Если репликация не используется или использует механизм [{{ CK }}](../concepts/replication.md#ck), графики с вкладки **Clickhouse** показываются на общей вкладке **Мониторинг**.
+  Если репликация не используется или использует механизм [{{ CK }}](../concepts/replication.md#ck), графики с вкладки **{{ ui-key.yacloud.clickhouse.title_clickhouse }}** показываются на общей вкладке **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
 
 {% endlist %}
 
 {% list tabs %}
 
-- Clickhouse
+- {{ ui-key.yacloud.clickhouse.title_clickhouse }}
 
   * **Active locks per host** — количество активных блокировок, для каждого хоста.
   * **Average insert query time per host** — среднее время исполнения запросов вставки, для каждого хоста.
@@ -85,7 +85,7 @@ description: "Из статьи вы узнаете, как осуществля
   * **Total queries per host** — общее количество запросов в секунду, для каждого хоста.
   * **Waiting locks per host** — количество ожидающих блокировок, для каждого хоста.
 
-- Zookeeper
+- {{ ui-key.yacloud.clickhouse.title_zookeeper }}
 
   * **Average latency per ZooKeeper host** — средняя задержка ответа, для каждого хоста ZooKeeper.
   * **Average transaction time per ClickHouse host** — среднее время транзакции, для каждого хоста ClickHouse. Характеризует время, затрачиваемое ClickHouse на обращения к ZooKeeper.
@@ -127,9 +127,9 @@ description: "Из статьи вы узнаете, как осуществля
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-  1. Выберите вкладку **Мониторинги**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
   1. Выберите нужный хост из выпадающего списка. Возле имени хоста будет показан его тип: `CLICKHOUSE` или `ZOOKEEPER`.
 
   На этой странице выводятся графики, показывающие нагрузку на отдельный хост кластера:
@@ -151,15 +151,15 @@ description: "Из статьи вы узнаете, как осуществля
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-  1. В блоке **Сервисные дашборды** выберите:
+  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
       * **{{ mch-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mch-name }} — ZooKeeper** для настройки алертов хостов ZooKeeper.
       * **{{ mch-name }} — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов [см. в документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов [см. в документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` и `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` для срабатывания алерта.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -167,7 +167,7 @@ description: "Из статьи вы узнаете, как осуществля
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                                      | Обозначение                                        | `Alarm`                      | `Warning`                    |
+| Метрика                                      | Обозначение                                        | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`                      | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`                    |
 |----------------------------------------------|:--------------------------------------------------:|:----------------------------:|:----------------------------:|
 | Максимальное число кусков данных в разделе   | `ch_system_async_metrics_MaxPartCountForPartition` | `250`                        | `150`                        |
 | Количество запросов, завершившихся с ошибкой | `ch_system_events_FailedQuery_rate`                | 20% от общего числа запросов | 10% от общего числа запросов |
@@ -176,10 +176,10 @@ description: "Из статьи вы узнаете, как осуществля
 
 Чтобы определить пороговые значения метрики `ch_system_events_FailedQuery_rate`, используйте значение показателя `Total queries` [для кластера](#monitoring-cluster).
 
-Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` и `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `102005473280` байтов (95%).
-* `Warning` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` — `102005473280` байт (95%).
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` — `85899345920` байт (80%).
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-clickhouse).
 
@@ -194,8 +194,8 @@ description: "Из статьи вы узнаете, как осуществля
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ mch-name }}**.
-  1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 {% endlist %}
 

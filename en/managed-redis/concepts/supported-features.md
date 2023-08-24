@@ -1,6 +1,6 @@
 # Supported {{ mrd-name }} commands
 
-{{ mrd-name }} lets you run [any Redis command](https://redis.io/commands), except the following:
+{{ mrd-name }} allows you to run [any Redis commands](https://redis.io/commands), except the following:
 
 - `ACL`
 - `BGREWRITEAOF`

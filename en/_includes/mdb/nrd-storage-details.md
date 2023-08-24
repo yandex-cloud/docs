@@ -1,1 +1,0 @@
-Non-replicated SSD storage does not provide fault tolerance for a single-host cluster; if a disk fails, the data is permanently lost. This means, when creating a new cluster using this disk type, a three-host fail-safe configuration is automatically set up.

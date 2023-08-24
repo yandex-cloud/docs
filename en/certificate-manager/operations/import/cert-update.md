@@ -77,6 +77,48 @@ To get a new version of a user certificate:
       not_before: "2020-09-15T08:12:57Z"
       ```
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and change the `certificate` and `private_key` parameters of the certificate:
+
+      {% cut "Sample certificate description in the {{ TF }} configuration" %}
+
+      ```
+      ...
+      resource "yandex_cm_certificate" "imported-certificate" {
+        name        = "my-certificate"
+        description = "this is a test certificate"
+
+        self_managed {
+          certificate = <<-EOT
+                        -----BEGIN CERTIFICATE-----
+                        MIIF...
+                        -----END CERTIFICATE-----
+                        EOT
+          private_key = <<-EOT
+                        -----BEGIN PRIVATE KEY-----
+                        MIIJ...
+                        -----END PRIVATE KEY-----
+                        EOT
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can check if the certificate has been updated either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+    ```bash
+    yc certificate-manager certificate get <certificate_name>
+    ```
+
 - API
 
    To renew a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.

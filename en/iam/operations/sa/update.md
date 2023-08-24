@@ -9,7 +9,7 @@
    1. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit**.
    1. Change the name of your service account.
 
-      Name format requirements:
+      The name format requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -38,8 +38,8 @@
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
-      | aje6o61dvog2h6g9a33s | my-robot         |                               |
-      | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+      | aje6o61dvog2******** | my-robot         |                               |
+      | aje9sda1ufvq******** | account_name     | account_description           |
       +----------------------+------------------+-------------------------------+
       ```
 
@@ -51,7 +51,7 @@
         --description "this is my service account"
       ```
 
-      Name format requirements:
+      The name format requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

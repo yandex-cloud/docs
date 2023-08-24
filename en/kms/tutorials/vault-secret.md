@@ -90,25 +90,7 @@ If Vault has already been initialized, you have to run a [migration procedure](h
 
    {% endlist %}
 
-1. Under [seal](https://www.vaultproject.io/docs/configuration/seal#seal-stanza), enter `"yandexcloudkms"` as the value.
-1. Add the `kms_key_id` parameter with the {{ kms-short-name }} encryption key ID.
-1. Authenticate using one the following methods:
-
-   {% list tabs %}
-
-   - The service account linked to your VM
-
-      Link a service account to a VM by following the [instructions](../../compute/operations/vm-connect/auth-inside-vm.md).
-
-   - Any service account
-
-      In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
-
-   - Yandex or federated account
-
-      If you are using a Yandex account, specify the OAuth token in the `oauth_token` parameter. For a federated account, use the IAM token.
-
-   {% endlist %}
+1. Change the configuration when performing [migration](https://www.vaultproject.io/docs/concepts/seal#seal-migration) based on the Vault version in use.
 
 {% note info %}
 

@@ -1,6 +1,6 @@
 ---
 title: "{{ mrd-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change to match it. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts: the max amount of data is 75% of the available memory."
+description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change to match it. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory."
 ---
 
 # {{ RD }} host classes
@@ -9,7 +9,7 @@ The host class determines the computing power allocated for each host in a clust
 
 {% note info %}
 
-The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts: the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [{#T}](memory-management.md).
+The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts; the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [{#T}](memory-management.md).
 
 {% endnote %}
 
@@ -17,14 +17,14 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 The host class also determines which [disk types](./storage.md) are available:
 
-* **hm1**: `network-ssd`, `local-ssd`.
-* **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
-* **hm3**: `network-ssd`, `network-ssd-nonreplicated`.
-* **b2**, **b3**: `network-ssd`.
+* **hm1**: `network-ssd`, `local-ssd`
+* **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`
+* **hm3**: `network-ssd`, `network-ssd-nonreplicated`
+* **b2**, **b3**: `network-ssd`
 
 
 
-The storage space available to the host should be at least two times more than the selected memory size. {{ mrd-name }} technical and organizational limits are given in [{#T}](limits.md).
+The storage space available to the host should be at least twice as large as the selected memory size. For {{ mrd-name }} technical and organizational limits, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
@@ -32,13 +32,13 @@ The storage space available to the host should be at least two times more than t
 
 Configuration types:
 
-* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
+* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. Those host classes are intended for test loads. We do not recommend using them for production solutions.
 
    A cluster with this configuration type can only contain one host per cluster or [shard](./sharding.md).
 
 * **high-memory**: Standard configurations for {{ RD }}.
 
-   A cluster with this configuration type may contain several hosts (between 1 and the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
+   A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 

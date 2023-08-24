@@ -73,6 +73,10 @@ Check the stream specified in the [trail settings](../concepts/trail.md#trail-se
 
 [Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running` and the linked [stream](../../data-streams/operations/manage-streams.md#list-data-streams) status is `Active`. If the stream or its {{ ydb-short-name }} database were deleted, create a new [stream](../../data-streams/operations/manage-streams.md#create-data-stream) or [database](../../ydb/operations/manage-databases.md#serverless).
 
+### UNKNOWN or INTERNAL_ERROR {#database-internal-error}
+
+Contact [support]({{ link-console-support }}) for additional information and recommendations.
+
 ## {{ cloud-logging-name }} log group {#cloud-logging}
 
 ### ACCESS_DENIED {#logging-access-denied}
@@ -84,6 +88,10 @@ Make sure the service account used by the trail to upload audit logs to the log 
 Check the log group specified in the [trail settings](../concepts/trail.md#trail-settings). If the log group was deleted:
 1. [Create](../../logging/operations/create-group.md) a new log group.
 1. Change the trail settings by specifying the new log group under **Destination**.
+
+### UNKNOWN or INTERNAL_ERROR {#logging-internal-error}
+
+Contact [support]({{ link-console-support }}) for additional information and recommendations.
 
 
 ## See also

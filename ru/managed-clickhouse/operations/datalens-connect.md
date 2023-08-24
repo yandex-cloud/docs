@@ -22,7 +22,7 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Разрешить доступ из {{ datalens-name }} к кластеру {#allow-access}
 
-Чтобы {{ datalens-name }} мог подключаться к кластеру и работать с данными в нем, включите опцию **Доступ из {{ datalens-name }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
+Чтобы {{ datalens-name }} мог подключаться к кластеру и работать с данными в нем, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
 
 ## Создать подключение к кластеру {#create-connector}
 
@@ -31,14 +31,14 @@ description: "Из статьи вы узнаете, как подключить
 - Консоль управления
 
   1. Убедитесь, что сервис **{{ datalens-name }}** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ datalens-name }}**.
-  1. Нажмите кнопку **Создать подключение**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
-     {% cut "У меня нет кнопки «Создать подключение»" %}
+     {% cut "У меня нет кнопки «{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}»" %}
 
      
-     Если вместо кнопки **Создать подключение** вы видите сообщение «{{ datalens-name }} еще не активирован», значит вы либо еще не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
+     Если вместо кнопки **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** вы видите сообщение «{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}», значит вы либо еще не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
 
 
      {% endcut %}
@@ -64,8 +64,8 @@ description: "Из статьи вы узнаете, как подключить
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ datalens-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
 
      {% cut "Моего подключения нет в списке" %}
 
@@ -81,8 +81,8 @@ description: "Из статьи вы узнаете, как подключить
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ datalens-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
@@ -103,8 +103,8 @@ description: "Из статьи вы узнаете, как подключить
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ datalens-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
