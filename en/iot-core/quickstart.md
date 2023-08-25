@@ -14,9 +14,9 @@ To get started with {{ iot-name }}:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or create an account if you do not have one yet.
 1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folders yet, [create one](../resource-manager/operations/folder/create.md).
+1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md).
 
 ## Create a certificate {#create-ca}
 
@@ -59,7 +59,7 @@ Devices and registries interact using X.509 certificates:
    1. Under **General information**, add:
       * **Name** for the registry, e.g., `my-registry`.
       * (Optional) **Description** with further information about the registry.
-      * **Password** you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
+      * **Password** you will use to access the registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
       * (Optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (Optional) Add [certificates](operations/certificates/create-certificates.md):
       * To add a file:
@@ -108,9 +108,9 @@ Devices and registries interact using X.509 certificates:
       registry_id: b91hafek85hpppnbpld2
       fingerprint: 589ce16050****
       certificate_data: |
-        -----BEGIN CERTIFICATE-----
-        MIIE/jCCAuagAwIBAgIJAPRA...
-        -----END CERTIFICATE-----
+           -----BEGIN CERTIFICATE-----
+           MIIE/jCCAuagAwIBAgIJAPRA...
+           -----END CERTIFICATE-----
       created_at: "2019-05-27T13:41:45.295Z"
       ```
 
@@ -131,8 +131,8 @@ Devices and registries interact using X.509 certificates:
    1. Click **Add device**.
    1. Under **General information**, add:
       * **Name** of the device. For example, `my-device`.
-      * (optional) A **description** with further information about the device.
-      * A **password** that you will be using for device access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password: you will need it later.
+      * (Optional) A **description** with further information about the device.
+      * **Password** you will use to access the device.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
    1. (Optional) Add [aliases](concepts/topic/usage.md#aliases):
       1. Click **Add alias**.
       1. Complete the fields: enter an alias (such as, `events`) and topic type after `$devices/<deviceID>` (such as, `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
@@ -185,9 +185,9 @@ Devices and registries interact using X.509 certificates:
       device_id: b912an77oqaeijolmlgm
       fingerprint: 65e5b05006...
       certificate_data: |
-        -----BEGIN CERTIFICATE-----
-       MIIE/jCCAuagAwIBAgIJANZbq...
-        -----END CERTIFICATE-----
+           -----BEGIN CERTIFICATE-----
+           MIIE/jCCAuagAwIBAgIJANZbq...
+           -----END CERTIFICATE-----
       created_at: "2019-05-27T13:45:23.306Z"
       ```
 

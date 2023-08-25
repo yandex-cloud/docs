@@ -839,7 +839,7 @@ To set up scaling for your instance group using {{ TF }}:
    * [yandex_lb_network_load_balancer]({{ tf-provider-link }}Resources/lb_network_load_balancer)
 
 1. In the `vm-autoscale.auto.tfvars` file, set the user-defined parameters:
-   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `folder_id`: [folder id](../../resource-manager/operations/folder/get-id.md).
    * `vm_user`: VM username.
    * `ssh_key`: Contents of the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 

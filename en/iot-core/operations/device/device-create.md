@@ -13,8 +13,8 @@
    1. Click **Add device**.
    1. Under **General information**, add:
       * **Name** of the device. For example, `my-device`.
-      * (optional) A **description** with further information about the device.
-      * A **password** that you will be using for device access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password - you will need it later.
+      * (Optional) A **description** with further information about the device.
+      * **Password** you will use to access the device.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
    1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
       1. Click **Add alias**.
       1. Complete the fields: enter an alias (such as, `events`) and topic type after `$devices/<deviceID>` (such as, `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
@@ -89,7 +89,7 @@
         * `registry_id`: ID of the registry to create a device in.
         * `name`: Device name.
         * `description`: Device description.
-        * `aliases`: Topic aliases. For more detail, please see [Creating an alias](../device/alias/alias-create.md)
+        * `aliases`: Topic aliases. For more detail, please see [Creating an alias](../device/alias/alias-create.md).
         * `passwords`: List of passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
         * `certificates`: List of certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
@@ -135,7 +135,7 @@
          ```
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API
 

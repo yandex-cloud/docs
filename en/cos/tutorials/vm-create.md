@@ -19,23 +19,23 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
   1. Under **Image/boot disk selection**, go to the **Container Solution** tab.
   1. Click **Configure**.
   1. In the **Docker container settings** window that opens, set the parameters using hints:
-     * (optional) Enter the **Name** of the Docker container to run on the VM. The naming requirements are as follows:
+     * (Optional) Enter the **Name** of the Docker container to run on the VM. The naming requirements are as follows:
        * Name must be from 3 to 63 characters long.
        * It may contain Latin letters, numbers, and hyphens.
        * It must start with a letter. The last character cannot be a hyphen.
      * Specify the [**Docker image**](../concepts/docker-image.md) to be used to run the Docker container on the VM. You can do this in one of the following ways:
        * By selecting one of the available images. To do this, start typing the image name in the search bar. The image search reads all the available cloud folders.
        * By specifying the image name manually. To do this, click **Enter link** and enter the image name. You can specify an image from {{ container-registry-name }} or any publicly available Docker image library (such as [Docker Hub](https://hub.docker.com)).
-     * (optional) In the **Command** field, specify the executable file to run when the Docker container starts.
-     * (optional) Specify **Command arguments**.
-     * (optional) Specify **Environment variables** in `key:value` format, which are available in the Docker container.
+     * (Optional) In the **Command** field, specify the executable file to run when the Docker container starts.
+     * (Optional) Specify **Command arguments**.
+     * (Optional) Specify **Environment variables** in `key:value` format, which are available in the Docker container.
      * Select the [**Restart policy**](../concepts/restart-policy.md) field value for the Docker container:
-       * **Always**: Always restart the Docker container when it is stopped.
+       * **Always**: Always restart the Docker container when it stops.
        * **Never**: Do not restart the Docker container automatically.
-       * **On-Failure**: Restart the Docker container only if it shut down with a non-zero return code.
-      * (optional) Enable **Attach a TTY to the Docker container** to use the command shell in the Docker container.
-      * (optional) Enable **Allocate an stdin buffer for a running Docker container** to link the input stream to the running Docker container.
-      * (optional) Enable **Run Docker container in privileged mode** to allow the Docker container processes to access all VM resources.
+       * **On-Failure**: Restart the Docker container only if it shuts down with a non-zero return code.
+     * (Optional) Enable **Attach a TTY to the Docker container** to use the command shell in the Docker container.
+     * (Optional) Enable **Allocate an stdin buffer for a running Docker container** to link the input stream to the running Docker container.
+     * (Optional) Enable **Run Docker container in privileged mode** to allow the Docker container processes to access all VM resources.
      Click **Apply**.
   1. Set the remaining VM parameters by following [this guide](../../compute/operations/vm-create/create-linux-vm.md).
 

@@ -4704,8 +4704,15 @@ default:
       acl:
         action:
           add-role: Добавить роль
+          apply: Сохранить
+          select-subject: Выбрать пользователя
+        button:
+          add-role: Добавить роль
         label:
           title: Настройка прав доступа
+      organization:
+        action:
+          select: Продолжить
       settings:
         field_theme: Тема интерфейса
         field_theme-contrast: Контрастность
@@ -4761,18 +4768,42 @@ default:
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
     yacloud_org:
+      actions:
+        add: Добавить
+      common:
+        resource-acl:
+          label_groups: Группы
+          label_service-accounts: Сервисные аккаунты
       entity:
         invitation:
           action_send-invitation: Отправить приглашение
       form:
+        acl:
+          edit:
+            action:
+              subject:
+                select: Выбрать пользователя
         federation:
           create:
             action:
               create: Создать федерацию
+        organization:
+          select:
+            action:
+              enter: Войти
+      forms:
+        action:
+          save: Сохранить
       page:
+        settings:
+          action:
+            edit: Редактировать данные
         users:
           action:
+            add-federated-users: Добавить федеративных пользователей
             invite-users: Пригласить пользователей
+      pages:
+        create: Создать организацию
     yacloud_portal:
       subAccount:
         detail:
@@ -4840,6 +4871,7 @@ default:
           dashboard-overview:
             button_refill: Пополнить баланс
             popup-refill_button_company-action: Выписать счет
+            popup-refill_button_individual-action: Пополнить баланс
           dashboard-resources:
             button_action-rename-account: Переименовать
             button_bind-cloud: Привязать облако
@@ -4889,6 +4921,8 @@ default:
           overview:
             button_bind-card-apply: Применить
             card_label_edit: Изменить банковскую карту
+            payment-type_label_card: Банковская карта
+            payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
             section_card: Банковская карта
             usage-type_label_paid: Платная версия
@@ -5496,6 +5530,7 @@ default:
             button_create: Создать
             field_default-net: Создать сеть по умолчанию
           folders:
+            popup-edit_button_save: Сохранить
             section_folders: Каталоги
           incident-notifications:
             label_users: Пользователи
@@ -5571,6 +5606,9 @@ default:
             popup-confirm_button_delete: Удалить
           switch_incident-notifications: Уведомления
           switch_service-accounts: Сервисные аккаунты
+        users:
+          button_tune-role: Настроить роли
+          label_folders-roles: Роли в каталогах
       iot:
         button_add-device: Добавить устройство
         button_create-broker: Создать брокер
@@ -5706,6 +5744,8 @@ default:
           label_key: Ключ
           label_value: Значение
           section_version: Версия
+      logging:
+        button_create-group: Создать группу
       marketplace-v2:
         button_use: Использовать
       mdb:
@@ -5999,6 +6039,9 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      page:
+        welcome:
+          button_send: Войти
       postgresql:
         hosts:
           dialog:
@@ -6213,6 +6256,12 @@ default:
         contact:
           label_title: Запросы
         label_service: Поддержка
+        plan:
+          button_submit: Перейти
+          popup-confirm_button-submit: Подтвердить
+        request-callback:
+          button_submit: Отправить
+        switch_plan: Тарифный план
       vpc:
         add-static-route:
           button_add: Добавить

@@ -16,14 +16,14 @@ To migrate a database from the {{ mpg-name }} *source cluster* to the {{ PG }} *
 1. [Create a publication on the source cluster](#create-publication).
 1. [Create a subscription on the target cluster](#create-subscription).
 1. [Monitor the migration process](#monitor-migration) until it is complete.
-1. [Finish the migration](#finish-migration).
+1. [Complete your migration](#finish-migration).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../../managed-postgresql/operations/cluster-create.md).
-1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect.md#get-ssl-cert). They're required to successfully connect to the source cluster that is publicly available.
+1. Make sure all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../../managed-postgresql/operations/cluster-create.md).
+1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect.md#get-ssl-cert) to successfully connect to the source cluster that is publicly available.
 
 
 1. Set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility). The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -113,7 +113,7 @@ We recommend that you monitor the replication status by the `srsubstate` field i
 
 You can get the overall replication status using the [pg_stat_subscription](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-SUBSCRIPTION) view on the target cluster and the [pg_stat_replication](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-REPLICATION-VIEW) view on the source cluster.
 
-## Finish the migration {#finish-migration}
+## Complete your migration {#finish-migration}
 
 After the replication is complete:
 1. Disable writing data to the migrated database on the source cluster.
@@ -144,8 +144,8 @@ After the replication is complete:
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
-1. [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
-1. If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).
-1. [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+* [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
+* If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).
+* [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).

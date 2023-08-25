@@ -7,11 +7,11 @@ To delete a [resource record](../concepts/resource-record.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone to delete a record from.
-   1. Select **{{ dns-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
    1. Select the zone from the list.
    1. Click ![image](../../_assets/options.svg) in the row next to the record to delete.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -79,7 +79,7 @@ To delete a [resource record](../concepts/resource-record.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

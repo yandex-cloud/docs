@@ -1,9 +1,9 @@
 ---
 title: "How to configure a {{ MY }} source endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ MY }} source endpoint in {{ data-transfer-full-name }}."
+description: "In this tutorial, you will learn how to set up a {{ MY }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ MY }} source endpoint
+# Configuring {{ MY }} source endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -145,7 +145,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `--exclude-table-regex`: Blacklist of tables. Data from tables on this list will not be transferred. This option is specified using regular expressions.
+   * `--exclude-table-regex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `--timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -159,7 +159,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transferred. This option is specified using regular expressions.
+   * `exclude_table_regex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -181,7 +181,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTablesRegex`: Blacklist of tables. Data from tables on this list will not be transferred. This option is specified using regular expressions.
+   * `excludeTablesRegex`: List of ecluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -205,4 +205,10 @@ During a transfer, the database schema is transferred from the source to the tar
 
 ## Known limitations {#known-limitations}
 
-If you are setting up a transfer from a {{ MY }} cluster, use the cluster master server. During its operation, the transfer creates service tables in the source database. Therefore, you can't use a {{ MY }} replica as a source, because it is read-only.
+If you are setting up a transfer from a {{ MY }} cluster, use the cluster master server. During its operation, the transfer creates service tables in the source database. Therefore, you cannot use a {{ MY }} replica as a source, because it is read-only.
+
+If you are setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, consider the way the data of [date and time types]({{ my.docs }}/refman/8.0/en/date-and-time-types.html) gets transferred:
+
+* Data of the `TIME` type is transferred as strings with the source and target time zones ignored.
+* When transferring data of the `TIMESTAMP` type, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/datetime.html).
+* The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.

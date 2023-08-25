@@ -3,12 +3,10 @@
 Recommended hardware requirements for running {{ sk-hybrid-name }} containers:
 * CPU: 8 [Intel Gold 6230R](https://ark.intel.com/content/www/us/en/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) cores. When using Nvidia Tesla A100, 14 CPU cores are required.
 * GPU: Nvidia Tesla T4, Nvidia Tesla V100, or Nvidia Tesla A100 (16 GB or 32 GB).
-* RAM: 64 GB
-* HDD: 200 GB
 
 {{ sk-hybrid-name }} specifications are estimated approximately and may change after containers are updated and new features are added.
 
-The data provided in the tables is for Russian only:
+The data in the tables is for the Russian language only:
 
 {% list tabs %}
 

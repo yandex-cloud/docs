@@ -1,17 +1,88 @@
 # Serialization
 
-Serialization is the conversion of data objects to a bit sequence when transferring data to targets that work with <q>raw</q> data.
+Serialization is the conversion of data objects to a bit sequence when transferring data to targets that work with <q>raw</q> data. These targets include:
 
-These targets include [{{ objstorage-name }}](#serializer-s3) and targets using [message queues](#serializer-message-queue):
-
-* {{ KF }}
-* {{ yds-full-name }}
+* [{{ objstorage-name }}](#serializer-s3)
+* [{{ KF }}, and {{ yds-full-name }} message queues](#serializer-message-queue)
 
 You can set up serialization when [creating](../operations/endpoint/index.md#create) or [updating](../operations/endpoint/index.md#update) a target endpoint.
 
-## {{ objstorage-name }} serialization {#serializer-s3}
+## Serialization at data delivery to {{ objstorage-name }} {#serializer-s3}
 
-For {{ objstorage-name }} serialization, you can select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. For `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, complex values can be converted to strings.
+When delivering data to {{ objstorage-name }}, you can select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. For `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** setting is available.
+
+The output data format depends both on the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** setting selection and the type and settings of source endpoint conversion rules.
+
+See below how output data differs if no conversion rules are set for the source endpoint.
+
+### {{ yds-full-name }} {#yds}
+
+Input data: Two messages:
+
+```text
+Text string
+{"device_id":"iv9,"speed":"5"}
+```
+
+Output data:
+
+{% list tabs %}
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
+
+   ```text
+   <stream name>,<segment key>,<message sequence number>,<data write date and time>,Text string
+   <stream name>,<segment key>,<message sequence number>,<data write date and time>,"{""device_id"":""iv9"",""speed"":5}"
+   ```
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
+
+   ```text
+   {"data":"Text string","partition":<segment key>,"seq_no":<message sequence number>,"topic":"<stream name>","write_time":"<data write date and time>"}
+   {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment key>,"seq_no":<message sequence number>,"topic":"<stream name>","write_time":"<data write date and time>"}
+   ```
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
+
+   ```text
+   Text string
+   {"device_id":"iv9,"speed":"5"}
+   ```
+
+{% endlist %}
+
+### {{ mpg-name }} {#pg}
+
+Input data: Table:
+
+| device_id | speed |
+| --------- | ----- |
+| iv9 | 5 |
+| rhi | 10 |
+
+Output data:
+
+{% list tabs %}
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
+
+   ```text
+   {"device_id":"iv9","speed":5}
+   {"device_id":"rhi","speed":10}
+   ```
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
+
+   ```text
+   iv9,5,
+   rhi,10,
+   ````
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
+
+   This is not supported.
+
+{% endlist %}
 
 ## Serialization at data delivery to message queues {#serializer-message-queue}
 

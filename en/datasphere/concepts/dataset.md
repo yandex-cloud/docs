@@ -1,6 +1,6 @@
 # Datasets in {{ ml-platform-name }}
 
-A _dataset in {{ ml-platform-name }}_ is an information storage mechanism providing quick access to large amounts of data. Datasets can store up to 4 TB of data, giving faster access to data than to the main project storage.
+A _dataset in {{ ml-platform-name }}_ is a way to store information that provides quick access to large amounts of data. Datasets can store up to 4 TB of data, giving faster access to data than to the main project storage.
 
 {% note tip %}
 
@@ -8,7 +8,7 @@ The larger is the [disk](../../compute/concepts/disk.md) allocated for the datas
 
 {% endnote %}
 
-A dataset is created and populated during initialization. Once initialized, you can't change a dataset, it becomes read-only. If you want to add files to a dataset, create it once again.
+A dataset is [created and populated](../operations/data/dataset.md#create) during initialization. Once initialized, you cannot change a dataset, as it becomes read-only. If you want to add files to a dataset, create it once again.
 
 Datasets are not included in the main project storage and are [priced](../pricing.md#prices-datasets) separately.
 

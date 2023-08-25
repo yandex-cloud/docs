@@ -1,0 +1,13 @@
+## Get the administrator password {#get-admin-password}
+
+The openvpn user with administrator privileges was created on the `OpenVPN` server in advance. The password is generated automatically when creating a VM.
+
+You can get the password in the [serial port output](../../compute/operations/vm-info/get-serial-port-output) or the serial console. The password will display in the following string:
+
+```
+To login, please use the "openvpn" account with <`openvpn` user password> password.
+```
+
+Log in to the admin panel using the `openvpn` username and the obtained password.
+
+If you do not get the password after [launching the VPN server](#create-vpn-server) for the first time, you need to re-create the VM running [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server). The password will not display when reboot.

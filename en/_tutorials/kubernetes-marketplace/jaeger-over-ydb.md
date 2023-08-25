@@ -5,7 +5,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
 1. [Install a test application](#hotrod-install) to create load on a {{ k8s }} cluster.
 1. [Test Jaeger](#jaeger-test) by making a few test requests.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -111,8 +111,8 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
-1. [Delete the database{{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).

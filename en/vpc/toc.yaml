@@ -92,6 +92,8 @@ items:
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
+      - name: Secure user access to cloud resources based on WireGuard VPN
+        href: tutorials/remote-wireguard-vpn.md
       - name: Creating and configuring a UserGate gateway in proxy server mode
         href: tutorials/usergate-proxy.md
       - name: Configuring networks for {{ dataproc-full-name }}

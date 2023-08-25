@@ -2,8 +2,6 @@ title: Yandex SpeechKit Hybrid
 href: index.yaml
 noIndex: true
 items:
-  - name: Getting started
-    href: quickstart.md
   - name: System requirements
     href: system-requirements.md
   - name: CPU system requirements
@@ -11,18 +9,20 @@ items:
     hidden: true
   - name: Service architecture
     href: architecture.md
-  - name: Speech synthesis
-    items:
-      - name: About the technology
-        href: tts/index.md
-      - name: Performance testing
-        href: tts/testing.md
+  - name: Getting started
+    href: quickstart.md
   - name: Speech recognition
     items:
       - name: About the technology
         href: stt/index.md
       - name: Performance testing
         href: stt/testing.md
+  - name: Speech synthesis
+    items:
+      - name: About the technology
+        href: tts/index.md
+      - name: Performance testing
+        href: tts/testing.md
   - name: '{{ sk-hybrid-name }} administration'
     items:
       - name: Service settings

@@ -3,6 +3,7 @@
 Sharding provides a [range of benefits](../../managed-clickhouse/concepts/sharding.md#advantages) for coping with a high query rate and big data amounts. It works by creating a distributed table that routes queries to underlying tables. You can access data in sharded tables both directly and through the distributed table.
 
 There are three approaches to sharding:
+
 * Classic approach, when the distributed table uses all shards in the cluster.
 * Regular group-based approach, when some shards are combined into a group.
 * Advanced group-based approach, when shards are split into two groups: one group is created for the distributed table and another group is created for underlying tables.
@@ -12,6 +13,7 @@ Below are examples of sharding setup for each of the three approaches.
 For more information, see [{#T}](../../managed-clickhouse/concepts/sharding.md).
 
 To set up sharding:
+
 1. [Create tables with data](#create-tables).
 1. [Test the tables](#sharding-test).
 
@@ -73,7 +75,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      * Default security group and rules required to connect to the cluster from the internet.
      * A {{ mch-name }} cluster with relevant hosts and shards.
   1. In the configuration file, specify the username and password to access the {{ mch-name }} cluster.
-  1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+  1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
   1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
@@ -97,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For example, you need to enable sharding for the [table]({{ ch.docs }}/getting-started/example-datasets/metrica/) named `hits_v1`. The text of the table creation query depends on the sharding approach that you selected.
 
-To find the table structure to be used in `<table structure>`, see the [documentation{{ CH }}]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+For the table structure to use for `<table structure>`, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables).
 
 When you enable sharding by any of the methods, you can send the `SELECT` and `INSERT` queries to the created distributed table, and they will be processed according to the specified configuration.
 
@@ -108,6 +110,7 @@ The sharding key in the examples is a random number `rand()`.
 In this example, a distributed table that we create based on `hits_v1` uses all the shards (`shard1`, `shard2`, and `shard3`) in the `chcluster` cluster.
 
 Before operating a distributed table:
+
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
 1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will run on all cluster hosts:
 
@@ -121,6 +124,7 @@ Before operating a distributed table:
    ```
 
 To create the `hits_v1_distributed` distributed table in the cluster:
+
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
@@ -142,10 +146,12 @@ To create the `hits_v1_distributed` distributed table in the cluster:
 ### Sharding using shard groups {#shard-groups-example}
 
 In this example:
-* One `sgroup` shard group is used.
-* A distributed table and the `hits_v1` underlying table are in the same `sgroup` shard group in the cluster.
+
+- One `sgroup` shard group is used.
+- A distributed table and the `hits_v1` underlying table are in the same `sgroup` shard group in the cluster.
 
 Before operating a distributed table:
+
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
 1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will use all of the hosts of the `sgroup` shard group in the cluster:
 
@@ -159,6 +165,7 @@ Before operating a distributed table:
    ```
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
+
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
@@ -172,11 +179,13 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 ### Advanced sharding using shard groups {#shard-groups-advanced-example}
 
 In this example:
+
 1. Two shard groups are used: `sgroup` and `sgroup_data`.
 1. The distributed table is located in the `sgroup` shard group.
 1. The `hits_v1` underlying table is in the `sgroup_data` shard group.
 
 Before operating a distributed table:
+
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
 1. Create a [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) table named `hits_v1`, which will use all of the hosts of the `sgroup_data` shard group in the cluster:
 
@@ -192,6 +201,7 @@ Before operating a distributed table:
    The ReplicatedMergeTree engine ensures fault tolerance.
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
+
 1. [Connect](../../managed-clickhouse/operations/connect.md) to the `tutorial` database.
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
@@ -205,6 +215,7 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 ## Test the tables {#sharding-test}
 
 To check the health of the created distributed table named `tutorial.hits_v1_distributed`:
+
 1. Load the `hits_v1` test dataset:
 
    
@@ -228,6 +239,7 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
    ```
 
    To find out the host names, request a [list of {{ CH }} hosts in the cluster](../../managed-clickhouse/operations/hosts.md#list-hosts).
+
 1. Run one or more test queries to this table. For example, you can find out the number of rows in it:
 
    ```sql
@@ -242,7 +254,7 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 
@@ -267,6 +279,6 @@ Delete the resources you no longer need to avoid paying for them:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     All resources described in the configuration file will be deleted.
+     All the resources described in the configuration file will be deleted.
 
 {% endlist %}

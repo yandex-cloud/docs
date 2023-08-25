@@ -24,10 +24,10 @@ This section describes how to set up application health check for an existing gr
          Only HTTP/1.1 and lower are supported.
 
          {% endnote %}
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds.  
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout, in seconds.
          If you [connected your group to a network load balancer](create-with-balancer.md), we recommend setting a _higher_ value here than in the load balancer.
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Check interval in seconds (this is the interval between health checks performs by {{ ig-name }}).
-      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful health checks required for the instance to be considered healthy.  
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Check interval, in seconds (this is the interval between health checks performs by {{ ig-name }}).
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful health checks required for the instance to be considered healthy.
          If you connected your group to a network load balancer, we recommend setting a _lower_ value here than in the load balancer.
       * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed health checks for the instance to be considered unhealthy.
          If you connected your group to a network load balancer, we recommend setting a _higher_ value here than in the load balancer.

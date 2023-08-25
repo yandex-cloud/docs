@@ -91,6 +91,8 @@ Error example:
 
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
+{% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
 ## {{ OS }} {#opensearch}
 
 {% include [ambiguous-object-resolution-os](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}

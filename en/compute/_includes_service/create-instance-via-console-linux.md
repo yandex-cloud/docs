@@ -9,19 +9,19 @@ To create a [VM](../concepts/vm.md):
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-   * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+   * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../concepts/image.md) and a Linux-based OS version.
 1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure a boot [disk](../concepts/disk.md):
-   * Select the [disk type](../concepts/disk.md#disks_types).
+   * Select [disk type](../concepts/disk.md#disks_types).
    * Specify the required disk size.
 
       If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](../operations/vm-create/create-from-disks.md):
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
-      * Select the [disk type](../concepts/disk.md#disks_types).
+      * Select [disk type](../concepts/disk.md#disks_types).
       * Specify the desired block size.
-      * Specify the required disk size.
-      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option in the **{{ ui-key.yacloud.compute.instances.create-disk.field_additional }}** field if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * Specify the desired disk size.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_additional }}** option in the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** field if you need to automatically delete the disk when deleting the VM it will be attached to.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}`.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
@@ -37,7 +37,7 @@ To create a [VM](../concepts/vm.md):
    * Choose a [platform](../concepts/vm-platforms.md).
    * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
    * If required, make your VM [preemptible](../concepts/preemptible-vm.md).
-   * (optional) Enable a [software-accelerated network](../concepts/software-accelerated-network.md).
+   * (Optional) Enable a [software-accelerated network](../concepts/software-accelerated-network.md).
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -48,8 +48,8 @@ To create a [VM](../concepts/vm.md):
 
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-   * (optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+   * (Optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
+   * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
       {% note alert %}
 

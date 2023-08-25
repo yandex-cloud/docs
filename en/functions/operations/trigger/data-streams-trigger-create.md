@@ -11,7 +11,7 @@ To create a trigger, you need:
    * [Create a function](../function/function-create.md).
    * [Create a function version](../function/version-manage.md).
 
-* (optional) A [Dead Letter Queue](../../concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you don't have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* (Optional) A [Dead Letter Queue](../../concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with rights:
 
@@ -98,8 +98,8 @@ To create a trigger, you need:
       To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, the `database` parameter, such as `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
    * `--stream`: {{ yds-name }} data stream name.
-   * `--batch-size`: Message batch size. This is an optional parameter. Valid values range from 1 B to 64 KB. The default is 1 B.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. Optional parameter. Values can range from 1 B to 64 KB. The default value is 1 B.
+   * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}

@@ -15,7 +15,7 @@ The service is available at `{{ api-host-sk-tts }}:443`.
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-{{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC).
+{{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC). The [{{ speechkit-name }} Python SDK](../sdk/python/index.md) is also implemented based on API v3.
 
 |                                                    | API v1 | API v3 |
 |----------------------------------------------------|---|---------------------------------------------|
@@ -50,7 +50,7 @@ The synthesized speech will sound differently depending on the selected role. Ro
 To control pronunciation in the synthesized speech, mark up the source text. {{ speechkit-name }} can synthesize speech from text marked up using [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML) or TTS markup. These markup methods enable you to set the length of pauses, the pronunciation of individual sounds, and more. SSML and TTS markup have different data transmission parameters:
 
 * SSML is only supported in API v1 requests. To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. For more information about SSML tags, see [{#T}](markup/ssml.md).
-* TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 requires no special parameters and considers any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](markup/tts-markup.md).
+* TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 and the Python SDK require no special parameters and consider any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](markup/tts-markup.md).
 
 ## Synthesis settings {#settings}
 
@@ -64,7 +64,7 @@ By default, the speed of generated speech corresponds to the average speed of hu
 
 ### Volume normalization {#volume}
 
-In [API v3](../tts-v3/api-ref/grpc/index.md) requests, you can set the type and level of volume normalization. This can be useful if you are using {{ speechkit-name }} synthesis along with other sound sources. For example, so that the volume of the voice assistant does not differ from the phone notifications.
+In [API v3](../tts-v3/api-ref/grpc/index.md) and Python SDK requests, you can set the type and level of volume normalization. This can be useful if you are using {{ speechkit-name }} synthesis along with other sound sources. For example, so that the volume of the voice assistant does not differ from the phone notifications.
 
 {{ speechkit-name }} supports two normalization types:
 * [Peak normalization](https://en.wikipedia.org/wiki/Audio_normalization#Peak_normalization) `MAX_PEAK`, at which the audio signal level rises to the maximum possible digital audio value without distortion.
@@ -93,5 +93,10 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
    * [{#T}](api/tts-ogg.md)
    * [{#T}](api/tts-wav.md)
    * [{#T}](api/tts-ssml.md)
+* Python SDK use cases:
+   * [{#T}](../sdk/python/request.md)
+   * [{#T}](../sdk/python/synthesis.md)
+   * [{#T}](../sdk/python/templates-bvp-bvss.md)
+   * [{#T}](../sdk/python/templates-bvcc.md)
 
 

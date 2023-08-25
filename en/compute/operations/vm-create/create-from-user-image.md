@@ -38,8 +38,8 @@ Make sure the uploaded image is in the `READY` status.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the desired block size.
-      * Specify the required disk size.
-      * (optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * Specify the desired disk size.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` as content.
       * Select the necessary image.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
@@ -58,7 +58,7 @@ Make sure the uploaded image is in the `READY` status.
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
       * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
-      * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
+      * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -70,8 +70,8 @@ Make sure the uploaded image is in the `READY` status.
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
 
-      * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
+      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 

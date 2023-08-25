@@ -6,6 +6,10 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
+{% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
+
+To create an instance group with a network load balancer:
+
 {% list tabs %}
 
 - Management console
@@ -47,9 +51,8 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
 
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Select a service account to link to the instance.
-         * If you selected a Linux [image](../../concepts/image.md), fill out **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. As the key, use the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
-         * If you selected a Windows image, enter the `Administrator` user password.
-         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` if needed.
+         * If you selected a Linux [image](../../concepts/image.md), fill out **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For the key, use the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
+         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if needed.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** field, specify the number of instances you can exceed the group size by.
@@ -150,13 +153,13 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
          * `type_id`: Disk type.
          * `size`: Disk size.
          * `network_id`: ID of `default-net`.
-         * `primary_v4_address_spec`: IPv4 specification. You can allow public access to group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+         * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
          * `scheduling_policy`: Scheduling policy configuration.
          * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
-            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase in {{ yandex-cloud }} computing resource utilization.
+            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It is possible that {{ ig-name }} will not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
       * [Policies](../../concepts/instance-groups/policies/index.md):
 
          ```yaml
@@ -263,7 +266,7 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "<folder_ID>"
         role      = "editor"
-        member   = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
       }
 
       resource "yandex_compute_instance_group" "ig-1" {
@@ -352,7 +355,7 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
       ```
 
       Where:
-      * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
+      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -378,7 +381,7 @@ You can create a fixed-size [instance group](../../concepts/instance-groups/inde
          * {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md):
             * `target_group_name`: {{ network-load-balancer-name }} target group name.
             * `target_group_description`: {{ network-load-balancer-name }} target group description.
-               For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
+               For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.
       * `yandex_lb_network_load_balancer`: Description of the [{{ network-load-balancer-name }} load balancer](../../../network-load-balancer/concepts/index.md) to attach the target group to.

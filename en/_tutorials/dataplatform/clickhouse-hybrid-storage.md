@@ -244,7 +244,7 @@ As you can see from the SQL request result, from the user's point of view, the t
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 

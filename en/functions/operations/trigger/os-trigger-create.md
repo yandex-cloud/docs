@@ -34,8 +34,8 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
       * In the **Bucket** field, select the bucket whose object events you want to create a trigger for.
       * In the **Event types** field, select the [events](../../concepts/trigger/os-trigger.md#event) that will fire the trigger.
-      * (optional) In the **Object key prefix** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
-      * (optional) In the **Object key suffix** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
+      * (Optional) In the **Object key prefix** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
+      * (Optional) In the **Object key suffix** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
 
    1. Under **Function settings**, select a function and specify:
 
@@ -76,9 +76,9 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    * `--name`: Trigger name.
    * `--bucket-id`: Bucket ID.
-   * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter that is used for filtering.
-   * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter that is used for filtering.
-   * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) after which the trigger activates.
+   * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
+   * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
+   * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) activating the trigger.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -179,9 +179,9 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>

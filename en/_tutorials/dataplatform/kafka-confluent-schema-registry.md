@@ -49,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `ACCESS_ROLE_PRODUCER`.
 
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
 
 
@@ -364,7 +364,7 @@ Python scripts are provided for demonstration. You can prepare and send data for
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).

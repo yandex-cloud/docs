@@ -63,7 +63,7 @@ The infrastructure support cost includes:
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming requirements](../storage/concepts/bucket.md#naming).
+      1. Enter the bucket name according to the [naming requirements](../storage/concepts/bucket.md#naming).
       1. Specify the maximum size of the bucket: **No limit**.
       1. Select the **Limited** [access](../storage/concepts/bucket.md#bucket-access) type.
       1. Select the [storage class](../storage/concepts/storage-class.md): **Standard**.
@@ -107,7 +107,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
 
       1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
       1. Go to the **Access bindings** tab.
-      1. Click **Assign bindings**.
+      1. Click **Assign roles**.
       1. In the **Configure access bindings** window, click **Select user**.
       1. At the top of the screen, go to the **Service accounts** tab.
       1. Select the `trails-sa` service account.
@@ -119,7 +119,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
 
       1. In the [management console]({{ link-console-main }}), go to the appropriate cloud.
       1. Go to the **Access bindings** tab.
-      1. Click **Assign bindings**.
+      1. Click **Assign roles**.
       1. In the **Configure access bindings** window, click **Select user**.
       1. At the top of the screen, go to the **Service accounts** tab.
       1. Select the `trails-sa` service account.
@@ -473,7 +473,7 @@ You can also check the [yandex-cloud/yc-solution-library-for-security](https://g
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * Delete the resources created with {{ TF }}:
 
@@ -481,6 +481,6 @@ Delete the resources you no longer need to avoid paying for them:
    terraform destroy
    ```
 
-   Confirm resource deletion: type `yes` in the terminal and press **Enter**.
+   Confirm the resource deletion: type `yes` in the terminal and press **Enter**.
 
-* [Delete](../storage/operations/buckets/delete.md) the respective bucket.
+* [Delete](../storage/operations/buckets/delete.md) the bucket.

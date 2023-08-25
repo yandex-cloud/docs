@@ -33,7 +33,7 @@ Your Telegram bot's token will be displayed.
 1. Select **Demo Telegram Bot** and click **Use**.
 1. Specify the following:
    * Application name.
-   * (optional) Application description.
+   * (Optional) Application description.
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
    * ID of the previously created {{ lockbox-full-name }} secret.
 1. Click **Install** and wait for the installation to complete.

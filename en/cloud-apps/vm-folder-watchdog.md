@@ -18,7 +18,7 @@ The cost of resources for the application includes:
 1. Select **VM Folder Watchdog** and click **Use**.
 1. Specify the following:
    * Application name.
-   * (optional) Application description.
+   * (Optional) Application description.
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
    * Folder to start and stop VM instances in.
    * Schedules for VM startup and shutdown as [cron expressions](../functions/concepts/trigger/timer.md#cron-expression).

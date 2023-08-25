@@ -21,10 +21,10 @@ You can also deploy an infrastructure for running a Docker image on a VM via {{ 
 
 ### Required paid resources {#paid-resources}
 
-The cost of this infrastructure includes:
+The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A fee for storing the Docker image in the registry and for outgoing traffic (see [{{ cos-full-name }} pricing](../../cos/pricing.md)).
+* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for storing Docker image in the registry and outgoing traffic (see [{{ cos-full-name }} pricing](../../cos/pricing.md)).
 
 
 ### Configure the environment {#prepare}
@@ -42,14 +42,14 @@ The cost of this infrastructure includes:
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-     1. Go to the **Service accounts** tab.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
+     1. At the top of the screen, go to the **Service accounts** tab.
      1. Click **Create service account**.
      1. Enter the service account name and click **Create**.
      1. In the list of services, select **{{ container-registry-name }}**.
      1. Select the registry and click the row with its name.
      1. Click the **Access bindings** tab.
-     1. In the top right-hand corner, click **Assign roles**.
+     1. In the top-right corner, click **Assign roles**.
      1. Click **+ Select subject** and add the service account by supplying its ID.
      1. Click **Add role** and select `container-registry.images.puller`.
      1. Click **Save**.
@@ -128,7 +128,7 @@ The cost of this infrastructure includes:
         * Select the recently created [service account](../../iam/concepts/users/service-accounts.md).
         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
      1. Under **Images from {{ marketplace-name }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
-     1. (optional) Configure the boot disk under **Disks**:
+     1. (Optional) Configure a boot disk under **Disks**:
         * Specify the required [disk](../../compute/concepts/disk.md) size.
         * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
@@ -146,7 +146,7 @@ The cost of this infrastructure includes:
           * **No address**: Do not assign a public IP address.
 
           
-          * (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
+          * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/).
 
 
      1. Under **Access**, specify the information required to access the instance:
@@ -158,8 +158,8 @@ The cost of this infrastructure includes:
 
           {% endnote %}
 
-        * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh#creating-ssh-keys) file.
-     1. Click **Create VM**.
+        * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+     1. Click **Create VM**.
 
    - CLI
 
@@ -211,7 +211,7 @@ The cost of this infrastructure includes:
 
         * `zone`: Availability zone that corresponds to the selected subnet.
         * `subnet-name`: Name of the selected subnet.
-        * `image-family`: An [image family](../../compute/concepts/image.md#family), such as `centos-7`. This option lets you install the latest version of the operating system from the specified family.
+        * `image-family`: [Image family](../../compute/concepts/image.md#family), such as `centos-7`. This option allows you to install the latest version of the operating system from the specified family.
         * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
         * `ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
         * `service-account-name`: Name of the service account created in the previous step.
@@ -226,7 +226,7 @@ The cost of this infrastructure includes:
 
      Create a VM using the [Create](../../compute/api-ref/Instance/create.md) method for the `Instance` resource:
      1. Prepare the key pair (public and private keys) for SSH access to the VM.
-     1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+     1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
 
         
         * [Instructions](../../iam/operations/iam-token/create.md) for users with a Yandex account.
@@ -234,7 +234,7 @@ The cost of this infrastructure includes:
 
         * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
      1. [Get the ID](../../resource-manager/operations/folder/get-id.md) of the folder.
-     1. Fetch information about the image to create your VM from (image ID and minimum disk size):
+     1. Get information about the image to create your VM from (image ID and minimum disk size):
         * If you know the [image family](../../compute/concepts/image.md#family), get information about the latest image in this family:
 
           ```bash
@@ -283,7 +283,7 @@ The cost of this infrastructure includes:
             "cores": "2"
           },
           "metadata": {
-            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+            "user-data": "#cloud-config\nusers:\n  - name: user\n  groups: sudo\n  shell: /bin/bash\n  sudo: ['ALL=(ALL) NOPASSWD:ALL']\n  ssh-authorized-keys:\n  - ssh-ed25519 AAAAB3N... user@example.com"
           },
           "bootDiskSpec": {
             "diskSpec": {
@@ -306,14 +306,14 @@ The cost of this infrastructure includes:
         ```
 
         Where:
-        * `folderId`: ID of the folder.
-        * `name`: Name to assign the VM on creation.
+        * `folderId`: Folder ID.
+        * `name`: Name assigned to the VM upon creation.
         * `zoneId`: Availability zone that corresponds to the selected subnet.
-        * `platformId`: The [platform](../../compute/concepts/vm-platforms.md).
+        * `platformId`: [Platform](../../compute/concepts/vm-platforms.md).
         * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-        * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
-        * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
-        * `networkInterfaceSpecs`: Network setting.
+        * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
+        * `bootDiskSpec`: Boot disk settings. Specify the selected image's ID and disk size. Set at least the minimum value specified in the image details.
+        * `networkInterfaceSpecs`: Network setting:
           * `subnetId`: ID of the selected subnet.
           * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../vpc/concepts/address.md#public-addresses) to your VM, specify:
 
@@ -377,7 +377,7 @@ The cost of this infrastructure includes:
         ```
 
 
-   - Using an IAM token
+   - Using an {{ iam-name }} token
 
      {% note info %}
 
@@ -399,9 +399,9 @@ The cost of this infrastructure includes:
         Login succeeded
         ```
 
-   - Using a Docker Credential helper
+   - Using a Docker credential helper
 
-     1. If you don't have a YC CLI profile yet, [create one](../../cli/quickstart.md#initialize).
+     1. If you do not have a YC CLI profile yet, [create one](../../cli/quickstart.md#initialize).
      1. Configure Docker to use `docker-credential-yc`:
 
         ```bash
@@ -581,11 +581,11 @@ To create an infrastructure for running a Docker image on a VM using the registr
    * `network_name`: Name of the cloud network.
    * `subnet_name`: Name of the subnet.
    * `vm_name`: VM name.
-   * `image_id`: ID of the image to create the VM from, such as `fd81hgrcv6lsnkremf32` for Ubuntu 20.04 LTS. For details, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+   * `image_id`: ID of the image to create the VM from. For details, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-1. [{#T}](#create-image).
-1. [{#T}](#run).
-1. [{#T}](#check-result).
+1. [{#T}](#create-image)
+1. [{#T}](#run)
+1. [{#T}](#check-result)

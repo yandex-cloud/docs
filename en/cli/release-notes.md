@@ -2,13 +2,62 @@
 
 ## Current version {#latest-release}
 
+### Version 0.109.0 (10/08/23) {#version0.109.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ sf-name }} {#cloud-functions}
+
+* You can now set up a bucket to save email attachements to using the `yc serverless trigger create mail` command.
+* In the `yc serverless trigger create iot-devices`, `yc serverless trigger create iot-broker`, `yc serverless trigger create object-storage`, `yc serverless trigger create container-registry`, and `yc serverless trigger create mail` commands:
+   * Added the `--batch-size` parameter to set the message batch size.
+   * Added the `--batch-cutoff` parameter to set the maximum batch creation time.
+* Added the `--stream-names` parameter to the `yc serverless trigger create logging` command to enable filtering by log stream name.
+* Added the `yc serverless function version delete` command to delete function versions.
+
+##### {{ kms-name }} {#kms}
+
+* Added the `--inform` and `--outform` parameters to the `yc kms asymmetric-encryption-crypto decrypt`, `yc kms asymmetric-signature-crypto sign`, and `yc kms asymmetric-signature-crypto sign-hash` commands to set input and output data formats.
+* In the `yc kms asymmetric-signature-crypto sign` and `yc kms asymmetric-signature-crypto sign-hash` commands, we renamed the `--signature-file` parameter specifying the file to save the resulting signature value to to `--signature-output-file`.
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Added the `--gpu-cluster-id` parameter to the `yc k8s node-group create` command to add a node from a node group to a cluster with a GPU.
+* Added the `--gpu-environment` parameter to the `yc k8s node-group create` command to set up a pre-installed environment for nodes with GPUs.
+
+##### {{ compute-name }} {#compute}
+
+* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. The possible values are `SPREAD` or `PARTITION`.
+* Added the `--partition-count` flag to the `yc compute disk-placement-group create` command. It sets the number of partitions for a disk placement group created with the `PARTITION` strategy.
+* Added the `--disk-placement-group-partition` flag to the `yc compute disk create` command to set the partition number in a placement group.
+* Added the `PLACEMENT GROUP` column to the table listing the disks received by the `yc compute disk list` command.
+* Added the `STRATEGY` column to the table listing the disk placement groups received by the `yc compute disk-placement-group list` command.
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Added a group named `yc logging sink`.
+
+##### {{ ig-name }} {#instance-groups}
+
+* Added the `yc compute instance-group rolling-restart` and `yc compute instance-group rolling-recreate` commands to restart and recreate instances in a group based on the group limits.
+
+##### {{ dns-name }} {#dns}
+
+* Added the `yc dns zone update-private-networks` command to make atomic changes to a list of networks for private zones.
+
+##### Managed database services {#managed-db}
+
+**{{ mmg-name }}**
+
+* Added the `yc managed-mongodb backup delete` command to delete backups.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.108.1 (06/07/23) {#version0.108.1}
 
 #### Changes to the CLI {#cli}
 
 * Temporarily removed the `oslogin` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.108.0 (04/07/23) {#version0.108.0}
 
@@ -795,16 +844,16 @@ Added commands for {{ mgp-name }} primary support:
 
 * Added the `list` command for `endpoint` and `transfer`:
 
-   * `yc datatransfer endpoint list`.
-   * `yc datatransfer transfer list`.
+   * `yc datatransfer endpoint list`
+   * `yc datatransfer transfer list`
 
 * Added commands for updating `endpoint` and `transfer`:
 
-   * `yc datatransfer endpoint update postgres-source`.
-   * `yc datatransfer endpoint update postgres-target`.
-   * `yc datatransfer endpoint update mysql-source`.
-   * `yc datatransfer endpoint update mysql-target`.
-   * `yc datatransfer transfer update`.
+   * `yc datatransfer endpoint update postgres-source`
+   * `yc datatransfer endpoint update postgres-target`
+   * `yc datatransfer endpoint update mysql-source`
+   * `yc datatransfer endpoint update mysql-target`
+   * `yc datatransfer transfer update`
 
 
 ##### {{ cdn-name }} {#cdn}
@@ -1846,7 +1895,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 ##### {{ vpc-name }} {#vpc}
 
-*  `yc vpc subnet create` and `yc vpc subnet update` commands.
+* `yc vpc subnet create` and `yc vpc subnet update` commands.
 
    The `--domain-name-server` and `--ntp-server` flags now accept comma-separated lists of values.
 * Added the `yc vpc subnet list-used-addresses` command.

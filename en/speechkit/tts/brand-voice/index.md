@@ -67,11 +67,18 @@ The sampling frequency in the synthesized audio recording is {{ tts-cc-quality }
 
 {{ brand-voice-cc-name }} is designed for phone calls. The texts used for synthesis should be short enough: the duration of a synthesized phrase cannot exceed {{ tts-v3-time }}, while its length, including the variable part, cannot be more than {{ tts-v3-count }}.
 
-By default, {{ brand-voice-cc-name }} logs your transmitted patterns (both text and audio). However, the synthesized audio recordings and variable parts, including your sensitive data, are not logged. You can disable logging using the `-data-logging-enabled: false` [header](../../concepts/support-headers#request-headers), although this might affect the quality of service.
+{{ brand-voice-cc-name }} logs your transmitted patterns (both text and audio). However, the synthesized audio recordings and variable parts, including your sensitive data, are not logged. To improve the quality of a model running on your data, you can enable variable logging through the `x-data-logging-enabled: true` [header](../../concepts/support-headers#request-headers).
+
+{% note info %}
+
+It can be useful to log data if synthesis errors occur. If you do not want to log all data, only include the logging header in requests with issues after clearing the variable part of personal data as much as possible.
+
+{% endnote %}
 
 #### See also {#what-is-next}
 
 * [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
+* [{#T}](../../sdk/python/templates-bvcc.md)
 

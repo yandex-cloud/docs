@@ -221,7 +221,7 @@ Configure Graphite to save metrics in the {{ CH }} cluster. In this case, data i
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * [Delete the {{ CH }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).

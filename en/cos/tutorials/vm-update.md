@@ -43,10 +43,10 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
 
      Depending on how the VM was created, there are several ways to update it:
 
-     Creation method | Update the VM using<br>`--container-image` | Update the VM using<br>`--docker-compose-file`
-     --- | --- | ---
-     Using the parameters `--container-*` | The old Docker container is deleted and a new one is created. | The old Docker container is deleted and new Docker containers are created (described in the docker-compose.yaml file).
-     Using the docker-compose.yaml file specification | The old Docker containers (described in the docker-compose.yaml file) are deleted and a new Docker container is created, which is described using the parameters `--container-*` | Only new Docker containers (those added to the docker-compose.yaml file) or modified Docker containers are created. The Docker containers missing from the new docker-compose.yaml file are deleted.
+     | Creation method | Update the VM using<br>`--container-image` | Update the VM using<br>`--docker-compose-file` |
+     | --- | --- | --- |
+     | Using the parameters `--container-*` | The old Docker container is deleted and a new one is created. | The old Docker container is deleted and new Docker containers are created (described in the docker-compose.yaml file). |
+     | Using the docker-compose.yaml file specification | The old Docker containers (described in the docker-compose.yaml file) are deleted and a new Docker container is created, which is described using the parameters `--container-*` | Only new Docker containers (those added to the docker-compose.yaml file) or modified Docker containers are created. The Docker containers missing from the new docker-compose.yaml file are deleted. |
 
      * Update the VM by setting new parameters:
 

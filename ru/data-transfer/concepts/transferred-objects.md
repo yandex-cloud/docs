@@ -6,7 +6,7 @@ description: "{{ data-transfer-full-name }} позволяет легко пер
 
 Основными объектами, которые переносятся во время трансфера, являются таблицы и схемы данных. 
 
-Помимо этого, для определённых типов эндпоинтов могут переноситься [пустые объекты](#features-common-processing-of-empty-objects) или [представления](#features-common-processing-of-views).
+Помимо этого, для определенных типов эндпоинтов могут переноситься [пустые объекты](#features-common-processing-of-empty-objects) или [представления](#features-common-processing-of-views).
 
 ## Обработка пустых объектов {#features-common-processing-of-empty-objects}
 

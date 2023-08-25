@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       192.168.0.1:9200, example.com:9200
       ```
 
-   * (optional) **Reindex SSL CA path**: Specify the local path to the imported certificate as `/etc/elasticsearch/extensions/<extension name>/<certificate name>`.
+   * (Optional) **Reindex SSL CA path**: Specify the local path to the imported certificate as `/etc/elasticsearch/extensions/<extension name>/<certificate name>`.
 
 ## Start reindexing {#reindex}
 
@@ -103,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you no longer need {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * If you reserved public static IPs for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
 * If you used a {{ objstorage-full-name }} bucket to import a self-signed certificate, [clear](../../storage/operations/objects/delete-all.md) and [delete](../../storage/operations/buckets/delete.md) it.

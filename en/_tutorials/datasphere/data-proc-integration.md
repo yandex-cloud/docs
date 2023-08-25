@@ -2,7 +2,7 @@
 
 You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, in your {{ ml-platform-full-name }} projects. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
 
-1. [Prepare the infrastructure](#infra).
+1. [Prepare your infrastructure](#infra).
 2. [Create a {{ dataproc-name }} cluster](#cluster).
 3. [Set up the {{ ml-platform-name }} project](#project).
 4. [Run your computations](#run-code).
@@ -35,7 +35,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
-   1. Select the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. A [network](../../vpc/concepts/network.md#network) is created with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
+   1. Select the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. This will create a [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -235,7 +235,7 @@ Using the cluster deployed in {{ dataproc-name }}, you manage its lifecycle on y
 
 {% endnote %}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 

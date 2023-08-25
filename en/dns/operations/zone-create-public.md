@@ -7,13 +7,13 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to create a DNS zone.
-   1. Select **{{ dns-name }}**.
-   1. Click **Create zone**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
    1. Specify the zone settings:
-      1. **Zone**: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-      1. **Type**: **Public**.
-      1. Zone **name**.
-   1. Click **Create**.
+      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
+      1. **{{ ui-key.yacloud.common.name }}** of the zone.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -54,8 +54,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
       1. DNS zone parameters:
 
-
-         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This parameter is required.
+         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
          * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
@@ -64,9 +63,9 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
       1. DNS record parameters:
 
-         * `zone_id`: ID of the zone where the record set will be located. This parameter is required.
-         * `name`: Domain name. This parameter is required.
-         * `type`: DNS record type. This parameter is required.
+         * `zone_id`: ID of the zone where the record set will be located. This is a required parameter.
+         * `name`: Domain name. This is a required parameter.
+         * `type`: DNS record type. This is a required parameter.
          * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
          * `data`: Record value. This is an optional parameter.
 
@@ -83,8 +82,8 @@ To create a public [DNS zone](../concepts/dns-zone.md):
           label1 = "test-public"
         }
 
-        zone    = "test.example-public2.com."
-        public  = true
+        zone   = "test.example-public2.com."
+        public = true
       }
 
       resource "yandex_dns_recordset" "rs1" {
@@ -99,7 +98,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
 
-   1. Run the check using this command:
+   1. Run a check using this command:
       ```
       terraform plan
       ```
@@ -117,9 +116,9 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       terraform apply
       ```
 
-   1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      {{ TF }} will create all required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc dns zone get <DNS zone name>

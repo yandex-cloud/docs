@@ -9,7 +9,7 @@ The example uses the following parameters:
 
 Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
 ## Sample request {#request_examples}
 
@@ -30,7 +30,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    Where:
 
    * `topic`: [Language model](../models.md).
-   * `lang`: [Language](../index.md#langs) that recognition is performed for.
+   * `lang`: [Recognition language](../index.md#langs).
    * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
    * `<IAM token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
 
@@ -50,9 +50,9 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    Where:
 
-   * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+   * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
    * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `--data-binary`: Name of an audio file for recognition.
+   * `--data-binary`: Name of the audio file for recognition.
    * `topic`: [Language model](../models.md).
 
 - Python 3
@@ -87,11 +87,11 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    Where:
 
-   * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+   * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
    * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `speech.ogg`: Name of an audio file for recognition.
+   * `speech.ogg`: Name of the audio file for recognition.
    * `topic`: [Language model](../models.md).
-   * `lang`: [Language](../index.md#langs) that recognition is performed for.
+   * `lang`: [Recognition language](../index.md#langs).
 
 - PHP
 
@@ -133,9 +133,9 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
    * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `audioFileName`: Name of an audio file for recognition.
-   * `lang`: [Language](../index.md#langs) that recognition is performed for.
-   * `format`: [Format](../../formats.md) of the submitted audio.
+   * `audioFileName`: Name of the audio file for recognition.
+   * `lang`: [Recognition language](../index.md#langs).
+   * `format`: [Format](../../formats.md) of submitted audio.
 
 {% endlist %}
 
@@ -153,3 +153,4 @@ YaCloud-Billing-Units: 15
 
 * [{#T}](request-api.md)
 * [{#T}](../../concepts/auth.md)
+* [{#T}](../../sdk/python/request.md)

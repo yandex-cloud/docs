@@ -1,4 +1,5 @@
-| Service | Cost per 1000 requests, without VAT |  
+| Service | Cost per 1000 requests,<br/>without VAT |
 |---------|-------------------------------------|
-| Requests in day time | $3.84                |
-| Requests in night time  | $2.88             |
+| Night-time requests, 1000 or less per month | Free |
+| Night-time requests, over 1000 per month | $2.88   |
+| Daytime requests | $3.84                |

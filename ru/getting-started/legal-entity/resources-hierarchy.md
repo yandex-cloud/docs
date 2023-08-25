@@ -17,14 +17,15 @@
   1. Посмотрите описание команды создания каталога:
 
       ```
-      $ yc resource-manager folder create --help
+      yc resource-manager folder create --help
       ```
 
-  2. Создайте новый каталог:
+  1. Создайте новый каталог:
 
       * с именем и без описания:
+          
           ```
-          $ yc resource-manager folder create \
+          yc resource-manager folder create \
               --name new-folder
           ```
 
@@ -33,7 +34,7 @@
       * с именем и описанием:
 
           ```
-          $ yc resource-manager folder create \
+          yc resource-manager folder create \
               --name new-folder \
               --description "my first folder with description"
           ```
@@ -53,18 +54,18 @@
 - Консоль управления
 
   1. Выберите каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
-  2. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **Переименовать**.
-  3. Введите новое имя каталога.
-  4. Нажмите кнопку **Переименовать**.
+  1. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Введите новое имя каталога.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
 
   1. Посмотрите описание команды изменения каталога:
 
       ```
-      $ yc resource-manager folder update --help
+      yc resource-manager folder update --help
       ```
-  2. Если вы знаете идентификатор или имя каталога, переходите к следующему шагу. Если нет, то узнайте это одним из способов:
+  1. Если вы знаете идентификатор или имя каталога, переходите к следующему шагу. Если нет, то узнайте это одним из способов:
 
       * Получите список каталогов:
 
@@ -81,7 +82,7 @@
       * Если вы знаете идентификатор ресурса, который принадлежит нужному каталогу, получите идентификатор каталога из информации об этом ресурсе:
 
           ```
-          $ yc <SERVICE-NAME> <RESOURCE> get <RESOURCE-ID>
+          yc <SERVICE-NAME> <RESOURCE> get <RESOURCE-ID>
           ```
 
           где:
@@ -92,15 +93,15 @@
           Например, виртуальная машина `fhmp74bfis2aim728p2a` принадлежит каталогу `b1gpvjd9ir42nsng55ck`:
 
           ```
-          $ yc compute instance get fhmp74bfis2ais728p2a
+          yc compute instance get fhmp74bfis2ais728p2a
           id: fhmp74bfis2ais728p2a
           folder_id: b1gpvjd9ia42nsng55ck
           ...
           ```
-  3. Измените параметры каталога, например имя и описание. Вы можете указать изменяемый каталог по имени или идентификатору.
+  1. Измените параметры каталога, например имя и описание. Вы можете указать изменяемый каталог по имени или идентификатору.
 
       ```
-      $ yc resource-manager folder update default \
+      yc resource-manager folder update default \
           --new-name myfolder \
           --description "this is my default-folder"
       ```
@@ -125,7 +126,7 @@
 
   1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  1. Выберите каталог в блоке **Роли в каталогах** и нажмите значок ![image](../../_assets/plus-sign.svg).
+  1. Выберите каталог в блоке **{{ ui-key.yacloud.iam.users.label_folders-roles }}** и нажмите значок ![image](../../_assets/plus-sign.svg).
   1. Выберите необходимую роль из списка.
 
 - CLI
@@ -133,13 +134,13 @@
   1. Посмотрите описание команды для назначения роли на каталог:
 
       ```
-      $ yc resource-manager folder add-access-binding --help
+      yc resource-manager folder add-access-binding --help
       ```
 
-  2. Выберите каталог, например `my-folder`:
+  1. Выберите каталог, например `my-folder`:
 
       ```
-      $ yc resource-manager folder list
+      yc resource-manager folder list
       +----------------------+-----------+--------+--------+
       |          ID          |   NAME    | LABELS | STATUS |
       +----------------------+-----------+--------+--------+
@@ -147,10 +148,10 @@
       +----------------------+-----------+--------+--------+
       ```
 
-  3. Выберите [роль](../../iam/concepts/access-control/roles.md):
+  1. Выберите [роль](../../iam/concepts/access-control/roles.md):
 
       ```
-      $ yc iam role list
+      yc iam role list
       +--------------------------------+-------------+
       |               ID               | DESCRIPTION |
       +--------------------------------+-------------+
@@ -160,19 +161,19 @@
       | ...                            |             |
       +--------------------------------+-------------+
       ```
-  4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
+  1. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
 
       ```
-      $ yc iam user-account get test-user
+      yc iam user-account get test-user
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
           login: test-user
           default_email: test-user@yandex.ru
       ```
-  5. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
+  1. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
 
       ```
-      $ yc resource-manager folder add-access-binding my-folder \
+      yc resource-manager folder add-access-binding my-folder \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
       ```
@@ -198,9 +199,11 @@
        ]
       }
       ```
-  2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+      
+  1. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+      
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
       {
@@ -211,10 +214,11 @@
        }
       }
       ```
-  3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+      
+  1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
           -H 'Content-Type: application/json' \
           -H "Authorization: Bearer <IAM-TOKEN>" \
           -d '{
@@ -239,7 +243,7 @@
 
   Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
 
-  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **Настроить роли**.
+  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **{{ ui-key.yacloud.iam.users.button_tune-role }}**.
 
 - CLI
 
@@ -252,12 +256,15 @@
   {% endnote %}
 
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
+      
       ```
-      $ yc resource-manager folder list-access-binding my-folder
+      yc resource-manager folder list-access-binding my-folder
       ```
-  2. Например, назначьте роль нескольким пользователям:
+      
+  1. Например, назначьте роль нескольким пользователям:
+      
       ```
-      $ yc resource-manager folder set-access-bindings my-folder \
+      yc resource-manager folder set-access-bindings my-folder \
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
@@ -267,7 +274,7 @@
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
   ```bash
-  $ curl -X POST \
+  curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <IAM-TOKEN>" \
       -d '{
