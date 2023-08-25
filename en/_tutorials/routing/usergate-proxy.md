@@ -40,10 +40,10 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - Management console
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Network**.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner and select **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
    1. Enter the network name: `usergate-network`.
-   1. Enable the **Create subnets** option.
-   1. Click **Create network**.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI
 
@@ -131,7 +131,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -153,34 +153,33 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to create a group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
-   1. Click **Create group**.
-   1. Enter the **Name** of the group: `usergate-sg`.
-   1. Select the `usergate-network` **Network**.
-   1. Under **Rules**, create the following rules using the instructions below the table:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+   1. Enter the `usergate-sg` security group name.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `usergate-network`.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-      | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
-      | Incoming | ICMP | All | ICMP | CIDR | 0.0.0.0/0 |
-      | Incoming | rdp | 3389 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | usergate 8001 | 8001 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | usergate 8090 | 8090 | TCP | CIDR | 0.0.0.0/0 |
+      | Outgoing | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Incoming | `icmp` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_icmp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Incoming | `rdp` | `3389` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Incoming | `ssh` | `22` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Incoming | `usergate 8001` | `8001` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Incoming | `usergate 8090` | `8090` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-      1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
-      1. Click **Add rule**.
-      1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-      1. In the **Purpose** or **Source** field, select the purpose of the rule:
+      1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**. In the window that opens:
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify a single port or a range of ports the traffic will come to or from.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic transmission over any protocol.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: Rule will apply to the VMs from the current group or the selected security group.
 
-         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+         1. Click **{{ ui-key.yacloud.common.save }}**.
 
-      1. Click **Save**.
-
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -333,7 +332,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -350,11 +349,11 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-   1. Click **Reserve address**.
-   1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-   1. Click **Reserve address**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
+   1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - CLI
 
@@ -387,39 +386,40 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - Management console
 
-   1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name as `usergate-proxy`.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+   1. Enter the VM name: `usergate-proxy`.
    1. Select an availability zone `{{ region-id }}-a`.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, then select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
-   1. Under **Computing resources**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and the amount of RAM:
 
-         * **vCPU**: 4.
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
          {% note info %}
 
-         These parameters are good for functional testing of the gateway. To calculate the parameters for the production workload, read the [official recommendations](https://www.usergate.com/products/usergate-vm) from UserGate.
+         These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the [official recommendations](https://www.usergate.com/products/usergate-vm) from UserGate.
 
          {% endnote %}
 
-   1. Under **Network settings**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * Select the `usergate-network` network and the `usergate-subnet-{{ region-id }}-a` subnet.
-      * In the **Public address** field, select from a list of reserved IPs.
-      * In the **Security group** field, select the `usergate-sg` group from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** and then select the previously reserved IP from the list that opens.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `usergate-sg` group from the list.
 
-   1. Under **Access**, specify the information required to access the instance:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
 
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file.
+      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-   1. Click **Create VM**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI
 
@@ -440,7 +440,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         --memory 8 \
         --cores 4 \
         --zone {{ region-id }}-a \
-        --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<ID of the usergate-sg security group> \
+        --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<ID_of_the_usergate-sg_security_group> \
         --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
         --ssh-key <path to the public part of the SSH key> \
       ```
@@ -501,7 +501,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
         boot_disk {
           initialize_params {
-            image_id = "<ID of the UserGate NGFW image>"
+            image_id = "<UserGate_NGFW_image_ID>"
             size     = 110
           }
         }
@@ -509,8 +509,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         network_interface {
           subnet_id          = "${yandex_vpc_subnet.usergate-subnet.id}"
           nat                = true
-          security_group_ids = <ID of the usergate-sg security group>
+          security_group_ids = <usergate-sg_security_group_ID>
         }
+      }
       ```
 
       To learn more, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
@@ -534,7 +535,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -544,9 +545,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 ## Set up the UserGate NGFW via the administrative console {#admin-console}
 
-To set up the gateway, go to the UserGate NGFW administrative console at `https://<public VM address>:8001` and log in with the default credentials: username: `Admin`, password: `utm`.
+To set up the gateway, go to the UserGate NGFW administrative console at `https://<VM_public_IP>:8001` and log in with the default credentials: `Admin` as the username and `utm` as the password.
 
-When you're logged in, the system prompts you to change the default password and update the OS.
+When you are logged in, the system prompts you to change the default password and update the OS.
 
 ### Set up the gateway to run in the proxy server mode {#proxy-setup}
 
@@ -653,12 +654,12 @@ To add a certificate:
 
    * **Name**: Type any name.
    * **Certificate file**: Select the certificate file in the DER, PEM, or PKCS12 format.
-   * (optional) **Private key**: Select a private key for the certificate.
-   * (optional) **Password**: Password for your private key or PKCS12 container.
-   * (optional) **Certificate chain**: Select a file if you need to return a complete certificate chain to your clients.
+   * (Optional) **Private key**: Select a private key for the certificate.
+   * (Optional) **Password**: Password for your private key or PKCS12 container.
+   * (Optional) **Certificate chain**: Select a file if you need to return a complete certificate chain to your clients.
 
 1. Click **Save**.
-1. Click on the name of the certificate you added.
+1. Click the name of the certificate you added.
 1. In the **Used** field, select **SSL inspection**.
 1. Click **Save**.
 1. Add a rule for SSL inspection:

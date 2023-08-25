@@ -57,14 +57,14 @@ Create the required resources:
 
    Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. In this case:
 
-   * The {{ PG }} version must be the same or higher than the version in the source cluster. Migration with a {{ PG }} version downgrade is impossible.
+   * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
    * When creating a cluster, specify the same database name as in the source cluster.
    * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
 
 * Using Terraform
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf) to the same working directory.
 
       This file describes:
@@ -101,18 +101,18 @@ Create the required resources:
 
 ### Set up the source cluster {#source-setup}
 
-1. Specify the necessary SSL and WAL settings in the `postgresql.conf` file. On Debian and Ubuntu Linux distributions, the default path to this file is `/etc/postgresql/<{{ PG }} version>/main/postgresql.conf`.
-   1. We recommend using SSL for migrating data: this will not only help encrypt data, but also compress it. For more information, see [SSL Support](https://www.postgresql.org/docs/current/libpq-ssl.html) and [Database Connection Control Functions](https://www.postgresql.org/docs/current/libpq-connect.html) in the {{ PG }} documentation.
+1. Specify the required SSL and WAL settings in the `postgresql.conf` file. On Debian and Ubuntu Linux distributions, the default path to this file is `/etc/postgresql/<{{ PG }} version>/main/postgresql.conf`.
+   1. We recommend using SSL for migrating data: this will help not only encrypt data, but also compress it. For more information, see [SSL Support](https://www.postgresql.org/docs/current/libpq-ssl.html) and [Database Connection Control Functions](https://www.postgresql.org/docs/current/libpq-connect.html) in the {{ PG }} documentation.
 
-      To enable SSL, set the desired value in the configuration:
+      To enable SSL, set the appropriate value in the configuration:
 
       ```ini
       ssl = on                   # on, off
       ```
 
-   1. Change the logging level for [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html) to add the information needed for logical replication. To do this, set the value of the [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) as `logical`.
+   1. Change the logging level for [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html) to add the information needed for logical replication. To do this, set the value of the [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) to `logical`.
 
-      The setting can be changed in `postgresql.conf`. Find the line with the `wal_level` setting, comment it out if necessary, and set the value as `logical`:
+      The setting can be changed in `postgresql.conf`. Find the line with the `wal_level` setting, comment it out, if required, and set the value to `logical`:
 
       ```ini
       wal_level = logical                    # minimal, replica, or logical
@@ -129,7 +129,7 @@ Create the required resources:
       hostssl         replication    all             <host address>      md5
       ```
 
-   * If you don't use SSL:
+   * If you do not use SSL:
 
       ```txt
       host         all            all             <host address>      md5
@@ -266,7 +266,7 @@ To complete synchronization of the source cluster and the target cluster:
 
 ### Delete the resources you created {#clear-out-logical}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 
@@ -296,7 +296,7 @@ Delete the resources you no longer need to avoid paying for them:
 
 ## Transferring data by creating and restoring a logical dump {#backup}
 
-Create a dump of the necessary database in the source cluster using the `pg_dump` utility. To restore the dump in the target cluster, use the `pg_restore` utility.
+Create a dump of the database you need in the source cluster using the `pg_dump` utility. To restore the dump in the target cluster, use the `pg_restore` utility.
 
 {% note info %}
 
@@ -349,7 +349,7 @@ Create the required resources:
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf) to the same working directory.
 
       This file describes:
@@ -397,7 +397,7 @@ Create the required resources:
 ### Create a database dump {#dump}
 
 1. Switch the database to the <q>read-only</q> mode.
-1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `--jobs` argument:
+1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by providing the number of available CPU cores in the `--jobs` argument:
 
    ```bash
    pg_dump --host=<IP address of FQDN of the source cluster master host> \
@@ -500,15 +500,15 @@ Make sure the errors only apply to the extensions and check the integrity of you
 
 ### Delete the resources you created {#clear-out-backup}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 
 * Manually
 
-   1. [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
-   1. If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
-   1. If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
+   * [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+   * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
+   * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 * Using {{ TF }}
 

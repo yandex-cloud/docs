@@ -148,7 +148,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
-   Both lists support expressions in the following format:
+   The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
    * `<schema name>.<table name>`: Fully qualified table name.
    * `<schema name>.*`: All tables in the specified schema.
@@ -164,7 +164,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transmitted.
 
-   Both lists support expressions in the following format:
+   The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
    * `<schema name>.<table name>`: Fully qualified table name.
    * `<schema name>.*`: All tables in the specified schema.

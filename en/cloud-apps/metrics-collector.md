@@ -14,6 +14,6 @@ The cost of application resources includes charges for the number of function ca
 1. Select **Metrics Collector** and click **Use**.
 1. Specify the following:
    * Application name.
-   * (optional) Application description.
+   * (Optional) Application description.
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
 1. Click **Install** and wait for the installation to complete.

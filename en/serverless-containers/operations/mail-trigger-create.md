@@ -24,7 +24,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    1. Under **Basic parameters**:
 
-      * (optional) Enter a trigger name and description.
+      * (Optional) Enter a trigger name and description.
       * In the **Type** field, select **Email**.
       * In the **Launched resource** field, select **Container**.
 

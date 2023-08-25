@@ -285,7 +285,7 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 
 ## Create a {{ sf-name }} {#create-function}
 
-To run cells without opening {{ jlab }} Lab, you need a {{ sf-name }} that will trigger computations in a notebook via the API.
+To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will trigger computations in a notebook via the API.
 
 {% list tabs %}
 

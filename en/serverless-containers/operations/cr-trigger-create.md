@@ -34,8 +34,8 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
       * In the **Registry** field, select the registry where you want to create a trigger for image events.
       * In the **Event types** field, select the [events](../concepts/trigger/cr-trigger.md#event) that will fire the trigger.
-      * (optional) In the **Docker image name** field, enter an image name [to filter for](../concepts/trigger/cr-trigger.md#filter). To get the name of a Docker image, [retrieve a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
-      * (optional) In the **Docker image tag** field, enter the image tag for filtering.
+      * (Optional) In the **Docker image name** field, enter an image name for [filtering](../concepts/trigger/cr-trigger.md#filter). To learn the Docker image name, [retrieve a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+      * (Optional) In the **Docker image tag** field, enter the image tag for filtering.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -72,7 +72,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    * `--name`: Trigger name.
    * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
-   * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) after which the trigger activates.
+   * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 

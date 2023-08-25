@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-cluster-and-vm-for-rabbitmq.tf) configuration file to the same working directory.
 
       This file describes:
@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Specify in `clickhouse-cluster-and-vm-for-rabbitmq.tf`:
 
       * Username and password that will be used to access a {{ mch-name }} cluster.
-      * ID of the public Ubuntu [image](../../compute/operations/images-with-pre-installed-software/get-list.md) without GPU for the VM. For example, `fd879gb88170to70d38a` for Ubuntu 20.04 LTS.
+      * ID of the public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) [image](../../compute/operations/images-with-pre-installed-software/get-list.md) without GPU for the VM.
       * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
@@ -311,7 +311,7 @@ The query will return a table with data sent to {{ RMQ }}.
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 

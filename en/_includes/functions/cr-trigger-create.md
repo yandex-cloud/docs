@@ -32,8 +32,8 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
       * In the **Registry** field, select the registry where you want to create a trigger for image events.
       * In the **Event types** field, select the [events](../../functions/concepts/trigger/cr-trigger.md#event) that will fire the trigger.
-      * (optional) In the **Docker image name** field, enter an image name [to filter for](../../functions/concepts/trigger/cr-trigger.md#filter). To get the name of a Docker image, [retrieve a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
-      * (optional) In the **Docker image tag** field, enter the [image tag](../../functions/concepts/trigger/cr-trigger.md#filter) for filtering.
+      * (Optional) In the **Docker image name** field, enter an image name for [filtering](../../functions/concepts/trigger/cr-trigger.md#filter). To learn the Docker image name, [retrieve a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+      * (Optional) In the **Docker image tag** field, enter the [image tag](../../functions/concepts/trigger/cr-trigger.md#filter) for filtering.
 
    1. Under **Function settings**, select a function and specify:
 
@@ -72,7 +72,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
    * `--name`: Trigger name.
    * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
-   * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) after which the trigger activates.
+   * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
 
    {% include [trigger-cli-param](trigger-cli-param.md) %}
 

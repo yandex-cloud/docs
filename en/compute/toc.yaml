@@ -65,6 +65,8 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Resetting a VM user password
+            href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
           - name: Detaching a disk from a VM
@@ -105,8 +107,12 @@ items:
             href: operations/vm-connect/recovery-access.md
       - name: Managing the password reset agent
         items:
+          - name: Verifying agent operation
+            href: operations/vm-guest-agent/check.md
           - name: Installing the agent
             href: operations/vm-guest-agent/install.md
+          - name: Deleting the agent
+            href: operations/vm-guest-agent/uninstall.md
       - name: Creating a disk
         items:
           - name: Creating an empty disk
@@ -305,6 +311,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
+          - name: Resetting a Windows VM password
+            href: concepts/guest-agent.md
       - name: Graphics accelerators
         href: concepts/gpus.md
       - name: Disks and file storage

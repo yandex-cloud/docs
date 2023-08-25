@@ -5,16 +5,17 @@ description: "In this tutorial, you will learn how to deploy and set up a Bitrix
 
 # 1C-Bitrix website
 
-[1C-Bitrix: Site Management](https://www.1c-bitrix.ru/products/cms/) is a web project management system from 1C-Bitrix. It allows you to easily manage the structure and content of your website without knowing programming or design. 1C-Bitrix: Site Management does the technical work for you.
+[1C-Bitrix: Site Management](https://www.1c-bitrix.ru/products/cms/) is a web project management system from 1C-Bitrix. It allows you to easily manage the structure and content of your site without any skills in programming or web design. 1C-Bitrix: Site Management does the technical work for you.
 
 In this tutorial, you will deploy and configure a website using the 1C-Bitrix information portal template. As part of the configuration, you will create a VM in {{ yandex-cloud }}, deploy the 1C-Bitrix image on it, and launch the necessary services. As a database, you will deploy a managed MySQL database cluster and ensure its fault tolerance.
 
-Resources required for 1C-Bitrix to work correctly:
-* A VM running [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with access to an external network and hosting 1C-Bitrix.
+Resources required for 1C-Bitrix to run correctly:
+* A VM running [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) with access to an external network and hosting 1C-Bitrix.
 * A MySQL cluster that serves as a database for the 1C-Bitrix website.
 
 To deploy and configure 1C-Bitrix:
 1. [Prepare your cloud](#before-you-begin).
+1. [Create and set up a cloud network](#setup-cloud-net).
 1. [Create a VM in the cloud](#create-vm).
 1. [Create a MySQL database cluster](#create-mysql).
 1. [Configure a server to work with 1C-Bitrix](#configure-server).
@@ -32,11 +33,57 @@ You can also deploy the infrastructure for hosting a website in Bitrix via {{ TF
 ### Required paid resources
 
 The cost for maintaining the 1C-Bitrix server includes:
-* Fee for {{ compute-full-name }} disks and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for {{ compute-full-name }} disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or a static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a managed database (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
 
-The current scenario uses the trial version of 1C-Bitrix with a trial period of 30 days. You can check the cost of the product software versions on the [1C-Bitrix](https://www.1c-bitrix.ru) official website.
+The current scenario uses the trial version of 1C-Bitrix with a 30-day trial period. You can check the cost of the product software versions on the [1C-Bitrix](https://www.1c-bitrix.ru) official website.
+
+
+## Create and set up a cloud network {#setup-cloud-net}
+
+{% list tabs %}
+
+- Management console
+
+   1. [Create a network](../../vpc/operations/network-create.md) named `network-1`. When creating your network, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+   1. In `network-1`, [create](../../vpc/operations/subnet-create.md) two subnets in different availability zones with the following parameters:
+
+      1. Subnet in the `{{ region-id }}-a` availability zone:
+
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-a`.
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.0.0/24`.
+
+      1. Subnet in the `{{ region-id }}-b` availability zone:
+
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-b`.
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`.
+         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`.
+
+   1. In `network-1`, [create security groups](../../vpc/operations/security-group-create.md):
+
+      1. Named `bitrix-sg-vm` for your VM in the cloud. [Set rules](../../vpc/operations/security-group-add-rule.md) for the security group based on the following table:
+
+         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+         | --- | --- | --- | --- | --- | --- |
+         | Outgoing | `ANY` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0` |
+         | Incoming | `HTTP` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0` |
+         | Incoming | `EXT-HTTPS` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0` |
+         | Incoming | `SSH` | `22` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0` |
+
+      1. Named `bitrix-sg` for a MySQL database cluster. [Set rules](../../vpc/operations/security-group-add-rule.md) for the security group based on the following table:
+
+         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+         | --- | --- | --- | --- | --- | --- |
+         | Outgoing | `ANY` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0` |
+         | Incoming | `EXT-HTTPS` | `3306` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0` |
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
+{% endlist %}
 
 
 ## Create a VM in the cloud {#create-vm}
@@ -55,25 +102,27 @@ To create a VM:
 
    1. In the **Name** field, enter a name for the VM, such as `bitrixwebsite`.
 
-   1. Leave the default availability zone.
+   1. In the **Availability** zone field, select `{{ region-id }}-a`.
 
-   1. Under **{{ marketplace-name }}**, select the [Ubuntu 20.04 lts](/marketplace/products/yc/ubuntu-20-04-lts) image.
+   1. Under **{{ marketplace-name }}**, select the [Ubuntu 22.04 lts](/marketplace/products/yc/ubuntu-22-04-lts) image.
 
-   1. Under **Disks**, select an `SSD` with `20 GB`.
+   1. Under **Disks**, select an `SSD` with `24 GB`.
 
    1. Under **Computing resources**:
 
       * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
-      * For 1C-Bitrix to work correctly, specify the following configuration:
-         * **Platform**: `Intel Ice Lake`.
-         * **Guaranteed vCPU share**: `20%`.
-         * **vCPU**: `2`.
-         * **RAM**: `4 GB`.
+      * For 1C-Bitrix to run properly, specify the following configuration:
+
+         * **Platform**: `Intel Ice Lake`
+         * **Guaranteed vCPU share**: `20%`
+         * **vCPU**: `2`
+         * **RAM**: `4 GB`
 
    1. Under **Network settings**:
 
-      * Select the **Network** and **Subnet** to connect your VM to. If you have no network or subnet, create them directly on the VM creation page.
+      * In the **Subnet** field, select the `subnet-a` subnet you created earlier.
       * Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+      * In the **Security group** field, select the `bitrix-sg-vm` security group.
 
    1. Under **Access**, specify the information required to access the VM:
 
@@ -82,7 +131,7 @@ To create a VM:
 
    1. Click **Create VM**.
 
-   You may need to save [disk snapshots](../../compute/operations/disk-control/create-snapshot.md) of your VM. They contain a copy of the VM file system from when the snapshot was created.
+   You may need to save [disk snapshots](../../compute/operations/disk-control/create-snapshot.md) of the VM. They contain a copy of the VM file system from when the snapshot was created.
 
    You can use disk snapshots for various purposes, such as:
    * Migrating data from one disk to another, for example, to a disk in a different availability zone.
@@ -119,6 +168,11 @@ To create a MySQL database cluster:
       * **Username** to connect to the database. Leave the default value, `user1`.
       * **Password** for 1C-Bitrix to access the MySQL database, for example, `p@s$woRd!`.
 
+   1. Under **Network settings**:
+
+      * In the **Network** field, select the `network-1` network you created earlier.
+      * In the **Security group** field, select the `bitrix-sg` security group.
+
    1. Under **Hosts**, change the **Availability zone** for the database. To do this, click ![pencil](../../_assets/pencil.svg) in the line containing host details. In the window that opens, select the desired availability zone and click **Save**.
 
       We recommend selecting the same availability zone as when you created the VM. This reduces latency between the VM and database.
@@ -141,12 +195,12 @@ To create a MySQL database cluster:
 
 ## Configure a server to work with 1C-Bitrix {#configure-server}
 
-To configure a server to work with 1C-Bitrix:
+To configure the server to work with 1C-Bitrix:
 
-1. Log in to the created VM using [SSH](../../compute/operations/vm-connect/ssh.md).
+1. Log in to the created server using [SSH](../../compute/operations/vm-connect/ssh.md).
 
    ```bash
-   ssh ubuntu@<VM-public-IP>
+   ssh ubuntu@<VM_public_IP_address>
    ```
 
    Where `ubuntu` is the username in the **Login** field that you set when [creating the VM](#create-vm).
@@ -155,7 +209,7 @@ To configure a server to work with 1C-Bitrix:
 
    1. Select the **{{ compute-name }}** section.
    1. Click the name of your VM ( **bitrixwebsite** in the example).
-   1. This will open a window with general information about your VM. You can find the public IP address in the **Public IPv4** field under **Network**.
+   1. A window will open with general information about your VM. You can find the public IP address in the **Public IPv4** field under **Network**.
 
 1. Install the required software:
 
@@ -205,10 +259,10 @@ To configure a server to work with 1C-Bitrix:
    -rwxrwxr-x 1 www-data www-data   691 Oct 27  2009 web.config
    ```
 
-1. For 1C to work correctly, configure the PHP settings. To do this, use the built-in `nano` editor and modify the following variables in the `php.ini` configuration file:
+1. For proper operation of 1C, configure the PHP settings. To do this, use the built-in `nano` editor and modify the following variables in the `php.ini` configuration file:
 
    ```bash
-   sudo nano /etc/php/7.4/apache2/php.ini
+   sudo nano /etc/php/8.1/apache2/php.ini
    ```
 
    | Previously | Now |
@@ -219,9 +273,11 @@ To configure a server to work with 1C-Bitrix:
    | `;opcache.revalidate_freq =2` | `opcache.revalidate_freq =0` |
    | `;session.save_path = "/var/lib/php/sessions"` | `session.save_path = "/var/lib/php/sessions"` |
 
+   The `php.ini` file path depends on the PHP version installed. The example shows the path for version `8.1`. For version `8.0`, enter `/etc/php/8.0/apache2/php.ini`, for version`8.2`, enter `/etc/php/8.2/apache2/php.ini`, and so on.
+
    {% note tip %}
 
-   To find the parameter you need in the `nano` editor, press **Ctrl** + **W**. Find the required parameter from the table above and save the changes using **Ctrl** + **O**. To exit the editor, press **Ctrl** + **X**.
+   To find the parameter you need in the `nano` editor, press **Ctrl** + **W**. Look for the required parameter in the table above and save the changes using **Ctrl** + **O**. To exit the editor, press **Ctrl** + **X**.
 
    {% endnote %}
 
@@ -249,13 +305,13 @@ To configure a server to work with 1C-Bitrix:
       sudo service apache2 restart
       ```
 
-After you run these commands, the server side will be configured for 1C-Bitrix to work correctly.
+After you run these commands, the server side is configured for proper operation of 1C-Bitrix.
 
 ## Configure 1C-Bitrix {#configure-bitrix}
 
 Install and configure 1C-Bitrix:
 
-1. Open the 1C-Bitrix: Site Management web interface at: `http://<VM-public-IP-address>/`. This should open a page prompting you to install 1C-Bitrix.
+1. Open the 1C-Bitrix: Site Management web interface at: `http://<VM_public_IP_address>/`. A page should open asking you to install 1C-Bitrix.
 
 1. Click **Next**.
 
@@ -265,22 +321,22 @@ Install and configure 1C-Bitrix:
 
    ![Step 2](../../_assets/tutorials/bitrix-website/bitrix-website2.png)
 
-1. Registration is optional, so you can uncheck the corresponding checkbox, but leave **Install in UTF-8 encoding** and click **Next**.
+1. Since registration is optional, uncheck the corresponding checkbox. Leave **Install in UTF-8 encoding** and click **Next**.
 
    ![Step 3](../../_assets/tutorials/bitrix-website/bitrix-website3.png)
 
-1. 1C-Bitrix will check the server configuration. View the parameters on this page and click **Next**.
+1. 1C-Bitrix will check if the server is configured correctly. View all the parameters on this page and click **Next**.
 
    ![Step 4](../../_assets/tutorials/bitrix-website/bitrix-website6.png)
 
 1. Specify the parameters of the created database:
 
-   1. In the **Server** field, enter the fully qualified domain name of the database you created. To find out this name:
+   1. In the **Server** field, enter the fully qualified domain name of the created database. To find it:
       1. In the [management console]({{ link-console-main }}), open the folder page in a new browser tab.
       1. Choose **Managed Service for MySQL**.
-      1. In the table, select the database you created.
+      1. Select the `BitrixMySQL` cluster you created in the table.
       1. Select the **Hosts** tab in the left menu.
-      1. Hover over the **Hostname** (of the form `rc1c-cfazv1dbzv02u4qk`) and copy the fully qualified domain name of the database by clicking the ![copy](../../_assets/copy.svg). The fully qualified domain name is added to the host name, so the **Server** field should contain a name of the following form: `rc1c-cfazv1dbzv02u4qk.{{ dns-zone }}`.
+      1. Hover over the **Hostname** (such as `rc1c-cfazv1db********`) and copy the fully qualified domain name of the database by clicking ![copy](../../_assets/copy.svg). The fully qualified domain name will be added to the host name, so the **Server** field should now contain a name, such as `rc1c-cfazv1db********.{{ dns-zone }}`.
    1. In the **Username** and **Password** fields, enter the data that you specified when creating the database in [Create MySQL database cluster](#create-mysql).
    1. In the **Database name** field, specify the name of the created database (`db1`).
    1. Click **Next**.
@@ -299,7 +355,7 @@ Install and configure 1C-Bitrix:
 
    ![Step 9](../../_assets/tutorials/bitrix-website/bitrix-website10.png)
 
-1. Confirm the selection of the only layout template available and click **Next**.
+1. Confirm the selection of the only layout template and click **Next**.
 
    ![Step 10](../../_assets/tutorials/bitrix-website/bitrix-website11.png)
 
@@ -311,7 +367,7 @@ Install and configure 1C-Bitrix:
 
    ![Step 12](../../_assets/tutorials/bitrix-website/bitrix-website13.png)
 
-1. After a while, a notification page will inform you that the system is installed and configured. To start using the website, click **Go to site**.
+1. After a while, a notification page will inform you that the system is installed and configured. To start working with the website, click **Go to site**.
 
    ![Step 13](../../_assets/tutorials/bitrix-website/bitrix-website15.png)
 
@@ -319,13 +375,13 @@ Install and configure 1C-Bitrix:
 
    ![Step 14](../../_assets/tutorials/bitrix-website/bitrix-website16.png)
 
-1. To view the website's home page as a user, click **Exit** in the upper-right corner of the page to exit from your website admin panel and go to `http://<VM-public-IP-address>/`. To return to edit mode, log in to the website using the 1C-Bitrix administrator credentials.
+1. To view the website home page as a user, click **Exit** in the top-right corner of the page to exit from your website admin panel and go to `http://<VM_public_IP_address>/`. To return to edit mode, log in to the website using the 1C-Bitrix administrator credentials.
 
    ![Step 15](../../_assets/tutorials/bitrix-website/bitrix-website17.png)
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for a deployed server:
+To stop paying for the deployed servers:
 
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md) `bitrixwebsite`.
 

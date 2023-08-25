@@ -17,7 +17,7 @@
 * {% include [Field Included Tables](../../fields/oracle/ui/included-tables.md) %}
 * {% include [Field Excluded Tables](../../fields/oracle/ui/excluded-tables.md) %}
 
-   Both lists support expressions in the following format:
+   The lists include the name of the [schema]({{oracle.docs}}/admqs/managing-schema-objects.html) (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
    * `<schema name>.<table name>`: Fully qualified table name.
    * `<schema name>.*`: All tables in the specified schema.

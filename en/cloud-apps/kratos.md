@@ -35,9 +35,9 @@ The cost of resources for the application includes:
 1. Select **Identity Server based on Ory Kratos** and click **Use**.
 1. Specify the following:
    * Application name.
-   * (optional) Application description.
+   * (Optional) Application description.
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
-   * ID of the [cloud network](../vpc/concepts/network.md#network) that you [previously created](#before-begin).
+   * ID of the [cloud network](../vpc/concepts/network.md#network) that you [created previously](#before-begin).
    * CIDRs of [subnets](../vpc/concepts/network.md#subnet) in the `ru-central1-a`, `ru-central1-b`, and `ru-central1-c` [availability zones](../overview/concepts/geo-scope.md). The subnets will be automatically created in the specified cloud network during the application installation.
    * Number of VM instances for the Ory Kratos API.
    * Username to use to access the VM instances via SSH.

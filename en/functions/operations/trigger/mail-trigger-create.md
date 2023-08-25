@@ -24,7 +24,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
 
    1. Under **Basic parameters**:
 
-      * (optional) Enter a trigger name and description.
+      * (Optional) Enter a trigger name and description.
       * In the **Type** field, select **Email**.
       * In the **Launched resource** field, select **Function**.
 

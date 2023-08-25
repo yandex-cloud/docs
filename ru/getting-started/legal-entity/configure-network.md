@@ -8,11 +8,11 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ vpc-name }}** в каталоге, где требуется зарезервировать IP-адреса.
-    1. Откройте вкладку **IP-адреса**. Нажмите кнопку **Зарезервировать адрес**.
-    1. В открывшемся окне выберите зону доступности `ru-central1-b`. Нажмите кнопку **Зарезервировать**.
-    1. Снова нажмите **Зарезервировать адрес**. 
-    1. В открывшемся окне выберите зону доступности `ru-central1-a`. Нажмите кнопку **Зарезервировать**.
+    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется зарезервировать IP-адреса.
+    1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+    1. В открывшемся окне выберите зону доступности `{{ region-id }}-b`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+    1. Снова нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+    1. В открывшемся окне выберите зону доступности `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 {% endlist %}
 
@@ -22,14 +22,14 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **Создать ресурс**. Выберите пункт **Виртуальная машина**.
+    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
     1. Укажите имя виртуальной машины: `web-node-a`.
-    1. Выберите зону доступности `ru-central1-a`.
-    1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать** и выберите образ [Drupal](https://cloud.yandex.ru/marketplace/products/f2e90bncf96u25a9cirp).
-    1. В блоке **Сетевые настройки** выберите подсеть `subnet-a`. В блоке **Публичный адрес** выберите **Без адреса**.
-    1. В поле **Доступ** укажите логин и SSH-ключ для доступа к ВМ.
-    1. Нажмите кнопку **Создать ВМ**.
-    1. Повторите операции для ВМ `web-node-b` и `web-node-c`. Создайте их в зонах `ru-central1-b` и `ru-central1-c`, и подключите к подсетям `subnet-b` и `subnet-c` соответственно.
+    1. Выберите зону доступности `{{ region-id }}-a`.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ [Drupal](https://cloud.yandex.ru/marketplace/products/f2e90bncf96u25a9cirp).
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
+    1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и SSH-ключ для доступа к ВМ.
+    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+    1. Повторите операции для ВМ `web-node-b` и `web-node-c`. Создайте их в зонах `{{ region-id }}-b` и `{{ region-id }}-c`, и подключите к подсетям `subnet-b` и `subnet-c` соответственно.
 
 {% endlist %}
 
@@ -41,13 +41,13 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **Создать ресурс**. Выберите пункт **Виртуальная машина**.
+    1. В [консоли управления]({{ link-console-main }}) откройте ваш каталог и нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
     1. Укажите имя виртуальной машины: `vpc`.
-    1. Выберите зону доступности `ru-central1-a`.
-    1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать** и выберите образ [IPSec-инстанс](https://cloud.yandex.ru/marketplace/products/f2e70ohdvsd0jgp2302j).
-    1. В блоке **Сетевые настройки** выберите подсеть `subnet-a`. В блоке **Публичный адрес** выберите из списка зарезервированный IP-адрес.
-    1. В поле **Доступ** укажите логин и SSH-ключ для доступа к ВМ.
-    1. Нажмите кнопку **Создать ВМ**.
+    1. Выберите зону доступности `{{ region-id }}-a`.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}** и выберите образ [IPSec-инстанс](https://cloud.yandex.ru/marketplace/products/f2e70ohdvsd0jgp2302j).
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`. В блоке **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите из списка зарезервированный IP-адрес.
+    1. В поле **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите логин и SSH-ключ для доступа к ВМ.
+    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
     
 {% endlist %}
 
@@ -63,15 +63,15 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте раздел **{{ vpc-name }}** в каталоге, где требуется настроить маршрутизацию.
+    1. В [консоли управления]({{ link-console-main }}) откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется настроить маршрутизацию.
     1. Выберите сеть, в которой требуется создать таблицу маршрутизации.
-    1. Откройте вкладку **Таблицы маршрутизации**.
-    1. Нажмите кнопку ![image](../../_assets/plus.svg)**Создать таблицу маршрутизации**.
+    1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Задайте имя таблицы маршрутизации: `vpn-route`.
-    1. Нажмите кнопку **Добавить маршрут**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
     1. В открывшемся окне введите префикс подсети назначения на удаленной площадке, в примере это `192.168.0.0/24`.
-    1. В поле **Next hop** укажите внутренний IP-адрес IPSec-шлюза. Нажмите кнопку **Добавить**.
-    1. Нажмите кнопку **Создать таблицу маршрутизации**.
+    1. В поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** укажите внутренний IP-адрес IPSec-шлюза. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
     
 {% endlist %}
 
@@ -83,12 +83,12 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ vpc-name }}** в каталоге, где требуется настроить маршрутизацию.
+    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется настроить маршрутизацию.
     1. Выберите сеть, в которой находятся подсети, которым нужно назначить таблицу маршрутизации.
     1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
-    1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+    1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. В открывшемся окне выберите созданную таблицу в списке.
-    1. Нажмите кнопку **Привязать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
     1. Привяжите таблицу маршрутизации `vpn-route` ко всем трем подсетям.
 
 {% endlist %}
@@ -105,28 +105,28 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ vpc-name }}** в каталоге, где требуется создать группу безопасности.
-    1. Откройте вкладку **Группы безопасности**. 
-    1. Нажмите кнопку **Создать группу**.
+    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать группу безопасности.
+    1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Введите имя группы безопасности — `vpn-sg`.
-    1. В поле **Сеть** выберите сеть, к которой будет относиться группа безопасности.
-    1. В блоке **Правила** создайте правила для управления трафиком: 
-       1. Выберите вкладку **Исходящий трафик**.
-       1. Нажмите кнопку **Добавить правило**.
-       1. В открывшемся окне в поле **Порт** укажите порт: `500`.
-       1. В поле **Протокол** выберите `UDP`.
-       1. В поле **Назначение** укажите публичный адрес удаленного VPN-концентратора с маской `32`.
-    1. Нажмите кнопку **Сохранить**. 
-    1. Нажмите кнопку **Добавить правило**.
-       1. В открывшемся окне в поле **Порт** укажите порт: `4500`.
-       1. В поле **Протокол** выберите `UDP`.
-       1. В поле **Назначение** укажите публичный адрес удаленного VPN-концентратора с маской `32`.
-    1. Нажмите кнопку **Сохранить**.
-    1. Настройте правила, разрешающие передачу трафика между веб-серверами и машинами на удаленной площадке. Нажмите кнопку **Добавить правило**.
-       1. В открывшемся окне в поле **Порт** нажмите кнопку **Выбрать весь диапазон**.
-       1. В поле **Протокол** выберите `Любой`.
-       1. В поле **Назначение** укажите CIDR внутренней сети — `10.0.0.0/8`. 
-       1. Нажмите кнопку **Добавить CIDR** и укажите CIDR удаленной площадки — `192.168.0.0/24`.
+    1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, к которой будет относиться группа безопасности.
+    1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила для управления трафиком: 
+       1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}**.
+       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+       1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите порт: `500`.
+       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`.
+       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** укажите публичный адрес удаленного VPN-концентратора с маской `32`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. 
+    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+       1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите порт: `4500`.
+       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}`.
+       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** укажите публичный адрес удаленного VPN-концентратора с маской `32`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Настройте правила, разрешающие передачу трафика между веб-серверами и машинами на удаленной площадке. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+       1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
+       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** укажите CIDR внутренней сети — `10.0.0.0/8`. 
+       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}** и укажите CIDR удаленной площадки — `192.168.0.0/24`.
     1. Создайте такие же правила для входящего трафика.
 
 {% endlist %}
@@ -139,34 +139,34 @@
 
 Разрешите исходящие соединения к другим машинам из группы безопасности:
 
-* протокол `Любой`,
-* тип назначения **Группа безопасности**,
-* назначение `Текущая`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`;
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`;
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
 #### Правила для входящего трафика {#web-service-ingress}
 
 Разрешите следующие входящие соединения:
 
 1. HTTP-соединения от нескольких тестовых несуществующих IP-адресов: 
-   * **Протокол**: `TCP`,
-   * **Порт**: `80`,
-   * **CIDR**: `1.1.1.1/32`, `85.32.45.45/32`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `1.1.1.1/32`, `85.32.45.45/32`.
 1. HTTPS-соединения от нескольких тестовых несуществующих IP-адресов:
-   * **Протокол**: `TCP`,
-   * **Порт**: `443`,
-   * **CIDR**: `1.1.1.1/32`, `85.32.45.45/32`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `1.1.1.1/32`, `85.32.45.45/32`.
 1. TCP-соединения для доступа по SSH:
-   * **Протокол**: `TCP`,
-   * **Порт**: `22`,
-   * **CIDR**: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `0.0.0.0/0`.
 1. Соединения от других машин из группы безопасности:
-   * **Протокол**: `Любой`,
-   * Тип назначения **Группа безопасности**,
-   * Назначение: `Текущая`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 1. Проверки состояния от сетевого балансировщика:
-   * **Протокол**: `Любой`,
-   * **Порт**: `80`,
-   * **CIDR**: `198.18.235.0/24` и `198.18.248.0/24`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `198.18.235.0/24` и `198.18.248.0/24`.
 
 ## Назначьте группы безопасности ВМ {#assign-security-groups-vm}
 
@@ -176,11 +176,11 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ compute-name }}**.
+    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. Выберите виртуальную машину `vpn`.
-    1. В блоке **Сеть** нажмите значок ![options](../../_assets/options.svg) и выберите **Редактировать группы безопасности**.
-    1. В открывшемся окне выберите группу безопасности `vpn-sg`.
-    1. Нажмите кнопку **Сохранить**.
+    1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+    1. В открывшемся окне в поле **{{ ui-key.yacloud.compute.instance.edit-network-interface.field_security-groups-ids }}** выберите группу безопасности `vpn-sg`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
     1. Повторите шаги и назначьте группу безопасности `web-service-sg` виртуальным машинам `web-node-a`, `web-node-b` и `web-node-c`.
     
 {% endlist %}
@@ -194,19 +194,19 @@
 - Консоль управления
     
     Чтобы создать сетевой балансировщик:
-    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ network-load-balancer-name }}** в каталоге, где требуется создать балансировщик.
-    1. Нажмите кнопку **Создать балансировщик**.
+    1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** в каталоге, где требуется создать балансировщик.
+    1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
     1. Задайте имя балансировщика: `web-service-lb`.
-    1. В поле **Публичный адрес** выберите **Список** и укажите публичный статический адрес.
-    1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**.
-    1. В открывшемся окне введите имя обработчика и укажите порт `80` в полях **Порт** и **Целевой порт**. Нажмите кнопку **Добавить**.
-    1. В блоке **Целевые группы** нажмите **Добавить целевую группу**.
-    1. В поле **Целевая группа** нажмите на список и нажмите **Создать целевую группу**.
-    1. В открывшемся окне задайте имя целевой групп: `web-tg`.
+    1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите `{{ ui-key.yacloud.common.label_list }}` и укажите публичный статический адрес.
+    1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
+    1. В открывшемся окне введите имя обработчика и укажите порт `80` в полях **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+    1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
+    1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** нажмите на список и нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
+    1. В открывшемся окне задайте имя целевой группы: `web-tg`.
     1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-c`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Выберите созданную целевую группу из списка.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     
 {% endlist %}
 
@@ -217,9 +217,9 @@
 1. Выполните на вашем компьютере команду `curl <Публичный IP-адрес сетевого балансировщика>`. Убедитесь, что ответ не поступил.
 1. Создайте группу безопасности `web-service-test-sg` без правил и назначьте ее ВМ `web-node-a`, `web-node-b` и `web-node-c`.
 1. Создайте в группе безопасности `web-service-test-sg` следующее правило для входящего трафика:
-   * протокол `TCP`,
-   * порт `80`,
-   * CIDR `<IP-адрес вашего компьютера>/32`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`,
+   * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `<IP-адрес вашего компьютера>/32`.
 1. Снова выполните на вашем компьютере команду `curl <Публичный IP-адрес сетевого балансировщика>`. Убедитесь, что в качестве ответа вернулся HTML-код стартовой страницы Drupal.
 1. Удалите тестовую группу.
 

@@ -26,7 +26,7 @@ Each request sent for pattern-based synthesis must include:
 > The text pattern should look like this: `Let's check your booking. Your flight is at {date}, {route}. You depart from {source} and arrive at {destination}. Is everything correct?`
 > List of variables: `variable_name = '{date}', variable_value = 'eleven twenty, September eight'`, `variable_name = '{route}', variable_value = 'from London to Madrid'`, `variable_name = '{source}', variable_value = 'Heathrow'`, `variable_name = '{destination}', variable_value = 'Barajas'`.
 
-See examples of pattern-based synthesis in [{#T}](api/tts-templates.md).
+Learn more about [examples of pattern-based synthesis](#templates-implementation).
 
 ### Requirements for pattern recordings {#requirements-audio}
 
@@ -36,6 +36,7 @@ See examples of pattern-based synthesis in [{#T}](api/tts-templates.md).
 | Audio bit depth | 16 bit PCM |
 | Number of channels | 1 (mono) |
 | Format | [WAV](https://en.wikipedia.org/wiki/WAV) |
+| Minimum pattern audio recording duration | 1 second |
 
 Pattern audio recordings should not include extraneous noise or echo. Minimum post-processing of audio recordings is acceptable. The silence at the beginning and end of a recording must not be longer than one second.
 
@@ -63,7 +64,12 @@ The logical stress should not fall on the variable part of the phrase.
 
 ## How to use pattern-based synthesis {#templates-implementation}
 
-Pattern-based synthesis is only available for [API v3](../tts-v3/api-ref/grpc/). Implementation examples:
+* API v3:
 
-* [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
-* [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
+   * [{{ brand-voice-premium }} and {{ brand-voice-core }}](api/tts-templates.md).
+   * [{{ brand-voice-cc-name }}](api/tts-templates-bvcc.md).
+
+* Python SDK:
+
+   * [{{ brand-voice-premium }} and {{ brand-voice-core }}](../sdk/python/templates-bvp-bvss.md).
+   * [{{ brand-voice-cc-name }}](../sdk/python/templates-bvcc.md).

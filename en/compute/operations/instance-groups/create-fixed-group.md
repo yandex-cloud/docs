@@ -6,6 +6,8 @@ You can create a group with a fixed number of instances. The size of this [insta
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
+{% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
+
 To create a fixed-size instance group:
 
 {% list tabs %}
@@ -246,7 +248,7 @@ To create a fixed-size instance group:
       ```
 
       Where:
-      * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
+      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 

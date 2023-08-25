@@ -170,7 +170,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          sudo systemctl restart mongod.service
          ```
 
-   1. If the source cluster doesn't use replication, enable replication:
+   1. If the source cluster does not use replication, enable it:
 
       1. Add replication settings to the `/etc/mongod.conf` configuration file:
 
@@ -522,7 +522,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       * Windows 10, 11
 
-         1. If you don't have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition](https://visualstudio.microsoft.com/vs/community/) is sufficient. During installation, select the following components:
+         1. If you do not have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition](https://visualstudio.microsoft.com/vs/community/) is sufficient. During installation, select the following components:
 
             * MSBuild,
             * MSVC v141 x86/x64 build tools,
@@ -869,10 +869,10 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) a with the same name as the source database.
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
-   1. To shard migrating collections in the {{ mmg-full-name }} target cluster:
-      1. Following the [instructions](../../managed-mongodb/tutorials/sharding.md), in the target database, create and configure blank sharded collections with the same names as in the source one.
+   1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
+      1. Follow the [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure, in the target database, blank sharded collections with the same names as in the source one.
 
-         {{ data-transfer-name }} doesn't automatically shard migrating collections. Sharding large collections may take a long time and slow down the transfer.
+         {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
       1. If sharding is performed by any key other than the default `_id`, [assign the user](../../managed-mongodb/operations/cluster-users.md#updateuser) the `mdbShardingManager` role.
 
@@ -906,7 +906,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
          sudo systemctl restart mongod.service
          ```
 
-   1. If the target cluster doesn't use replication, enable replication:
+   1. If the target cluster does not use replication, enable it:
 
       1. Add replication settings to the `/etc/mongod.conf` configuration file:
 
@@ -962,7 +962,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       1. Prepare the database and create blank collections with the same names as in the source database.
 
-         {{ data-transfer-name }} doesn't automatically shard migrating collections. Sharding large collections may take a long time and slow down the transfer.
+         {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
       1. Enable target database sharding:
 

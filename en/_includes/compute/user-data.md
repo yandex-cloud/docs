@@ -14,6 +14,6 @@ users:
 Where:
 
 * `name`: VM username.
-* `ssh-authorized-keys`: List of public SSH keys for VM access.
+* `ssh-authorized-keys` (or `ssh_authorized_keys`): List of public SSH keys for VM access.
 
    Sample key: `ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop`.

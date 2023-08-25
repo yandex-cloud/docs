@@ -101,6 +101,22 @@ items:
                 href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts-v3/api-ref/grpc/tts_service.md
+  - name: SDK
+    items:
+      - name: About the Python SDK
+        href: sdk/python/index.md
+      - name: Installing the Python SDK
+        href: sdk/python/install.md
+      - name: Authentication in the Python SDK
+        href: sdk/python/auth.md
+      - name: Synchronous recognition using the Python SDK
+        href: sdk/python/request.md
+      - name: Speech synthesis using the Python SDK
+        href: sdk/python/synthesis.md
+      - name: Pattern-based synthesis using the Python SDK
+        href: sdk/python/templates-bvp-bvss.md
+      - name: '{{ brand-voice-cc }} pattern-based synthesis using the Python SDK'
+        href: sdk/python/templates-bvcc.md
   - name: Tutorials
     items:
       - name: All tutorials

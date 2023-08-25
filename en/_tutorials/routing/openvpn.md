@@ -25,7 +25,7 @@ An example of auto-connect and login-and-password configurations is shown below.
 1. [Create subnets and a test VM](#create-environment).
 1. [Start the VPN server](#create-vpn-server).
 1. [Configure network traffic permissions](#network-settings).
-1. [Get the administrator's password](#get-admin-password).
+1. [Get the administrator password](#get-admin-password).
 1. [Activate license](#get-license).
 1. [Create an OpenVPN user](#configure-openvpn).
 1. [Connect to the VPN](#test-vpn).
@@ -42,7 +42,7 @@ If you no longer need the VPN server, [delete the VM](#clear-out).
 The cost of infrastructure support for OpenVPN includes:
 
 * Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the OpenVPN Access Server license (when using more than two connections).
 
 
@@ -56,76 +56,41 @@ Create a [VM](../../compute/operations/vm-create/create-linux-vm.md) for the tes
 
 Create a VM to be the gateway for VPN connections:
 
-1. On the [folder page]({{ link-console-main }}), click **Create resource** and select Virtual machine.On the folder page, click Create resource and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. Enter `vpn-server` as your VM name and add a description.
+1. Select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `10 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
-1. Under **Basic parameters**:
+     * Select the Intel Ice Lake [platform](../../compute/concepts/vm-platforms.md).
+     * Specify the number of vCPUs and the amount of RAM:
 
-   * Enter a name `vpn-server` and description for the VM.
-   * Select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-1. Under **Image/boot disk selection**:
-
-   * Click the **{{ marketplace-name }}** tab.
-   * Click **Show more**.
-   * In the public image list, select [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) and click **Use**.
-
-1. Under **Disks**, enter 10 GB as your disk size.
-
-1. Under **Computing resources**, specify:
-
-   * vCPU: 2.
-   * RAM: 2 GB.
-
-1. Under **Network settings**:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
    * Select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically.
 
-      Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [make](../../vpc/operations/set-static-ip.md) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+      Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [make](../../vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
-   * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
+   * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
 
-1. Under **Access**, specify the data required to access the VM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
 
-   * In the **Login** field, enter the SSH username, for example, `yc-user`.
-   * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the SSH username, for example, `yc-user`.
+   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-1. Click **Create VM**.
+     You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. A window will appear informing you of the pricing type: BYOL (Bring Your Own License).
+1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+1. A window will open informing you of the pricing type: BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
 
-1. Click **Create**.
+{% include [openvpn-network-settings](../_tutorials_includes/openvpn-network-settings.md) %}
 
-## Configure network traffic permissions {#network-settings}
-
-[Security groups](../../vpc/concepts/security-groups.md) act as a virtual firewall for incoming and outgoing traffic. See Learn more about a [default security group](../../vpc/concepts/security-groups.md#default-security-group).
-
-If security groups are not available in your cloud, any traffic will be allowed.
-
-1. For OpenVPN Access Server operation, [add](../../vpc/operations/security-group-add-rule.md) the following rules to a security group:
-
-   | Traffic</br>direction | Description | Port | Protocol | Source</br>type | Source/Purpose |
-   |---|---|---|---|---|---|
-   | Incoming | VPN Server | 443 | TCP | CIDR | 0.0.0.0/0 |
-   | Incoming | VPN Server | 1194 | UDP | CIDR | 0.0.0.0/0 |
-   | Incoming | Admin Web UI,</br>Client Web UI | 943 | TCP | CIDR | 0.0.0.0/0 |
-
-   A VPN server can redirect traffic from the `HTTPS` port, so leave the only `TCP 443` port open if necessary. See also the settings in the **Configuration** → **Network Settings** tab of the server admin panel.
-
-1. If you have configured your own security group, check that traffic between the VPN server and the required resources is allowed. For example, they are in the same group and the [Self rule](../../vpc/concepts/security-groups.md#rules-types) was created for the entire group.
-
-## Get the administrator's password {#get-admin-password}.
-
-The openvpn user with administrator privileges was created on the `OpenVPN` server in advance. The password is generated automatically when creating a VM
-
-You can get the password in the [serial port output](../../compute/operations/vm-info/get-serial-port-output) or the serial console. The password will display in the following string:
-
-```
-To login, please use the "openvpn" account with <`openvpn` user password> password.
-```
-
-Log in to the admin panel using the `openvpn` username and the obtained password.
-
-If you do not get the password after [launching the VPN server](#create-vpn-server) for the first time, you need to re-create the VM running [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server). The password will not display when reboot.
+{% include [openvpn-get-admin-password](../_tutorials_includes/openvpn-get-admin-password.md) %}
 
 ## Activate license {#get-license}
 
@@ -151,22 +116,22 @@ Wait until the VM status changes to `RUNNING` and enter the activation key in th
 
 OpenVPN Access Server provides two web interfaces:
 
-1. Client Web UI at `https://<VM public IP address>/`. The interface is used by ordinary users to download client programs and configuration profiles.
-1. Admin Web UI at `https://<VM public IP address>/admin/`. The interface is used to configure a server.
+1. Client Web UI at `https://<VM_public_IP_address>/`. This interface is used by regular users to download client applications and configuration profiles.
+1. Admin Web UI at `https://<VM_public_IP_address>/admin/`. This interface is used to configure the server.
 
 {% note info %}
 
-By default, a server has a self-signed certificate installed. If you need to replace this certificate, follow the [procedure](https://openvpn.net/vpn-server-resources/installing-a-valid-ssl-web-certificate-in-access-server/).
+By default, the server has a self-signed certificate installed. If you need to replace this certificate, follow the steps described [here](https://openvpn.net/vpn-server-resources/installing-a-valid-ssl-web-certificate-in-access-server/).
 
 {% endnote %}
 
-To create a user, enter the admin panel:
+To create a user, log in to the admin panel:
 
-1. In the browser, open a URL like `https://<VM public IP address>/admin/`.
-1. Enter the `openvpn` username and password (see the section on [how to get the admin password](#get-admin-password)).
-1. Click **Agree**. This opens the main screen of the OpenVPN admin panel.
+1. In the browser, open a URL, such as `https://<VM_public_IP_address>/admin/`.
+1. Enter the `openvpn` username and password (to learn how to get the admin password, see [this section](#get-admin-password)).
+1. Click **Agree**. This will open the home screen of the OpenVPN admin panel.
 1. Go to the **User management** tab and select **User permissions**.
-1. In the list of users, enter the name of the new user in the **New Username** field, like `test-user`.
+1. In the user list, enter the name of a new user in the **New Username** field, e.g., `test-user`.
 1. Click the pencil icon in the **More Settings** column and set the new user's password in the **Password** field.
 1. Click **Save settings**.
 1. Click **Update running server**.
@@ -188,22 +153,22 @@ To check that a connection is established and working properly, connect to the V
       ```
    1. Allow auto-connect for the `test-user` user:
 
-      * Enter the admin panel at `https://<VM public IP address>/admin/`.
+      * Log in to the admin panel at `https://<VM_public_IP_address>/admin/`.
       * Open the **User management** → **User permissions** tab.
       * Enable the **Allow Auto-login** option in the user line.
 
    1. Configure routing:
 
-      * Enter the admin panel at `https://<VM public IP address>/admin/`.
+      * Log in to the admin panel at `https://<VM_public_IP_address>/admin/`.
       * Open the **Configuration** → **VPN Settings** tab.
       * Under **Routing**, disable the **Should client Internet traffic be routed through the VPN?** option.
 
    1. Download a configuration profile:
 
-      * In the browser, open the user panel at `https://<VM public IP address>/`.
+      * In the browser, open the user panel at `https://<VM_public_IP_address>/`.
       * Log in using the `test-user` username and password.
-      * In the **Available Connection Profiles** section  click **Yourself (autologin profile)** and upload `profile-1.ovpn` file.
-      * You can also download a configuration file in the admin panel at `https://<VM public IP address>/admin/`.
+      * In the **Available Connection Profiles** section, click **Yourself (autologin profile)** and upload the `profile-1.ovpn` file.
+      * You can also download a configuration file in the admin panel at `https://<<VM_public_IP_address>/admin/`.
 
    1. Upload the configuration file to a Linux machine:
 
@@ -260,7 +225,7 @@ To check that a connection is established and working properly, connect to the V
 
    1. Download the installation distribution:
 
-      * In the browser, open the user panel at `https://<VM public IP address>/`.
+      * In the browser, open the user panel at `https://<VM_public_IP_address>/`.
       * Log in using the `test-user` username and password.
       * Download OpenVPN Connect version 2 or 3 by clicking the Windows icon.
 
@@ -268,15 +233,15 @@ To check that a connection is established and working properly, connect to the V
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. A new configuration profile can be imported into the application. To do this, specify an address `https://<VM public IP address>/` or select a profile file.
+   1. A new configuration profile can be imported into the application. To do this, specify `https://<VM_public_IP_address>/` or select a profile file.
 
-   1. Open the terminal and run the command `ping <internal IP address of the test VM>`. If the command is executed, the VM can be accessed via OpenVPN.
+   1. Open the terminal and run the `ping <internal_IP_address_of_the_test_VM>` command. If the command is executed, the VM can be accessed via OpenVPN.
 
 - MacOS
 
    1. Download the installation distribution:
 
-      * In the browser, open the user panel at `https://<VM public IP address>/`.
+      * In the browser, open the user panel at `https://<VM_public_IP_address>/`.
       * Log in using the `test-user` username and password.
       * Download OpenVPN Connect version 2 or 3 by clicking the Apple icon.
 
@@ -284,15 +249,15 @@ To check that a connection is established and working properly, connect to the V
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. A new configuration profile can be imported into the application. To do this, specify an address `https://<VM public IP address>/` or select a profile file.
+   1. A new configuration profile can be imported into the application. To do this, specify `https://<VM_public_IP_address>/` or select a profile file.
 
-   1. Open the terminal and run the command `ping <internal IP address of the test VM>`. If the command is executed, the VM can be accessed via OpenVPN.
+   1. Open the terminal and run the `ping <internal_IP_address_of_the_test_VM>` command. If the command is executed, the VM can be accessed via OpenVPN.
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` VM and the test VM.
 * If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).

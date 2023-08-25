@@ -10,10 +10,10 @@
    1. Select **{{ iot-short-name }}**.
    1. Click **Create registry**.
    1. Under **General information**, add:
-      * A **name** for the registry, e.g., `my-registry`.
-      * (optional) A **description** with further information about the registry.
-      * A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password - you will need it later.
-      * (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
+      * **Name** for the registry, e.g., `my-registry`.
+      * (Optional) **Description** with further information about the registry.
+      * **Password** you will use to access the registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
+      * (Optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (Optional) Add [certificates](../../operations/certificates/create-certificates.md):
       * To add a file:
          1. Choose the **File** method.
@@ -135,7 +135,7 @@
 
       1. Confirm that you want to create the resources.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
          ```bash
          yc iot registry list

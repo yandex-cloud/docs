@@ -10,19 +10,19 @@ _API gateway_ is an interface for interacting with services in {{ yandex-cloud }
 API gateways are set in a declarative way using specifications. A specification is a JSON or YAML file with an API gateway description based on the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) standard. In {{ api-gw-name }}, the specification is supplemented with extensions that you can use for integrating with other cloud platforms.
 
 Available extensions:
-* [Static response](../concepts/extensions/dummy.md).
-* [Invoking a function](../concepts/extensions/cloud-functions.md).
-* [Access over HTTP](../concepts/extensions/http.md).
-* [Integration with {{ objstorage-name }}](../concepts/extensions/object-storage.md).
-* [Integration with {{ ml-platform-name }}](../concepts/extensions/datasphere.md).
-* [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md).
-* [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md).
-* [Integration with {{ message-queue-short-name }}](../concepts/extensions/ymq.md).
-* [Integration with {{ ydb-short-name }}](../concepts/extensions/ydb.md).
-* [Greedy parameters](../concepts/extensions/greedy-parameters.md).
-* [Generalized HTTP method](../concepts/extensions/any-method.md).
-* [CORS support](../concepts/extensions/cors.md).
-* [HTTP request and response validation](../concepts/extensions/validator.md).
+* [Static response](../concepts/extensions/dummy.md)
+* [Invoking a function](../concepts/extensions/cloud-functions.md)
+* [Access over HTTP](../concepts/extensions/http.md)
+* [Integration with {{ objstorage-name }}](../concepts/extensions/object-storage.md)
+* [Integration with {{ ml-platform-name }}](../concepts/extensions/datasphere.md)
+* [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md)
+* [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md)
+* [Integration with {{ message-queue-short-name }}](../concepts/extensions/ymq.md)
+* [Integration with {{ ydb-short-name }}](../concepts/extensions/ydb.md)
+* [Greedy parameters](../concepts/extensions/greedy-parameters.md)
+* [Generalized HTTP method](../concepts/extensions/any-method.md)
+* [CORS support](../concepts/extensions/cors.md)
+* [HTTP request and response validation](../concepts/extensions/validator.md)
 
 ## Using domains {#domains}
 

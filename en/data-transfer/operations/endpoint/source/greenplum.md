@@ -56,7 +56,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       If a table is partitioned, to exclude it from the list, make sure to list all of its partitions.
 
-      Both lists support expressions in the following format:
+      The lists include the name of the [schema]({{gp.docs.vmware}}/6/greenplum-database/admin_guide-ddl-ddl-schema.html) (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
       * `<schema name>.<table name>`: Fully qualified table name.
       * `<schema name>.*`: All tables in the specified schema.
@@ -82,9 +82,9 @@ With parallel copy disabled, a transfer will move data from {{ GP }} objects suc
 
 ### Snapshot consistency {#snapshot-consistency}
 
-When starting a transfer with parallel copy disabled (by default), the service copies data only working with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md). The tables being copied are accessed in [ACCESS SHARE]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html) `lock mode`. Snapshot consistency is achieved through {{ GP }} mechanisms.
+When starting a transfer with parallel copy disabled (by default), the service copies data only interacting with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md). The copied tables are accessed in [ACCESS SHARE]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-LOCK.html) `lock mode`. Snapshot consistency is achieved through {{ GP }} mechanisms.
 
-When starting a transfer with parallel copy enabled, the service copies data working both with the {{ GP }} cluster's master host and [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. Access to the tables to be copied locks the tables in `ACCESS SHARE` or `SHARE` mode depending on the Snapshot consistency setting.
+When starting a transfer with parallel copy enabled, the service copies data interacting with both the {{ GP }} cluster's master host and [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. Access to the tables to be copied locks the tables in `ACCESS SHARE` or `SHARE` mode depending on the Snapshot consistency setting.
 
 To guarantee snapshot consistency, transfers with parallel copy enabled need to ensure that data in the tables being transferred remains static. For `ACCESS SHARE` locks (by default), the service does not guarantee that the data will remain static: this must be assured externally. For `SHARE` locks, the {{ GP }} mechanisms guarantee that data in the source tables remains static.
 

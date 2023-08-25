@@ -13,8 +13,12 @@ Audio features in this format:
 
 * Sampling frequency:
 
-  * For API v1 [synthesis](tts/index.md) and API v2 [recognition](stt/index.md): 8, 16, or 48 kHz.
-  * For API v3 [synthesis](tts-v3/api-ref/grpc/index.md) and [recognition](stt-v3/api-ref/grpc/index.md): Between 8 kHz and 48 kHz.
+   | API version | Acceptable values |
+   | --- | --- |
+   | [Speech synthesis API v1](tts/index.md) | 8, 16, or 48 kHz |
+   | [Speech synthesis API v3](tts-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
+   | [Speech recognition API v2](stt/index.md) | 8, 16, or 48 kHz |
+   | [Speech recognition API v3](stt-v3/api-ref/grpc/index.md) | Any value between 8 and 48 kHz |
 
 * Bit depth: 16-bit.
 * Byte order: Reversed (little-endian).

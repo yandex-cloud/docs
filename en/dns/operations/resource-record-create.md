@@ -7,15 +7,15 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone to create a record in.
-   1. Select **{{ dns-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
    1. Select the zone from the list.
-   1. Click **Create record**.
+   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
    1. Set the record parameters:
-      1. In the **Name** field, enter a name for the record.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the record.
       1. Select a [record type](../concepts/resource-record.md#rr-types) from the drop-down list.
-      1. In the **TTL (seconds)** field, specify the record time to live or select a value from the list.
-      1. Enter a **Value** for the record.
-   1. Click **Create**.
+      1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, specify the record time to live or select a value from the list.
+      1. Enter a **{{ ui-key.yacloud.dns.label_records }}** for the record.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -75,7 +75,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       1. `yandex_dns_zone` parameters:
 
-         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. This parameter is required.
+         * `zone`: Domain zone. The zone name must end with a dot. You cannot create public top-level domain (TLD) zones. This is a required parameter.
          * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. This is an optional parameter.
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
@@ -85,15 +85,15 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       1. `yandex_dns_recordset` parameters:
 
-         * `zone_id`: ID of the zone where the record set will be located. This parameter is required.
-         * `name`: Domain name. This parameter is required.
-         * `type`: DNS record type. This parameter is required.
+         * `zone_id`: ID of the zone where the record set will be located. This is a required parameter.
+         * `name`: Domain name. This is a required parameter.
+         * `type`: DNS record type. This is a required parameter.
          * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
          * `data`: Record value. This is an optional parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Run the check using this command:
+   1. Run a check using this command:
       ```
       terraform plan
       ```
@@ -111,9 +111,9 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
       terraform apply
       ```
 
-   1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      {{ TF }} will create all required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc dns zone list-records <DNS zone name>

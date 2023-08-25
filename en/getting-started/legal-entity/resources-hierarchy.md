@@ -20,7 +20,7 @@ The owner can create new folders and resources in this cloud, and manage access 
       $ yc resource-manager folder create --help
       ```
 
-   2. Create a new folder:
+   1. Create a new folder:
 
       * with a name and without a description:
          ```
@@ -64,7 +64,7 @@ The management console only allows you to change the name of a folder. To change
       ```
       $ yc resource-manager folder update --help
       ```
-   2. If you know the folder ID or name, proceed to the next step. If not, use one of these methods to get them:
+   1. If you know the folder ID or name, proceed to the next step. If not, use one of these methods to get them:
 
       * Get a list of folders:
 
@@ -97,7 +97,7 @@ The management console only allows you to change the name of a folder. To change
          folder_id: b1gpvjd9ia42nsng55ck
          ...
          ```
-   3. Change the folder parameters, such as name and description. You can specify the folder to update by its name or ID.
+   1. Change the folder parameters, such as name and description. You can specify the folder to update by its name or ID.
 
       ```
       $ yc resource-manager folder update default \
@@ -136,7 +136,7 @@ The management console only allows you to change the name of a folder. To change
       $ yc resource-manager folder add-access-binding --help
       ```
 
-   2. Select a folder (for example, `my-folder`):
+   1. Select a folder (for example, `my-folder`):
 
       ```
       $ yc resource-manager folder list
@@ -147,7 +147,7 @@ The management console only allows you to change the name of a folder. To change
       +----------------------+-----------+--------+--------+
       ```
 
-   3. Choose the [ role](../../iam/concepts/access-control/roles.md).
+   1. Choose the [role](../../iam/concepts/access-control/roles.md).
 
       ```
       $ yc iam role list
@@ -160,7 +160,7 @@ The management console only allows you to change the name of a folder. To change
       | ...                            |             |
       +--------------------------------+-------------+
       ```
-   4. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
+   1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
       ```
       $ yc iam user-account get test-user
@@ -169,7 +169,7 @@ The management console only allows you to change the name of a folder. To change
           login: test-user
           default_email: test-user@yandex.ru
       ```
-   5. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
+   1. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
 
       ```
       $ yc resource-manager folder add-access-binding my-folder \
@@ -198,7 +198,7 @@ The management console only allows you to change the name of a folder. To change
        ]
       }
       ```
-   2. Find out the user ID from the login using the [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+   1. Find out the user ID from the login using the [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
@@ -211,7 +211,7 @@ The management console only allows you to change the name of a folder. To change
        }
       }
       ```
-   3. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+   1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       ```bash
       $ curl -X POST \
@@ -255,7 +255,7 @@ The management console only allows you to change the name of a folder. To change
       ```
       $ yc resource-manager folder list-access-binding my-folder
       ```
-   2. For example, assign a role to multiple users:
+   1. For example, assign a role to multiple users:
       ```
       $ yc resource-manager folder set-access-bindings my-folder \
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse

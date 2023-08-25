@@ -9,12 +9,21 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
-## Release on 20/06/2023 {#200623}
+## Release on 21/07/2023 {#210723}
 
-1. Added a page with a [list of all the projects]({{ link-datasphere-main }}) of a user.
-1. Updated initial notebooks.
+1. Updated the {{ jlab }}Lab extension for working with GIT.
+1. Community administrators can now manage permissions to use computing resources.
+1. Community and project members can now be added before they accept an invitation to join an organization.
+1. Improved the [Docker image](concepts/docker.md) build editor.
+1. Added an example of operations with {{ yagpt-full-name }} to initial notebooks.
+1. The process of starting a project is now more obvious and transparent.
 1. Fixed bugs and added minor improvements in platform performance.
 
+## Release on 20/06/2023 {#200623}
+
+1. Added a page with a [list of all {{ link-datasphere-main }} projects] of a user.
+1. Updated initial notebooks.
+1. Fixed bugs and added minor improvements in platform performance.
 
 ## Release on 23/05/2023 {#230523}
 

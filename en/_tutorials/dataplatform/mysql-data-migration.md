@@ -55,20 +55,20 @@ Create the required resources:
 
          Transferring data with an increase in the {{ MY }} major version is possible, but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-         Migration with a {{ MY }} version downgrade is [impossible](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
+         You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 
       * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
    1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
-      * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
+      * **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
 
          The recommended size is two or three times the total dump and dump archive size.
 
-      * **Network settings**:
+      * **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-         * **Subnet**: Select a subnet on the cloud network hosting the target cluster.
-         * **Public address**: Select `Auto` or one address from a list of reserved IPs.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Select a subnet on the cloud network hosting the target cluster.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or one address from a list of reserved IPs.
 
    
    1. If you use security groups for the intermediate VM and the {{ mmy-name }} cluster, [configure them](../../managed-mysql/operations/connect.md#configure-security-groups).
@@ -79,7 +79,7 @@ Create the required resources:
 * Using Terraform
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [data-migration-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-migration-mysql-mmy.tf) to the same working directory.
 
       This file describes:
@@ -101,8 +101,8 @@ Create the required resources:
 
       * (Optional) Virtual machine parameters:
 
-         * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-         * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
+         * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+         * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -149,7 +149,7 @@ Create the required resources:
           <database name> > ~/db_dump.sql
       ```
 
-      If necessary, pass additional parameters in the create dump command:
+      If required, provide additional parameters in the create dump command:
 
       * `--events`: If there are recurring events in your database.
       * `--routines`: If your database has stored procedures and functions.
@@ -312,9 +312,9 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 You can get the cluster ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-### Deletе created resources {#clear-out}
+### Deleting created resources {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 

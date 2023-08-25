@@ -44,6 +44,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 ## Managing VMs {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
+* [{#T}](vm-control/vm-reset-password.md)
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
@@ -67,7 +68,10 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-connect/recovery-access.md)
 
 ## Managing the password reset agent {#guest-agent}
+
+* [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
+* [{#T}](vm-guest-agent/uninstall.md)
 
 ## Creating a disk {#disk-create}
 

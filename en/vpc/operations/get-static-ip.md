@@ -86,13 +86,13 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       }
       ```
 
-      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
+      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
 
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check if the resources are there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc vpc address list

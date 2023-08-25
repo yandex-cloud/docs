@@ -4,7 +4,7 @@ Create an instance group using the [Instance Groups](../concepts/instance-groups
 
 ## Getting started {#before-you-begin}
 
-1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. Log in to or register in the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
 1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 
@@ -26,7 +26,7 @@ To create an instance group:
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. In {{ ig-name }}, all operations are performed on behalf of a service account.
+   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -35,13 +35,13 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the base instance.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public image.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+      * Select [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the disk size.
-      * (optional) Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}** to add more disks.
+      * (Optional) Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}** to add more disks.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
-      * (optional) Specify that the instance must be [preemptible](../../compute/concepts/preemptible-vm.md).
+      * (Optional) Specify that you want your VM [preemptible](../../compute/concepts/preemptible-vm.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Select a [cloud network](../../compute/concepts/vm.md#network) and [subnet](../../compute/concepts/network.md#subnet). If there is no subnet, create one:
          * Click **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
@@ -50,7 +50,7 @@ To create an instance group:
       * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, choose a method for assigning an IP address:
          * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
          * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Do not assign a public IP address.
-      * (optional) Select a [security group](../../vpc/concepts/security-groups.md). If there is no security group, create one:
+      * (Optional) Select a [security group](../../vpc/concepts/security-groups.md). If there is no security group, create one:
          * Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
          * Enter a name and description for the security group. You will be able to add rules to the security group at a later stage using **{{ vpc-name }}**.
          * Click **{{ ui-key.yacloud.common.create }}**.
@@ -60,7 +60,7 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
       * If you selected a Linux-based public image:
-         * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+         * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
       * If you selected a Windows-based public image:
          * In the **{{ ui-key.yacloud.common.password }}** field, set a password for the `Administrator` user. The `Administrator` user is created automatically.
@@ -89,10 +89,10 @@ To create an instance group:
    * If you selected `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed-test-auto }}`, enter group size and autoscaling parameters. For this type, autoscaling works in test mode.
 1. If you previously selected `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}` as your scaling type, under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the target CPU load as a percentage.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_ylb }}**:
-   * (optional) Click the **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** toggle. [Target groups](../../network-load-balancer/concepts/target-resources.md) are required for the [network load balancer](../../network-load-balancer/concepts/index.md) to perform its function.
+   * (Optional) Click the **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** toggle. [Target groups](../../network-load-balancer/concepts/target-resources.md) are required for the [network load balancer](../../network-load-balancer/concepts/index.md) to perform its function.
       * Enter a name and description for the target group.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_health-check }}**:
-   * (optional) Click the **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}** toggle.
+   * (Optional) Click the **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}** toggle.
       * Select the check type: `HTTP` or `TCP`.
       * Specify the path for the checks.
       * Specify a port number from the range 1-32767.

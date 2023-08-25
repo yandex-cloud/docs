@@ -21,7 +21,7 @@ You can [change or disable](../operations/projects/update.md) the subnet in the 
 
 Yes, you can. If you close the notebook tab, current computations will continue running and the [interpreter state](../concepts/save-state.md), all variables, and computation results will be saved. You can continue working when you reopen your project.
 
-#### Why can't I simultaneously start multiple notebooks in my project? {#parallel-run}
+#### Why can't I start multiple notebooks in my project simultaneously? {#parallel-run}
 
 Running notebooks have access to the project storage and can edit files. To avoid conflicts between notebooks accessing the same files during computations, {{ ml-platform-name }} prevents you from starting multiple notebooks at the same time.
 
@@ -29,13 +29,21 @@ Running notebooks have access to the project storage and can edit files. To avoi
 
 Project cells in {{ ml-platform-name }} run with the minimum [resource configuration](../concepts/configurations.md): **c1.4** (4 vCPUs). You can [change configurations](../operations/projects/control-compute-resources.md#config) while using your notebook. The state of the interpreter, variables, and computation results will be saved.
 
-#### How do I resolve the error: <q>The following variables can't be serialized</q>? {#error-variables}
+#### How do I resolve the <q>The following variables can't be serialized</q> error? {#error-variables}
 
-The error says that the system can't serialize the variable. It means that you can't move it when switching to another resource configuration. To avoid the error, run all your computations in the same configuration.
+The error says that the system cannot serialize the variable. It means that you cannot move it when switching to another resource configuration. To avoid the error, run all your computations in the same configuration.
 
 #### If I delete a running cell, will computations stop? {#delete-cell}
 
 No, they will not. Computations will continue even if you delete a cell from the notebook. Before deleting a cell, make sure to stop it. If you have deleted a running cell, stop running calculations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab or click **{{ ui-key.yc-ui-datasphere.project-page.stop-ide-executions }}** in the **{{ ui-key.yc-ui-datasphere.project-page.executions }}** widget on the project page.
+
+#### How do I clear a cell's outputs? {#clear-outputs}
+
+Select **Edit** ⟶ **Clear All Outputs** in {{ jlab }}Lab or right-click on any cell and select **Clear All Outputs**. If you choose the second option, the outputs will only be [reset](../operations/projects/clear-outputs.md) for the current session.
+
+#### Does {{ ml-platform-name }} support scheduled cell runs? {#regular-launch}
+
+This feature is not supported in {{ ml-platform-name }}. You can use [{{ sf-full-name }}](../../functions/concepts/trigger/timer.md) to automatically run cells through the [{{ ml-platform-name }} API](../api-ref/overview.md). For a detailed description of regular runs, see this [guide](../tutorials/regular-launch.md).
 
 #### My browser cannot open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
 
@@ -44,3 +52,7 @@ When opening a project in the IDE, {{ ml-platform-name }} redirects your request
 * **Chrome**: Allow using third-party cookies.
 * **Safari**: Uncheck **Website tracking: Prevent cross-site tracking** in **Preferences** ⟶ **Privacy**.
 * **Yandex Browser**: Allow using third-party cookies for {{ ml-platform-name }} in the browser settings under **Sites** ⟶ **Advanced site settings**.
+
+#### My browser asks me to grant access to a {{ jlab }}Lab host. How do I do that? {#access}
+
+The message is triggered by an experimental option in Google Chrome, which implements the storage access API. To disable it, type `chrome://flags` in the browser address bar, find **Storage Access API** in the search bar below, and change the option status to **Disabled**.

@@ -30,10 +30,10 @@
   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   1. На левой панели выберите раздел [Пользователи](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
-  1. В правом верхнем углу нажмите ![icon-users](../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
   1. Выберите федерацию, из которой необходимо добавить пользователей.
   1. Перечислите Name ID пользователей, разделяя их переносами строк.
-  1. Нажмите кнопку **Добавить**. Пользователи будут подключены к организации.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
 - CLI
 

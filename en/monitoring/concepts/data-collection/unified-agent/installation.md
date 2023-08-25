@@ -2,7 +2,7 @@
 
 ## List of supported operating systems {#supported-os}
 
-{{unified-agent-short-name}} is supported by the following operating systems:
+{{ unified-agent-short-name }} is supported by the following operating systems:
 
 - Ubuntu 14.04 or higher.
 - Debian 9 or higher.

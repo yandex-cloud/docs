@@ -16,17 +16,12 @@ To create a VM:
 
 
 
-      
-      {% include [gpu-zones](../gpu-zones.md) %}
-
-
-
 1. Select one of the [GPU-oriented images](/marketplace?search=gpu) and OS version under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
 
    {% include [gpu-os](../gpu-os.md) %}
 
 1. (Optional) Configure the boot disk under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
-   * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
+   * Select [disk type](../../../compute/concepts/disk.md#disks_types).
    * Specify the required disk size.
 
 
@@ -58,10 +53,10 @@ To create a VM:
    {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data required to access the VM:
-   * (optional) Select or create a [service account](../../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
+   * (Optional) Select or create a [service account](../../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
 
       For VMs with a Linux-based operating system:
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 
@@ -72,8 +67,6 @@ To create a VM:
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
       * (Optional) Enable access to the [serial console](../../../compute/operations/index.md#serial-console), if required.
-
-      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
       {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 

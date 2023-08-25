@@ -16,11 +16,11 @@ The cost of application resources includes charges for the number of function ca
 1. Select **Instance Group Scheduled Scale** and click **Use**.
 1. Specify the following:
    * Application name.
-   * (optional) Application description.
+   * (Optional) Application description.
    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
    * ID of a group of {{ compute-name }} virtual machines.
    * Schedule in [cron expression](../functions/concepts/trigger/timer.md#cron-expression) format to change the size of a group of VMs to the baseline.
    * Baseline VM group size.
-   * A schedule in [cron expression](../functions/concepts/trigger/timer.md#cron-expression) format to change the VM group size to the scaled-up one.
+   * Schedule in [cron expression](../functions/concepts/trigger/timer.md#cron-expression) format to change the VM group size to the scaled-up one.
    * Scaled-up VM group size.
 1. Click **Install** and wait for the installation to complete.

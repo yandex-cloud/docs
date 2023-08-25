@@ -7,10 +7,10 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a DNS zone.
-   1. Select **{{ dns-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
    1. Click ![image](../../_assets/options.svg) in the row next to the zone to delete it.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -56,7 +56,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
           label1 = "test-public"
         }
 
-        zone    = "test.example-public2.com."
+        zone = "test.example-public2.com."
       }
       ```
 
@@ -80,7 +80,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -89,7 +89,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can make sure the DNS zone has been deleted in the [management console]({{ link-console-main }}) or via the [CLI](../../cli/quickstart.md) command below:
+      You can check the DNS zone's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc dns zone list

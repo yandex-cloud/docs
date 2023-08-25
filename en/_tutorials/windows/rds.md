@@ -137,20 +137,20 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
    1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the [RDS](/marketplace?tab=software&search=windows+rds) image.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and the amount of RAM:
-         * **vCPU**: 4.
+         * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB.
+         * **RAM**: 8 GB
 
    1. Under **Network settings**, click **Add network** and select `my-network`. Select the `my-subnet-a` subnet. Under **Public address**, select **Automatically**.
-   1. Under **Access**, specify the data required to access the VM:
-      - In the **Password** field, enter your password.
    1. Click **Create VM**.
+
+   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
@@ -196,7 +196,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
    {% endlist %}
 
-1. Connect to `my-rds-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
+1. Connect to `my-rds-vm` using [RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 1. Assign Active Directory roles:
 
    {% list tabs %}
@@ -412,7 +412,7 @@ Add the server to the Terminal Server License Servers group in the Active Direct
    - PowerShell
 
       ```powershell
-      & secedit /export /cfg sec_conf_export.ini  /areas user_rights
+      & secedit /export /cfg sec_conf_export.ini /areas user_rights
       $secConfig = Get-Content sec_conf_export.ini
       $SID = 'S-1-5-32-555'
       $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"

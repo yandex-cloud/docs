@@ -44,7 +44,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Maximum number of vCPUs per VM | 32 |
    | Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 256 GB<br>With GPU: 384 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | Less than 18 vCPUs: 8<br>18 vCPUs or more: 16^3^ |
+   | Maximum number of disks and file stores attached to a single VM^2^ | 18 vCPUs or fewer: 8<br>18 vCPUs or more: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 4 |
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
@@ -55,7 +55,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Maximum number of vCPUs per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 80<br>With GPU: 64 |
    | Maximum virtual memory per VM | Without GPU: 1280 GB<br>With GPU: 384 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | Less than 20 vCPUs: 8<br>20 vCPUs or more: 16^3^ |
+   | Maximum number of disks and file stores attached to a single VM^2^ | 20 vCPUs or fewer: 8<br>20 vCPUs or more: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 8 |
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
@@ -185,7 +185,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
 
    | Type of limit | Value |
    --- | ---
-   | Minimum high-performance disk size | 93 GB |
+   | Minimum size of high-performance disk | 93 GB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
    | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br> |
    | Maximum^4^ IOPS for writes per allocation unit | 5,600 |

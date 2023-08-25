@@ -36,7 +36,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
          * Enter the disk name.
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the desired block size.
-         * Specify the required disk size.
+         * Specify the desired disk size.
          * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
          * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
          * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
@@ -53,7 +53,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Choose a [platform](../../concepts/vm-platforms.md).
-      * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
+      * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as the amount of RAM.
       * Enable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
       * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
@@ -66,7 +66,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-      * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
+      * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
@@ -208,7 +208,7 @@ The VM appears in the list.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

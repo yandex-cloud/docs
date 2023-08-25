@@ -4,9 +4,9 @@
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 
-This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}-c` availability zone will manage all the servers.
+This tutorial will explain to you how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. We will install two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across servers. A separate VM with internet access in the `{{ region-id }}-c` availability zone will manage all servers.
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a script to manage a local administrator account](#admin-script).
 1. [Create a VM for Active Directory](#ad-vm).
@@ -23,7 +23,7 @@ This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cl
 1. [Configure Edge Transport servers](#set-up-edge-transport).
 1. [Add Edge Transport servers to Exchange](#add-edges-to-exchange).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -36,10 +36,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost of a Microsoft Exchange installation includes:
 
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for load balancing (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for load balancing (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -78,7 +78,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
       To create a subnet:
 
       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
-      1. Click on the name of the cloud network.
+      1. Click the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `exchange-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
@@ -128,30 +128,30 @@ Learn more about security best practices for Active Directory on the [official w
 
 ## Create a VM for Active Directory {#ad-vm}
 
-Create two virtual machines for Active Directory. These VMs don't have internet access.
+Create two virtual machines for Active Directory. These VMs will not have internet access.
 
 {% list tabs %}
 
 - Management console
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name `ad-vm-a`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   1. In the **Name** field, enter the VM name: `ad-vm-a`.
+   1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) image.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 4.
+      * Specify the number of vCPUs and the amount of RAM:
+         * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB.
+         * **RAM**: 8 GB
 
-   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **No address**.
-   1. Under **Access**, specify the data required to access the VM:
-      * In the **Password** field, enter your password.
+   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
    1. Click **Create VM**.
 
-   Repeat this operation for the VM `ad-vm-b` in the `{{ region-id }}-b` availability zone and connect it to the subnet `exchange-subnet-b`.
+   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+
+   Repeat the steps for the VM `ad-vm-b` in the `{{ region-id }}-b` availability zone and connect it to the subnet `exchange-subnet-b`.
 
 - CLI
 
@@ -189,20 +189,20 @@ A file server with internet access is used to configure VMs with Active Director
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `fsw-vm`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
+   1. Select the `{{ region-id }}-c` [availability zone](../../overview/concepts/geo-scope.md).
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) image.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 2.
+      * Specify the number of vCPUs and the amount of RAM:
+         * **vCPU**: 2
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 4 GB.
+         * **RAM**: 4 GB
 
    1. Under **Network settings**, select the `exchange-subnet-c` subnet. In the **Public address** field, select **Auto**.
-   1. Under **Access**, specify the data required to access the VM:
-      * In the **Password** field, enter your password.
    1. Click **Create VM**.
+
+   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
@@ -222,7 +222,7 @@ A file server with internet access is used to configure VMs with Active Director
 
 ## Install and configure Active Directory {#install-ad}
 
-VMs with Active Directory don't have internet access, so they should be configured from the `fsw-vm` VM using RDP.
+VMs with Active Directory do not have internet access, so they should be configured from the `fsw-vm` VM using RDP.
 
 1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 1. Start the RDP client on the `fsw-vm` VM instance and connect to `ad-vm-a`. Enter `Administrator` as the username and then your password.
@@ -404,22 +404,22 @@ VMs with Active Directory don't have internet access, so they should be configur
    - Management console
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-      1. In the **Name** field, enter the VM name `vm-exchange-a`.
-      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+      1. In the **Name** field, enter the VM name: `vm-exchange-a`.
+      1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-      1. Under **Disks**, enter 100 GB for the size of the boot disk:
+      1. Under **Disks**, enter 100 GB for the size of the boot disk.
       1. Add another 250 GB SSD named `db-a`.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the number of vCPUs and amount of RAM:
-            * **vCPU**: 8.
+         * Specify the number of vCPUs and the amount of RAM:
+            * **vCPU**: 8
             * **Guaranteed vCPU share**: 100%
-            * **RAM**: 32 GB.
+            * **RAM**: 32 GB
 
-      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **No address**.
-      1. Under **Access**, specify the data required to access the VM:
-         * In the **Password** field, enter your password.
+      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
       1. Click **Create VM**.
+
+      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
    - CLI
 
@@ -488,22 +488,22 @@ VMs with Active Directory don't have internet access, so they should be configur
    - Management console
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-      1. In the **Name** field, enter the VM name `vm-exchange-b`.
-      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+      1. In the **Name** field, enter the VM name: `vm-exchange-b`.
+      1. Select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-      1. Under **Disks**, enter 100 GB for the size of the boot disk:
+      1. Under **Disks**, enter 100 GB for the size of the boot disk.
       1. Add another 250 GB SSD named `db-b`.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the number of vCPUs and amount of RAM:
-            * **vCPU**: 8.
+         * Specify the number of vCPUs and the amount of RAM:
+            * **vCPU**: 8
             * **Guaranteed vCPU share**: 100%
-            * **RAM**: 32 GB.
+            * **RAM**: 32 GB
 
-      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address** field, select **No address**.
-      1. Under **Access**, specify the data required to access the VM:
-         * In the **Password** field, enter your password.
+      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address**field, select **No address**.
       1. Click **Create VM**.
+
+      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
    - CLI
 
@@ -625,9 +625,9 @@ Repeat these commands for the `vm-exchange-b` VM.
    Result:
 
    ```powershell
-   Name             Member Servers                                      Operational Servers
-   ----             --------------                                      -------------------
-   ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                    {VM-EXCHANGE-A, VM-EXCHANGE-B}
+   Name        Member Servers                       Operational Servers
+   ----        --------------                       -------------------
+   ycdag       {VM-EXCHANGE-A, VM-EXCHANGE-B}       {VM-EXCHANGE-A, VM-EXCHANGE-B}
    ```
 
 1. Create a mail server database:
@@ -821,20 +821,20 @@ Create a VM named `vm-edge-a`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-a`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 4.
+      * Specify the number of vCPUs and the amount of RAM:
+         * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB.
+         * **RAM**: 8 GB
 
    1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **Auto** or select an address from the list of the reserved addresses.
-   1. Under **Access**, specify the data required to access the VM:
-      * In the **Password** field, enter your password.
    1. Click **Create VM**.
+
+   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
@@ -862,20 +862,20 @@ Create a VM named `vm-edge-b`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-b`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+   1. Select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 4.
+      * Specify the number of vCPUs and the amount of RAM:
+         * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB.
+         * **RAM**: 8 GB
 
    1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address** field, select **Auto** or select an address from the list of the reserved addresses.
-   1. Under **Access**, specify the data required to access the VM:
-      * In the **Password** field, enter your password.
    1. Click **Create VM**.
+
+   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
@@ -895,7 +895,7 @@ Create a VM named `vm-edge-b`:
 
 ## Configure Edge Transport servers {#set-up-edge-transport}
 
-### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a} 
+### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a}
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
@@ -998,7 +998,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
@@ -1084,9 +1084,9 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Result:
 
    ```powershell
-   Name            Site                 Domain
-   ----            ----                 ------
-   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
+   Name            Site                       Domain
+   ----            ----                       ------
+   vm-edge-a       yantoso.net/Confi...       {{ region-id }}.internal
    ```
 
 1. Check the sync status:
@@ -1131,10 +1131,10 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Result:
 
    ```powershell
-   Name            Site                 Domain
-   ----            ----                 ------
-   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
-   vm-edge-b       yantoso.net/Confi... {{ region-id }}.internal
+   Name            Site                       Domain
+   ----            ----                       ------
+   vm-edge-a       yantoso.net/Confi...       {{ region-id }}.internal
+   vm-edge-b       yantoso.net/Confi...       {{ region-id }}.internal
    ```
 
 1. Check the sync status:
@@ -1145,9 +1145,9 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    The `SyncStatus` value must be `Normal`.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for deployed servers, delete all the [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
+To stop paying for the deployed servers, delete all the [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
 
 * `fsw-vm`
 * `ad-vm-a`

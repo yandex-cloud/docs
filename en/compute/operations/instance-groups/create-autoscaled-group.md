@@ -53,7 +53,7 @@ To create an automatically scaled instance group:
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `description`: Description of the instance group.
+         * `description`: Description of the instance group.
 
      * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
 
@@ -258,8 +258,8 @@ To create an automatically scaled instance group:
       ```
 
       Where:
-      * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_iam_service_account`: Description of the [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access rights to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
       * `yandex_compute_instance_group`: Description of the instance group.
          * General information about the instance group:
             * `name`: Name of the instance group.
@@ -292,6 +292,8 @@ To create an automatically scaled instance group:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
+
+{% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}

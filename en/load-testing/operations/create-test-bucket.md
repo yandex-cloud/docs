@@ -44,7 +44,7 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 
       1. Select the data transfer method: **{{ ui-key.yacloud.load-testing.label_local-source }}**.
       1. Click **Attach file** and upload a file with test data from your computer.
-      1. Enable **Save to {{ objstorage-name }}**.
+      1. Enable the **Save to {{ objstorage-name }}** option.
       1. Select or [create](../../storage/operations/buckets/create.md) a bucket to save data to.
 
 1. Depending on the selected configuration type, set the parameters under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:

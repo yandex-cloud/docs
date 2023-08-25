@@ -13,9 +13,9 @@ To create a trigger, you need:
    * [Create a function](../../functions/operations/function/function-create.md).
    * [Create a function version](../../functions/operations/function/version-manage.md).
 
-* (optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* (Optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
-* [Service account](../../iam/concepts/users/service-accounts.md) with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* [Service account](../../iam/concepts/users/service-accounts.md) with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -93,14 +93,14 @@ To create a trigger, you need:
 
    * `--name`: Trigger name.
    * `--log-groups`: List of IDs of log groups.
-   * `--batch-size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
+   * `--batch-size`: Message batch size. Optional parameter. Values can range from 1 to 10. The default value is 1.
+   * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
    * `--invoke-function-id`: Function ID.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--retry-attempts`: Time after which the function will be invoked again if the current attempt fails. This is an optional parameter. You can specify values from 10 to 60 seconds, 10 being default.
-   * `--retry-interval`: Number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). This is an optional parameter. You can specify values from 1 to 5, 1 being default.
-   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. This is an optional parameter.
-   * `--dlq-service-account-id`: Service account with the permission to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). This is an optional parameter.
+   * `--retry-attempts`: Time after which the function will be invoked again if the current attempt fails. Optional parameter. Values can range from 10 to 60 seconds. The default value is 10 seconds.
+   * `--retry-interval`: Number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter. Values can range from 1 to 5. The default value is 1.
+   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. Optional parameter.
+   * `--dlq-service-account-id`: Service account with the permission to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter.
 
 
    Result:

@@ -52,8 +52,8 @@ To create a [VM](../../concepts/vm.md):
 
       * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field (if there is no such field, the VM will be enabled for all incoming and outgoing traffic).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-      * (optional) Select or create a [service account](../../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * (Optional) Select or create a [service account](../../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
+      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
       * (Optional) Enable access to the [serial console](../index.md#serial-console) in the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, if required.
 
@@ -195,7 +195,7 @@ To create a [VM](../../concepts/vm.md):
 
       {% endnote %}
 
-      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_instance).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
@@ -212,7 +212,7 @@ To create a [VM](../../concepts/vm.md):
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
       {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 

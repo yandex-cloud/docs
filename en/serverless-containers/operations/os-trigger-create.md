@@ -34,8 +34,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
       * In the **Bucket** field, select the bucket whose object events you want to create a trigger for.
       * In the **Event types** field, select the events that will fire the trigger.
-      * (optional) In the **Object key prefix** field, enter a prefix for filtering.
-      * (optional) In the **Object key suffix** field, enter a suffix for filtering.
+      * (Optional) In the **Object key prefix** field, enter a prefix for filtering.
+      * (Optional) In the **Object key suffix** field, enter a suffix for filtering.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -74,9 +74,9 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    * `--name`: Trigger name.
    * `--bucket-id`: Bucket ID.
-   * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter that is used for filtering.
-   * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter that is used for filtering.
-   * `--events`: [Events](../concepts/trigger/os-trigger.md#event) after which the trigger activates.
+   * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
+   * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
+   * `--events`: [Events](../concepts/trigger/os-trigger.md#event) activating the trigger.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 

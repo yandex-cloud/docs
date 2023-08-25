@@ -16,6 +16,10 @@ The Service Level Agreement (SLA) does not apply to the trial period. We do not 
 
 Technical support is provided in full during the trial period. For more information, see [Requesting technical support](../../../support/overview.md).
 
+## {{ billing-name }} {#billing}
+
+{% include [pin-cloud-trial](../../../billing/_includes/pin-cloud-trial.md) %}
+
 ## {{ marketplace-full-name }} {#marketplace}
 
 

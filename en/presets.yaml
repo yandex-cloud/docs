@@ -79,6 +79,7 @@ default:
   storage-aws-cli-alias: ycs3
   yagpt-full-name: YandexGPT
   billing-name: Yandex Cloud Billing
+  console-full-name: Yandex Cloud Console
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -429,6 +430,7 @@ default:
   TF: Terraform
   TF-full: Hashicorp Terraform
   TF-version: '0.90'
+  grpcio-tools-version: 1.46.3
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   metrika: Yandex Metrica
@@ -737,6 +739,8 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     version-cdc: 22.5
+  oracle:
+    docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   stt-short-fileSize: 1 MB
   stt-short-audioLength: 30 seconds
   stt-short-channelsCount: 1
@@ -4693,8 +4697,15 @@ default:
       acl:
         action:
           add-role: Add role
+          apply: Save
+          select-subject: Select subject
+        button:
+          add-role: Add role
         label:
           title: Configuring access bindings
+      organization:
+        action:
+          select: Continue
       settings:
         field_theme: Interface theme
         field_theme-contrast: Contrast
@@ -4750,18 +4761,42 @@ default:
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
     yacloud_org:
+      actions:
+        add: Add
+      common:
+        resource-acl:
+          label_groups: Groups
+          label_service-accounts: Service accounts
       entity:
         invitation:
           action_send-invitation: Send invitation
       form:
+        acl:
+          edit:
+            action:
+              subject:
+                select: Select subject
         federation:
           create:
             action:
               create: Create federation
+        organization:
+          select:
+            action:
+              enter: Log in
+      forms:
+        action:
+          save: Save
       page:
+        settings:
+          action:
+            edit: Edit data
         users:
           action:
+            add-federated-users: Add federated users
             invite-users: Invite users
+      pages:
+        create: Create organization
     yacloud_portal:
       subAccount:
         detail:
@@ -4829,6 +4864,7 @@ default:
           dashboard-overview:
             button_refill: Top up account
             popup-refill_button_company-action: Issue receipt
+            popup-refill_button_individual-action: Top up account
           dashboard-resources:
             button_action-rename-account: Rename
             button_bind-cloud: Link cloud
@@ -4878,6 +4914,8 @@ default:
           overview:
             button_bind-card-apply: Apply
             card_label_edit: Change bank card
+            payment-type_label_card: Bank card
+            payment-type_label_invoice: Wire transfer
             section_account-data: General information
             section_card: Bank card
             usage-type_label_paid: Paid version
@@ -5485,6 +5523,7 @@ default:
             button_create: Create
             field_default-net: Create a default network
           folders:
+            popup-edit_button_save: Save
             section_folders: Folders
           incident-notifications:
             label_users: Users
@@ -5560,6 +5599,9 @@ default:
             popup-confirm_button_delete: Delete
           switch_incident-notifications: Notifications
           switch_service-accounts: Service accounts
+        users:
+          button_tune-role: Configure roles
+          label_folders-roles: Roles for folders
       iot:
         button_add-device: Add device
         button_create-broker: Create broker
@@ -5695,6 +5737,8 @@ default:
           label_key: Key
           label_value: Value
           section_version: Version
+      logging:
+        button_create-group: Create group
       marketplace-v2:
         button_use: Use
       mdb:
@@ -5988,6 +6032,9 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
+      page:
+        welcome:
+          button_send: Log in
       postgresql:
         hosts:
           dialog:
@@ -6202,6 +6249,12 @@ default:
         contact:
           label_title: Queries
         label_service: Support
+        plan:
+          button_submit: Switch
+          popup-confirm_button-submit: Confirm
+        request-callback:
+          button_submit: Submit
+        switch_plan: Pricing plan
       vpc:
         add-static-route:
           button_add: Add

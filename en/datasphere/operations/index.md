@@ -34,6 +34,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/snippets.md)
+* [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
 * [{#T}](user-images-cell.md)
 

@@ -28,13 +28,13 @@ To create a VM from a set of disks:
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the desired block size.
-      * Specify the required disk size.
-      * (optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * Specify the desired disk size.
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
   
-  1. (optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../../concepts/filesystem.md):
+  1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select a file store.
       * Enter the device name.
@@ -45,7 +45,7 @@ To create a VM from a set of disks:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
       * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
-      * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
+      * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
@@ -55,8 +55,8 @@ To create a VM from a set of disks:
 
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-      * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
+      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 

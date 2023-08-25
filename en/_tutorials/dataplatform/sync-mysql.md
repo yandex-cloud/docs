@@ -10,7 +10,7 @@ To set up the transfer of changes:
 1. [Configure the transfer parameters](#create-transfer).
 1. [Monitor the transfer of changes in the DB in the cloud](#start-sync).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -21,10 +21,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 Infrastructure costs for data transfers include:
 
-1. Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-1. Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-1. Fee for continuously running {{ mmy-name }} cluster (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
-1. Fee for {{ data-transfer-name }} (see [pricing for {{ data-transfer-name }}](../../data-transfer/pricing)).
+1. Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+1. Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+1. Fee for continuously running cluster {{ mmy-name }} (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+1. Fee for {{ data-transfer-name }} (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing)).
 
 
 ## Create a VM with an online store {#create-vm-mysql}
@@ -161,9 +161,9 @@ To synchronize the order information from the MySQL database of the website with
    ```
 1. Make sure that your order data appeared in the database.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the `magento` VM.
 * [Delete](../../managed-mysql/operations/cluster-delete.md) the `ya-sample-cloud-mysql` cluster.

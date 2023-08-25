@@ -13,7 +13,7 @@ To run this scenario, make sure you have a corporate DNS server deployed that is
    * `ad-vm-b` (10.2.0.3).
    * `jump-server-vm` (10.3.0.x).
 
-In this scenario, you'll add a new subnet `10.128.0.0/24 `with the DNS suffix and DNS server specified, create a VM, and test the network.
+In this scenario, you will add a new `10.128.0.0/24` subnet with the DNS suffix and DNS server specified, create a VM, and test the network.
 
 To add a subnet with DHCP settings:
 
@@ -34,10 +34,10 @@ To fully complete this tutorial, deploy Active Directory. If you use your own DN
 
 The infrastructure support cost includes:
 
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for VM disk storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 
@@ -111,20 +111,20 @@ To check the configuration, create a VM and connect to it via RDP:
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `vm-for-tests-in-subnet`.
-      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+      1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **Image/boot disk selection**, choose Windows Server. In the drop-down list, select the OS version: **2016 Datacenter**.
-      1. Under **Disks**, enter 50 GB for the size of the boot disk:
+      1. Under **Disks**, enter 50 GB for the size of the boot disk.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-         * Specify the number of vCPUs and amount of RAM:
-            * **vCPU**: 2.
+         * Specify the number of vCPUs and the amount of RAM:
+            * **vCPU**: 2
             * **Guaranteed vCPU share**: 100%
-            * **RAM**: 4 GB.
-         * If necessary, make your VM [preemptible](../../compute/concepts/preemptible-vm).
+            * **RAM**: 4 GB
+         * Make your VM [preemptible](../../compute/concepts/preemptible-vm.md), if required.
       1. Under **Network settings**, select the `ad-network / test-subnet-1` subnet from the list.
-      1. Under **Access**, specify the data required to access the VM:
-         * In the **Password** field, enter your password.
       1. Click **Create VM**.
+
+      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
    - CLI
 
@@ -218,7 +218,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 1. Check if there is a connection to the `yantoso.net` domain controller.
 
-   To do this, run the command:
+   To do this, run the following command:
    ```
    	ping ad-vm-a
    ```
@@ -239,9 +239,9 @@ To check the configuration, create a VM and connect to it via RDP:
    	    Minimum = 0ms, Maximum = 1ms, Average = 0ms
    ```
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. Delete the `vm-for-tests-in-subnet` VM.
 
@@ -273,10 +273,10 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder that you want to delete a subnet from.
-      1. Click on the name of the subnet's cloud network: `ad-network`.
-      1. Click ![image](../../_assets/options.svg) in the in the `test-subnet-1` line.
-      1. In the resulting menu, click **Delete**.
+      1. Open the **{{ vpc-name }}** section in the folder you want to delete a subnet from.
+      1. Click the name of the subnet cloud network: `ad-network`.
+      1. Click ![image](../../_assets/options.svg) in the `test-subnet-1` line.
+      1. In the menu that opens, click **Delete**.
       1. Confirm the deletion and click **Delete**.
 
    - CLI

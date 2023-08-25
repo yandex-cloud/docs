@@ -65,7 +65,7 @@ When being passed to the container, some HTTP request and response headers chang
 
 ## Triggers {#trigger}
 
-When invoking a container using a trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. The request source IP is passed in the same way as when [invoking a container using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
+When invoking a container using a trigger, an HTTP POST request is sent to the [address the container is invoked at](../operations/invocation-link.md). The request body contains a JSON description of the trigger event. The request source IP is passed in the same way as when [invoking a container using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
 
 ## {{ api-gw-full-name }} extension {#extension}
 

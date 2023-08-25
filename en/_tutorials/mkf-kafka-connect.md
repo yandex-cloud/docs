@@ -46,13 +46,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `ACCESS_ROLE_PRODUCER`.
 
    
-   1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
+   1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
 
 - Using Terraform
 
-   1. If you don't have {{ TF }}, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. If you do not have {{ TF }} yet, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [kafka-connect.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connect.tf) configuration file to the same working directory.
 
       This file describes:
@@ -60,18 +60,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Network.
       * Subnet.
             * Default security group and rules required to connect to the cluster and the virtual machine from the internet.
-      * Virtual machine with Ubuntu 20.04.
+      * Virtual machine with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
       * Properly configured {{ mkf-name }} cluster.
 
    1. In the file, specify a password for the `user` user, which will be used for accessing {{ mkf-name }} clusters as well as a username and the public SSH key for the virtual machine. If the virtual machine has Ubuntu 20.04 installed from the recommended [image list](../compute/operations/images-with-pre-installed-software/get-list.md), the username specified here will be ignored. If this is the case, use `ubuntu` as your username for the [connection](#prepare-vm).
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
    1. Create the required infrastructure:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
@@ -205,7 +205,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 {% list tabs %}
 
@@ -214,24 +214,24 @@ Delete the resources you no longer need to avoid paying for them:
    
    1. [Delete the VM](../compute/operations/vm-control/vm-delete.md).
    1. If you reserved a public static IP address for the VM, [delete it](../vpc/operations/address-delete.md).
-   1. [Delete a {{ mkf-name }} cluster](../managed-kafka/operations/cluster-delete.md).
+   1. [Delete the {{ mkf-name }} cluster](../managed-kafka/operations/cluster-delete.md).
 
 
 - Using Terraform
 
    To delete the infrastructure [created with {{ TF }}](#before-you-begin):
 
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `kafka-connect.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the update of resources.
+   1. Confirm that the resources have been updated:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

@@ -10,14 +10,14 @@ In this use case, users from the `Administrators` group are granted access to a 
 
 To deploy the Remote Desktop Gateway infrastructure:
 
-1. [Before you start](#before-you-begin).
+1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a security group](#sg).
 1. [Create a VM for the gateway](#create-gw).
 1. [Configure the RDGW role](#role).
 1. [Test the RDGW](#test-rdgw).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -30,9 +30,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost of installing RDGW includes:
 
-* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -67,6 +67,9 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       name: rdgw-network
       default_security_group_id: enpa139ji55jti00u5sg
       ```
+   - API
+
+      Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
    {% endlist %}
 
@@ -77,9 +80,9 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
    - Management console
 
       1. Select **{{ vpc-short-name }}** in the folder to create a subnet in.
-      1. Click on the name of the cloud network.
+      1. Click the name of the cloud network.
       1. Click **Add subnet**.
-      1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `{{ region-id }}-a`).
+      1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the appropriate availability zone from the drop-down list (for example, `{{ region-id }}-a`).
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
@@ -108,6 +111,10 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       - 10.1.0.0/16
       ```
 
+   - API
+
+      Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+
    {% endlist %}
 
 ## Create a security group {#sg}
@@ -127,7 +134,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
       | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Purpose |
       |---|---|---|---|---|---|
-      | Incoming | ICMP | — | ICMP | CIDR | 0.0.0.0/0 |
+      | Incoming | ICMP | N/A | ICMP | CIDR | 0.0.0.0/0 |
       | Incoming | self-security | Any | Any | Security group | Current |
       | Incoming | TCP | 3389 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | RDGW | 443 | TCP | CIDR | 0.0.0.0/0 |
@@ -138,9 +145,9 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
       1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
       1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
       1. In the **Purpose** or **Source** field, select the purpose of the rule:
-         * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-      1. Click **Save**. Repeat the steps to create all rules from the table.
+         * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+         * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
+      1. Click **Save**. Repeat the steps to create all the rules from the table.
 
    1. Click **Save**.
 
@@ -176,6 +183,10 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
       - 0.0.0.0/0
    ```
 
+- API
+
+   Use the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 ## Create a VM for the gateway {#create-gw}
@@ -188,22 +199,23 @@ Create a VM with a public address:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-gw`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
    1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image.
-   1. Under **Disks**, enter 60 GB for the size of the boot disk:
+   1. Under **Disks**, enter 60 GB for the size of the boot disk.
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 2.
+      * Specify the number of vCPUs and the amount of RAM:
+         * **vCPU**: 2
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 4 GB.
+         * **RAM**: 4 GB
    1. Under **Network settings**, click **Add network** and select `rdgw-network`. Select `rdgw-subnet`. Under **Public address**, select **Automatically**. Select the `my-rdgw-sg` security group.
-   1. Under **Access**, specify the data required to access the VM: enter your password in the **Password** field.
    1. Click **Create VM**.
+
+   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI
 
-   1. In the PowerShell terminal, create a script named `setpass` to set up a password for the `Administrator` account using the `user-data` field in the [VM's metadata](../../compute/concepts/vm-metadata.md). The `cloudbase-init` utility executes it on the first run.
+   1. In the PowerShell terminal, create a script named `setpass` to set up a password for the `Administrator` account using the `user-data` field in the [VM metadata](../../compute/concepts/vm-metadata.md). The `cloudbase-init` utility executes it on the first run.
 
       {% note info %}
 
@@ -378,18 +390,19 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `test-vm`.
-      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+      1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image.
-      1. Under **Disks**, enter 60 GB for the size of the boot disk:
+      1. Under **Disks**, enter 60 GB for the size of the boot disk.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the number of vCPUs and amount of RAM:
-            * **vCPU**: 2.
+         * Specify the number of vCPUs and the amount of RAM:
+            * **vCPU**: 2
             * **Guaranteed vCPU share**: 100%
-            * **RAM**: 4 GB.
+            * **RAM**: 4 GB
       1. Under **Network settings**, click **Add network** and select `rdgw-network`. Select `rdgw-subnet`. Under **Public address**, select **No address**.
-      1. Under **Access**, specify the data required to access the VM: enter your password in the **Password** field.
       1. Click **Create VM**.
+
+      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
    - CLI
 
@@ -441,9 +454,13 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         placement_policy: {}
       ```
 
+   - API
+
+      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+
    {% endlist %}
 
-1. Import the created certificate to the `Trusted Roots Certificate Authorities` directory on the computer that you'll use to connect to the test VM.
+1. Import the created certificate to the `Trusted Roots Certificate Authorities` directory on the computer that you will use to connect to the test VM.
 
    To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\etc\hosts` file. For example:
 
@@ -453,6 +470,6 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
 1. Run [the `mstsc` utility]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 If you no longer need the created resources, delete the [VM instances](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md).

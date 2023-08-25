@@ -3,6 +3,10 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Organizing a workflow in {{ ml-platform-name }}
+    items:
+      - name: Setting up a project to work with a cloud
+        href: tutorials/basics.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -55,6 +59,8 @@ items:
             href: operations/projects/clear-kernel-state.md
           - name: Notebook code snippets
             href: operations/projects/snippets.md
+          - name: Clearing a notebook's cell outputs
+            href: operations/projects/clear-outputs.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
           - name: Running a Docker container in a separate cell
@@ -75,7 +81,7 @@ items:
             href: operations/data/s3-connectors.md
       - name: Connecting to data sources
         items:
-          - name: Connecting to S3 storage
+          - name: Connecting to an S3 storage
             href: operations/data/s3-connectors.md
           - name: Connecting to S3 using the boto3 library
             href: operations/data/connect-to-s3.md

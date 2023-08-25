@@ -37,7 +37,7 @@ To implement an example:
 
          The `grpcio-tools` package is needed to generate client interface code for the synthesis API v3.
 
-         The `pydub` package is needed to process the received audio files.
+         The `pydub` package is needed to process the resulting audio files.
 
       1. [Download](https://www.ffmpeg.org/download.html) the FFmpeg utility for correct operation of the `pydub` package. Add the path to the directory with the executable file to the `PATH` variable. To do this, run the following command:
 
@@ -146,3 +146,4 @@ To implement an example:
 
 * [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)
+* [{#T}](../../sdk/python/synthesis.md)

@@ -19,7 +19,7 @@
         * владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
         * владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
 
-1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если пока нет пользователей, которых можно добавить в облако, [создайте новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставьте доступ в облако для этого аккаунта.
 
 

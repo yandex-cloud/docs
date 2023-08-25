@@ -98,7 +98,7 @@
 | second.example.com. | CNAME | 600 | host.example.com. |
 | host.example.com.   | A     | 600 | 192.0.2.100       |
 
-Обратите внимание, что CNAME нельзя совмещать с другими записями в одном домене. Подробнее о CNAME-записях и их ограничениях см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+Обратите внимание, что CNAME нельзя совмещать с другими записями в одном домене. Подробнее о CNAME-записях и их [ограничениях](https://www.rfc-editor.org/rfc/rfc1912#section-2.4) см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 
 ## ANAME {#aname}
 
