@@ -1,4 +1,4 @@
-### dns.admin {#dns-admin}
+#### dns.admin {#dns-admin}
 
 В роль `dns.admin` входят следующие разрешения:
 

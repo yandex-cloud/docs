@@ -14,7 +14,7 @@ editable: false
 
 {% note warning %}
 
-Тарифицируются все [вызовы функции](concepts/function-invoke.md), которые привели к запуску вашего кода.
+Тарифицируются только [вызовы функции](concepts/function-invoke.md), которые привели к запуску вашего кода.
 
 {% endnote %}
 

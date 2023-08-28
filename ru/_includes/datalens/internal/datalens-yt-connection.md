@@ -1,5 +1,9 @@
 Чтобы создать подключение к CHYT:
 
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите подключение **CHYT**.

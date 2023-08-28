@@ -1,4 +1,4 @@
-### compute.viewer {#compute-viewer}
+#### compute.viewer {#compute-viewer}
 
 В роль `compute.viewer` входят разрешения на получение информации о таких ресурсах, как:
 

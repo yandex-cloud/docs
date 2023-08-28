@@ -27,7 +27,7 @@ Let's create the `SUM([Sales]) / SUM([Sales] FIXED)` measure, where:
 * `SUM([Sales])`: Sales amount per category in the city (calculated with the default grouping in the chart).
 * `SUM([Sales] FIXED)`: Total sales amount (calculated with grouping without dimensions).
 
-For example, for the **Table** [chart](https://datalens.yandex/gf5ebn0y1stw8), the result looks like this:
+For example, for the **Table** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-1.png)
 
@@ -40,7 +40,7 @@ Let's create the `AVG([Sales]) - AVG([Sales] FIXED [Category])`measure, where:
 * `AVG([Sales])`: Average sales amount by category in the region (calculated with the default grouping in the chart — by the `[Region]` and `[Category]` dimensions).
 * `AVG([Sales] FIXED [Category])`: Average sales amount by category in all regions (calculated with a grouping by the `[Category]` dimension).
 
-For example, for the **Table** [chart](https://datalens.yandex/557blwtzfahmx), the result looks like this:
+For example, for the **Table** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-2.png)
 
@@ -55,7 +55,7 @@ Expressions with `INCLUDE` can be useful if you need to calculate a measure with
 
 Calculate the maximum number of orders by region per date. Here we use nested aggregation: first, let's count the number of orders per date and then select the maximum value. The formula for the measure: `MAX(COUNTD([Order ID] INCLUDE [Region]))`.
 
-For example, in the **Line chart** [chart](https://datalens.yandex/a9z7yym0388c2), the result looks like this:
+For example, in the **Line chart** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-3.png)
 
@@ -68,7 +68,7 @@ Let's calculate how many customers with an average purchase amount over 1000 acc
 * `ANY([Customer ID] INCLUDE [Customer ID])`: `[Customer ID`] dimension is converted into the measure using the [ANY](../function-ref/ANY.md) function.
 * `AVG([Sales] INCLUDE [Customer ID]) > 1000`: Average purchase amount is compared with the specified value.
 
-For example, in the **Column chart** [chart](https://datalens.yandex/eglffno164y86), the result looks like this:
+For example, in the **Column chart** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-4.png)
 
@@ -86,7 +86,7 @@ Expressions with `EXCLUDE` can be used, for example, to calculate the percentage
 
 Let's calculate the sales amount in the regions broken down by delivery type. To do this, we'll set the chart grouping by the `[Region]` and `[Ship Mode]` dimensions. To show the total amount for all delivery types, we'll add the following measure to the **Signatures** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from the grouping when calculating this measure, so the total amount for all delivery types is calculated.
 
-For example, in the **Bar chart** [chart](https://datalens.yandex/99442nvf20j61), the result looks like this:
+For example, in the **Bar chart** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-5.png)
 
@@ -97,7 +97,7 @@ Let's calculate the average daily sales amount broken down by month. To do this,
 * `SUM([Sales] FIXED [Order Date])`: Total sales of all orders per day.
 * `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`: The `[Order Date]` measure is excluded from the grouping so that the average daily sales amount is calculated with a grouping by month (set in the chart).
 
-For example, in the **Bar chart** [chart](https://datalens.yandex/jjlq55imiocib), the result looks like this:
+For example, in the **Bar chart** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-6.png)
 
@@ -121,7 +121,7 @@ To calculate the sales amount, we'll create two measures:
 
 Let's add the `Year` dimension to the **Filters** section and specify, for example, the value `2017`. As a result, the `AvgDaySales` measure is calculated before filtering by year is applied to the chart and we get the average daily sales amount per month for the entire period. The `AvgDaySales` by year measure will be calculated after applying filtering by year and we obtain the average daily sales amount per month for a given year (`2017`).
 
-For example, in the **Line** [chart](https://datalens.yandex/iii5q2y6fkvka), the result looks like this:
+For example, in the **Line** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-7.png)
 
@@ -133,7 +133,7 @@ For example, the expression with `FIXED` with a list of dimensions can be used s
 
 **Example 1**
 
-Let's have a look at the [chart](https://datalens.yandex/rrtri6pgceqaj) with calculation of the share of each goods category from the total sales amount per city. The` % Total by city window` and `% Total by city lod` measures give the same result:
+Let's have a look at the chart with calculation of the share of each goods category from the total sales amount per city. The` % Total by city window` and `% Total by city lod` measures give the same result:
 
 * % Total by city lod: `SUM([Sales]) / SUM([Sales] FIXED [City])`
 * % Total by city window: `SUM([Sales]) / SUM(SUM([Sales]) WITHIN [City])`
@@ -142,7 +142,7 @@ Let's have a look at the [chart](https://datalens.yandex/rrtri6pgceqaj) with cal
 
 **Example 2**
 
-Let's have a look at the [chart](https://datalens.yandex/rrtri6pgceqaj) with calculation of the share of each goods category from the total sales amount in all cities. The `% Total window` and `% Total lod` measures give the same result:
+Let's have a look at the chart with calculation of the share of each goods category from the total sales amount in all cities. The `% Total window` and `% Total lod` measures give the same result:
 
 * % Total lod: `SUM([Sales]) / SUM([Sales] FIXED)`
 * % Total window: `SUM([Sales]) / SUM(SUM([Sales]) TOTAL)`

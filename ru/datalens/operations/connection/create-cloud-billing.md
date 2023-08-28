@@ -4,6 +4,10 @@
 
 Чтобы создать подключение к {{ yandex-cloud }} Billing:
 
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ yandex-cloud }} Billing**.

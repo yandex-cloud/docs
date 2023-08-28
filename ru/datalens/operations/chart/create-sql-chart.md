@@ -12,9 +12,15 @@
 
 ## Создание QL-чарта через главную страницу {#main-page} 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) сервиса {{ datalens-short-name }}.
-1. В меню слева выберите **Чарты**.   
-1. В левом верхнем углу нажмите **Создать чарт** → **QL-чарт**. 
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
+1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
+
+
+1. На рабочей панели слева нажмите ![image](../../../_assets/datalens/chart.svg) и в открывшемся окне нажмите кнопку **Cоздать чарт** -> **QL-чарт**.
 1. В открывшемся окне выберите **Тип чарта**:
 
    {% list tabs %}

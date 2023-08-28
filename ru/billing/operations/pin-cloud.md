@@ -6,7 +6,7 @@
 
 Перед привязкой облака убедитесь, что платежный аккаунт прошел активацию (статус `ACTIVE` или `TRIAL_ACTIVE`), а пользователь обладает одновременно ролями:
 * [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) на облаке; 
-* `billing.accounts.owner` или `editor` в платежном аккаунте. Подробнее о ролях читайте в разделе [Управление доступом](../security/index.md#role-list).
+* `billing.accounts.owner` или `editor` в платежном аккаунте. Подробнее о ролях читайте в разделе [Управление доступом](../security/index.md#roles-list).
 
 ## Как привязать облако {#bind-cloud}
 

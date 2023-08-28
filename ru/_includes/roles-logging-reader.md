@@ -1,4 +1,4 @@
-### logging.reader
+#### logging.reader {#logging-reader}
 
 Роль `logging.reader` дает право смотреть записи в лог-группе.
 

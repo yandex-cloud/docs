@@ -1,4 +1,4 @@
-### monitoring.viewer {#monitoring-viewer}
+#### monitoring.viewer {#monitoring-viewer}
 
 Пользователь с ролью `{{ roles-monitoring-viewer }}` может просматривать созданные дашборды и виджеты, а также загруженные метрики.
 

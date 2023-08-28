@@ -1,4 +1,4 @@
-### logging.viewer
+#### logging.viewer {#logging-viewer}
 
 Роль `logging.viewer` дает право смотреть список лог-групп и информацию о них.
 

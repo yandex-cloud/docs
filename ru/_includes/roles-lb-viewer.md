@@ -1,4 +1,4 @@
-### load-balancer.viewer {#lb-viewer}
+#### load-balancer.viewer {#lb-viewer}
 
 Роль `{{ roles-lb-viewer }}` позволяет просматривать объекты ресурсной модели:
 - [балансировщики нагрузки](../network-load-balancer/concepts/index.md);

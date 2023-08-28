@@ -1,4 +1,13 @@
-1. На главной странице сервиса {{ datalens-full-name }} нажмите **Создать датасет**.
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
+1. Перейдите на главную страницу {{ datalens-full-name }}.
+1. Нажмите кнопку **Создать датасет**.
+
+
+
 1. В левой части экрана нажмите **![image](../../../_assets/plus-sign.svg) Добавить**.
 1. Выберите подключение. Если в списке нет доступных подключений, [создайте его](../../../datalens/concepts/connection.md).
 1. Выберите таблицы, которые будут источником данных для датасета и нажмите **Сохранить** в верхнем правом углу.

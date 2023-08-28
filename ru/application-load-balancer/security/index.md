@@ -18,29 +18,27 @@ description: "Управление доступом в сервисе для р�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/application-load-balancer/security/service-roles-hierarchy.svg)
 
-Роли, действующие в сервисе:
+### Сервисные роли {#service-roles}
 
-* Сервисные роли:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-    * {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
-    * {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
-    * {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
+* {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
+* {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
 
-    {% note info %}
+  {% note info %}
 
-    Чтобы к новому или существующему L7-балансировщику можно было подключить публичный IP-адрес, помимо роли `alb.editor` или `alb.admin` также требуется роль `vpc.publicAdmin` на сеть, в которой находится балансировщик.
+  Чтобы к новому или существующему L7-балансировщику можно было подключить публичный IP-адрес, помимо роли `alb.editor` или `alb.admin` также требуется роль `vpc.publicAdmin` на сеть, в которой находится балансировщик.
 
-    {% endnote %}
+  {% endnote %}
 
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли мне необходимы {#required-roles}
 

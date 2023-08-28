@@ -195,6 +195,12 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
+{% include [roles-datalens-visitor](../../../_includes/roles-datalens-visitor.md) %}
+
+{% include [roles-datalens-creator](../../../_includes/roles-datalens-creator.md) %}
+
+{% include [roles-datalens-admin-org](../../../_includes/roles-datalens-admin-org.md) %}
+
 
 ## {{ ml-platform-name }} {#datasphere-roles}
 

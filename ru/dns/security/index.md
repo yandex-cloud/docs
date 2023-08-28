@@ -18,22 +18,20 @@ description: "Управление доступом в сервисе для у�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `dns.editor` входят все разрешения `dns.viewer`. После диаграммы дано описание каждой роли.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/dns/security/service-roles-hierarchy.svg)
 
-Роли, действующие в сервисе:
+### Сервисные роли {#service-roles}
 
-* Сервисные роли:
-    * {% include [dns.auditor](../../_includes/iam/roles/dns-auditor-short.md) %}
-    * {% include [dns.viewer](../../_includes/iam/roles/dns-viewer-short.md) %}
-    * {% include [dns.editor](../../_includes/iam/roles/dns-editor-short.md) %}
-    * {% include [dns.admin](../../_includes/iam/roles/dns-admin-short.md) %}
+* {% include [dns.auditor](../../_includes/iam/roles/dns-auditor-short.md) %}
+* {% include [dns.viewer](../../_includes/iam/roles/dns-viewer-short.md) %}
+* {% include [dns.editor](../../_includes/iam/roles/dns-editor-short.md) %}
+* {% include [dns.admin](../../_includes/iam/roles/dns-admin-short.md) %}
 
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли мне необходимы {#required-roles}
 

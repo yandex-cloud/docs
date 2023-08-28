@@ -18,22 +18,21 @@ description: "Управление доступом в сервисе сетев
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.png)
+![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.svg)
 
-Роли, действующие в сервисе:
+### Сервисные роли {#service-roles}
 
-* Сервисные роли:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-    * {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
-    * {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
-    * {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
+* {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
+* {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Какие роли мне необходимы {#choosing-roles}
 

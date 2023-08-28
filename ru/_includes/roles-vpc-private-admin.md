@@ -1,4 +1,4 @@
-### vpc.privateAdmin {#vpc-private-admin}
+#### vpc.privateAdmin {#vpc-private-admin}
 
 Роль `{{ roles-vpc-private-admin }}` позволяет управлять связностью между виртуальными машинами и кластерами управляемых баз данных внутри {{ yandex-cloud }}:
 - создавать, удалять, изменять [сети и подсети](../vpc/concepts/network.md);

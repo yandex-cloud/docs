@@ -1,4 +1,4 @@
-### logging.editor
+#### logging.editor {#logging-editor}
 
 Роль `logging.editor` дает право обновлять все настройки лог-группы, кроме прав доступа.
 

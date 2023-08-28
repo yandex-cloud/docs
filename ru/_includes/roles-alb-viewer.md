@@ -1,4 +1,4 @@
-### alb.viewer {#alb-viewer}
+#### alb.viewer {#alb-viewer}
 
 Роль `{{ roles-alb-viewer }}` позволяет просматривать объекты ресурсной модели:
 * [L7-балансировщики](../application-load-balancer/concepts/application-load-balancer.md);

@@ -1,4 +1,4 @@
-### cdn.editor {#cdn-editor}
+#### cdn.editor {#cdn-editor}
 
 В роль `cdn.editor` входят следующие разрешения:
 

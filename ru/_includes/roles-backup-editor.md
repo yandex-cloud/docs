@@ -1,4 +1,4 @@
-### backup.editor {#backup-editor}
+#### backup.editor {#backup-editor}
 
 Роль `backup.editor` предназначена для управления ресурсами сервиса {{ backup-name }}. Пользователи с этой ролью могут:
 
