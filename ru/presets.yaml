@@ -249,6 +249,15 @@ default:
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-admin: datalens.admin
+  roles-datalens-visitor: datalens.visitor
+  roles-datalens-collections-admin: datalens.collections.admin
+  roles-datalens-collections-editor: datalens.collections.editor
+  roles-datalens-collections-limitedViewer: datalens.collections.limitedViewer
+  roles-datalens-collections-viewer: datalens.collections.viewer
+  roles-datalens-workbooks-admin: datalens.workbooks.admin
+  roles-datalens-workbooks-editor: datalens.workbooks.editor
+  roles-datalens-workbooks-limitedViewer: datalens.workbooks.limitedViewer
+  roles-datalens-workbooks-viewer: datalens.workbooks.viewer
   roles-functions-ivoker: functions.functionInvoker
   roles-image-user: compute.images.user
   roles-marketplace-trials-editor: marketplace.trials.editor
@@ -1030,22 +1039,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: "8\_208,0000\_₸"
             c100|string: "11,4000\_₸"
+            c20|month|string: "1\_476,0000\_₸"
             c20|string: "2,0500\_₸"
+            c5|month|string: "108,0000\_₸"
             c5|string: "0,1500\_₸"
+            c50|month|string: "2\_448,0000\_₸"
             c50|string: "3,4000\_₸"
+          ram|month|string: "1\_872,0000\_₸"
           ram|string: "2,6000\_₸"
         v2:
           cpu:
+            c100|month|string: "6\_912,0000\_₸"
             c100|string: "9,6000\_₸"
+            c20|month|string: "1\_476,0000\_₸"
             c20|string: "2,0500\_₸"
+            c5|month|string: "108,0000\_₸"
             c5|string: "0,1500\_₸"
+            c50|month|string: "2\_448,0000\_₸"
             c50|string: "3,4000\_₸"
+          ram|month|string: "1\_872,0000\_₸"
           ram|string: "2,6000\_₸"
         v3:
           cpu:
+            c100|month|string: "6\_192,0000\_₸"
             c100|string: "8,6000\_₸"
+            c50|month|string: "2\_196,0000\_₸"
             c50|string: "3,0500\_₸"
+          ram|month|string: "1\_692,0000\_₸"
           ram|string: "2,3500\_₸"
       elasticsearch:
         v2:
@@ -1257,22 +1279,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: "5\_112,0000\_₸"
             c100|string: "7,1000\_₸"
+            c20|month|string: "2\_016,0000\_₸"
             c20|string: "2,8000\_₸"
+            c5|month|string: "864,0000\_₸"
             c5|string: "1,2000\_₸"
+            c50|month|string: "2\_808,0000\_₸"
             c50|string: "3,9000\_₸"
+          ram|month|string: "1\_152,0000\_₸"
           ram|string: "1,6000\_₸"
         v2:
           cpu:
+            c100|month|string: "4\_356,0000\_₸"
             c100|string: "6,0500\_₸"
+            c20|month|string: "2\_016,0000\_₸"
             c20|string: "2,8000\_₸"
+            c5|month|string: "864,0000\_₸"
             c5|string: "1,2000\_₸"
+            c50|month|string: "2\_808,0000\_₸"
             c50|string: "3,9000\_₸"
+          ram|month|string: "1\_152,0000\_₸"
           ram|string: "1,6000\_₸"
         v3:
           cpu:
+            c100|month|string: "3\_924,0000\_₸"
             c100|string: "5,4500\_₸"
+            c50|month|string: "2\_520,0000\_₸"
             c50|string: "3,5000\_₸"
+          ram|month|string: "1\_008,0000\_₸"
           ram|string: "1,4000\_₸"
       kafka:
         v2:
@@ -1421,10 +1456,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: "5\_875,2000\_₸"
                   v2|string: "8,1600\_₸"
+                  v3|month|string: "5\_263,2000\_₸"
                   v3|string: "7,3100\_₸"
               ram:
+                v2|month|string: "1\_591,2000\_₸"
                 v2|string: "2,2100\_₸"
+                v3|month|string: "1\_438,2000\_₸"
                 v3|string: "1,9975\_₸"
             greenplum:
               cpu:
@@ -1492,10 +1531,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: "5\_391,3600\_₸"
                   v2|string: "7,4880\_₸"
+                  v3|month|string: "4\_829,7600\_₸"
                   v3|string: "6,7080\_₸"
               ram:
+                v2|month|string: "1\_460,1600\_₸"
                 v2|string: "2,0280\_₸"
+                v3|month|string: "1\_319,7600\_₸"
                 v3|string: "1,8330\_₸"
             greenplum:
               cpu:
@@ -1792,22 +1835,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: "1\_641,6000\_₽"
             c100|string: "2,2800\_₽"
+            c20|month|string: "295,2000\_₽"
             c20|string: "0,4100\_₽"
+            c5|month|string: "21,6000\_₽"
             c5|string: "0,0300\_₽"
+            c50|month|string: "489,6000\_₽"
             c50|string: "0,6800\_₽"
+          ram|month|string: "374,4000\_₽"
           ram|string: "0,5200\_₽"
         v2:
           cpu:
+            c100|month|string: "1\_382,4000\_₽"
             c100|string: "1,9200\_₽"
+            c20|month|string: "295,2000\_₽"
             c20|string: "0,4100\_₽"
+            c5|month|string: "21,6000\_₽"
             c5|string: "0,0300\_₽"
+            c50|month|string: "489,6000\_₽"
             c50|string: "0,6800\_₽"
+          ram|month|string: "374,4000\_₽"
           ram|string: "0,5200\_₽"
         v3:
           cpu:
+            c100|month|string: "1\_238,4000\_₽"
             c100|string: "1,7200\_₽"
+            c50|month|string: "439,2000\_₽"
             c50|string: "0,6100\_₽"
+          ram|month|string: "338,4000\_₽"
           ram|string: "0,4700\_₽"
       elasticsearch:
         v2:
@@ -2019,22 +2075,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: "1\_022,4000\_₽"
             c100|string: "1,4200\_₽"
+            c20|month|string: "403,2000\_₽"
             c20|string: "0,5600\_₽"
+            c5|month|string: "172,8000\_₽"
             c5|string: "0,2400\_₽"
+            c50|month|string: "561,6000\_₽"
             c50|string: "0,7800\_₽"
+          ram|month|string: "230,4000\_₽"
           ram|string: "0,3200\_₽"
         v2:
           cpu:
+            c100|month|string: "871,2000\_₽"
             c100|string: "1,2100\_₽"
+            c20|month|string: "403,2000\_₽"
             c20|string: "0,5600\_₽"
+            c5|month|string: "172,8000\_₽"
             c5|string: "0,2400\_₽"
+            c50|month|string: "561,6000\_₽"
             c50|string: "0,7800\_₽"
+          ram|month|string: "230,4000\_₽"
           ram|string: "0,3200\_₽"
         v3:
           cpu:
+            c100|month|string: "784,8000\_₽"
             c100|string: "1,0900\_₽"
+            c50|month|string: "504,0000\_₽"
             c50|string: "0,7000\_₽"
+          ram|month|string: "201,6000\_₽"
           ram|string: "0,2800\_₽"
       kafka:
         v2:
@@ -2183,10 +2252,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: "1\_175,0400\_₽"
                   v2|string: "1,6320\_₽"
+                  v3|month|string: "1\_052,6400\_₽"
                   v3|string: "1,4620\_₽"
               ram:
+                v2|month|string: "318,2400\_₽"
                 v2|string: "0,4420\_₽"
+                v3|month|string: "287,6400\_₽"
                 v3|string: "0,3995\_₽"
             greenplum:
               cpu:
@@ -2254,10 +2327,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: "1\_078,2720\_₽"
                   v2|string: "1,4976\_₽"
+                  v3|month|string: "965,9520\_₽"
                   v3|string: "1,3416\_₽"
               ram:
+                v2|month|string: "292,0320\_₽"
                 v2|string: "0,4056\_₽"
+                v3|month|string: "263,9520\_₽"
                 v3|string: "0,3666\_₽"
             greenplum:
               cpu:
@@ -2533,22 +2610,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: "13,132800\_$"
             c100|string: "0,018240\_$"
+            c20|month|string: "2,361600\_$"
             c20|string: "0,003280\_$"
+            c5|month|string: "0,172800\_$"
             c5|string: "0,000240\_$"
+            c50|month|string: "3,916800\_$"
             c50|string: "0,005440\_$"
+          ram|month|string: "2,995200\_$"
           ram|string: "0,004160\_$"
         v2:
           cpu:
+            c100|month|string: "11,059200\_$"
             c100|string: "0,015360\_$"
+            c20|month|string: "2,361600\_$"
             c20|string: "0,003280\_$"
+            c5|month|string: "0,172800\_$"
             c5|string: "0,000240\_$"
+            c50|month|string: "3,916800\_$"
             c50|string: "0,005440\_$"
+          ram|month|string: "2,995200\_$"
           ram|string: "0,004160\_$"
         v3:
           cpu:
+            c100|month|string: "9,907200\_$"
             c100|string: "0,013760\_$"
+            c50|month|string: "3,513600\_$"
             c50|string: "0,004880\_$"
+          ram|month|string: "2,707200\_$"
           ram|string: "0,003760\_$"
       elasticsearch:
         v2:
@@ -2748,22 +2838,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: "8,179200\_$"
             c100|string: "0,011360\_$"
+            c20|month|string: "3,225600\_$"
             c20|string: "0,004480\_$"
+            c5|month|string: "1,382400\_$"
             c5|string: "0,001920\_$"
+            c50|month|string: "4,492800\_$"
             c50|string: "0,006240\_$"
+          ram|month|string: "1,843200\_$"
           ram|string: "0,002560\_$"
         v2:
           cpu:
+            c100|month|string: "6,969600\_$"
             c100|string: "0,009680\_$"
+            c20|month|string: "3,225600\_$"
             c20|string: "0,004480\_$"
+            c5|month|string: "1,382400\_$"
             c5|string: "0,001920\_$"
+            c50|month|string: "4,492800\_$"
             c50|string: "0,006240\_$"
+          ram|month|string: "1,843200\_$"
           ram|string: "0,002560\_$"
         v3:
           cpu:
+            c100|month|string: "6,278400\_$"
             c100|string: "0,008720\_$"
+            c50|month|string: "4,032000\_$"
             c50|string: "0,005600\_$"
+          ram|month|string: "1,612800\_$"
           ram|string: "0,002240\_$"
       kafka:
         v2:
@@ -2912,10 +3015,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: "9,400320\_$"
                   v2|string: "0,013056\_$"
+                  v3|month|string: "8,421120\_$"
                   v3|string: "0,011696\_$"
               ram:
+                v2|month|string: "2,545920\_$"
                 v2|string: "0,003536\_$"
+                v3|month|string: "2,301120\_$"
                 v3|string: "0,003196\_$"
             greenplum:
               cpu:
@@ -2983,10 +3090,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: "8,626176\_$"
                   v2|string: "0,011981\_$"
+                  v3|month|string: "7,727616\_$"
                   v3|string: "0,010733\_$"
               ram:
+                v2|month|string: "2,336256\_$"
                 v2|string: "0,003245\_$"
+                v3|month|string: "2,111616\_$"
                 v3|string: "0,002933\_$"
             greenplum:
               cpu:

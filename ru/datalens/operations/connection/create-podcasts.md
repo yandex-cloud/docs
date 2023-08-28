@@ -7,6 +7,10 @@
  
  Вы получите доступ, загрузив подкаст на Яндекс Музыку. К подкасту привязана почта на Яндексе, указанная при загрузке.
  
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
 {% endnote %}
 
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).

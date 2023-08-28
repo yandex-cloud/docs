@@ -1,9 +1,9 @@
-### datalens.instances.admin {#datalens-instances-admin}
+#### datalens.instances.admin {#datalens-instances-admin}
 
-Роль `{{ roles-datalens-instances-admin }}` предоставляет доступ к сервису {{ datalens-short-name }} в качестве администратора экземпляра {{ datalens-short-name }}. Администратор получает права доступа на все объекты и папки в сервисе {{ datalens-short-name }}.
+Роль `{{ roles-datalens-instances-admin }}` предоставляет доступ к сервису {{ datalens-short-name }} в качестве администратора экземпляра {{ datalens-short-name }}. Администратор получает полные права на все объекты и папки в сервисе {{ datalens-short-name }}, а также доступ к настройкам [{{ datalens-short-name }}]({{ link-datalens-settings }}).
 
-Администратор обладает правами `{{ roles-datalens-instances-user }}`. Ему доступны настройки [{{ datalens-short-name }}]({{ link-datalens-settings }}).
+{% note tip %}
 
-После назначения сервисной роли вы можете назначить пользователю права доступа на объекты и папки в сервисе {{ datalens-short-name }}.
+Даже если вы еще не перешли на [воркбуки и коллекции](../datalens/workbooks-collections/index.md#enable-workbooks), рекомендуем вместо роли `{{ roles-datalens-instances-admin }}` использовать `{{ roles-datalens-admin }}`. Новая роль при навигации по папкам действует аналогично старой роли. Единственное отличие заключается в том, что `{{ roles-datalens-instances-admin }}` позволяет просматривать все каталоги в организации, поэтому `{{ roles-datalens-admin }}` использовать безопаснее.
 
-{% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
+{% endnote %}

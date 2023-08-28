@@ -20,7 +20,7 @@ In this section, you will learn:
 
 The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
-![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.png)
+![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.svg)
 
 Active roles in the service:
 

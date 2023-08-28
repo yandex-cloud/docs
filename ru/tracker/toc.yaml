@@ -29,7 +29,7 @@ items:
             href: user/personal.md
       - name: Мигрировать в Tracker
         href: import.md
-      - name: Отключить платные услуги
+      - name: Отключение Tracker
         href: disable-tracker.md
   - name: Практические руководства
     items:

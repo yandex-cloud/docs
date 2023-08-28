@@ -1,4 +1,4 @@
-### gitlab.admin {#gitlab-admin}
+#### gitlab.admin {#gitlab-admin}
 
 Роль `{{ roles.gitlab.admin }}` позволяет создавать, редактировать и удалять инстансы, а также выдавать права другим пользователям.
 

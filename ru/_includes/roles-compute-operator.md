@@ -1,4 +1,4 @@
-### compute.operator {#compute-operator}
+#### compute.operator {#compute-operator}
 
 В роль `compute.operator` входят следующие разрешения:
 

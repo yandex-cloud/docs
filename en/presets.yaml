@@ -1025,22 +1025,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: ₸8208.0000
             c100|string: ₸11.4000
+            c20|month|string: ₸1476.0000
             c20|string: ₸2.0500
+            c5|month|string: ₸108.0000
             c5|string: ₸0.1500
+            c50|month|string: ₸2448.0000
             c50|string: ₸3.4000
+          ram|month|string: ₸1872.0000
           ram|string: ₸2.6000
         v2:
           cpu:
+            c100|month|string: ₸6912.0000
             c100|string: ₸9.6000
+            c20|month|string: ₸1476.0000
             c20|string: ₸2.0500
+            c5|month|string: ₸108.0000
             c5|string: ₸0.1500
+            c50|month|string: ₸2448.0000
             c50|string: ₸3.4000
+          ram|month|string: ₸1872.0000
           ram|string: ₸2.6000
         v3:
           cpu:
+            c100|month|string: ₸6192.0000
             c100|string: ₸8.6000
+            c50|month|string: ₸2196.0000
             c50|string: ₸3.0500
+          ram|month|string: ₸1692.0000
           ram|string: ₸2.3500
       elasticsearch:
         v2:
@@ -1252,22 +1265,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: ₸5112.0000
             c100|string: ₸7.1000
+            c20|month|string: ₸2016.0000
             c20|string: ₸2.8000
+            c5|month|string: ₸864.0000
             c5|string: ₸1.2000
+            c50|month|string: ₸2808.0000
             c50|string: ₸3.9000
+          ram|month|string: ₸1152.0000
           ram|string: ₸1.6000
         v2:
           cpu:
+            c100|month|string: ₸4356.0000
             c100|string: ₸6.0500
+            c20|month|string: ₸2016.0000
             c20|string: ₸2.8000
+            c5|month|string: ₸864.0000
             c5|string: ₸1.2000
+            c50|month|string: ₸2808.0000
             c50|string: ₸3.9000
+          ram|month|string: ₸1152.0000
           ram|string: ₸1.6000
         v3:
           cpu:
+            c100|month|string: ₸3924.0000
             c100|string: ₸5.4500
+            c50|month|string: ₸2520.0000
             c50|string: ₸3.5000
+          ram|month|string: ₸1008.0000
           ram|string: ₸1.4000
       kafka:
         v2:
@@ -1416,10 +1442,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: ₸5875.2000
                   v2|string: ₸8.1600
+                  v3|month|string: ₸5263.2000
                   v3|string: ₸7.3100
               ram:
+                v2|month|string: ₸1591.2000
                 v2|string: ₸2.2100
+                v3|month|string: ₸1438.2000
                 v3|string: ₸1.9975
             greenplum:
               cpu:
@@ -1487,10 +1517,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: ₸5391.3600
                   v2|string: ₸7.4880
+                  v3|month|string: ₸4829.7600
                   v3|string: ₸6.7080
               ram:
+                v2|month|string: ₸1460.1600
                 v2|string: ₸2.0280
+                v3|month|string: ₸1319.7600
                 v3|string: ₸1.8330
             greenplum:
               cpu:
@@ -1787,22 +1821,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: ₽1641.6000
             c100|string: ₽2.2800
+            c20|month|string: ₽295.2000
             c20|string: ₽0.4100
+            c5|month|string: ₽21.6000
             c5|string: ₽0.0300
+            c50|month|string: ₽489.6000
             c50|string: ₽0.6800
+          ram|month|string: ₽374.4000
           ram|string: ₽0.5200
         v2:
           cpu:
+            c100|month|string: ₽1382.4000
             c100|string: ₽1.9200
+            c20|month|string: ₽295.2000
             c20|string: ₽0.4100
+            c5|month|string: ₽21.6000
             c5|string: ₽0.0300
+            c50|month|string: ₽489.6000
             c50|string: ₽0.6800
+          ram|month|string: ₽374.4000
           ram|string: ₽0.5200
         v3:
           cpu:
+            c100|month|string: ₽1238.4000
             c100|string: ₽1.7200
+            c50|month|string: ₽439.2000
             c50|string: ₽0.6100
+          ram|month|string: ₽338.4000
           ram|string: ₽0.4700
       elasticsearch:
         v2:
@@ -2014,22 +2061,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: ₽1022.4000
             c100|string: ₽1.4200
+            c20|month|string: ₽403.2000
             c20|string: ₽0.5600
+            c5|month|string: ₽172.8000
             c5|string: ₽0.2400
+            c50|month|string: ₽561.6000
             c50|string: ₽0.7800
+          ram|month|string: ₽230.4000
           ram|string: ₽0.3200
         v2:
           cpu:
+            c100|month|string: ₽871.2000
             c100|string: ₽1.2100
+            c20|month|string: ₽403.2000
             c20|string: ₽0.5600
+            c5|month|string: ₽172.8000
             c5|string: ₽0.2400
+            c50|month|string: ₽561.6000
             c50|string: ₽0.7800
+          ram|month|string: ₽230.4000
           ram|string: ₽0.3200
         v3:
           cpu:
+            c100|month|string: ₽784.8000
             c100|string: ₽1.0900
+            c50|month|string: ₽504.0000
             c50|string: ₽0.7000
+          ram|month|string: ₽201.6000
           ram|string: ₽0.2800
       kafka:
         v2:
@@ -2178,10 +2238,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: ₽1175.0400
                   v2|string: ₽1.6320
+                  v3|month|string: ₽1052.6400
                   v3|string: ₽1.4620
               ram:
+                v2|month|string: ₽318.2400
                 v2|string: ₽0.4420
+                v3|month|string: ₽287.6400
                 v3|string: ₽0.3995
             greenplum:
               cpu:
@@ -2249,10 +2313,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: ₽1078.2720
                   v2|string: ₽1.4976
+                  v3|month|string: ₽965.9520
                   v3|string: ₽1.3416
               ram:
+                v2|month|string: ₽292.0320
                 v2|string: ₽0.4056
+                v3|month|string: ₽263.9520
                 v3|string: ₽0.3666
             greenplum:
               cpu:
@@ -2528,22 +2596,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: $13.132800
             c100|string: $0.018240
+            c20|month|string: $2.361600
             c20|string: $0.003280
+            c5|month|string: $0.172800
             c5|string: $0.000240
+            c50|month|string: $3.916800
             c50|string: $0.005440
+          ram|month|string: $2.995200
           ram|string: $0.004160
         v2:
           cpu:
+            c100|month|string: $11.059200
             c100|string: $0.015360
+            c20|month|string: $2.361600
             c20|string: $0.003280
+            c5|month|string: $0.172800
             c5|string: $0.000240
+            c50|month|string: $3.916800
             c50|string: $0.005440
+          ram|month|string: $2.995200
           ram|string: $0.004160
         v3:
           cpu:
+            c100|month|string: $9.907200
             c100|string: $0.013760
+            c50|month|string: $3.513600
             c50|string: $0.004880
+          ram|month|string: $2.707200
           ram|string: $0.003760
       elasticsearch:
         v2:
@@ -2743,22 +2824,35 @@ default:
       clickhouse:
         v1:
           cpu:
+            c100|month|string: $8.179200
             c100|string: $0.011360
+            c20|month|string: $3.225600
             c20|string: $0.004480
+            c5|month|string: $1.382400
             c5|string: $0.001920
+            c50|month|string: $4.492800
             c50|string: $0.006240
+          ram|month|string: $1.843200
           ram|string: $0.002560
         v2:
           cpu:
+            c100|month|string: $6.969600
             c100|string: $0.009680
+            c20|month|string: $3.225600
             c20|string: $0.004480
+            c5|month|string: $1.382400
             c5|string: $0.001920
+            c50|month|string: $4.492800
             c50|string: $0.006240
+          ram|month|string: $1.843200
           ram|string: $0.002560
         v3:
           cpu:
+            c100|month|string: $6.278400
             c100|string: $0.008720
+            c50|month|string: $4.032000
             c50|string: $0.005600
+          ram|month|string: $1.612800
           ram|string: $0.002240
       kafka:
         v2:
@@ -2907,10 +3001,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: $9.400320
                   v2|string: $0.013056
+                  v3|month|string: $8.421120
                   v3|string: $0.011696
               ram:
+                v2|month|string: $2.545920
                 v2|string: $0.003536
+                v3|month|string: $2.301120
                 v3|string: $0.003196
             greenplum:
               cpu:
@@ -2978,10 +3076,14 @@ default:
             ch:
               cpu:
                 c100:
+                  v2|month|string: $8.626176
                   v2|string: $0.011981
+                  v3|month|string: $7.727616
                   v3|string: $0.010733
               ram:
+                v2|month|string: $2.336256
                 v2|string: $0.003245
+                v3|month|string: $2.111616
                 v3|string: $0.002933
             greenplum:
               cpu:
@@ -7389,9 +7491,9 @@ default:
                           title: Columns
                       Provider:
                         aws_access_key_id:
-                          title: AWS Access Key ID
+                          title: Access Key ID
                         aws_secret_access_key:
-                          title: AWS Secret Access Key
+                          title: Secret Access Key
                         bucket:
                           title: Bucket
                         endpoint:

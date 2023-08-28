@@ -6,6 +6,14 @@ editable: false
 
 
 
+{% note warning %}
+
+From October 1, changes are planned in the service plans for technical support. See [Current plans](#effective-plans) and [Service plans after October 1](#new-plans).
+
+{% endnote %}
+
+## Current service plans {##effective-plans}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 The cost depends on the selected service plan. For a table of all service plans and their features, see [{#T}](overview.md).
@@ -20,15 +28,21 @@ All prices are shown without VAT. The cost of technical support is calculated af
 
 {% endnote %}
 
-## Basic {#base}
+### Basic {#base}
 
 The basic service plan is provided to all {{ yandex-cloud }} users free of charge. It's suitable for personal and research projects.
 
-## Standard {#standard}
+### Standard {#standard}
+
+{% note warning %}
+
+This service plan is effective until October 1, 2023.
+
+{% endnote %}
 
 Compared to the basic plan, the <q>Standard</q> plan lets you request general recommendations about the architecture of your solution from {{ yandex-cloud }} technical support. It's suitable for development and pilot projects.
 
-### Service plan cost {#standard-price}
+#### Service plan cost {#standard-price}
 
 
 
@@ -36,7 +50,7 @@ Compared to the basic plan, the <q>Standard</q> plan lets you request general re
 {% include [usd.md](../_pricing/support/usd-standard.md) %}
 
 
-### Example of cost calculation {#standard-example}
+#### Example of cost calculation {#standard-example}
 
 You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account:
 
@@ -65,7 +79,7 @@ Where:
 * $8.000694 is the resource usage cost per day from March 22 to the end of the month.
 
 
-## Business {#business}
+### Business {#business}
 
 The <q>Business</q> plan is suitable for professional projects. Compared to the basic plan, it lets you:
 
@@ -73,7 +87,7 @@ The <q>Business</q> plan is suitable for professional projects. Compared to the 
 * Get advice and recommendations on configuring third-party software and fixing {{ yandex-cloud }} compatibility issues.
 * Get recommendations for fixing problems with operating systems and their components.
 
-### Service plan cost {#business-price}
+#### Service plan cost {#business-price}
 
 
 
@@ -81,7 +95,7 @@ The <q>Business</q> plan is suitable for professional projects. Compared to the 
 {% include [usd.md](../_pricing/support/usd-business.md) %}
 
 
-### Example of cost calculation {#business-example}
+#### Example of cost calculation {#business-example}
 
 You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account:
 
@@ -139,7 +153,62 @@ Where:
 * $125.640000 is the additional cost of technical support before you exceed the $2564.100000 threshold.
 * $25 is the additional cost of technical support as soon as you exceed the $2564.100000 threshold.
 
-## Premium {#premium}
+### Premium {#premium}
+
+The <q>Premium</q> plan includes all the services offered under the other service plans and can be supplemented based on your requirements.
+
+To get an estimate of the Premium service plan cost, please contact your {{ yandex-cloud }} manager or [support]({{link-console-support}}).
+
+## Service plans after October 1 {#new-plans}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+The cost of service depends on the chosen service plan. The selected service plan applies to the organization and can only be changed by the owner or administrator of the organization. Using one billing account, you can pay for support for different organizations, which may have different support rates. The set services is described in the section [Technical support procedure](overview.md).
+
+Service plan | Basic          | Business                                                                                                                                                                                                                            | Premium
+--- |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ---
+**Cost** | Free of charge | $24 per month and 5% of the consumption of resources</br> of the payment account located in this organization | Upon request
+
+All prices are shown without VAT. The cost of technical support is calculated based on the cost of paid resources consumed.
+
+### Basic {#base}
+
+The basic tariff plan is provided to all {{ yandex-cloud }} users and is not charged separately. It's suitable for personal and research projects.
+
+### Business {#business}
+
+The plan is suitable for professional projects that require 24/7 support. 
+The price is calculated based on resources consumed for the current reporting period (calendar month). To calculate the cost of using the service, use our [calculator](/prices#calculator) or see the calculation methods in the sections below.
+
+#### Service plan cost {#business-price}
+
+
+
+
+{% include [usd.md](../_pricing/support/usd-business-2023.md) %}
+
+
+#### Example of a cost calculation for an organization whose resources are paid for by one billing account {#business-example-one-ba}
+
+If a client consumes resources per month for $800, than support cost will be $24 + $800 * 0.05 = $64 and it will be charged per one billing account.
+
+#### Example of a cost calculation for an organization whose resources are paid for by two billing account {#business-example-two-ba}
+
+If there are resources in one organization with the included support service, which are paid by different billing accounts, then the percentage of the tariff will be charged from each billing account depending on the cost of resource consumption, and only one account, which was specified for this when choosing the Business tariff, pays the fixed part. 
+
+An organization with a connected Business service plan has two payment accounts:
+
+* Account 1: consumes resources per month for $400;
+* Account 2: consumes resources per month for $80.
+
+Only one of the accounts will pay the fixed cost, for example, Account 1.
+
+Service cost will be:
+
+* $24 + $400 * 0.05 = $44 — for Account 1;
+* $80 * 0.05 = $4 — for Account 2;
+
+### Premium {#premium}
 
 The <q>Premium</q> plan includes all the services offered under the other service plans and can be supplemented based on your requirements.
 

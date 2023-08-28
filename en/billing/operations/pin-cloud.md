@@ -6,7 +6,7 @@
 
 Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE` or `TRIAL_ACTIVE` status) and that the user has the following roles:
 * [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
-* `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access control](../security/index.md#role-list).
+* `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access control](../security/index.md#roles-list).
 
 ## Linking a cloud {#bind-cloud}
 

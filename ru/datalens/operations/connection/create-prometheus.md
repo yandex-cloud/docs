@@ -3,6 +3,10 @@
 Чтобы создать подключение к {{ prometheus-name }}:
 
 
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 
 

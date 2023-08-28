@@ -1,1 +1,0 @@
-[`editor`](../../../../iam/concepts/access-control/roles.md#editor) — позволяет управлять ресурсами (создавать, изменять и удалять их).

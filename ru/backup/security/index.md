@@ -18,34 +18,28 @@ description: "Управление доступом в сервисе, пред�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-### backup.admin {#backup-admin}
+### Сервисные роли {#service-roles}
+
+#### backup.admin {#backup-admin}
 
 {% include notitle [roles-backup-admin](../../_includes/roles-backup-admin.md) %}
 
-### backup.editor {#backup-editor}
+#### backup.editor {#backup-editor}
 
 {% include notitle [roles-backup-editor](../../_includes/roles-backup-editor.md) %}
 
-### backup.viewer {#backup-viewer}
+#### backup.viewer {#backup-viewer}
 
 {% include notitle [roles-backup-viewer](../../_includes/roles-backup-viewer.md) %}
 
-### {{ roles-cloud-member }} {#resmgr-clouds-member}
+#### {{ roles-cloud-member }} {#resmgr-clouds-member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+#### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
-### {{ roles-viewer }} {#viewer}
+### Примитивные роли {#primitive-roles}
 
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
-
-### {{ roles-editor }} {#editor}
-
-{% include [roles-editor](../../_includes/roles-editor.md) %}
-
-### {{ roles-admin }} {#admin}
-
-{% include [roles-admin](../../_includes/roles-admin.md) %}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}

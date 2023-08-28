@@ -17,6 +17,16 @@ items:
       - name: Пошаговые инструкции
         href: operations/index.md
         hidden: true
+  - name: Воркбуки и коллекции
+    items:
+      - name: Обзор
+        href: workbooks-collections/index.md
+      - name: Создание воркбука и коллекции
+        href: workbooks-collections/workbooks-collections-create.md
+      - name: Миграция объектов в воркбуки
+        href: workbooks-collections/migrations.md
+      - name: Настройка доступа
+        href: workbooks-collections/security.md
   - name: Практические руководства
     items:
       - name: Обзор

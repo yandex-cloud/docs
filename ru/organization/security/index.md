@@ -8,7 +8,9 @@
 
 Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
-## Сервисные роли {#service-roles}
+## Какие роли действуют в сервисе {#roles-list}
+
+### Сервисные роли {#service-roles}
 
 * `organization-manager.admin` — роль администратора организации.
   
@@ -23,6 +25,10 @@
 * `organization-manager.viewer` — роль дает возможность просматривать настройки организации, но не редактировать их.
 
 * `organization-manager.groups.memberAdmin` — роль дает возможность просматривать информацию о группе, добавлять и удалять участников.
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ### Назначить пользователя администратором организации {#admin}
 

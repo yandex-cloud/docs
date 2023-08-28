@@ -26,7 +26,7 @@ Let's take a look at the `Selling` table with data on sales in cities:
 
 **Example 1**
 
-The [chart](https://datalens.yandex/ryw9h5g0ecc8k) based on the `Selling` table and grouped by `City` and `Category` must compute total sales (`TotalSales`) as well as each category's share in a city as a percentage of the total (`% Total`). To do this, you need to create two measures using the [SUM](../function-ref/SUM_WINDOW.md) window function:
+The chart based on the `Selling` table and grouped by `City` and `Category` must compute total sales (`TotalSales`) as well as each category's share in a city as a percentage of the total (`% Total`). To do this, you need to create two measures using the [SUM](../function-ref/SUM_WINDOW.md) window function:
 
 * TotalSales: `SUM(SUM([Sales]) TOTAL)`
 * % Total: `SUM([Sales]) / [TotalSales]`

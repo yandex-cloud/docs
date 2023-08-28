@@ -1,4 +1,4 @@
-### logging.writer
+#### logging.writer {#logging-writer}
 
 Роль `logging.writer` дает право добавлять записи в лог-группу.
 

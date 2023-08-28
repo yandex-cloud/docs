@@ -1,4 +1,4 @@
-### alb.editor {#alb-editor}
+#### alb.editor {#alb-editor}
 
 Роль `{{ roles-alb-editor }}` позволяет создавать, изменять и удалять объекты ресурсной модели:
 * [L7-балансировщики](../application-load-balancer/concepts/application-load-balancer.md);

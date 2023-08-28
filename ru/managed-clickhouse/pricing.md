@@ -154,6 +154,7 @@ editable: false
 
 {% endnote %}
 
+
 ## Цены {#prices}
 
 
@@ -176,7 +177,6 @@ editable: false
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
 
 
-
 {% note info %}
 
 Заказать ресурсы хостов {{ ZK }} с помощью механизма CVoS невозможно.
@@ -191,13 +191,11 @@ editable: false
 
 
 
-
 ### Хранилище и резервные копии {#prices-storage}
 
 
 
 {% include [rub-storage.md](../_pricing/managed-clickhouse/rub-storage.md) %}
-
 
 
 

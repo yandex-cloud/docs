@@ -1,4 +1,4 @@
-### monitoring.admin {#monitoring-admin}
+#### monitoring.admin {#monitoring-admin}
 
 Пользователь с ролью `{{ roles-monitoring-admin }}` может создавать дашборды и виджеты, загружать метрики и управлять алертами.
 

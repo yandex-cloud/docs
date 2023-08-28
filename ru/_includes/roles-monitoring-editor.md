@@ -1,4 +1,4 @@
-### monitoring.editor {#monitoring-editor}
+#### monitoring.editor {#monitoring-editor}
 
 Пользователь с ролью `{{ roles-monitoring-editor }}` может создавать дашборды и виджеты, загружать метрики и управлять алертами.
 
