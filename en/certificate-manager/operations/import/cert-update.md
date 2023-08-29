@@ -8,7 +8,7 @@ To get a new version of a user certificate:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Select the certificate you want to renew in the list.
    1. In the window that opens, click **Renew certificate**.
@@ -113,11 +113,11 @@ To get a new version of a user certificate:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check if the certificate has been updated either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate's update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-    ```bash
-    yc certificate-manager certificate get <certificate_name>
-    ```
+   ```bash
+   yc certificate-manager certificate get <certificate_name>
+   ```
 
 - API
 

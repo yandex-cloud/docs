@@ -141,7 +141,7 @@
                           `disk-type=<тип диска> \
            --zone-id=<зона доступности> \
            --subnet-id=<идентификатор подсети> \
-           --assign-public-ip=<доступ к хостам через публичный IP-адрес: true или false> \
+           --assign-public-ip=<публичный доступ к хостам: true или false> \
            --security-group-ids=<список идентификаторов групп безопасности> \
            --deletion-protection=<защита от удаления кластера: true или false>
         ```
@@ -172,7 +172,7 @@
 
         * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-        * `--assign-public-ip` — флаг, который указывается, если хостам требуется [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+        * `--assign-public-ip` — флаг, который указывается, если для хостов нужен [публичный доступ](../concepts/network.md#public-access-to-a-host).
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
         * `--deletion-protection` — защита от удаления кластера.
 
@@ -263,7 +263,7 @@
          network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
          zone                = "<зона доступности>"
          subnet_id           = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
-         assign_public_ip    = <получение публичного IP-адреса: true или false>
+         assign_public_ip    = <публичный доступ к хостам кластера: true или false>
          deletion_protection = <защита от удаления кластера: true или false>
          version             = "<версия {{ GP }}>"
          master_host_count   = <количество хостов-мастеров: 1 или 2>

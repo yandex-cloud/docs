@@ -227,7 +227,7 @@ keywords:
            --network-name=<имя сети> \
            --host zone-id=<зона доступности>,`
                  `subnet-id=<имя подсети>,`
-                 `assign-public-ip=<доступ к хосту через публичный IP-адрес: true или false>,`
+                 `assign-public-ip=<публичный доступ к хосту: true или false>,`
                  `type=<роль хоста: datanode или masternode> \
            --datanode-resource-preset=<класс хостов с ролью Data node> \
            --datanode-disk-size=<размер хранилища в гигабайтах для хостов с ролью Data node> \
@@ -255,7 +255,7 @@ keywords:
 
             
             * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или   больше подсетей.
-            * `assign-public-ip` — флаг, который указывается, если хосту требуется [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+            * `assign-public-ip` — флаг, который указывается, если для хоста требуется [публичный доступ](../concepts/network.md#public-access-to-a-host).
 
 
             * `type` — [роль хоста](../concepts/hosts-roles.md).
@@ -304,7 +304,7 @@ keywords:
 1. Найдите в списке репозиториев {{ ES }} тот, который содержит в себе резервные копии в виде снапшотов:
 
     ```http
-    GET https://admin:<пароль>@<FQDN_или_IP-адрес_хоста>:9200/_snapshot/_all
+    GET https://admin:<пароль>@<FQDN_хоста>:9200/_snapshot/_all
     ```
 
     Если нужного репозитория нет в списке — [подключите его](./s3-access.md).
@@ -312,7 +312,7 @@ keywords:
 1. Получите список снапшотов в репозитории:
 
     ```http
-    GET https://admin:<пароль>@<FQDN_или_IP-адрес_хоста>:9200/_snapshot/<репозиторий>/_all
+    GET https://admin:<пароль>@<FQDN_хоста>:9200/_snapshot/<репозиторий>/_all
     ```
 
     Каждой резервной копии соответствует один снапшот.
@@ -323,7 +323,7 @@ keywords:
 1. Найдите в списке репозиториев {{ ES }} тот, в котором нужно создать резервную копию в виде снапшота:
 
     ```http
-    GET https://admin:<пароль>@<FQDN_или_IP-адрес_хоста>:9200/_snapshot/_all
+    GET https://admin:<пароль>@<FQDN_хоста>:9200/_snapshot/_all
     ```
 
     Если нужного репозитория нет в списке — [подключите его](./s3-access.md).
@@ -331,7 +331,7 @@ keywords:
 1. [Создайте снапшот](https://www.elastic.co/guide/en/elasticsearch/reference/current/create-snapshot-api.html) нужных данных или целого кластера в выбранном репозитории:
 
     ```http
-    PUT https://admin:<пароль>@<FQDN_или_IP-адрес_хоста>:9200/_snapshot/<репозиторий>/<снапшот>
+    PUT https://admin:<пароль>@<FQDN_хоста>:9200/_snapshot/<репозиторий>/<снапшот>
     ```
 
 ### Восстановить кластер из снапшота {#restore-from-snapshot}
@@ -356,7 +356,7 @@ keywords:
 1. Закройте открытые индексы с помощью [{{ ES }} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-close.html):
 
     ```http
-    POST: https://admin:<пароль>@<FQDN_или_IP-адрес_хоста>:9200/<индекс>/_close
+    POST: https://admin:<пароль>@<FQDN_хоста>:9200/<индекс>/_close
     ```
 
     Для восстановления всего кластера закройте все открытые индексы. Для восстановления отдельных индексов закройте только их.

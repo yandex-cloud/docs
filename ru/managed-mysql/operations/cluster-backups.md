@@ -215,7 +215,7 @@ description: "Вы можете создавать резервные копии
          --network-name=<имя сети> \
          --host zone-id=<зона доступности>,`
                `subnet-name=<имя подсети>`
-               `assign-public-ip=<доступ к хосту через публичный IP-адрес: true или false> \
+               `assign-public-ip=<публичный доступ к хосту: true или false> \
          --resource-preset=<класс хоста> \
          --disk-size=<размер хранилища в гигабайтах> \
          --disk-type=<тип диска>
@@ -239,7 +239,7 @@ description: "Вы можете создавать резервные копии
 
           
           * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
-          * `assign-public-ip` — флаг, который указывается, если хосту требуется [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+          * `assign-public-ip` — флаг, который указывается, если для хоста нужен [публичный доступ](../concepts/network.md#public-access-to-host).
 
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).

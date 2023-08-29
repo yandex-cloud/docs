@@ -355,6 +355,10 @@
 
 {% endlist %}
 
+
+{% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
+
+
 ## Деактивировать трансфер {#deactivate}
 
 В процессе деактивации трансфера:
@@ -403,7 +407,11 @@
 
 {% endnote %}
 
-Подробнее см. в разделе [{#T}](../concepts/transfer-lifecycle.md).
+Подробнее см. в разделе [{#T}](../concepts/transfer-lifecycle.md). 
+
+
+{% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
+
 
 ## Удалить трансфер {#delete}
 

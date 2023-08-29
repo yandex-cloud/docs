@@ -1,3 +1,3 @@
-### yds.editor {#yds-editor}
+#### yds.editor {#yds-editor}
 
 Роль `yds.editor` разрешает создание, изменение и удаление потока, а также чтение и запись в поток {{ yds-name }}.

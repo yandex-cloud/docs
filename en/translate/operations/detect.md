@@ -91,6 +91,6 @@ To avoid mistakes, you can use the `languageCodeHints` field to specify which la
     }
     ```
 
-    Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
 
 {% endlist %}

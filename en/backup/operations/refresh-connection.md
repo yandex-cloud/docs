@@ -4,78 +4,75 @@ After [restoring a VM from a backup of another VM](./backup-vm/non-native-recove
 
 To avoid conflicts between the two VMs when making backups, update the outdated VM's connection to {{ backup-name }}:
 
-{% list tabs %}
+1. Reconnect to {{ backup-name }} from the outdated VM:
 
-- Linux
+   {% list tabs %}
 
-   1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+   - Linux
 
-   1. Install the [jq](https://jqlang.github.io/jq/), [awk](http://awklang.org/), [curl](https://curl.se/), and [uuidgen](https://uuidgen.org/) utilities on the VM:
+      1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+      1. Install the [jq](https://jqlang.github.io/jq/), [awk](http://awklang.org/), [curl](https://curl.se/), and [uuidgen](https://uuidgen.org/) utilities on the VM:
 
-      {% note info %}
+          {% note info %}
 
-      If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+          If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
 
-      {% endnote %}
+          {% endnote %}
 
-      ```bash
-      sudo apt install jq
-      sudo apt install gawk
-      sudo apt install curl
-      sudo apt install uuid-dev
-      ```
+          ```bash
+          sudo apt install jq
+          sudo apt install gawk
+          sudo apt install curl
+          sudo apt install uuid-dev
+          ```
 
-   1. Run this command:
+      1. Run this command:
 
-      ```bash
-      curl 'https://storage.yandexcloud.net/backup-distributions/agent_reinit.sh' | sudo bash
-      ```
+          ```bash
+          curl 'https://storage.yandexcloud.net/backup-distributions/agent_reinit.sh' | sudo bash
+          ```
 
-      Result:
+          Result:
 
-      ```text
-      ...
-      Deleting old resource bound for instance_id epdoe4g6dbq4******** and resource_id: F07543A1-BDC1-415A-A143-C18E********
-      Updating ids in {{ backup-name }}
-      Finished     
-      ```
+          ```text
+          ...
+          Deleting old resource bound for instance_id epdoe4g6dbq4******** and resource_id: F07543A1-BDC1-415A-A143-C18E********
+          Updating ids in {{ backup-name }}
+          Finished     
+          ```
 
-   1. Disconnect from the VM:
+   - Windows
 
-      ```bash
-      exit
-      ```
+      1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
+      1. Run Windows PowerShell.
+      1. Run this command:
 
-   1. [Link](./policy-vm/update.md#update-vm-list) your VM to a backup policy.
+         ```powershell
+         . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
+         ```
 
-- Windows
+         Result:
 
-   1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
+         ```text
+         ...
+         Backup agent reinit completed after 204 s!
+         ```
 
-   1. Run Windows PowerShell.
+   {% endlist %}
 
-   1. Run this command:
+1. Disconnect from the VM.
+1. Make sure the outdated VM is no longer on the list of VMs connected to {{ backup-name }}:
 
-      ```powershell
-      . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
-      ```
+   {% list tabs %}
 
-      Result:
+   - Management console
 
-      ```text
-      ...
-      Backup agent reinit completed after 204 s!
-      ```
+      1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
+      1. In the list of services, select **{{ backup-name }}**.
+      1. In the ![machines](../../_assets/backup/machines.svg) **Virtual machines** tab, check that the list does not contain the outdated VM marked as ![irrelevant](../../_assets/backup/irrelevant.svg).
 
-   1. [Link](./policy-vm/update.md#update-vm-list) your VM to a backup policy.
+         If the outdated VM is still there, click ![image](../../_assets/options.svg) next to it, select **Delete**, and confirm the deletion.
 
-{% endlist %}
+   {% endlist %}
 
-#### See also {#see-also}
-
-* [{#T}](connect-vm-windows.md)
-* [Attaching a VM to a backup policy](./policy-vm/update.md#update-vm-list)
-* [{#T}](./backup-vm/recover.md)
-* [{#T}](./backup-vm/non-native-recovery.md)
-* [{#T}](./backup-vm/delete.md)
-* [{#T}](./policy-vm/create.md)
+1. [Link](./policy-vm/update.md#update-vm-list) your VM to a backup policy.

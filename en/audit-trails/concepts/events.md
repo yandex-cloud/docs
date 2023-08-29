@@ -108,13 +108,15 @@ Service name: `audittrails`.
 Service name: `serverless`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `functions.CreateFunction` | Creating a function |
 | `functions.CreateFunctionVersion` | Creating a function version |
 | `functions.DeleteFunction` | Deleting a function |
 | `functions.RemoveFunctionTag` | Removing a function tag |
 | `functions.SetFunctionTag` | Assigning a function tag |
+| `functions.SetFunctionAccessBindings` | Setting access bindings for a function |
 | `functions.UpdateFunction` | Updating a function |
+| `functions.UpdateFunctionAccessBindings` | Updating access bindings for a function |
 | `mdbproxy.CreateProxy` | Creating a proxy |
 | `mdbproxy.DeleteProxy` | Deleting a proxy |
 | `mdbproxy.UpdateProxy` | Updating a proxy |
@@ -146,12 +148,12 @@ Service name: `certificatemanager`.
 
 | Event name | Description |
 --- | ---
-| `CreateCertificate` | Create a certificate |
-| `CreateDomain` | Create a domain |
-| `UpdateCertificate` | Edit a certificate |
-| `UpdateDomain` | Update a domain |
-| `DeleteCertificate` | Delete a certificate |
-| `DeleteDomain` | Delete a domain |
+| `CreateCertificate` | Adding a certificate |
+| `CreateDomain` | Creating a domain |
+| `UpdateCertificate` | Editing a certificate |
+| `UpdateDomain` | Updating a domain |
+| `DeleteCertificate` | Deleting a certificate |
+| `DeleteDomain` | Deleting a domain |
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
 | `SetDomainPrimaryCertificate` | Assigning a primary certificate to a domain |
@@ -194,12 +196,14 @@ Service name: `compute`.
 | `CrashInstance` | Emergency VM shutdown |
 | `CreateDisk` | Creating a disk |
 | `CreateFilesystem` | Creating a file system |
+| `CreateGpuCluster` | Creating a GPU cluster |
 | `CreateImage` | Creating a disk image |
 | `CreateInstance` | Creating a VM instance |
 | `CreateSnapshot` | Creating a disk snapshot |
 | `CreateSnapshotSchedule` | Creating a disk snapshot schedule |
 | `DeleteDisk` | Deleting a disk |
 | `DeleteFilesystem` | Deleting a file system |
+| `DeleteGpuCluster` | Deleting a GPU cluster |
 | `DeleteImage` | Deleting a disk image |
 | `DeleteInstance` | Deleting a VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
@@ -216,6 +220,7 @@ Service name: `compute`.
 | `StopInstance` | Stopping a VM |
 | `UpdateDisk` | Changing a disk |
 | `UpdateFilesystem` | Modifying a file system |
+| `UpdateGpuCluster` | Editing a GPU cluster |
 | `UpdateImage` | Updating a disk image |
 | `UpdateInstance` | Updating a VM instance |
 | `UpdateInstanceMetadata` | Updating VM instance metadata |
@@ -245,6 +250,7 @@ Service name: `containerregistry`.
 | `CreateImageTag` | Creating an image tag |
 | `CreateRegistry` | Creating a registry |
 | `CreateRepository` | Creating a repository |
+| `CreateScanPolicy` | Creating a scan policy |
 | `DeleteImage` | Deleting an image |
 | `DeleteImageTag` | Deleting an image tag |
 | `DeleteRegistry` | Deleting a registry |
@@ -252,6 +258,7 @@ Service name: `containerregistry`.
 | `ScanImage` | Scanning an image |
 | `UpdateIpPermission` | Updating policies for accessing a registry from IP addresses |
 | `UpdateRegistry` | Updating a registry |
+| `UpdateScanPolicy` | Updating a scan policy |
 | `UpdateRegistryAccessBindings` | Updating access bindings for a registry |
 | `UpdateRepositoryAccessBindings` | Updating access bindings for a repository |
 | `SetRegistryAccessBindings` | Setting access bindings for a registry |
@@ -593,6 +600,8 @@ Service name: `storage`.
 | `ObjectCreate` | Creating an object in a bucket ^*^ |
 | `ObjectDelete` | Deleting an object from a bucket ^*^ |
 | `ObjectUpdate` | Updating an object in a bucket ^*^ |
+| `ObjectTagsDelete` | Deleting object tags |
+| `ObjectTagsUpdate` | Updating object tags |
 
 \* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
 "Please enable the recording of data plane object storage events in audit trail `<trail id>`."
@@ -676,6 +685,8 @@ Service name: `network`.
 
 | Event name | Description |
 --- | ---
+| `AddressAttached` | Linking an address to a cloud resource |
+| `AddressDetached` | Unlinking an address from a cloud resource |
 | `CreateAddress` | Creating a cloud resource address |
 | `CreateGateway` | Creating a gateway |
 | `CreateNetwork` | Creating a cloud network |

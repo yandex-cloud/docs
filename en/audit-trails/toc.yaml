@@ -69,6 +69,8 @@ items:
         href: concepts/index.md
       - name: Trail
         href: concepts/trail.md
+      - name: Diagnostic logs
+        href: concepts/diagnostics.md
       - name: Audit log of events
         href: concepts/format.md
       - name: Event reference

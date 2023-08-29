@@ -1,3 +1,3 @@
-### yq.viewer {#yq-viewer}
+#### yq.viewer {#yq-viewer}
 
 Пользователь с ролью `yq.viewer` может просматривать запросы и результаты.

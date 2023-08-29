@@ -305,14 +305,14 @@
 
    * `target` — название вашего сайта и порт (для HTTPS: 443).
    
-6. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
+1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * В блоке настроек **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `ammo.json`.
    * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
      * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `load.yaml`.
 
-7. Наблюдайте за прохождением теста:
+1. Наблюдайте за прохождением теста:
 
    1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
    1. Выберите ваш тестовый кластер.

@@ -7,42 +7,31 @@ You can configure the environment to run your code using [Docker images](../conc
 ## Creating a Docker image {#create}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Fill out the fields below:
    * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored. `.` is the root directory.
-   * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Name of the image, such as `cuda`.
+   * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Image name, e.g., `tensorflow`.
    * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, such as `1.0.0`.
    * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script used to install Python (`python_3_7` or `python_3_8`).
    * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}**: A set of instructions for creating a Docker image.
 
-      Edit the contents of the field. For example, to install CUDA<sup>®</sup> packages, you need a template of the `python_3_8` image and the following code:
+      Edit the contents of the field. For example, the following code will create a Docker image with `python_3_8` based on the original TensorFlow image:
 
       ```bash
-      FROM ubuntu:18.04
-      ENV DEBIAN_FRONTEND noninteractive
-      RUN useradd -ms /bin/bash --uid 1000 jupyter\
-       && apt update\
-       && apt install -y python3.8-dev python3.8-distutils gnupg wget software-properties-common curl\
-       && ln -s /usr/bin/python3.8 /usr/local/bin/python3\
-       && curl https://bootstrap.pypa.io/get-pip.py | python3
-      ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
-      RUN apt-get update &&\
-       apt-get install -y -q xserver-xorg-core wget &&\
-       wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
-       apt-key adv --fetch-keys <public GPG key> &&\
-       add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
-       apt-get update &&\
-       apt-get -y install libnvidia-common-450 cuda-drivers-450 nvidia-driver-450 &&\
-       apt-get -y install cuda-11-2 libcudnn8=8.1.1.33-1+cuda11.2 cuda-toolkit-11-2 &&\
-       exit
-      RUN pip install tensorflow-gpu==2.4.1
+      FROM tensorflow/tensorflow:2.7.0-gpu
+
+      RUN set -e \
+        && useradd -ms /bin/bash --uid 1000 jupyter \
+        && pip install --no-cache-dir --upgrade pip \
+        && pip install --no-cache-dir nptyping==1.4.4 pandas==1.4.1 opencv-python-headless==4.5.5.62 scikit-learn==1.0.2 \
+        && ln -s /usr/bin/python3 /usr/local/bin/python3
       ```
 
-      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. For details, see details in the [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
+1. (Optional) Under **{{ ui-key.yc-ui-datasphere.docker.credentials-switcher-label }}** enter your Docker Hub account username and password.
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.build }}**.
 
-   This creates a Docker image with CUDA<sup>®</sup> packages to use the GPU in computations.
+   This will create a Docker image with TensorFlow packages for the use of the GPU in computations.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
@@ -55,7 +44,7 @@ You can configure the environment to run your code using [Docker images](../conc
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Click ![Options](../../_assets/options.svg) next to the desired image and select ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 1. Open the project in {{ jlab }}Lab and wait for it to load.
-1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the image with CUDA<sup>®</sup> packages, create and run a cell with the following code:
+1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the TensorFlow image, create and run a cell with the following code:
 
    ```bash
    #!g1.1

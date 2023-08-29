@@ -27,6 +27,8 @@ items:
             href: operations/community/billing-details.md
           - name: Deleting a community
             href: operations/community/delete.md
+          - name: Removing a user from a community
+            href: operations/community/delete-user.md
       - name: Project management
         items:
           - name: Creating a project
@@ -45,6 +47,8 @@ items:
             href: operations/projects/restrictions.md
           - name: Deleting a notebook or project
             href: operations/projects/delete.md
+          - name: Removing a user from a project
+            href: operations/projects/delete-user.md
       - name: Working in a notebook
         items:
           - name: Selecting computing resources
@@ -195,6 +199,8 @@ items:
         href: tutorials/batch-code-execution.md
       - name: Training a model on data from {{ objstorage-full-name }}
         href: tutorials/s3-to-datasphere.md
+      - name: Creating an MLFlow server for logging experiments and artifacts
+        href: tutorials/mlflow-datasphere.md
   - name: API reference
     items:
       - name: Overview

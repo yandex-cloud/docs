@@ -17,7 +17,7 @@
    ```
 1. Upload an audio file to {{ objstorage-full-name }} and get a link to the uploaded file:
 
-   1. If you do not have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
+   1. If you do not have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one with restricted access.
    1. [Upload an audio file](../../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }}, uploaded files are called _objects_.
    1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in your audio recognition request.
 

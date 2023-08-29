@@ -50,6 +50,10 @@ spec:
 
 {% endcut %}
 
+## Настройки логирования {#log-options}
+
+Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек Ingress-группы и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Аннотации ресурса Ingress](../../k8s-ref/ingress.md#annotations).
+
 ## Установка и требования {#install}
 
 Для установки Ingress-контроллера {{ alb-name }} требуются:

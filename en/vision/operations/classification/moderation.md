@@ -125,6 +125,6 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
 If an attempt to invoke a function ends with the `408 Request Timeout` error, try to fix the issue in one of the following ways:
 * Send the request again.
 * Reduce the image size.
-* Upload less images to [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md).
+* Upload fewer images to [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md).
 
 {% endnote %}

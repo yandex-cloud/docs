@@ -589,7 +589,7 @@
   * В блоке **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}** укажите параметры для подключения к кластеру-приемнику:
     * **{{ ui-key.yacloud.kafka.field_connector-alias }}** — префикс для обозначения кластера-приемника в настройках коннектора.
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}** — выберите опцию для использования текущего кластера в качестве приемника.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — список FQDN или IP-адресов хостов-брокеров кластера-приемника с номерами портов для подключения, разделенный запятыми.
+    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — список FQDN хостов-брокеров кластера-приемника с номерами портов для подключения, разделенный запятыми.
 
        FQDN хостов-брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](cluster-hosts.md#list-hosts).
 

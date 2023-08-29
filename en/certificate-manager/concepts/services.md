@@ -3,6 +3,7 @@
 
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
 * [{{ objstorage-full-name }}](#os).
+* [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 
 
@@ -18,6 +19,10 @@ If you use a bucket to host a static website, [use a {{ certificate-manager-name
 
 {% endnote %}
 
+
+## {{ alb-full-name }} {#alb}
+
+[{{ alb-name }}](../../application-load-balancer/index.yaml) can handle TLS traffic: establish connections and terminate TLS sessions using certificates added to {{ certificate-manager-name }}. Certificates from {{ certificate-manager-name }} can be used in [L7 load balancer](../../application-load-balancer/operations/application-load-balancer-create.md) listeners.
 
 ## {{ api-gw-full-name }} {#api-gw}
 

@@ -9,39 +9,39 @@ items:
         href: operations/index.md
       - name: Certificate from Let's Encrypt
         items:
-          - name: Create a certificate
+          - name: Adding a certificate
             href: operations/managed/cert-create.md
-          - name: Get the contents of a certificate
+          - name: Getting the contents of a certificate
             href: operations/managed/cert-get-content.md
           - name: Domain rights check procedure
             href: operations/managed/cert-validate.md
           - name: Renewing a certificate
             href: operations/managed/cert-update.md
-          - name: Edit a certificate
+          - name: Editing a certificate
             href: operations/managed/cert-modify.md
-          - name: Delete a certificate
+          - name: Deleting a certificate
             href: operations/managed/cert-delete.md
       - name: User certificate
         items:
-          - name: Create a certificate
+          - name: Adding a certificate
             href: operations/import/cert-create.md
-          - name: Get the contents of a certificate
+          - name: Getting the contents of a certificate
             href: operations/import/cert-get-content.md
           - name: Renewing a certificate
             href: operations/import/cert-update.md
-          - name: Edit a certificate
+          - name: Editing a certificate
             href: operations/import/cert-modify.md
-          - name: Delete a certificate
+          - name: Deleting a certificate
             href: operations/import/cert-delete.md
       - name: Domain
         items:
-          - name: Create a domain
+          - name: Creating a domain
             href: operations/domain/domain-create.md
-          - name: Renew a domain certificate
+          - name: Renewing a domain certificate
             href: operations/domain/domain-link-cert.md
-          - name: Update a domain
+          - name: Updating a domain
             href: operations/domain/domain-modify.md
-          - name: Delete a domain
+          - name: Deleting a domain
             href: operations/domain/domain-delete.md
       - name: Backups
         href: operations/cert-backup.md
@@ -59,7 +59,7 @@ items:
         href: concepts/managed-certificate.md
       - name: User certificate
         href: concepts/imported-certificate.md
-      - name: Check rights for domain
+      - name: Checking rights for domain
         href: concepts/challenges.md
       - name: Integration with {{ yandex-cloud }} services
         href: concepts/services.md

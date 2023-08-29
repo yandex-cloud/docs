@@ -1,8 +1,8 @@
-# Select computing resources
+# Selecting computing resources
 
 {% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 

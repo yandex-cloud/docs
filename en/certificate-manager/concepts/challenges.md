@@ -1,4 +1,4 @@
-# Check rights for domain
+# Checking rights for domain
 
 To get and renew a Let's Encrypt certificate, check the rights for each domain specified in the certificate. You can use two types of checks in {{ certificate-manager-name }}: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. Checking rights for domains may take a long time.
 
@@ -8,7 +8,7 @@ You only need to check rights for domains for Let's Encrypt certificates. {{ cer
 
 {% endnote %}
 
-{{ certificate-manager-name }} waits for each domain from the certificate to pass the check (all checks have the `Valid` status). After that, Let's Encrypt issues the certificate. Then the certificate changes its status to `Issued` and you can use it in services integrated with {{ certificate-manager-name }}.
+{{ certificate-manager-name }} waits for each domain from the certificate to pass the check (all checks have the `Valid` status). After that, Let's Encrypt will issue a certificate. Then the certificate changes its status to `Issued` and you can use it in services integrated with {{ certificate-manager-name }}.
 
 If the check is not passed within one week, the certificate status becomes `Invalid` (if you are obtaining the certificate) or `Renewal_failed` (if you are renewing the certificate). To obtain a certificate after that, request another certificate from Let's Encrypt.
 
@@ -30,7 +30,7 @@ You cannot use the `HTTP` challenge type for [Wildcard certificates](https://en.
 
 To check the rights for the `example.com` domain:
 
-1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
+1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
 1. In the list of services, select **{{ certificate-manager-name }}** and click on the name of the desired certificate.
 1. Create an `.html` file:
 
@@ -69,7 +69,7 @@ Using a CNAME record enables you to undergo a check only once. To do this, you n
 ### Adding a CNAME record {#cname}
 
 To check the rights for the domain `example.com` automatically:
-1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
+1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
 1. In the list of services, select **{{ certificate-manager-name }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
 1. Under **Check rights for domains**, in the section with the `CNAME` record type, check out the record value for the domain in the **Value** field.
@@ -89,8 +89,8 @@ To check the rights for the domain `example.com` automatically:
 
 ### Adding a TXT record {#txt}
 
-To check the rights for the `example.com` domain:
-1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
+To check the rights for the domain `example.com` domain:
+1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
 1. In the list of services, select **{{ certificate-manager-name }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
 1. Under **Check rights for domains**, in the section with the `TXT` record type, check out the record value for the domain in the **Value** field.

@@ -70,7 +70,7 @@ The result of {{ brand-voice-core }} voice model training directly depends on tr
 * Variables must be marked up.
 
    > Pattern phrase: `Your flight is on September eight at eleven twenty, from London to Madrid`.
-   > The list of variables is as follows: `variable_name = '{date}', variable_value = 'September eight at eleven twenty', `variable_name = '{route}', variable_value = 'London to Madrid'`.
+   > List of variables: `variable_name = '{date}', variable_value = 'September eighth at eleven twenty'`, `variable_name = '{route}', variable_value = 'London to Madrid'`.
    > The marked-up pattern text must be as follows: `Your flight is on {date = 'September eight at eleven twenty'}, from {route = 'London to Madrid'}.`
 * For each pattern, at least 10 variable values must be provided of different duration of pronunciation.
    > Example:

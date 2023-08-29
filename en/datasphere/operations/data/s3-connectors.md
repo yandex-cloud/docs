@@ -8,9 +8,9 @@ To connect to the object storage from the notebook code, follow this guide: [{#T
 
 ## Getting started {#before-begin}
 
-1. Get an access key from your S3 storage provider. To do this in [{{ objstorage-full-name }}](../../storage/), follow the steps:
+1. Get an access key from your S3 storage provider. To do this in [{{ objstorage-full-name }}](../../storage/), follow these steps:
   1. [Create a service account](../../../iam/operations/sa/create.md).
-  1. To the created account, [Assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
+  1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) to the created account a [role](../../../storage/security/) allowing either reads only or both reads and writes.
   1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
 
 ## Creating an S3 connector {#create}
@@ -26,7 +26,7 @@ To connect to the object storage from the notebook code, follow this guide: [{#T
 
       {% note warning %}
 
-     Do not use buckets with periods in their names for connection. [Learn more about buckets](../../../storage/concepts/bucket.md).
+      Do not use buckets with periods in their names for connection. You can learn more about buckets [here](../../../storage/concepts/bucket.md).
 
       {% endnote %}
 
@@ -43,7 +43,7 @@ Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activa
 
 ## Using an S3 storage in a project {#usage}
 
-You can access files in the connected bucket from the project code. Choose the desired file in the connected S3 storage on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, right-click it, then select **Copy path**. The file path is copied to the clipboard. Paste the copied path wherever you need in the project.
+You can access files in the connected bucket from the project code. Choose the file you need in the connected S3 storage on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, right-click it, and select **Copy path**. This will copy the file path to the clipboard. Paste the copied path wherever you need in the project.
 
 ## Detaching an S3 storage {#unmount}
 

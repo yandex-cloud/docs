@@ -1,12 +1,12 @@
 # Editing Let's Encrypt certificate
 
-After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.md), you can change its name or description. To edit a certificate:
+After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.md) and adding it to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Select the certificate you need to change from the list.
    1. In the window that opens, click **Change**.

@@ -4,7 +4,7 @@ In response to a search query, {{ search-api }} returns a UTF-8 encoded XML file
 
 {% note alert %}
 
-Up to 1,000 search results can be returned to each search query. Depending on the [docs-in-group](post-request.md#post-docs-in-group) attribute value, each result may contain one to three documents. The maximum number of pages with search results depends on the number of groups of documents returned per page (the [groups-on-page](post-request.md#post-groups-on-page) attribute value). If the provided `groups-on-page` attribute is set to `10`, a maximum of 100 pages with search results can be generated.
+You can get a maximum of 1,000 search results per search query. Depending on the [docs-in-group](post-request.md#post-docs-in-group) attribute value, each result may contain one to three documents. The maximum number of search results pages depends on the number of groups of documents per page (the [groups-on-page](post-request.md#post-groups-on-page) attribute). For example, if the `groups-on-page` attribute is set to `10`, a maximum of 100 pages with search results can be generated.
 
 {% endnote %}
 
@@ -207,7 +207,7 @@ Possible values:
 
 * `Misspell`: Typo.
 * `KeyboardLayout`: Incorrect keyboard layout.
-* `Volapyuk`: Query is made in Russian and transliterated into English. Used if the <q>Russian (yandex.ru)</q> value is selected as the [search type](../operations/registration.md#search-type).
+* `Volapyuk`: Query is made in Russian transliterated into English. Used if <q>Russian (yandex.ru)</q> is selected for [search type](../operations/registration.md#search-type).
 | Missing.
 ||
 || source-text |
@@ -337,7 +337,7 @@ The tag is optional and may be missing in some cases.
 | Missing.
 ||
 || size | Size of the document found in bytes | Missing. ||
-|| charset | Encoding of the document found | Missing. ||
+|| charset | Encoding of the found document | Missing. ||
 || passages | Grouping tag with a list of document passages | Missing. ||
 || passage |
 Passage with a document annotation.

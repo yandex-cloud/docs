@@ -1,5 +1,12 @@
 # Создание подключения к Google BigQuery
 
+{% note info %}
+
+Для создания подключения сервисному аккаунту в BigQuery должна быть выдана роль [BigQuery Data Viewer](https://cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) на датасет.
+Подключение не поддерживает работу с партиционированными таблицами.
+
+{% endnote %}
+
 Чтобы создать подключение к BigQuery:
 
 

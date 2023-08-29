@@ -1,4 +1,4 @@
-### {{ roles-data-transfer-private-admin }} {#data-transfer-privateadmin}
+#### {{ roles-data-transfer-private-admin }} {#data-transfer-privateadmin}
 
 Роль `{{ roles-data-transfer-private-admin }}` позволяет создавать, активировать и деактивировать [трансферы](../../../data-transfer/concepts/index.md#transfer) с передачей данных только в сетях {{ yandex-cloud }}.
 

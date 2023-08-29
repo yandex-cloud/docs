@@ -7,7 +7,7 @@ To get the contents of a certificate:
 
 - CLI
 
-   The command displays a certificate chain and a private key and saves their contents to the `--chain` and `--key` files, respectively.
+   The command will display a certificate chain and a private key and save their contents to the `--chain` and `--key` files, respectively.
 
    * `--id`: Certificate ID, make sure you set either the `--id` or `--name` flag.
    * `--name`: Name of the certificate, make sure you set either the `--id` or `--name` flag.

@@ -1,6 +1,6 @@
-# Creating a custom certificate
+# Adding a custom certificate
 
-Let's look at creating a custom certificate using a self-signed certificate as an example. Custom certificate requirements are shown on the [{#T}](../../concepts/imported-certificate.md) page.
+As an example, let's look at how to add a custom certificate using a self-signed certificate. You can see the custom certificate requirements on the [{#T}](../../concepts/imported-certificate.md) page.
 
 ## Creating a self-signed certificate file {#create-file}
 
@@ -35,26 +35,27 @@ Where:
 * `-newkey`: New private key file will be created.
 * `rsa:4096`: Algorithm and key length.
 * `-nodes`: Do not encrypt the private key file.
+* `-keyout`: Name of the file the private key is saved to.
 * `-out`: Certificate file name.
 * `-days`: Certificate validity period.
 * `-subj`: Certificate owner's Common Name value.
 
 The `req` command launched with the above parameters will issue a self-signed certificate and generate the associated private key.
 
-## Creating a self-signed user certificate {#create-certificate}
+## Adding a self-signed custom certificate {#create-certificate}
 
-To create a user certificate:
+To add a custom certificate to {{ certificate-manager-name }}:
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create a user certificate in.
+   1. In the [management console]({{ link-console-main }}), select the folder to add a custom certificate to.
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Click **Add certificate**.
    1. In the menu that opens, select **User certificate**.
-   1. In the window that opens, enter a name of your user certificate in the **Name** field.
-   1. (Optional) Enter certificate description in the **Description** field.
+   1. In the resulting window, use the **Name** field to enter a user certificate name.
+   1. (Optional) Enter a certificate description in the **Description** field.
    1. In the **Certificate** field, click **Add certificate**.
       1. Select **File** as the adding method.
       1. Click **Select file**.
@@ -145,15 +146,15 @@ To create a user certificate:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will create a certificate in the specified folder. You can check if the certificate is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   This will add the certificate to the specified folder. You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-    ```bash
-    yc certificate-manager certificate get <certificate_name>
-    ```
+   ```bash
+   yc certificate-manager certificate get <certificate_name>
+   ```
 
 - API
 
-   To create a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create) gRPC API call.
+   To add a certificate, use the [create](../../api-ref/Certificate/create.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create) gRPC API call.
 
 {% endlist %}
 

@@ -1,8 +1,8 @@
-# Export a project
+# Exporting a project
 
-You can export a project as a ZIP archive. In this case, both a file with a notebook and all files that you see in the **File Explorer** window are exported. This lets you start your notebook locally, provided the environments match.
+You can export a project as a ZIP archive. In this case, both the file with a notebook and all files that you see in the **File Explorer** window will be exported. This allows you to start your notebook locally as long as you have matching environments.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 

@@ -4,6 +4,7 @@
 
 Чтобы настроить доступ к запущенным в кластере приложениям через {{ alb-name }}:
 1. [{#T}](#create-ingress-and-apps).
+1. [{#T}](#configure-group).
 1. [{#T}](#verify-setup).
 
 ## Перед началом работы {#before-you-begin}
@@ -305,6 +306,9 @@ yc certificate-manager certificate list
      * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}. Укажите имя группы.
 
      (Опционально) Укажите дополнительные настройки контроллера:
+
+     * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
+
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -532,6 +536,8 @@ yc certificate-manager certificate list
      ```
 
      (Опционально) Укажите дополнительные настройки контроллера:
+
+     * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -588,6 +594,40 @@ yc certificate-manager certificate list
      По конфигурации Ingress-контроллера будет автоматически развернут L7-балансировщик.
 
 {% endlist %}
+
+## (Опционально) Настройте Ingress-группу {#configure-group}
+
+Если при установке Ingress-контроллера вы указали имя для настроек Ingress-группы в аннотации `ingress.alb.yc.io/group-settings-name`, можете задать настройки логирования для L7-балансировщика. Для этого [создайте пользовательскую лог-группу](../../logging/operations/create-group.md) и укажите настройки Ingress-группы в дополнительном ресурсе `IngressGroupSettings`.
+
+1. Создайте файл `settings.yaml` и укажите в нем настройки логирования и идентификатор пользовательской лог-группы, например:
+
+    ```yaml
+    apiVersion: alb.yc.io/v1alpha1
+    kind: IngressGroupSettings
+    metadata:
+      name: <имя для настроек Ingress-группы в аннотации ingress.alb.yc.io/group-settings-name>
+    logOptions:
+      logGroupID: <идентификатор пользовательской лог-группы>
+      discardRules:
+        - discardPercent: 50
+          grpcCodes:
+            - OK
+            - CANCELLED
+            - UNKNOWN
+        - discardPercent: 67
+          httpCodeIntervals:
+            - HTTP_1XX
+        - discardPercent: 20
+          httpCodes:
+            - 200
+            - 404
+    ```
+
+1. Примените настройки для Ingress-группы:
+
+    ```bash
+    kubectl apply -f settings.yaml
+    ```
 
 ## Убедитесь в доступности приложений кластера {{ k8s }} через {{ alb-name }} {#verify-setup}
 
