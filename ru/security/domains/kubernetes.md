@@ -272,7 +272,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Используйте данные чеклисты для выполнения требований по безопасному созданию образов:
 
-* [Dockerfile best practices](https://sysdig.com/blog/dockerfile-best-practices/#2-2)
+* [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 * [{{ k8s }} Security Checklist and Requirements](https://github.com/Vinum-Security/kubernetes-security-checklist/blob/main/README.md)
 
 Контролировать Dockerfile в процессе CI/CD можно с помощью утилиты [Conftest](https://www.conftest.dev/).

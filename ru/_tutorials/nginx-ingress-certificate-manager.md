@@ -386,7 +386,7 @@ curl <имя_домена> -vv
 Пример результата:
 
 ```text
-*   Trying 51.250.64.86:443...
+* Trying 51.250.64.86:443...
 * Connected to <имя_домена> (51.250.64.86) port 443 (#0)
 ...
 * SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
@@ -397,7 +397,7 @@ curl <имя_домена> -vv
 *  expire date: Oct 11 14:31:54 2022 GMT
 *  subjectAltName: host "<имя_домена>" matched cert's "<имя_домена>"
 ...
-*  SSL certificate verify ok.
+* SSL certificate verify ok.
 ```
 
 Сертификат от Let's Encrypt<sup>®</sup> должен обновляться автоматически вслед за [обновлением сертификата](../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.

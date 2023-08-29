@@ -1,6 +1,8 @@
-# {{ captcha-full-name }} в мобильном приложении
+# Размещение HTML-кода для работы {{ captcha-full-name }}
 
 Чтобы иметь возможность встраивать сервис {{ captcha-name }} в Android или IOS-приложение через **WebView**, разместите данную HTML-страницу на хосте одного из ваших доменов:
+
+{% cut "HTML-страница с кодом капчи" %}
 
 ```html
 <!DOCTYPE html>
@@ -120,9 +122,12 @@
 </html>
 ```
 
-Если вы не хотите самостоятельно размещать на хосте данную страницу, можно воспользоваться готовой HTML-страницей `{{ captcha-mobile-site }}` с нашего сервера.
+{% endcut %}
 
-## Что дальше {#whats-next}
+Если вы не хотите самостоятельно размещать на хосте данную страницу, то можете воспользоваться готовой HTML-страницей `{{ captcha-mobile-site }}` с нашего сервера.
 
-* [Как встроить сервис {{ captcha-name }} в ваше приложение на Android](../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md).
-* [Как встроить сервис {{ captcha-name }} в ваше приложение на iOS](../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md).
+После размещения кода капчи можно использовать {{ captcha-full-name }} в следующих случаях:
+
+* [{#T}](../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md).
+* [{#T}](../smartcaptcha/tutorials/mobile-app/android/invisible-captcha-android.md).
+* [{#T}](../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md).

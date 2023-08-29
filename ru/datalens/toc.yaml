@@ -925,5 +925,8 @@ items:
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
       - name: Не удалось создать <тип объекта>
         hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Ошибка на стороне БД
+        hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
 base: ru/datalens

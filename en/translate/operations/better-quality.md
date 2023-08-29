@@ -15,7 +15,7 @@ To increase the accuracy of translations:
 
 ## Specify the source language {#with-source-language}
 
-Words are sometimes written the same in different languages, but are translated differently. For example, the word <q>angel</q> in English means a spiritual being, while in German it means a fishing rod. If the text you provide contains such words, {{ translate-short-name }} may detect the wrong source language.
+Words are sometimes written the same in different languages but translated differently. For example, the word <q>angel</q> means a spiritual being in English, while in German it means a fishing rod. If the text you provide contains such words, {{ translate-short-name }} may detect the wrong source language.
 
 To avoid mistakes, specify the source language in the `sourceLanguageCode` field:
 
@@ -36,14 +36,14 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     * `folderId`: Folder ID received [before starting](#before-begin).
     * `texts`: Text to translate as a list of strings.
-    * `targetLanguageCode`: Target language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code with a [list of supported languages](../../translate/operations/list.md).
+    * `targetLanguageCode`: Target language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code along with a [list of supported languages](../../translate/operations/list.md).
     * `sourceLanguageCode`: Source language.
 
-    Save the request body in a file (for example, `body.json`) and pass the file using the [translate](../api-ref/Translation/translate)method:
+    Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
 
     This returns a translation from the correct language:
 
@@ -94,18 +94,18 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
     Where:
 
-    * `sourceLanguageCode`: Source language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code with a [list of supported languages](../../translate/operations/list.md).
+    * `sourceLanguageCode`: Source language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format. You can get the language code along with a [list of supported languages](../../translate/operations/list.md).
     * `targetLanguageCode`: Target language.
     * `texts`: Text to translate as a list of strings.
     * `folderId`: Folder ID received [before starting](#before-begin).
 
-    Save the request body in a file (for example, `body.json`) and pass the file using the [translate](../api-ref/Translation/translate)method:
+    Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
 
-    The response will contain a translation based on terms in your glossary:
+    The response will contain a translation based on the terms from your glossary:
 
     ```json
     {

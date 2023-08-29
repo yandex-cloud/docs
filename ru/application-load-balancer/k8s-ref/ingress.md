@@ -50,6 +50,7 @@ metadata:
     ingress.alb.yc.io/internal-ipv4-address: <string>
     ingress.alb.yc.io/internal-alb-subnet: <string>
     ingress.alb.yc.io/protocol: <string>
+    ingress.alb.yc.io/group-settings-name: <string>
     ingress.alb.yc.io/transport-security: <string>
     ingress.alb.yc.io/prefix-rewrite: <string>
     ingress.alb.yc.io/upgrade-types: <string>
@@ -122,6 +123,36 @@ metadata:
   * `http` — HTTP/1.1. Значение по умолчанию.
   * `http2` — HTTP/2.
   * `grpc` — gRPC.
+
+* `ingress.alb.yc.io/group-settings-name` (`string`)
+
+  Имя для настроек Ingress-группы, объединяемых в один балансировщик.
+
+  Чтобы задать настройки, создайте дополнительный ресурс `IngressGroupSettings`, например:
+
+  ```yaml
+  apiVersion: alb.yc.io/v1alpha1
+  kind: IngressGroupSettings
+  metadata:
+    name: non-default-settings
+  logOptions:
+    logGroupID: <идентификатор лог-группы>
+    discardRules:
+      - discardPercent: 50
+        grpcCodes:
+          - OK
+          - CANCELLED
+          - UNKNOWN
+      - discardPercent: 67
+        httpCodeIntervals:
+          - HTTP_1XX
+      - discardPercent: 20
+        httpCodes:
+          - 200
+          - 404
+  ```
+
+  Подробнее см. в описании параметра `logOptions` метода REST API [create](../api-ref/LoadBalancer/create.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md).
 
 * `ingress.alb.yc.io/transport-security` (`string`)
 

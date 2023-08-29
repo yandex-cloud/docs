@@ -44,11 +44,11 @@ The table below lists the roles needed to perform a particular action. You can a
 | **Certificate Manager** | |
 | Get a list of certificates or domains | `list` | `viewer` for a folder |
 | Get certificate or domain details | `get` | `viewer` for a certificate or folder |
-| [Creating](../operations/managed/cert-create.md) a Let's Encrypt certificate | `requestNew` | `editor` for the folder |
+| [Add](../operations/managed/cert-create.md) a Let's Encrypt certificate | `requestNew` | `editor` for the folder |
 | [Update](../operations/managed/cert-modify.md) and [delete](../operations/managed/cert-delete.md) a Let's Encrypt certificate | `update`, `delete` | `editor` for the certificate or folder |
-| [Create](../operations/import/cert-create.md) a user certificate | `create` | `editor` for the folder |
-| [Renew](../operations/import/cert-update.md), [update](../operations/import/cert-modify.md), or [delete](../operations/import/cert-delete.md) a user certificate | `update`, `delete` | `editor` for the certificate or folder |
-| Get the contents of a [user certificate](../operations/import/cert-get-content.md) or a [Let's Encrypt certificate](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` for the certificate or folder |
+| [Add](../operations/import/cert-create.md) a custom certificate | `create` | `editor` for the folder |
+| [Renew](../operations/import/cert-update.md), [update](../operations/import/cert-modify.md), or [delete](../operations/import/cert-delete.md) a custom certificate | `update`, `delete` | `editor` for the certificate or folder |
+| Get the contents of a [custom certificate](../operations/import/cert-get-content.md) or a [Let's Encrypt certificate](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` for the certificate or folder |
 | [Create a domain](../operations/domain/domain-create.md) | `create` | `editor` for the folder |
 | [Update a domain](../operations/domain/domain-modify.md) and [delete a domain](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` for the domain or folder |
 | [Update a domain certificate](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` for the domain or folder |

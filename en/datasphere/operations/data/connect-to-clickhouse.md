@@ -2,7 +2,7 @@
 
 In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://{{ ch-domain }}/) server clusters are deployed and supported using {{ mch-short-name }}.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 1. [Create](../../../managed-clickhouse/operations/cluster-create.md) a new {{ mch-short-name }} cluster and enable public access to it from the host. You can also use an existing cluster with publicly available hosts.
 1. [Configure](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) cluster security groups.
@@ -12,7 +12,7 @@ In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://{{ ch-domain }}/) s
 
 To connect to {{ mch-short-name }} cluster hosts:
 
-1. Get an SSL certificate: To do this, enter the following command in a notebook cell:
+1. Get an SSL certificate. To do this, enter the following command in a notebook cell:
 
    ```bash
    #!:bash

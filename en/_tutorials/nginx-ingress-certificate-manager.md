@@ -1,6 +1,6 @@
 Manage the TLS certificate for the NGINX Ingress controller via {{ certificate-manager-name }}.
 
-The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../managed-kubernetes/concepts/encryption.md). This helps control the deployed application's certificate via {{ certificate-manager-name }} by importing a self-signed certificate and updating it on your own or by issuing a Let's Encrypt<sup>®</sup> certificate that will update automatically.
+The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../managed-kubernetes/concepts/encryption.md). This helps manage the deployed application's certificate through {{ certificate-manager-name }} by adding a self-signed certificate and updating it on your own or by issuing a Let's Encrypt<sup>®</sup> certificate that will renew automatically.
 
 ## Getting started {#before-you-begin}
 
@@ -16,7 +16,7 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
    ```
 
 1. [Create a service account](../iam/operations/sa/create.md) named `eso-service-account`. You'll need it to work with the External Secrets Operator.
-1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to the file `authorized-key.json`:
+1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to the `authorized-key.json` file:
 
    ```bash
    yc iam key create \
@@ -37,9 +37,9 @@ The infrastructure support cost includes:
 * Using public IPs (see [{{ vpc-name }} pricing](../vpc/pricing.md)).
 * Incoming traffic (processed by the load balancer) and using a network load balancer (see [{{ network-load-balancer-short-name }} pricing](../network-load-balancer/pricing.md)).
 
-## Create a certificate in {{ certificate-manager-name }}
+## Add a certificate to {{ certificate-manager-name }}
 
-1. [Create](../certificate-manager/operations/managed/cert-create.md) a Let's Encrypt<sup>®</sup> certificate or import your own.
+1. Issue a Let's Encrypt<sup>®</sup> certificate and [add](../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../certificate-manager/operations/import/cert-create.md) your own certificate.
 1. For the Let's Encrypt<sup>®</sup> certificate, have your [rights checked](../certificate-manager/operations/managed/cert-validate.md) for the domain named in the certificate.
 1. Grant the `certificate-manager.certificates.downloader` role to the `eso-service-account` service account for it to be able to read the certificate contents:
 
@@ -379,26 +379,26 @@ Where `<domain_name>` is the name of the domain for which the certificate is iss
 
 Issue a GET request to the resource via HTTPS, for example, by this command:
 
-    ```bash
-    curl <domain_name> -vv
-    ```
+```bash
+curl <domain_name> -vv
+```
 
-    Example output:
+Result example:
 
-    ```text
-    *   Trying 51.250.64.86:443...
-    * Connected to <domain_name> (51.250.64.86) port 443 (#0)
-    ...
-    * SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
-    * ALPN, server accepted to use h2
-    * Server certificate:
-    *  subject: CN=<domain_name>
-    *  start date: Jul 13 14:31:55 2022 GMT
-    *  expire date: Oct 11 14:31:54 2022 GMT
-    *  subjectAltName: host "<domain_name>" matched cert's "<domain_name>"
-    ...
-    *  SSL certificate verify ok.
-    ```
+```text
+* Trying 51.250.64.86:443...
+* Connected to <domain_name> (51.250.64.86) port 443 (#0)
+...
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=<domain_name>
+*  start date: Jul 13 14:31:55 2022 GMT
+*  expire date: Oct 11 14:31:54 2022 GMT
+*  subjectAltName: host "<domain_name>" matched cert's "<domain_name>"
+...
+* SSL certificate verify ok.
+```
 
 The Let's Encrypt<sup>®</sup> certificate must update automatically after the [certificate update](../certificate-manager/operations/managed/cert-update.md) in {{ certificate-manager-name }}.
 
@@ -406,7 +406,7 @@ You can specify a sync timeout in the `refreshInterval` parameter of the [Extern
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ k8s }} cluster.
 1. [Delete](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-short-name }}.

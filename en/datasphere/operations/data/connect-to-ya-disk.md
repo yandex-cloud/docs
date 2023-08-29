@@ -32,8 +32,8 @@ You can connect to the [Yandex Disk](https://disk.yandex.com) file storage servi
 
    Where:
 
-   * `<Yandex_Disk_file_link>`: URL of the file on Yandex Disk whose contents need to be imported to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_file_path>`: Path to the {{ ml-platform-name }} project file to import data to.
+   * `<Yandex_Disk_file_link>`: Link to the file on Yandex Disk whose contents need to be imported to {{ ml-platform-name }}. To get the link, right-click the file and select **Share** ⟶ **Copy link**.
+   * `<{{ ml-platform-name }}_project_file_path>`: Path to the {{ ml-platform-name }} project file to import data to. To get the path, right-click the file and select **Copy path**.
 
 1. Run the cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift** + **Enter**.
 
@@ -64,7 +64,7 @@ You can connect to the [Yandex Disk](https://disk.yandex.com) file storage servi
 
    Where:
 
-   * `<Yandex_Disk_folder_link>`: URL of the folder on Yandex Disk whose contents need to be imported to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_folder_path>`: Path to the {{ ml-platform-name }} project folder to import data to.
+   * `<Yandex_Disk_folder_link>`: Link to the folder on Yandex Disk whose contents need to be imported to {{ ml-platform-name }}. To get the link, right-click the folder and select **Share** ⟶ **Copy link**.
+   * `<{{ ml-platform-name }}_project_folder_path>`: Path to the {{ ml-platform-name }} project folder to import data to. To get the path, right-click the folder and select **Copy path**.
 
 1. Run the cell.

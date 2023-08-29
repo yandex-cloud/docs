@@ -47,6 +47,9 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Правила ревью кода
+        href: concepts/approval-rules.md
+        hidden: true
       - name: Резервные копии
         href: concepts/backup.md
       - name: Безопасность в {{ GL }}

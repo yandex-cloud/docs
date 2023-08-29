@@ -14,6 +14,12 @@ If caching on CDN servers is enabled for a resource, files are copied from origi
 
 Until the cache lifetime expires, the CDN server returns a cached copy of the file to the clients without accessing origins.
 
+{% note info %}
+
+If end users do not request content for 36 hours, it is deleted from the CDN server cache regardless of the option settings.
+
+{% endnote %}
+
 You can choose one of two modes to define the cache lifetime:
 
 | Mode | Description |

@@ -792,7 +792,7 @@ default:
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
   k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
   k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26
+  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26, 1.27
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -5714,6 +5714,10 @@ default:
       k8s:
         cluster:
           switch_workloads: Workload
+        clusters:
+          create:
+            field_address-type: Public address
+            switch_auto: Auto
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector

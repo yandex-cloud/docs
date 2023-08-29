@@ -2,12 +2,6 @@
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running such Linux OS's as Ubuntu 20.04 or lower and CentOS 7. For more information, see [{#T}](../concepts/vm-connection.md#os).
 
-{% note info %}
-
-You can only connect a Linux VM to {{ backup-name }} when creating it. To connect an existing VM to {{ backup-name }}, [take snapshots](../../compute/operations/disk-control/create-snapshot.md) of the VM's disks and [create](../../compute/operations/vm-create/create-from-snapshots.md) a new VM from the snapshots by selecting the backup option.
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console
@@ -34,6 +28,7 @@ You can only connect a Linux VM to {{ backup-name }} when creating it. To connec
 #### See also {#see-also}
 
 * [{#T}](connect-vm-windows.md)
+* [{#T}](connect-vm-linux.md)
 * [Attaching a VM to a backup policy](./policy-vm/update.md#update-vm-list)
 * [{#T}](./backup-vm/recover.md)
 * [{#T}](./backup-vm/delete.md)

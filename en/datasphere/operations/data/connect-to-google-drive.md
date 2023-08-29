@@ -2,7 +2,7 @@
 
 You can connect to the [Google Drive](https://drive.google.com) file storage service from the {{ ml-platform-name }} interface.
 
-## Before you start {#before-begin}
+## Getting started {#before-begin}
 
 {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

@@ -3,6 +3,7 @@
 ## Connecting VMs to {{ backup-name }} {#connect-vm}
 
 * [Creating a Linux VM with a connection to {{ backup-name }}](create-vm.md)
+* [Connecting a Linux VM to {{ backup-name }}](connect-vm-linux.md)
 * [Connecting a Windows Server VM to {{ backup-name }}](connect-vm-windows.md)
 * [Updating a VM connection to {{ backup-name }}](refresh-connection.md)
 

@@ -1,8 +1,8 @@
-# Connecting {{ compute-name }} instances to {{ backup-name }}
+# Connecting {{ compute-name }} VMs to {{ backup-name }}
 
-If you want to back up your [{{ compute-full-name }}](../../compute/) [instance](../../compute/concepts/vm.md) in the {{ backup-name }} service, you need to connect it to this service and set it up properly.
+If you want to back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
 
-To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. If you have a Linux VM, connect it while it is being created by selecting the appropriate option; in case of a Windows Server VM, connect it after it has been created. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
+To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. You can connect existing Linux and Windows Server VMs or create a Linux VM with a connection to {{ backup-name }}. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
 For the connection to work properly, you need to assign the VM a [service account](#sa) with the `backup.editor` role, a [public IP address](#public-ip-address), and a [security group](#security-groups) with relevant rules (if this feature is enabled for your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud)).
 
@@ -15,7 +15,7 @@ Once you have connected your VM to {{ backup-name }} and set it up, you need to 
 * CentOS 7
 * Windows Server 2019 and 2022
 
-Install Ubuntu or CentOS from a public image (a {{ marketplace-full-name }} product). When creating an instance, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) from a different instance, if the OS was installed on it from a public image as well.
+Install Ubuntu or CentOS from a public image (a {{ marketplace-full-name }} product). When creating a VM, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) from a different VM if its OS was also installed from a public image.
 
 Going forward, {{ backup-name }} will support Ubuntu 22.04.
 

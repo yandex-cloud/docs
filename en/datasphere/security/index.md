@@ -16,15 +16,15 @@ Access control is implemented at the level of [communities](../concepts/communit
 ## How to assign a role {#grant-role}
 
 You can assign a role to a user in the {{ ml-platform-name }} interface:
-* [{#T}](../operations/community/add-user.md).
-* [{#T}](../operations/projects/add-user.md).
-* [Share resources with community members](../operations/index.md#share).
+* [{#T}](../operations/community/add-user.md)
+* [{#T}](../operations/projects/add-user.md)
+* [Share resources with community members](../operations/index.md#share)
 
 You can also [grant access rights](../../organization/roles.md) through the {{ org-name }} interface.
 
 ## Which roles exist in the service {#roles-list}
 
-### Service roles {#services}
+### Service roles {#service-roles}
 
 {% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
 
@@ -60,7 +60,7 @@ In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-com
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 
-### Primitive roles {#primitive}
+### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
@@ -92,7 +92,7 @@ The table below lists the roles needed to perform a particular action. You can a
 
 #### See also {#see-also}
 
-* [{{ org-full-name }}](../../organization/).
-* [{#T}](../../iam/concepts/access-control/index.md).
-* [{#T}](../../iam/concepts/users/service-accounts.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [{{ org-full-name }}](../../organization/)
+* [{#T}](../../iam/concepts/access-control/index.md)
+* [{#T}](../../iam/concepts/users/service-accounts.md)
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

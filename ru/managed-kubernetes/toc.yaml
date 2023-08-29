@@ -196,6 +196,8 @@ items:
             href: tutorials/marketplace/gateway-api.md
           - name: Настройка {{ alb-name }} Ingress-контроллера
             href: tutorials/alb-ingress-controller.md
+          - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+            href: tutorials/alb-ingress-controller-log-options.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Настройка Kyverno & Kyverno Policies

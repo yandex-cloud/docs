@@ -272,7 +272,7 @@ Or a separate [Kubesec](https://kubesec.io/) tool.
 
 Use these check lists to meet requirements for secure creation of images:
 
-* [Dockerfile best practices](https://sysdig.com/blog/dockerfile-best-practices/#2-2)
+* [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 * [{{ k8s }} Security Checklist and Requirements](https://github.com/Vinum-Security/kubernetes-security-checklist/blob/main/README.md)
 
 You can control Dockerfile in your CI/CD pipeline using the [Conftest](https://www.conftest.dev/) utility.

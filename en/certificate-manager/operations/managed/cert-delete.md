@@ -6,7 +6,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Find the certificate to be deleted in the list.
    1. Click ![image](../../../_assets/options.svg).

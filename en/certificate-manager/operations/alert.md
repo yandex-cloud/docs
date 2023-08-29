@@ -31,9 +31,9 @@ To create an alert:
          For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
-      1. Specify the notification channel. If you don't have a notification channel, [create one](../../monitoring/operations/alert/create-channel.md
+      1. Specify the notification channel. If you do not have a notification channel, [create one](../../monitoring/operations/alert/create-channel.md
          ).
-      1. Click **Create alert**. The alert appears in the list.
+      1. Click **Create alert**. Your alert will appear in the list.
 
 {% endlist %}
 
@@ -66,7 +66,7 @@ To create an alert:
          For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
-      1. Specify the notification channel. If you don't have a notification channel, [create one](../../monitoring/operations/alert/create-channel.md).
-      1. Click **Create alert**. The alert appears in the list.
+      1. Specify the notification channel. If you do not have a notification channel, [create one](../../monitoring/operations/alert/create-channel.md).
+      1. Click **Create alert**. Your alert will appear in the list.
 
 {% endlist %}

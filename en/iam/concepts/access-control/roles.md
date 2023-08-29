@@ -80,6 +80,8 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [billing-accounts-admin](../../../_includes/iam/roles/billing-accounts-admin.md) %}
 
+{% include [billing-accounts-var-without-discounts](../../../_includes/iam/roles/billing-accounts-var-without-discounts.md) %}
+
 {% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
@@ -549,3 +551,7 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
 
+
+## {{ yagpt-full-name }} {#yandexgpt-roles}
+
+{% include [roles-yandexgpt-user](../../../_includes/roles-yandexgpt-user.md) %}

@@ -6,7 +6,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Find the certificate to be deleted in the list.
    1. Click ![image](../../../_assets/options.svg).
@@ -73,7 +73,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
       ```
       ...
       resource "yandex_cm_certificate" "imported-certificate" {
-        name    = "my-certificate"
+        name = "my-certificate"
 
         self_managed {
           certificate = <<-EOT
@@ -97,11 +97,11 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check if the certificate has been deleted either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-    ```bash
-    yc certificate-manager certificate list
-    ```
+   ```bash
+   yc certificate-manager certificate list
+   ```
 
 - API
 

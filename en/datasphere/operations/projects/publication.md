@@ -1,8 +1,8 @@
-# Publish a notebook
+# Publishing a notebook
 
 You can export a notebook as a link to an HTML report. The report saves all calculation results and cell explanations so that you can send the link to customers or publish the results on your website.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
 Make sure you save all changes. The last saved state of the notebook is exported.
 

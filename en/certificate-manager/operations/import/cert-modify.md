@@ -1,12 +1,12 @@
 # Editing a custom certificate
 
-After creating a [custom certificate](../../concepts/imported-certificate.md), you can change its name or description. To edit a certificate:
+After adding a [custom certificate](../../concepts/imported-certificate.md) to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate was created.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
    1. In the list of services, select **{{ certificate-manager-name }}**.
    1. Select the certificate you need to change from the list.
    1. In the window that opens, click **Change**.
@@ -103,14 +103,14 @@ After creating a [custom certificate](../../concepts/imported-certificate.md), y
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check if the certificate has been updated either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate's update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-    ```bash
-    yc certificate-manager certificate get <certificate_name>
-    ```
+   ```bash
+   yc certificate-manager certificate get <certificate_name>
+   ```
 
 - API
 
-   To update a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
+   To edit a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 
 {% endlist %}

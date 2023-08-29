@@ -64,12 +64,17 @@
        {% endnote %}
 
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}. При необходимости нажмите на значок ![image](../../_assets/edit.svg) и выберите конкретные [подсети](../../vpc/concepts/network.md#subnet) для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
-
-          
-     Если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mmy-name }}. После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите на значок ![image](../../_assets/edit.svg) и выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}:
+     * Зону доступности.
+     * [Подсеть](../../vpc/concepts/network.md#subnet) хоста — по умолчанию каждый хост создается в отдельной подсети.
+     * Опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+     * [Приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+     * [Приоритет хоста как {{ MY }}-реплики](../concepts/backup.md#size) для создания резервной копии.
 
      
+     Если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mmy-name }}. После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+
+
   1. При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -113,7 +118,11 @@
        --name=<имя кластера> \
        --environment <окружение, prestable или production> \
        --network-name <имя сети> \
-       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --host zone-id=<зона доступности>,`
+         `subnet-id=<идентификатор подсети>,`
+         `assign-public-ip=<публичный доступ к хосту: true или false>,`
+         `priority=<приоритет при выборе нового хоста-мастера: от 0 до 100>,`
+         `backup-priority=<приоритет для резервного копирования: от 0 до 100> \
        --mysql-version <версия {{ MY }}: {{ versions.cli.str }}> \
        --resource-preset <класс хоста> \
        --user name=<имя пользователя>,password=<пароль пользователя> \
@@ -191,8 +200,11 @@
        }
 
        host {
-         zone      = "<зона доступности>"
-         subnet_id = "<идентификатор подсети>"
+         zone             = "<зона доступности>"
+         subnet_id        = "<идентификатор подсети>"
+         assign_public_ip = <публичный доступ к хосту: true или false>
+         priority         = <приоритет при выборе нового хоста-мастера: от 0 до 100>
+         backup_priority  = <приоритет для резервного копирования: от 0 до 100>
        }
      }
 

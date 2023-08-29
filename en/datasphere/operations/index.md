@@ -14,6 +14,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
 * [{#T}](community/delete.md)
+* [{#T}](community/delete-user.md)
 
 ## Project management {#project}
 
@@ -25,6 +26,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](projects/update.md)
 * [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
+* [{#T}](projects/delete-user.md)
 
 ## Working in a notebook {#notebook}
 

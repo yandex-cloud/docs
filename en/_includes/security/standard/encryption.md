@@ -2,7 +2,7 @@
 
 ### Introduction {#intro}
 
-{{ yandex-cloud }} provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-name }}](../../../kms/) ({{ kms-short-name }}).
+{{ yandex-cloud }} provides built-in encryption features for a number of services. It is the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management are performed by [{{ kms-name }}](../../../kms/) ({{ kms-short-name }}).
 
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
@@ -18,7 +18,7 @@ If your corporate information security policy sets specific key size and rotatio
 
 #### 4.1 In {{ objstorage-full-name }}, encryption of data at rest using {{ kms-short-name }} keys is enabled {#storage-kms}
 
-To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. This encryption method protects against the accidental or intentional publication of bucket contents on the internet. For more information, see  [Encryption](../../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
+To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [Encryption](../../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
 
 {% list tabs %}
 
@@ -34,7 +34,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
 - Performing a check via the CLI
 
    1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
-   1. Run the command below to check if encryption is enabled:
+   1. Run the command below to check whether encryption is enabled:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -64,7 +64,7 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 
 {% endnote %}
 
-{{ yandex-cloud }} lets you use your own TLS certificates for the following services:
+{{ yandex-cloud }} allows you to use your own TLS certificates for the following services:
 * {{ objstorage-name }}.
 * {{ alb-name }}.
 * {{ api-gw-name }}.
@@ -72,7 +72,7 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 
 #### 4.2 HTTPS is enabled for hosting static websites in {{ objstorage-full-name }} {#storage-https}
 
-[{{ objstorage-name }}](../../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} website requires HTTPS access. Integration with [{{ certificate-manager-name }}](../../../certificate-manager/) is also supported. See instructions in the {{ objstorage-name }} documentation:
+[{{ objstorage-name }}](../../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} website requires HTTPS access. Integration with [{{ certificate-manager-name }}](../../../certificate-manager/) is also supported. See the instructions in the {{ objstorage-name }} documentation:
 * [Configuring HTTPS](../../../storage/operations/hosting/certificate.md)
 * [Bucket](../../../storage/concepts/bucket.md)
 
@@ -261,7 +261,7 @@ If data encryption is required, make sure to encrypt data at the application lev
 
 For client-side encryption before uploading data to a {{ objstorage-full-name }} bucket, you can use the following approaches:
 * Integrating {{ objstorage-name }} with the {{ kms-name }} service for client-side encryption. For more information, see "Recommended cryptographic libraries".
-* Using third-party client-side encryption libraries prior to sending data to {{ objstorage-name }}. If you use third-party data encryption libraries and your own key management methods, be sure that your operation model, algorithms, and key sizes comply with regulatory requirements.
+* Using third-party client-side encryption libraries prior to sending data to {{ objstorage-name }}. If you use third-party data encryption libraries and your own key management methods, make sure that your operation model, algorithms, and key sizes comply with regulatory requirements.
 
 For client-side encryption, we recommend that you use the following libraries:
 * AWS Encryption SDK and its [{{ kms-short-name }} integration](../../../kms/tutorials/encrypt/aws-encryption-sdk.md).
@@ -418,7 +418,7 @@ To improve the security of your infrastructure, we recommend that you categorize
 * Keys for services that process critical data, but don't store it. For example, {{ message-queue-name }} and {{ sf-name }}.
 * Keys for services that store critical data. For example, Managed Services for Databases.
 
-For the first group, we recommend that you set up automatic key rotation with a rotation period longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data can't be restored and decrypted.
+For the first group, we recommend that you set up automatic key rotation with a rotation period longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data cannot be restored and decrypted.
 
 For data storage services, we recommend that you either manually rotate keys or use automatic key rotation, depending on your internal procedures for processing critical data.
 
@@ -522,7 +522,7 @@ Don't use critical data and access secrets (such as authentication tokens, API k
 
 For instructions on how to use the service, see the [{{ lockbox-short-name }} documentation](../../../lockbox/).
 
-[Vault](https://www.vaultproject.io/) lets you use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal) mechanism.
+[Vault](https://www.vaultproject.io/) allows you to use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal) mechanism.
 
 To store secrets with Vault, you can use a VM based on an [image](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in the {{ kms-short-name }} documentation, [Auto Unseal in Hashicorp Vault](../../../kms/tutorials/vault-secret.md).
 
@@ -608,7 +608,7 @@ Delete the secret data from env and [use](../../../functions/operations/function
 
 #### 4.15 When working with {{ coi }}, secret encryption is used {#secrets-coi}
 
-{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the {{ kms-short-name }} documentation, [Encrypting secrets in  {{ TF-full }}](../../../kms/tutorials/terraform-secret.md)  It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) section of the {{ kms-short-name }} documentation. It is not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
 
 **Instructions and solutions to use:**
 

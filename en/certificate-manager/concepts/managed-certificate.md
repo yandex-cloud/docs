@@ -1,8 +1,10 @@
 # Certificate from Let's Encrypt
 
-You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. Request a certificate and pass the domain rights check. After that, {{ certificate-manager-name }} manages your certificates by interacting with Let's Encrypt on your behalf.
+You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. Request a certificate and pass the domain rights check. After that, {{ certificate-manager-name }} will manage your certificate by working with Let's Encrypt on your behalf.
 
 Let's Encrypt provides Domain Validation TLS certificates with a 90-day validity period. If you need Organization Validation or Extended Validation certificates, use a third-party certificate authority to get the certificate, and then upload it to {{ certificate-manager-name }}. For more information, see [User certificate](imported-certificate.md).
+
+You can use a certificate created with {{ certificate-manager-name }} in the [specified](services.md) {{ yandex-cloud }} services only.
 
 ## Get a certificate {#request}
 
@@ -50,7 +52,7 @@ The certificate isn't renewed if the domain rights check fails for at least one 
 Some time after the failed renewal, a new attempt is made to update the certificate.
 
 To avoid issues accessing resources that use the certificate with the `Renewal_failed` status:
-1. Before the certificate expires, [create a new Let's Encrypt certificate](../operations/managed/cert-create.md).
+1. Before the certificate expires, issue and [add a new Let's Encrypt certificate](../operations/managed/cert-create.md).
 1. [Check the rights for the domains](../operations/managed/cert-validate.md).
 1. Use the new certificate in your resources.
 

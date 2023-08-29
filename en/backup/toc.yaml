@@ -12,6 +12,8 @@ items:
         items:
           - name: Creating and connecting a Linux VM
             href: operations/create-vm.md
+          - name: Connecting a Linux VM
+            href: operations/connect-vm-linux.md
           - name: Connecting a Windows Server VM
             href: operations/connect-vm-windows.md
           - name: Updating a VM connection to {{ backup-name }}
