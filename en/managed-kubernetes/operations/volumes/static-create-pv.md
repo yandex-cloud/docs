@@ -97,7 +97,6 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
        storage: <PersistentVolume size>
      accessModes:
        - ReadWriteOnce
-     storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4

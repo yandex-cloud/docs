@@ -97,7 +97,6 @@
        storage: <размер PersistentVolume>
      accessModes:
        - ReadWriteOnce
-     storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
