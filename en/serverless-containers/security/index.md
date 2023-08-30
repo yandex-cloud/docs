@@ -5,7 +5,7 @@
 In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
-* [Which roles exist in the service](#roles).
+* [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -13,7 +13,7 @@ In this section, you will learn:
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and [container](../concepts/container.md).
 
-## Which roles exist in the service {#roles}
+## Which roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ serverless-containers-name }} service.
 

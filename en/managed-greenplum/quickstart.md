@@ -35,9 +35,9 @@ To get started with the service:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Select **{{ mgp-name }}**.
-1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}

@@ -33,13 +33,13 @@ selector | **oneof:** `page_token` or `criteria`<br>Read selector.
 Field | Description
 --- | ---
 log_group_id | **string**<br>Required. ID of the log group to return. <br>To get a log group ID make a [LogGroupService.List](./log_group_service#List) request. The maximum string length in characters is 64.
-resource_types[] | **string**<br>List of resource types to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
-resource_ids[] | **string**<br>List of resource IDs to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` \|[a-zA-Z0-9][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
+resource_types[] | **string**<br>List of resource types to limit log entries to. <br>Empty list disables filter. The maximum string length in characters for each value is 63. The maximum number of elements is 100.
+resource_ids[] | **string**<br>List of resource IDs to limit log entries to. <br>Empty list disables filter. The maximum string length in characters for each value is 63. The maximum number of elements is 100.
 since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Lower bound of log entries timestamps. 
 until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Upper bound of log entries timestamps. 
 levels[] | **[LogLevel.Level](#LogLevel)**<br>List of log levels to limit log entries to. <br>Empty list disables filter. The maximum number of elements is 10.
 filter | **string**<br>Filter expression. For details about filtering, see [documentation](/docs/logging/concepts/filter). The maximum string length in characters is 1000.
-stream_names[] | **string**<br>List of stream names to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
+stream_names[] | **string**<br>List of stream names to limit log entries to. <br>Empty list disables filter. The maximum string length in characters for each value is 63. The maximum number of elements is 100.
 page_size | **int64**<br>The maximum number of results per page to return. Acceptable values are 0 to 1000, inclusive.
 max_response_size | **int64**<br>Limits response to maximum size in bytes. Prevents gRPC resource exhaustion. <br>Default value for max response size is 3.5 MiB Acceptable values are 0 to 10485760, inclusive.
 
@@ -66,14 +66,14 @@ saved_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
 message | **string**<br>Entry text message. 
 json_payload | **google.protobuf.Struct**<br>Entry annotation. 
-stream_name | **string**<br>Entry stream name. Value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `.
+stream_name | **string**<br>Entry stream name. The maximum string length in characters is 63.
 
 
 ### LogEntryResource {#LogEntryResource}
 
 Field | Description
 --- | ---
-type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
-id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z0-9][-a-zA-Z0-9_.]{0,63})? `.
+type | **string**<br>Resource type, i.e., `serverless.function` The maximum string length in characters is 63.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. The maximum string length in characters is 63.
 
 

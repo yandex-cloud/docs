@@ -21,7 +21,7 @@ To collect audit logs of an individual cloud:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * Assign the [`audit-trails.viewer` role](../security/index.md#roles) to the cloud whose resources audit logs will be collected from:
+      * Assign the [`audit-trails.viewer` role](../security/index.md#roles-list) to the cloud whose resources audit logs will be collected from:
 
          ```
          yc resource-manager cloud add-access-binding \

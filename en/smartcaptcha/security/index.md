@@ -8,7 +8,7 @@ description: "This section describes what resources you can assign a role for an
 In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
-* [Which roles exist in the service](#roles).
+* [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

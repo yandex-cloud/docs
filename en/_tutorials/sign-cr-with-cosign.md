@@ -17,7 +17,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create service accounts](../iam/operations/sa/create.md):
       * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [[{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role](../iam/concepts/access-control/roles.md) to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-      * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+      * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
       You can use the same service account for both operations.
    1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
@@ -127,7 +127,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Create a policy for signature verification {#kyverno}
 
-1. Create an [authorized key](../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role and save it to the file:
+1. Create an [authorized key](../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role and save it to the file:
 
    ```bash
    yc iam key create \

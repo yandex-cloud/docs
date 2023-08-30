@@ -85,7 +85,8 @@ httpRouterId | <p>Required. ID of the HTTP router to create a virtual host in.</
               ]
             }
           ]
-        }
+        },
+        "securityProfileId": "string"
       },
 
       // `routes[]` includes only one of the fields `http`, `grpc`
@@ -259,7 +260,8 @@ httpRouterId | <p>Required. ID of the HTTP router to create a virtual host in.</
           ]
         }
       ]
-    }
+    },
+    "securityProfileId": "string"
   }
 }
 ```
@@ -296,6 +298,7 @@ routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>head
 routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+routes[].<br>routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
 routes[].<br>http | **object**<br>HTTP route configuration. <br>`routes[]` includes only one of the fields `http`, `grpc`<br>
 routes[].<br>http.<br>match | **object**<br>Condition (predicate) used to select the route.
 routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
@@ -374,6 +377,7 @@ routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.
 routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

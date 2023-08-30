@@ -13,8 +13,8 @@ You can add and remove cluster hosts and manage their settings.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 
 - CLI
 
@@ -54,15 +54,15 @@ You can add and remove cluster hosts and manage their settings.
 
 ## Adding a host {#add}
 
-The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
+The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
 {% list tabs %}
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and go to the **Hosts** tab.
-   1. Click **Add host**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
    1. Specify the host parameters:
 
       
@@ -70,7 +70,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
 
 
-      * Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
       * Priority for assigning the host as a master.
       * Host priority as a {{ MY }} replica for creating backups.
 
@@ -110,7 +110,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       {{ yc-mdb-my }} host add --help
       ```
 
-   1. Execute the add host command (the example does not provide an exhaustive parameter list):
+   1. Run the add host command (the example does not show all the available parameters):
 
       ```bash
       {{ yc-mdb-my }} host add \
@@ -197,15 +197,15 @@ For each host in a {{ mmy-name }} cluster, you can:
 - Management console
 
    To change the parameters of the cluster host:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Edit**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Set new settings for the host:
       1. Select a replication source for the host to control replication threads manually.
-      1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
-      1. Enter a value in the **Master priority** field.
-      1. Enter a value in the **Backup priority** field.
-   1. Click **Save**.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if a host must be accessible from outside {{ yandex-cloud }}.
+      1. Set the value of the **{{ ui-key.yacloud.mysql.field_priority }}** field.
+      1. Set the value of the **{{ ui-key.yacloud.mysql.field_backup_priority }}** field.
+   1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
 - CLI
 
@@ -297,9 +297,9 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

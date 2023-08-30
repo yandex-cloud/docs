@@ -9,18 +9,18 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Откройте сервис **{{ sf-name }}**.
+    1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, в которую хотите передать секрет {{ lockbox-name }}.
-    1. Перейдите на вкладку **Редактор**.
-    1. В блоке **Параметры** укажите:
-        * в поле **Сервисный аккаунт** — сервисный аккаунт, у которого есть роль `lockbox.payloadViewer`;
-        * в поле **Секрет {{ lockbox-name }}**:
+    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
+        * в поле **{{ ui-key.yacloud.forms.label_service-account-select }}** — сервисный аккаунт, у которого есть роль `lockbox.payloadViewer`;
+        * в поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
             * имя переменной окружения, в которой будет храниться секрет;
             * идентификатор секрета;
             * идентификатор версии секрета;
             * неконфиденциальный идентификатор ключа.
-    1. Нажмите **Добавить**. Можно передать несколько секретов в функцию.
-    1. Нажмите кнопку **Создать версию**. Будет создана новая версия функции с указанными секретами.
+    1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. Можно передать несколько секретов в функцию.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. Будет создана новая версия функции с указанными секретами.
 
 - CLI
 

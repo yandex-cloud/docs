@@ -51,13 +51,13 @@ keywords:
 После создания функция будет содержать только информацию о себе: имя, описание, уникальный идентификатор и т. д. Непосредственно код навыка будет добавлен в функцию на шаге [создания версии](#create-version).
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
-1. Нажмите кнопку **Создать ресурс**.
-1. Выберите **Функция**.
+1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
 1. Введите имя функции.
 
     {% include [name-format](../../_includes/name-format.md) %}
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 ## Создайте версию функции {#create-version}
 
@@ -67,19 +67,19 @@ keywords:
 
 - Python
 
-  1. В [консоли управления]({{ link-console-main }}) откройте **{{ sf-name }}** в каталоге, где вы хотите создать версию функции.
+  1. В [консоли управления]({{ link-console-main }}) откройте **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** в каталоге, где вы хотите создать версию функции.
   1. Выберите функцию, для которой необходимо создать версию.
-  1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
+  1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
   1. Задайте параметры версии:
-      * **Среда выполнения:** `python37`.
-      * **Таймаут, секунды:** 2.
-      * **Память:** 128 МБ.
-      * **Сервисный аккаунт:** Не выбрано.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
   1. Подготовьте код функции:
-      * **Способ:** ZIP-архив.
-      * **Файл:** `parrot-py.zip`.
-      * **Точка входа:** `parrot.handler`.
-  1. Нажмите кнопку **Создать версию**.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `parrot-py.zip`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `parrot.handler`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - Node.js
 
@@ -87,15 +87,15 @@ keywords:
   1. Выберите функцию, для которой необходимо создать версию.
   1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
   1. Задайте параметры версии:
-      * **Среда выполнения:** `nodejs12`.
-      * **Таймаут, секунды:** 2.
-      * **Память:** 128 МБ.
-      * **Сервисный аккаунт:** Не выбрано.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
   1. Подготовьте код функции:
-      * **Способ:** ZIP-архив.
-      * **Файл:** `parrot-js.zip`.
-      * **Точка входа:** `index.handler`.
-  1. Нажмите кнопку **Создать версию**.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `parrot-js.zip`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ keywords:
 
     {% note warning %}
     
-    В списке отображаются функции, которые вы имеете право просматривать. Чтобы прикрепить функцию к навыку, вам необходимо разрешение на запуск функции. Это разрешение входит в роли [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}} ](../security/index.md#editor) и выше.
+    В списке отображаются функции, которые вы имеете право просматривать. Чтобы прикрепить функцию к навыку, вам необходимо разрешение на запуск функции. Это разрешение входит в роли [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}} ](../security/index.md#functions-editor) и выше.
     
     {% endnote %}
 1. Нажмите кнопку **Сохранить** внизу страницы и сохраните изменения.

@@ -9,9 +9,9 @@
 - Консоль управления
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [инстанс {{ GL }}](../../concepts/index.md#instance).
-  1. Выберите сервис **{{ mgl-name }}**.
-  1. Выберите инстанс и нажмите кнопку ![image](../../../_assets/pencil.svg) **Редактировать** в верхней части страницы.
-  1. В блоке **Общая информация** задайте новые имя и описание инстанса.
-  1. Нажмите кнопку **Сохранить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Выберите инстанс и нажмите кнопку ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
+  1. В блоке **{{ ui-key.yacloud.compute.group.overview.section_base }}** задайте новые имя и описание инстанса.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

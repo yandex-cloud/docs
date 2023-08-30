@@ -34,8 +34,8 @@
 ## Создайте ресурсы {#create-resources}
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-full-name }}.
-1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
-1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните поля **Эндпоинт** и **Размещение базы данных** из раздела **Соединение**. Они понадобятся при конфигурации проекта.
+1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_id }}** и **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
+1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_database }}** из раздела **{{ ui-key.yacloud.ydb.overview.section_connection }}**. Они понадобятся при конфигурации проекта.
 1. [Создайте приложение](https://oauth.yandex.ru/) в Яндекс OAuth:
    1. Перейдите на [сайт сервиса](https://oauth.yandex.ru/) и авторизуйтесь.
    1. Нажмите кнопку **Зарегистрировать новое приложение**.
@@ -296,4 +296,4 @@ log_group_id: ckg57bweoekkrkddsknd
 
 ### На сайте {#site-test}
 
-В браузере перейдите по адресу, который указан в поле **Служебный домен** вашего API-шлюза, и авторизуйтесь. Загрузится страница «Мои списки». При переходе в любой из списков можно добавить или удалить пункты, а также предоставить доступ к списку другим пользователям.
+В браузере перейдите по адресу, который указан в поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** вашего API-шлюза, и авторизуйтесь. Загрузится страница «Мои списки». При переходе в любой из списков можно добавить или удалить пункты, а также предоставить доступ к списку другим пользователям.

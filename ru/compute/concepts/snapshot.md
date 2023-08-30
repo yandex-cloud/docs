@@ -22,6 +22,7 @@ _Снимок диска_ в {{ yandex-cloud }} — это копия файло
 
 {% include [snapshot-disk-types](../../_includes/compute/snapshot-disk-types.md) %}
 
+{% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
 
 ## Снимок диска как ресурс {{ yandex-cloud }} {#snapshot-as-resource}
 

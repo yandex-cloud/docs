@@ -8,8 +8,8 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgl-name }}**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/mdb/backup.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
 
 {% endlist %}
 
@@ -19,9 +19,9 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgl-name }}**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/mdb/backup.svg) **Резервные копии**.
-  1. Нажмите кнопку ![image](../../../_assets/plus.svg) **Создать резервную копию**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
+  1. Нажмите кнопку ![image](../../../_assets/plus.svg) **{{ ui-key.yacloud.gitlab.action_create-backup }}**.
 
 {% endlist %}
 

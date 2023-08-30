@@ -14,10 +14,10 @@
 
 Параметры версии функции:
 
-* **Среда выполнения** — `java17`.
-* **Таймаут, с** — `10`.
-* **Память** — `128 МБ`.
-* **Точка входа** — `app.Application`.
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `java17`.
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `app.Application`.
 
 Структура проекта:
 

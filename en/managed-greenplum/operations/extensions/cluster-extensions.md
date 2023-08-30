@@ -71,13 +71,13 @@ Adds a data type for storing <q>key-value</q> pairs in a single field.
 || [pgcrypto]({{ gp.docs.pivotal }}/latest/ref_guide/modules/pgcrypto.html)
 Adds data encryption functions. For more information, see [{#T}](./pgcrypto.md).
 | 1.1 ||
-|| [plperl]({{ gp.docs.vmware }}/5/greenplum-database/GUID-ref_guide-extensions-pl_perl.html)
+|| [plperl]({{ gp.docs.vmware }}/5/greenplum-database/ref_guide-extensions-pl_perl.html)
 Enables support for the PL/Perl procedural language.
 | 1.0 ||
-|| [plpgsql]({{ gp.docs.vmware }}/5/greenplum-database/GUID-ref_guide-extensions-pl_sql.html)
+|| [plpgsql]({{ gp.docs.vmware }}/5/greenplum-database/ref_guide-extensions-pl_sql.html)
 Enables support for the PL/pgSQL procedural language.
 | 1.0 ||
-|| [postgis]({{ gp.docs.vmware }}/5/greenplum-database/GUID-ref_guide-extensions-postGIS.html)
+|| [postgis]({{ gp.docs.vmware }}/5/greenplum-database/ref_guide-extensions-postGIS.html)
 Allows GIS (Geographic Information System) objects to be stored and handled in {{ PG }} databases.
 | 2.1.5 ||
 || [postgres_fdw]({{ gp.docs.pivotal }}/latest/ref_guide/modules/postgres_fdw.html)

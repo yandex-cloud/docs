@@ -445,6 +445,8 @@ items:
         href: routing/high-accessible-dmz.md
       - name: Настройка сети для {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
+        href: routing/storage-vpc-access.md
   - name: Визуализация и анализ данных
     items:
       - name: Все руководства

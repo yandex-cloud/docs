@@ -85,7 +85,7 @@
 1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. В параметре **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`.
-1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и выберите файл `data.uri`.
+1. В блоке **Прикрепленные файлы** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.uri`.
 1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}** выберите способ настройки: **{{ ui-key.yacloud.load-testing.label_settings-type-form }}** или **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
 1. В зависимости от выбранного способа задайте параметры теста:
 
@@ -118,6 +118,7 @@
 
         Это указание генератору наращивать нагрузку от 1000 до 5000 запросов в секунду в течение 120 секунд с шагом в 1000 запросов.
      1. В поле **Тип запросов** выберите `URI`.
+     1. В поле **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **Прикрепленный файл**.
      1. В меню **Автостоп** нажмите ![image](../../_assets/plus-sign.svg) **Автостоп** и введите описание:
         * **Тип автостопа 1** — `QUANTILE`.
         * **Квантиль** — `75`.
@@ -152,7 +153,7 @@
                   ssl: true
                 ammo:
                   type: uri
-                  file: ammo_131b131b-131b-131b-131b-131b13
+                  file: data.uri
                 result:
                   type: phout
                   destination: ./phout.log

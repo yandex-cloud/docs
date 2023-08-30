@@ -14,7 +14,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
-1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
+1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
 
 1. If you are using security groups, configure them to enable connecting to the clusters both from the internet and from the created VM. In addition, enable connecting to this VM over SSH from the internet:
@@ -174,7 +174,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) to store data from the source cluster:
 
-   * **Name**: `mmy.db1.measurements`.
+   * **{{ ui-key.yacloud.common.name }}**: `mmy.db1.measurements`.
 
       Topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the convention `<server name>.<database name>.<table name>`.
 
@@ -187,7 +187,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. Create a service topic to track the connector status:
 
-   * **Name**: `__debezium-heartbeat.mmy`.
+   * **{{ ui-key.yacloud.common.name }}**: `__debezium-heartbeat.mmy`.
 
       Names for service topics [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) the convention `<prefix for heartbeat>.<server name>`.
 
@@ -196,15 +196,15 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
       * The `__debezium-heartbeat` prefix is specified in the `heartbeat.topics.prefix` parameter.
       * The name of the `mmy` server is specified in the `database.server.name` parameter.
 
-   * **Cleanup policy**: `Compact`.
+   * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Compact`.
 
    If you need data from multiple source clusters, create a separate service topic for each of them.
 
 1. Create a service topic to track changes to the data format schema:
 
-   * **Name**: `dbhistory.mmy`.
-   * **Log cleanup policy**: `Delete`.
-   * **Number of partitions**: `1`.
+   * **{{ ui-key.yacloud.common.name }}**: `dbhistory.mmy`.
+   * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`.
+   * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
 
 1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.
 

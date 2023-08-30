@@ -196,6 +196,7 @@ Field | Description
 modify_request_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the response headers. 
 rbac | **[RBAC](#RBAC)**<br> 
+security_profile_id | **string**<br>Security profile that will take effect to all requests routed via particular virtual host. 
 
 
 ### RBAC {#RBAC}
@@ -420,6 +421,7 @@ Field | Description
 modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the response headers. 
 rbac | **[RBAC](#RBAC1)**<br> 
+security_profile_id | **string**<br>Security profile that will take effect to all requests routed via particular virtual host. 
 
 
 ### RBAC {#RBAC1}
@@ -628,6 +630,7 @@ Field | Description
 modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the response headers. 
 rbac | **[RBAC](#RBAC2)**<br> 
+security_profile_id | **string**<br>Security profile that will take effect to all requests routed via particular virtual host. 
 
 
 ### RBAC {#RBAC2}
@@ -874,6 +877,7 @@ Field | Description
 modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the response headers. 
 rbac | **[RBAC](#RBAC3)**<br> 
+security_profile_id | **string**<br>Security profile that will take effect to all requests routed via particular virtual host. 
 
 
 ### RBAC {#RBAC3}

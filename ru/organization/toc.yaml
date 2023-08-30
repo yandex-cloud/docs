@@ -79,6 +79,8 @@ items:
             href: api-ref/grpc/group_service.md
           - name: OrganizationService
             href: api-ref/grpc/organization_service.md
+          - name: SshCertificateService
+            href: api-ref/grpc/ssh_certificate_service.md
           - name: UserService
             href: api-ref/grpc/user_service.md
           - name: CertificateService
@@ -135,6 +137,12 @@ items:
                 href: api-ref/Organization/update.md
               - name: updateAccessBindings
                 href: api-ref/Organization/updateAccessBindings.md
+          - name: SshCertificate
+            items:
+              - name: Overview
+                href: api-ref/SshCertificate/index.md
+              - name: generate
+                href: api-ref/SshCertificate/generate.md
           - name: User
             items:
               - name: Overview

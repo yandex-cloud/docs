@@ -1,11 +1,11 @@
 # Creating a {{ dataproc-name }} cluster
 
-To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles).
+To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles-list).
 
 
 ## Configure a network {#setup-network}
 
-In the subnet the subcluster with master host will connect to, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+Configure access to the internet from the subnet to which the subcluster with a master host will be be connected, e.g., using a [NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -13,7 +13,7 @@ In the subnet the subcluster with master host will connect to, [set up an NAT ga
 
 {% note warning %}
 
-Security groups must be created and configured before creating a cluster. If the selected security groups don't have the required rules, {{ yandex-cloud }} disables cluster creation.
+Security groups must be created and configured before creating a cluster. If the selected security groups do not have the required rules, {{ yandex-cloud }} disables cluster creation.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ Security groups must be created and configured before creating a cluster. If the
          * Destination type: `CIDR`.
          * CIDR blocks:
             * `84.201.181.26/32`: Getting cluster status, running jobs, UI Proxy.
-            * `213.180.193.8/32`: Monitoring cluster status, autoscaling.
+            * `158.160.59.216/32`: Monitoring cluster status, autoscaling.
             * `213.180.193.243/32`: Access to {{ objstorage-name }}.
 
       {% endlist %}
@@ -122,7 +122,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    
    1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+      To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
 
    1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
@@ -225,7 +225,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% note info %}
 
-      It must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may not be longer than 63 characters.
+      It must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. Maximum length: 63 characters.
 
       {% endnote %}
 
@@ -244,7 +244,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
          {% endnote %}
 
-      * `--services`: A list of [components](../concepts/environment.md) that you want to use in the cluster. If this parameter is omitted, the default set is used: `hdfs`, `yarn`, `mapreduce`, `tez`, and `spark`.
+      * `--services`: A list of [components](../concepts/environment.md) that you want to use in the cluster. If this parameter is omitted, the default set will be used: `hdfs`, `yarn`, `mapreduce`, `tez`, and `spark`.
       * `--ssh-public-keys-file`: The full path to the file with the public part of the SSH key to be used to access the cluster hosts. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
       * `--subcluster`: Subcluster parameters:
          * `name`: Subcluster name.

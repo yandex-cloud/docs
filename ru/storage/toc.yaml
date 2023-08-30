@@ -107,6 +107,8 @@ items:
           Обучение модели в {{ ml-platform-full-name }} на данных из {{
           objstorage-name }}
         href: tutorials/s3-to-datasphere.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
+        href: tutorials/storage-vpc-access.md
   - name: Концепции
     items:
       - name: Обзор

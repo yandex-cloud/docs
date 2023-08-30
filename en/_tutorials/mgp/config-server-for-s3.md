@@ -56,12 +56,12 @@ Prepare the infrastructure:
 
       * Network.
       * Subnet.
-      * Service account with static access key.
+      * Service account with the static access key.
       * {{ mgp-name }} cluster.
       * Bucket to place the `example.csv` file into.
-      * Virtual machine with Ubuntu 20.04.
+      * Virtual machine with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 
-   1. In a file named `greenplum-s3-vm.tf`, specify:
+   1. In the `greenplum-s3-vm.tf` file, specify:
 
       * Password for `user` to utilize for {{ mgp-name }} cluster access.
       * Virtual machine image ID.

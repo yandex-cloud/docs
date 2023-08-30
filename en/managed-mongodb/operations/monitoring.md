@@ -114,20 +114,20 @@ This page displays charts showing the load on an individual host in the cluster:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Recommended threshold values:
+The recommended thresholds are as follows:
 
-| Metric | Parameter                      | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                 |
-|---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
-| DB write availability | `can_write`                      | `Equals 0`                 | —                         |
-| Replication delay              | `replset_status-replicationLag` | `180`,,,,,,,,,,,,,,,,,,,, | `30`,,,,,,,,,,,,,,,,,,,,, |
-| Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
+| Metric | Parameter | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
+|---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
+| DB write availability | `can_write` | `Equals 0` | N/A |
+| Replication delay | `replset_status-replicationLag` | `180` | `30` |
+| Storage space used | `disk.used_bytes` | 90% of storage size | 70% of storage size |
 
-For the `disk.used_bytes` metric, the values of the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%).
 
-You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
 
 
 ### Monitoring the switch to read-only mode {#read-only-alert}
@@ -139,12 +139,12 @@ To monitor storage usage on cluster hosts and get notifications when free space 
 
    To do this, create a query in the query builder:
 
-   `service={{ mmg-name }}` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
+   `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
 
 1. Set the alert threshold values in the alert settings:
    * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the size of free disk space to trigger the alert.
 
-      Recommended threshold values depending on the storage size:
+      The recommended threshold values depending on the storage size are as follows:
 
       | Storage size, GB | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
       |---------------------|-------------|------------------|

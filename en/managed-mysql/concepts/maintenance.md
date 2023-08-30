@@ -13,10 +13,10 @@ In {{ mmy-name }}, maintenance means:
 
 ## Maintenance window {#maintenance-window}
 
-You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/update.md):
+You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
 
-* **Unspecified time** (default): Maintenance can be performed at any time.
-* **On schedule**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time when the cluster is least loaded.
+* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (default): Maintenance can be performed at any time.
+* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose the time when the cluster is least loaded.
 
 ## Maintenance procedure {#maintenance-order}
 

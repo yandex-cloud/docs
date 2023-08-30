@@ -17,3 +17,5 @@ keywords:
 Восстановить ВМ с состоянием нужного диска на момент создания снимка можно следующими способами:
 * Создать новый диск из снимка, затем [подключить созданный диск](../operations/vm-control/vm-attach-disk.md) к ВМ.
 * Создать новую ВМ [из набора снимков](../operations/vm-create/create-from-snapshots.md) — в параметрах операции можно указать снимки как загрузочного, так и обычных дисков.
+
+{% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}

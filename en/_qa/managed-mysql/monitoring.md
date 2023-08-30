@@ -2,9 +2,9 @@
 
 #### How do I view cluster and host charts? {#charts}
 
-In the [management console]({{ link-console-main }}), go to the cluster page. To view [cluster charts](../../managed-mysql/operations/monitoring.md#monitoring-cluster), go to **Monitoring**. To find [individual host charts](../../managed-mysql/operations/monitoring.md#monitoring-hosts), go to **Hosts** → **Monitoring**.
+In the [management console]({{ link-console-main }}), go to the cluster page. To view [cluster charts](../../managed-mysql/operations/monitoring.md#monitoring-cluster), go to **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**. To find [individual host charts](../../managed-mysql/operations/monitoring.md#monitoring-hosts), go to **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 
-To view charts in [{{ monitoring-full-name }}]({{ link-monitoring }}), on the home page, select the **{{ mmy-short-name }}** service dashboard. To view the individual metrics, go to the **Metric Explorer** section and set the `service` parameter to **{{ mmy-short-name }}**.
+To view charts in [{{ monitoring-full-name }}]({{ link-monitoring }}), on the home page, select the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service dashboard. To view individual metrics, go to the **{{ ui-key.yacloud_monitoring.header.title.mx-mode }}** section and set the `service` parameter to **{{ ui-key.yacloud_monitoring.services.label_mysql }}**.
 
 #### How do I view logs? {#logs}
 
@@ -12,10 +12,10 @@ To view charts in [{{ monitoring-full-name }}]({{ link-monitoring }}), on the ho
 
 - Management console
 
-   1. Go to the cluster page and click the **Logs** tab.
+   1. Go to the cluster page and click the **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
    1. At the top of the page, select an available log:
-      * `MYSQL_ERROR`: Primary {{ MY }} log containing error messages. Always enabled.
-      * `MYSQL_SLOW_QUERY`: Slow query information. Enabled if `long_query_time` is greater than `0`.
+      * `MYSQL_ERROR`: Primary {{ MY }} log containing error messages; always enabled.
+      * `MYSQL_SLOW_QUERY`: Slow query information; enabled if `long_query_time` is greater than `0`.
       * `MYSQL_AUDIT`: Information on database connections.
       * `MYSQL_GENERAL`: Full query list. We recommend enabling it only for cluster debugging purposes in a development environment.
 
@@ -67,19 +67,19 @@ To grant a user the `PROCESS` privilege, run the [CLI](../../cli/) command below
 
 Use [{{ monitoring-full-name }}]({{ link-monitoring }}). For the setup guide, see [{#T}](../../monitoring/operations/alert/create-alert.md).
 
-When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**.
+When selecting a metric, set the `service` parameter to **{{ ui-key.yacloud_monitoring.services.label_mysql }}**.
 
 
 #### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
 
 [Create an alert](../../managed-mysql/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mmy-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `Alarm`: 90% of disk space.
-* `Warning`: 80% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space.
 
-The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `96636764160` bytes (90%).
-* `Warning`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).

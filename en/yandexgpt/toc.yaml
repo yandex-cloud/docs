@@ -38,6 +38,12 @@ items:
                 href: api-ref/Tokenizer/index.md
               - name: tokenize
                 href: api-ref/Tokenizer/tokenize.md
+          - name: Embeddings
+            items:
+              - name: Overview
+                href: api-ref/Embeddings/index.md
+              - name: embedding
+                href: api-ref/Embeddings/embedding.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

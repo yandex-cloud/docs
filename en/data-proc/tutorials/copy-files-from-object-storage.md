@@ -285,6 +285,7 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
       sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
       sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>")
       ```
+
    * Reading a file using an access key and bucket secret:
 
       ```python

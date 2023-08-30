@@ -96,7 +96,10 @@
             stub = stt_service_pb2_grpc.SttServiceStub(channel)
 
             # Отправить данные для распознавания.
-            it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
+            it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(
+                ('authorization', 'Bearer %s' % iam_token),
+                ('Transfer-encoding', 'chunked'),
+            ))
 
             # Обработать ответы сервера и вывести результат в консоль.
             try:
@@ -217,6 +220,7 @@
 
         const serviceMetadata = new grpc.Metadata();
         serviceMetadata.add('authorization', `Bearer ${iamToken}`);
+        serviceMetadata.add('Transfer-encoding', `chunked`);
 
         const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
             includeDirs: ['node_modules/google-proto-files', '..']

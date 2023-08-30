@@ -9,13 +9,13 @@ You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select the ![hosts.svg](../../../_assets/mdb/hosts.svg) **Hosts** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![hosts.svg](../../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
-   In the list of hosts, the **Role** column shows the role of each host:
+   In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:
 
-   * `MASTER`: A primary master host. Receives user connections.
-   * `REPLICA`: A standby master host. Replicates data of the primary master host.
+   * `MASTER`: Primary master host to receive user connections.
+   * `REPLICA`: Standby master host to replicate data of the primary master host.
    * `SEGMENT`: A segment host. Stores some of the cluster data.
 
 - CLI

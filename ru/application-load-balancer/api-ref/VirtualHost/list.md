@@ -95,7 +95,8 @@ pageToken | <p>Page token. To get the next page of results, set ``page_token`` t
                   ]
                 }
               ]
-            }
+            },
+            "securityProfileId": "string"
           },
 
           // `virtualHosts[].routes[]` includes only one of the fields `http`, `grpc`
@@ -269,7 +270,8 @@ pageToken | <p>Page token. To get the next page of results, set ``page_token`` t
               ]
             }
           ]
-        }
+        },
+        "securityProfileId": "string"
       }
     }
   ],
@@ -310,6 +312,7 @@ virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPr
 virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`virtualHosts[].routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`virtualHosts[].routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`virtualHosts[].routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+virtualHosts[].<br>routes[].<br>routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
 virtualHosts[].<br>routes[].<br>http | **object**<br>HTTP route configuration. <br>`virtualHosts[].routes[]` includes only one of the fields `http`, `grpc`<br>
 virtualHosts[].<br>routes[].<br>http.<br>match | **object**<br>Condition (predicate) used to select the route.
 virtualHosts[].<br>routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
@@ -388,4 +391,5 @@ virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<b
 virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`virtualHosts[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`virtualHosts[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`virtualHosts[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+virtualHosts[].<br>routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/application-load-balancer/api-ref/VirtualHost/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/application-load-balancer/api-ref/VirtualHost/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

@@ -148,7 +148,7 @@
 
  1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
 
-    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **Обзор метрик**.
+    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
     1. В строке запроса выберите:
       - каталог, в который собираются метрики;

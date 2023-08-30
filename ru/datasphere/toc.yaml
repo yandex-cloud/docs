@@ -7,6 +7,10 @@ items:
     items:
       - name: Настроить проект для работы с облаком
         href: tutorials/basics.md
+      - name: Организовать сообщество для студентов
+        href: tutorials/community-for-students.md
+      - name: Автоматизировать настройку проектов
+        href: tutorials/automation-community-settings.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

@@ -115,7 +115,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       1. Select the `storage.uploader` role.
       1. Click **Save**.
 
-   1. The `audit-trails.viewer` [role](../audit-trails/security/index.md#roles) to the cloud whose logs will be sent to the {{ ES }} cluster:
+   1. The `audit-trails.viewer` [role](../audit-trails/security/index.md#roles-list) to the cloud whose logs will be sent to the {{ ES }} cluster:
 
       1. In the [management console]({{ link-console-main }}), go to the appropriate cloud.
       1. Go to the **Access bindings** tab.
@@ -143,7 +143,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       * `id`: ID of the folder with the bucket.
       * `service-account-id`: ID of your service account.
 
-   1. Assign the `audit-trails.viewer` [role](../audit-trails/security/index.md#roles) to the cloud whose logs will be sent to the {{ ES }} cluster:
+   1. Assign the `audit-trails.viewer` [role](../audit-trails/security/index.md#roles-list) to the cloud whose logs will be sent to the {{ ES }} cluster:
 
       ```bash
       yc resource-manager cloud add-access-binding \

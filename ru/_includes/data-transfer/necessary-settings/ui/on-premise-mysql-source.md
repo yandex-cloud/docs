@@ -8,7 +8,7 @@
 
   Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — укажите имя базы данных в выбранном кластере. Оставьте поле пустым, если хотите перенести таблицы из нескольких баз данных одновременно.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — укажите имя базы данных в выбранном кластере. Оставьте поле пустым, если хотите перенести таблицы из нескольких баз данных одновременно, но тогда укажите базу данных для создания служебных таблиц в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}**.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
 

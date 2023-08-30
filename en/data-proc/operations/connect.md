@@ -17,7 +17,7 @@ When setting up security groups, don't change the [rules for service traffic](./
 
 {% endnote %}
 
-Settings of rules depend on the connection method you select:
+Rule settings depend on the connection method you select:
 
 {% list tabs %}
 

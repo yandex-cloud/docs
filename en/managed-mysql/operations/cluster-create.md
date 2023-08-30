@@ -18,19 +18,19 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
-   1. Select **{{ mmy-name }}**.
-   1. Click **Create cluster**.
-   1. Name the {{ mmy-name }} cluster in the **Cluster name** field. It must be unique within the folder.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mmy-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the DBMS version.
    1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
-   1. Under **Storage size**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Select the [disk type](../concepts/storage.md).
 
-                  
+         
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -42,16 +42,16 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% endnote %}
 
-   1. Under **Database**, specify the DB attributes:
-      * DB name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
+      * DB name; it must be unique within the folder and contain only Latin letters, numbers, and underscores.
       * DB owner username and password.
 
          {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
    
-   1. Under **Network settings**, select:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
       * [Cloud network](../../vpc/concepts/network.md#network) for the {{ mmy-name }} cluster.
-      * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
+      * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
 
          {% note info %}
 
@@ -60,12 +60,12 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          {% endnote %}
 
 
-   1. Under **Hosts**, select the parameters for the DB hosts created with the {{ mmy-name }} cluster. If you open **Advanced settings**, you can choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
-
-            
-      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the {{ mmy-name }} cluster. Click ![image](../../_assets/edit.svg) if you need to choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 
       
+      If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
+
+
    1. Configure additional {{ mmy-name }} cluster settings, if required:
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -74,7 +74,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
-   1. Click **Create cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 - CLI
 
@@ -243,7 +243,6 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
            ...
              backup_retain_period_days = <retention period for automatic backups (in days)>
              ...
-
          }
          ```
 
@@ -319,7 +318,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    1. Run this command to create a {{ mmy-name }} cluster:
 
-      
+         
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name="my-mysql" \
@@ -335,7 +334,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
         --database name=db1 \
         --deletion-protection=true
       ```
-
+   
 
    1. Run the change permissions command for the `user1` user.
 

@@ -19,8 +19,8 @@
     Результат:
 
     ```
-    id: b09ch6pmpohfc9sogj5f
-    function_id: b097d9ous3gep99khe83
+    id: b09ch6pmpohf********
+    function_id: b097d9ous3ge********
     created_at: "2019-06-13T09:12:38.464Z"
     runtime: python37
     entrypoint: test.handler
@@ -32,7 +32,7 @@
     tags:
     - beta
     - first
-    log_group_id: eolv6578frac08uh5h6s
+    log_group_id: eolv6578frac********
     ```
 
 - {{ TF }}

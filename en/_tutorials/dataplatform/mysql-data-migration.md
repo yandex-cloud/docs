@@ -329,7 +329,7 @@ Delete the resources you no longer need to avoid being charged for them:
    To delete the infrastructure created with {{ TF }}:
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-migration-mysql-mmy.tf`.
+   1. Delete the `data-migration-mysql-mmy.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

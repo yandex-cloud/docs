@@ -9,9 +9,9 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать подключение.
-    1. Выберите сервис **{{ sf-name }}**.
-    1. На панели слева выберите ![image](../../_assets/functions/db-connections.svg) **Подключения к БД**.
-    1. Нажмите кнопку **Создать подключение**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. На панели слева выберите ![image](../../_assets/functions/db-connections.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
     1. Введите имя и описание подключения. Формат имени:
 
         {% include [name-format](../../_includes/name-format.md) %}
@@ -21,7 +21,7 @@
         * Базу данных.
         * Пользователя БД.
         * Пароль пользователя.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -29,7 +29,7 @@
 
 Чтобы обратиться из функции к хостам кластера БД, используя созданное подключение:
 * в настройках версии функции укажите сервисный аккаунт, которому назначена роль `serverless.mdbProxies.user`. [Как назначить роль](./function/role-add.md).
-* в дополнительных настройках кластера включите опцию **Доступ из Serverless**.
+* в дополнительных настройках кластера включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
 
 Чтобы подключиться к БД из функции, в качестве пароля используйте [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного в настройках версии функции. [Как получить IAM-токен](./function-sa.md).
 

@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       When creating a VM, select the security group that you set up earlier. To check the security settings, enter the VM's public IP address in the browser address bar: the default page of the web server should be displayed.
 
 
-   1. [Create a {{ mrd-name }}cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration.  When creating a {{ mrd-name }} cluster, specify the same network and security groups as those of the VM hosting the web server. 
+   1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration.  When creating a {{ mrd-name }} cluster, specify the same network and security groups as those of the VM hosting the web server. 
 
 - Using {{ TF }}
 

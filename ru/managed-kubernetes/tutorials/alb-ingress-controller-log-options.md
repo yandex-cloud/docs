@@ -116,7 +116,7 @@
 
 ### Установите Ingress-контроллер {{ alb-name }} {#install-alb-ingress-controller}
 
-Установите приложение [ALB Ingress Controller](marketplace/products/yc/alb-ingress-controller) согласно [инструкции](../operations/applications/alb-ingress-controller.md). При установке используйте данные ключа `key.json` из раздела [{#T}](#deploy-infrastructure).
+Установите приложение [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) согласно [инструкции](../operations/applications/alb-ingress-controller.md). При установке используйте данные ключа `key.json` из раздела [{#T}](#deploy-infrastructure).
 
 ## Создайте тестовое приложение {#install-app}
 

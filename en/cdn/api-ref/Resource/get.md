@@ -193,7 +193,8 @@ resourceId | <p>Required. ID of the requested resource.</p> <p>The maximum strin
         "id": "string"
       }
     }
-  }
+  },
+  "labels": "object"
 }
 ```
 A CDN resource - representation of providers resource.
@@ -300,3 +301,4 @@ sslCertificate.<br>status | **string**<br><p>Active status.</p> <p>A certificate
 sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data parameters.</p> 
 sslCertificate.<br>data.<br>cm | **object**<br>Custom (add your SSL certificate by uploading the certificate in PEM format and your private key).
 sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certificate.</p> 
+labels | **object**<br><p>Labels of the resource.</p> 

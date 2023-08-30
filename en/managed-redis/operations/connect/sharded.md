@@ -48,6 +48,8 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 {% endlist %}
 
+{% include [How to connect from a Dockerfile](../../../_includes/mdb/mrd/connect/docker-and-redis.md) %}
+
 ## Sample connection strings {#connection-string}
 
 {% include [Environment settings](../../../_includes/mdb/mdb-conn-strings-env.md) %}

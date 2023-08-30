@@ -27,25 +27,25 @@
         
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите **Cloud Logs**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_cloud-logs }}**.
 
-    1. В блоке **Настройки Cloud Logs** укажите, сообщения из каких источников будет обрабатывать функция. Лог-группы определятся автоматически.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_cloud-logs }}** укажите, сообщения из каких источников будет обрабатывать функция. Лог-группы определятся автоматически.
 
-    1. (Опционально) В блоке **Настройки группирования сообщений** укажите:
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-        * размер группы сообщений. Допустимые значения от 1 до 10, значение по умолчанию — 1.
-        * максимальное время ожидания. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер отправит группу сообщений в функцию, когда число сообщений в лог-группе достигнет указанного размера группы или истечет максимальное время ожидания.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер отправит группу сообщений в функцию, когда число сообщений в лог-группе достигнет указанного размера группы или истечет максимальное время ожидания.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. Допустимые значения от 1 до 10, значение по умолчанию — 1.
 
-    1. В блоке **Настройки функции**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
         * Выберите функцию, которую будет вызывать триггер.
 
@@ -58,14 +58,14 @@
         * Укажите [тег версии функции](../../functions/concepts/function.md#tag).
         * Укажите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
 
-    1. (Опционально) В блоке **Настройки повторных запросов**:
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-        * В поле **Количество попыток** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-interval }}** укажите время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-attempts }}** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Допустимые значения — от 1 до 5, значение по умолчанию — 1.
 
-    1. (Опционально) В блоке **Настройки Dead Letter Queue** выберите очередь [Dead Letter Queue](../../functions/concepts/dlq.md) и сервисный аккаунт с правами на запись в нее.
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь [Dead Letter Queue](../../functions/concepts/dlq.md) и сервисный аккаунт с правами на запись в нее.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -106,28 +106,28 @@
     Результат:
 
     ```
-    id: a1s92agr8mpgeo3kjt48
-    folder_id: b1g88tflru0ek1omtsu0
+    id: a1s92agr8mpg********
+    folder_id: b1g88tflru0e********
     created_at: "2020-08-13T10:46:55.947Z"
     name: log-trigger
     rule:
       cloud_logs:
         log_group_id:
-        - eolhui6rdfg564kl8h67
-        - eol7tkttsd345gju74df
+        - eolhui6rdfg5********
+        - eol7tkttsd34********
         batch_settings:
           size: "1"
           cutoff: 10s
         invoke_function:
-          function_id: d4eofc7n0m03lmudsk7y
+          function_id: d4eofc7n0m03********
           function_tag: $latest
-          service_account_id: aje3932acd0c5ur7drte
+          service_account_id: aje3932acd0c********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:dlq
-            service-account-id: aje3932acd0c5ur7dagp
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknn********:dlq
+            service-account-id: aje3932acd0c********
     status: ACTIVE
   ```
 

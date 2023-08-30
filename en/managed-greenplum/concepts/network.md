@@ -24,7 +24,7 @@ You can use FQDN to access master hosts from both inside and outside {{ yandex-c
 
 ## Public access to clusters {#public-access-to-a-host}
 
-To get public IPs for master host access from outside {{ yandex-cloud }}, enable the **Public access** option when creating a cluster. To connect to a cluster, use the FQDNs of its master hosts.
+To get public IPs for accessing master hosts from outside {{ yandex-cloud }}, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option when creating a cluster. To connect to a cluster, use the FQDNs of its master hosts.
 
 After creating a cluster, you cannot request or disable public addresses.
 

@@ -19,14 +19,14 @@
 Чтобы получать уведомления о срабатывании алерта:
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать канал уведомлений.
-1. Выберите сервис **{{ monitoring-name }}**.
-1. На панели слева выберите **Каналы**.
-1. В правом верхнем углу нажмите кнопку **Создать канал**.
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите параметры канала:
-    * В поле **Имя** укажите `alerts-channel`.
-    * В поле **Метод** укажите метод уведомлений.
-    * В поле **Получатели** перечислите получателей уведомлений.
-1. Нажмите кнопку **Создать**. 
+    * В поле **{{ ui-key.yacloud_monitoring.channel.field_name }}** укажите `alerts-channel`.
+    * В поле **{{ ui-key.yacloud_monitoring.channel.field_method }}** укажите метод уведомлений.
+    * В поле **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** перечислите получателей уведомлений.
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**. 
 
 Канал появится в списке.
 
@@ -41,20 +41,20 @@
 Алерт отправит уведомление о том, что трейл переходит в неактивный статус.
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Выберите сервис **{{ monitoring-name }}**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `deactivating-trail-alert`. 
-1. В блоке **Метрики** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `deactivating-trail-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.status`.
     1. `status != ACTIVE`.
     1. `trail = <имя_трейла>`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Не равно`.
-    1. **Alarm** — `0`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**. 
 
 Алерт создан.
 
@@ -62,23 +62,23 @@
 
 Алерт отправит уведомление о том, что трейл прекратил загружать аудитные логи в объект назначения, например по причине нехватки свободного места в бакете.
 
-Параметр **Окно вычисления** зависит от конкретного трейла. В зависимости от типа и количества ресурсов в блоке сбора аудитных логов трейла, частота загрузки аудитных логов в объект назначения будет варьироваться. 
+Параметр **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** зависит от конкретного трейла. В зависимости от типа и количества ресурсов в блоке сбора аудитных логов трейла, частота загрузки аудитных логов в объект назначения будет варьироваться. 
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Выберите сервис **{{ monitoring-name }}**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `stopping-logs-alert`. 
-1. В блоке **Метрики** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `stopping-logs-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.delivered_events_count`.
     1. `trail = <имя_трейла>`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Равно`.
-    1. **Alarm** — `0`.
-    1. **Окно вычисления** — `<значение_для_трейла>`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — `<значение_для_трейла>`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**. 
 
 Алерт создан.
 
@@ -87,18 +87,18 @@
 Алерт отправит уведомление о том, что число трейлов в облаке изменилось.
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Выберите сервис **{{ monitoring-name }}**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `number-trails-alert`. 
-1. В блоке **Метрики** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `number-trails-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = quota.trails_count.usage`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Не равно`.
-    1. **Alarm** — `<количество_трейлов>`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `<количество_трейлов>`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**. 
 
 Алерт создан.
 
@@ -107,18 +107,18 @@
 Алерт отправит уведомление о том, что квота на количество трейлов в облаке израсходована более чем на 80%.
    
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Выберите сервис **{{ monitoring-name }}**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `trail-quota-alert`. 
-1. В блоке **Метрики** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `trail-quota-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = quota.trails_count.usage`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Больше`.
-    1. **Alarm** — `<число_равное_80%_от_квоты>`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `<число_равное_80%_от_квоты>`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**. 
 
 Алерт создан.
 
@@ -127,18 +127,18 @@
 Алерт отправит уведомление о том, что к одному из ресурсов трейла был отправлен неавторизованный запрос.
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
-1. Выберите сервис **{{ monitoring-name }}**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `unauthorized-access-alert`. 
-1. В блоке **Метрики** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `unauthorized-access-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/plus-sign.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.unauthorized_events_count`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Больше`.
-    1. **Alarm** — `0`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**. 
 
 Алерт создан.
 

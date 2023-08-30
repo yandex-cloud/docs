@@ -42,8 +42,8 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Entry destination.
 
 Field | Description
 --- | ---
-type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
-id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z0-9][-a-zA-Z0-9_.]{0,63})? `.
+type | **string**<br>Resource type, i.e., `serverless.function` The maximum string length in characters is 63.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. The maximum string length in characters is 63.
 
 
 ### IncomingLogEntry {#IncomingLogEntry}
@@ -54,7 +54,7 @@ timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
 message | **string**<br>Entry text message. 
 json_payload | **google.protobuf.Struct**<br>Entry annotation. 
-stream_name | **string**<br>Entry stream name. Value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `.
+stream_name | **string**<br>Entry stream name. The maximum string length in characters is 63.
 
 
 ### LogEntryDefaults {#LogEntryDefaults}
@@ -63,7 +63,7 @@ Field | Description
 --- | ---
 level | **[LogLevel.Level](#LogLevel)**<br>Default entry severity. Will be applied if entry level is unspecified. <br>See [LogLevel.Level](#LogLevel) for details. 
 json_payload | **google.protobuf.Struct**<br>Default entry annotation. Will be merged with entry annotation. Any conflict will be resolved in favor of entry own annotation. 
-stream_name | **string**<br>Entry stream name. Value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `.
+stream_name | **string**<br>Entry stream name. The maximum string length in characters is 63.
 
 
 ### WriteResponse {#WriteResponse}

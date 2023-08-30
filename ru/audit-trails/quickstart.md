@@ -9,7 +9,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Убедитесь, что в вашем облаке существует бакет для хранения аудитного лога, при необходимости [создайте новый бакет](../storage/quickstart.md#the-first-bucket) с ограниченным доступом.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и назначьте ему роли:
 
@@ -36,7 +36,7 @@
         * `id` — идентификатор каталога, в котором будет находиться трейл.
         * `service-account-id` — идентификатор сервисного аккаунта.
 
-      * Назначьте роль [`audit-trails.viewer`](./security/index.md#roles) на организацию, с которой будут собираться аудитные логи:
+      * Назначьте роль [`audit-trails.viewer`](./security/index.md#roles-list) на организацию, с которой будут собираться аудитные логи:
 
         ```
         yc organization-manager organization add-access-binding 
@@ -68,22 +68,22 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. Выберите сервис **{{ at-name }}**.
-  1. Нажмите кнопку **Создать трейл**.
-  1. В поле **Имя** укажите имя создаваемого трейла.
-  1. В поле **Описание** задайте описание трейла, необязательный параметр.
-  1. В блоке **Фильтр** задайте параметры области сбора аудитных логов:
-      * **Ресурс** — выберите `Организация`.
-      * **Организация** — не требует заполнения, содержит имя текущей организации.
-  1. В блоке **Назначение** задайте параметры объекта назначения:
-      * **Назначение** —  `{{ objstorage-name }}`.
-      * **Бакет** — выберите бакет, в который будут загружаться аудитные логи.
-      * **Префикс объекта** — необязательный параметр, участвует в [полном имени](./concepts/format.md#log-file-name) файла аудитного лога.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
+  1. В поле **{{ ui-key.yacloud.common.description }}** задайте описание трейла, необязательный параметр.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения, содержит имя текущей организации.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** —  `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите бакет, в который будут загружаться аудитные логи.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./concepts/format.md#log-file-name) файла аудитного лога.
       
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
 
-  1. В блоке **Сервисный аккаунт** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

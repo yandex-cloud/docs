@@ -23,7 +23,7 @@ To integrate {{ k8s }} with {{ container-registry-full-name }}, create the follo
 
 Create [service accounts](../../iam/operations/sa/create.md):
 * A service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/#roles-list) role to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is being created. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
-* A service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.
+* A service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.
 
 ### Create a service account for resources {#res-sa}
 
@@ -148,7 +148,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder:
+1. Assign the service account the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder:
 
    ```bash
    yc resource-manager folder add-access-binding \

@@ -38,6 +38,42 @@
      +----+------+---------------+--------+---------+-------------+
      ```
 
+- {{ TF }}
+  
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте конфигурационный файл и удалите фрагмент с описанием политики:
+
+      {% cut "Пример описания политики в конфигурации {{ TF }}" %}
+
+      ```hcl
+      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
+        name          = "best-policy"
+        status        = "active"
+        repository_id = "crpfvi6o4ra7********"
+
+        rule {
+          description   = "rule for applying policy"
+          untagged      = true
+          tag_regexp    = ".*"
+          retained_top  = 1
+          expire_period = "48h"
+        }
+      }
+      ```
+
+      {% endcut %}
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном репозитории будет удалена политика удаления. Проверить удаление политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+     yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
+    ```
+
 - API
 
   Чтобы удалить политику, воспользуйтесь методом [Delete](../../api-ref/grpc/lifecycle_policy_service.md#Delete) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md). В параметре `lifecycle_policy_id` укажите идентификатор политики.

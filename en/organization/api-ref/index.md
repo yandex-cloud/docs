@@ -10,6 +10,7 @@ Resource | Description
 --- | ---
 [Group](Group/index.md) | A set of methods for managing groups.
 [Organization](Organization/index.md) | A set of methods for managing Organization resources.
+[SshCertificate](SshCertificate/index.md) | 
 [User](User/index.md) | A set of methods for managing Organization users.
 [Federation](Federation/index.md) | A set of methods for managing federations.
 [Certificate](Certificate/index.md) | A set of methods for managing certificates.

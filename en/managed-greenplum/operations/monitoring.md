@@ -14,8 +14,8 @@ To view detailed information about the {{ mgp-name }} cluster status:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select the ![monitoring.svg](../../_assets/monitoring.svg) **Monitoring** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![monitoring.svg](../../_assets/monitoring.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
    The page displays the following charts:
@@ -71,11 +71,11 @@ To view detailed information about the status of individual {{ mgp-name }} hosts
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select ![hosts.svg](../../_assets/mdb/hosts.svg) **Hosts** → **Monitoring**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![hosts.svg](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
    1. Select the host from the drop-down list.
 
-   This page displays graphs showing the workload of an individual cluster host (master or segment):
+   This page displays charts showing the workload of an individual cluster host (master or segment):
 
    * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
    * **Disk IOPS in progress**: Number of pending disk operations.
@@ -98,14 +98,14 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-   1. Under **Service dashboards**, select:
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
-   1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `Alarm` and `Warning` notification threshold values.
-   1. Click **Create alert**.
+   1. In the appropriate chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
+   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
@@ -120,8 +120,8 @@ For a complete list of supported metrics, see the [{{ monitoring-name }} documen
 
 To view a cluster's state and status:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
 ### Cluster states {#cluster-health}
 

@@ -1,26 +1,24 @@
 # Создание алерта
 
-1. На главной странице сервиса {{ monitoring-short-name }} нажмите **Создать алерт**.
+1. На главной странице сервиса {{ monitoring-short-name }} нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Укажите основные параметры алерта:
 
-    * **Название**. Задайте название алерта.
-    * **Описание**. Опишите назначение алерта.
+    * **{{ ui-key.yacloud_monitoring.alert.title_name }}**. Задайте название алерта.
+    * **{{ ui-key.yacloud_monitoring.alert.title_description }}**. Опишите назначение алерта.
 
-1. Задайте условия срабатывания алерта:
+1. Опишите [запросы](../../concepts/alerting/alert.md#queries).
+1. Настройте [условия срабатывания](../../concepts/alerting/alert.md#condition) алерта:
 
-    1. Выберите метрику, над которой будет создан алерт.
-    1. Настройте параметры алерта:
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.query-to-check }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**.
+    * Пороги срабатывания **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** и **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**.
 
-        * **Запрос для проверки**.
-        * **Функция агрегации**.
-        * **Условие срабатывания**.
-        * **Пороги срабатывания**.
-        * **Окно вычисления**.
-        * **Задержку вычисления**.
+    Подробнее в разделе [{#T}](../../concepts/alerting/alert.md#condition).
 
-        Подробнее в разделе [{#T}](../../concepts/alerting/alert.md#condition).
-    1. Укажите [аннотации](../../concepts/alerting/annotation.md) к алерту.
-    1. Задайте [политики обработки отсутствия данных](../../concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
-
-1. Укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](create-channel.md).
-1. Нажмите **Создать алерт**. Алерт появится в списке.
+1. Задайте [политики обработки отсутствия данных](../../concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
+1. Укажите [аннотации](../../concepts/alerting/annotation.md) к алерту.
+1. Настройте [уведомления](../../concepts/alerting/notification-channel.md). Если у вас нет канала уведомлений, [создайте его](create-channel.md).
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Алерт появится в списке.

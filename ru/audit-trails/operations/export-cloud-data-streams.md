@@ -19,7 +19,7 @@
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles) на облако, с которого будут собираться аудитные логи:
+      * [`audit-trails.viewer`](../security/index.md#roles-list) на облако, с которого будут собираться аудитные логи:
 
         ```
         yc resource-manager cloud add-access-binding \
@@ -33,7 +33,7 @@
         * `id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), с которого будут собираться аудитные логи.
         * `service-account-id` — идентификатор сервисного аккаунта.
 
-      * [`yds.writer`](../../logging/security/index.md#roles) на каталог, в котором будет находиться трейл:
+      * [`yds.writer`](../../logging/security/index.md#roles-list) на каталог, в котором будет находиться трейл:
 
         ```
         yc resource-manager folder add-access-binding \
@@ -65,19 +65,19 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. Выберите сервис **{{ at-name }}**.
-  1. Нажмите кнопку **Создать трейл** и укажите:
-      * **Имя** — имя создаваемого трейла.
-      * **Описание** — описание трейла, необязательный параметр.
-  1. В блоке **Фильтр** задайте параметры области сбора аудитных логов:
-      * **Ресурс** — выберите `Облако`.
-      * **Облако** — не требует заполнения, содержит имя облака, в котором будет находиться трейл.
-      * **Каталоги** — оставьте значение по умолчанию `все каталоги`.
-  1. В блоке **Назначение** задайте параметры объекта назначения:
-      * **Назначение** —  `{{ yds-name }}`.
-      * **Поток данных** — выберите поток данных. Также вы можете создать новый поток данных, для этого нажмите кнопку **Создать новый** и [укажите](../../data-streams/operations/manage-streams.md#create-data-stream) параметры потока данных.
-  1. В блоке **Сервисный аккаунт** выберите сервисный аккаунт, от имени которого трейл будет загружать аудитные логи в поток данных.
-  1. Нажмите кнопку **Создать**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
+      * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла.
+      * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — не требует заполнения, содержит имя облака, в котором будет находиться трейл.
+      * **{{ ui-key.yacloud.audit-trails.label_folders }}** — оставьте значение по умолчанию `{{ ui-key.yacloud.audit-trails.label_all-folders }}`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** —  `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — выберите поток данных. Также вы можете создать новый поток данных, для этого нажмите кнопку **{{ ui-key.yacloud.common.create-new }}** и [укажите](../../data-streams/operations/manage-streams.md#create-data-stream) параметры потока данных.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать аудитные логи в поток данных.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

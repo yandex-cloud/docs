@@ -5,11 +5,11 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите изменить описание [функции](../../concepts/function.md).
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
-    1. В правом верхнем углу нажмите кнопку **Редактировать**.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. В открывшемся окне укажите нужное описание функции.
-    1. Нажмите кнопку **Сохранить**.        
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
     
 - CLI
   
@@ -26,15 +26,15 @@
     Результат:
 
     ```       
-    id: b097d9ous3gep99khe83
-    folder_id: aoek49ghmknnpj1ll45e
+    id: b097d9ous3ge********
+    folder_id: aoek49ghmknn********
     created_at: "2019-06-06T11:36:48.688Z"
     name: my-beta-function
     description: My beta function.
     labels:
       test: test
-    log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    log_group_id: eolv6578frac********
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3ge********
     status: ACTIVE
     ```
 

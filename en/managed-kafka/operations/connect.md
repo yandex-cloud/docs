@@ -32,7 +32,7 @@ There are ready-made {{ KF }} API implementations for most popular programming l
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Settings of rules depend on the connection method you select:
+Rule settings depend on the connection method you select:
 
 {% list tabs %}
 
@@ -86,7 +86,7 @@ Settings of rules depend on the connection method you select:
          * Destination type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-      This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
+       This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -108,6 +108,21 @@ To use an encrypted connection, get an SSL certificate:
 {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
 
 The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+## Connecting from a Docker container {#connection-docker}
+
+You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+
+To connect to a {{ mkf-name }} cluster, add the following lines to the Dockerfile:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget kafkacat --yes && \
+    mkdir -p {{ crt-local-dir }} && \
+    wget "{{ crt-web-path }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+```
 
 ## Sample connection strings {#connection-string}
 

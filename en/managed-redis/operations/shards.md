@@ -88,7 +88,7 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
    1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
    1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-      * (optional) Edit the host settings.
+      * (Optional) Edit the host settings.
       * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
       * In the **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** field, choose the availability zone, select **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**, and enable the **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** option.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.

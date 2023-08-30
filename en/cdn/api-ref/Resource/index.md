@@ -177,7 +177,8 @@ Provider's resources management service.
         "id": "string"
       }
     }
-  }
+  },
+  "labels": "object"
 }
 ```
  
@@ -283,6 +284,7 @@ sslCertificate.<br>status | **string**<br><p>Active status.</p> <p>A certificate
 sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data parameters.</p> 
 sslCertificate.<br>data.<br>cm | **object**<br><p>A certificate data custom parameters.</p> 
 sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certificate.</p> 
+labels | **object**<br><p>Labels of the resource.</p> 
 
 ## Methods {#methods}
 Method | Description

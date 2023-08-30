@@ -1,6 +1,6 @@
 # Как синтезировать речь в {{ speechkit-short-name }} API v3
 
-В этом разделе вы научитесь синтезировать речь из из текста с помощью {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
+В этом разделе вы научитесь синтезировать речь из текста с помощью {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
 Работа с API выполняется с помощью утилиты `grpcurl`.
 

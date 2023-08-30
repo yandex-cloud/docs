@@ -102,7 +102,7 @@
 
 - API
 
-    Назначить [роли](../../resource-manager/security/index.md#roles) на [пользовательскую лог-группу](../../logging/concepts/log-group.md) можно с помощью метода API [setAccessBindings](../../logging/api-ref/LogGroup/setAccessBindings.md).
+    Назначить [роли](../../resource-manager/security/index.md#roles-list) на [пользовательскую лог-группу](../../logging/concepts/log-group.md) можно с помощью метода API [setAccessBindings](../../logging/api-ref/LogGroup/setAccessBindings.md).
 
 {% endlist %}
 

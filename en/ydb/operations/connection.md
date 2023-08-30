@@ -4,13 +4,16 @@ The {{ ydb-short-name }} CLI is a tool for managing your data in {{ ydb-full-nam
 
 Before you start, install the [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/install). To connect to your {{ ydb-full-name }} database from the {{ ydb-short-name }} CLI, specify the [endpoint and path](#endpoint-and-path) and [select and set up](#auth) authentication mode.
 
-{% note warning %}
-
-To connect to your DB in Dedicated mode from outside {{ yandex-cloud }}, allow incoming and outgoing traffic over TCP on port `2135`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) has the appropriate rule or add one.
-
-{% endnote %}
+## Configuring security groups {#configuring-security-groups}
 
 {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
+
+To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
+
+* Port range: `{{ ydb.port-dedicated }}`
+* Protocol: `TCP`
+* Source: `CIDR`
+* CIDR blocks: `0.0.0.0/0`
 
 ## Get connection parameters {#endpoint-and-path}
 

@@ -13,8 +13,8 @@ For more information, see [{#T}](../concepts/index.md).
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a database cluster.
-   1. Select **{{ mgp-name }}**.
-   1. Click **Create cluster**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the cluster. It must be unique within the folder.
    1. (Optional) Enter a cluster description.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
@@ -27,9 +27,9 @@ For more information, see [{#T}](../concepts/index.md).
 
       {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
-   1. Under **Network settings**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
       * Select the cloud network for the cluster.
-      * In the **Security groups** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) that contains the rules allowing all incoming and outgoing traffic over any protocol from any IP address.
+      * In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) that contains the rules allowing all incoming and outgoing traffic over any protocol from any IP address.
 
          {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
@@ -40,12 +40,12 @@ For more information, see [{#T}](../concepts/index.md).
          {% endnote %}
 
 
-       * Select the availability zone and subnet for the cluster. To create a new subnet, click **Create new** subnet next to the availability zone.
-       * Select **Public access** to allow connecting to the cluster from the internet.
+       * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone.
+       * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow accessing the cluster from the internet.
 
-   1. Specify the administrative user's settings. This is a special user that is needed to manage clusters and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
+   1. Specify the admin user settings. This is a special user that is needed to manage clusters and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
 
-      * **Username** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It may be up to 32 characters long.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It must be from 1 to 32 characters long.
 
          {% note info %}
 
@@ -53,12 +53,12 @@ For more information, see [{#T}](../concepts/index.md).
 
          {% endnote %}
 
-      * **Password** must be between 8 and 128 characters.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters.
 
    1. Configure additional cluster settings, if required:
 
       * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-      * **Maintenance window**: [Maintenance window](../concepts/maintenance.md) settings:
+      * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../concepts/maintenance.md) settings:
 
          {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -68,36 +68,36 @@ For more information, see [{#T}](../concepts/index.md).
 
          {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      * **Connection pooler**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
+      * **{{ ui-key.yacloud.mdb.forms.section_pooler }}**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
 
          {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
    1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
-   1. Specify the master host parameters on the **Master** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
+   1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
 
-      * [Host class](../concepts/instance-types.md): Defines the technical properties of the virtual machines where a cluster's master hosts will be deployed.
+      * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines where a cluster's master hosts will be deployed.
 
-      * Under **Storage**:
+      * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
-   1. Specify the parameters of segment hosts on the **Segment** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
+   1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
 
       * The number of segment hosts.
       * The number of segments per host. The maximum value of this parameter depends on the host class.
-      * [Host class](../concepts/instance-types.md): Defines the technical properties of the virtual machines where a cluster's segment hosts will be deployed.
-      * Under **Storage**:
+      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines where a cluster's segment hosts will be deployed.
+      * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -148,7 +148,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       {% note info %}
 
-      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may not be longer than 63 characters.
+      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. It must be maximum 63 characters long.
 
       {% endnote %}
 
@@ -159,8 +159,8 @@ For more information, see [{#T}](../concepts/index.md).
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ GP }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
-      * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It can be up to 32 characters long.
-      * `--user-password`: Password, which must be from 8 to 128 characters long.
+      * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
+      * `--user-password`: Password, from 8 to 128 characters long.
       * `--master-config` and `--segment-config`: Master and segment host configurations:
          * `resource-id`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.

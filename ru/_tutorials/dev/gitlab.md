@@ -35,27 +35,27 @@
 
 ## Создайте виртуальную машину с {{ GL }} {#create-vm}
 
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-1. В поле **Имя** введите имя ВМ: `gitlab`.
+1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `gitlab`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться ВМ.
-1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [{{ GL }}](/marketplace/products/yc/gitlab).
-1. В блоке **Диски** выберите [жесткий диск SSD](../../compute/concepts/disk.md#disks_types) размером 20 Гб.
-1. В блоке **Вычислительные ресурсы**:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [{{ GL }}](/marketplace/products/yc/gitlab).
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** выберите [жесткий диск SSD](../../compute/concepts/disk.md#disks_types) размером 20 Гб.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
    * Укажите необходимое количество vCPU и объем RAM.
 
      Для корректной работы системы {{ GL }} укажите конфигурацию:
-     * **Платформа** - Intel Ice Lake.
-     * **Гарантированная доля vCPU** — 100%.
-     * **vCPU** — 4.
-     * **RAM** — 8 ГБ.
-1. В блоке **Сетевые настройки**:
-   * Выберите **Сеть** и **Подсеть**, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
-   * В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный [внешний IP-адрес](../../vpc/operations/subnet-create.md) из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-1. В блоке **Доступ** укажите данные для доступа к ВМ:
-   * В поле **Логин** введите предпочтительное имя пользователя, который будет создан на ВМ.
-   * В поле **SSH-ключ** скопируйте ваш открытый SSH-ключ. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
-1. Нажмите кнопку **Создать ВМ**.
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** - `Intel Ice Lake`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+   * Выберите **{{ ui-key.yacloud.compute.instances.create.label_network }}** и **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить ВМ случайный [внешний IP-адрес](../../vpc/operations/subnet-create.md) из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите предпочтительное имя пользователя, который будет создан на ВМ.
+   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** скопируйте ваш открытый SSH-ключ. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 1. Подождите примерно пять минут, пока не будет создана ВМ и на ней не запустятся все сервисы. После полного запуска всех сервисов, {{ GL }} станет доступен через веб-интерфейс в браузере.
 
 ## Настройте {{ GL }} {#confgure-gitlab}
@@ -287,6 +287,6 @@ Runner - это программа, которая осуществляет пр
 Чтобы перестать платить за развернутый сервер, достаточно удалить созданную ВМ `gitlab`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Выберите сервис **{{ vpc-name }}** в вашем каталоге.
-1. Перейдите на вкладку **IP-адреса**.
-1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
+1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.

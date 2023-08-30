@@ -43,23 +43,23 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       * Select the [disk type](../concepts/storage.md).
 
-                  
+         
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the size of storage for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
-      * DB name.
-      * Username.
-      * User password. Minimum 8 characters.
+      * DB name
+      * Username
+      * User password; minimum 8 characters long
 
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
       * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+      * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
          {% note info %}
 
@@ -79,7 +79,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
-      
+
 
       By default, hosts are created in different availability zones. See also about [host management](hosts.md).
 

@@ -2,7 +2,7 @@
 
 #### How do I connect to a cluster? {#how-to-connect}
 
-View the connection examples in the [documentation](../../managed-mysql/operations/connect.md#connection-string) or on the cluster page in the [management console]({{ link-console-main }}) (click **Connect** in the top panel).
+View the connection examples in the [documentation](../../managed-mysql/operations/connect.md#connection-string) or on the cluster page in the [management console]({{ link-console-main }}) (click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}** in the top panel).
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
 
@@ -11,9 +11,9 @@ There are also [{#T}](../../managed-mysql/operations/connect.md#special-fqdns) p
 #### Why can't I connect from the internet? {#from-internet}
 
 Check whether there is public access to the host. To do this, in the [management console]({{ link-console-main }}):
-1. Go to the folder page and select **{{ mmy-short-name }}**.
-1. Click the name of the cluster you need and select the **Hosts** tab.
-1. Look at the value in the desired host's **Public access** column.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Look at the value in the specific host's **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column.
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
 
@@ -27,9 +27,9 @@ Additional information:
 Please check that you are connecting from a {{ yandex-cloud }} VM located on the same virtual network as the {{ MY }} cluster.
 
 To do this, in the management console:
-1. Go to the folder page, select **{{ mmy-short-name }}**, and click the name of the desired cluster.
-1. Check the value of the **Cloud network** parameter and click the network name link to see its subnets.
-1. Make sure the virtual machine is located on of that network's subnets.
+1. Go to the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**, and click the name of the specific cluster.
+1. Check the value of the **{{ ui-key.yacloud.mdb.cluster.overview.label_network }}** parameter and click the network name link to see its subnets.
+1. Make sure the virtual machine is located on one of the network's subnets.
 
 Additional information:
 * If you are connecting to a host with public access, a connection can only be established with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
@@ -41,9 +41,9 @@ Additional information:
 If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
 
 Check whether there is public access to the host. To do this, in the [management console]({{ link-console-main }}):
-1. Go to the folder page and select **{{ mmy-short-name }}**.
-1. Click the name of the cluster you need and select the **Hosts** tab.
-1. Look at the value in the desired host's **Public access** column.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Look at the value in the specific host's **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column.
 
 Additional information:
 

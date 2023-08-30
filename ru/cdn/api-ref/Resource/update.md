@@ -190,7 +190,8 @@ resourceId | <p>Required. ID of updated resource.</p> <p>The maximum string leng
         "id": "string"
       }
     }
-  }
+  },
+  "labels": "object"
 }
 ```
 
@@ -291,6 +292,7 @@ sslCertificate.<br>type | **string**<br><p>Type of the certificate.</p> <p>A cer
 sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data parameters.</p> 
 sslCertificate.<br>data.<br>cm | **object**<br>Custom (add your SSL certificate by uploading the certificate in PEM format and your private key).
 sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certificate.</p> 
+labels | **object**<br><p>Resource labels. At some point will be needed for granular detailing.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

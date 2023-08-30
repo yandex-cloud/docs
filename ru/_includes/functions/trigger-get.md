@@ -3,8 +3,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
-  1. Выберите сервис **{{ sf-name }}**.
-  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Выберите триггер, о котором хотите получить подробную информацию.
 
 - CLI

@@ -1,8 +1,8 @@
 # Managing connections
 
-{{ GP }} allocates a separate process for each established connection. With numerous client connections, the DBMS creates multiple processes and manages distributed data structures. As a result, there may be insufficient computing resources, which affects DBMS performance.
+{{ GP }} allocates a separate process for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. As a result, there may be insufficient computing resources, which affects the DBMS performance.
 
-To resolve the insufficient resources issue, the [PgBouncer connection pooler](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-access_db-topics-pgbouncer.html) is added before a {{ GP }} cluster. The pooler manages connections to allow a large number of clients to connect to the DBMS without affecting performance. A relatively small number of connections are maintained between the pooler and the DBMS and can be reused. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
+To resolve the insufficient resources issue, the [PgBouncer connection pooler]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-access_db-topics-pgbouncer.html) is added before a {{ GP }} cluster. The pooler manages connections to allow a large number of clients to connect to the DBMS without affecting performance. A relatively small number of re-usable connections are maintained between the pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
 
 This deployment method complicates the administration because the servers hosting the pooler are added to the DBMS infrastructure.
 
@@ -12,36 +12,36 @@ The {{ mgp-name }} architecture has a built-in connection pooler: [Odyssey by Ya
 
 Odyssey supports two modes of connection management:
 
-* Session (default):
+* Session mode (default):
 
 
     In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by another or the same client. This approach helps wait out the moment of establishing multiple client connections to the DBMS, e.g., when starting applications that access databases.
 
     This mode is less productive than transaction mode.
 
-* Transaction:
+* Transaction mode:
 
 
    In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by another or the same client. This approach helps maintain a few server connections between the pooler and {{ GP }} hosts when there are multiple client connections.
 
-   Transaction mode provides high performance and allows the DBMS to load as efficiently as possible. However, this mode is not supported by all {{ GP }} clients and does not allow using:
+   The transaction mode provides high performance and allows the DBMS to load as efficiently as possible. However, this mode is not supported by all {{ GP }} clients and does not allow using:
 
-   * [Temporary tables](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html), and [advisory locks](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
-   * [Prepared statements](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-PREPARE.html).
+   * [Temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
+   * [Prepared statements]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-PREPARE.html).
 
    {% note info %}
 
-   To create a prepared statement in {{ mgp-name }}, use the DBMS driver features. Creating prepared statements with a `PREPARE` SQL query is not supported.
+   To create a prepared statement in {{ mgp-name }}, use the DBMS driver features. Creating prepared statements with `PREPARE` SQL queries is not supported.
 
    {% endnote %}
 
-Pooler mode can be [changed](../operations/update.md#change-additional-settings) after the cluster is created.
+You can [change](../operations/update.md#change-additional-settings) the pooler mode once the cluster is created.
 
 When integrated with Odyssey, {{ mgp-name }} clusters:
 
 * Support numerous client connections without affecting DBMS performance.
-* Require no additional configuration of the connection pooler or additional infrastructure for its operation.
-* Are less prone to running out of computing resources because of multiple client connections thanks to asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS.
+* Require neither additional connection pooler configuration nor additional infrastructure for its operation.
+* Are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS.
 
    For example, PgBouncer uses a single-threaded architecture. This may lead to problems with resource consumption and scalability under high load.
 

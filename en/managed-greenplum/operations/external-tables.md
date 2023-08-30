@@ -25,17 +25,17 @@ For security reasons, {{ mgp-name }} does not support creating [external web tab
 
 ## Connecting to external DBMS {#pxf}
 
-The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. Tables from the following external sources are available to connect to:
+The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/overview_pxf.html) is a software platform that provides access to data from external DBMS's. You can connect tables from the following external sources:
 
-* Apache Hive.
-* {{ CH }}.
-* HBase.
-* HDFS.
-* {{ MY }}.
-* Oracle.
-* {{ PG }}.
-* {{ MS }}.
-* {{ objstorage-full-name }} buckets.
+* Apache Hive
+* {{ CH }}
+* HBase
+* HDFS
+* {{ MY }}
+* Oracle
+* {{ PG }}
+* {{ MS }}
+* {{ objstorage-full-name }} buckets
 
 ### Creating an external table using PXF {#create-pxf-table}
 
@@ -127,7 +127,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       * User name: `mysqluser`.
       * Password: `mysqlpassword`.
-      * In the host settings, select the **Public access** option.
+      * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
    1. [Connect to a {{ MY }} database](../../managed-mysql/operations/connect#connection-string) using `mysql`.
    1. Create a test table and populate it with data:
@@ -174,7 +174,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       * User name: `pguser`.
       * Password: `pgpassword`.
-      * In the host settings, select the **Public access** option.
+      * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
    1. [Connect to a {{ PG }} database](../../managed-postgresql/operations/connect.md#bash) using `psql`.
    1. Create a test table and populate it with data:

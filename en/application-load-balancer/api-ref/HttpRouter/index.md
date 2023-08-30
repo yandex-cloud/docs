@@ -77,7 +77,8 @@ A set of methods for managing HTTP routers.
                   ]
                 }
               ]
-            }
+            },
+            "securityProfileId": "string"
           },
 
           // `virtualHosts[].routes[]` includes only one of the fields `http`, `grpc`
@@ -251,7 +252,8 @@ A set of methods for managing HTTP routers.
               ]
             }
           ]
-        }
+        },
+        "securityProfileId": "string"
       }
     }
   ],
@@ -311,7 +313,8 @@ A set of methods for managing HTTP routers.
           ]
         }
       ]
-    }
+    },
+    "securityProfileId": "string"
   }
 }
 ```
@@ -353,6 +356,7 @@ virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPr
 virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`virtualHosts[].routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`virtualHosts[].routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 virtualHosts[].<br>routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`virtualHosts[].routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+virtualHosts[].<br>routes[].<br>routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
 virtualHosts[].<br>routes[].<br>http | **object** <br>`virtualHosts[].routes[]` includes only one of the fields `http`, `grpc`<br><br><p>An HTTP route configuration resource.</p> 
 virtualHosts[].<br>routes[].<br>http.<br>match | **object**<br><p>An HTTP route condition (predicate) resource.</p> 
 virtualHosts[].<br>routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
@@ -431,6 +435,7 @@ virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<b
 virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`virtualHosts[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`virtualHosts[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`virtualHosts[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+virtualHosts[].<br>routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 routeOptions | **object**
 routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>Apply the following modifications to the request headers.</p> 
@@ -457,6 +462,7 @@ routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.
 routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
+routeOptions.<br>securityProfileId | **string**<br><p>Security profile that will take effect to all requests routed via particular virtual host.</p> 
 
 ## Methods {#methods}
 Method | Description

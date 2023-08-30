@@ -8,7 +8,7 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Выполните команду, чтобы назначить [роль](../../security/index.md#roles) на функцию:
+    Выполните команду, чтобы назначить [роль](../../security/index.md#roles-list) на функцию:
 
     * пользователю:
         ```

@@ -1,5 +1,11 @@
 # Восстановить диск с помощью снимка
 
+{% note info %}
+
+{% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}
+
+{% endnote %}
+
 Чтобы создать диск из [снимка](../../concepts/snapshot.md):
 
 {% list tabs %}

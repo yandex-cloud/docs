@@ -8,7 +8,7 @@
 {% endnote %}
 
 
-{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note-ip.md) %}
 
 
 Чтобы создать подключение к {{ CH }}:
@@ -75,6 +75,13 @@
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
+
+## Дополнительные настройки {#clickhouse-additional-settings}
+
+Вы можете указать дополнительные параметры подключения в разделе **Продвинутые настройки подключения**:
+
+* **TLS** — когда опция включена, при взаимодействии с БД используется протокол `HTTPS`, когда выключена — `HTTP`.
+* **CA Certificate** — чтобы загрузить сертификат, нажмите кнопку **Прикрепить файл** и укажите файл сертификата. Когда сертификат загружен, поле отображает название файла.
 
 ## Особенности работы с подключением к {{ CH }} {#ch-connection-specify}
 
