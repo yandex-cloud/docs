@@ -2,13 +2,13 @@
 
 After creating a cluster, you can:
 
-* [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description)
 
-* [{#T}](#change-additional-settings).
+* [{#T}](#change-additional-settings)
 
-* [{#T}](#change-gp-settings).
+* [{#T}](#change-gp-settings)
 
-* [{#T}](#change-disk-size).
+* [{#T}](#change-disk-size)
 
 * [Configure {{ GP }} servers according to the {{ GP }} documentation](#change-gp-settings).
 
@@ -18,10 +18,10 @@ After creating a cluster, you can:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Select the cluster and click **Edit** at the top of the page.
-   1. Under **Basic parameters**, enter a new name and description for the cluster.
-   1. Click **Save**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** at the top of the page.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -70,12 +70,12 @@ After creating a cluster, you can:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mgp-name }}**.
-   1. Select the cluster and click **Edit** in the top panel.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change additional cluster settings:
 
       * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-      * **Maintenance window**: [Maintenance window](../concepts/maintenance.md) settings:
+      * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../concepts/maintenance.md) settings:
 
          {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -85,11 +85,11 @@ After creating a cluster, you can:
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      * **Connection pooler**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
+      * **{{ ui-key.yacloud.mdb.forms.section_pooler }}**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
 
          {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -127,7 +127,7 @@ After creating a cluster, you can:
 
    * `--datatransfer-access`: Enables [{{ data-transfer-full-name }}](../../data-transfer/) access. The default value is `false`.
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -147,7 +147,7 @@ After creating a cluster, you can:
    * Public access settings in the `config.assignPublicIp` parameter.
    * Backup window settings in the `config.backupWindowStart` parameter.
    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
-   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -166,11 +166,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mgp-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Change the [{{ GP }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
-   1. Click **Save**.
-   1. Click **Save changes**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Change the [{{ GP }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -227,11 +227,11 @@ You can change the DBMS settings of the hosts in your cluster.
    To increase the cluster storage size:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-   1. Select **{{ mgp-name }}**.
-   1. Select the desired cluster.
-   1. At the top of the page, click **Edit cluster**.
-   1. Edit the settings in the **Storage** section.
-   1. Click **Save changes**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Select the cluster you need.
+   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - API
 

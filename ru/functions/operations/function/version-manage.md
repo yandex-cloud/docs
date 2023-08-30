@@ -10,30 +10,31 @@
 
 При создании версии необходимо задать следующие параметры:
 
-* _Среда выполнения_ — предоставляет дополнительные библиотеки и переменные окружения, к которым можно получить доступ из кода функции. Соответствует языку программирования, на котором написана ваша функция. Подробнее см. в разделе [Среда выполнения](../../concepts/runtime/index.md).
-* _Точка входа_ — функция, которая будет вызываться в качестве обработчика. Подробнее об обработчике читайте в разделе [Модель программирования](../../concepts/function.md#programming-model).
-* _Таймаут_ — максимальное время выполнения функции, после которого сервис прервет выполнение, не дожидаясь ответа. Включает в себя время начальной инициализации при первом запуске.
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_ — предоставляет дополнительные библиотеки и переменные окружения, к которым можно получить доступ из кода функции. Соответствует языку программирования, на котором написана ваша функция. Подробнее см. в разделе [Среда выполнения](../../concepts/runtime/index.md).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_ — функция, которая будет вызываться в качестве обработчика. Подробнее об обработчике читайте в разделе [Модель программирования](../../concepts/function.md#programming-model).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_ — максимальное время выполнения функции, после которого сервис прервет выполнение, не дожидаясь ответа. Включает в себя время начальной инициализации при первом запуске.
 
 {% list tabs %}
 
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, версию которой хотите создать.
-    1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-    1. Выберите [среду выполнения](../../concepts/runtime/index.md). Не выбирайте опцию **Добавить файлы с примерами кода**.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+    1. Выберите [среду выполнения](../../concepts/runtime/index.md). Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Подготовьте код функции:
-       * Среда выполнения: `nodejs`.
-       * Способ: ZIP-архив.
-       * Файл: `hello-js.zip`.
-       * Точка входа: `index.handler`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `Node.js`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
     1. Задайте параметры версии:
-       * Таймаут, с: 5.
-       * Память: 128 МБ.
-       * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts): Не выбрано.
-       * [Переменные окружения](../../concepts/runtime/environment-variables.md): Не выбрано.
-    1. В правом верхнем углу нажмите **Создать версию**.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+       * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
+       * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 

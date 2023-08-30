@@ -32,7 +32,7 @@ To export folder audit logs:
          * `id`: The ID of the folder from which audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
-      * [`logging.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
+      * [`logging.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
 
          ```
          yc resource-manager folder add-access-binding \

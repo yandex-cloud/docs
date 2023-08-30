@@ -8,7 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To revoke a [role](../../security/index.md#roles) for a function, run this command:
+   To revoke a [role](../../security/index.md#roles-list) for a function, run this command:
 
    * User:
       ```

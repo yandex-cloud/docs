@@ -1,6 +1,6 @@
-# Delivering data to ksqlDB
+# Data delivery in ksqlDB
 
-ksqlDB is a database designed for stream processing messages from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. The ksqlDB table is automatically updated with data from a topic, and the data that you add to the ksqlDB table is sent to the {{ KF }} topic. For more information, see the [ksqlDB documentation](https://docs.ksqldb.io/en/latest).
+ksqlDB is a database designed for stream processing messages from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. The ksqlDB table is automatically updated with data from a topic, and the data that you add to the ksqlDB table is sent to the {{ KF }} topic. You can learn more in the [ksqlDB documentation](https://docs.ksqldb.io/en/latest).
 
 To set up data delivery from {{ mkf-name }} to ksqlDB:
 1. [Set up {{ KF }} integration for the ksqlDB database](#configure-ksqldb-for-kf).
@@ -179,7 +179,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    |4a7c7b41                  |37.4049                   |-122.0822               |
    ```
 
-  Data is read using the `ksql` user.
+Data is read using the `ksql` user.
 
 ## Write the test data to ksqlDB {#insert-data-to-ksqldb}
 
@@ -220,7 +220,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).

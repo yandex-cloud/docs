@@ -6,6 +6,6 @@
 pip install yandex-speechkit
 ```
 
-Установка обоих пакетов проверялась на Python 3.9. Минимально допустимую версию Python см. на [сайте SDK](https://pypi.org/project/yandex-speechkit/).
+Установка проверялась на Python 3.9. Минимально допустимую версию Python см. на [сайте SDK](https://pypi.org/project/yandex-speechkit/).
 
-{% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
+Если при установке возникает конфликт версий пакета `grpcio-tools`, см. раздел [{#T}](version-conflict.md).

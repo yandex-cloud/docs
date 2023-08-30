@@ -4,7 +4,7 @@ To store logs in encrypted form:
 
 1. Create an [encryption key](../../kms/operations/key.md#create) in {{ kms-full-name }}.
 1. [Enable bucket encryption](../../storage/operations/buckets/encrypt.md#add) using the previously created key.
-1. Assign the previously created service account the [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service) role for the key:
+1. Assign the previously created service account the [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service-roles) role for the key:
 
    ```bash
    yc kms symmetric-key add-access-binding \

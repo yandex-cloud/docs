@@ -30,11 +30,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `sa-trail-logs`.
-  1. Нажмите ![](../_assets/plus-sign.svg) **Добавить роль** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите ![](../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -195,17 +195,17 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Кластер {{ CH }}**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-clickhouse }}**.
   1. Укажите настройки кластера {{ CH }}:
-     1. В блоке **Базовые параметры** укажите имя кластера `trail-logs`.
-     1. В блоке **Класс хоста** выберите тип [виртуальной машины](../compute/concepts/vm.md) **burstable** и [тип хоста](../managed-clickhouse/concepts/instance-types.md) **b2.medium**.
-     1. В блоке **База данных** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
-     1. В блоке **Хосты** нажмите значок ![pencil](../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
-     1. В блоке **Дополнительные настройки** включите опции:
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите имя кластера `trail-logs`.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите тип [виртуальной машины](../compute/concepts/vm.md) `burstable` и [тип хоста](../managed-clickhouse/concepts/instance-types.md) `b2.medium`.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../_assets/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
         * Доступ из {{ datalens-name }}.
         * Доступ из консоли управления.
         * Доступ из [{{ data-transfer-full-name }}](../data-transfer/).
-  1. После всех настроек нажмите кнопку **Создать кластер**.
+  1. После всех настроек нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 
@@ -312,14 +312,14 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **{{ yds-name }}**.
-  1. В поле **База данных** нажмите **Создать новую**. Откроется страница создания новой БД {{ ydb-name }}.
-  1. Введите **Имя** БД: `stream-db`.
-  1. В поле **Тип базы данных** выберите `Serverless`.
-  1. Нажмите кнопку **Сохранить базу данных**.
-  1. Вернитесь на страницу создания потока. Нажмите кнопку **Обновить** и выберите из списка созданную БД.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
+  1. В поле **{{ ui-key.yacloud.data-streams.label_database }}** нажмите **{{ ui-key.yacloud.common.label_create-new_female }}**. Откроется страница создания новой БД {{ ydb-name }}.
+  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД: `stream-db`.
+  1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+  1. Вернитесь на страницу создания потока. Нажмите значок ![image](../_assets/data-streams/update-db.svg) и выберите из списка созданную БД.
   1. Введите имя потока данных: `trail-logs-stream`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Дождитесь запуска потока данных. Когда поток станет готов к использованию, его статус изменится с `CREATING` на `ACTIVE`.
 
@@ -333,16 +333,16 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Audit trail**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
   1. Введите имя создаваемого трейла: `folder-trail`.
-  1. В блоке **Фильтр** задайте параметры области сбора аудитных логов:
-     * **Ресурс** — выберите `Каталог`.
-     * **Каталог** — не требует заполнения (содержит имя каталога, в котором будет находиться трейл).
-  1. В блоке **Назначение** задайте параметры объекта назначения:
-     * **Назначение** — `{{ yds-name }}`.
-     * **Поток данных** — выберите поток данных `trail-logs-stream`.
-  1. В блоке **Сервисный аккаунт** выберите сервисный аккаунт `sa-trail-logs`.
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения (содержит имя каталога, в котором будет находиться трейл).
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+     * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — выберите поток данных `trail-logs-stream`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт `sa-trail-logs`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -354,19 +354,19 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
-  1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **Эндпоинты**.
-  1. Нажмите кнопку **Создать эндпоинт**.
-  1. В поле **Направление** выберите `Источник`.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
   1. Укажите имя эндпоинта: `source-logs-stream`.
-  1. В поле **Тип базы данных** выберите `{{ yds-full-name }}`.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `{{ yds-full-name }}`.
   1. Настройте параметры эндпоинта:
-     * **База данных** — выберите БД, зарегистрированную для потока `trail-logs-stream`.
-     * **Поток** — `trail-logs-stream`.
-     * **Сервисный аккаунт** — `sa-trail-logs`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите БД, зарегистрированную для потока `trail-logs-stream`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — `trail-logs-stream`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — `sa-trail-logs`.
   1. Настройте правила конвертации:
-     * **Формат данных** — `JSON`.
-     * **Схема данных** — `Список полей`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
        Укажите список полей как в таблице ниже:
 
@@ -388,8 +388,8 @@
        event_status | STRING | - | - | event_status
        details | ANY | - | - | details
 
-     * Включите опцию **Добавить неразмеченные столбцы**.
-  1. Нажмите кнопку **Создать**.
+     * Включите опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -401,18 +401,18 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
-  1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **Эндпоинты**.
-  1. Нажмите кнопку **Создать эндпоинт**.
-  1. В поле **Направление** выберите `Приемник`.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
   1. Укажите имя эндпоинта: `target-logs-ch`.
-  1. В поле **Тип базы данных** выберите `{{ CH }}`.
-  1. В блоке **Параметры эндпоинта** укажите:
-     1. **Тип подключения** — **Кластер MDB**. Выберите кластер `trail-logs`.
-     1. **Пользователь** — `user`.
-     1. **Пароль** — укажите пароль пользователя БД.
-     1. **База данных** — `trail_data`
-  1. Нажмите кнопку **Создать**.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `{{ CH }}`.
+  1. В блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** укажите:
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}**. Выберите кластер `trail-logs`.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** — `user`.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}** — укажите пароль пользователя БД.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — `trail_data`
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -424,15 +424,15 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
-  1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **Трансферы**.
-  1. Нажмите кнопку **Создать трансфер**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Укажите имя трансфера: `logs-transfer`.
   1. Выберите эндпоинт для источника: `source-logs-stream`.
   1. Выберите эндпоинт для приемника: `target-logs-ch`.
-  1. Нажмите кнопку **Создать**.
-  1. Нажмите значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем трансфера и выберите пункт **Активировать**.
-  1. Дождитесь, когда трансфер перейдет в статус **Реплицируется**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+  1. Дождитесь, когда трансфер перейдет в статус `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
 - CLI
 

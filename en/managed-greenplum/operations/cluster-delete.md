@@ -10,8 +10,8 @@
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete cluster**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the ![image](../../_assets/options.svg) icon for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
 

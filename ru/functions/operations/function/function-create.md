@@ -5,13 +5,13 @@
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-	1. Выберите сервис **{{ sf-name }}**
-	1. Нажмите кнопку **Создать функцию**.
+	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+	1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 	1. Введите имя и описание функции. Формат имени:
 
 		{% include [name-format](../../../_includes/name-format.md) %}
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -28,12 +28,12 @@
     Результат:
 
     ```
-    id: b09bhaokchn9pnbrlseb
-    folder_id: aoek49ghmknnpj1ll45e
+    id: b09bhaokchn9********
+    folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
     name: python_function
-    log_group_id: eolm8aoq9vcppsieej6h
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
+    log_group_id: eolm8aoq9vcp********
+    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
     status: ACTIVE
     ```
 

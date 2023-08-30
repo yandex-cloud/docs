@@ -4,7 +4,9 @@ editable: false
 
 # Pricing for {{ mch-short-name }}
 
-{{ mch-name }} usage is rated by the pricing policy described in this section.
+In this section, you can find {{ mch-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+
+To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -63,7 +65,7 @@ The following is charged:
 
    * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-   * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
+   * The number of hosts in the cluster does not affect the size of the storage and, consequently, of free backups.
 
    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 

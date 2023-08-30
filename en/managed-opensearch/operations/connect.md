@@ -132,6 +132,21 @@ When using the {{ OS }} Dashboards API:
 
 {% endnote %}
 
+## Connecting from a Docker container {#connection-docker}
+
+You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#ssl-certificate).
+
+To connect to a {{ mos-name }} cluster, add the following lines to the Dockerfile:
+
+```bash
+RUN apt-get update && \
+    apt-get install wget curl --yes && \
+    mkdir -p ~/.opensearch && \
+    wget "{{ crt-web-path }}" \
+         --output-document ~/.opensearch/root.crt && \
+    chmod 0600 ~/.opensearch/root.crt
+```
+
 ## Sample connection strings {#code-examples}
 
 Before connecting, [prepare a certificate](#ssl-cetificate).
@@ -148,4 +163,4 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](hos
 
 ### Available Dashboards host {#fqdn-dashboards}
 
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).

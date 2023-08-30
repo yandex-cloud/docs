@@ -4,6 +4,10 @@ editable: false
 
 # Pricing for {{ mrd-name }}
 
+In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+
+To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
+
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

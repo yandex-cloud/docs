@@ -5,7 +5,7 @@ description: "You can stop and restart a {{ MY }} database cluster, if you need 
 
 # Stopping and starting {{ MY }} clusters
 
-You can stop and restart a {{ MY }} DB cluster, if required. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
+You can stop and restart a {{ MY }} DB cluster, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
@@ -18,9 +18,9 @@ You can stop and restart a {{ MY }} DB cluster, if required. You are not charged
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the desired cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
-   1. Confirm that you want to stop the cluster and click **Stop**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Select the cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+   1. Confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI
 
@@ -62,9 +62,9 @@ You can restart **STOPPED** clusters.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the stopped cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
-   1. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Select the stopped cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+   1. Confirm that you want to start the cluster: click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** in the dialog box that opens.
 
 - CLI
 

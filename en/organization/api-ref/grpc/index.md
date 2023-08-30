@@ -11,6 +11,7 @@ Service | Description
 [GroupMappingService](./group_mapping_service.md) | RPC service dedicated for federation group mapping.
 [GroupService](./group_service.md) | A set of methods for managing groups.
 [OrganizationService](./organization_service.md) | A set of methods for managing Organization resources.
+[SshCertificateService](./ssh_certificate_service.md) | 
 [UserService](./user_service.md) | A set of methods for managing Organization users.
 [CertificateService](./certificate_service.md) | A set of methods for managing certificates.
 [FederationService](./federation_service.md) | A set of methods for managing federations.

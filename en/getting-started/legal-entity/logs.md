@@ -102,7 +102,7 @@ The guide in this checklist item will help you set up operations with logs and a
 
 - API
 
-   To assign [roles](../../resource-manager/security/index.md#roles) for a [custom log group](../../logging/concepts/log-group.md), use the API [setAccessBindings](../../logging/api-ref/LogGroup/setAccessBindings.md) method.
+   To assign [roles](../../resource-manager/security/index.md#roles-list) for a [custom log group](../../logging/concepts/log-group.md), use the API [setAccessBindings](../../logging/api-ref/LogGroup/setAccessBindings.md) method.
 
 {% endlist %}
 

@@ -13,9 +13,9 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, которую хотите сделать приватной.
-    1. На странице **Обзор**, в разделе **Общая информация**, переведите переключатель **Публичная функция** в неактивное состояние.
+    1. На странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** отключите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
     
 - CLI 
 

@@ -5,10 +5,10 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Выберите сервис **{{ sf-name }}**.
-    1. На панели слева выберите ![image](../../../_assets/functions/functions.svg) **Функции**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. На панели слева выберите ![image](../../../_assets/functions/functions.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
     1. Выберите функцию.
-    1. На странице **Обзор** отобразится подробная информация о функции.
+    1. На странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** отобразится подробная информация о функции.
 
 - CLI
 

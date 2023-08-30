@@ -4,14 +4,14 @@
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-Enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).
+Enable the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).
 
-Set the **Sessions sampling interval** and **Statements sampling interval**. Both are measured in seconds.
+Configure **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Both are measured in seconds.
 
 ## Getting session statistics {#get-sessions}
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mmy-name }}**.
-1. Click on the name of the desired cluster and select **Performance diagnostics** → **Sessions**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab.
 
    To view session statistics or the history of queries executed within a session, select the appropriate tab.
 
@@ -39,8 +39,8 @@ Set the **Sessions sampling interval** and **Statements sampling interval**. Bot
 
 ## Getting query statistics {#get-queries}
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mmy-name }}**.
-1. Click on the name of the desired cluster and select **Performance diagnostics** → **Queries**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
    To view query statistics or compare them in two time intervals, select the appropriate tab.
 
@@ -57,8 +57,8 @@ Set the **Sessions sampling interval** and **Statements sampling interval**. Bot
 
       To get information about the relative change in the query statistics:
 
-      1. In the **Interval 1** field, select the time interval to be used as a calculation basis for statistics.
-      1. In the **Interval 2** field, select the time interval to compare the statistics for interval 1 with.
+      1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval to be used as a calculation basis for statistics.
+      1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare the statistics for interval 1 with.
       1. (Optional) Set filters.
 
       For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.

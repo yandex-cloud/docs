@@ -4,15 +4,15 @@
 
 Review the slow query log:
 1. In the [{{ MY }} cluster settings](../../managed-mysql/operations/update.md#change-mysql-config), set **Long query time** to a value greater than zero.
-1. In the [management console]({{ link-console-main }}), select the **Logs** tab on the cluster page.
-1. In the top left-hand corner, select `MYSQL_SLOW_QUERY` from the drop-down list.
+1. In the [management console]({{ link-console-main }}), select the **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab on the cluster page.
+1. In the top-left corner, select `MYSQL_SLOW_QUERY` from the drop-down list.
 
 #### How do I find out the cause of general performance degradation? {#general-degradation}
 
 Check host monitoring charts:
-1. Go to the folder page and select **{{ mmy-short-name }}**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
-1. Go to the **Monitoring** page:
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page:
    * We recommend upgrading the host class:
       * If the `Steal` value in the **CPU usage** chart is stable high.
       * If the `Free` value in the **Memory usage** chart is stable low.
@@ -23,10 +23,10 @@ Check host monitoring charts:
 #### How do I find out why resources take a long time to load? {#long-load}
 
 Check host monitoring charts:
-1. Go to the folder page and select **{{ mmy-short-name }}**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
-1. Go to the **Monitoring** page.
-1. Find the problem resource: its plot will be approaching or will have crossed its boundary.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
+1. Find the problem resource: its chart will be approaching or will have crossed the boundary.
 1. Select the other hosts from the drop-down list and check them as well.
 
 If the charts do not show overload in the cluster's resources, refer to the recommendations under [Locking mechanisms](#locks) and [Query optimization](#query-optimization).
@@ -122,11 +122,11 @@ Approximate network usage by {{ MY }} threads is available from system views. To
    ORDER BY net.bytes DESC;
    ```
 
-   This query returns statistics from thread launch, so long-lived connections (such as those used for replication) will be close to the top.
+   This query returns statistics from the thread launch, so long-lived connections (such as those used for replication) will be closer to the top.
 
 #### How do I find out the cause of locks? {#locks}
 
-If there is no unusual load on a cluster's resources, and queries still take too long to run, use system views to retrieve information on lock waits. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+If there is no unusual load on the cluster's resources, and queries still take too long to run, use system views to retrieve information on lock waits. To access them, you need the `PROCESS` cluster-level [administrative privilege](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
 1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
 

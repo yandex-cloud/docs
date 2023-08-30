@@ -20,7 +20,7 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
    A _dump_ is a set of files using which you can restore the state of a database. To migrate data to a {{ mmg-name }} cluster, create a database dump using `mongodump` and restore it in the target cluster using `mongorestore`. To ensure that a dump is complete, before creating it, switch the source cluster to <q>read-only</q> mode.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 [Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
 
@@ -42,7 +42,7 @@ Sequence of actions:
 
 You can create a database dump using `mongodump`. For more information about this utility, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/program/mongodump/).
 
-1. Install `mongodump` and other utilities for working with MongoDB. Example for Ubuntu 20.04 LTS:
+1. Install `mongodump` and other utilities for working with MongoDB. Example for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts):
 
    ```bash
    wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
@@ -93,7 +93,7 @@ You need an intermediate virtual machine in {{ compute-full-name }} if:
 
 To prepare the virtual machine to restore the dump:
 
-1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an Ubuntu 20.04 LTS image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
+1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
 
 
     The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).

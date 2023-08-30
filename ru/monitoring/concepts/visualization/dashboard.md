@@ -23,15 +23,15 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 
 Параметры дашбордов бывают следующих типов:
 
-* *Значение метки* — параметр принимает множество значений указанной метки.
-* *Набор значений* — параметр принимает набор фиксированных значений, перечисленных через запятую.
-* *Текстовое поле* — параметр принимает единственное значение, указанное в текстовом поле.
+* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* — параметр принимает множество значений указанной метки.
+* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* — параметр принимает набор фиксированных значений, перечисленных через запятую.
+* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.text-field }}* — параметр принимает единственное значение, указанное в текстовом поле.
 
  <!-- Big Yandex dashboards -->
 
-Для параметров типа *Значение метки* и *Набор значений* доступна настройка *Множественный выбор*, позволяющая выбирать несколько значений параметра одновременно.
+Для параметров типа *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* и *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* доступна настройка *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}*, позволяющая выбирать несколько значений параметра одновременно.
 
-Для всех типов параметров доступно указание *Значение по умолчанию* — это значение параметра будет использоваться при загрузке дашборда в веб-интерфейсе {{monitoring-full-name}}.
+Для всех типов параметров доступно указание *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* — это значение параметра будет использоваться при загрузке дашборда в веб-интерфейсе {{monitoring-full-name}}.
 
  <!-- Big Yandex dashboards -->
 
@@ -61,11 +61,11 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 
 ### Фильтр значений меток {#common-labels-filter}
 
-Фильтр значений меток позволяет ограничить список возможных значений параметров с типом *Значение метки*. В фильтре указываются метки и их значения. Фильтр применяется ко всем параметрам с типом *Значение метки* одновременно.
+Фильтр значений меток позволяет ограничить список возможных значений параметров с типом *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}*. В фильтре указываются метки и их значения. Фильтр применяется ко всем параметрам с типом *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* одновременно.
 
 #### Примеры фильтрации значений меток {#common-labels-filter-example}
 
-Допустим, у дашборда задан параметр с типом *Значение метки* для метки `cluster`, которая принимает значения `prod`, `preprod-1`, `preprod-2` и `testing`.
+Допустим, у дашборда задан параметр с типом *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* для метки `cluster`, которая принимает значения `prod`, `preprod-1`, `preprod-2` и `testing`.
 
 Настройки фильтрации и результат:
 
@@ -84,7 +84,7 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 Настройки фильтрации:
 
 * Фильтр содержит значение `cluster=*prod*`.
-* У дашборда заданы параметры с типом *Значение метки* для меток `cluster` и `account`.
+* У дашборда заданы параметры с типом *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* для меток `cluster` и `account`.
 
 Результат:
 

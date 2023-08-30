@@ -47,6 +47,7 @@ origin_group_id | **int64**<br>ID of the origin group.
 origin_group_name | **string**<br>Name of the origin group. 
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate)**<br>SSL certificate options. 
+labels | **map<string,string>**<br>Labels of the resource. 
 
 
 ### ResourceOptions {#ResourceOptions}
@@ -259,6 +260,7 @@ origin_group_id | **int64**<br>ID of the origin group.
 origin_group_name | **string**<br>Name of the origin group. 
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate1)**<br>SSL certificate options. 
+labels | **map<string,string>**<br>Labels of the resource. 
 
 
 ### ResourceOptions {#ResourceOptions1}
@@ -454,6 +456,7 @@ origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be u
 active | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true 
 options | **[ResourceOptions](#ResourceOptions2)**<br>Resource settings and options to tune CDN edge behavior. Most is unset. 
 ssl_certificate | **[SSLTargetCertificate](#SSLTargetCertificate)**<br>SSL Certificate options. 
+labels | **map<string,string>**<br>Labels of the resource. 
 
 
 ### Origin {#Origin}
@@ -727,6 +730,7 @@ origin_group_id | **int64**<br>ID of the origin group.
 origin_group_name | **string**<br>Name of the origin group. 
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate2)**<br>SSL certificate options. 
+labels | **map<string,string>**<br>Labels of the resource. 
 
 
 ### SSLCertificate {#SSLCertificate2}
@@ -759,6 +763,7 @@ options | **[ResourceOptions](#ResourceOptions3)**<br>Resource settings and opti
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 active | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true 
 ssl_certificate | **[SSLTargetCertificate](#SSLTargetCertificate1)**<br>SSL Certificate options. 
+labels | **map<string,string>**<br>Resource labels. At some point will be needed for granular detailing. 
 
 
 ### SecondaryHostnames {#SecondaryHostnames1}
@@ -977,6 +982,7 @@ origin_group_id | **int64**<br>ID of the origin group.
 origin_group_name | **string**<br>Name of the origin group. 
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate3)**<br>SSL certificate options. 
+labels | **map<string,string>**<br>Labels of the resource. 
 
 
 ### SSLCertificate {#SSLCertificate3}

@@ -197,7 +197,8 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
             "id": "string"
           }
         }
-      }
+      },
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -308,4 +309,5 @@ resources[].<br>sslCertificate.<br>status | **string**<br><p>Active status.</p> 
 resources[].<br>sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data parameters.</p> 
 resources[].<br>sslCertificate.<br>data.<br>cm | **object**<br>Custom (add your SSL certificate by uploading the certificate in PEM format and your private key).
 resources[].<br>sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certificate.</p> 
+resources[].<br>labels | **object**<br><p>Labels of the resource.</p> 
 nextPageToken | **string**<br><p><a href="/docs/cdn/api-ref/Resource/list#responses">nextPageToken</a> token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/cdn/api-ref/Resource/list#query_params">pageSize</a>, use the <a href="/docs/cdn/api-ref/Resource/list#responses">nextPageToken</a> as the value for the <a href="/docs/cdn/api-ref/Resource/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/cdn/api-ref/Resource/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -2,11 +2,11 @@
 
 #### Why are cluster writes failing? {#write-failure}
 
-1. If database storage becomes 95% full, the cluster will change to **Read only** mode. Check your storage for the amount of free space and increase the storage size as required. To check the amount of free space:
-   1. Go to the folder page and select **{{ mmy-short-name }}**.
-   1. Click the name of the desired cluster, and go to the **Monitoring** tab.
+1. If database storage is 95% full, the cluster will switch to **read-only** mode. Check the amount of free space in your storage and increase the storage size as required. To check the amount of free space:
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
    1. Check the **Disk usage** chart.
-1. Make sure that the host being written to is the master rather than a [replica](../../managed-mysql/qa/mysql.md#read-only-instance).
+1. Make sure that the host being written to is the master rather than a [replica](mysql.md#read-only-instance).
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 
@@ -23,13 +23,13 @@ To find out the actual table size within a database, access the `INNODB_SYS_TABL
 #### What should I do if I encounter any other application error? {#application-error}
 
 1. Check whether there is space available on the disk hosting your cluster:
-   1. Go to the folder page and select **{{ mmy-short-name }}**.
-   1. Click the name of the desired cluster, and go to the **Monitoring** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
    1. Check the **Disk usage** chart.
 1. Check host monitoring charts:
-   1. Go to the folder page and select **{{ mmy-short-name }}**.
-   1. Click on the name of the cluster you need and select the **Hosts** tab.
-   1. Go to the **Monitoring** page.
-   1. Find the problem resource: its plot will be approaching or will have crossed its boundary.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+   1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
+   1. Find the problem resource: its chart will be approaching or will have crossed the boundary.
    1. Select the other hosts from the drop-down list and check them as well.
 1. Check the virtual machine or the server running the application connecting to your database for available resources.

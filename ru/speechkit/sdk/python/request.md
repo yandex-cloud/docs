@@ -20,9 +20,6 @@
 - Python 3
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
-
-      {% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
-
    1. Создайте файл `test.py` и добавьте в него код:
 
       ```python
@@ -80,7 +77,7 @@
       python3 test.py --audio speech.pcm
       ```
 
-      Где `--audio` — путь до файла для распознавания речи.
+      Где `--audio` — путь к аудиофайлу, который необходимо распознать.
 
       Результат содержит распознанную речь:
 
@@ -102,5 +99,4 @@
 #### См. также {#see-also}
 
 * [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
-* [{#T}](../../concepts/auth.md)
 * [{#T}](../../stt/api/request-examples.md)

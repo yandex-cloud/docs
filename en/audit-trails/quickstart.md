@@ -36,7 +36,7 @@ Follow these instructions to create a new trail that will upload audit logs of y
          * `id`: The ID of the folder to host the trail.
          * `service-account-id`: ID of your service account.
 
-      * Assign the role [`audit-trails.viewer`](./security/index.md#roles) for the organization whose audit logs will be collected:
+      * Assign the role [`audit-trails.viewer`](./security/index.md#roles-list) for the organization whose audit logs will be collected:
 
          ```
          yc organization-manager organization add-access-binding

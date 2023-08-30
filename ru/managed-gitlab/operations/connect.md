@@ -9,34 +9,34 @@
 Настройте группу безопасности по умолчанию для выбранной сети так, чтобы она разрешала входящий трафик с любых IP-адресов на порты 22, 2222, 80, 443, 5050. Для этого [создайте правила](../../vpc/operations/security-group-add-rule.md) для входящего трафика.
 
 Для работы с Git-репозиторием по протоколу [SSH](../../glossary/ssh-keygen.md):
-* Протокол — `TCP`.
-* Диапазон портов — `22`.
-* Тип источника — `CIDR`.
-* Источник — `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 Для работы с Git-репозиторием по протоколу SSH:
-* Протокол — `TCP`.
-* Диапазон портов — `2222`.
-* Тип источника — `CIDR`.
-* Источник — `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `2222`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 Для получения HTTP-трафика:
-* Протокол — `TCP`.
-* Диапазон портов — `80`.
-* Тип источника — `CIDR`.
-* Источник — `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `80`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 Для получения HTTPS-трафика:
-* Протокол — `TCP`.
-* Диапазон портов — `443`.
-* Тип источника — `CIDR`.
-* Источник — `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 Для подключения к [{{ container-registry-full-name }}](../../container-registry/):
-* Протокол — `TCP`.
-* Диапазон портов — `5050`.
-* Тип источника — `CIDR`.
-* Источник — `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `5050`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 ## Подключение к инстансу {#connect}
 

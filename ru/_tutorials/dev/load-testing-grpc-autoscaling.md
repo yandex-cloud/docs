@@ -307,7 +307,7 @@
    
 1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * В блоке настроек **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `ammo.json`.
+   * В блоке **Прикрепленные файлы** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `ammo.json`.
    * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
      * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **Прикрепить файл** и загрузите подготовленный ранее файл `load.yaml`.

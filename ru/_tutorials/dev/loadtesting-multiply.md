@@ -164,7 +164,7 @@
 
           Эти настройки дадут генератору нагрузки указание наращивать нагрузку от 1 до 100 запросов в секунду первые 60 секунд, а потом 5 минут поддерживать нагрузку 100 запросов в секунду. [Подробнее о профиле нагрузки](../../load-testing/concepts/load-profile.md).
         * **Тип запросов** — укажите [тип](../../load-testing/concepts/payloads/uri.md) `URI`.
-        * В меню **Задать запросы через форму**:
+        * В поле **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-form }}** и в открывшемся меню:
           * В меню **Запросы** добавьте запросы:
             * `/ index`.
             * `/test?param1=1&param2=2 get_test`.

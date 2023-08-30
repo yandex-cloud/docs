@@ -38,15 +38,15 @@
     - Консоль управления
 
       1. В [консоли управления]({{link-console-main}}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
-      1. Перейдите на вкладку **Сервисные аккаунты**.
-      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `eso-service-account`.
 
           Требования к формату имени:
 
           {% include [name-format](../_includes/name-format.md) %}
 
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI
 
@@ -69,9 +69,9 @@
     - Консоль управления
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
-      1. Перейдите на вкладку **Сервисные аккаунты**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
       1. Выберите сервисный аккаунт, например `eso-service-account`, и нажмите на строку с его именем.
-      1. На верхней панели нажмите кнопку **Создать новый ключ** и выберите пункт **Создать авторизованный ключ**.
+      1. На верхней панели нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
       1. Выберите алгоритм шифрования.
       1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
       1. Сохраните открытый и закрытый ключи: закрытый ключ не сохраняется в {{ yandex-cloud }}, открытый ключ нельзя будет посмотреть в консоли управления.
@@ -173,20 +173,20 @@
 
   1. Создайте секрет:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
-      1. В списке сервисов выберите **{{ lockbox-short-name }}** и нажмите кнопку **Создать секрет**.
-      1. В поле **Имя** введите имя секрета – `lockbox-secret`.
-      1. В блоке **Версия**:
-          * В поле **Ключ** введите неконфиденциальный идентификатор – `password`.
-          * В поле **Значение** введите конфиденциальные данные для хранения – `p@$$w0rd`.
-      1. Нажмите кнопку **Создать**.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+      1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета – `lockbox-secret`.
+      1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+          * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор – `password`.
+          * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите конфиденциальные данные для хранения – `p@$$w0rd`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Сохраните идентификатор созданного секрета, он понадобится в дальнейшем.
   1. Назначьте сервисному аккаунту `eso-service-account` роль `lockbox.payloadViewer` на созданный секрет:
       1. Нажмите на имя секрета `lockbox-secret`.
-      1. На панели слева выберите раздел ![image](../_assets/organization/icon-groups.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
-      1. В открывшемся окне нажмите кнопку ![image](../_assets/plus-sign.svg) **Выбрать пользователя**.
+      1. На панели слева выберите раздел ![image](../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. В открывшемся окне нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
       1. Выберите сервисный аккаунт `eso-service-account`.
-      1. Нажмите кнопку ![image](../_assets/plus-sign.svg) **Добавить роль** и выберите `lockbox.payloadViewer`.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

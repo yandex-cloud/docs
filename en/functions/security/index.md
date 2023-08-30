@@ -8,7 +8,7 @@ description: "Access management in {{ sf-name }}, a service for running applicat
 In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
-* [Which roles exist in the service](#roles).
+* [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

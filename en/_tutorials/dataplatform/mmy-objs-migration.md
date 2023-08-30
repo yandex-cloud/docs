@@ -34,7 +34,7 @@ Prepare the infrastructure:
       * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
       * {{ mmy-name }} source cluster.
       * A service account with the `editor`, `storage.editor`, and `storage.uploader` roles.
-      * An {{ objstorage-name }} bucket
+      * An {{ objstorage-name }} bucket.
       * Source endpoint.
       * Transfer.
 

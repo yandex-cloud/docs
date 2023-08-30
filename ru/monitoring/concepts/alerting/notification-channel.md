@@ -6,7 +6,7 @@
 
 ## Параметры канала уведомлений {#channel-parameters}
 
-* **Получатели**. Список пользователей, которые должны получить уведомление в случае выполнения функции алерта.
+* **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**. Список пользователей, которые должны получить уведомление в случае выполнения функции алерта.
 
   {% note info %}
 
@@ -16,15 +16,15 @@
 
   {% endnote %}
 
-* **Метод уведомления**. Метод, с помощью которого пользователи получат уведомление. Поддерживаются следующие методы уведомлений:
-  - email;
-  - SMS;
-  - push-уведомления в [мобильном приложении](../../../overview/mobile-app/index.md) {{ yandex-cloud }}.
+* **{{ ui-key.yacloud_monitoring.channel.field_method }}**. Метод, с помощью которого пользователи получат уведомление. Поддерживаются следующие методы уведомлений:
+  - `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`;
+  - `{{ ui-key.yacloud_monitoring.channel.title_method-sms }}`;
+  - `{{ ui-key.yacloud_monitoring.channel.title_method-push }}` (в [мобильном приложении](../../../overview/mobile-app/index.md) {{ yandex-cloud }}).
 
 После создания канала доступны дополнительные параметры:
 
-* **Уведомлять о статусах**. Выберите список статусов алерта, о которых нужно слать уведомление в канал.
-* **Уведомлять повторно**. Выберите период, с которым {{ monitoring-short-name }} будет отправлять повторные уведомления о том, что алерт находится в том же статусе.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Выберите список статусов алерта, о которых нужно слать уведомление в канал.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Выберите период, с которым {{ monitoring-short-name }} будет отправлять повторные уведомления о том, что алерт находится в том же статусе.
 
 ## Статусы отправки {#dispatch-statuses}
 
@@ -32,6 +32,6 @@
 
 Статус | Описание
 ----- | -----
-`Успешно отправлено` | Уведомление успешно отправлено.
-`Не удалось отправить` | Не удалось отправить уведомление из-за ошибки.
-`Ресурс исчерпан` | Не удалось отправить уведомление из-за ограничения метода отправки.
+`{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Уведомление успешно отправлено.
+`{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Не удалось отправить уведомление из-за ошибки.
+`{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Не удалось отправить уведомление из-за ограничения метода отправки.

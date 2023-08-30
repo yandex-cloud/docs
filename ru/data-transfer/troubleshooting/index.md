@@ -150,6 +150,8 @@
 
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
 
+{% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
+
 
 
 ## Куда заявить о проблеме {#support}

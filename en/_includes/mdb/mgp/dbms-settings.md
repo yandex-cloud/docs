@@ -4,7 +4,7 @@
 
    By default, the setting is disabled (temporary files aren't compressed).
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_compression).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
 * **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-api }}
 
@@ -12,7 +12,7 @@
 
    The maximum value is `1099511627776` (1 TB), the minimum is `0` (unlimited amount). Defaults to `0`.
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
 * **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-api }}
 
@@ -20,7 +20,7 @@
 
    The maximum value is `100000`, the minimum is `0` (unlimited number of temporary files). Defaults to `10000`.
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
 * **Gp workfile limit per segment**{#setting-gp-workfile-limit-per segment} {{ tag-con }} {{ tag-api }}
 
@@ -28,7 +28,7 @@
 
    The maximum value is `1099511627776` (1 TB), the minimum is `0` (unlimited amount). Defaults to `0`.
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
 * **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }}
 
@@ -43,7 +43,7 @@
 
    The `PREPARE` and `EXPLAIN ANALYZE` expressions are also logged if they contain the relevant types of commands.
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#log_statement).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
 
 * **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }}
 
@@ -53,7 +53,7 @@
 
    If you increase this setting, we recommend increasing [Max prepared transactions](#setting-max-prepared-transactions) as well.
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_connections).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
 * **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }}
 
@@ -63,7 +63,7 @@
 
    We recommend choosing a value higher than [Max connections](#setting-max-connections).
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_prepared_transactions).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
 * **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }}
 
@@ -71,7 +71,7 @@
 
    The minimum value is `0` (no log), the maximum is `214748364800` (200 GB). Defaults to `0`.
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
 * **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-api }}
 
@@ -79,4 +79,4 @@
 
    The minimum value is `134217728` (128 MB), the maximum is `1099511627776` (1 TB). Defaults to `2097152000` (2000 MB).
 
-   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#max_statement_mem).
+   For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).

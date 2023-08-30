@@ -4827,12 +4827,20 @@ default:
       settings:
         field_theme: Тема интерфейса
         field_theme-contrast: Контрастность
+        label_monitoring-name: Мониторинг
       usermenu:
         label_login: Войти
     yacloud_monitoring:
       actions:
         common:
+          add: Добавить
           apply: Применить
+          copy: Копировать
+          create: Создать
+          deactivate: Деактивировать
+          delete: Удалить
+          edit: Редактировать
+          save: Сохранить
       alert-template:
         field:
           evaluation-window: Окно вычисления
@@ -4843,23 +4851,91 @@ default:
           max: Максимум
           min: Минимум
       alert:
+        button_add-channel: Добавить канал
         button_create-alert: Создать алерт
         label_alarm: Alarm
         label_evaluation-period: Окно вычисления
         label_evaluation-type: Функция агрегации
+        label_evaluation-window: Окно вычисления
         label_trigger-condition: Условие срабатывания
         label_warning: Warning
+        section_alert-conditions: Настройки алерта
+        section_metrics: Метрики
+        section_notifications: Каналы уведомлений
         status_alarm: Alarm
+        status_error: Error
+        status_no_data: No data
+        status_ok: OK
         status_warn: Warning
+        title_aggregation-last_non_nan: Последнее
         title_aggregation-min: Минимум
         title_comparison-eq: Равно
+        title_comparison-gt: Больше
         title_comparison-gte: Больше или равно
         title_comparison-lte: Меньше или равно
+        title_comparison-ne: Не равно
+        title_description: Описание
+        title_name: Название
+      aside-navigation:
+        menu-item:
+          alerts:
+            title: Алерты
+          channels:
+            title: Каналы
+          dashboards:
+            title: Дашборды
+          explorer:
+            title: Обзор метрик
+          project:
+            title: Проект
+          prometheus:
+            title: Prometheus
+      channel:
+        button_create: Создать
+        button_new-channel: Создать канал
+        field_method: Метод
+        field_name: Имя
+        field_recipients: Получатели
+        status-description_error: Не удалось отправить
+        status-description_resource_exhausted: Ресурс исчерпан
+        status-description_success: Успешно отправлено
+        title_method-email: Email
+        title_method-push: Push-уведомления
+        title_method-sms: SMS
+      component:
+        parametrizer:
+          dashboard:
+            field-hidden-key-value: Не показывать в интерфейсе
+            multivalue-key-value: Множественный выбор
+          default-value: Значение по умолчанию
+          type:
+            custom: Набор значений
+            query: Значение метки
+            text-field: Текстовое поле
+        share-button:
+          share: Поделиться
+        share-form:
+          fields:
+            parameters:
+              values:
+                current: Выбранные
+                default: По умолчанию
+            time-window:
+              title: Окно времени
+              values:
+                dynamic: Динамическое
+                static: Фиксированное
       dashboard:
         dash:
           create-alert: Создать алерт
         tab:
           service-dashboards: Сервисные дашборды
+        widget-placeholder:
+          add-graph: График
+          add-text: Текст
+          add-title: Заголовок
+        widget-settings:
+          title: Заголовок
       dialog:
         confirm:
           button_continue: Продолжить
@@ -4867,23 +4943,59 @@ default:
         title:
           mx-mode: Обзор метрик
       homepage:
+        button_alerts-action: Создать алерт
+        button_dashboards-action: Создать дашборд
         title_service-dashboards: Сервисные дашборды
       monitoring-alerts:
+        channel-table:
+          repeat: Повторная отправка
+        label:
+          query-to-check: Запрос для проверки
+          sent-notify-statuses: Отправляемые статусы
+        list-table:
+          evaluation-stats-single: Статус вычисления алерта
         status:
           alarm: Alarm
           warn: Warning
+        threshold-table:
+          evaluation-type: Функция агрегации
+          trigger-condition: Функция сравнения
+        threshold-type:
+          at-all-times: Все значения
+          at-least-one: Хотя бы одно значение
+          avg: Среднее
+          count: Количество
+          last-non-nan: Последнее значение
+          max: Максимум
+          min: Минимум
+          sum: Сумма
+        title:
+          evaluation-window: Окно вычисления
+          time-shift: Задержка вычисления
+      project:
+        tab:
+          access:
+            title: Доступы
+      prometheus-form:
+        form:
+          button:
+            submit: Отправить заявку
       service:
         field:
           function: Функция агрегации
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
+      wizard:
+        tab:
+          axes: Оси
     yacloud_org:
       actions:
         add: Добавить
       common:
         resource-acl:
           label_groups: Группы
+          label_inherited-bindings: Наследуемые роли
           label_service-accounts: Сервисные аккаунты
       entity:
         invitation:
@@ -4916,6 +5028,10 @@ default:
       pages:
         create: Создать организацию
     yacloud_portal:
+      common:
+        units:
+          label_gigabyte: ГБ
+          label_megabyte: МБ
       subAccount:
         detail:
           column_cost: Общая стоимость
@@ -4949,6 +5065,26 @@ default:
         label_virtual-hosts: Виртуальные хосты
         section_allocation-settings: Размещение
         section_external-address-specs: Публичный IP-адрес
+      audit-trails:
+        button_create-trail: Создать трейл
+        button_process-in-yq: Обработать в YQ
+        label_all-folders: Все каталоги
+        label_bucket: Бакет
+        label_cloudLogging: Cloud Logging
+        label_dataStream: Data Streams
+        label_destination: Назначение
+        label_filter: Фильтр
+        label_folders: Каталоги
+        label_object-prefix: Префикс объекта
+        label_objectStorage: Object Storage
+        label_organization-manager:
+          organization: Организация
+        label_resource-manager:
+          cloud: Облако
+          folder: Каталог
+        label_resource-type: Ресурс
+        label_service-account: Сервисный аккаунт
+        label_stream-name: Поток данных
       billing:
         account:
           bind-cloud:
@@ -5115,6 +5251,7 @@ default:
             button_submit-creds: Подключиться
             label_offset: Номер первой строки
             label_password: Пароль
+            label_username: Имя пользователя БД
           format-schemas:
             button-action_add-format-schema: Добавить схему
             dialog:
@@ -5161,6 +5298,7 @@ default:
         clone: Клонировать
         continue: Продолжить
         create: Создать
+        create-new: Создать новый
         delete: Удалить
         description: Описание
         disabled: Выключено
@@ -5184,6 +5322,7 @@ default:
         monitoring: Мониторинг
         move: Переместить
         name: Имя
+        not-selected: Не выбрано
         open: Открыть
         operations-key-value: Операции
         overview: Обзор
@@ -5195,6 +5334,7 @@ default:
           button_new-bindings: Назначить роли
           label_access-bindings: Права доступа
           label_bindings: Роли
+          label_service-account: Сервисный аккаунт
         save: Сохранить
         section-base: Общая информация
         select: Выбрать
@@ -5209,13 +5349,17 @@ default:
           label_time-min_zero: минут
           label_time-sec_many: секунд
         user: Пользователь
+        value: Значение
       component:
         acl-dialog:
           button_remove-new: Отменить
           label_select-placeholder: Выберите пользователя
+          label_select-section-service-accounts: Сервисные аккаунты
         acl:
           update-dialog:
+            button_add-role: Добавить роль
             button_select-subject: Выбрать пользователя
+            label_title: Настройка прав доступа
         compute:
           network-select:
             field_address: IP-адрес
@@ -5241,6 +5385,7 @@ default:
             field_memory: RAM
             field_platform: Платформа
             field_preemptible: Прерываемая
+            label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Программно-ускоренная сеть
         console-dashboard:
           button_action-create-folder: Создать каталог
@@ -5255,6 +5400,9 @@ default:
           value_upload: Файл
         image-field:
           button_custom-image: Укажите ссылку
+        ip-address-form:
+          label_button-save: Сохранить
+          label_field-search-type: Тип поиска
         label-set:
           button_add-label: Добавить метку
         mdb:
@@ -5265,6 +5413,7 @@ default:
         navigation-menu:
           label_account: Учетная запись
           label_billing: Биллинг
+          label_monitoring: Monitoring
           label_notifications: Уведомления
         service-account-select:
           button_create-account-new: Создать новый
@@ -5313,6 +5462,7 @@ default:
           edit:
             label_title: Изменение группы виртуальных машин
           overview:
+            section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
           switch_instances: Список ВМ
           switch_logs: Логи
@@ -5471,16 +5621,19 @@ default:
             label_add-disk: Добавить диск
             label_add-network-interface: Добавить сетевой интерфейс
             label_backup: Резервное копирование
+            label_network: Сеть
             section_access: Доступ
             section_base: Базовые параметры
             section_coi: Настройка Docker-контейнера
             section_disk: Диски
             section_image: Выбор образа/загрузочного диска
+            section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение
             section_platform: Вычислительные ресурсы
             section_storages: Диски
             section_storages_ru: Диски и файловые хранилища
+            unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
             value_address-none: Без адреса
           label_title: Виртуальные машины
@@ -5555,6 +5708,7 @@ default:
           label_vulnerabilities-scanner: Сканер уязвимостей
       data-streams:
         label_data-introspection: Просмотр данных
+        label_database: База данных
       data-transfer:
         button_create-endpoint: Создать эндпоинт
         button_create-transfer: Создать трансфер
@@ -5623,7 +5777,14 @@ default:
         label_form-list: Список
         label_service-account-select: Сервисный аккаунт
       gitlab:
+        action_create-backup: Создать резервную копию
+        button_create-instance: Создать инстанс
         button_setup-omniauth: Настроить
+        field_admin-email: Электронная почта
+        field_admin-login: Логин
+        label_admin-section: Данные администратора
+        label_configuration-section: Конфигурация
+        title_backups: Резервные копии
         title_omniauth: OmniAuth
       greenplum:
         action_expand-open: Расширить кластер
@@ -5659,12 +5820,14 @@ default:
             button_add: Создать ресурс
             label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
+            label_audit-trails: Audit Trails
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_data-streams: Data Streams
+            label_data-transfer: Data Transfer
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
@@ -5689,19 +5852,26 @@ default:
             label_message-queue: Message Queue
             label_monitoring: Monitoring
             label_products: Все сервисы
+            label_search-api: Search API
+            label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
+            value_audit-trails: Audit trail
             value_compute: Виртуальная машина
             value_data-proc: Кластер Data Proc
+            value_data-streams: Data Streams
             value_data-transfer: Data Transfer
+            value_managed-clickhouse: Кластер ClickHouse
             value_serverless-functions: Функция
             value_vpc: Сеть
+            value_ydb: База данных YDB
           service-account:
             label_add-role: Добавить роль
             overview:
               action_download-keys-file: Скачать файл с ключами
+              button_create_api_key: Создать API-ключ
               button_create_key: Создать авторизованный ключ
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
@@ -5837,6 +6007,7 @@ default:
         field_target-port: Порт цели
         label_agents-list: Агенты
         label_bucket-source: Из бакета
+        label_choose-from-bucket: Выбрать из бакета
         label_import-tests-from-overload: Импортировать тесты из Overload
         label_local-source: С компьютера
         label_monitoring-report: Мониторинг
@@ -5853,14 +6024,28 @@ default:
         section_agent: Агент
         test-data-section: Тестовые данные
       lockbox:
+        button_action-open-version-add-dialog: Создать новую версию на основе этой
+        button_action-schedule-for-destruction: Запланировать удаление
+        button_action-use-as-basis: Откатить до этой версии
+        button_activate-secret: Активировать секрет
+        button_add-version: Добавить версию
         button_create-secret: Создать секрет
+        button_deactivate-secret: Деактивировать
+        button_use-as-basis-version-action-text: Откатить
         forms:
           button_add-pair: Добавить пару
+          button_schedule-destruction: Запланировать
+          field_deletion-protection: Запретить удаление секрета
+          field_kms-key: Ключ KMS
           label_key: Ключ
           label_value: Значение
           section_version: Версия
+        label_secret-versions-section: Версии
+        label_section-secrets: Секреты
       logging:
         button_create-group: Создать группу
+        label_loggroup: Лог-группа
+        label_retention-period: Срок хранения логов
       marketplace-v2:
         button_use: Использовать
       mdb:
@@ -5984,6 +6169,7 @@ default:
           button_action-stop: Остановить
           button_create: Создать кластер
           column_availability: Доступность
+          label_title: Кластеры
         datalens:
           button-action_new-connection: Создать подключение
           label_activate-datalens-title: DataLens ещё не активирован
@@ -6158,6 +6344,8 @@ default:
         welcome:
           button_send: Войти
       postgresql:
+        cluster:
+          switch_explore: SQL
         hosts:
           dialog:
             button_choose: Сохранить
@@ -6169,6 +6357,19 @@ default:
           switch_shards: Шарды
         field_tls-support: Поддержка TLS
         switch_backups: Резервные копии
+      search-api:
+        test-query:
+          label_button-run-test: Запустить тест
+          label_field-method: Метод запроса
+          label_field-query: Текст поискового запроса
+          label_search_type-international: Международный
+          label_search_type-russian: Русский
+          label_search_type-turkish: Турецкий
+          label_title: Тестирование запросов
+      serverless-containers:
+        button_deploy-revision: Создать ревизию
+        label_editor: Редактор
+        section_image: Параметры образа
       serverless-functions:
         create:
           button_create: Создать
@@ -6193,17 +6394,20 @@ default:
           overview:
             button_action-edit: Редактировать
             label_domain: Служебный домен
+            label_id: Идентификатор
             section_base: Общая информация
         item-form:
           field_name: Имя
         item:
           editor:
             button_action-continue: Продолжить
+            button_add-environment-variable: Добавить
             button_create: Создать версию
             button_deploy-version: Сохранить изменения
             create-file: Создать файл
             field_entry: Точка входа
             field_environment-variables: Переменные окружения
+            field_file: Файл
             field_method: Способ
             field_resources-memory: Память
             field_runtime: Среда выполнения
@@ -6216,46 +6420,104 @@ default:
             value_method-editor: Редактор кода
             value_method-zip-file: ZIP-архив
           overview:
+            button_edit-tag: Изменить
             button_editor-create: Создать в редакторе
+            label_all-users-invoke: Публичная функция
+            label_invoke-link: Ссылка для вызова
             label_latest-memory: Память
             label_latest-timeout: Таймаут
+            label_title: Обзор
             label_title-environment-vars: Переменные окружения
+            label_title-history: История версий
             label_title-latest-version: Последняя версия
+            label_title-metadata: Общая информация
           switch_editor: Редактор
+          switch_logs: Логи
+          switch_monitoring: Мониторинг
           switch_testing: Тестирование
           testing:
             button_run-test: Запустить тест
+            field_execution-result: Состояние функции
+            field_function-output: Ответ функции
+            field_payload: Входные данные
+            field_payload-template: Шаблон данных
+            field_tag: Тег версии
+            label_title-test-result: Результат тестирования
+            value_alice-skill: Навык Алисы
+            value_empty: Без шаблона
+            value_http-request: HTTPS-вызов
+            value_ymq-trigger: Триггер для Message Queue
         list:
+          button_action-delete: Удалить
+          button_action-edit: Редактировать
           button_create: Создать функцию
+          popup-confirm_button_delete: Удалить
+        switch_list: Функции
+        switch_list-mdb-proxy: Подключения к БД
         switch_list-triggers: Триггеры
         triggers:
           form:
             button_create-function: Создать функцию
             button_create-trigger: Создать триггер
+            button_update-trigger: Сохранить
             field_bucket: Бакет
+            field_container-registry: Реестр
             field_cron-expression: Cron-выражение
+            field_cron-payload: Данные
+            field_description: Описание
+            field_device: Устройство
             field_dlq_service-account: Сервисный аккаунт
             field_event-types: Типы событий
             field_function: Функция
             field_function_service-account: Сервисный аккаунт
             field_function-tag: Тег версии функции
+            field_image-name: Имя Docker-образа
             field_invoke: Запускаемый ресурс
+            field_mqtt-topic: MQTT-топик
             field_name: Имя
+            field_prefix: Префикс ключа объекта
+            field_registry: Реестр
+            field_retry-attempts: Количество попыток
+            field_retry-interval: Интервал
             field_service-account: Сервисный аккаунт
+            field_size: Размер группы
+            field_suffix: Суффикс ключа объекта
+            field_tag: Тег Docker-образа
             field_type: Тип
+            field_ymq-cutoff: Время ожидания
+            label_any-budget: Все бюджеты
             label_billing-budget: Бюджет
+            label_cloud-logs: Cloud Logs
+            label_container-registry: Container Registry
+            label_data-streams: Data Streams
             label_function: Функция
+            label_iot: IoT Core (устройство)
+            label_logging: Cloud Logging
+            label_mail: Почта
             label_storage: Object Storage
             label_timer: Таймер
+            label_ymq: Message Queue
             section_base: Базовые параметры
+            section_batch-settings: Настройки группирования сообщений
             section_billing-budget: Настройки бюджета
+            section_cloud-logs: Настройки Cloud Logs
+            section_container-registry: Настройки Container Registry
+            section_data-streams: Настройки Data Streams
             section_dlq: Настройки Dead Letter Queue
             section_function: Настройки функции
+            section_function-retry: Настройки повторных запросов
+            section_iot: Настройки сообщений IoT Core
+            section_logging: Настройки Cloud Logging
             section_storage: Настройки Object Storage
             section_timer: Настройки таймера
+            section_ymq: Настройки сообщений Message Queue
             value_event-type-create-object: Создание объекта
           list:
             button_create: Создать триггер
+            popup-confirm_button_delete: Удалить
+      serverless-mdb-proxy:
+        list:
+          button_create: Создать подключение
       settings:
         label_settings: Настройки
         switch_appearance: Оформление
@@ -6317,6 +6579,7 @@ default:
             field_access-config-read: Доступ на чтение настроек
             field_access-list: Доступ к списку объектов
             field_access-read: Доступ на чтение объектов
+            field_class: Класс хранилища
             field_name: Имя
             field_size-limit: Макс. размер
             label_size-limit-disabled: Без ограничения
@@ -6495,13 +6758,29 @@ default:
             column_type: Тип
         database:
           switch_browse: Навигация
+        databases:
+          button_create: Создать базу данных
+          label_title: Базы данных
+        forms:
+          button_create-database: Создать базу данных
+          label_field_database-type: Тип базы данных
+          label_field_name: Имя
+          label_serverless-type: Serverless
         overview:
           label_database: Размещение базы данных
           label_endpoint: Эндпоинт
+          label_title: Обзор
+          section_connection: Соединение
+        sql:
+          button_run: Выполнить
+          label_query: Запрос
       ymq:
         queue:
           overview:
+            label_msg-count: Сообщений в очереди
+            label_queue-arn: ARN
             label_url: URL
+            section_base: Общая информация
         queues:
           button_create: Создать очередь
     yc-data-transfer:
@@ -6574,6 +6853,7 @@ default:
                         title: Настройки подключения
                       sharding_settings:
                         title: Настройки шардирования
+                      title: Параметры эндпоинта
                     ClickHouseTargetAdvancedSettings:
                       alt_names:
                         title: Переименование таблиц

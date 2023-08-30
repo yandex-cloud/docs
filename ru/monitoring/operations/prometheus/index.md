@@ -13,8 +13,8 @@
 Чтобы подключить {{ managed-prometheus-name }} в текущем каталоге:
 
 1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-full-name }}.
-1. На панели слева выберите **{{ prometheus-name }}**.
-1. Заполните форму и нажмите **Отправить заявку**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+1. Заполните форму и нажмите **{{ ui-key.yacloud_monitoring.prometheus-form.form.button.submit }}**.
 1. Дождитесь, пока {{ yandex-cloud }} обработает заявку.
 1. Когда заявка будет одобрена, на странице появятся ссылки на эндпоинты, которые необходимо использовать для текущего каталога.
 

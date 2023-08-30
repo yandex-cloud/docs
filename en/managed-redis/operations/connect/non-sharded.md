@@ -32,7 +32,7 @@ If, when the [master host is changed automatically](../../concepts/replication.m
 
 ### Current master {#fqdn-master}
 
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -87,6 +87,8 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+{% include [How to connect from a Dockerfile](../../../_includes/mdb/mrd/connect/docker-and-redis.md) %}
 
 ## Sample connection strings {#connection-string}
 

@@ -10,8 +10,8 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI
 
@@ -44,12 +44,12 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the name of the cluster you need.
-   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
-   1. Select the **Databases** tab.
-   1. Click **Add**.
-   1. Enter the database name and click **Add**.
+   1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
+   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Enter the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -126,9 +126,9 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 
@@ -185,13 +185,13 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **DBMS settings**, click **Settings**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. In the list of the settings, locate the **sql_mode** parameter.
-   1. Configure a set of SQL modes in the drop-down list. To restore default settings, click **Reset**.
-   1. Click **Save** in the DBMS settings dialog box.
-   1. Click **Save changes**.
+   1. Configure a set of SQL modes in the drop-down list. To restore default settings, click **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
+   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** in the DBMS settings dialog box.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 

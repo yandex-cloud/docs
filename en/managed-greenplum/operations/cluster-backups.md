@@ -9,12 +9,12 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console
 
    To get a list of cluster backups:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - CLI
 
@@ -58,12 +58,12 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console
 
    To get information about the backup of an existing cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - API
 
@@ -83,21 +83,21 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To restore an existing cluster from a backup:
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select ![image](../../_assets/mdb/backup.svg) **Backups**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Create**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    To restore a previously deleted cluster from a backup:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Create**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   {{ mgp-name }} launches the operation to create a cluster from the backup.
+   {{ mgp-name }} will launch the operation to create a cluster from the backup.
 
 - CLI
 

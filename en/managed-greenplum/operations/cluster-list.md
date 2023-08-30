@@ -8,7 +8,7 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console
 
-   Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
+   Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
 - CLI
 
@@ -34,8 +34,8 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the cluster you need.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name.
 
 - CLI
 
@@ -65,8 +65,8 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Click the name of the desired cluster and select the ![operations.svg](../../_assets/mdb/operations.svg) **Operations** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Click the cluster name and select the ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI
 

@@ -73,6 +73,14 @@ items:
             href: api-ref/grpc/symmetric_crypto_service.md
           - name: SymmetricKeyService
             href: api-ref/grpc/symmetric_key_service.md
+          - name: AsymmetricEncryptionCryptoService
+            href: api-ref/grpc/asymmetric_encryption_crypto_service.md
+          - name: AsymmetricEncryptionKeyService
+            href: api-ref/grpc/asymmetric_encryption_key_service.md
+          - name: AsymmetricSignatureCryptoService
+            href: api-ref/grpc/asymmetric_signature_crypto_service.md
+          - name: AsymmetricSignatureKeyService
+            href: api-ref/grpc/asymmetric_signature_key_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST (англ.)

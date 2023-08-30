@@ -1,10 +1,10 @@
-# Expanding a cluster
+# Cluster extension
 
 You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts.
 
 When a cluster is being expanded, its data is automatically redistributed across new segments. This is done for each table in sequence during the timeout specified in the expansion settings. The table is not available for read and write operations during data redistribution.
 
-The `gp_expand` utility is used to expand a cluster. For more information about the utility and its modes of operation, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-expand-expand-planning.html#planning-table-redistribution).
+The `gp_expand` utility is used to expand a cluster. For more information about the utility and its modes of operation, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-expand-expand-planning.html#planning-table-redistribution).
 
 ## Add segment hosts {#add-hosts}
 

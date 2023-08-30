@@ -7,14 +7,14 @@ description: "Для создания дашборда в {{ monitoring-full-nam
 
 Для создания [дашборда](../../concepts/visualization/dashboard.md) выполните следующее:
 
-1. На главной странице сервиса нажмите **Создать дашборд**.
-1. Добавьте [виджет](../../concepts/visualization/widget.md) на дашборд. Например, виджет **Заголовок**.
-    1. Нажмите **Заголовок** в блоке _Добавить виджет_, или нажмите **Добавить** в заголовке дашборда, а затем **Заголовок**.
+1. На главной странице сервиса нажмите **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
+1. Добавьте [виджет](../../concepts/visualization/widget.md) на дашборд. Например, виджет **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
+    1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
     1. Введите текст в поле ввода.
     1. Выберите размер заголовка.
-    1. Нажмите **Добавить**. Виджет с заголовком добавится на дашборд.
-1. Нажмите **Сохранить** в правом верхнем углу.
-1. Введите имя дашборда и нажмите **Сохранить**.
+    1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**. Виджет с заголовком добавится на дашборд.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}** в правом верхнем углу.
+1. Введите имя дашборда и нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 
 #### Что дальше {#what-is-next}

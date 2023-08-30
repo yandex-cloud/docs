@@ -3,7 +3,7 @@
 In this scenario, you'll enable bucket encryption. As a symmetric encryption key, you'll use a [{{ kms-full-name }} key](../../kms/concepts/key.md) . This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
 
 
-To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.decrypter` role that allows reading the encryption key (see the [role description](../../kms/security/index.md#service)).
+To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.decrypter` role that allows reading the encryption key (see the [role description](../../kms/security/index.md#service-roles)).
 
 
 To enable server-side bucket encryption:

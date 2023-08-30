@@ -52,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * `target_db_name`: {{ ydb-name }} database name.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -106,7 +106,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
@@ -125,7 +125,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             Select a source cluster from the list and specify the cluster connection settings.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -162,7 +162,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-      1. In the list of services, select **{{ ydb-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list.
       1. Click the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Make sure the {{ ydb-name }} database contains the `<source cluster DB name>_measurements` table with the test data.
@@ -193,7 +193,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-      1. In the list of services, select **{{ ydb-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list.
       1. Click the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Make sure that the new data has been added to the `<source cluster DB name>_measurements` table.

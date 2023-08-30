@@ -7,8 +7,8 @@ items:
     items:
       - name: Обзор
         href: quickstart/index.md
-      - name: Как распознать короткие аудиофайлы в API v2
-        href: quickstart/stt-quickstart-v2.md
+      - name: Как распознать короткие аудиофайлы в API v1
+        href: quickstart/stt-quickstart-v1.md
       - name: Как распознать потоковое аудио в API v3
         href: quickstart/stt-quickstart-v3.md
       - name: Как синтезировать речь в API v1
@@ -75,12 +75,14 @@ items:
         href: concepts/auth.md
       - name: Распознавание
         items:
+          - name: API v1
+            items:
+              - name: API синхронного распознавания
+                href: stt/api/request-api.md
           - name: API v2
             items:
               - name: API потокового распознавания
                 href: stt/api/streaming-api.md
-              - name: API синхронного распознавания
-                href: stt/api/request-api.md
               - name: API асинхронного распознавания
                 href: stt/api/transcribation-api.md
           - name: API v3 gRPC (англ.)
@@ -107,6 +109,8 @@ items:
         href: sdk/python/index.md
       - name: Установка Python SDK
         href: sdk/python/install.md
+      - name: Решение конфликта версий при установке Python SDK
+        href: sdk/python/version-conflict.md
       - name: Аутентификация в Python SDK
         href: sdk/python/auth.md
       - name: Синхронное распознавание Python SDK
@@ -129,7 +133,7 @@ items:
         href: stt/api/stt-language-labels-example.md
       - name: Потоковое распознавание API v2
         href: stt/api/streaming-examples.md
-      - name: Синхронное распознавание API v2
+      - name: Синхронное распознавание API v1
         href: stt/api/request-examples.md
       - name: Асинхронное распознавание формата LPCM — API v2
         href: stt/api/transcribation-lpcm.md

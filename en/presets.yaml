@@ -640,6 +640,7 @@ default:
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
   link-pci-dss-ru: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
+  link-calc: https://cloud.yandex.com/prices#calculator
   link-cloud-oauth: >-
     https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
@@ -4811,12 +4812,20 @@ default:
       settings:
         field_theme: Interface theme
         field_theme-contrast: Contrast
+        label_monitoring-name: Monitoring
       usermenu:
         label_login: Log in
     yacloud_monitoring:
       actions:
         common:
+          add: Add
           apply: Apply
+          copy: Copy
+          create: Create
+          deactivate: Deactivate
+          delete: Delete
+          edit: Edit
+          save: Save
       alert-template:
         field:
           evaluation-window: Evaluation window
@@ -4827,23 +4836,91 @@ default:
           max: Maximum
           min: Minimum
       alert:
+        button_add-channel: Add channel
         button_create-alert: Create alert
         label_alarm: Alarm
         label_evaluation-period: Evaluation window
         label_evaluation-type: Aggregation function
+        label_evaluation-window: Evaluation window
         label_trigger-condition: Condition
         label_warning: Warning
+        section_alert-conditions: Alert parameters
+        section_metrics: Metrics
+        section_notifications: Notification channels
         status_alarm: Alarm
+        status_error: Error
+        status_no_data: No data
+        status_ok: OK
         status_warn: Warning
+        title_aggregation-last_non_nan: Last
         title_aggregation-min: Minimum
         title_comparison-eq: Equals to
+        title_comparison-gt: Greater than
         title_comparison-gte: Greater than or equals
         title_comparison-lte: Less than or equals
+        title_comparison-ne: Not equals to
+        title_description: Description
+        title_name: Name
+      aside-navigation:
+        menu-item:
+          alerts:
+            title: Alerts
+          channels:
+            title: Channels
+          dashboards:
+            title: Dashboards
+          explorer:
+            title: Metric Explorer
+          project:
+            title: Project
+          prometheus:
+            title: Prometheus
+      channel:
+        button_create: Create
+        button_new-channel: Create channel
+        field_method: Method
+        field_name: Name
+        field_recipients: Recipients
+        status-description_error: Failed to send
+        status-description_resource_exhausted: Resource exhausted
+        status-description_success: Success
+        title_method-email: Email
+        title_method-push: Push notifications
+        title_method-sms: SMS
+      component:
+        parametrizer:
+          dashboard:
+            field-hidden-key-value: Don't show in UI
+            multivalue-key-value: Multivalue
+          default-value: Default value
+          type:
+            custom: Custom
+            query: Label
+            text-field: Text
+        share-button:
+          share: Share
+        share-form:
+          fields:
+            parameters:
+              values:
+                current: Selected
+                default: Default
+            time-window:
+              title: Time range
+              values:
+                dynamic: Dynamic
+                static: Fixed
       dashboard:
         dash:
           create-alert: Create alert
         tab:
           service-dashboards: Service dashboards
+        widget-placeholder:
+          add-graph: Graph
+          add-text: Text
+          add-title: Heading
+        widget-settings:
+          title: Title
       dialog:
         confirm:
           button_continue: Continue
@@ -4851,23 +4928,59 @@ default:
         title:
           mx-mode: Metric Explorer
       homepage:
+        button_alerts-action: Create alert
+        button_dashboards-action: Create dashboard
         title_service-dashboards: Service dashboards
       monitoring-alerts:
+        channel-table:
+          repeat: Re-notification
+        label:
+          query-to-check: Query to check
+          sent-notify-statuses: Notification statuses
+        list-table:
+          evaluation-stats-single: Evaluation status
         status:
           alarm: Alarm
           warn: Warning
+        threshold-table:
+          evaluation-type: Aggregation function
+          trigger-condition: Comparison function
+        threshold-type:
+          at-all-times: All values
+          at-least-one: At least one value
+          avg: Average
+          count: Count
+          last-non-nan: Last value
+          max: Maximum
+          min: Minimum
+          sum: Sum
+        title:
+          evaluation-window: Evaluation window
+          time-shift: Evaluation delay
+      project:
+        tab:
+          access:
+            title: Access
+      prometheus-form:
+        form:
+          button:
+            submit: Send request
       service:
         field:
           function: Aggregation function
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
+      wizard:
+        tab:
+          axes: Axes
     yacloud_org:
       actions:
         add: Add
       common:
         resource-acl:
           label_groups: Groups
+          label_inherited-bindings: Inherited roles
           label_service-accounts: Service accounts
       entity:
         invitation:
@@ -4900,6 +5013,10 @@ default:
       pages:
         create: Create organization
     yacloud_portal:
+      common:
+        units:
+          label_gigabyte: GB
+          label_megabyte: MB
       subAccount:
         detail:
           column_cost: Cost
@@ -4933,6 +5050,26 @@ default:
         label_virtual-hosts: Virtual hosts
         section_allocation-settings: Allocation
         section_external-address-specs: Public IP address
+      audit-trails:
+        button_create-trail: Create trail
+        button_process-in-yq: Process in YQ
+        label_all-folders: All folders
+        label_bucket: Bucket
+        label_cloudLogging: Cloud Logging
+        label_dataStream: Data Streams
+        label_destination: Destination
+        label_filter: Filter
+        label_folders: Folders
+        label_object-prefix: Object prefix
+        label_objectStorage: Object Storage
+        label_organization-manager:
+          organization: Organization
+        label_resource-manager:
+          cloud: Cloud
+          folder: Folder
+        label_resource-type: Resource
+        label_service-account: Service account
+        label_stream-name: Data stream
       billing:
         account:
           bind-cloud:
@@ -5099,6 +5236,7 @@ default:
             button_submit-creds: Connect
             label_offset: Query result offset
             label_password: Password
+            label_username: Database username
           format-schemas:
             button-action_add-format-schema: Add schema
             dialog:
@@ -5145,6 +5283,7 @@ default:
         clone: Clone
         continue: Continue
         create: Create
+        create-new: Create new
         delete: Delete
         description: Description
         disabled: Disabled
@@ -5168,6 +5307,7 @@ default:
         monitoring: Monitoring
         move: Move
         name: Name
+        not-selected: Not selected
         open: Open
         operations-key-value: Operations
         overview: Overview
@@ -5179,6 +5319,7 @@ default:
           button_new-bindings: Assign bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
+          label_service-account: Service account
         save: Save
         section-base: General information
         select: Select
@@ -5193,13 +5334,17 @@ default:
           label_time-min_zero: minutes
           label_time-sec_many: seconds
         user: User
+        value: Value
       component:
         acl-dialog:
           button_remove-new: Cancel
           label_select-placeholder: Select a user
+          label_select-section-service-accounts: Service accounts
         acl:
           update-dialog:
+            button_add-role: Add role
             button_select-subject: Select subject
+            label_title: Configure permissions
         compute:
           network-select:
             field_address: IP address
@@ -5225,6 +5370,7 @@ default:
             field_memory: RAM
             field_platform: Platform
             field_preemptible: Preemptible
+            label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Software accelerated network
         console-dashboard:
           button_action-create-folder: Create folder
@@ -5239,6 +5385,9 @@ default:
           value_upload: File
         image-field:
           button_custom-image: Enter link
+        ip-address-form:
+          label_button-save: Save
+          label_field-search-type: Search type
         label-set:
           button_add-label: Add label
         mdb:
@@ -5249,6 +5398,7 @@ default:
         navigation-menu:
           label_account: Account
           label_billing: Billing
+          label_monitoring: Monitoring
           label_notifications: Notifications
         service-account-select:
           button_create-account-new: Create new account
@@ -5297,6 +5447,7 @@ default:
           edit:
             label_title: Changing an instance group
           overview:
+            section_base: General information
             section_instances-state: VM states
           switch_instances: List of VMs
           switch_logs: Logs
@@ -5455,16 +5606,19 @@ default:
             label_add-disk: Add disk
             label_add-network-interface: Add network interface
             label_backup: Backups
+            label_network: Network
             section_access: Access
             section_base: Basic parameters
             section_coi: Docker container settings
             section_disk: Disks
             section_image: Image/boot disk selection
+            section_monitoring: Monitoring
             section_network: Network settings
             section_placement: Placement
             section_platform: Computing resources
             section_storages: Disks
             section_storages_ru: Disks and file storages
+            unified-agent: Agent for delivering metrics
             value_address-auto: Auto
             value_address-none: No address
           label_title: Virtual machines
@@ -5539,6 +5693,7 @@ default:
           label_vulnerabilities-scanner: Vulnerability scanner
       data-streams:
         label_data-introspection: Data viewer
+        label_database: Database
       data-transfer:
         button_create-endpoint: Create endpoint
         button_create-transfer: Create transfer
@@ -5607,7 +5762,14 @@ default:
         label_form-list: List
         label_service-account-select: Service account
       gitlab:
+        action_create-backup: Create backup
+        button_create-instance: Create instance
         button_setup-omniauth: Configure
+        field_admin-email: Email
+        field_admin-login: Login
+        label_admin-section: Administrator data
+        label_configuration-section: Configuration
+        title_backups: Backups
         title_omniauth: OmniAuth
       greenplum:
         action_expand-open: Expand cluster
@@ -5643,12 +5805,14 @@ default:
             button_add: Create resource
             label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
+            label_audit-trails: Audit Trails
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
             label_data-streams: Data Streams
+            label_data-transfer: Data Transfer
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
@@ -5673,19 +5837,26 @@ default:
             label_message-queue: Message Queue
             label_monitoring: Monitoring
             label_products: All services
+            label_search-api: Search API
+            label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
+            value_audit-trails: Audit trail
             value_compute: Virtual machine instance
             value_data-proc: Data Proc cluster
+            value_data-streams: Data Streams
             value_data-transfer: Data Transfer
+            value_managed-clickhouse: ClickHouse cluster
             value_serverless-functions: Function
             value_vpc: Network
+            value_ydb: YDB database
           service-account:
             label_add-role: Add role
             overview:
               action_download-keys-file: Download file with keys
+              button_create_api_key: Create API key
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
@@ -5821,6 +5992,7 @@ default:
         field_target-port: Target port
         label_agents-list: Agents
         label_bucket-source: Bucket
+        label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload
         label_local-source: From computer
         label_monitoring-report: Monitoring
@@ -5837,14 +6009,28 @@ default:
         section_agent: Agent
         test-data-section: Test data
       lockbox:
+        button_action-open-version-add-dialog: Create a new version based on this one
+        button_action-schedule-for-destruction: Schedule destruction
+        button_action-use-as-basis: Roll back to this version
+        button_activate-secret: Activate secret
+        button_add-version: Add version
         button_create-secret: Create secret
+        button_deactivate-secret: Deactivate
+        button_use-as-basis-version-action-text: Roll back
         forms:
           button_add-pair: Add pair
+          button_schedule-destruction: Schedule
+          field_deletion-protection: Don't destroy secret
+          field_kms-key: KMS key
           label_key: Key
           label_value: Value
           section_version: Version
+        label_secret-versions-section: Versions
+        label_section-secrets: Secrets
       logging:
         button_create-group: Create group
+        label_loggroup: Log group
+        label_retention-period: Log retention
       marketplace-v2:
         button_use: Use
       mdb:
@@ -5968,6 +6154,7 @@ default:
           button_action-stop: Stop
           button_create: Create cluster
           column_availability: Availability
+          label_title: Clusters
         datalens:
           button-action_new-connection: Create connection
           label_activate-datalens-title: DataLens not activated
@@ -6142,6 +6329,8 @@ default:
         welcome:
           button_send: Log in
       postgresql:
+        cluster:
+          switch_explore: SQL
         hosts:
           dialog:
             button_choose: Save
@@ -6153,6 +6342,19 @@ default:
           switch_shards: Shards
         field_tls-support: TLS support
         switch_backups: Backups
+      search-api:
+        test-query:
+          label_button-run-test: Run test
+          label_field-method: Request method
+          label_field-query: Search query text
+          label_search_type-international: International
+          label_search_type-russian: Russian
+          label_search_type-turkish: Turkish
+          label_title: Test queries
+      serverless-containers:
+        button_deploy-revision: Create revision
+        label_editor: Editor
+        section_image: Image settings
       serverless-functions:
         create:
           button_create: Create
@@ -6177,17 +6379,20 @@ default:
           overview:
             button_action-edit: Edit
             label_domain: Default domain
+            label_id: ID
             section_base: General information
         item-form:
           field_name: Name
         item:
           editor:
             button_action-continue: Continue
+            button_add-environment-variable: Add
             button_create: Create version
             button_deploy-version: Save changes
             create-file: Create file
             field_entry: Entrypoint
             field_environment-variables: Environment variables
+            field_file: File
             field_method: Method
             field_resources-memory: Memory
             field_runtime: Runtime environment
@@ -6200,46 +6405,104 @@ default:
             value_method-editor: Code editor
             value_method-zip-file: ZIP archive
           overview:
+            button_edit-tag: Edit
             button_editor-create: Сreate in editor
+            label_all-users-invoke: Public function
+            label_invoke-link: Link to invoke
             label_latest-memory: Memory
             label_latest-timeout: Timeout
+            label_title: Overview
             label_title-environment-vars: Environment variables
+            label_title-history: Version history
             label_title-latest-version: Last version
+            label_title-metadata: General information
           switch_editor: Editor
+          switch_logs: Logs
+          switch_monitoring: Monitoring
           switch_testing: Testing
           testing:
             button_run-test: Run test
+            field_execution-result: Function status
+            field_function-output: Function output
+            field_payload: Payload
+            field_payload-template: Payload template
+            field_tag: Version tag
+            label_title-test-result: Test result
+            value_alice-skill: Alice's skill
+            value_empty: Without preset
+            value_http-request: HTTPS invoke
+            value_ymq-trigger: Trigger for Message Queue
         list:
+          button_action-delete: Delete
+          button_action-edit: Edit
           button_create: Create function
+          popup-confirm_button_delete: Delete
+        switch_list: Functions
+        switch_list-mdb-proxy: Database connections
         switch_list-triggers: Triggers
         triggers:
           form:
             button_create-function: Create function
             button_create-trigger: Create trigger
+            button_update-trigger: Save
             field_bucket: Bucket
+            field_container-registry: Registry
             field_cron-expression: Cron expression
+            field_cron-payload: Payload
+            field_description: Description
+            field_device: Device
             field_dlq_service-account: Service account
             field_event-types: Event types
             field_function: Function
             field_function_service-account: Service account
             field_function-tag: Function version tag
+            field_image-name: Docker image name
             field_invoke: Launched resource
+            field_mqtt-topic: MQTT topic
             field_name: Name
+            field_prefix: Object key prefix
+            field_registry: Registry
+            field_retry-attempts: Number of attempts
+            field_retry-interval: Interval
             field_service-account: Service account
+            field_size: Batch size
+            field_suffix: Object key suffix
+            field_tag: Docker image tag
             field_type: Type
+            field_ymq-cutoff: Waiting time
+            label_any-budget: Any budget
             label_billing-budget: Budget
+            label_cloud-logs: Cloud Logs
+            label_container-registry: Container Registry
+            label_data-streams: Data Streams
             label_function: Function
+            label_iot: IoT Core (device)
+            label_logging: Cloud Logging
+            label_mail: Email
             label_storage: Object Storage
             label_timer: Timer
+            label_ymq: Message Queue
             section_base: Basic settings
+            section_batch-settings: Batch message settings
             section_billing-budget: Budget settings
+            section_cloud-logs: Cloud Logs settings
+            section_container-registry: Container Registry settings
+            section_data-streams: Data Streams settings
             section_dlq: Dead Letter Queue settings
             section_function: Function settings
+            section_function-retry: Repeat request settings
+            section_iot: IoT Core message settings
+            section_logging: Cloud Logging settings
             section_storage: Object Storage settings
             section_timer: Timer settings
+            section_ymq: Message Queue message settings
             value_event-type-create-object: Create object
           list:
             button_create: Create trigger
+            popup-confirm_button_delete: Delete
+      serverless-mdb-proxy:
+        list:
+          button_create: Create connection
       settings:
         label_settings: Settings
         switch_appearance: Appearance
@@ -6301,6 +6564,7 @@ default:
             field_access-config-read: Read access to settings
             field_access-list: Object listing access
             field_access-read: Object read access
+            field_class: Storage class
             field_name: ' Name'
             field_size-limit: Max size
             label_size-limit-disabled: No limit
@@ -6479,13 +6743,29 @@ default:
             column_type: Type
         database:
           switch_browse: Navigation
+        databases:
+          button_create: Create a database
+          label_title: Databases
+        forms:
+          button_create-database: Create a database
+          label_field_database-type: Database type
+          label_field_name: Name
+          label_serverless-type: Serverless
         overview:
           label_database: Database
           label_endpoint: Endpoint
+          label_title: Overview
+          section_connection: Connection
+        sql:
+          button_run: Run
+          label_query: Query
       ymq:
         queue:
           overview:
+            label_msg-count: Messages in the queue
+            label_queue-arn: ARN
             label_url: URL
+            section_base: General information
         queues:
           button_create: Create queue
     yc-data-transfer:
@@ -6558,6 +6838,7 @@ default:
                         title: Connection settings
                       sharding_settings:
                         title: Sharding settings
+                      title: Endpoint parameters
                     ClickHouseTargetAdvancedSettings:
                       alt_names:
                         title: Rename tables

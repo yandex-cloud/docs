@@ -21,7 +21,7 @@ To collect organization audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles) for the organization whose audit logs will be collected:
+      * [`audit-trails.viewer`](../security/index.md#roles-list) for the organization whose audit logs will be collected:
 
          ```
          yc organization-manager organization add-access-binding \

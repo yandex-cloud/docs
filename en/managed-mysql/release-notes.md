@@ -12,7 +12,7 @@ This section covers the revision history for {{ mmy-name }}.
 
 ## Q4 2022 {#q4-2022}
 
-* The status of a host on the **Hosts** page now changes to `READ-ONLY` in the management console if data writes to the host are disabled. {{ tag-con }}
+* The status of a host on the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** page now changes to `READ-ONLY` in the management console if data writes to the host are disabled. {{ tag-con }}
 * You can now [move a cluster](operations/update.md#move-cluster) to a different folder using {{ TF }}.
 * Added new DBMS settings:
 
@@ -29,10 +29,10 @@ This section covers the revision history for {{ mmy-name }}.
 
 ## Q2 2022 {#q2-2022}
 
-* In the {{ TF }} configuration files, the `database` and the `user` sections have been deprecated; instead, the `yandex_mdb_mysql_database` and the `yandex_mdb_mysql_user` resources have been added. {{ tag-tf }}
+* In the {{ TF }} configuration files, we removed the `database` and the `user` sections; instead, we added the `yandex_mdb_mysql_database` and the `yandex_mdb_mysql_user` resources. {{ tag-tf }}
 * Added the [Innodb compression level](concepts/settings-list.md#setting-innodb-compression-level) setting.
 * Accelerated the process of restoring replicas from a backup by using WAL-G with subsequent synchronization of data from the master host.
-* Fixed the display of long queries on the **Performance diagnostics** tab. {{ tag-con }}
+* Fixed the display of long queries on the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** tab. {{ tag-con }}
 
 ## Q1 2022 {#q1-2022}
 

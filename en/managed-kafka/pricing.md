@@ -4,7 +4,9 @@ editable: false
 
 # Pricing for {{ mkf-name }}
 
-{{ mkf-name }} usage is rated by the pricing policy described in this section.
+In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+
+To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -55,7 +57,7 @@ When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }}
 
 {% endnote %}
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when a broker host or {{ ZK }} doesn't perform its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when a broker host or {{ ZK }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 

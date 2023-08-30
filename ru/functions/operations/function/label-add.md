@@ -17,16 +17,16 @@
     Результат:
 
     ```     
-    id: b097d9ous3gep99khe83
-    folder_id: aoek49ghmknnpj1ll45e
+    id: b097d9ous3ge********
+    folder_id: aoek49ghmknn********
     created_at: "2019-06-06T11:36:48.688Z"
     name: my-beta-function
     description: My beta function.
     labels:
       test: test
       version: beta
-    log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    log_group_id: eolv6578frac********
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3ge********
     status: ACTIVE
     ```
 

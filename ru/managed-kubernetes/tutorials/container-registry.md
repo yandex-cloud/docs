@@ -23,7 +23,7 @@
 
 Создайте [сервисные аккаунты](../../iam/operations/sa/create.md):
 * Сервисный аккаунт для ресурсов с ролью [{{ roles-editor }}](../../resource-manager/security/#roles-list) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-* Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог с реестром Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+* Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
 ### Создайте сервисный аккаунт для ресурсов {#res-sa}
 
@@ -148,7 +148,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог:
+1. Назначьте сервисному аккаунту роль [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \

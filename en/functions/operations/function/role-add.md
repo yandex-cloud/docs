@@ -8,7 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To assign a [role](../../security/index.md#roles) to a function, run this command:
+   To assign a [role](../../security/index.md#roles-list) to a function, run this command:
 
    * User:
       ```

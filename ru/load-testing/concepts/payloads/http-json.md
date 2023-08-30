@@ -18,6 +18,12 @@
 * `headers` — заголовки запроса.
 * `body` — тело POST-запроса. Указывается, если `method=POST`.
 
+Если в параметре `body` передается структура JSON, внутри нее следует экранировать кавычки символом `\`:
+
+```
+{"host": "example.com", "method": "POST", "uri": "/api/url2", "tag": "url2", "headers": {"User-agent": "Tank", "Connection": "close"}, "body": "{\"data\": \"some_data\"}"}
+```
+
 При конфигурации генератора нагрузки Pandora с помощью файла необходимо указать тип `http/json` в секции `ammo`:
 
 ```

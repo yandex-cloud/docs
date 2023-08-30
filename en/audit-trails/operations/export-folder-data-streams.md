@@ -19,7 +19,7 @@ To export folder audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles) for the folder from which audit logs will be collected:
+      * [`audit-trails.viewer`](../security/index.md#roles-list) for the folder from which audit logs will be collected:
 
          ```
          yc resource-manager folder add-access-binding \
@@ -33,7 +33,7 @@ To export folder audit logs:
          * `id`: The ID of the folder from which audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
-      * [`yds.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
+      * [`yds.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
 
          ```
          yc resource-manager folder add-access-binding \

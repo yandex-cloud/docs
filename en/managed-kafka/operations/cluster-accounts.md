@@ -7,13 +7,13 @@ Users in {{ KF }}:
 * [Manage topics](cluster-topics.md#admin-api) if you enabled the **Manage topics via the API** setting when [creating a cluster](cluster-create.md). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-* [{#T}](#create-user).
-* [{#T}](#update-password).
-* [{#T}](#update-account).
-* [{#T}](#grant-permission).
-* [{#T}](#revoke-permission).
-* [{#T}](#delete-account).
-* [{#T}](#list-accounts).
+* [{#T}](#create-user)
+* [{#T}](#update-password)
+* [{#T}](#update-account)
+* [{#T}](#grant-permission)
+* [{#T}](#revoke-permission)
+* [{#T}](#delete-account)
+* [{#T}](#list-accounts)
 
 ## Creating a user {#create-user}
 
@@ -280,23 +280,31 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
-   1. Go to the **Users** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired user and select **Configure**.
-   1. Find the desired topic in the list of topics.
+   1. Click the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the user to grant topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click **+ {{ ui-key.yacloud.kafka.button_add-topic }}**. If you do not see this button, it means that the user is granted permissions to all existing cluster topics.
 
-      If the topic isn't in the list, add it:
-      1. Click **+ Add topic**. If there is no such button, it means that all existing cluster topics are added to this user.
-      1. Select the desired topic from the drop-down list.
+      If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
-         {% note info %}
+   1. Select the appropriate topic from the drop-down list or enter its name:
 
-         If you enabled the **Manage topics via the API** setting when creating a cluster, you should enter the topic name manually. To grant access to all topics, enter a `*` in the **Topic** field.
+      {% note info %}
 
-         {% endnote %}
+      If you enabled the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting when creating a cluster, you should enter the topic name manually.
 
-   1. Click the ![image](../../_assets/plus.svg) icon in the **Roles** column for the topic and select:
+      {% endnote %}
+
+      1. Specify the following in the **{{ ui-key.yacloud.kafka.label_topic }}** field:
+
+         * `*` to allow access to any topics.
+         * Full topic name to allow access to a specific topic.
+         * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
+
+      1. Click **{{ ui-key.yacloud.kafka.button_add-topic }}**.
+
+   1.  Click the ![image](../../_assets/plus.svg) icon in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column for the topic and select:
       * `ACCESS_ROLE_CONSUMER`: Consumers using this user will be granted access to the topic.
       * `ACCESS_ROLE_PRODUCER`: Producers using this user will be granted access to the topic.
 
@@ -326,8 +334,11 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
       ```
 
       The following `--permission` parameters are available:
-      * `topic`: The name of the topic that the permissions are granted for.
-      * `role`: The user role, such as `producer`, `consumer`, or `admin`.
+      * `topic`: Name of the topic the permissions are granted for.
+
+         If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
+
+      * `role`: User role, such as `producer`, `consumer`, or `admin`.
 
          The `admin` role is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md#management) enabled if all topics are selected (`topic=*`).
 
@@ -360,7 +371,16 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
       }
       ```
 
+      Under `topic_name`, specify:
+
+      * `*` to allow access to any topics.
+      * Full topic name to allow access to a specific topic.
+      * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
+
       The `ACCESS_ROLE_ADMIN` is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md) enabled with all topics selected (`topic_name = "*"`).
+
+      If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

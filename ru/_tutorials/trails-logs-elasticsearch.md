@@ -60,14 +60,14 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../storage/concepts/bucket.md).
-   1. Выберите сервис **{{ objstorage-name }}**.
-   1. Нажмите **Создать бакет**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../storage/concepts/bucket.md#naming).
-      1. Укажите максимальный размер бакета — **Без ограничения**.
-      1. Выберите тип [доступа](../storage/concepts/bucket.md#bucket-access) — **Ограниченный**.
-      1. Выберите [класс хранилища](../storage/concepts/storage-class.md) — **Стандартное**.
-      1. Нажмите кнопку **Создать бакет** для завершения операции.
+      1. Укажите максимальный размер бакета — **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+      1. Выберите тип [доступа](../storage/concepts/bucket.md#bucket-access) — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+      1. Выберите [класс хранилища](../storage/concepts/storage-class.md) —  `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
 {% endlist %}
 
@@ -78,10 +78,10 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать сервисный аккаунт.
-   1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-   1. Нажмите кнопку **Создать сервисный аккаунт**.
+   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя сервисного аккаунта.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -106,26 +106,26 @@
    1. [Роль](../storage/security/index.md#storage-uploader) `storage.uploader` на каталог с бакетом:
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с бакетом.
-      1. Перейдите на вкладку **Права доступа**.
-      1. Нажмите кнопку **Назначить роли**.
-      1. В окне **Настройка прав доступа** нажмите кнопку **Выбрать пользователя**.
-      1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. В окне **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.component.acl-dialog.label_select-section-service-accounts }}**.
       1. Выберите сервисный аккаунт `trails-sa`.
-      1. Нажмите кнопку **Добавить роль**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
       1. Выберите роль `storage.uploader`.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   1. [Роль](../audit-trails/security/index.md#roles) `audit-trails.viewer` на облако, логи которого будут отправлены в кластер {{ ES }}:
+   1. [Роль](../audit-trails/security/index.md#roles-list) `audit-trails.viewer` на облако, логи которого будут отправлены в кластер {{ ES }}:
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в облако.
-      1. Перейдите на вкладку **Права доступа**.
-      1. Нажмите кнопку **Назначить роли**.
-      1. В окне **Настройка прав доступа** нажмите кнопку **Выбрать пользователя**.
-      1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. В окне **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.component.acl-dialog.label_select-section-service-accounts }}**.
       1. Выберите сервисный аккаунт `trails-sa`.
-      1. Нажмите кнопку **Добавить роль**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
       1. Выберите роль `audit-trails.viewer`.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -143,7 +143,7 @@
       * `id` — идентификатор каталога, в котором находится бакет.
       * `service-account-id` — идентификатор сервисного аккаунта.
 
-   1. Назначьте [роль](../audit-trails/security/index.md#roles) `audit-trails.viewer` на облако, логи которого будут отправлены в кластер {{ ES }}:
+   1. Назначьте [роль](../audit-trails/security/index.md#roles-list) `audit-trails.viewer` на облако, логи которого будут отправлены в кластер {{ ES }}:
 
       ```bash
       yc resource-manager cloud add-access-binding \
@@ -166,8 +166,8 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако, с которого будут собираться аудитные логи.
-   1. Перейдите на вкладку **Права доступа**.
-   1. Справа сверху включите опцию **Наследуемые роли**, чтобы отобразились роли, унаследованные от организации.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+   1. Справа сверху включите опцию **{{ ui-key.yacloud_org.common.resource-acl.label_inherited-bindings }}**, чтобы отобразились роли, унаследованные от организации.
    1. Убедитесь, что у вас есть роли:
       * `iam.serviceAccounts.user` на сервисный аккаунт.
       * `audit-trails.editor` на каталог, где будет находиться трейл.
@@ -185,11 +185,11 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
-   1. В списке сервисов выберите **{{ vpc-name }}**.
-   1. Нажмите кнопку **Создать сеть**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    1. Задайте имя сети, например `trails-network`.
-   1. Выберите опцию **Создать подсети**.
-   1. Нажмите кнопку **Создать сеть**.
+   1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI
 
@@ -210,13 +210,13 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором требуется создать подсеть.
-   1. В списке сервисов выберите **{{ vpc-name }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Выберите облачную сеть, например `trails-network`.
-   1. Нажмите кнопку **Добавить подсеть**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
    1. Укажите имя подсети, например `trails-subnet-1`.
    1. Выберите зону доступности, например `{{ region-id }}-a`.
    1. Введите CIDR подсети: IP-адрес и маску подсети, например `10.128.0.0/24`.
-   1. Нажмите кнопку **Создать подсеть**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Также создайте еще две подсети:
       * `trails-subnet-2` в зоне доступности `{{ region-id }}-b`, CIDR подсети – `10.129.0.0/24`.
       * `trails-subnet-3` в зоне доступности `{{ region-id }}-c`, CIDR подсети – `10.130.0.0/24`.
@@ -271,10 +271,10 @@
 
    Если группа безопасности доступна, [добавьте](../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:
 
-   Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип<br>источника | Источник/Назначение
-   --- | --- | --- | --- | --- | ---
-   Входящий | incoming-https | 443 | TCP | CIDR | 0.0.0.0/0
-   Входящий | incoming-9002 | 9200 | TCP | CIDR | 0.0.0.0/0
+   | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+   | --- | --- | --- | --- | --- | --- |
+   | `Входящий` | `incoming-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+   | `Входящий` | `incoming-9002` | `9200` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% note info %}
 
@@ -289,19 +289,19 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-   1. Выберите сервис **{{ at-name }}**.
-   1. Нажмите кнопку **Создать трейл**.
-   1. В поле **Имя** укажите имя создаваемого трейла.
-   1. В блоке **Фильтр** задайте параметры области сбора аудитных логов:
-      * **Ресурс** — выберите `Облако`.
-      * **Облако** — не требует заполнения, содержит имя облака, в котором будет находиться трейл.
-      * **Каталоги** — оставьте значение по умолчанию — `все каталоги`.
-   1. В блоке **Назначение** задайте параметры объекта назначения:
-      * **Назначение** —  `{{ objstorage-name }}`.
-      * **Бакет** — выберите бакет, в который будут загружаться аудитные логи.
-      * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
-   1. В блоке **Сервисный аккаунт** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет, например `trails-sa`.
-   1. Нажмите кнопку **Создать**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
+   1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — не требует заполнения, содержит имя облака, в котором будет находиться трейл.
+      * **{{ ui-key.yacloud.audit-trails.label_folders }}** — оставьте значение по умолчанию — `{{ ui-key.yacloud.audit-trails.label_all-folders }}`.
+   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** —  `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите бакет, в который будут загружаться аудитные логи.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
+   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет, например `trails-sa`.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

@@ -10,8 +10,8 @@ You can add and remove users, as well as manage their settings.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the desired cluster and then select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
 - CLI
 
@@ -41,25 +41,25 @@ You can add and remove users, as well as manage their settings.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
-   1. Click **Add**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter the database username and password.
 
       {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
    1. Select one or more databases that the user should have access to:
-      1. Click **Add database**.
+      1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
       1. To delete a database added by mistake, hover over the line with the database name and click ![image](../../_assets/cross.svg) at the end of the line.
    1. Set up [user privileges](../concepts/user-rights.md#db-privileges) for each of the selected databases:
-      1. Click ![image](../../_assets/plus-sign.svg) in the **Roles** column.
+      1. Click ![image](../../_assets/plus-sign.svg) in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column.
       1. Select the privilege you want to add to the user from the drop-down list.
       1. Repeat the previous two steps until all the required privileges are added.
    1. To revoke a privilege granted by mistake, click ![image](../../_assets/cross.svg) to the right of its name.
    1. If necessary, specify the [{{ MY }} settings and administrative privileges](../concepts/settings-list.md#dbms-user-settings) for the user.
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 - CLI
 
@@ -134,10 +134,10 @@ You can add and remove users, as well as manage their settings.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon and select **Change password**.
-   1. Set a new password and click **Edit**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
@@ -218,11 +218,11 @@ To change the user's permissions to access certain databases, follow the [instru
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 
@@ -306,9 +306,9 @@ To change the user's permissions to access certain databases, follow the [instru
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name and select the ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
 
 - CLI
 

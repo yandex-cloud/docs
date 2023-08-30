@@ -117,7 +117,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Recommended threshold values:
+The recommended thresholds are as follows:
 
 | Metric | Parameter | Formula | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` |
 |----------------------------------------------|:-----------------------------------------:|:----------------------:|:---------------------------------:|:---------------------------------:|

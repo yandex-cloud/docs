@@ -58,6 +58,8 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% endlist %}
 
+{% include [How to connect from a Dockerfile](../../../_includes/mdb/mmg/docker-and-mongodb.md) %}
+
 ## Sample connection strings {#connection-string}
 
 {% include [conn-strings-environment](../../../_includes/mdb/mdb-conn-strings-env.md) %}

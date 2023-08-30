@@ -37,7 +37,7 @@
 Проверьте бакет, который указан в [настройках трейла](../concepts/trail.md#trail-settings). Если бакет был удален:
 1. [Создайте](../../storage/operations/buckets/create.md) новый бакет с тем же именем, которое было указано в настройках трейла.
 
-    Также вы можете изменить настройки трейла, указав в блоке **Назначение** другой бакет.
+    Также вы можете изменить настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** другой бакет.
 1. Если бакет [зашифрован](../../storage/tutorials/server-side-encryption.md) ключом {{ kms-full-name }}, выдайте сервисному аккаунту, от имени которого трейл загружает аудитные логи в бакет, [роль](../../iam/concepts/access-control/roles.md#kms-keys-decrypter) `kms.keys.decrypter` на ключ.
 
 
@@ -61,13 +61,13 @@
 
 Проверьте поток данных, который указан в [настройках трейла](../concepts/trail.md#trail-settings). Если поток данных или его база данных {{ ydb-short-name }} были удалены:
 1. [Создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый поток данных.
-1. Измените настройки трейла, указав в блоке **Назначение** новый поток данных.
+1. Измените настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** новый поток данных.
 
 ###  DATABASE_INACTIVE {#database-inactive}
 
 [Убедитесь](../../ydb/operations/manage-databases.md#list-db), что база данных {{ ydb-short-name }} находится в статусе `Running`. При необходимости запустите БД, например, с помощью [консоли управления]({{ link-console-main }}):
-1. В списке сервисов выберите **{{ ydb-short-name }}**.
-1. Справа от имени нужной БД нажмите значок ![image](../../_assets/options.svg) и выберите **Запустить**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. Справа от имени нужной БД нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
 ###  DATABASE_NOT_FOUND {#database-not-found}
 
@@ -87,7 +87,7 @@
 
 Проверьте лог-группу, которая указана в [настройках трейла](../concepts/trail.md#trail-settings). Если лог-группа была удалена:
 1. [Создайте](../../logging/operations/create-group.md) новую лог-группу.
-1. Измените настройки трейла, указав в блоке **Назначение** новую лог-группу.
+1. Измените настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** новую лог-группу.
 
 ### UNKNOWN или INTERNAL_ERROR {#logging-internal-error}
 

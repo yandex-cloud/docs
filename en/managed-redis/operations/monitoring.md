@@ -201,19 +201,19 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Recommended threshold values:
+The recommended thresholds are as follows:
 
-| Metric                                                                                                    | Parameter          | `Alarm`              | `Warning` |
-|----------------------------------------------------------------------------------------------------------:|:-------------------:|:-------------------:|:-------------------:|
-| DB write availability                                                                                   | `can_write`         | `Equal to 0`            | N/A |
-| Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `More than 2`          | `More than 0`                  |
-| RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM           | 75% RAM         |
-| Storage space used                 | `disk.used_bytes`    | 90% of storage size | 80% of storage size |
+| Metric | Parameter | `Alarm` | `Warning` |
+|----------------------------------------------------------------------------------------------------------:|:-------------------:|:------------------------:|:------------------------:|
+| DB write availability | `can_write` | `Equals 0` | N/A |
+| Number of Out of Memory errors, per hour | `redis_oom_count` | `Greater than 2` | `Greater than 0` |
+| RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory` | 90% RAM | 75% RAM |
+| Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
 
-For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+For the `disk.used_bytes` metric, the `Alarm` and `Warning` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `96636764160` bytes (90%).
-* `Warning`: `85899345920` bytes (80%).
+* `Alarm`: `96,636,764,160` bytes (90%).
+* `Warning`: `85,899,345,920` bytes (80%).
 
 You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-redis).
 
@@ -230,7 +230,7 @@ To view a cluster's state and status:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the row of the cluster you need.
+   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
 {% endlist %}
 

@@ -9,7 +9,7 @@ In addition, when creating a cluster in the management console, you can use a wi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a database cluster.
-   1. Select **{{ mgp-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** → **{{ ui-key.yacloud.greenplum.wizard.action_open-wizard }}**.
 
 {% endlist %}

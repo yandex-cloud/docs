@@ -128,7 +128,7 @@
   1. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. На странице создания теста:
      1. В поле **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`, [созданный ранее](#create-agent).
-     1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **{{ ui-key.yacloud.load-testing.label_local-source }}**, нажмите **Прикрепить файл** и выберите сохраненный ранее файл `data.json`.
+     1. В блоке **Прикрепленные файлы** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.json`.
      1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
         * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
         * В поле для ввода конфигурации введите настройки тестирующих потоков в формате `yaml`:
@@ -147,7 +147,7 @@
                     tls: false
                   ammo:
                     type: grpc/json
-                    file: ammo_ddfafc98-19a3-4dbb-b981-aa6787496a97
+                    file: data.json # имя файла должно совпадать с именем прикрепленного файла.
                   result:
                     type: phout
                     destination: ./phout.log

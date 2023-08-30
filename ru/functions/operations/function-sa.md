@@ -57,7 +57,7 @@
             1. Добавьте файл  `index.js` и, если будете получать IAM-токен с помощью API, файл `package.json` в ZIP-архив `index-js.zip`.
         1. [Создайте](../operations/function/version-manage.md) версию функции. Укажите:
             * среду выполнения — `nodejs16`;
-            * способ загрузки кода — `ZIP-архив`;
+            * способ загрузки кода — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`;
             * файл — `index-js.zip`;
             * точку входа — `index.main`;
             * сервисный аккаунт, для которого нужно получить IAM-токен.
@@ -102,7 +102,7 @@
             1. Добавьте файл  `index.py` в ZIP-архив `index-py.zip`.
         1. [Создайте](../operations/function/version-manage.md) версию функции. Укажите:
             * среду выполнения — `python37`;
-            * способ загрузки кода — `ZIP-архив`;
+            * способ загрузки кода — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`;
             * файл — `index-py.zip`;
             * точку входа — `index.main`;
             * сервисный аккаунт, для которого нужно получить IAM-токен.

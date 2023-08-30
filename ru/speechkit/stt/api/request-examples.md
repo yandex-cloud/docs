@@ -1,6 +1,6 @@
 # Пример использования API синхронного распознавания
 
-Пример показывает, как с помощью [API v2](request-api.md) распознать речь, записанную в аудиофайле формата [OggOpus](../../formats.md#OggOpus), в режиме синхронного распознавания.
+Пример показывает, как с помощью [API v1](request-api.md) распознать речь, записанную в аудиофайле формата [OggOpus](../../formats.md#OggOpus), в режиме синхронного распознавания.
 
 В примере заданы следующие параметры:
 
@@ -43,7 +43,6 @@
     export IAM_TOKEN=<IAM-токен>
     curl -X POST \
          -H "Authorization: Bearer ${IAM_TOKEN}" \
-         -H "Transfer-Encoding: chunked" \
          --data-binary "@speech.ogg" \
          "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
     ```
@@ -108,7 +107,7 @@
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://stt.{{ api-host }}/speech/v1/stt:recognize?lang=ru-RU&folderId=${folderId}&format=oggopus");
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);

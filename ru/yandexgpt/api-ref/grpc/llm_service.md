@@ -26,8 +26,9 @@ Field | Description
 --- | ---
 model | **string**<br>Possible value for now: `general`. The maximum string length in characters is 50.
 generation_options | **[GenerationOptions](#GenerationOptions)**<br>Generation options 
-Instruction | **oneof:** `instruction_text`<br>Text precondition or context of the request. For example, the instruction is "You are the youngest Nobel laureate", the request text is "Tell us about your daily routine".
+Instruction | **oneof:** `instruction_text` or `instruction_uri`<br>Text precondition or context of the request. For example, the instruction is "You are the youngest Nobel laureate", the request text is "Tell us about your daily routine".
 &nbsp;&nbsp;instruction_text | **string**<br>Text of the instruction. The total length of `instruction_text` and `request_text` should be equal or less to 2500 tokens. 
+&nbsp;&nbsp;instruction_uri | **string**<br>Text precondition or context of the request. For example, the instruction is "You are the youngest Nobel laureate", the request text is "Tell us about your daily routine". 
 Request | **oneof:** `request_text`<br>Request
 &nbsp;&nbsp;request_text | **string**<br>Text of the instruction. The total length of `instruction_text` and `request_text` should be equal or less to 2500 tokens. 
 

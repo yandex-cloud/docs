@@ -4,6 +4,10 @@ editable: false
 
 # Pricing for {{ mgp-name }}
 
+In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+
+To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
+
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status](../../_includes/mdb/pricing-status.md) %}
@@ -52,7 +56,7 @@ The following is charged:
 
    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-   * During an automatic backup, {{ mgp-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mgp-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 

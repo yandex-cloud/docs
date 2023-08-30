@@ -21,7 +21,7 @@
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles) на организацию, с которой будут собираться аудитные логи:
+      * [`audit-trails.viewer`](../security/index.md#roles-list) на организацию, с которой будут собираться аудитные логи:
 
         ```
         yc organization-manager organization add-access-binding \
@@ -70,22 +70,22 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. Выберите сервис **{{ at-name }}**.
-  1. Нажмите кнопку **Создать трейл** и укажите:
-      * **Имя** — имя создаваемого трейла.
-      * **Описание** — описание трейла, необязательный параметр.
-  1. В блоке **Фильтр** задайте параметры области сбора аудитных логов:
-      * **Ресурс** — выберите `Организация`.
-      * **Организация** — не требует заполнения, содержит имя текущей организации.
-  1. В блоке **Назначение** задайте параметры объекта назначения:
-      * **Назначение** —  `{{ objstorage-name }}`.
-      * **Бакет** — имя [бакета](../../storage/operations/buckets/create.md), в который будут загружаться аудитные логи.
-      * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
+      * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла.
+      * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения, содержит имя текущей организации.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** —  `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя [бакета](../../storage/operations/buckets/create.md), в который будут загружаться аудитные логи.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
 
       {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-  1. В блоке **Сервисный аккаунт** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

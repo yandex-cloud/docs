@@ -15,7 +15,7 @@ Server-side encryption is performed using keys stored in {{ kms-full-name }}. A 
 Objects are encrypted before you save them to a bucket and decrypted when you download them from the bucket. By default, encryption applies to all new objects, while previously uploaded ones remain unchanged.
 
 
-To decrypt objects, the user must have both the `storage.editor` role and the `kms.keys.dencrypter` role that allows them to [read the encryption key](../../kms/security/index.md#service).
+To decrypt objects, the user must have both the `storage.editor` role and the `kms.keys.dencrypter` role that allows them to [read the encryption key](../../kms/security/index.md#service-roles).
 
 
 

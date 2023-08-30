@@ -187,7 +187,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Minimum size of high-performance disk | 93 GB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br> |
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 40,000<br> |
    | Maximum^4^ IOPS for writes per allocation unit | 5,600 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 1 GB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 82 MB/s |

@@ -19,7 +19,7 @@ To export audit logs of a cloud:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles) for the cloud whose audit logs will be collected.
+      * [`audit-trails.viewer`](../security/index.md#roles-list) for the cloud whose audit logs will be collected.
 
          ```
          yc resource-manager cloud add-access-binding \
@@ -34,7 +34,7 @@ To export audit logs of a cloud:
          * `id`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
-      * [`logging.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
+      * [`logging.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
 
          ```
          yc resource-manager folder add-access-binding \

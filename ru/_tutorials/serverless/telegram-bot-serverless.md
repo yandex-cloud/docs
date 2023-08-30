@@ -5,6 +5,7 @@
 @[youtube](C2Ahit2EBo0)
 
 Чтобы создать бота:
+
 1. [Подготовьте окружение](#before-begin).
 1. [Подготовьте ресурсы](#create-resources).
 1. [Зарегистрируйте Telegram-бота](#create-bot).
@@ -24,6 +25,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки Telegram-бота входят:
+
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md));
 * плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
@@ -47,7 +49,8 @@
 1. В поле `name` укажите имя создаваемого бота, например `Serverless Hello Telegram Bot`. Это имя увидят пользователи при общении с ботом.
 1. В поле `username` укажите имя пользователя создаваемого бота, например `ServerlessHelloTelegramBot`. По имени пользователя можно будет найти бота в Telegram. Имя пользователя должно оканчиваться на `...Bot` или `..._bot`.
 
-   В результате вы получите токен. Сохраните его, он потребуется в дальнейшем.
+    В результате вы получите токен. Сохраните его, он потребуется в дальнейшем.
+
 1. Установите иконку для бота — файл `sayhello.png` из сохраненного архива. Отправьте боту BotFather команду:
 
     ```
@@ -65,15 +68,18 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Выберите сервис **{{ objstorage-short-name }}**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
+
       1. Введите имя бакета. Сохраните имя бакета, оно потребуется в дальнейшем.
       1. Укажите настройки бакета:
-         * **Макс. размер** — `1 ГБ`;
-         * **Доступ на чтение объектов** — `Публичный`;
-         * **Класс хранилища** — `Стандартное`.
-      1. Нажмите кнопку **Создать бакет**.
+
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** — `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}`;
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`;
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** — `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -84,11 +90,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ранее созданный бакет.
-  1. Выберите сервис **{{ objstorage-short-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите ранее созданный бакет.
-  1. Нажмите **Загрузить**.
-  1. В появившемся окне выберите файл `sayhello.png` из сохраненного архива и нажмите кнопку **Открыть**. Консоль управления отобразит файл, выбранный для загрузки.
-  1. Нажмите **Загрузить**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. В появившемся окне выберите файл `sayhello.png` из сохраненного архива. Консоль управления отобразит файл, выбранный для загрузки.
+  1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
 
 {% endlist %}
 
@@ -99,10 +105,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ранее созданный бакет.
-  1. Выберите сервис **{{ objstorage-short-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите ранее созданный бакет.
   1. Выберите файл `sayhello.png`.
-  1. Нажмите кнопку **Получить ссылку**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_generate }}**.
   1. Проверьте доступность изображения по ссылке в браузере.
 
 {% endlist %}
@@ -116,10 +122,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
-  1. Выберите сервис **{{ api-gw-name }}**.
-  1. Нажмите кнопку **Создать API-шлюз**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Введите имя шлюза — `for-serverless-hello-telegram-bot`.
-  1. Очистите содержимое поля **Спецификация** и вставьте в него следующий код:
+  1. Очистите содержимое поля **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** и вставьте в него следующий код:
 
       ```yml
       openapi: 3.0.0
@@ -142,8 +148,8 @@
       * `bucket` — имя бакета;
       * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
-  1. Нажмите кнопку **Создать**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **Служебный домен** из раздела **Общая информация**, оно потребуется в дальнейшем.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**, оно потребуется в дальнейшем.
 
 {% endlist %}
 
@@ -156,12 +162,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать функцию.
-  1. Выберите сервис **{{ sf-name }}**.
-  1. Нажмите кнопку **Создать функцию**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя функции — `fshtb-function`.
-  1. Нажмите кнопку **Создать**.
-  1. В блоке **Редактор** выберите среду выполнения `Node.js` и нажмите **Продолжить**.
-  1. В блоке **Код функции** очистите содержимое файла `index.js` и вставьте в него следующий код. Вместо `<домен API-шлюза>` укажите служебный домен API-шлюза.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Node.js` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** очистите содержимое файла `index.js` и вставьте в него следующий код. Вместо `<домен API-шлюза>` укажите служебный домен API-шлюза.
 
       ```javascript
       const { Telegraf } = require('telegraf');
@@ -185,7 +191,7 @@
       };
       ```
 
-  1. В блоке **Код функции** создайте файл `package.json` и вставьте в него следующий код:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `package.json` и вставьте в него следующий код:
 
       ```json
       {
@@ -204,13 +210,15 @@
       }
       ```
 
-  1. Укажите:
-      * среду выполнения — `nodejs12`;
-      * точку входа — `index.handler`;
-      * таймаут — `5 секунд`.
-  1. Добавьте переменную окружения `BOT_TOKEN`. В поле **Значение** укажите токен Telegram-бота.
-  1. Нажмите **Создать версию**.
-  1. Убедитесь, что функция [публичная](../../functions/operations/function/function-public.md). Для этого на странице **Обзор**, в разделе **Общая информация**, переведите переключатель **Публичная функция** в активное состояние.
+  1. Укажите следующие параметры:
+
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `nodejs12`;
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`;
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+
+  1. Добавьте переменную окружения `BOT_TOKEN`. В поле **{{ ui-key.yacloud.common.value }}** укажите токен Telegram-бота.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. Убедитесь, что функция [публичная](../../functions/operations/function/function-public.md). Для этого на странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, в разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-metadata }}**, переведите переключатель **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** в активное состояние.
   1. Сохраните идентификатор вашей функции, он потребуется в дальнейшем.
 
 {% endlist %}
@@ -222,7 +230,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ api-gw-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Выберите API-шлюз `for-serverless-hello-telegram-bot`.
   1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`:
 
@@ -237,43 +245,44 @@
       
       Где `function_id` — идентификатор функции `fshtb-function`.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
   1. Выполните запрос, вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — служебный домен API-шлюза:
+
       * Linux, macOS:
 
-        ```bash
-        curl \
-          --request POST \
-          --url https://api.telegram.org/bot<токен бота>/setWebhook \
-          --header 'content-type: application/json' \
-          --data '{"url": "<домен API-шлюза>/fshtb-function"}'
-        ```
+          ```bash
+          curl \
+            --request POST \
+            --url https://api.telegram.org/bot<токен бота>/setWebhook \
+            --header 'content-type: application/json' \
+            --data '{"url": "<домен API-шлюза>/fshtb-function"}'
+          ```
     
       * Windows (cmd):
 
-        ```bash
-        curl ^
-          --request POST ^
-          --url https://api.telegram.org/bot<токен бота>/setWebhook ^
-          --header "content-type: application/json" ^
-          --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
-        ```
+          ```bash
+          curl ^
+            --request POST ^
+            --url https://api.telegram.org/bot<токен бота>/setWebhook ^
+            --header "content-type: application/json" ^
+            --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
+          ```
 
       * Windows (PowerShell):
       
-        ```powershell
-        curl.exe `
-          --request POST `
-          --url https://api.telegram.org/bot<токен бота>/setWebhook `
-          --header '"content-type: application/json"' `
-          --data '"{ \"url\": \"<домен API-шлюза>/fshtb-function\" }"'
-        ``` 
+          ```powershell
+          curl.exe `
+            --request POST `
+            --url https://api.telegram.org/bot<токен бота>/setWebhook `
+            --header '"content-type: application/json"' `
+            --data '"{ \"url\": \"<домен API-шлюза>/fshtb-function\" }"'
+          ``` 
       
-      Результат:
+          Результат:
 
-      ```bash
-      {"ok":true,"result":true,"description":"Webhook was set"}
-      ```
+          ```bash
+          {"ok":true,"result":true,"description":"Webhook was set"}
+          ```
 
 {% endlist %}
 

@@ -14,7 +14,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - Management console
 
-   Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
 - CLI
 
@@ -52,8 +52,8 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the cluster you need.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name.
 
 - CLI
 
@@ -85,9 +85,9 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click the name of the cluster you need.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **Operations**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Click the cluster name.
+   1. In the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
 
 - CLI
 

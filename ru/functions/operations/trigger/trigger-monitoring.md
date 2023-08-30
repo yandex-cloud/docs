@@ -17,11 +17,11 @@ description: "Вы можете посмотреть график монитор
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
 
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Выберите триггер, графики мониторинга которого хотите посмотреть.
 
-    1. Перейдите на вкладку **Мониторинг**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.component.navigation-menu.label_monitoring }}**.
 
     1. На странице появятся следующие графики:
 
@@ -38,7 +38,7 @@ description: "Вы можете посмотреть график монитор
 
 ## Пользовательские метрики {#metrics}
 
- Чтобы перейти к работе с [метриками](../../../monitoring/concepts/data-model.md#metric), [дашбордами](../../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../../monitoring/concepts/alerting.md#alert) в сервисе {{ monitoring-name }}, в правом верхнем углу нажмите кнопку **Открыть в Мониторинге**. 
+ Чтобы перейти к работе с [метриками](../../../monitoring/concepts/data-model.md#metric), [дашбордами](../../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../../monitoring/concepts/alerting.md#alert) в сервисе {{ monitoring-name }}, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. 
 
 | Имя метрики | Единицы измерения | Тип сущности | Пояснения |
 |----|----|----|----|

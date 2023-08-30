@@ -1153,13 +1153,13 @@
 
 - **Session duration timeout**{#setting-session-duration-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   The maximum TTL of the longest active session or transaction (in seconds). Only applies to sessions in the `active` and `idle in transaction` status.
+   The maximum TTL of the longest active session or transaction (in milliseconds). It applies only to sessions with the `active` and `idle in transaction` status.
 
-   To make sure the setting does not impact cluster performance, the longest transaction/session is checked on a regular basis. The interval between checks is selected randomly and ranges from 5 to 10 minutes. For example, if you set the setting to `1000`, a session will terminate within 1 second + 5-10 minutes.
+   To make sure the setting does not impact the cluster performance, the longest transaction/session is checked on a regular basis. The checking interval is selected randomly and ranges from 5 to 10 minutes. For example, if you set the setting to `1000`, a session will terminate within 1 second + 5 to 10 minutes.
 
-   If the value you set is larger than the default one, this may increase the DB size and slow down the OS.
+   If the set value is larger than the default one, this may increase the DB size and slow down the OS.
 
-   The minimum value is `0` (active session/transaction TTL is unlimited). The maximum value is `2147483647`. The default value is `43200` (12 hours).
+   The minimum value is `0` (the active session/transaction TTL is unlimited). The maximum value is `2147483647`. The default value is `43200000` (12 hours). The minimum granularity for changing the setting value is `1000`.
 
    For more information about possible session statuses, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 

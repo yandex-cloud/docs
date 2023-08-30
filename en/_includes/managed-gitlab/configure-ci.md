@@ -57,7 +57,7 @@
    In the `.gitlab-ci.yml` file, the following two steps of project build are described:
    * Build a Docker image using the `Dockerfile` from the previous step and push the image to [{{ container-registry-full-name }}](../../container-registry/).
      * For this step, use your container for building Docker images and start a Docker server as a [{{ GL }} service](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
-     * For {{ container-registry-name }} authentication, use a [service account](../../iam/concepts/users/service-accounts.md) linked to the {{ k8s }} nodes. When getting started, this account was assigned the [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
+     * For {{ container-registry-name }} authentication, use a [service account](../../iam/concepts/users/service-accounts.md) linked to the {{ k8s }} nodes. When getting started, this account was assigned the [{{ roles-cr-pusher }}](../../container-registry/security/index.md#choosing-roles).
      * To get authentication credentials from the VM [metadata](../../compute/concepts/vm-metadata.md), use an auxiliary public Docker image `{{ registry }}/yc/metadata-token-docker-helper:0.2`. It runs an internal [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper) that obtains a {{ iam-name }} token from the metadata service.
    * Set up an environment to work with {{ k8s }} and apply `k8s.yaml` configurations to {{ k8s }} clusters. This way the application is deployed on the previously created cluster.
 1. After saving the file, the build script starts. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.

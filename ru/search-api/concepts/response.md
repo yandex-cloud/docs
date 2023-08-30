@@ -207,7 +207,7 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 
 * `Misspell` — опечатка.
 * `KeyboardLayout` — ошибка в раскладке клавиатуры.
-* `Volapyuk` — запрос задан на русском языке в английской транслитерации. Используется, если в качестве [типа поиска](../operations/registration.md#search-type) выбрано значение <q>русский (yandex.ru)</q>.
+* `Volapyuk` — запрос задан на русском языке в английской транслитерации. Используется, если в качестве [типа поиска](../operations/registration.md#search-type) выбрано значение <q>{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)</q>.
 | Отсутствуют.
 ||
 || source-text | 

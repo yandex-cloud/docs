@@ -32,11 +32,12 @@
 
 1. [Создайте](../../functions/operations/function/version-manage.md) версию функции:
    1. Создайте файл `index.py` и вставьте в него содержимое файла `0_for-slack-bot-challenge.py` из [архива](#start).
-   1. Укажите:
-      * Среду выполнения `python37`.
-      * Точку входа `index.handler`.
-      * Таймаут 5 секунд.
-      * Сервисный аккаунт.
+   1. Укажите следующие параметры:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python37`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный ранее сервисный аккаунт.
+
 1. [Отредактируйте](../../api-gateway/operations/api-gw-update.md) API-шлюз `for-slack-bot`. Добавьте в параметр `paths` конфигурацию метода `POST`:
 
    ```
@@ -81,9 +82,9 @@
 Ответы на команды и сообщения в чате бот будет брать из {{ ydb-full-name }}. Для этого подготовьте таблицу:
 1. [Создайте](../../ydb/quickstart.md#serverless) базу данных с именем `for-slack-bot` в режиме Serverless.
 1. В базе `for-slack-bot` [создайте](../../ydb/operations/schema.md#create-table) {{ ydb-short-name }}-таблицу с именем `coffee`:
-   1. Перейдите на вкладку **Навигация**.
-   1. В правом верхнем углу нажмите кнопку **SQL-запрос**. Откроется страница **Запрос**.
-   1. В поле **Запрос** введите:
+   1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**. Откроется страница **{{ ui-key.yacloud.ydb.sql.label_query }}**.
+   1. В поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
 
       ```sql
       CREATE TABLE coffee
@@ -94,7 +95,7 @@
       );
       ```
 
-   1. Нажмите кнопку **Выполнить**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 1. [Добавьте](../../ydb/operations/crud.md#web-sql) в таблицу запись. Например, укажите название сорта кофе и id = 1.
 
 ## Создайте функции {#create-functions}
@@ -118,11 +119,11 @@
       ```
 
    1. Создайте файл `index.py` и вставьте в него содержимое файла `1_for-slack-bot-small-talk.py` из [архива](#start).
-   1. Укажите:
-      * Среду выполнения `python37`.
-      * Точку входа `index.handler`.
-      * Таймаут 5 секунд.
-      * Сервисный аккаунт.
+   1. Укажите следующие параметры:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python37`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный ранее сервисный аккаунт.
    1. Добавьте [переменные окружения](#env):
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
@@ -141,11 +142,11 @@
       ```
 
    1. Создайте файл `index.py` и вставьте в него содержимое файла `2_for-slack-bot-hello-from-serverless.py` из [архива](#start).
-   1. Укажите:
-      * Среду выполнения `python37`.
-      * Точку входа `index.handler`.
-      * Таймаут 5 секунд.
-      * Сервисный аккаунт.
+   1. Укажите следующие параметры:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python37`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный ранее сервисный аккаунт.
    1. Добавьте [переменные окружения](#env):
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
@@ -165,17 +166,17 @@
       ```
 
    1. Создайте файл `index.py` и вставьте в него одержимое файла `3_for-slack-bot-what-kind-of-coffee.py` из [архива](#start).
-   1. Укажите:
-      * Среду выполнения `python37`.
-      * Точку входа `index.handler`.
-      * Таймаут = 5 секунд.
-      * Сервисный аккаунт.
+   1. Укажите следующие параметры:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python37`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный ранее сервисный аккаунт.
    1. Добавьте [переменные окружения](#env):
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
    1. Добавьте переменные для работы с {{ ydb-name }}:
-      * `DATABASE` — значение поля **База данных** из раздела **Обзор** в свойствах базы данных `for-slack-bot`. Например: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`.
-      * `ENDPOINT` — значение поля **Эндпоинт** из раздела **Обзор** в свойствах базы данных `for-slack-bot`. Например: `grpcs://ydb.serverless.yandexcloud.net:1234`.
+      * `DATABASE` — значение поля **{{ ui-key.yacloud.ydb.overview.label_database }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot`. Например: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`.
+      * `ENDPOINT` — значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot`. Например: `grpcs://ydb.serverless.yandexcloud.net:1234`.
       * `USE_METADATA_CREDENTIALS` = 1.
 
 ## Отредактируйте API-шлюз {#create-api-gw}

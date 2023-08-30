@@ -10,7 +10,7 @@
 
 ## Распознавание речи {#stt-quickstart}
 
-* [{#T}](stt-quickstart-v2.md)
+* [{#T}](stt-quickstart-v1.md)
 * [{#T}](stt-quickstart-v3.md)
 
 ## Синтез речи {#tts-quickstart}

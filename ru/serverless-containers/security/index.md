@@ -5,7 +5,7 @@
 В этом разделе вы узнаете:
 
 * [на какие ресурсы можно назначить роль](#resources);
-* [какие роли действуют в сервисе](#roles).
+* [какие роли действуют в сервисе](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -13,7 +13,7 @@
 
 Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) и [контейнер](../concepts/container.md).
 
-## Какие роли действуют в сервисе {#roles}
+## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ serverless-containers-name }}.
 

@@ -41,9 +41,6 @@
 - Python 3
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
-
-      {% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
-
    1. Создайте файл `test.py` и добавьте в него код:
 
       ```python
@@ -134,7 +131,7 @@
       * `text` — текстовый шаблон.
       * Настройки синтеза речи:
 
-         * `synthesis_model.model` — модель.
+         * `synthesis_model.model` — модель;
          * `synthesis_model.voice` — голос.
 
       * Настройки распознавания речи:
@@ -147,7 +144,7 @@
 
       * `original_recognition.raw_text ` — шаблонная фраза.
       * `pattern_based_synthesis_model.model` — направление {{ brand-voice-cc }}, которое используется при синтезе речи.
-      * `export_path` — путь до файла для записи аудио.
+      * `export_path` — путь к файлу, в который нужно записать аудио.
 
    1. Выполните созданный файл:
 
@@ -155,7 +152,7 @@
       python3 test.py --export speech.wav
       ```
 
-      Где `--export` — путь до файла для записи аудио.
+      Где `--export` — путь к файлу, в который нужно записать аудио.
 
       В результате будет создан файл `speech.wav` с синтезированной по шаблону речью.
 
@@ -164,6 +161,5 @@
 #### См. также {#see-also}
 
 * [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
-* [{#T}](../../concepts/auth.md)
 * [{#T}](templates-bvp-bvss.md)
 * [{#T}](../../tts/api/tts-templates.md)

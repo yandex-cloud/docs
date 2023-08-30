@@ -231,7 +231,7 @@ Delete the resources you no longer need to avoid being charged for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated:
+   1. Confirm the resources have been updated:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

@@ -6,7 +6,9 @@ editable: false
 
 # Pricing for {{ mmy-name }}
 
-{{ mmy-name }} usage is rated by the pricing policy described in this section.
+In this section, you can find {{ mmy-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+
+To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -61,7 +63,7 @@ The following is charged:
 
    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-   * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
+   * The number of hosts in the cluster does not affect the size of the storage and, consequently, of free backups.
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -104,9 +106,9 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 - Dedicated hosts
 
-  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
+    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
-    {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} 
+     {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} 
 
 {% endlist %}
 

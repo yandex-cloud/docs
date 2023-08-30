@@ -19,7 +19,7 @@ You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Settings of rules depend on the connection method you select:
+Rule settings depend on the connection method you select:
 
 {% list tabs %}
 
@@ -133,6 +133,33 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+## Connecting from a Docker container {#connection-docker}
+
+You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+
+To connect to a {{ mch-name }} cluster, add the following lines to the Dockerfile:
+
+```bash
+# Connect the DEB repository.
+RUN apt-get update && \
+    apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+    echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+    /etc/apt/sources.list.d/clickhouse.list && \
+    # Install dependencies.
+    apt-get update && \
+    apt-get install wget clickhouse-client --yes && \
+    # Upload a configuration file for clickhouse-client.
+    mkdir -p ~/.clickhouse-client && \
+    wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+         --output-document ~/.clickhouse-client/config.xml && \
+    # Get an SSL certificate.
+    mkdir -p {{ crt-local-dir }} && \
+    wget "{{ crt-web-path }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+```
 
 
 ## Connecting to a cluster from your browser {#browser-connection}

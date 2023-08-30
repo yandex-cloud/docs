@@ -6,6 +6,10 @@ editable: false
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
+In this section, you can find {{ mes-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
+
+To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Cluster status {#running-stopped}
@@ -50,7 +54,7 @@ The following is charged:
 
    * Storing backups is free of charge as long as the total amount of data in a cluster together with all the backups stays under the selected storage size.
 
-   * When performing automatic backups, {{ mes-short-name }} does not create a new copy, but stores data changes with respect to the previous backup. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * When performing automatic backups, {{ mes-short-name }} does not create a new copy but stores data changes with respect to the previous backup. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 

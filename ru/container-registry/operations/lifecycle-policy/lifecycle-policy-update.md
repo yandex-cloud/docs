@@ -42,6 +42,38 @@
 
      Чтобы узнать идентификатор политики, получите [список политик удаления в репозитории или в реестре](lifecycle-policy-list.md#lifecycle-policy-list)
 
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте конфигурационный файл и отредактируйте фрагмент с описанием политики:
+
+      ```hcl
+      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
+        name          = "best-policy"
+        status        = "active"
+        repository_id = "crpfvi6o4ra7********"
+
+        rule {
+          description   = "rule for applying policy"
+          untagged      = true
+          tag_regexp    = ".*"
+          retained_top  = 1
+          expire_period = "48h"
+        }
+      }
+      ```
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанном репозитории будет изменена политика удаления. Проверить изменение политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+     yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
+    ```
+
 - API
 
   Чтобы изменить политику удаления, воспользуйтесь методом [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md). В свойстве `lifecycle_policy_id` укажите идентификатор политики.
