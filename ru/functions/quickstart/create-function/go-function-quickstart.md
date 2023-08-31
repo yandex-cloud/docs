@@ -11,10 +11,10 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-    1. Выберите сервис **{{ sf-name }}**
-    1. Нажмите кнопку **Создать функцию**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Введите имя функции — `go-function`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -84,19 +84,19 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-  1. Выберите сервис **{{ sf-name }}**.
-  1. Выберите функцию `go-function`.
-  1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-  1. Задайте параметры версии:
-      * **Среда выполнения:** `golang114`.
-      * **Способ:** ZIP-архив.
-      * **Файл:** `hello-go.zip`.
-      * **Точка входа:** `hello.Handler`.
-      * **Таймаут, секунды:** 3.
-      * **Память:** 128 МБ.
-      * **Сервисный аккаунт:** Не выбрано.     
-  1. Нажмите кнопку **Создать версию**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Выберите функцию `go-function`.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+    1. Выберите среду выполнения `golang119` и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Задайте параметры версии:
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — прикрепите файл `hello-go.zip`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `hello.Handler`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `3`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 

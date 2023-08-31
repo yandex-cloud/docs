@@ -63,8 +63,6 @@ items:
         href: archive/backup-and-archive-to-sftp.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
-      - name: Backup to {{ objstorage-name }} via Acronis
-        href: archive/object-storage-acronis.md
       - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
         href: archive/object-storage-cloudberry.md
       - name: Backup to {{ objstorage-name }} via Duplicati

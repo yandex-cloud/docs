@@ -668,9 +668,9 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 1. Передайте новые значения в секрет `game-secrets`:
 
     1. В [консоли управления]({{ link-console-main }}) выберите ваш рабочий каталог.
-    1. Выберите сервис **{{ message-queue-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Выберите очередь `capturing-queue`.
-    1. Скопируйте значение из поля **URL** и сохраните его в переменную `YMQ_CAPTURE_QUEUE_URL`:
+    1. Скопируйте значение из поля **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** и сохраните его в переменную `YMQ_CAPTURE_QUEUE_URL`:
 
        ```bash
        echo "export YMQ_CAPTURE_QUEUE_URL=<URL>" >> ~/.bashrc && . ~/.bashrc

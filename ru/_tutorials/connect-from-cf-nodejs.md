@@ -71,11 +71,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `sa-function`.
-  1. Нажмите **Добавить роль** и выберите `editor`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
  
 - CLI
 
@@ -135,10 +135,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт `sa-function` и нажмите на строку с его именем.
-  1. Нажмите кнопку **Создать новый ключ** на верхней панели.
-  1. Выберите пункт **Создать авторизованный ключ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
+  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
   1. Сохраните открытый и закрытый ключи в файл `service_account_key_file.json`:
@@ -211,19 +211,19 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать базу данных.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите кнопку **Создать базу данных**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите имя базы. Требования к имени:
 
      {% include [name-format](../_includes/name-format.md) %}
 
-  1. В блоке **Тип базы данных** выберите опцию **Serverless**.
-  1. Нажмите кнопку **Создать базу данных**.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
      Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`. Когда база станет готова к использованию, статус сменится на `Running`.
 
   1. Нажмите на имя созданной БД.
-  1. Сохраните значения полей **Эндпоинт** и **Размещение базы данных** из блока **Соединение**. Они понадобятся на следующем шаге.
+  1. Сохраните значения полей **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_database }}** из блока **{{ ui-key.yacloud.ydb.overview.section_connection }}**. Они понадобятся на следующем шаге.
 
 {% endlist %}
 
@@ -237,8 +237,8 @@
 
 1. Отредактируйте файл `.env`:
 
-   * `ENDPOINT` — строка вида <протокол>://<значение поля **Эндпоинт** из блока **Соединение**>. Например, если протокол `grpcs`, а эндпоинт `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, введите `{{ ydb.ep-serverless }}`.
-   * `DATABASE` — значение поля **Размещение базы данных** из блока **Соединение**.
+   * `ENDPOINT` — строка вида <протокол>://<значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из блока **{{ ui-key.yacloud.ydb.overview.section_connection }}**>. Например, если протокол `grpcs`, а эндпоинт `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, введите `{{ ydb.ep-serverless }}`.
+   * `DATABASE` — значение поля **{{ ui-key.yacloud.ydb.overview.label_database }}** из блока **{{ ui-key.yacloud.ydb.overview.section_connection }}**.
    * `FUNCTION_NAME` — имя функции: `func-test-ydb`.
    * `FOLDER_ID` — идентификатор каталога.
    * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта `sa-function`.
@@ -264,10 +264,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция.
-  1. В списке сервисов выберите **{{ sf-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `func-test-ydb`.
-  1. Перейдите на вкладку **Обзор**.
-  1. В блоке **Общая информация** нажмите на ссылку для вызова функции.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** нажмите на ссылку.
   1. В адресной строке браузера добавьте в ссылке параметр `api_key`, например `?api_key=b95`.
   1. При успешном подключении в БД будет создана таблица `b95` и в нее будет добавлена одна запись. На странице появится сообщение в формате JSON, например:
 

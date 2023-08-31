@@ -17,26 +17,26 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать таймер.
 
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. На панели слева выберите ![image](../../../_assets/functions/triggers.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя триггера — `timer`.
-        * В поле **Тип** выберите **Таймер**.
-        * В поле **Запускаемый ресурс** выберите **Функция**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. В блоке **Настройки таймера** введите `* * ? * * *` или выберите `Каждую минуту`.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** введите `* * ? * * *` или выберите `{{ ui-key.yacloud.common.button_cron-1min }}`.
 
-    1. В блоке **Настройки функции** выберите функцию и укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите свою функцию и укажите:
 
-        * [тег версии функции](../../concepts/function.md#tag) — `$latest`.
-        * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), который создали ранее.
+        * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../concepts/function.md#tag) — `$latest`.
+        * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**](../../../iam/concepts/users/service-accounts.md), который создали ранее.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -94,11 +94,11 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
 
-    1. Выберите сервис **{{ sf-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Нажмите на функцию, журнал выполнения которой хотите посмотреть.
 
-    1. В открывшемся окне перейдите в раздел **Логи** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
+    1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
 
 - CLI
 

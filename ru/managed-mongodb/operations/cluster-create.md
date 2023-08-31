@@ -43,15 +43,18 @@
 
       * Выберите [тип диска](../concepts/storage.md).
 
-                
+        
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
       * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
-      
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
 
       * Имя БД.
+
+        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
       * Имя пользователя.
       * Пароль пользователя. Минимум 8 символов.
 
@@ -137,6 +140,8 @@
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
 
+      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% note info %}
@@ -217,6 +222,8 @@
 
 
 
+     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
@@ -251,6 +258,9 @@
 
 
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
+
+      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 

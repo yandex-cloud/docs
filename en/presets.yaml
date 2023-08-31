@@ -5274,10 +5274,16 @@ default:
         switch_list: Clusters
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-apps:
+        button_install: Install
+        label_marketplace: Marketplace
+        section_resources: Application resources
       common:
         add: Add
         apply: Apply
         availability: Availability
+        button_cron-15min: Every 15 minutes
+        button_cron-1min: Every minute
         button_cron-day: Every day
         button_logout: Log out
         clone: Clone
@@ -5297,7 +5303,6 @@ default:
         label_http: HTTP
         label_key: Key
         label_list: List
-        label_seconds_many: seconds
         label_tcp: TCP
         label_udp: UDP
         label_value: Value
@@ -5383,6 +5388,9 @@ default:
           field_content: Content
           value_manual: Text
           value_upload: File
+        iam-delete-folder-or-cloud-dialog:
+          field_folder-delete-after: Folder deletion period
+          label_delete-now: Delete now
         image-field:
           button_custom-image: Enter link
         ip-address-form:
@@ -5808,6 +5816,7 @@ default:
             label_audit-trails: Audit Trails
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
+            label_cloud-apps: Cloud Apps
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
@@ -6025,6 +6034,8 @@ default:
           label_key: Key
           label_value: Value
           section_version: Version
+        label_secret-general-section: Information about secret
+        label_secret-id: ID
         label_secret-versions-section: Versions
         label_section-secrets: Secrets
       logging:
@@ -6409,16 +6420,14 @@ default:
             button_editor-create: Сreate in editor
             label_all-users-invoke: Public function
             label_invoke-link: Link to invoke
-            label_latest-memory: Memory
-            label_latest-timeout: Timeout
             label_title: Overview
-            label_title-environment-vars: Environment variables
             label_title-history: Version history
             label_title-latest-version: Last version
             label_title-metadata: General information
           switch_editor: Editor
           switch_logs: Logs
           switch_monitoring: Monitoring
+          switch_overview: Overview
           switch_testing: Testing
           testing:
             button_run-test: Run test
@@ -6581,6 +6590,7 @@ default:
             field_error: Error page
             field_http-redirect-code: Response code
             field_index: Home page
+            field_link: Link
             label_routing-condition: Condition
             label_routing-redirect: Redirect
             select_condition_prefix: Key prefix
@@ -6753,12 +6763,20 @@ default:
           label_serverless-type: Serverless
         overview:
           label_database: Database
+          label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
           label_title: Overview
           section_connection: Connection
         sql:
           button_run: Run
           label_query: Query
+        table:
+          form:
+            column_shard: Partition key
+            field_name: Name
+            field_type: Table type
+            label_columns: Columns
+            label_document-table: Document table
       ymq:
         queue:
           overview:

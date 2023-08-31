@@ -929,6 +929,9 @@ items:
       - name: Ошибка на стороне БД
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Ошибка преобразования типа данных
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
       - name: Обращение к несуществующему объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md

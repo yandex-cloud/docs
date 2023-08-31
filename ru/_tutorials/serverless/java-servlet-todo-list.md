@@ -43,13 +43,12 @@
   1. На странице создания бакета:
      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
      1. При необходимости ограничьте максимальный размер бакета.
-     1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+     1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Выберите созданный бакет.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
-  1. В появившемся окне выберите в папке с проектом файл `src/main/resources/index.html` и нажмите кнопку **Открыть**.
-  1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите в папке с проектом файл `src/main/resources/index.html`.
+  1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 {% endlist %}
 
@@ -68,7 +67,7 @@
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-     1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите **{{ ui-key.yacloud.ydb.forms.label_serverless-type }}**.
+     1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
      1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
      1. Выберите созданную БД.
@@ -134,9 +133,8 @@
   1. Введите имя `add-task` и описание функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `java11` и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. Подготовьте код функции:
-      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите скачанный архив `servlet.zip`.
+  1. Подготовьте код функции. Для этого в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите скачанный архив `servlet.zip`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `5`.
   1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).

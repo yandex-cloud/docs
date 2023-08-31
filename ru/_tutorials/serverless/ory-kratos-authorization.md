@@ -76,11 +76,11 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-     1. Перейдите на вкладку **Сервисные аккаунты**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта — `sa-for-kratos`.
-     1. Нажмите **Добавить роль** и выберите роль `{{ roles-admin }}`.
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `{{ roles-admin }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
     
    - CLI
 
@@ -194,15 +194,15 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите развернуть приложение.
-  1. Выберите сервис **{{ cloud-apps-name }}**.
-  1. На панели слева выберите **Магазин приложений**.
-  1. Выберите **Identity Server based on Ory Kratos** и нажмите кнопку **Использовать**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.cloud-apps.label_marketplace }}**.
+  1. Выберите `Identity Server based on Ory Kratos` и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Укажите:
 
      * Имя приложения.
      * Сервисный аккаунт `sa-for-kratos`.
      * Идентификатор [облачной сети](../../vpc/concepts/network.md#network), которую [создали ранее](#prepare).
-     * CIDR [подсетей](../../vpc/concepts/network.md#subnet) в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`, `ru-central1-b` и `ru-central1-c`. Подсети автоматически создадутся в указанной облачной сети во время установки приложения.
+     * CIDR [подсетей](../../vpc/concepts/network.md#subnet) в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c`. Подсети автоматически создадутся в указанной облачной сети во время установки приложения.
      * Количество виртуальных машин для Ory Kratos API.
      * Имя пользователя, которое будет использоваться для доступа на виртуальные машины по SSH.
      * Публичный SSH-ключ, [который получили ранее](#prepare).
@@ -211,12 +211,12 @@
      * Адрес и порт SMTP-сервера, имя пользователя и пароль для доступа к SMTP-серверу, [которые получили ранее](#prepare).
      * Имя и адрес отправителя, которые будут указаны в письмах от Identity Server based on Ory Kratos.
 
-  1. Нажмите кнопку **Установить** и дождитесь, пока приложение установится.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cloud-apps.button_install }}** и дождитесь, пока приложение установится.
   1. Сохраните ссылку для входа в приложение:
 
      1. Выберите созданное приложение.
-     1. В разделе **Ресурсы приложения** выберите созданный API-шлюз.
-     1. Сохраните значение поля **Служебный домен** из раздела **Общая информация**.
+     1. В разделе **{{ ui-key.yacloud.cloud-apps.section_resources }}** выберите созданный API-шлюз.
+     1. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
 
         По путям `/public`, `/admin` и `/ui` доступны публичный, приватный API и пользовательский интерфейс соответственно.
 
@@ -231,28 +231,28 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. В списке сервисов выберите **{{ sf-name }}**
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
   1. Создайте функцию:
 
-     1. Нажмите кнопку **Создать функцию**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. Введите имя функции — `kratos-authorizer`.
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   1. Создайте версию функции:
 
-     1. Выберите среду выполнения `Node.js`, отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
-     1. Укажите способ загрузки **ZIP-архив** и выберите архив `index-js.zip`, который создали на этапе [сборки проекта](#download-project).
+     1. Выберите среду выполнения `Node.js`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и выберите архив `index-js.zip`, который создали на этапе [сборки проекта](#download-project).
      1. Укажите точку входа `index.js`.
-     1. В блоке **Параметры** укажите:
+     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
-        * **Таймаут, c** — 5 секунд.
-        * **Память** — 128 МБ.
-        * **Сервисный аккаунт** — `sa-func-authorizer`.
-        * **Переменные окружения**:
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `sa-func-authorizer`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
           * `KRATOS_API_BASE_PATH` — `https://<kratos_api_gw_domain>/public`, где `<kratos_api_gw_domain>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
 
-      1. Нажмите кнопку **Создать версию**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -397,10 +397,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором развернуто приложение Identity Server based on Ory Kratos.
-  1. Выберите сервис **{{ api-gw-name }}**.
-  1. Нажмите кнопку **Создать API-шлюз**.
-  1. Введите имя API-шлюза — `for-kratos-authorization`.
-  1. В поле **Спецификация** добавьте спецификацию из файла `openapi-example.yaml`, расположенного в папке с проектом:
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `for-kratos-authorization`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию из файла `openapi-example.yaml`, расположенного в папке с проектом:
 
      ```yaml
      openapi: 3.0.0
@@ -439,8 +439,8 @@
        * `function_id` — идентификатор функции `kratos-authorizer`.
        * `service_account_id` — идентификатор сервисного аккаунта `sa-func-authorizer`.
 
-  1. Нажмите кнопку **Создать**.
-  1. Сохраните значение поля **Служебный домен** из раздела **Общая информация**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
 
 - CLI
 

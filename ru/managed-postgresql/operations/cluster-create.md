@@ -54,7 +54,10 @@
 
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
   1. В блоке **База данных** укажите атрибуты БД:
-     * Имя БД. Это имя должно быть уникальным в рамках каталога и содержать только латинские буквы, цифры и подчеркивания.
+     * Имя БД. Это имя должно быть уникальным в рамках каталога.
+
+       {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
      * Имя пользователя — владельца БД и пароль. По умолчанию новому пользователю выделяется 50 подключений к каждому хосту кластера.
 
        {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
@@ -143,6 +146,10 @@
 
 
      Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
+
+     {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+     {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -241,6 +248,10 @@
 
 
 
+     {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+     {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -276,7 +287,12 @@
 
 
   * Конфигурацию БД в одном или нескольких параметрах `databaseSpecs`.
+
+    {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
   * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+
+    {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 

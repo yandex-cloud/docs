@@ -6,6 +6,7 @@ Packer создаст и запустит виртуальную машину с
 
 Чтобы создать образ:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите Packer](#install-packer).
 1. [Подготовьте конфигурацию образа](#prepare-image-config).
 1. [Создайте образ](#create-image).
@@ -19,7 +20,7 @@ Packer создаст и запустит виртуальную машину с
 
 * Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
 * [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
-* [Получите](../../iam/concepts/authorization/oauth-token.md) OAuth-токен.
+* Получите [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/#passport) или [IAM-токен](../../iam/operations/iam-token/create-for-federation.md) для [федеративного аккаунта](../../iam/concepts/federations.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -84,7 +85,7 @@ export PATH=$PATH:/path/to/packer
   "builders": [
     {
       "type":      "yandex",
-      "token":     "<OAuth-токен>",
+      "token":     "<OAuth-токен_или_IAM-токен>",
       "folder_id": "<идентификатор_каталога>",
       "zone":      "{{ region-id }}-a",
 
@@ -93,7 +94,7 @@ export PATH=$PATH:/path/to/packer
       "image_description": "my custom debian with nginx",
 
       "source_image_family": "debian-11",
-      "subnet_id":           "<идентификатор подсети>",
+      "subnet_id":           "<идентификатор_подсети>",
       "use_ipv4_nat":        true,
       "disk_type":           "network-ssd",
       "ssh_username":        "debian"
@@ -114,6 +115,13 @@ export PATH=$PATH:/path/to/packer
   ]
 }
 ```
+
+Где:
+  * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
+  * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id), в котором будет создана ВМ и ее образ.
+  * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
+
+Подробнее о параметрах конфигурации образа см. в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
 
 
 

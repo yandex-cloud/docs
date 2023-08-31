@@ -33,8 +33,6 @@ items:
         href: archive/backup-and-archive-to-sftp.md
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
-      - name: Резервное копирование в {{ objstorage-name }} через Acronis
-        href: archive/object-storage-acronis.md
       - name: >-
           Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
           Desktop Backup
