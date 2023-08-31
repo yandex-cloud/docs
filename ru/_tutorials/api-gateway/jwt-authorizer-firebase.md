@@ -71,10 +71,10 @@ Firebase:
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
-    1. В списке сервисов выберите **{{ api-gw-name }}**.
-    1. Нажмите кнопку **Создать API-шлюз**.
-    1. В поле **Имя** введите `jwt-api-gw`.
-    1. В блок **Спецификация** добавьте спецификацию:
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `jwt-api-gw`.
+    1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
         ```yaml
         openapi: 3.0.0
@@ -116,7 +116,7 @@ Firebase:
                   - email
         ```
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
 
@@ -314,11 +314,11 @@ Firebase:
    - Консоль управления
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-      1. Выберите сервис **{{ objstorage-name }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. На странице создания бакета:
           1. Введите имя бакета — `bucket-for-tutorial`.
-          1. В поле **Доступ на чтение объектов** выберите `Публичный`.
+          1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
           1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
    - CLI
@@ -415,10 +415,9 @@ Firebase:
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объекты.
-     1. Выберите сервис **{{ objstorage-name }}**.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Нажмите на бакет `bucket-for-tutorial`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
-     1. В появившемся окне выберите [сгенерированные ранее](#project-prepare) объекты в папке `build` и нажмите кнопку **Открыть**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
      1. Консоль управления отобразит все объекты, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../storage/concepts/bucket.md#bucket-settings).
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
      1. Обновите страницу.
@@ -439,7 +438,7 @@ Firebase:
          * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
          * в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-     1. В поле **Ссылка** скопируйте адрес вашего сайта.
+     1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}** скопируйте адрес вашего сайта.
 
    - CLI
 

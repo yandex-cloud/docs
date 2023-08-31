@@ -184,7 +184,7 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, версию которой хотите создать.
     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Выберите среду выполнения **Python**. Не выбирайте опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+    1. Выберите среду выполнения `Python`. Не выбирайте опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Выберите способ **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** и введите имя файла, например `index`.
     1. Введите код функции, подставив идентификаторы вашего проекта и ноутбука:
@@ -211,9 +211,9 @@
        * `<идентификатор_ноутбука>` — [идентификатор ноутбука](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id) `test_classifier.ipynb`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `reddit-user`.
-    1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
+       * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `reddit-user`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -236,10 +236,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** укажите расписание вызова функции **Каждые 15 минут**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** укажите расписание вызова функции `{{ ui-key.yacloud.common.button_cron-15min }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 

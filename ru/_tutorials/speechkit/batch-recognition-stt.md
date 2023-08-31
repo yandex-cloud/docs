@@ -36,7 +36,7 @@
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}** и укажите имя функции `asr-batch-function`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
-1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения Python версии `3.8` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Python` версии `3.8` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. Скачайте из репозитория {{ yandex-cloud }} [файл со скриптом](https://github.com/yandex-cloud/yc-architect-solution-library/blob/main/yc-ai/python-tools/asr-batch/python/main.py).
 1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** удалите содержимое файла `index.py` и вставьте скачанный скрипт.
 1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `requirements.txt` и добавьте в него код:
@@ -61,7 +61,7 @@
    * `API_KEY` – ID API-ключа.
    * `API_SECRET` – секрет API-ключа.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_create }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 ## Создайте триггер {#create-trigger}
 
@@ -70,9 +70,9 @@
 1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 1. Укажите параметры триггера:
    * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** – `asr-batch-cron`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** – `Таймер`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** – `Функция`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** – Каждую минуту.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** – `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** – `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** – `{{ ui-key.yacloud.common.button_cron-1min }}`.
    * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** – `asr-batch-function`.
    * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** – `$latest`.
    * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}** – `asr-batch-sa`.

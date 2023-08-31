@@ -151,6 +151,8 @@
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Настройки новой базы в параметре `databaseSpec`.
 
+     {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
 {% endlist %}
 
 ## Удалить базу данных {#remove-db}

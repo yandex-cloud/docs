@@ -73,6 +73,8 @@ items:
             href: operations/hosting/certificate.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
       - name: Получение статистики посещения сайта с использованием S3 Select

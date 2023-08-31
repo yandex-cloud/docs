@@ -150,13 +150,13 @@ zip src.zip index.go go.mod
         1. Укажите способ загрузки **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** и выберите архив, который создали на предыдущем шаге.
         1. Укажите точку входа `index.StopComputeInstances`.
         1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
-            * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-timeout }}** — `5 {{ ui-key.yacloud.common.label_seconds_many }}`;
-            * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-memory }}** — `512 {{ ui-key.yacloud.common.units.label_megabyte }}`;
-            * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** — `service-account-for-budget`;
-            * **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-environment-vars }}**:
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`;
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `512 {{ ui-key.yacloud.common.units.label_megabyte }}`;
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `service-account-for-budget`;
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
                 * `FOLDER_ID` — идентификатор каталога, в котором вы хотите останавливать виртуальные машины.
                 * `TAG` — `target-for-stop`.
-        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_create }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 

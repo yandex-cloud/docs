@@ -50,6 +50,9 @@ links:
   - title: Решение проблем
     description: Перечень известных проблем и способов их решения
     href: troubleshooting/
+  - title: История изменений
+    description: Перечень обновлений сервиса
+    href: changelogs/
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training

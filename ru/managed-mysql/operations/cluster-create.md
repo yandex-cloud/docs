@@ -47,7 +47,10 @@
        {% endnote %}
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
-     * Имя БД. Имя БД должно быть уникальным в рамках каталога и содержать только латинские буквы, цифры и подчеркивания.
+     * Имя БД. Это имя должно быть уникальным в рамках каталога.
+
+       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
      * Имя пользователя—владельца БД и пароль.
 
        {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
@@ -152,6 +155,8 @@
 
 
 
+     {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
@@ -174,6 +179,9 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
      * Кластер БД — описание кластера и его хостов.
      * База данных — описание БД кластера.
+
+       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
      * Пользователь — описание пользователя кластера.
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
@@ -286,6 +294,9 @@
   * Окружение кластера {{ mmy-name }} в параметре `environment`.
   * Конфигурацию кластера {{ mmy-name }} в параметре `configSpec`.
   * Конфигурацию БД в одном или нескольких параметрах `databaseSpecs`.
+
+    {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
   * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
   * Конфигурацию хостов кластера {{ mmy-name }} в одном или нескольких параметрах `hostSpecs`.
   * Идентификатор [сети](../../vpc/concepts/network.md#network) в параметре `networkId`.

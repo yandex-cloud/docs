@@ -264,7 +264,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
-  1. В списке сервисов выберите **{{ lockbox-short-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `s3-static-key`.
   1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
@@ -378,12 +378,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакеты.
-  1. В списке сервисов выберите **{{ objstorage-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Создайте основной бакет:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
-     1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
+     1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   1. Таким же образом создайте резервный бакет.
@@ -475,7 +475,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. В списке сервисов выберите **{{ sf-name }}**
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
   1. Создайте функцию:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -484,13 +484,13 @@
   
   1. Создайте версию функции:
 
-     1. Выберите среду выполнения `Bash`, отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Укажите способ загрузки **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** и выберите архив `handler-sh.zip`, который создали на предыдущем шаге.
+     1. Выберите среду выполнения `Bash`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и выберите архив `handler-sh.zip`, который создали на предыдущем шаге.
      1. Укажите точку входа `handler.sh`.
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — 600 секунд.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — 128 МБ.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `600`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `s3-copy-fn`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
@@ -675,7 +675,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
-  1. В списке сервисов выберите **{{ sf-name }}**
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
   1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -800,7 +800,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится основной бакет.
-  1. В списке сервисов выберите **{{ objstorage-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя основного бакета.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите необходимые файлы и нажмите кнопку **Открыть**.

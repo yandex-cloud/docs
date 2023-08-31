@@ -5289,10 +5289,16 @@ default:
         switch_list: Кластеры
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-apps:
+        button_install: Установить
+        label_marketplace: Магазин приложений
+        section_resources: Ресурсы приложения
       common:
         add: Добавить
         apply: Применить
         availability: Доступность
+        button_cron-15min: Каждые 15 минут
+        button_cron-1min: Каждую минуту
         button_cron-day: Каждый день
         button_logout: Выйти
         clone: Клонировать
@@ -5312,7 +5318,6 @@ default:
         label_http: HTTP
         label_key: Ключ
         label_list: Список
-        label_seconds_many: секунд
         label_tcp: TCP
         label_udp: UDP
         label_value: Значение
@@ -5398,6 +5403,9 @@ default:
           field_content: Содержимое
           value_manual: Текст
           value_upload: Файл
+        iam-delete-folder-or-cloud-dialog:
+          field_folder-delete-after: Срок удаления каталога
+          label_delete-now: Удалить сейчас
         image-field:
           button_custom-image: Укажите ссылку
         ip-address-form:
@@ -5823,6 +5831,7 @@ default:
             label_audit-trails: Audit Trails
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
+            label_cloud-apps: Cloud Apps
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
@@ -6040,6 +6049,8 @@ default:
           label_key: Ключ
           label_value: Значение
           section_version: Версия
+        label_secret-general-section: Информация о секрете
+        label_secret-id: Идентификатор
         label_secret-versions-section: Версии
         label_section-secrets: Секреты
       logging:
@@ -6424,16 +6435,14 @@ default:
             button_editor-create: Создать в редакторе
             label_all-users-invoke: Публичная функция
             label_invoke-link: Ссылка для вызова
-            label_latest-memory: Память
-            label_latest-timeout: Таймаут
             label_title: Обзор
-            label_title-environment-vars: Переменные окружения
             label_title-history: История версий
             label_title-latest-version: Последняя версия
             label_title-metadata: Общая информация
           switch_editor: Редактор
           switch_logs: Логи
           switch_monitoring: Мониторинг
+          switch_overview: Обзор
           switch_testing: Тестирование
           testing:
             button_run-test: Запустить тест
@@ -6596,6 +6605,7 @@ default:
             field_error: Страница ошибки
             field_http-redirect-code: Код ответа
             field_index: Главная страница
+            field_link: Ссылка
             label_routing-condition: Условие
             label_routing-redirect: Переадресация
             select_condition_prefix: Начало ключа
@@ -6768,12 +6778,20 @@ default:
           label_serverless-type: Serverless
         overview:
           label_database: Размещение базы данных
+          label_document-endpoint: Document API эндпоинт
           label_endpoint: Эндпоинт
           label_title: Обзор
           section_connection: Соединение
         sql:
           button_run: Выполнить
           label_query: Запрос
+        table:
+          form:
+            column_shard: Ключ партицирования
+            field_name: Имя
+            field_type: Тип таблицы
+            label_columns: Колонки
+            label_document-table: Документная таблица
       ymq:
         queue:
           overview:
