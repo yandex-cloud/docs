@@ -1,4 +1,4 @@
-# {{ yandex-cloud }} API for {{ ydb-name }} overview
+# {{ yandex-cloud }} API for {{ ydb-name }}
 
 You can manage {{ ydb-name }} resources using the [{{ yandex-cloud }} API](../../api-design-guide/).
 

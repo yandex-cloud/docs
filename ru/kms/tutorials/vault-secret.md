@@ -49,7 +49,7 @@
     {% endlist %}
 
 1. [Создайте](../operations/key.md#create) отдельный [{{ kms-name}}-ключ](../concepts/key.md) для Vault (рекомендуется).
-1. [Предоставьте доступ](../../iam/operations/roles/grant.md) к ключу только пользователю или сервисному аккаунту, который будет использоваться для аутентификации запросов Vault в {{ kms-short-name }}. Vault при взаимодействии с {{ kms-short-name }} выполняет только операции [шифрования и расшифрования](../concepts/encryption.md), поэтому [роли](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDecrypter` будет достаточно.
+1. [Предоставьте доступ](../../iam/operations/roles/grant.md) к ключу только пользователю или сервисному аккаунту, который будет использоваться для аутентификации запросов Vault в {{ kms-short-name }}. Vault при взаимодействии с {{ kms-short-name }} выполняет только операции [шифрования и расшифрования](../concepts/symmetric-encryption.md), поэтому [роли](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDecrypter` будет достаточно.
 
 
 

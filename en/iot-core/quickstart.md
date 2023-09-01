@@ -1,34 +1,33 @@
 ---
-title: "Getting started with {{ iot-full-name }}"
-description: "In this tutorial, you will learn how to create X509 certificates and configure messaging between devices and registries using {{ iot-full-name }}."
+title: "Getting started with {{ iot-name }} device registries"
+description: "To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Then, set up message exchange between the registry and the device."
 ---
 
-# Getting started with {{ iot-name }}
+# Getting started with {{ iot-name }} device registries
 
-To get started with {{ iot-name }}:
+To start using the {{ iot-name }} service, create the following:
 
-* [Create X.509 certificates](#create-ca).
-* [Create a registry](#create-registry).
-* [Create a device](#create-device).
-* [Configure messaging between them](#exchange).
+1. [X.509 certificates](#create-ca)
+1. [Registry](#create-registry)
+1. [Device](#create-device)
+
+Then, [set up message exchange](#exchange) between the device and the registry.
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or create an account if you do not have one yet.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md).
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ## Create a certificate {#create-ca}
 
-Devices and registries interact using X.509 certificates:
+X.509 certificates enable interaction between MQTT clients: the [registry](concepts/index.md#registry) and [device](concepts/index.md#device). Each of them needs its certificate.
 
-* If you have a certificate, just add it to the device in the registry.
-* If you don't have one, you can create a certificate with [OpenSSL](https://www.openssl.org), for instance:
+* If you have certificates, add them to the MQTT clients. You can do this when creating clients.
+* If you do not have certificates, create them using the [OpenSSL](https://www.openssl.org) program (the command below creates only one certificate):
 
-   ```
+   ```bash
    openssl req -x509 \
    -newkey rsa:4096 \
-     -keyout key.pem \
+     -keyout private-key.pem \
      -out cert.pem \
      -nodes \
      -days 365 \
@@ -37,13 +36,15 @@ Devices and registries interact using X.509 certificates:
 
    Where:
 
-   * `-x509`: X.509 certificate.
-   * `newkey`: Encryption algorithm.
-   * `-keyout`: File to write the private key to.
-   * `-out`: File to save the certificate to.
+   * `-x509`: Certificate type, X.509
+   * `-newkey`: Encryption algorithm
+   * `-keyout`: File with the private key of the certificate
+   * `-out`: File with the public key of the certificate
    * `-nodes`: This flag is set when no public key encryption is required.
-   * `-days`: Certificate validity period in days.
-   * `-subj`: Request object.
+   * `-days`: Certificate validity period in days
+   * `-subj`: Request object
+
+   For each of the MQTT clients, specify different names for files with private and public keys.
 
 ## Create a registry {#create-registry}
 
@@ -51,26 +52,26 @@ Devices and registries interact using X.509 certificates:
 
 - Management console
 
-   To create a registry:
-
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your registry.
-   1. Select **{{ iot-short-name }}**.
-   1. Click **Create registry**.
-   1. Under **General information**, add:
-      * **Name** for the registry, e.g., `my-registry`.
-      * (Optional) **Description** with further information about the registry.
-      * **Password** you will use to access the registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
-      * (Optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
-   1. (Optional) Add [certificates](operations/certificates/create-certificates.md):
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
+   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
+   1. Under **General information**, add `my-registry` as the registry name.
+   1. Add certificates:
+
       * To add a file:
-         1. Choose the **File** method.
-         1. Click **Select file**.
-         1. Specify the certificate file on your computer and click **Open**.
-         1. Click **Add**.
+
+         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Click **Attach file**.
+         1. Select the file with the public key of the certificate and click **Open**.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
       * To add text:
-         1. Choose the **Text** method.
-         1. Insert the certificate body in the **Contents** field.
-         1. Click **Add**.
+
+         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
+         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
    1. Click **Create**.
 
 - CLI
@@ -79,33 +80,38 @@ Devices and registries interact using X.509 certificates:
 
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-   To create a [registry](concepts/index.md#registry):
    1. Run this command:
 
-      ```
+      ```bash
       yc iot registry create --name my-registry
       ```
 
       Result:
 
-      ```
-      id: b91hafek85hpppnbpld2
-      folder_id: aoek49ghmknnpj1ll45e
+      ```text
+      id: b91hafek85**********
+      folder_id: aoek49ghmk*********
       created_at: "2019-05-27T13:40:06.923Z"
       name: my-registry
       ```
+
    1. Add a certificate to the registry:
 
-      ```
+      ```bash
       yc iot registry certificate add \
-        --registry-name my-registry \ # Registry name.
-        --certificate-file ./certs/registry-cert.pem # Path to the public part of the certificate.
+        --registry-name my-registry \
+        --certificate-file registry-cert.pem
       ```
+
+      Where:
+
+           * `--registry-name`: Registry name
+           * `--certificate-file`: Path to the public key of the certificate
 
       Result:
 
-      ```
-      registry_id: b91hafek85hpppnbpld2
+      ```text
+      registry_id: b91hafek85**********
       fingerprint: 589ce16050****
       certificate_data: |
            -----BEGIN CERTIFICATE-----
@@ -122,68 +128,71 @@ Devices and registries interact using X.509 certificates:
 
 - Management console
 
-   To create a device:
-
    1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a device.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. Click **Add device**.
-   1. Under **General information**, add:
-      * **Name** of the device. For example, `my-device`.
-      * (Optional) A **description** with further information about the device.
-      * **Password** you will use to access the device.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password, as you will need it later.
-   1. (Optional) Add [aliases](concepts/topic/usage.md#aliases):
-      1. Click **Add alias**.
-      1. Complete the fields: enter an alias (such as, `events`) and topic type after `$devices/<deviceID>` (such as, `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
-   1. (Optional) Add [certificates](operations/certificates/create-certificates.md):
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select `my-registry` from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
+   1. Under **General information**, add `my-device` as the device name.
+   1. Add certificates:
+
       * To add a file:
-         1. Choose the **File** method.
-         1. Click **Select file**.
-         1. Specify the certificate file on your computer and click **Open**.
-         1. Click **Add**.
+
+         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Click **Attach file**.
+         1. Select the file with the public key of the certificate and click **Open**.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
       * To add text:
-         1. Choose the **Text** method.
-         1. Insert the certificate body in the **Contents** field.
-         1. Click **Add**.
+
+         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
+         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
    1. Click **Create**.
 
 - CLI
 
-   {% include [cli-install](../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
-   To create a [device](concepts/index.md#device):
    1. Run this command:
 
-      ```
+      ```bash
       yc iot device create \
-        --registry-name my-registry \ # Registry name.
-        --name my-device # Device name.
+        --registry-name my-registry \
+        --name my-device
       ```
+
+      Where:
+
+      * `--registry-name`: Name of the registry that the device is part of
+      * `--name`: Device name
 
       Result:
 
-      ```
-      id: b912an77oqaeijolmlgm
-      registry_id: b91hafek85hpppnbpld2
+      ```text
+      id: b912an77oq**********
+      registry_id: b91hafek85**********
       created_at: "2019-05-27T13:44:35.164Z"
       name: my-device
       ```
+
    1. Add a certificate to the device:
 
-      ```
+      ```bash
       yc iot device certificate add \
-        --device-name my-device \ # Device name.
-        --certificate-file ./certs/device-cert.pem # Path to the public part of the certificate.
+        --device-name my-device \
+        --certificate-file ./certs/device-cert.pem
       ```
+
+      Where:
+
+      * `--device-name`: Device name
+      * `--certificate-file`: Path to the public key of the certificate
 
       Result:
 
-      ```
-      device_id: b912an77oqaeijolmlgm
-      fingerprint: 65e5b05006...
+      ```text
+      device_id: b912an77oq**********
+      fingerprint: 65e5b05006***
       certificate_data: |
            -----BEGIN CERTIFICATE-----
            MIIE/jCCAuagAwIBAgIJANZbq...
@@ -193,11 +202,12 @@ Devices and registries interact using X.509 certificates:
 
 {% endlist %}
 
-## Configure messaging between devices and registries {#exchange}
+## Set up message exchange between the device and the registry {#exchange}
 
 Find out how to:
-* [Send a message](operations/publish.md).
+
 * [Subscribe a device or registry to receive messages](operations/subscribe.md).
+* [Send a message](operations/publish.md).
 
 ## What's next {#what-is-next}
 

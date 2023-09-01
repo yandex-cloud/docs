@@ -16,7 +16,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 - Management console
 
-   To create an [internal network load balancer](../concepts/internal-load-balancer.md):
+   To create an [internal network load balancer](../concepts/nlb-types.md):
    1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
    1. In the list of services, select **{{ network-load-balancer-name }}**.
    1. Click **Create a network load balancer**.
@@ -166,7 +166,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -214,7 +214,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
         deletion_protection = "true"
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 
@@ -321,7 +321,7 @@ Create an internal network load balancer with a listener and attached target gro
       }
       ```
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
    1. Make sure the settings are correct.
 

@@ -21,6 +21,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Manually
 
       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+
+      1. If you selected {{ dd }} DB mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
+
       1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
       
@@ -56,14 +59,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          This file describes:
 
-         * [Network](../../vpc/concepts/network.md#network).
-         * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-         * {{ ydb-name }} database.
-         * {{ mkf-name }} target cluster.
-         * {{ KF }} topic.
-         * {{ KF }} user.
-         * Transfer.
+         * [Network](../../vpc/concepts/network.md#network)
+         * [Subnet](../../vpc/concepts/network.md#subnet)
+         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster
+         * {{ ydb-name }} database
+         * {{ mkf-name }} target cluster
+         * {{ KF }} topic
+         * {{ KF }} user
+         * Transfer
 
          The [topic management method](../../managed-kafka/concepts/topics.md#management) is specified in the {{ TF }} `kf_topics_management` variable. It is set when running the `terraform plan` and `terraform apply` commands (see below):
 
@@ -81,7 +84,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_user_password`: User password.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -183,7 +186,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}

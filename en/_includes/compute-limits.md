@@ -117,7 +117,6 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
    | Maximum^5^ bandwidth per VM | 1 GB/s |
 
-
 - High-performance SSD
 
    | Type of limit | Value |
@@ -127,7 +126,6 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^4^ IOPS per VM | 100,000 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
    | Maximum^5^ bandwidth per VM | 1 GB/s |
-
 
 {% endlist %}
 
@@ -180,7 +178,6 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
 
-
 - High-performance SSD
 
    | Type of limit | Value |
@@ -195,7 +192,6 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Maximum^4^ IOPS for reads per allocation unit | 28,000 |
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
-
 
 {% endlist %}
 

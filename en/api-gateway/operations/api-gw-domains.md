@@ -23,15 +23,15 @@ To connect a domain to an API gateway:
       To find out an API gateway's service domain:
 
       1. Go to the [management console]({{ link-console-main }}).
-      1. Select the folder where the API gateway is located, and in the service list, select **API Gateway**.
+      1. Select the folder where the API gateway is located, and in the service list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Select the API gateway.
-      1. You can see the service domain under **General information**.
+      1. You can see the service domain under **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
 
       Domain names must end in a dot.
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
 
-   1. In the list of services, select **Certificate Manager** and:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and:
 
       1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [custom certificate](../../certificate-manager/operations/import/cert-create.md).
 
@@ -45,11 +45,11 @@ To connect a domain to an API gateway:
 
    1. Go back to the folder page.
 
-   1. In the list of services, select **API Gateway** and:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and:
 
       1. Select the API gateway.
-      1. In the window that opens, go to **Domains**.
-      1. Click **Connect**, select a certificate, and enter a domain name (FQDN).
+      1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, select a certificate, and enter a domain name (FQDN).
 
 - API
 

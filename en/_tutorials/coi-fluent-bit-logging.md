@@ -6,7 +6,7 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 1. [Configure Fluent Bit](#fluent-bit).
 1. [Create a VM from a {{ coi }}](#create-vm).
 
-## Getting started
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
 1. [Create a registry](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.

@@ -673,7 +673,7 @@ To set up scaling for your instance group using {{ TF }}:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) (if you are using a [Yandex account](../../iam/concepts/index.md#passport)) or [IAM token](../../iam/concepts/authorization/iam-token.md) (if you are using a Yandex account or [federated account](../../iam/concepts/index.md#saml-federation)) to access {{ yandex-cloud }}. The IAM token is valid for up to 12 hours but no more than the federation's cookie lifetime.
    * `cloud_id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to create resources in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
-   * `username`: Name of the user to be created on the VM. Make up a name yourself.
+   * `username`: Name of the user to be created on the VM. Make up a name.
    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. You can create a key pair by following the [instructions](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create resources:

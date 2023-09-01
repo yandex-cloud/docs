@@ -1,6 +1,6 @@
 # Selecting a Python version
 
-Python 3.8 is used in {{ ml-platform-short-name }} projects by default. To change the version for the project:
+Python 3.10 is used in {{ ml-platform-short-name }} projects by default. To change the version for the project:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.

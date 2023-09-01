@@ -21,12 +21,12 @@ POST https://llm.{{ api-host }}/llm/v1alpha/tokenize
   "text": "string"
 }
 ```
-Tokenization request
+Tokenization request.
  
 Field | Description
 --- | ---
 model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
-text | **string**<br><p>Text for tokenization request</p> 
+text | **string**<br><p>Text for tokenization request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -42,11 +42,11 @@ text | **string**<br><p>Text for tokenization request</p>
   ]
 }
 ```
-Tokenization response
+Tokenization response.
  
 Field | Description
 --- | ---
-tokens[] | **object**<br><p>Sequence of tokens in tokenized text</p> 
-tokens[].<br>id | **string** (int64)<br><p>Internal token id.</p> 
+tokens[] | **object**<br><p>Sequence of tokens in tokenized text.</p> 
+tokens[].<br>id | **string** (int64)<br><p>Internal token ID.</p> 
 tokens[].<br>text | **string**<br><p>Token text representation.</p> 
-tokens[].<br>special | **boolean** (boolean)<br><p>Defines if token is special or not. Special tokens define the behaviour of the model and are not visible for users.</p> 
+tokens[].<br>special | **boolean** (boolean)<br><p>Type of token (special or not special). Special tokens define the behaviour of the model and are not visible for users.</p> 

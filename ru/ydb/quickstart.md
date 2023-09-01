@@ -45,7 +45,7 @@
 
   Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
   1. Создайте базу данных:
@@ -134,7 +134,7 @@
 
      Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 

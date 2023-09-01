@@ -40,9 +40,9 @@ model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum
 generationOptions | **object**<br>Generation options
 generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of the partially generated text.</p> 
 generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness.</p> 
-generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. It is a int number between 1 and 2000.</p> 
+generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. The total length of [instruction_text], [request_text], and ``maxTokens`` should be equal or less than 7400 tokens.</p> 
 messages[] | **object**<br><p>Message history.</p> 
-messages[].<br>role | **string**<br><p>Message sender.</p> 
+messages[].<br>role | **string**<br><p>Identifies who sent message. For message from the LLM model, the mandatory value is "assistant".</p> 
 messages[].<br>text | **string**<br><p>Text of the message.</p> 
 instructionText | **string**<br><p>Text of the instruction.</p> 
  
@@ -58,11 +58,11 @@ instructionText | **string**<br><p>Text of the instruction.</p>
   "numTokens": "string"
 }
 ```
-Contains a model-generated assistant's response for the chat query
+Contains a model-generated assistant's response for the chat query.
  
 Field | Description
 --- | ---
-message | **object**<br><p>Assistant's message</p> <p>Contains description of the message for Chat.</p> 
-message.<br>role | **string**<br><p>Message sender.</p> 
+message | **object**<br><p>Assistant's message.</p> <p>Contains description of the message for Chat.</p> 
+message.<br>role | **string**<br><p>Identifies who sent message. For message from the LLM model, the mandatory value is "assistant".</p> 
 message.<br>text | **string**<br><p>Text of the message.</p> 
-numTokens | **string** (int64)<br><p>Total number of tokens for chat request and chat response</p> 
+numTokens | **string** (int64)<br><p>Total number of tokens for chat request and chat response.</p> 

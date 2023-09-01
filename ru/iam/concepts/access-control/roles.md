@@ -255,6 +255,14 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ iot-full-name }} {#iot-roles}
 
+{% include [iot-admin](../../../_includes/roles-iot-admin.md) %}
+
+{% include [iot-editor](../../../_includes/roles-iot-editor.md) %}
+
+{% include [iot-viewer](../../../_includes/roles-iot-viewer.md) %}
+
+{% include [iot-auditor](../../../_includes/roles-iot-auditor.md) %}
+
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
@@ -264,15 +272,25 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
 
+{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
+
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
 {% include [kms-keys-encrypter](../../../_includes/roles-kms-keys-encrypter.md) %}
 
 {% include [kms-keys-decrypter](../../../_includes/roles-kms-keys-decrypter.md) %}
 
-{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
+{% include [kms-asymmetricEncryptionKeys-publicKeyViewer](../../../_includes/roles-kms-asymmetric-publicKeyViewer.md) %}
+
+{% include [kms-asymmetricSignatureKeys-publicKeyViewer](../../../_includes/roles-kms-asymmetricSignatureKeys-publicKeyViewer.md) %}
+
+{% include [kms-asymmetricSignatureKeys-signer](../../../_includes/roles-kms-asymmetricSignatureKeys-signer.md) %}
+
+{% include [kms-asymmetricEncryptionKeys-decrypter](../../../_includes/roles-kms-asymmetric-decrypter.md) %}
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
+
+{% include [kms-auditor](../../../_includes/roles-kms-auditor.md) %}
 
 ## {{ load-testing-full-name }} {#load-testing-roles}
 

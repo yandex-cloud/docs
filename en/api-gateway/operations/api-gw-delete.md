@@ -6,9 +6,9 @@
 
    To delete an API gateway:
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete an API gateway.
-   1. In the list of services, select **{{ api-gw-name }}**.
-   1. In the API gateway's row, click ![image](../../_assets/options.svg) and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+   1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -104,7 +104,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

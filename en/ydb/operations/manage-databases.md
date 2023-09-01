@@ -2,7 +2,7 @@
 
 In {{ ydb-name }}, you can create a database in two modes: [serverless](../concepts/serverless-and-dedicated.md#serverless) and [dedicated](../concepts/serverless-and-dedicated.md#dedicated), i.e., with dedicated servers.
 
-Using the management console or YC CLI, you can:
+Using the management console or {{ yandex-cloud }} CLI, you can:
 
 * [Create and update parameters of a serverless database](#serverless).
 * [Create and update parameters of a dedicated database](#dedicated).
@@ -30,13 +30,13 @@ Using the management console or YC CLI, you can:
 
    Wait for the database status to change to `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the YC CLI command to create a database:
+   1. View a description of the {{ yandex-cloud }} CLI command to create a database:
 
       ```bash
       yc ydb database create --help
@@ -73,7 +73,7 @@ Using the management console or YC CLI, you can:
       monitoring_config: {}
       ```
 
-   You can [update](#update-db-serverles) any parameter later by running the `update` YC CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
+   You can [update](#update-db-serverles) any parameter later by running the `update` {{ yandex-cloud }} CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
    Every serverless database is created with geographic redundancy in three [availability zones](../../overview/concepts/geo-scope.md).
 
@@ -112,7 +112,7 @@ Using the management console or YC CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
 
    ```bash
    yc ydb database get <DB_name>
@@ -153,13 +153,13 @@ Using the management console or YC CLI, you can:
       1. Under **Pricing**, set the [provisioned capacity](../pricing/serverless.md#prices-ru).
    1. Click **Update database**.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   View a description of the YC CLI command to update a database:
+   View a description of the {{ yandex-cloud }} CLI command to update a database:
 
    ```bash
    yc ydb database update --help
@@ -216,7 +216,7 @@ Using the management console or YC CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will apply the required changes to the resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will apply the required changes to the resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
 
    ```bash
    yc ydb database get <DB_name>
@@ -281,13 +281,13 @@ Using the management console or YC CLI, you can:
 
    Wait for the database status to change to `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the YC CLI command to create a database:
+   1. View a description of the {{ yandex-cloud }} CLI command to create a database:
 
       ```bash
       yc ydb database create --help
@@ -387,7 +387,7 @@ Using the management console or YC CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
 
    ```bash
    yc ydb database list
@@ -433,13 +433,13 @@ Using the management console or YC CLI, you can:
       1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
    1. Click **Update database**.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   View a description of the YC CLI command to update a database:
+   View a description of the {{ yandex-cloud }} CLI command to update a database:
 
    ```bash
    yc ydb database update --help
@@ -487,7 +487,7 @@ Using the management console or YC CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+   You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
 
    ```bash
    yc ydb database get <DB_name>
@@ -504,7 +504,7 @@ Using the management console or YC CLI, you can:
    1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
    1. In the list of services, select **{{ ydb-name }}**.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -529,7 +529,7 @@ Using the management console or YC CLI, you can:
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Delete**.
    1. Confirm the deletion.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -574,7 +574,7 @@ Using the management console or YC CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will delete all the appropriate resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [YC CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will delete all the appropriate resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
 
    ```bash
    yc ydb database list

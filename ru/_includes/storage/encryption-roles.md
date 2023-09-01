@@ -1,0 +1,3 @@
+Для шифрования у пользователя бакета вместе с [ролью](../../storage/security/index.md#storage-configurer) `storage.configurer` должна быть роль для доступа к ключу — `kms.keys.encrypter`. Чтобы расшифровывать объекты, пользователю нужны роли `storage.configurer` и `kms.keys.decrypter` (для чтения ключа шифрования). 
+
+Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).

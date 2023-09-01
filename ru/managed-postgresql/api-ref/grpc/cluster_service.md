@@ -103,6 +103,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -139,6 +140,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -252,6 +262,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access1)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics1)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling1)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig1}
@@ -288,6 +299,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling1}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -374,6 +394,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access2)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics2)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling2)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig2}
@@ -410,6 +431,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling2}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -585,6 +615,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access3)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -667,6 +698,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access3)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling3)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
@@ -703,6 +735,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling3}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -807,6 +848,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access4)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -955,6 +997,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access4)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling4)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
@@ -991,6 +1034,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling4}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -1120,6 +1172,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access5)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling5)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
@@ -1156,6 +1209,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling5}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -1288,6 +1350,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access6)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling6)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
@@ -1324,6 +1387,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling6}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1454,6 +1526,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access7)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling7)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
@@ -1490,6 +1563,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling7}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1577,6 +1659,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access8)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling8)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
@@ -1613,6 +1696,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling8}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### HostSpec {#HostSpec1}
@@ -1729,6 +1821,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access9)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1861,6 +1954,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access9)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling9)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig9}
@@ -1897,6 +1991,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling9}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -2027,6 +2130,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access10)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
+disk_size_autoscaling | **[DiskSizeAutoscaling](#DiskSizeAutoscaling10)**<br>Disk size autoscaling 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig10}
@@ -2063,6 +2167,15 @@ Field | Description
 enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
 sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### DiskSizeAutoscaling {#DiskSizeAutoscaling10}
+
+Field | Description
+--- | ---
+planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}

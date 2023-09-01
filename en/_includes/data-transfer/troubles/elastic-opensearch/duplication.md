@@ -18,4 +18,4 @@ As a result, documents with the identical primary keys are assigned new IDs when
 **Solution:**
 
 1. Set the primary key for one or more columns in the source table or in the endpoint conversion rules.
-1. [Restart](../../../../data-transfer/operations/transfer.md#reupload) the transfer.
+1. [Run](../../../../data-transfer/operations/transfer.md#activate) the transfer.

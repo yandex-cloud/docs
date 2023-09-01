@@ -19,7 +19,7 @@ To migrate the database from Google BigQuery to {{ mch-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Getting started
+## Getting started {#before-you-begin}
 
 To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
@@ -81,7 +81,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
    Where:
 
-   * `<Google Cloud service account>`:[Name of the Google Cloud service account](service-account-name@project-id.iam.gserviceaccount.com), such as `service-account-name@project-id.iam.gserviceaccount.com`.
+   * `<Google Cloud service account>`:[Name of the Google Cloud service account](service-account-name@project-id.iam.gserviceaccount.com) in the format: `service-account-name@project-id.iam.gserviceaccount.com`.
    * `<ID of the Google Cloud project>`: [Project ID in Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
 1. Create a `main.py` script file for data compression and migration:

@@ -480,6 +480,8 @@ master_type | **oneof:** `zonal_master_spec` or `regional_master_spec`<br>
 &nbsp;&nbsp;regional_master_spec | **[RegionalMasterSpec](#RegionalMasterSpec)**<br>Specification of the regional master. 
 locations[] | **[LocationSpec](#LocationSpec)**<br>Locations specification for Kubernetes control-plane (master) instances. Works in conjunction with `etcd_cluster_size`. See it's documentation for details. Possible combinations: <ul><li>1 location and etcd_cluster_size = 1 - a single node cluster whose availability is limited by the availability of a single Compute Instance; downtime is expected during cluster updates. </li><li>1 location and etcd_cluster_size = 3 - a highly available cluster within a single availability zone; can survive the failure of a Compute Instance, a server, or an individual server rack. </li><li>3 location and etcd_cluster_size = 3 - a highly available cluster with each etcd instance located within separate availability zone; can survive the failure of a single availability zone.</li></ul> 
 etcd_cluster_size | **int64**<br>Number of etcd nodes in cluster. Works in conjunction with `locations`. See it's documentation for details. Optional. If not set, will be assumed equal to the number of locations. Value must be equal to 0,1,3.
+external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specification of parameters for external IPv4 networking. 
+external_v6_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specification of parameters for external IPv6 networking. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy2)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
@@ -500,13 +502,6 @@ external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Sp
 Field | Description
 --- | ---
 subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated. 
-
-
-### ExternalAddressSpec {#ExternalAddressSpec}
-
-Field | Description
---- | ---
-address | **string**<br>IP address. 
 
 
 ### RegionalMasterSpec {#RegionalMasterSpec}
@@ -533,6 +528,13 @@ Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the master resides. 
 subnet_id | **string**<br>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
+
+
+### ExternalAddressSpec {#ExternalAddressSpec}
+
+Field | Description
+--- | ---
+address | **string**<br>IP address. 
 
 
 ### MasterMaintenancePolicy {#MasterMaintenancePolicy2}

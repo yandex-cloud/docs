@@ -36,8 +36,8 @@ To create an instance group with a network load balancer:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
 
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-         * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
-         * Specify the disk size.
+         * Select [disk type](../../../compute/concepts/disk.md#disks_types).
+         * Specify disk size.
          * To add more disks, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
          * Choose a [platform](../../../compute/concepts/vm-platforms.md).
@@ -51,8 +51,8 @@ To create an instance group with a network load balancer:
 
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Select a service account to link to the instance.
-         * If you selected a Linux [image](../../concepts/image.md), fill out **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For the key, use the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
-         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if needed.
+         * If you selected a Linux [image](../../concepts/image.md), fill out the fields **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For a key, use the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` if needed.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** field, specify the number of instances you can exceed the group size by.
@@ -397,7 +397,7 @@ To create an instance group with a network load balancer:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 

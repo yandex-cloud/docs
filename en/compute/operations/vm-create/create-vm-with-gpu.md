@@ -12,6 +12,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
 - Management console
 
+
    {% include [create-vm-with-gpu](../../../_includes/compute/create/create-vm-with-gpu-console.md) %}
 
 - CLI
@@ -62,17 +63,17 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
         {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
-        
+
       * `platform`: ID of the [platform](../../concepts/vm-platforms.md):
 
         {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
         
       * `cores`: [The number of vCPUs](../../concepts/gpus.md).
-      * `memory`: Amount of RAM.
-      * `gpus`: Number of GPUs.
+      * `memory`: Amount of RAM
+      * `gpus`: Number of GPUs
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
-        
-        
+
+
       * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
 
         {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
@@ -156,15 +157,15 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
          * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
 
-              
-           {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
-   
-
            
+           {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+
+
+
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
 
            {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
- 
+
 
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
@@ -172,7 +173,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
             {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+         * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
       * `yandex_vpc_subnet`: Description of the subnet your VM will connect to.
 
@@ -188,7 +189,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

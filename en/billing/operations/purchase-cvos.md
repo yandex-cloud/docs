@@ -20,7 +20,7 @@
       {% endnote %}
 
 1. Check the terms of the selected agreement.
-1. Read the agreement. If you agree to the terms, check **By clicking <q>Confirm monthly payments</q>, I have read and accept the Terms**.
+1. Read the agreement. If you agree to the terms, check **By clicking <q>Purchase commitment</q>, I have read and accept the Terms**.
 1. Click **{{ ui-key.yacloud.billing.cud.purchase.button_purchase }}**.
 
 After purchasing the CVoS and starting from its start date, the discount on the use of services is applied automatically. For more information, see [{#T}](../concepts/cvos.md).

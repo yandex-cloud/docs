@@ -12,5 +12,5 @@
 * [Начало работы с {{ TF }} в {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}/).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
-* [Шифрование данных с помощью CLI и API {{ yandex-cloud }}](../../kms/operations/encryption.md).
+* [Шифрование данных с помощью CLI и API {{ yandex-cloud }}](../../kms/operations/symmetric-encryption.md).
 * [{#T}](vault-secret.md)

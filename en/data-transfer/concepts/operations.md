@@ -11,8 +11,8 @@ The history of transfer operations is available on the operations page.
 
 * **Activate** when [activating](../operations/transfer.md#activate) a transfer.
 * **Deactivate** when [deactivating](../operations/transfer.md#deactivate) a transfer.
-* **ReUpload** when [reuploading](../operations/transfer.md#reupload) a transfer.
-* **Restart** when editing the settings of a transfer in the {{ dt-status-repl }} status or the settings of an endpoint of this transfer.
+* **Restart** when editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status.
+* **UpdateTransfer** when editing the settings of the transfer in the {{ dt-status-repl }} status.
 
 ## Operations initiated by a transfer {#transfer-operations}
 

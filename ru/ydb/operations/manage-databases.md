@@ -2,7 +2,7 @@
 
 В сервисе {{ ydb-name }} вы можете создавать базы данных в двух режимах: [бессерверном](../concepts/serverless-and-dedicated.md#serverless) (Serverless) и с [выделенными серверами](../concepts/serverless-and-dedicated.md#dedicated) (Dedicated).
 
-С помощью консоли управления или YC CLI можно:
+С помощью консоли управления или {{ yandex-cloud }} CLI можно:
 
 * [Создать и изменить параметры бессерверной (Serverless) базы данных](#serverless).
 * [Создать и изменить параметры базы данных с выделенными серверами (Dedicated)](#dedicated).
@@ -30,13 +30,13 @@
 
    Дождитесь, когда статус БД изменится на `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды YC CLI для создания БД:
+  1. Посмотрите описание команды {{ yandex-cloud }} CLI для создания БД:
 
       ```bash
       yc ydb database create --help
@@ -73,7 +73,7 @@
       monitoring_config: {}
       ```
 
-  Все параметры можно будет [изменить](#update-db-serverles) в дальнейшем командой `update` YC CLI или в консоли управления. Подробнее см. в разделе [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
+  Все параметры можно будет [изменить](#update-db-serverles) в дальнейшем командой `update` {{ yandex-cloud }} CLI или в консоли управления. Подробнее см. в разделе [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
   Любая создаваемая Serverless БД является георезервированной в трех [зонах доступности](../../overview/concepts/geo-scope.md).
 
@@ -112,7 +112,7 @@
   
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
       
-    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
     ```bash
     yc ydb database get <имя_БД>
@@ -153,13 +153,13 @@
       1. В блоке **Тарификация** задайте [выделенную пропускную способность](../pricing/serverless.md#prices-ru).
   1. Нажмите кнопку **Изменить базу данных**.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Посмотрите описание команды YC CLI для изменения БД:
+  Посмотрите описание команды {{ yandex-cloud }} CLI для изменения БД:
 
   ```bash
   yc ydb database update --help
@@ -216,7 +216,7 @@
   
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} применит требуемые изменения к ресурсам. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+    {{ TF }} применит требуемые изменения к ресурсам. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
     ```bash
     yc ydb database get <имя_БД>
@@ -281,13 +281,13 @@
 
     Дождитесь, когда статус БД изменится на `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды YC CLI для создания БД:
+  1. Посмотрите описание команды {{ yandex-cloud }} CLI для создания БД:
 
       ```bash
       yc ydb database create --help
@@ -387,7 +387,7 @@
   
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+    {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
     ```bash
     yc ydb database list
@@ -433,13 +433,13 @@
       1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](../concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
   1. Нажмите кнопку **Изменить базу данных**.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Посмотрите описание команды YC CLI для изменения БД:
+  Посмотрите описание команды {{ yandex-cloud }} CLI для изменения БД:
 
   ```bash
   yc ydb database update --help
@@ -487,7 +487,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-  Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+  Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
   ```bash
   yc ydb database get <имя_БД>
@@ -504,7 +504,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, для которого нужно получить список БД.
   1. В списке сервисов выберите **{{ ydb-name }}**.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -529,7 +529,7 @@
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
   1. Подтвердите удаление.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -574,7 +574,7 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} удалит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md):
+    {{ TF }} удалит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
     ```bash
     yc ydb database list

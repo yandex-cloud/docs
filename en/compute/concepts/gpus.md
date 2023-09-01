@@ -117,7 +117,7 @@ To use GPU clusters, contact your account manager.
 
 {% note info %}
 
-GPU clusters will become [generally available](../../overview/concepts/launch-stages.md) and billable on September 1st 2023.
+GPU clusters will be [publicly available](../../overview/concepts/launch-stages.md) and charged for starting September 1, 2023.
 
 {% endnote %}
 

@@ -176,7 +176,7 @@
       bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
       bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
       bot.on('text', (ctx) => {
-          ctx.replyWithPhoto('<домен API-шлюза>/sayhello.png');
+          ctx.replyWithPhoto({url: '<домен API-шлюза>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
 
       });
@@ -205,14 +205,14 @@
         "author": "",
         "license": "MIT",
         "dependencies": {
-          "telegraf": "^3.38.0"
+          "telegraf": "^4.12.0"
         }
       }
       ```
 
   1. Укажите следующие параметры:
 
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `nodejs12`;
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `nodejs16`;
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`;
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
 

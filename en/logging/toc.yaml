@@ -61,6 +61,8 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: ExportService
+            href: api-ref/grpc/export_service.md
           - name: LogGroupService
             href: api-ref/grpc/log_group_service.md
           - name: LogIngestionService
@@ -75,6 +77,12 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Export
+            items:
+              - name: Overview
+                href: api-ref/Export/index.md
+              - name: run
+                href: api-ref/Export/run.md
           - name: LogGroup
             items:
               - name: Overview

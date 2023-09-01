@@ -6,10 +6,10 @@ You can create a VM with disks restored from the snapshots that exist in the fol
 
 - Management console
 
-   To create a VM:
+
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** at the top right.
+   1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
       * Enter a name and description for the VM. The naming requirements are as follows:
@@ -38,10 +38,10 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
    
-  1. (optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and connect a [file store](../../concepts/filesystem.md):
+  1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-      * In the window that opens, select a file store.
+      * In the window that opens, select the file storage.
       * Enter the device name.
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 

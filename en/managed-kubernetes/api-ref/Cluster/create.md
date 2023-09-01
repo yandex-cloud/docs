@@ -30,6 +30,12 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
       }
     ],
     "etcdClusterSize": "string",
+    "externalV4AddressSpec": {
+      "address": "string"
+    },
+    "externalV6AddressSpec": {
+      "address": "string"
+    },
     "version": "string",
     "maintenancePolicy": {
       "autoUpgrade": true,
@@ -149,6 +155,10 @@ masterSpec.<br>locations[] | **object**<br><p>Locations specification for Kubern
 masterSpec.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the master resides.</p> 
 masterSpec.<br>locations[].<br>subnetId | **string**<br><p>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.</p> 
 masterSpec.<br>etcdClusterSize | **string** (int64)<br><p>Number of etcd nodes in cluster. Works in conjunction with ``locations``. See it's documentation for details. Optional. If not set, will be assumed equal to the number of locations.</p> <p>Value must be one of 0, 1 or 3.</p> 
+masterSpec.<br>externalV4AddressSpec | **object**<br>Specification of parameters for external IPv6 networking.
+masterSpec.<br>externalV4AddressSpec.<br>address | **string**<br><p>IP address.</p> 
+masterSpec.<br>externalV6AddressSpec | **object**<br>Specification of parameters for external IPv4 networking.
+masterSpec.<br>externalV6AddressSpec.<br>address | **string**<br><p>IP address.</p> 
 masterSpec.<br>version | **string**<br><p>Version of Kubernetes components that runs on the master.</p> 
 masterSpec.<br>maintenancePolicy | **object**<br>Maintenance policy of the master.
 masterSpec.<br>maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br><p>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.</p> 

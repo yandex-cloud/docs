@@ -4,9 +4,11 @@
 
 * получение списка ключей в каталоге;
 * [создание](../kms/operations/key.md#create) и [изменение](../kms/operations/key.md#update) ключа;
-* [шифрование](../kms/operations/encryption.md#encryption) и [расшифровка](../kms/operations/encryption.md#decryption) данных;
+* [шифрование](../kms/operations/symmetric-encryption.md#encryption) и [расшифровка](../kms/operations/symmetric-encryption.md#decryption) данных;
 * [ротация ключа](../kms/operations/key.md#rotate) и [смена основной версии](../kms/operations/version.md#make-primary);
-* [удаление ключей](../kms/operations/key.md#delete) и [удаление версий](../kms/operations/version.md#delete);
+* [удаление ключей](../kms/operations/key.md#delete) шифрования и подписи, [удаление версий](../kms/operations/version.md#delete);
+* отмена удаления ключей;
+* обновление статуса ключа (активный/неактивный);
 * [назначение роли](../iam/operations/roles/grant.md), [отзыв роли](../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ключ.
 
 Эти разрешения также входят в роли `admin` и `resource-manager.clouds.owner`.

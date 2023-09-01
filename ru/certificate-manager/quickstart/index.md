@@ -25,12 +25,12 @@
     - Консоль управления
     
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-        1. Выберите сервис **{{ objstorage-name }}**. 
-        1. Нажмите кнопку **Создать бакет**.
+        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
+        1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Введите имя бакета в точности совпадающее с именем домена.
-        1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) **Публичный**.
+        1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
         1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
-        1. Нажмите кнопку **Создать бакет** для завершения операции.
+        1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
      
     {% endlist %}
     
@@ -40,11 +40,11 @@
     
     - Консоль управления
     
-        1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-name }}**.
-        1. На вкладке **Бакеты** нажмите на бакет с именем домена.
-        1. В левой панели выберите пункт **Веб-сайт**.
-        1. Выберите раздел **Хостинг** и укажите главную страницу сайта.
-        1. Нажмите кнопку **Сохранить** для завершения операции.
+        1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
+        1. В панели слева выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+        1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** и укажите главную страницу сайта.
+        1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
     
     {% endlist %}
     
@@ -64,14 +64,14 @@
 - Консоль управления
     
     1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите сервис **{{ certificate-manager-name }}**.
-    1. Нажмите кнопку **Добавить сертификат**.
-    1. В открывшемся меню выберите **Сертификат от Let's Encrypt**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+    1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
     1. В открывшемся окне задайте имя сертификата.    
     1. (Опционально) Добавьте описание сертификату.
-    1. В поле **Домены** укажите домены, для которых нужно выпустить сертификат.
-    1. Выберите [тип проверки](../concepts/challenges.md) прав на домен `HTTP`. 
-    1. Нажмите кнопку **Создать**.
+    1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите домены, для которых нужно выпустить сертификат.
+    1. Выберите [тип проверки](../concepts/challenges.md) прав на домен `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`. 
+    1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
 {% endlist %}
 
@@ -79,13 +79,13 @@
 
 1. Создайте файл для прохождения проверки:
     1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите сервис **{{ certificate-manager-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
-    1. В блоке **Проверка прав на домены**:
-        1. Скопируйте ссылку из поля **Ссылка для размещения файла**:
+    1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
+        1. Скопируйте ссылку из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
             * Часть ссылки вида `http://example.com/.well-known/acme-challenge/` — это путь для размещения файла.
             * Вторая часть ссылки `rG1Mm1bJ...` — это имя файла, которое вам необходимо использовать.
-        1. Скопируйте содержимое файла из поля **Содержимое**. 
+        1. Скопируйте содержимое файла из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}**. 
 1. Загрузите созданный файл в бакет, так чтобы он располагался в папке `.well-known/acme-challenge`:
     
     {% list tabs %}
@@ -127,13 +127,13 @@
 - Консоль управления
     
     1. Войдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. На вкладке **Бакеты** нажмите на бакет с именем домена.
-    1. Перейдите на вкладку **HTTPS**.
-    1. В отобразившейся панели справа нажмите кнопку **Настроить**.
-    1. В поле **Источник** выберите **{{ certificate-manager-name }}**.
-    1. В поле **Сертификат** выберите сертификат в появившемся списке. 
-    1. Нажмите кнопку **Сохранить**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** выберите сертификат в появившемся списке. 
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 {% endlist %}
 

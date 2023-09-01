@@ -32,7 +32,7 @@ vpc:
   vpc_net_id: enpdffqsg8r221d7vjq5
   vpc_subnets:
     {{ region-id }}-a: [10.60.192.0/21]
-    {{ region-id }}-b: [10.60.200.0/21]
+    {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
     {{ region-id }}-c: [10.60.208.0/20]
 ```
 
@@ -43,7 +43,7 @@ Where:
 * `peering_subnet`: [Point-to-point subnet](../../interconnect/concepts/priv-con.md#priv-address) for BGP peering, This value is selected by the customer.
 * `peer_ip`: IP address of the point-to-point (peering) subnet on the customer's equipment. This value is selected by the customer.
 * `cloud_ip`: IP address of the point-to-point (peering) subnet on the {{ yandex-cloud }} equipment. This value is selected by the customer.
-* `peer_bgp_asn`: [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment. This value is selected by the customer.
+* `peer_bgp_asn`: [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment in ASPlain format. This value is selected by the customer.
 * `cloud_id`, `folder_id`, `vpc_net_id`: IDs for the location of the {{ vpc-full-name }} network with resources this private connection can connect to.
 * `vpc_subnets`: List of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). The resources in these subnets will only be accessible via this private connection. These prefixes will be announced over BGP by the {{ yandex-cloud }} equipment in the direction towards the customer's equipment.
 

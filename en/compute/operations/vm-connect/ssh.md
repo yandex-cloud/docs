@@ -1,6 +1,7 @@
 # Connecting to a Linux VM via SSH
 
-The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH is based on using a key pair: the public key is placed on the VM and the private key is stored on the user's device. Connecting with a key pair is more secure than doing so with a username and password.
+The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH uses a key pair: the public key is placed on the VM and the private key is stored on the user device. To enable another user to connect to your VM, add an SSH key for them by following this [guide](#vm-authorized-keys). Connecting with a key pair is more secure than doing so with a username and password.
+
 
 ## Creating an SSH key pair {#creating-ssh-keys}
 

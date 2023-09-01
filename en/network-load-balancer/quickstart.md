@@ -8,7 +8,7 @@ Create a network load balancer with a [listener](concepts/listener.md), attach a
 
 1. Log in to or register in the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
 1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md).
+1. If you do not have any folders yet, [create one](../resource-manager/operations/folder/create.md).
 1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to the network load balancer. For testing, you can use inexpensive [preemptible VMs](../compute/concepts/preemptible-vm.md).
 
 ## Create a target group {#create-target-group}
@@ -102,4 +102,4 @@ Then [delete the target group](operations/target-group-delete.md) and [VMs](../c
 ## What's next {#what-is-next}
 
 * Learn more about how [network load balancers](concepts/index.md) work.
-* See our [recommendations](best-practices/index.md) for working with load balancers.
+* See our [recommendations](concepts/best-practices.md) on deploying a network load balancer.

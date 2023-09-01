@@ -1,4 +1,4 @@
-If you have your own corporate networks connected to internal [networks](../../vpc/concepts/network.md#network) in your {{ yandex-cloud }} [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) via [{{ interconnect-full-name }}](../../interconnect/), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by their name, regardless of their location, both in corporate and cloud networks.
+If you have your own corporate networks connected to internal [networks](../../vpc/concepts/network.md#network) in your {{ yandex-cloud }} [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) via [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by name, regardless of their location, both in corporate and cloud networks.
 
 You cannot delegate DNS record management in [private zones](../../dns/concepts/dns-zone.md#private-zones) in {{ yandex-cloud }} to your DNS servers in the corporate network, because NS records are ignored for private DNS zones. To ensure domain name recognition for cloud network services and resources in private zones, configure separate DNS forwarders in your cloud subnets. _DNS forwarders_ are DNS servers that redirect requests differently depending on the name specified in the request.
 
@@ -48,10 +48,10 @@ Next, you need to set up two DNS forwarders in the cloud network:
 
 They will redirect DNS requests as follows:
 
-* Requests to the `corp.example.net` zone: Via corporate DNS servers `172.16.1.5` and `172.16.2.5`.
-* All other requests (to the `.` zone): Via internal {{ yandex-cloud }} DNS servers to the corresponding subnets: `172.16.3.2` and `172.16.4.2`.
+* Requests to the `corp.example.net` zone: Via corporate DNS servers, `172.16.1.5` and `172.16.2.5`.
+* All other requests (to the `.` zone): Via internal {{ yandex-cloud }} DNS servers to the corresponding subnets, `172.16.3.2` and `172.16.4.2`.
 
-To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md) {{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
+To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) {{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
 
 ## Getting started {#before-you-begin}
 
@@ -78,6 +78,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
+
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or a static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
@@ -269,7 +270,7 @@ When you create a load balancer, it is automatically assigned an IP address from
 
 {% note info %}
 
-The internal network load balancer will not respond to DNS requests from forwarders that make up its target group: `forwarder1` and `forwarder2`. This has to do with its implementation. For more information, see [{#T}](../../network-load-balancer/concepts/internal-load-balancer.md).
+The internal network load balancer will not respond to DNS requests from forwarders that make up its target group: `forwarder1` and `forwarder2`. This is due to its implementation. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
 
 {% endnote %}
 

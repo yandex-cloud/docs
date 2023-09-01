@@ -54,9 +54,7 @@ Our recommendation is to avoid using a non-replicated disk as your boot drive. T
 
 {% endnote %}
 
-
 If you need enhanced performance and guaranteed fault tolerance, we recommend using high-performance SSDs. Currently, high-performance SSDs have the same limitations on creating images and snapshots as non-replicated disks. We will soon add support for creating snapshots with write freeze and, moving forward, full-featured snapshots with no write freeze.
-
 
 ## Maximum disk size {#maximum-disk-size}
 

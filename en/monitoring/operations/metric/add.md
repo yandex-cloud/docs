@@ -2,7 +2,7 @@
 
 To start writing custom metrics via the API, use the [write](../../api-ref/MetricsData/write.md) method.
 
-### Before you start {#before-you-begin}
+### Getting started {#before-you-begin}
 
 To try the examples in this section:
 

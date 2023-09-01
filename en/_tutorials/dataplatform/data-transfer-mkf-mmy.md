@@ -48,15 +48,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          This file describes:
 
-         * [Network](../../vpc/concepts/network.md#network).
-         * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mmy-name }} clusters.
-         * {{ mkf-name }} source cluster.
-         * {{ KF }} topic named `sensors`.
-         * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic.
-         * {{ mmy-name }} target cluster with the `db1` database and the `mmy-user` user.
-         * Target endpoint.
-         * Transfer.
+         * [Network](../../vpc/concepts/network.md#network)
+         * [Subnet](../../vpc/concepts/network.md#subnet)
+         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mmy-name }} clusters
+         * {{ mkf-name }} source cluster
+         * {{ KF }} topic named `sensors`
+         * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic
+         * {{ mmy-name }} target cluster with the `db1` database and the `mmy-user` user
+         * Target endpoint
+         * Transfer
 
       1. In the `data-transfer-mkf-mmy.tf` file, specify the variables:
 
@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_user_password`: Password of `mmy-user` in the target cluster.
          * `transfer_enabled`: Set `0` to ensure that no transfer and target endpoint is created before you [manually create a source endpoint](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -101,7 +101,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the test data {#prepare-data}
 
-Let's assume the {{ KF }} `sensors` topic in the source cluster receive data from car sensors in JSON format.
+Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
 
 Create a local `sample.json` file with the following test data:
 
@@ -237,7 +237,7 @@ Create a local `sample.json` file with the following test data:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the user password.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    - Using {{ TF }}
