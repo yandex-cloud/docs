@@ -12,10 +12,10 @@ Make sure the uploaded image is in the `READY` status.
 
 - Management console
 
-   To create a VM:
+
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** at the top right.
+   1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
       * Enter a name and description for the VM. The naming requirements are as follows:

@@ -21,8 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources includes:
-* A fee for using the VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* A fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for using VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Download a project {#download}
 
@@ -38,12 +38,12 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
-   1. Go to the **Service accounts** tab.
-   1. Click **Create service account**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the service account name: `service-account-for-budget`.
-   1. Click **Add role** and assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `serverless.functions.invoker` roles.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `serverless.functions.invoker` roles.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -140,23 +140,23 @@ zip src.zip index.go go.mod
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Create a function:
-      1. Click **Create function**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. Enter the function name: `function-for-budget`.
-      1. Click **Create**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
    1. Create the function version:
-      1. Select the `golang119` runtime environment, disable the **Add files with code examples** option, and click **Continue**.
-      1. Specify the **ZIP archive** upload method and select the archive created in the previous step.
+      1. Select `golang119` as the runtime environment, enable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the archive created in the previous step.
       1. Specify the `index.StopComputeInstances` entry point.
-      1. Under **Parameters**, specify:
-         * **Timeout**: 5 seconds.
-         * **RAM**: 512 MB.
-         * **Service account**: `service-account-for-budget`.
-         * **Environment variables**:
-            * `FOLDER_ID`: The ID of the folder to stop the VM instances in.
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
+         * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-timeout }}**: `5 {{ ui-key.yacloud.common.label_seconds_many }}`.
+         * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}**: `service-account-for-budget`.
+         * **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-environment-vars }}**:
+            * `FOLDER_ID`: ID of the folder to stop the VM instances in.
             * `TAG`: `target-for-stop`.
-      1. Click **Create version**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_create }}**.
 
 - CLI
 
@@ -192,13 +192,13 @@ zip src.zip index.go go.mod
       ```
 
       Where:
-      * `--function-name`: The name of the function you're creating a version of.
-      * `--memory`: The amount of RAM.
-      * `--execution-timeout`: The maximum function execution time before the timeout is reached.
-      * `--runtime`: The runtime environment.
+      * `--function-name`: Name of the function a version of which you are creating.
+      * `--memory`: Amount of RAM.
+      * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+      * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
-      * `--service-account-id`: The ID of the `service-account-for-budget`.
-      * `--environment`: Environment variables. `FOLDER_ID`: The ID of the folder to stop the VM instances in.
+      * `--service-account-id`: ID of the `service-account-for-budget`.
+      * `--environment`: Environment variables. `FOLDER_ID`: ID of the folder to stop the VM instances in.
       * `--source-path`: Path to the `src.zip` archive.
 
       Result:
@@ -242,24 +242,24 @@ The user can create a budget if they have the `editor` role. To get notification
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account and function.
-   1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
-   1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
-   1. On the **List of accounts** page, select a billing account.
-   1. Go to the **Budgets** tab and click **Create budget**.
-   1. Under **General information**, specify:
+   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. On the **{{ ui-key.yacloud.billing.account.label_accounts }}** page, select a billing account.
+   1. Go to the **{{ ui-key.yacloud.billing.account.switch_budgets }}** tab and click **{{ ui-key.yacloud.billing.account.budgets.button_create }}**.
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, specify:
       * Budget name: `vm-budget`.
-      * Budget type: **Due and payable**.
-      * The spending limit.
-      * Calculation period: **Monthly**.
-      * The budget end date. The end date defines when the budget stops calculating usage and sending notifications. The end date is the last day of a month. It must be no more than five years from the current date.
+      * Budget type: `{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}`.
+      * Total usage cost.
+      * Calculation period: `{{ ui-key.yacloud.billing.account.budgets.reset-period_value_monthly }}`.
+      * Budget end date. The end date is when the budget stops calculating usage and sending notifications. The end date is the last day of the month. This date must be within five years from the current date.
       * Th users to be notified when the threshold values are reached.
-   1. Under **Scope**, select the current folder and the **{{ compute-name }}** service.
-   1. Under **Thresholds**, set the threshold values as a percentage, upon reaching which:
-      * The specified users will get notifications.
+   1. Under **{{ ui-key.yacloud.billing.account.budgets.section_scope }}**, select the current folder and the **{{ compute-name }}** service.
+   1. Under **{{ ui-key.yacloud.billing.account.budgets.label_limits }}**, set the threshold values as a percentage, upon reaching which:
+      * Specified users will get notifications.
       * The trigger for budgets will fire.
 
-      For example, you can set two thresholds: 50% and 100%.
-   1. Click **Create**.
+      For example, you can set two thresholds: `50%` and `100%`.
+   1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
 - API
 
@@ -275,26 +275,26 @@ The user can create a budget if they have the `editor` role. To get notification
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account, function, and budget.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter the trigger name: `vm-stop-trigger`.
-      * In the **Type** field, select **Budget**.
-      * In the **Launched resource** field, select **Function**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-   1. Under **Budget settings**, select your billing account and the `vm-budget` you created in the previous step.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and the `vm-budget` you created in the previous step.
 
-   1. Under **Function settings**, select the `function-for-budget` function and specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `function-for-budget` function and specify:
 
       * [Tag of the function version](../../functions/concepts/function.md#tag). The default tag is `$latest`.
       * Service account: `service-account-for-budget`. It will be used to invoke the function.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -370,7 +370,7 @@ The user can create a budget if they have the `editor` role. To get notification
       * `--zone`: Availability zone that corresponds to the selected subnet.
       * `--subnet-name`: Name of the selected subnet.
       * `--nat-ip-version`: Public IP.
-      * `image-family`: [Family of images](../../compute/concepts/image#family). This option lets you install the latest version of the operating system from the specified family.
+      * `image-family`: [Family of images](../../compute/concepts/image#family). This option allows you to install the latest version of the operating system from the specified family.
       * `--ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key. [How to create an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
       Result:
@@ -427,9 +427,9 @@ Similarly, create two more VM instances: `target-instance-2` and `target-instanc
 
 Wait until the threshold values that you specified in the budget are reached. Check that the trigger for budgets has invoked the function and `target-instance-1` and `target-instance-2` have stopped.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger for budgets.
 1. [Delete](../../functions/operations/function/function-delete.md) the function.

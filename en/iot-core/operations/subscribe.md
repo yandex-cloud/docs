@@ -279,7 +279,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
 
 {% endlist %}
 
-## Subscribe to broker topics
+## Subscribe to broker topics {#broker}
 
 When using a broker, you can subscribe to a random topic using your username and password or any certificate assigned to the broker for authorization.
 
@@ -303,7 +303,7 @@ When using a broker, you can subscribe to a random topic using your username and
       - `--topic`: Random topic name that conforms to the MQTT specification and does not start with `$`.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-   - Send a message using certificate-based authorization:
+   - Subscribe to the topic using certificate-based authorization:
 
       ```
       yc iot mqtt subscribe \
@@ -316,7 +316,7 @@ When using a broker, you can subscribe to a random topic using your username and
       Where:
 
       - `--cert` and `--key`: Parameters for authorization using a certificate.
-      - `--topic`: A random topic name that conforms to the MQTT specification and doesn't start with `$`.
+      - `--topic`: Random topic name that conforms to the MQTT specification and does not start with `$`.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}

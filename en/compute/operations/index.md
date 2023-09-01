@@ -100,6 +100,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 ## Disk placement groups {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
+* [{#T}](disk-placement-groups/add-disk.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
 

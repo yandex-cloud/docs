@@ -2,11 +2,11 @@
 
 **Do not** use {{ dns-full-name }} directly for requesting external domain names.
 
-Instead, install and configure a local caching DNS resolver like `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, reduce their number, and [save you money](../../dns/pricing.md#public-dns-requests).
+Instead, install and configure a local caching DNS resolver, such as `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, reduce their number, and [save you money](../../dns/pricing.md#public-dns-requests).
 
 If Ubuntu 18.04 LTS or higher is installed on your VM, it already has the `systemd-resolved` service by default and no additional installation and setup is required. For more information, see [systemd-resolved](#systemd-resolved).
 
-If you're using an older version of Ubuntu, such as [16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), you need to install a caching DNS resolver yourself. We recommend `dnsmasq` or `unbound`. For more information, see [Alternative resolvers](#alternate-resolvers).
+If you are using an older version of Ubuntu, such as [16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), you need to install a caching DNS resolver yourself. We recommend `dnsmasq` or `unbound`. For more information, see [Alternative resolvers](#alternate-resolvers).
 
 ## systemd-resolved in Ubuntu 18.04+ {#systemd-resolved}
 
@@ -30,7 +30,7 @@ Link 2 (eth0)
                       auto.internal
 ```
 
-If the configuration is correct, the `Current DNS Server:` line in the command output will show the {{ dns-full-name }} server address — the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
+If the configuration is correct, the `Current DNS Server:` line in the command output will show the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
 
 You can use the `dig` utility to make sure that external DNS names are resolved by the `127.0.0.53#53` DNS server.
 
@@ -117,7 +117,7 @@ Configuration parameters are given as an example. For information about how to s
       bind-interfaces
       ```
 
-   1. Restart `dnsmasq` to apply the new settings. Check that the `dnsmasq` service status changed to `active (running)` and there is the `Started dnsmasq.service` line at the end of the service log:
+   1. Restart `dnsmasq` to apply the new settings. Check that the `dnsmasq` service status changed to `active (running)` and there is a line saying `Started dnsmasq.service` at the end of the service log:
 
       ```
       sudo systemctl restart dnsmasq.service
@@ -135,7 +135,7 @@ Configuration parameters are given as an example. For information about how to s
       Oct 28 22:39:58 <...> systemd[1]: Started dnsmasq - A lightweight DHCP and caching DNS server.
       ```
 
-      Also pay attention to the address in the `using nameserver <...>`. It should specify the {{ dns-full-name }} server address — the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
+      Also pay attention to the address in the `using nameserver <...>` line. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
 
    1. Use `dig` to check that external DNS names are resolved successfully:
 
@@ -163,7 +163,7 @@ Configuration parameters are given as an example. For information about how to s
       sudo apt-get install unbound dnsutils -y
       ```
 
-   1. Specify the server settings at the end of the global configuration file `/etc/unbound/unbound.conf` or in a separate configuration file named `/etc/unbound/unbound.conf.d/<file name>.conf`:
+   1. Specify the server settings at the end of the `/etc/unbound/unbound.conf` global configuration file or in a separate configuration file named `/etc/unbound/unbound.conf.d/<file name>.conf`:
 
       ```
       server:

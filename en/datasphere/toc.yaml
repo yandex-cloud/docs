@@ -19,6 +19,8 @@ items:
             href: operations/community/add-user.md
           - name: Community label management
             href: operations/community/manage-community-labels.md
+          - name: Community configuration management
+            href: operations/community/manage-community-config.md
           - name: Adding a communication channel
             href: operations/community/link-channel.md
           - name: Linking a billing account

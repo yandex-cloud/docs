@@ -51,22 +51,22 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который будет добавлен пользовательский сертификат.
-  1. В списке сервисов выберите **{{ certificate-manager-name }}**.
-  1. Нажмите кнопку **Добавить сертификат**.
-  1. В открывшемся меню выберите **Пользовательский сертификат**.
-  1. В открывшемся окне в поле **Имя** введите имя пользовательского сертификата.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+  1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_import }}**.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя пользовательского сертификата.
   1. (Опционально) В поле **Описание** введите описание пользовательского сертификата.
-  1. В поле **Сертификат** нажмите кнопку **Добавить сертификат**.
-     1. Выберите способ добавления **Файл**.
-     1. Нажмите кнопку **Выбрать файл**.
+  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
+     1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+     1. Нажмите кнопку **Прикрепить файл**.
         1. В открывшемся окне выберите файл самоподписанного сертификата`cert.pem`.
-     1. Нажмите кнопку **Добавить**.
-  1. В поле **Приватный ключ** нажмите кнопку **Добавить приватный ключ**.
-     1. Выберите способ добавления **Файл**.
-     1. Нажмите кнопку **Выбрать файл**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
+     1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+     1. Нажмите кнопку **Прикрепить файл**.
         1. В открывшемся окне выберите файл приватного ключа `key.pem`.
-     1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -97,8 +97,8 @@
      Результат выполнения команды:
 
      ```bash
-     id: fpqmg47avvimp7rvmp30
-     folder_id: b1g7gvsi89m34qmcm3ke
+     id: fpqmg47avvim********
+     folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T06:54:44.916325Z"
      ...
      issued_at: "2020-09-15T06:54:44.916325Z"

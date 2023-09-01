@@ -22,12 +22,21 @@ description: "Управление доступом облачного MQTT-се
 
 ### Сервисные роли {#service-roles}
 
-Роль | Разрешения
------ | -----
-`resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
-`resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
-`iot.devices.writer` | Роль для отправки gRPC-сообщений в {{ iot-short-name }} от имени устройства.
-`iot.registries.writer` | Роль для отправки gRPC-сообщений в {{ iot-short-name }} от имени реестра.
+{% include [resource-manager.clouds.member](../../_includes/roles-resource-manager-clouds-member.md) %}
+
+{% include [resource-manager.clouds.owner](../../_includes/roles-resource-manager-clouds-owner.md) %}
+
+{% include [iot-admin](../../_includes/roles-iot-admin.md) %}
+
+{% include [iot-editor](../../_includes/roles-iot-editor.md) %}
+
+{% include [iot-viewer](../../_includes/roles-iot-viewer.md) %}
+
+{% include [iot-auditor](../../_includes/roles-iot-auditor.md) %}
+
+{% include [iot-devices-writer](../../_includes/roles-iot-devices-writer.md) %}
+
+{% include [iot-registries-writer](../../_includes/roles-iot-registries-writer.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 

@@ -3,7 +3,10 @@
 * {% include [Field CLI User](../../fields/common/cli/username.md) %}
 * {% include [Field CLI Security Group](../../fields/common/cli/security-group.md) %}
 
-* To set a user password to access the database, use one of the parameters:
+   Make sure the specified security groups are [configured](../../../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+
+* To set a user password to access the DB, use one of the following parameters:
 
     * {% include [Field CLI Raw Password](../../fields/common/cli/raw-password.md) %}
     * {% include [Field CLI Password File](../../fields/common/cli/password-file.md) %}

@@ -22,6 +22,8 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ## Which roles exist in the service {#roles-list}
 
+{% include [data-transfer-auditor](../../_includes/iam/roles/data-transfer-auditor.md) %}
+
 {% include [data-transfer-viewer](../../_includes/iam/roles/data-transfer-viewer.md) %}
 
 {% include [data-transfer-privateadmin](../../_includes/iam/roles/data-transfer-privateadmin.md) %}

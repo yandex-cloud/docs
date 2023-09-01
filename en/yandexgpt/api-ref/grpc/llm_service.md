@@ -27,10 +27,10 @@ Field | Description
 model | **string**<br>Possible value for now: `general`. The maximum string length in characters is 50.
 generation_options | **[GenerationOptions](#GenerationOptions)**<br>Generation options 
 Instruction | **oneof:** `instruction_text` or `instruction_uri`<br>Text precondition or context of the request. For example, the instruction is "You are the youngest Nobel laureate", the request text is "Tell us about your daily routine".
-&nbsp;&nbsp;instruction_text | **string**<br>Text of the instruction. The total length of `instruction_text` and `request_text` should be equal or less to 2500 tokens. 
+&nbsp;&nbsp;instruction_text | **string**<br>Text of the instruction. The total length of `instruction_text`, `request_text`, and [max_tokens] should be equal or less than 7400 tokens. 
 &nbsp;&nbsp;instruction_uri | **string**<br>Text precondition or context of the request. For example, the instruction is "You are the youngest Nobel laureate", the request text is "Tell us about your daily routine". 
 Request | **oneof:** `request_text`<br>Request
-&nbsp;&nbsp;request_text | **string**<br>Text of the instruction. The total length of `instruction_text` and `request_text` should be equal or less to 2500 tokens. 
+&nbsp;&nbsp;request_text | **string**<br>Text of the instruction. The total length of `instruction_text`, `request_text`, and [max_tokens] should be equal or less than 7400 tokens. 
 
 
 ### GenerationOptions {#GenerationOptions}
@@ -39,7 +39,7 @@ Field | Description
 --- | ---
 partial_results | **bool**<br>Enables streaming of the partially generated text. 
 temperature | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness. 
-max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets response limit in tokens. It is a int number between 1 and 2000. 
+max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets response limit in tokens. The total length of [instruction_text], [request_text], and `max_tokens` should be equal or less than 7400 tokens. 
 
 
 ### InstructResponse {#InstructResponse}
@@ -82,14 +82,14 @@ Field | Description
 --- | ---
 partial_results | **bool**<br>Enables streaming of the partially generated text. 
 temperature | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness. 
-max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets response limit in tokens. It is a int number between 1 and 2000. 
+max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets response limit in tokens. The total length of [instruction_text], [request_text], and `max_tokens` should be equal or less than 7400 tokens. 
 
 
 ### Message {#Message}
 
 Field | Description
 --- | ---
-role | **string**<br>Message sender. 
+role | **string**<br>Identifies who sent message. For message from the LLM model, the mandatory value is "assistant". 
 text | **string**<br>Text of the message. 
 
 
@@ -97,7 +97,7 @@ text | **string**<br>Text of the message.
 
 Field | Description
 --- | ---
-message | **[Message](#Message1)**<br>Assistant's message 
-num_tokens | **int64**<br>Total number of tokens for chat request and chat response 
+message | **[Message](#Message1)**<br>Assistant's message. 
+num_tokens | **int64**<br>Total number of tokens for chat request and chat response. 
 
 

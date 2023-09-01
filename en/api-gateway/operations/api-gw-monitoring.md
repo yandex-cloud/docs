@@ -16,12 +16,12 @@ The chart update period is 15 seconds.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-   1. Select **{{ api-gw-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Select the API gateway whose monitoring charts you want to view.
-   1. Go to the **Monitoring** tab.
-   1. The following charts open on the page:
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_monitoring }}** tab.
+   1. The following charts will open on the page:
 
-      * **Requests**: The number of API gateway requests.
+      * **Requests**: Number of API gateway requests.
 
       * **Errors**: The number of API gateway access errors.
 

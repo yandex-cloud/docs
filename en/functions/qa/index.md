@@ -15,11 +15,11 @@ To create a [function](../concepts/function.md) version from a ZIP file, execute
 yc serverless function version create --source-path
 ```
 
-For more about downloading the code, read the instructions on [{#T}](../../functions/operations/function/version-manage.md).
+You can learn more about downloading the code in the guide on [{#T}](../../functions/operations/function/version-manage.md).
 
-#### What size should the archive with the source code be to upload to {{ sf-name }} {#file-size}
+#### Size of source code archive for uploading to {{ sf-name }} {#file-size}
 
-You can upload a file up to 3.5 MB in size directly. A larger file must be [uploaded via {{ objstorage-full-name }}](../../storage/operations/objects/upload.md). For more see the [documentation](../../functions/operations/function/version-manage.md).
+You can upload a file up to 3.5 MB in size directly. A larger file must be [uploaded via {{ objstorage-full-name }}](../../storage/operations/objects/upload.md). You can learn more in the [documentation](../../functions/operations/function/version-manage.md).
 
 #### I am not the owner of the cloud, but I have been granted access. What rights/roles do I need to be able to publish a feature? {#roles}
 
@@ -36,3 +36,7 @@ You can upload modules as a ZIP file up to 3.5 MB in size. A larger file must be
 #### Invoking cloud functions for Alice's skills is free. If I invoke another one of my cloud functions from a skill cloud function? Will that be free as well? {#alice-pricing}
 
 Such calls will be charged per the [{#T}](../pricing.md).
+
+#### I want to increase my quotas. How do I determine the appropriate values for them? {#quotas}
+
+For more information on which quotas to increase and to what extent, see [{#T}](../concepts/limits.md#related-quotas).

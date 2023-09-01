@@ -31,14 +31,14 @@
 Для прохождения процедуры проверки прав на домен `example.com`:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
-1. В списке сервисов выберите **{{ certificate-manager-name }}** и нажмите на имя нужного сертификата.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и нажмите на имя нужного сертификата.
 1. Создайте файл с расширением `.html`:
 
-    1. Из поля **Содержимое** в блоке **Проверка прав на домены** на странице сертификата скопируйте текст и вставьте его в файл:
+    1. Из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** на странице сертификата скопируйте текст и вставьте его в файл:
 
         > 6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.sifhsdf778s98asAsa897da98sda
 
-    1. Сохраните файл под именем, которое содержится в части ссылки в поле **Ссылка для размещения файла**:
+    1. Сохраните файл под именем, которое содержится в части ссылки в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
         * `http://example.com/.well-known/acme-challenge/` — путь размещения файла.
         * `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8` — имя файла.
 
@@ -70,9 +70,9 @@
 
 Для автоматического прохождения проверки прав на домен `example.com`:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
-1. В списке сервисов выберите **{{ certificate-manager-name }}**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. В списке сертификатов выберите сертификат, который участвует в проверке.
-1. В разделе **Проверка прав на домены**, в блоке с типом записи `CNAME`, в поле **Значение**, посмотрите значение записи для домена.
+1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `CNAME`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}**, посмотрите значение записи для домена.
 1. Разместите у своего DNS-провайдера или на собственном [DNS-сервере](../../glossary/dns.md#dns-server) `CNAME`-запись для делегирования прав управления на DNS-зону, используемую для проверки:
 
    ```
@@ -80,9 +80,9 @@
    ```
    Строка `<Значение>` формируется по шаблону `<Идентификатор сертификата>.cm.yandexcloud.net.`
 
-1. В разделе **Проверка прав на домены**, в блоке с типом записи `CNAME`, в поле **Cloud DNS**, нажмите кнопку **Создать запись**. В открывшемся окне:
-   1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **Зона**. Если подходящей зоны DNS нет, нажмите **Создать зону** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
-   1. Нажмите кнопку **Создать**.
+1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `CNAME`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}**, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. В открывшемся окне:
+   1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **{{ ui-key.yacloud.dns.label_zone }}**. Если подходящей зоны DNS нет, нажмите **{{ ui-key.yacloud.dns.button_zone-create }}** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
 
@@ -91,17 +91,17 @@
 
 Для прохождения проверки прав на домен `example.com`:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
-1. В списке сервисов выберите **{{ certificate-manager-name }}**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. В списке сертификатов выберите сертификат, который участвует в проверке.
-1. В разделе **Проверка прав на домены**, в блоке с типом записи `TXT`, в поле **Значение**, посмотрите значение записи для домена.
+1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `TXT`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}**, посмотрите значение записи для домена.
 1. Разместите у своего DNS-провайдера или на собственном DNS-сервере `TXT`-запись:
 
     ```
     _acme-challenge.example.com. IN TXT <Значение>
     ```
-1. В разделе **Проверка прав на домены**, в блоке с типом записи `TXT`, в поле **Cloud DNS**, нажмите кнопку **Создать запись**. В открывшемся окне:
-   1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **Зона**. Если подходящей зоны DNS нет, нажмите **Создать зону** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
-   1. Нажмите кнопку **Создать**.
+1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `TXT`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}**, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. В открывшемся окне:
+   1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **{{ ui-key.yacloud.dns.label_zone }}**. Если подходящей зоны DNS нет, нажмите **{{ ui-key.yacloud.dns.button_zone-create }}** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
 

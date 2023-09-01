@@ -14,7 +14,7 @@ The transfer type you select depends on data changes on the source endpoint, req
 
 The _{{ dt-type-copy }}_ transfer is designed for transferring the state of the source database to the target without keeping it up-to-date. Changes that occurred on the source after the transfer is completed will not be transferred. This type of transfers can be useful when there is no writing load on the source or there is no need to keep the target database up-to-date, for example, [when deploying test environments](./use-cases.md#testing).
 
-When the transfer is ready, its status automatically switches to {{ dt-status-copy }}. It's maintained until all the data in the source is transferred to the target. Then the transfer is automatically deactivated and switches its status to {{ dt-status-finished }}.
+When the transfer is ready, its status automatically switches to {{ dt-status-copy }}. It is maintained until all data in the source is transferred to the target. Then the transfer is automatically deactivated and switches its status to {{ dt-status-finished }}.
 
 The transition between statuses for the _{{ dt-type-copy }}_ transfer type is shown below:
 
@@ -38,9 +38,9 @@ The transition between statuses for the _{{ dt-type-repl }}_ transfer type is sh
 
 ### Copy and replication {#copy-and-replication}
 
-The _{{ dt-type-copy-repl }}_ transfer combines the features of the _{{ dt-type-copy }}_ and _{{ dt-type-repl }}_ transfers, i.e., the source data is completely transferred to the target and is kept up-to-date. Typically, such transfers are used in migration scenarios.
+The _{{ dt-type-copy-repl }}_ transfer combines the features of _{{ dt-type-copy }}_ and _{{ dt-type-repl }}_ transfers, i.e., the source data is completely transferred to the target and is kept up-to-date. Typically, such transfers are used in migration scenarios.
 
-After successful [activation](../operations/transfer.md#activate) and preparation for work, the status of the transfer automatically switches to {{ dt-status-copy }}. It's maintained until all the data in the source is transferred to the target.
+After successful [activation](../operations/transfer.md#activate) and preparation for work, the status of the transfer automatically switches to {{ dt-status-copy }}. It is maintained until all data in the source is transferred to the target.
 
 Then the status of the transfer switches to {{ dt-status-repl }}: all changes occurring on the source are automatically transferred to the target.
 
@@ -77,6 +77,6 @@ The current transfer status determines available actions with transfers. For mor
 
 * {{ dt-status-error }}: Assigned to the transfer if any issues occur.
 
-   A transfer's status may switch to **{{ dt-status-error }}** during activation, data replication, or copying. Depending on the status that preceded the error, the transfer can be [reactivated](../operations/transfer.md#activate) or [restarted](../operations/transfer.md#reupload). Errors may occur both on the source and the target.
+   A transfer's status may switch to **{{ dt-status-error }}** during activation, data replication, or copying. Depending on the status that preceded the error, the transfer can be [reactivated](../operations/transfer.md#activate). Errors may occur both on the source and the target.
 
    Learn more about possible error causes and how to resolve them in [{#T}](../troubleshooting/index.md).

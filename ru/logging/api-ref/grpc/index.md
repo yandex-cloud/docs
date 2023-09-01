@@ -8,6 +8,7 @@ See the interface definitions of the API on [GitHub](https://github.com/yandex-c
 
 Service | Description
 --- | ---
+[ExportService](./export_service.md) | 
 [LogGroupService](./log_group_service.md) | A set of methods for managing log groups.
 [LogIngestionService](./log_ingestion_service.md) | A set of methods for writing to log groups.
 [LogReadingService](./log_reading_service.md) | A set of methods for reading from log groups.

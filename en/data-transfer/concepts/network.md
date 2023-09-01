@@ -74,7 +74,7 @@ Make sure to allow outgoing traffic to the port required by the security group s
 
 ## Transfering between a source on an external network and a target in {{ yandex-cloud }} {#source-external}
 
-You can provide access to a source on an outside network using one of the following methods:
+You can provide access to a source on an external network using one of the following methods:
 
 * By configuring a source to make it available from the internet.
 * Using [{{ interconnect-full-name }}](../../interconnect/index.yaml).

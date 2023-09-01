@@ -11,7 +11,7 @@
 {% endnote %}
 
 
-Чтобы расшифровывать объекты, у пользователя бакета вместе с ролью {{ objstorage-name }} должна быть роль на чтение ключа шифрования — `kms.keys.decrypter` (см. [описание роли](../../../kms/security/index.md#service-roles)).
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
 
 
 ## Добавить шифрование бакету {#add}

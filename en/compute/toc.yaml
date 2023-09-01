@@ -153,6 +153,8 @@ items:
         items:
           - name: Creating a disk placement group
             href: operations/disk-placement-groups/create.md
+          - name: Adding a disk to a placement group
+            href: operations/disk-placement-groups/add-disk.md
           - name: Removing a disk from a placement group
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating an image

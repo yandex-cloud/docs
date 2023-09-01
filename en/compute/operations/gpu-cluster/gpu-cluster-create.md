@@ -2,7 +2,7 @@
 
 {% note info %}
 
-GPU clusters will become [generally available](../../../overview/concepts/launch-stages.md) and billable on September 1st 2023.
+GPU clusters will be [publicly available](../../../overview/concepts/launch-stages.md) and charged for starting September 1, 2023.
 
 {% endnote %}
 
@@ -65,9 +65,9 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same
 
       Where:
 
-      * `name`: Cluster name. This parameter is required.
-      * `interconnect_type`: Type of connection. You can currently create clusters with the `InfiniBand` connection type only. This parameter is required.
-      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
+      * `name`: Cluster name. Required parameter.
+      * `interconnect_type`: Type of connection. You can currently create clusters with the `InfiniBand` connection type only. Required parameter.
+      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. Optional parameter.
 
       For more information about the `yandex_compute_gpu_cluster` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster).
 
@@ -75,7 +75,7 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will create a GPU cluster in the specified folder. You can verify that the cluster is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+   This will create a GPU cluster in the specified folder. You can check the new cluster and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute gpu-cluster get <cluster_name>

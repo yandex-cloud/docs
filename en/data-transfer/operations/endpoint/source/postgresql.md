@@ -271,8 +271,8 @@ The transfer of the schema at both the initial and final stages is performed usi
 
 {% note info %}
 
-When the transfer is restarted at the replication stage, the table schemas on the target are preserved. In this case, only the schemas of the tables that are missing on the target at the time of restart are transferred to the target.
+When editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status, the table schemas on the target are preserved. In this case, only the schemas of the tables that are missing on the target at the time of restart are transferred to the target.
 
 {% endnote %}
 
-Replication can't guarantee that sequence values are preserved, so we recommend updating the `sequences` on the target.
+Replication cannot guarantee that sequence values are preserved, so we recommend updating the `sequences` on the target.

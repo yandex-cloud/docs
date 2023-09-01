@@ -316,7 +316,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 {% endlist %}
 
-## Sending a message in a broker
+## Sending a message in a broker {#broker}
 
 When using a broker, you can send a message to a random topic using your username and password or any certificate assigned to the broker for authorization.
 
@@ -356,7 +356,7 @@ When using a broker, you can send a message to a random topic using your usernam
       Where:
 
       - `--cert` and `--key`: Parameters for authorization using a certificate.
-      - `--topic`: A random topic name that conforms to the MQTT specification and doesn't start with `$`.
+      - `--topic`: Random topic name that conforms to the MQTT specification and does not start with `$`.
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 

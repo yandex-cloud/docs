@@ -10,6 +10,7 @@ description: "Use this tutorial to create a Linux VM."
 
 - Management console
 
+
    {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
 
 - CLI
@@ -157,17 +158,17 @@ description: "Use this tutorial to create a Linux VM."
       ```
 
       Where:
-      * `folderId`: ID of the folder.
-      * `name`: Name to assign the VM on creation.
+      * `folderId`: Folder ID.
+      * `name`: Name assigned to the VM upon creation.
       * `zoneId`: Availability zone that corresponds to the selected subnet.
-      * `platformId`: The [platform](../../concepts/vm-platforms.md).
+      * `platformId`: [Platform](../../concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-      * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size.
+      * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `bootDiskSpec`: Boot disk settings. Specify the selected image's ID and disk size.
 
         {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-        The disk size must not be below the minimum value specified in the image details.
+        The disk size must be not less than the minimum value specified in the image details.
       * `networkInterfaceSpecs`: [Network](../../../vpc/concepts/network.md#network) settings.
          * `subnetId`: ID of the selected subnet.
          * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, specify:
@@ -197,7 +198,6 @@ description: "Use this tutorial to create a Linux VM."
 - {{ TF }}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -266,7 +266,7 @@ description: "Use this tutorial to create a Linux VM."
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 

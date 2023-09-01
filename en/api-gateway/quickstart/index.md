@@ -1,6 +1,6 @@
 ---
 title: "Getting started with the {{ api-gw-full-name }} (API gateways)"
-description: "Using these instructions, you'll create and test different types of extensions. First, you'll set up an API gateway for getting static responses and then add integration for invoking functions."
+description: "This guide will show you how to create and test different types of extensions. First, you will set up an API gateway for getting static responses and then add integration for invoking functions."
 ---
 
 # Getting started with {{ api-gw-name }}
@@ -11,8 +11,8 @@ This guide will show you how to create and test different types of extensions. F
 
 To get started in {{ yandex-cloud }}:
 1. Log in to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folders yet, [create one](../../resource-manager/operations/folder/create.md).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an API gateway {#create-api-gw}
 
@@ -21,11 +21,11 @@ To get started in {{ yandex-cloud }}:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-   1. In the list of services, select **{{ api-gw-name }}**.
-   1. Click Create **API gateway**.
-   1. In the **Name** field, enter `numbers`.
-   1. (Optional) In the **Description** field, enter a description.
-   1. In the **Specification** section, add a specification:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `numbers`.
+   1. (Optional) In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** field, enter a description.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add a specification:
 
       ```
       openapi: "3.0.0"
@@ -60,7 +60,7 @@ To get started in {{ yandex-cloud }}:
               content:
                 'text/plain': "Hello, {user}!\n"
       ```
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - {{ TF }}
 
@@ -75,8 +75,8 @@ To get started in {{ yandex-cloud }}:
 ## Access the API gateway {#api-gw-test}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-1. In the list of services, select **{{ api-gw-name }}** and click the name of the created API gateway.
-1. Copy the **Domain** field value and create a link in the format: `https://<domain>/hello?user=API`. The resulting link should look like this:
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the name of the created API gateway.
+1. Copy the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value and create a link, such as `https://<domain>/hello?user=API`. Your link should look like this:
 
    ```
    https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello?user=API
@@ -109,19 +109,19 @@ Create a function to get a list of numbers. Read more about functions in the [{{
    To create a function:
    1. Create a function:
       1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
-      1. Click **Create resource**.
-      1. Select **Function**.
-      1. In the **Name** field, specify `list`.
-      1. Click **Create**.
+      1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `list`.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
       1. [Make](../../functions/operations/function/function-public.md) your function public.
    1. Create the function version:
       1. In the window that opens, select the function you created.
-      1. Under **Latest version**, click **Create in editor**.
-      1. In the window that opens, in the **Runtime environment** field, select `nodejs12`.
-      1. In the **Method** field, select the code editor.
-      1. Click **Create file** in the editor below.
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+      1. In the window that opens, in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** field, select `nodejs12`.
+      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** in the editor below.
          1. In the window that opens, enter the `index.js` file name.
-         1. Click **Create**.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Paste the following code in the `index.js` file:
 
          ```
@@ -133,8 +133,8 @@ Create a function to get a list of numbers. Read more about functions in the [{{
              };
          };
          ```
-      1. In the **Entry point** field, enter `index.handler`.
-      1. Click **Create version**.
+      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - {{ TF }}
 
@@ -209,9 +209,9 @@ Create a function to get a list of numbers. Read more about functions in the [{{
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
          ```
          yc serverless function list
@@ -230,8 +230,8 @@ Add function information to the API gateway specification.
    To update an API gateway specification:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
    1. In the window that opens, select the API gateway and click ![image](../../_assets/options.svg).
-   1. In the menu that opens, click **Edit**.
-   1. Under **Specification**, add an extended version of the specification
+   1. In the menu that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add an extended version of the specification
 
       The `/numbers` method, which uses the `cloud_functions` type `x-yc-apigateway-integration` extension, invokes a function by ID.
 
@@ -377,9 +377,9 @@ Add function information to the API gateway specification.
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
          ```
          yc serverless api-gateway get <API gateway name>

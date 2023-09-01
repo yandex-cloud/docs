@@ -327,107 +327,107 @@ If you get an error like "`can only select from fixed tables/views`" when granti
 
       1. Grant privileges to the created user:
 
-           ```sql
-           GRANT SELECT ON V$DATABASE TO <username>;
-           GRANT SELECT ON DBA_EXTENTS TO <username>;
-           GRANT SELECT ON DBA_OBJECTS TO <username>;
-           GRANT FLASHBACK ANY TABLE TO <username>;
-           ```
+         ```sql
+         GRANT SELECT ON V$DATABASE TO <username>;
+         GRANT SELECT ON DBA_EXTENTS TO <username>;
+         GRANT SELECT ON DBA_OBJECTS TO <username>;
+         GRANT FLASHBACK ANY TABLE TO <username>;
+         ```
 
-           If required, you can only grant the `FLASHBACK` privileges to the tables you need to copy rather than to `ANY TABLE`.
+         If required, you can only grant the `FLASHBACK` privileges to the tables you need to copy rather than to `ANY TABLE`.
 
       1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be copied.
 
    * To prepare the source for the _{{ dt-type-repl }}_ transfer:
 
-      1. Create a user account the transfer will utilize to connect to the source:
+      1. Create a user account the transfer will use to connect to the source:
 
-           ```sql
-           CREATE USER <username> IDENTIFIED BY <password>;
-           ALTER USER <username> DEFAULT tablespace USERS TEMPORARY tablespace TEMP;
-           ALTER USER <username> quote unlimited on USERS;
+         ```sql
+         CREATE USER <username> IDENTIFIED BY <password>;
+         ALTER USER <username> DEFAULT tablespace USERS TEMPORARY tablespace TEMP;
+         ALTER USER <username> quote unlimited on USERS;
 
-           GRANT
-               CREATE SESSION,
-               execute_catalog_role,
-               SELECT ANY TRANSACTION,
-               SELECT ANY DISCTIONARY,
-               CREATE PROCEDURE,
-               LOGMINING
-           TO <username>;
-           ```
+         GRANT
+             CREATE SESSION,
+             execute_catalog_role,
+             SELECT ANY TRANSACTION,
+             SELECT ANY DISCTIONARY,
+             CREATE PROCEDURE,
+             LOGMINING
+         TO <username>;
+         ```
 
       1. Grant privileges to the created user:
 
-            ```sql
-            GRANT SELECT ON V$DATABASE TO <username>;
-            GRANT SELECT ON V$LOG TO <username>;
-            GRANT SELECT ON V$LOGFILE TO <username>;
-            GRANT SELECT ON V$ARCHIVED_LOG TO <username>;
+         ```sql
+         GRANT SELECT ON V$DATABASE TO <username>;
+         GRANT SELECT ON V$LOG TO <username>;
+         GRANT SELECT ON V$LOGFILE TO <username>;
+         GRANT SELECT ON V$ARCHIVED_LOG TO <username>;
 
-            GRANT SELECT ON dba_objects TO <username>;
-            GRANT SELECT ON dba_extents TO <username>;
+         GRANT SELECT ON dba_objects TO <username>;
+         GRANT SELECT ON dba_extents TO <username>;
 
-            GRANT EXECUTE ON SYS.DBMS_LOGMNR TO <username>;
-            GRANT SELECT ON SYSTEM.LOGMNR_COL$ TO <username>;
-            GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO <username>;
-            GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO <username>;
-            GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO <username>;
-            ```
+         GRANT EXECUTE ON SYS.DBMS_LOGMNR TO <username>;
+         GRANT SELECT ON SYSTEM.LOGMNR_COL$ TO <username>;
+         GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO <username>;
+         GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO <username>;
+         GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO <username>;
+         ```
 
-        1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
-        1. Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
+      1. Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
+      1. Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
 
-            ```sql
-            ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-            ```
+         ```sql
+         ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+         ```
 
-    * If you are using the [CDB environment](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), configure the following settings:
+   * If you are using the [CDB environment](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), configure the following settings:
 
-        1. Create a [user](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-managing-a-multitenant-environment.html#GUID-7D303718-2D59-495F-90FB-E51A377B1AD2) `Common User`:
+      1. Create a [user](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-managing-a-multitenant-environment.html#GUID-7D303718-2D59-495F-90FB-E51A377B1AD2) `Common User`:
 
-            ```sql
-            CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=all;
-            ALTER USER C##<username> DEFAULT TABLESPACE USERS temporary tablespace TEMP CONTAINER=all;
-            ALTER USER C##<username> quota unlimited on USERS CONTAINER=all;
-            ALTER USER C##<username> SET container_data = (cdb$root, <your PCB name>) CONTAINER=current;
+         ```sql
+         CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=all;
+         ALTER USER C##<username> DEFAULT TABLESPACE USERS temporary tablespace TEMP CONTAINER=all;
+         ALTER USER C##<username> quota unlimited on USERS CONTAINER=all;
+         ALTER USER C##<username> SET container_data = (cdb$root, <your PCB name>) CONTAINER=current;
 
-            GRANT
-                CREATE SESSION,
-                execute_catalog_role,
-                SELECT ANY TRANSACTION,
-                SELECT ANY DICTIONALY,
-                CREATE PROCEDURE,
-                LOGMINING,
-                SET CONTAINER
-            TO C##<username> CONTAINER=ALL;
-            ```
+         GRANT
+             CREATE SESSION,
+             execute_catalog_role,
+             SELECT ANY TRANSACTION,
+             SELECT ANY DICTIONALY,
+             CREATE PROCEDURE,
+             LOGMINING,
+             SET CONTAINER
+         TO C##<username> CONTAINER=ALL;
+         ```
 
-            If required, you can only specify the `cdb$root` container and the container with the tables to transfer.
+         If required, you can only specify the `cdb$root` container and the container with the tables you need to transfer.
 
-        1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
+      1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
 
-            ```sql
-            GRANT ALTER SESSION TO C##<username>;
-            ```
+         ```sql
+         GRANT ALTER SESSION TO C##<username>;
+         ```
 
-        1. Grant privileges to the created user:
+      1. Grant privileges to the created user:
 
-            ```sql
-            GRANT SELECT ON V$DATABASE TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON V$LOG TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON V$LOGFILE TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON V$ARCHIVED_LOG TO C##<username> CONTAINER=ALL;
+         ```sql
+         GRANT SELECT ON V$DATABASE TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON V$LOG TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON V$LOGFILE TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON V$ARCHIVED_LOG TO C##<username> CONTAINER=ALL;
 
-            GRANT SELECT ON dba_objects TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON dba_extents TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON dba_objects TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON dba_extents TO C##<username> CONTAINER=ALL;
 
-            GRANT EXECUTE ON SYS.DBMS_LOGMNR TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON SYSTEM.LOGMNR_COL$ TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO C##<username> CONTAINER=ALL;
-            GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO C##<username> CONTAINER=ALL;
-            ```
+         GRANT EXECUTE ON SYS.DBMS_LOGMNR TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON SYSTEM.LOGMNR_COL$ TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON SYSTEM.LOGMNR_OBJ$ TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON SYSTEM.LOGMNR_USER$ TO C##<username> CONTAINER=ALL;
+         GRANT SELECT ON SYSTEM.LOGMNR_UID$ TO C##<username> CONTAINER=ALL;
+         ```
 
 {% endlist %}
 
@@ -445,52 +445,52 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
 - {{ mpg-name }}
 
-    1. Configure the user the transfer will connect to the source under:
+   1. Configure the user the transfer will use to connect to the source:
 
-        1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
+      1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
 
-        1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
+      1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
 
-        1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the database owner and [configure privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
+      1. [Connect to the database](../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
 
-            * `SELECT` for all the database tables to be transferred.
-            * `SELECT` for all the database sequences to be transferred.
-            * `USAGE` for the schemas of these tables and sequences.
-            * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
+         * `SELECT` for all the database tables to be transferred.
+         * `SELECT` for all the database sequences to be transferred.
+         * `USAGE` for the schemas of these tables and sequences.
+         * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This allows replication to continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
     1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-    1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
 
-    1. Find and terminate DDL queries that are running for too long. To do this, run a `SELECT` query against the {{ PG }} `pg_stat_activity` housekeeping table:
+   1. Find and terminate DDL queries that are running for too long. To do this, make a selection from the {{ PG }} `pg_stat_activity` housekeeping table:
 
-        ```sql
-        SELECT NOW() - query_start AS duration, query, state
-        FROM pg_stat_activity
-        WHERE state != 'idle' ORDER BY 1 DESC;
-        ```
+      ```sql
+      SELECT NOW() - query_start AS duration, query, state
+      FROM pg_stat_activity
+      WHERE state != 'idle' ORDER BY 1 DESC;
+      ```
 
-        This will return a list of queries running on the server. Check queries that have a large value for the `duration` parameter.
+      This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
+   1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
-    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+   1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-        Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
+      Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
 
 - {{ PG }}
 
-    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-    1. Create a user account the transfer will utilize to connect to the source:
+   1. Create a user account the transfer will use to connect to the source:
 
-        * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
+      * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
 
-            ```sql
-            CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
-            ```
+         ```sql
+         CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
+         ```
 
       * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, create a user with the `REPLICATION` privilege using this command:
 
@@ -524,11 +524,11 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
          1. If you do not have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition](https://visualstudio.microsoft.com/vs/community/) is sufficient. During installation, select the following components:
 
-            * MSBuild,
-            * MSVC v141 x86/x64 build tools,
-            * C++\CLI support for v141 build tools,
-            * MSVC v141 — VS 2017 C++ x64\x86 build tools,
-            * MSVC v141 — VS 2017 C++ x64\x86 Spectre-mitigated libs,
+            * MSBuild
+            * MSVC v141 x86/x64 build tools
+            * C++\CLI support for v141 build tools
+            * MSVC v141 - VS 2017 C++ x64\x86 build tools
+            * MSVC v141 - VS 2017 C++ x64\x86 Spectre-mitigated libs
             * The latest version of the Windows SDK for the active OS version.
             * Other dependencies that are installed automatically for selected components.
 
@@ -735,6 +735,10 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    * `utf8`
 
 
+### {{ ydb-full-name }} source {#source-ydb}
+
+If you selected {{ dd }} database mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
+
 ## Preparing a target {#target}
 
 ### {{ CH }} target {#target-ch}
@@ -745,11 +749,15 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. [Create a target database](../../managed-clickhouse/operations/databases.md#add-db).
 
-      Its name must be the same as the source database name. If you need to transfer multiple databases, create a separate transfer for each of them.
+      If you need to transfer multiple databases, create a separate transfer for each of them.
 
    1. [Create a user](../../managed-clickhouse/operations/cluster-users.md#adduser) with access to the target database.
 
       Once started, the transfer will connect to the target on behalf of this user.
+
+   1. [Create a security group](../../vpc/operations/security-group-create.md) and [configure it](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
+
+   1. Assign the created security group to the {{ mch-name }} cluster.
 
 - {{ CH }}
 
@@ -790,9 +798,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-        * Integrity checks for foreign keys.
-        * Triggers.
-        * Other constraints.
+      * Integrity checks for foreign keys.
+      * Triggers.
+      * Other constraints.
 
       {% note warning %}
 
@@ -870,7 +878,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) a with the same name as the source database.
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
    1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-      1. Follow the [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure, in the target database, blank sharded collections with the same names as in the source one.
+      1. In the target database, create and configure blank sharded collections with the same names as in the source by following these [instructions](../../managed-mongodb/tutorials/sharding.md).
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
@@ -1067,9 +1075,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-        * Integrity checks for foreign keys.
-        * Triggers.
-        * Other constraints.
+      * Integrity checks for foreign keys.
+      * Triggers.
+      * Other constraints.
 
       {% note warning %}
 
@@ -1161,9 +1169,8 @@ The service does not transfer `MATERIALIZED VIEWS`. For more information, see [S
 
 ### {{ ydb-full-name }} target {#target-ydb}
 
-
-[Create a service account](../../iam/operations/sa/create.md) with the `ydb.editor` role.
-
+1. [Create a service account](../../iam/operations/sa/create.md) with the `ydb.editor` role.
+1. For the database running in {{ dd }} mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

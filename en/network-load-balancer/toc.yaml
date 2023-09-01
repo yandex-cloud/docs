@@ -41,24 +41,26 @@ items:
             href: operations/target-group-delete.md
   - name: Concepts
     items:
-      - name: Network load balancer
+      - name: Overview
         href: concepts/index.md
-      - name: Internal network load balancer
-        href: concepts/internal-load-balancer.md
-      - name: Listener
+      - name: Network load balancer types
+        href: concepts/nlb-types.md
+      - name: Traffic listener
         href: concepts/listener.md
-      - name: Targets and groups
+      - name: Target groups and resources
         href: concepts/target-resources.md
-      - name: Resource health checks
+      - name: Resource availability checks
         href: concepts/health-check.md
+      - name: Implementation specifics
+        href: concepts/specifics.md
+      - name: Use cases
+        href: concepts/scenarios.md
+      - name: Recommendations for use
+        href: concepts/best-practices.md
+      - name: Monitoring
+        href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Recommendations on how to use the network load balancer
-    items:
-      - name: General recommendations
-        href: best-practices/index.md
-      - name: Internal load balancer features
-        href: best-practices/internal-balancer-features.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

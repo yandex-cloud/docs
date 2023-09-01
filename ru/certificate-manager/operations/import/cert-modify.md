@@ -7,11 +7,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
-  1. В списке сервисов выберите **{{ certificate-manager-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите в списке сертификат, который необходимо изменить.
-  1. В открывшемся окне нажмите кнопку **Изменить**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
   1. Измените название или описание сертификата.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -37,7 +37,7 @@
      +----------------------+--------+-------------+---------------------+----------+--------+
      |          ID          |  NAME  |   DOMAINS   |      NOT AFTER      |   TYPE   | STATUS |
      +----------------------+--------+-------------+---------------------+----------+--------+
-     | fpqmg47avvimp7rvmp30 | mycert | example.com | 2021-09-15 08:12:57 | IMPORTED | ISSUED |
+     | fpqmg47avvim******** | mycert | example.com | 2021-09-15 08:12:57 | IMPORTED | ISSUED |
      +----------------------+--------+-------------+---------------------+----------+--------+
      ```
 
@@ -45,7 +45,7 @@
 
      ```bash
      yc certificate-manager certificates update \
-       --id fpqmg47avvimp7rvmp30 \
+       --id fpqmg47avvim******** \
        --new-name myupdatedcert \
        --description "description of myupdatedcert"
      ```
@@ -58,8 +58,8 @@
      Результат выполнения команды:
 
      ```bash
-     id: fpqmg47avvimp7rvmp30
-     folder_id: b1g7gvsi89m34qmcm3ke
+     id: fpqmg47avvim********
+     folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T06:54:44.916Z"
      ...
      issued_at: "2020-09-15T08:23:50.147Z"

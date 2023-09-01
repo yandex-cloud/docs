@@ -48,7 +48,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Open the **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}** tab.
     1. Click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
-    1. Once the request status changes to **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **Action** column. Choose **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **Download unsigned report**.
+    1. Once the request status changes to **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
 
        {% cut "Exchanging original documents" %}
 

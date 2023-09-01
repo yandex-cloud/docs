@@ -1,4 +1,4 @@
-# Обзор API {{ yandex-cloud }} для {{ ydb-name }}
+# API {{ yandex-cloud }} для {{ ydb-name }}
 
 Вы можете управлять ресурсами {{ ydb-name }} с помощью [API {{ yandex-cloud }}](../../api-design-guide/).
 

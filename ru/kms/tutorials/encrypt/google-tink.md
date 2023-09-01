@@ -1,6 +1,6 @@
 # Шифрование данных с помощью Google Tink
 
-[Tink](https://github.com/google/tink) — это библиотека шифрования от Google, альтернатива [AWS Encryption](aws-encryption-sdk.md). Библиотека помогает сосредоточиться на задаче шифрования и расшифровки данных, не отвлекаясь на выбор правильного алгоритма и параметров шифрования.
+[Tink](https://github.com/google/tink) — это библиотека шифрования от Google, альтернатива [AWS Encryption](aws-encryption-sdk.md). Библиотека помогает сосредоточиться на задаче шифрования и расшифрования данных, не отвлекаясь на выбор правильного алгоритма и параметров шифрования.
 
 Поддерживаются [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) и [Go](https://github.com/yandex-cloud/kms-clients-go) версии клиентов для Tink, позволяющие шифровать и расшифровывать данные на ключах {{ kms-short-name }} {{ yandex-cloud }}. Данные шифруются [по схеме envelope encryption](../../concepts/envelope.md) (объем открытого текста не ограничен).
 
@@ -32,7 +32,7 @@
 
 {% endlist %}
 
-## Шифрование и расшифровка {#encrypt-decrypt}
+## Шифрование и расшифрование {#encrypt-decrypt}
 
 В коде используются следующие переменные:
 
@@ -41,13 +41,13 @@
 * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
 * `plaintext` – открытый текст.
 * `ciphertext` – шифртекст.
-* `aad` – [AAD-контекст](../../concepts/encryption.md#add-context).
+* `aad` – [AAD-контекст](../../concepts/symmetric-encryption.md#add-context).
 
 {% list tabs %}
 
 - Java
     
-    Создайте [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html)-объект и используйте методы encrypt и decrypt для шифрования и расшифровки данных:
+    Создайте [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
     
     ```
     AeadConfig.register(); 
@@ -68,7 +68,7 @@
 
 - Go
 
-    Создайте [aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc)-объект и используйте методы encrypt и decrypt для шифрования и расшифровки данных:
+    Создайте [aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
     
     ```
     sdk, err := ycsdk.Build(context, ycsdk.Config{

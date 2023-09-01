@@ -7,30 +7,58 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Ключ
-        href: operations/key.md
-      - name: Версия ключа
-        href: operations/version.md
-      - name: Шифрование данных
-        href: operations/encryption.md
-      - name: Права доступа на ключ шифрования
-        href: operations/key-access.md
+      - name: Симметричное шифрование
+        items:
+          - name: Ключ
+            href: operations/key.md
+          - name: Версия ключа
+            href: operations/version.md
+          - name: Шифрование данных
+            href: operations/symmetric-encryption.md
+          - name: Права доступа на ключ шифрования
+            href: operations/key-access.md
+      - name: Асимметричное шифрование
+        items:
+          - name: Ключевая пара шифрования
+            href: operations/asymmetric-encryption-key.md
+          - name: Шифрование данных
+            href: operations/asymmetric-encryption.md
+      - name: Электронная подпись
+        items:
+          - name: Ключевая пара электронной подписи
+            href: operations/asymmetric-signature-key.md
+          - name: Электронная подпись и проверка подписи
+            href: operations/signature-verification.md
   - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Ключ
-        href: concepts/key.md
-      - name: Версия ключа
-        href: concepts/version.md
-      - name: Шифрование
-        href: concepts/encryption.md
+      - name: Симметричное шифрование
+        items:
+          - name: Симметричный ключ
+            href: concepts/key.md
+          - name: Версия ключа
+            href: concepts/version.md
+          - name: Симметричное шифрование
+            href: concepts/symmetric-encryption.md
+          - name: Аппаратный модуль безопасности (HSM)
+            href: concepts/hsm.md
+      - name: Асимметричное шифрование
+        items:
+          - name: Ключевая пара шифрования
+            href: concepts/asymmetric-encryption-key.md
+          - name: Асимметричное шифрование
+            href: concepts/asymmetric-encryption.md
+      - name: Электронная подпись
+        items:
+          - name: Ключевая пара электронной подписи
+            href: concepts/asymmetric-signature-key.md
+          - name: Электронная подпись
+            href: concepts/digital-signature.md
       - name: Шифрование по схеме envelope encryption
         href: concepts/envelope.md
       - name: Консистентность ключей
         href: concepts/consistency.md
-      - name: Аппаратный модуль безопасности (HSM)
-        href: concepts/hsm.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Практические руководства

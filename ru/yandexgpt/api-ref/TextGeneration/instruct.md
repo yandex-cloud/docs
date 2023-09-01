@@ -40,10 +40,10 @@ model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum
 generationOptions | **object**<br>Generation options
 generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of the partially generated text.</p> 
 generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness.</p> 
-generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. It is a int number between 1 and 2000.</p> 
-instructionText | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>Text of the instruction. The total length of <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">instructionText</a> and <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">requestText</a> should be equal or less to 2500 tokens.</p> 
+generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. The total length of [instruction_text], [request_text], and ``maxTokens`` should be equal or less than 7400 tokens.</p> 
+instructionText | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>Text of the instruction. The total length of <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">instructionText</a>, <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">requestText</a>, and [max_tokens] should be equal or less than 7400 tokens.</p> 
 instructionUri | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br>
-requestText | **string**<br><p>Text of the instruction. The total length of <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">instructionText</a> and <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">requestText</a> should be equal or less to 2500 tokens.</p> 
+requestText | **string**<br><p>Text of the instruction. The total length of <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">instructionText</a>, <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">requestText</a>, and [max_tokens] should be equal or less than 7400 tokens.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

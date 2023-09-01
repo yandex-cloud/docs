@@ -9,14 +9,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен сертификат.
-  1. В списке сервисов выберите **{{ certificate-manager-name }}**.
-  1. Нажмите кнопку **Добавить сертификат**.
-  1. В открывшемся меню выберите **Сертификат от Let's Encrypt**.
-  1. В открывшемся окне в поле **Имя** введите имя сертификата.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+  1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя сертификата.
   1. (Опционально) В поле **Описание** введите описание сертификата.
-  1. В поле **Домены** введите список доменов, для которых нужно выпустить сертификат.
-  1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `DNS` или `HTTP`.
-  1. Нажмите кнопку **Создать**.
+  1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** введите список доменов, для которых нужно выпустить сертификат.
+  1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` или `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
 - CLI
 

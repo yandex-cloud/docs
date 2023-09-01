@@ -5,10 +5,9 @@ description: "Access management in {{ api-gw-full-name }}, an API gateway servic
 
 # Access management in {{ api-gw-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them.
-If a user doesn't have any roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user does not have any roles assigned, almost all operations are forbidden.
 
-To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. For now, a role can only be assigned for a parent resource (folder or cloud).
+To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. For now, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
 
 {% note info %}
 
@@ -18,9 +17,11 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 ## Assigning roles {#grant-roles}
 
-To assign a user a role:
+To assign a user a role for the cloud:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
+
+For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
 ## Which roles exist in the service {#roles-list}
 

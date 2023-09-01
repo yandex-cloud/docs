@@ -3,9 +3,9 @@
 In {{ yandex-cloud }}, network resources, such as cloud network and subnets, are usually created in a single resource cloud folder that is not linked to resources in other cloud folders. When deploying resources in {{ yandex-cloud }}, it is often necessary to ensure networking between resources residing in different folders. One of the ways to do that is to use the `Multi-folder VPC` method that extends the scope of an individual {{ vpc-short-name }} network to multiple rather than one folder.
 
 Depending on the selected {{ yandex-cloud }} management interface, a network's scope is extended to other folders by:
-* Moving subnets to different cloud folders: `management console (UI)`.
-* Creating subnets in target folders: `YC CLI`.
-* Creating subnets in target folders: `Terraform`.
+* Moving subnets to different cloud folders (`management console (UI)`)
+* Creating subnets in target folders (`YC CLI`)
+* Creating subnets in target folders (`Terraform`)
 
 After that, you can connect different resources to the subnets hosted in target folders, such as VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, and other resources residing in these folders. As a result, your network will ensure connectivity between resources in different folders.
 
@@ -17,7 +17,7 @@ You can only move subnets between folders within a single cloud.
 
 {% endnote %}
 
-For example, the development environment includes the CI/CD module whose components are hosted in the `net-folder`. This module should enable networking between the **dev**, **stage**, and **prod** components residing in their folders.
+For example, the development environment includes the CI/CD module whose components are hosted in the `net-folder`. This module should enable networking between the **DEV**, **STAGE**, and **PROD** components residing in their folders.
 
 This solution pattern is shown below.
 
@@ -27,7 +27,7 @@ This will set up networking between VMs from different environments (folders) co
 
 ## Steps to follow {#order}
 
-Depending on the select management interface, steps to create a `Multi-folder VPC` may differ.
+Depending on the selected management interface, steps to create a `Multi-folder VPC` may differ.
 
 To create a test infrastructure and enable networking between resources:
 
@@ -171,54 +171,6 @@ Network access is differentiated by [security groups](../../vpc/concepts/securit
       * The [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) (`REST API`) method for the [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) resource.
       * The [FolderService/Create](https://cloud.yandex.ru/docs/resource-manager/api-ref/grpc/folder_service#Create) (`gRPC API`) call.
 
-      1. Describe the input variables:
-
-         ```
-         variable "cloud_id" {
-           description = "YC cloud-id. Taken from environment variable."
-         }
-         ```
-
-      1. Describe the targets (cloud folders):
-
-         ```
-         # ========
-         # Folders
-         # ========
-         resource "yandex_resourcemanager_folder" "net_folder" {
-           cloud_id = var.cloud_id
-           name     = "net-folder"
-         }
-
-         resource "yandex_resourcemanager_folder" "dev_folder" {
-           cloud_id = var.cloud_id
-           name     = "dev-folder"
-         }
-
-         resource "yandex_resourcemanager_folder" "prod_folder" {
-           cloud_id = var.cloud_id
-           name     = "prod-folder"
-         }
-         ```
-
-      1. Create the required infrastructure:
-
-         1. Run the following commands:
-
-            ```bash
-            export TF_VAR_cloud_id=$(yc config get cloud-id)
-            export YC_TOKEN=$(yc iam create-token)
-            terraform apply
-            ```
-
-         1. Confirm the resources have been updated and wait for the operation to complete.
-
-   - API
-
-      To create a folder, use:
-      * The [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) (`REST API`) method for the [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) resource.
-      * The [FolderService/Create](https://cloud.yandex.ru/docs/resource-manager/api-ref/grpc/folder_service#Create) (`gRPC API`) call.
-
    {% endlist %}
 
 
@@ -259,16 +211,6 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
 
       1. Create a cloud network named `shared-net` in `net-folder`:
 
-      1. Describe the target (cloud network):
-
-         ```
-         # =============
-         # VPC Resources
-         # =============
-         resource "yandex_vpc_network" "shared_net" {
-           folder_id = yandex_resourcemanager_folder.net_folder.id
-           name      = "shared-net"
-         }
          ```
          yc vpc network create --folder-name net-folder --name shared-net
          ```
@@ -304,16 +246,6 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
       To create a cloud network, use:
       * The [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource
       * The [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`) call
-
-      1. Confirm the resources have been updated.
-
-      1. Wait for the operation to complete.
-
-   - API
-
-      To create a cloud network, use:
-      * The [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) (`REST API`) method for the [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) resource.
-      * The [NetworkService/Create](https://cloud.yandex.ru/docs/vpc/api-ref/grpc/network_service#Create) (`gRPC API`) call.
 
    {% endlist %}
 
@@ -476,7 +408,7 @@ Create VMs with the following parameters:
 
    {% note info %}
 
-   A public and private IP addresses are assigned to the VM at creation. Write them down, as you will need them to access the VM and check networking with other VMs.
+   A public and a private IP addresses are assigned to the VM at creation. Write them down, as you will need them to access the VM and check networking with other VMs.
 
    {% endnote %}
 

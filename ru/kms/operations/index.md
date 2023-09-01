@@ -5,18 +5,31 @@ description: "Пошаговые инструкции по работе с кл�
 
 # Пошаговые инструкции для {{ kms-name }}
 
-## Ключ {#key}
+## Симметричное шифрование {#symmetric-encryption}
+
+### Ключ {#key}
 
 - [{#T}](key.md#create)
 - [{#T}](key.md#rotate)
 - [{#T}](key.md#update)
 - [{#T}](key.md#delete)
+- [{#T}](key-access.md)
 
-## Версия {#version}
+### Версия ключа {#version}
 
 - [{#T}](version.md#make-primary)
 - [{#T}](version.md#delete)
 
-## Шифрование данных {#encrypt}
+### Шифрование данных {#symmetric-encrypt}
 
-- [{#T}](encryption.md)
+- [{#T}](symmetric-encryption.md)
+
+## Асимметричное шифрование {#symmetric-encryption}
+
+- [{#T}](asymmetric-encryption-key.md)
+- [{#T}](asymmetric-encryption.md)
+
+## Электронная подпись {#digital-signature}
+
+- [{#T}](asymmetric-signature-key.md)
+- [{#T}](signature-verification.md)

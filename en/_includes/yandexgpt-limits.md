@@ -8,4 +8,4 @@
 
 | Type of limit | Value |
 ----- | -----
-| Total number of tokens in the prompt and response | 2,500 |
+| Total number of tokens in the prompt and response | 7,400 |

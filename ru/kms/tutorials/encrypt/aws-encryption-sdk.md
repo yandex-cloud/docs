@@ -1,6 +1,6 @@
 # Шифрование данных с помощью AWS Encryption SDK
 
-[AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) — библиотека, упрощающая процесс шифрования и расшифровки данных. Используйте ее, если хотите безопасно зашифровать данные, не углубляясь в тонкости работы алгоритмов шифрования.
+[AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) — библиотека, упрощающая процесс шифрования и расшифрования данных. Используйте ее, если хотите безопасно зашифровать данные, не углубляясь в тонкости работы алгоритмов шифрования.
 
 [Провайдер {{ yandex-cloud }} для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto) позволяет с помощью AWS Encryption SDK шифровать и расшифровывать данные на ключах {{ kms-short-name }} {{ yandex-cloud }}. Данные шифруются [по схеме envelope encryption](../../concepts/envelope.md) (объем открытого текста не ограничен). Поддерживается только провайдер на Java.
 
@@ -24,9 +24,9 @@
 
 {% endlist %}
 
-## Шифрование и расшифровка {#encrypt-decrypt}
+## Шифрование и расшифрование {#encrypt-decrypt}
 
-Создайте провайдер {{ yandex-cloud }} для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифровки данных.
+Создайте провайдер {{ yandex-cloud }} для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифрования данных.
 
 {% list tabs %}
 
@@ -56,7 +56,7 @@
     * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
     * `plaintext` – открытый текст.
     * `ciphertext` – шифртекст.
-    * `aad` – [AAD-контекст](../../concepts/encryption.md#add-context).
+    * `aad` – [AAD-контекст](../../concepts/symmetric-encryption.md#add-context).
 
 {% endlist %}
 

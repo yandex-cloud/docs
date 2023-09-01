@@ -82,6 +82,8 @@ Service zones can be created in {{ vpc-short-name }} networks automatically. A l
 
 {% endcut %}
 
-These zones contain records with internal FQDNs of VMs and MDB database names, VM user names, and reverse records. You can't edit records that are created automatically, but you can manage records that are added manually.
+These zones contain records with internal FQDNs of VMs and MDB database names, VM user names, and reverse records. You cannot edit records that are created automatically, but you can manage records that are added manually.
 
-To increase fault tolerance, some traffic can be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
+For security reasons, it is not allowed to create user records, such as `*.yandexcloud.net` and `*.cloud.yandex.net`. To set up easy-to-remember domain names for resources, we recommend registering [CNAME](resource-record.md#cname) or [ANAME](resource-record.md#aname) records in your private DNS zones.
+
+To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).

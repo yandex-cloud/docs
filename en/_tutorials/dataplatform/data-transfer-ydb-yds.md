@@ -22,6 +22,9 @@ Prepare the infrastructure:
 * Manually
 
    1. [Create a {{ ydb-name }} source database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+
+   1. If you selected {{ dd }} DB mode for the source, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
+
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration for the {{ yds-name }} target stream.
 
 * Using {{ TF }}
@@ -32,12 +35,12 @@ Prepare the infrastructure:
 
       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to the {{ ydb-name }} database.
-      * {{ ydb-name }} source database.
-      * {{ ydb-name }} database for the target stream.
-      * Transfer.
+      * [Network](../../vpc/concepts/network.md#network)
+      * [Subnet](../../vpc/concepts/network.md#subnet)
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to the {{ ydb-name }} database
+      * {{ ydb-name }} source database
+      * {{ ydb-name }} database for the target stream
+      * Transfer
 
    1. In the `data-transfer-ydb-yds.tf` file, specify the variables:
 
@@ -45,7 +48,7 @@ Prepare the infrastructure:
       * `target_db_name`: {{ ydb-name }} database name for the target stream.
       * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [create endpoints](#prepare-transfer).
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -144,7 +147,7 @@ Prepare the infrastructure:
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}

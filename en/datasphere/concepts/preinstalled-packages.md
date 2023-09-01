@@ -16,12 +16,12 @@ To view the list of installed packages and their versions, in the notebook cell,
 %pip list
 ```
 
-Python 3.8 is used in {{ ml-platform-short-name }} projects by default. If you need Python 3.7, follow the instructions in [{#T}](../operations/projects/python-version.md).
+An image with Python 3.10 is used in {{ ml-platform-short-name }} projects by default. If you need Python 3.7 or Python 3.8, follow the guide in [{#T}](../operations/projects/python-version.md).
 
 ## Updating {#update}
 
 You can both upgrade any pre-installed package to a later version or roll it back to an earlier version.
-Upgraded versions are preserved when you change environments or restart your project.
+Upgraded versions are preserved when you change environments or restart your project in [{{ ds }} mode](project.md#serverless).
 
 To upgrade a library to the latest version, run the following command in the notebook cell:
 ```js
@@ -38,7 +38,7 @@ To upgrade a library to a specific version, run the following command in the not
 %pip install <library name>==<version>
 ```
 
-e.g.:
+E.g.:
 ```js
 %pip install tensorflow==2.3.1
 ```

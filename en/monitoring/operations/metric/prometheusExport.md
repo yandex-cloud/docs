@@ -1,5 +1,5 @@
 # Exporting metrics in Prometheus format
-To export metrics in the {{ prometheus-name }} format, use the method [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Before uploading metrics to {{ prometheus-name }}, set up metric collection in {{ prometheus-name }}.
+To export metrics in the {{ prometheus-name }} format, use the [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md) method. Before uploading metrics to {{ prometheus-name }}, set up metric collection in {{ prometheus-name }}.
 
 An example of metric collection setup from {{ monitoring-name }} in {{ prometheus-name }}:
 1. Select the folder you want to collect data from.
@@ -7,7 +7,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
    - `application-load-balancer`: {{ alb-name }}.
    - `audit-trails`: {{ at-name }}.
    - `certificate-manager`: {{ certificate-manager-name }}.
-   - `compute`: {{ compute-name }}.
+   - `compute`: {{ compute-name }}.
    - `container-registry`: {{ container-registry-name }}.
    - `data-proc`: {{ dataproc-name }}.
    - `data-streams`: {{ yds-name }}.
@@ -23,6 +23,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
    - `managed-kubernetes`: {{ managed-k8s-name }}.
    - `managed-mongodb`: {{ mmg-name }}.
    - `managed-mysql`: {{ mmy-name }}.
+   - `managed-opensearch`: {{ mos-name }}.
    - `managed-postgresql`: {{ mpg-name }}.
    - `managed-redis`: {{ mrd-name }}.
    - `managed-sqlserver`: {{ mms-name }}.
@@ -38,7 +39,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
    - `vision`: {{ vision-name }}.
    - `ydb`: {{ ydb-name }}.
 1. Create a static [API key](../../../iam/operations/api-key/create.md) for the [service account](../../../iam/concepts/users/service-accounts).
-1. [Assign the service account the role](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` for the selected folder.
+1. [Assign the service account the `{{ roles-monitoring-viewer }}` role](../../../iam/operations/roles/grant#access-to-sa) for the selected folder.
 1. Add a new `job` to the data collection section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration).
    ```yaml
    ...

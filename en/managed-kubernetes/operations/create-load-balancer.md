@@ -8,7 +8,7 @@ To grant access to an app running in a {{ k8s }} cluster, you can use [various t
 
 To publish an app, use a `LoadBalancer` service. The following options are supported:
 * Public access by IP address with a [network load balancer](../../network-load-balancer/concepts/index.md).
-* Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
+* Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md).
 
   The application will be available:
   * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
@@ -240,12 +240,6 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
    {% endlist %}
 
 ## Create a LoadBalancer service with an internal IP address {#lb-int-create}
-
-{% note info %}
-
-The [Internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md) is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
 
 To create an internal network load balancer, specify the `yandex.cloud/load-balancer-type` and `yandex.cloud/subnet-id` parameters in the YAML specification for the service under `annotations`:
 

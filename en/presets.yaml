@@ -235,6 +235,7 @@ default:
   roles-data-transfer-admin: data-transfer.admin
   roles-data-transfer-private-admin: data-transfer.privateAdmin
   roles-data-transfer-viewer: data-transfer.viewer
+  roles-data-transfer-auditor: data-transfer.auditor
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
   roles-datasphere-project-viewer: datasphere.community-projects.viewer
@@ -832,6 +833,8 @@ default:
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
+  api-host-monitoring-1: monitoring.api.cloud.yandex.net
+  api-host-monitoring-2: monitoring.cloud.yandex.ru
   dns-mx-host: mx.cloud.yandex.net
   dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
@@ -5226,6 +5229,40 @@ default:
         value_query-type-one-origin: From one origin
         value_redirect-http-to-https: HTTP to HTTPS
         value_source-type-balancer: L7 load balancer
+      certificate-manager:
+        action_import: User certificate
+        action_request: Let's Encrypt certificate
+        button_add: Add certificate
+        domain:
+          action_bind-certificate: Bind certificate
+          action_edit: Edit
+          form:
+            button_bind: Link
+            field_certificate: Certificate
+            field_domain: Domain
+        import:
+          button_add-certificate: Add certificate
+          button_add-chain: Add chain
+          button_add-privateKey: Add private key
+          field_certificate: Certificate
+          field_chain: Intermediate certificate chain
+          field_privateKey: Private key
+        label_domains: Domains
+        metadata:
+          field_name: Name
+        overview:
+          action_edit-meta: Edit
+          action_reimport: Renew certificate
+          challenge_label_dns-record-set: Cloud DNS
+          challenge_label_http-content: Contents
+          challenge_label_http-url: Link for hosting file
+          challenge_label_value: Value
+          section_challenges: Check rights for domains
+        request:
+          button_request: Create
+          challenge-type_label_dns: DNS
+          challenge-type_label_http: HTTP
+          field_domains: Domains
       clickhouse:
         button_create-cluster: Create ClickHouse cluster
         cluster:
@@ -5286,6 +5323,7 @@ default:
         button_cron-1min: Every minute
         button_cron-day: Every day
         button_logout: Log out
+        button_update: Update
         clone: Clone
         continue: Continue
         create: Create
@@ -5303,6 +5341,7 @@ default:
         label_http: HTTP
         label_key: Key
         label_list: List
+        label_seconds_many: seconds
         label_tcp: TCP
         label_udp: UDP
         label_value: Value
@@ -5713,7 +5752,6 @@ default:
           section-endpoint: Endpoint parameters
         label_connector-operation-ACTIVATE: Activate
         label_connector-operation-DEACTIVATE: Deactivate
-        label_connector-operation-REUPLOAD: Reload
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connectors: Transfers
@@ -6420,7 +6458,10 @@ default:
             button_editor-create: Сreate in editor
             label_all-users-invoke: Public function
             label_invoke-link: Link to invoke
+            label_latest-memory: Memory
+            label_latest-timeout: Timeout
             label_title: Overview
+            label_title-environment-vars: Environment variables
             label_title-history: Version history
             label_title-latest-version: Last version
             label_title-metadata: General information
@@ -6532,11 +6573,14 @@ default:
             button_save: Save
             field_key: KMS Key
           https:
+            button_action-configure: Configure
             button_create-certificate: Go to Certificate Manager
             button_empty-action: Configure
             button_save: Save
             field_certificate: Certificate
+            field_certificate-manager: Certificate
             field_source: Source
+            value_method-certificate-manager: Certificate Manager
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save

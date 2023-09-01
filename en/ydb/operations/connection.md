@@ -34,7 +34,7 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
 
          > Sample DB path: `{{ ydb.path-serverless }}`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
    1. {% include [cli-install](../../_includes/cli-install.md) %}
    1. Get a list of databases in the folder:

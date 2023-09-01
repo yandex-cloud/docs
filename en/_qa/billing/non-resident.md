@@ -24,9 +24,9 @@ Businesses that are non-residents of Russia or Kazakhstan and may top up their p
 
 #### In what currency can non-residents of Russia or Kazakhstan pay for {{ yandex-cloud }} services? {#currency}
 
-Non-residents of Russia or Kazakhstan can pay for {{ yandex-cloud }} services only in US dollars ($), whatever their country of residence.
+Non-residents of Russia or Kazakhstan can pay for {{ yandex-cloud }} services only in US dollars ($), whatever their country of residence.
 
-#### What documents do I receive after I pay for services? {#documents}
+#### What documents do I get after I pay for the services? {#documents}
 
 {{ yandex-cloud }} generates a [payment invoice](../../billing/concepts/bill.md) for businesses that are non-residents of Russia or Kazakhstan. A copy of the payment invoice will be sent to the email address of the billing account owner at the beginning of the next reporting period.
 
@@ -35,19 +35,17 @@ Non-residents of Russia or Kazakhstan can pay for {{ yandex-cloud }} services on
 
 Taxes and fees of the country of registration of a non-resident business of Russia or Kazakhstan are not added to the cost of services on the [Usage details](../../billing/operations/check-charges.md) page, nor included into the total invoice amount.
 
-Non-residents of Russia or Kazakhstan will themselves pay all taxes and fees stipulated by the laws of their country of residence.
+Non-residents of Russia or Kazakhstan should themselves pay all the taxes and fees under the laws of their country of residence.
 
-#### Why was my billing account created with the PAYMENT_NOT_CONFIRMED status?  {#pending-status}
+#### Why was my billing account created with the PAYMENT_NOT_CONFIRMED status? {#pending-status}
 
 To activate a billing account for a non-resident of Russia or Kazakhstan, you must receive confirmation from {{ yandex-cloud }} managers.
 
-When you click the **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**, the billing account is created with the `PAYMENT_NOT_CONFIRMED` status on the **Create billing account** page. You will receive an email with further instructions to the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your account.
+When you click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}** on the **{{ ui-key.yacloud.billing.account.create-new.label_title }}** page, a billing account is created with the `PAYMENT_NOT_CONFIRMED` status. You will receive an email with further instructions to the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your account.
 
-#### I received no email with instructions on what to do after creating a billing account. Why?  {#account-notification}
+#### I received no email with instructions on what to do after creating a billing account. Why? {#account-notification}
 
 It may take up to three business days to activate your billing account.
-If you didn't receive an email within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
+If no email arrived within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
 
-In the request, specify the full name of your company and [cloud ID](../../resource-manager/operations/cloud/get-id.md) and attach the following documents:
-- A copy of the certificate of incorporation or business registration (translated into English or Russian).
-- A copy of the power of attorney of the business representative if you are the representative (translated into English or Russian).
+In the request, specify the full organization name and the [billing account ID](../../billing/concepts/billing-account.md#billing-account-id), as well as a copy of the certificate of incorporation or business registration (translated into English or Russian).

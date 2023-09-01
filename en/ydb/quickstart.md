@@ -45,7 +45,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
   1. Create a database:
@@ -134,7 +134,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 

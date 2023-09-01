@@ -11,11 +11,11 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан домен.
-    1. В списке сервисов выберите **{{ certificate-manager-name }}**.
-    1. Перейдите во вкладку **Домены**.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. Перейдите во вкладку **{{ ui-key.yacloud.certificate-manager.label_domains }}**.
     1. Выберите в списке домен, к которому необходимо привязать новый сертификат.
-    1. В открывшемся окне нажмите кнопку **Привязать сертификат**.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.certificate-manager.domain.action_bind-certificate }}**.
     1. В открывшемся окне выберите сертификат из списка подтвержденных сертификатов от Let's Encrypt с подходящим именем домена.  
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.domain.form.button_bind }}**.
 
 {% endlist %}

@@ -6,7 +6,6 @@ You can:
 * [Create a transfer](#create).
 * [Update a transfer](#update).
 * [Activate a transfer](#activate).
-* [Restart a transfer](#reupload).
 * [Deactivate a transfer](#deactivate).
 * [Delete a transfer](#delete).
 
@@ -75,34 +74,34 @@ For more information about transfer states, operations applicable to transfers, 
 
       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to be transferred. Only objects from this list will be transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
-            Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
+         Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
-            * {{ CH }}: `<database name>.<table path>`.
-            * {{ GP }}: `<scheme name>.<table path>`.
-            * {{ MG }}: `<database name>.<collection path>`.
-            * {{ MY }}: `<database name>.<table path>`.
-            * {{ PG }}: `<scheme name>.<table path>`.
-            * Oracle: `<scheme name>.<table path>`.
-            * {{ ydb-short-name }}: Table path.
+         * {{ CH }}: `<database name>.<table path>`.
+         * {{ GP }}: `<scheme name>.<table path>`.
+         * {{ MG }}: `<database name>.<collection path>`.
+         * {{ MY }}: `<database name>.<table path>`.
+         * {{ PG }}: `<scheme name>.<table path>`.
+         * Oracle: `<scheme name>.<table path>`.
+         * {{ ydb-short-name }}: Table path.
 
-            If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
+         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
 
-       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
-            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}**: Settings for renaming tables:
-                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the source type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: Source table name.
-                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the target type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: New name for the target table.
-            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**: Specifies column transfer settings. If both the rename tables and column filter options are set for the transfer, the column filter should specify the source table names. Table and column names are specified using regular expressions. Lists of excluded tables and columns take priority in the event of a conflict with included ones.
-                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}**: Names of the tables the column transfer settings apply to.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}**: Names of the tables the column transfer settings do not apply to.
-                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}**: Names of the columns included in the list of tables to transfer.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns excluded from the list of tables to transfer.
-    1. Click **{{ ui-key.yacloud.common.create }}**.
+      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
+         * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}**: Settings for renaming tables:
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: Source table name.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: New name for the target table.
+         * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}**: Specifies column transfer settings. If both the rename tables and column filter options are set for the transfer, the column filter should specify the source table names. Table and column names are specified using regular expressions. Lists of excluded tables and columns take priority in the event of a conflict with included ones.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.include_tables.title }}**: Names of the tables the column transfer settings apply to.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.TablesFilter.exclude_tables.title }}**: Names of the tables the column transfer settings do not apply to.
+            * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.columns.title }}**:
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.include_columns.title }}**: Names of the columns included in the list of tables to transfer.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ColumnsFilter.exclude_columns.title }}**: Names of the columns excluded from the list of tables to transfer.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -129,7 +128,7 @@ For more information about transfer states, operations applicable to transfers, 
 
         {% note info %}
 
-        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. The name may not be longer than 63 characters.
+        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. It must be maximum 63 characters long.
 
         {% endnote %}
 
@@ -355,22 +354,6 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
     To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
-
-## Reloading a transfer {#reupload}
-
-If you assume that the transfer replication stage may fail (for example, due to [changes to the schema of the transferred data](db-actions.md) on the source), force reload the transfer.
-
-{% list tabs %}
-
-- Management console
-
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-REUPLOAD }}**.
-
-{% endlist %}
-
-For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 ## Deactivating a transfer {#deactivate}
 

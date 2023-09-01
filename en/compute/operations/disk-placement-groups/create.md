@@ -1,6 +1,6 @@
 # Creating a disk placement group
 
-Create a [placement group](../../concepts/disk-placement-group.md) for non-replicated disks.
+To create a [placement group](../../concepts/disk-placement-group.md) for non-replicated disks:
 
 {% list tabs %}
 
@@ -22,9 +22,15 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
 
+   1. Select a placement strategy: [spread](../../concepts/disk-placement-group.md#spread) or [partition](../../concepts/disk-placement-group.md#partition).
+
+      If you choose the spread placement strategy, specify the number of partitions for non-replicated disks.
+
    1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
 - CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -34,15 +40,35 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       yc compute disk-placement-group create --help
       ```
 
-   1. Create a group in the default folder:
+   1. Create a group in the default folder using one of the placement strategies:
+      * Distributed placement ([spread](../../concepts/disk-placement-group.md#spread)):
 
-      ```bash
-      yc compute disk-placement-group create \
-        --name first-group \
-        --description "first disk placement group"
-      ```
+         ```bash
+         yc compute disk-placement-group create \
+           --name <placement_group_name> \
+           --zone <availability_zone> \
+           --strategy SPREAD
+         ```
 
-      This will create a disk placement group named `first-group` with the description `first disk placement group`.
+         Where:
+         * `--name`: Placement group name
+         * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md)
+         * `--strategy`: Placement strategy
+      * [Partition](../../concepts/disk-placement-group.md#partition) placement:
+
+         ```bash
+         yc compute disk-placement-group create \
+           --name <placement_group_name> \
+           --zone <availability_zone> \
+           --strategy PARTITION \
+           --partition-count <number_of_partitions>
+         ```
+
+         Where:
+         * `--name`: Placement group name
+         * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md)
+         * `--strategy`: Placement strategy
+         * `--partition-count`: Two to five partitions
 
    1. Get a list of disk placement groups in the default folder:
 
@@ -53,90 +79,36 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       Result:
 
       ```text
-      +----------------------+-------------+---------------+--------+
-      |          ID          |    NAME     |     ZONE      | STATUS |
-      +----------------------+-------------+---------------+--------+
-      | epd4sug6keskb72ub9m7 | first-group | {{ region-id }}-b | READY  |
-      +----------------------+-------------+---------------+--------+
+      +----------------------+---------------------+---------------+--------+---------------+
+      |          ID          |        NAME         |      ZONE     | STATUS |   STRATEGY    |
+      +----------------------+---------------------+---------------+--------+---------------+
+      | epd3oalmkmbp******** | drbasic-partition-1 | {{ region-id }}-b | READY  | PARTITION [3] |
+      | epdn7r7co1v4******** | drbasic-spread-2    | {{ region-id }}-b | READY  | SPREAD        |
+      +----------------------+---------------------+---------------+--------+---------------+
       ```
 
-   1. Get information about the group created:
+   1. Get information about the created group by specifying its name:
 
       ```bash
       yc compute disk-placement-group get \
-        --name first-group
+        --name <placement_group_name>
       ```
 
       Result:
 
       ```text
-      id: epd4sug6keskb72ub9m7
-      folder_id: w3qrbj9swotyns6oiyny
+      id: epd4sug6kesk********
+      folder_id: w3qrbj9swoty********
       created_at: "2021-03-23T12:49:59Z"
       name: first-group
-      description: first disk placement group
       zone_id: {{ region-id }}-b
       status: READY
       spread_placement_strategy: {}
       ```
 
+
 - API
 
    Use the [create](../../api-ref/DiskPlacementGroup/create.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/Create](../../api-ref/grpc/disk_placement_group_service.md#Create) gRPC API call.
-
-- {{ TF }}
-
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
-
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-   1. In the configuration file, describe the disk placement group parameters:
-
-      ```hcl
-      resource "yandex_compute_disk_placement_group" "group1" {
-        name        = "<name_of_disk_placement_group>"
-        folder_id   = "<folder_ID>"
-        description = "<description_of_disk_placement_group>"
-        zone        = "<availability_zone>"
-      }
-      ```
-
-      Where:
-      * `name`: Disk placement group name. The name format is as follows:
-
-         {% include [name-format](../../../_includes/name-format.md) %}
-
-      * `folder_id`: ID of the folder where the disk placement group is being created.
-      * `description`: Disk placement group description.
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). We recommend creating disk placement groups in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.
-
-      For more information about the `yandex_compute_disk_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group).
-
-   1. Make sure the configuration files are valid.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
-
-         ```bash
-         terraform plan
-         ```
-
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Deploy cloud resources.
-
-      1. If the configuration does not contain any errors, run this command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
-
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
-
-         ```bash
-         yc compute disk-placement-group list
-         ```
 
 {% endlist %}

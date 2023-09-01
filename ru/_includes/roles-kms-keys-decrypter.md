@@ -3,7 +3,7 @@
 В роль пользователя ключей `kms.keys.decrypter` входят следующие разрешения:
 
 * получение информации о ключах и версиях;
-* [расшифровка](../kms/operations/encryption.md#decryption) данных.
+* [расшифровка](../kms/operations/symmetric-encryption.md#decryption) данных.
 
 {% include [roles-crypt-includes-permissions](iam/roles-crypt-includes-permissions.md) %}
 

@@ -34,7 +34,7 @@
       
           >Пример пути БД: `{{ ydb.path-serverless }}`.
 
-- YC CLI
+- {{ yandex-cloud }} CLI
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
   1. Получите список баз в каталоге:
