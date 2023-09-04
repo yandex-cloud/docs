@@ -2,6 +2,8 @@
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Windows Server 2019 and 2022. For more information, see [{#T}](../concepts/vm-connection.md#os).
 
+{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
+
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
 To connect a Windows VM to {{ backup-name }}:

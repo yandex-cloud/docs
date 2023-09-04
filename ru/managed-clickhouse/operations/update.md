@@ -513,6 +513,7 @@
                                `hour=<час дня для типа weekly> \
            --metrika-access=<true или false> \
            --serverless-access=<true или false> \
+           --yandexquery-access=<доступ через {{ yq-full-name }}: true или false> \
            --websql-access=<true или false>
         ```
 
@@ -543,6 +544,8 @@
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+    * `--yandexquery-access=true` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Значение по умолчанию — `false`.
 
 
 
@@ -578,6 +581,7 @@
             metrika    = <доступ из Метрики и AppMetrika: true или false>
             serverless = <доступ из Cloud Functions: true или false>
             web_sql    = <выполнение SQL-запросов из консоли управления: true или false>
+            yandex_query = <доступ из Yandex Query: true или false>
           }
           ...
         }
@@ -629,6 +633,8 @@
     
     
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+    Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
 
 

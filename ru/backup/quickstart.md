@@ -1,6 +1,6 @@
 # Как начать работать с {{ backup-name }}
 
-{{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них. Сервис находится на [стадии Preview](../overview/concepts/launch-stages.md).
+{{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них.
 
 {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../compute/concepts/vm.md) с операционными системами Ubuntu, CentOS и Windows Server. Подробнее см. в разделе [{#T}](concepts/vm-connection.md#os).
 
@@ -13,7 +13,7 @@
 
 ## Запросите доступ к сервису {#write-to-support}
 
-Чтобы включить {{ backup-name }}, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этому сервису.
+{% include [ask-for-turning-on](../_includes/backup/ask-for-turning-on.md) %}
 
 ## Активируйте сервис {#activate-provider}
 

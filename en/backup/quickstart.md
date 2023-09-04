@@ -1,6 +1,6 @@
 # Getting started with {{ backup-name }}
 
-{{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. The service is at the [Preview stage](../overview/concepts/launch-stages.md).
+{{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
 
@@ -13,7 +13,7 @@ To get started with {{ backup-name }}:
 
 ## Request access to the service {#write-to-support}
 
-To activate {{ backup-name }}, [request access to the service from the support team]({{ link-console-support }}/create-ticket).
+{% include [ask-for-turning-on](../_includes/backup/ask-for-turning-on.md) %}
 
 ## Activate the service {#activate-provider}
 

@@ -1,9 +1,6 @@
 title: Yandex Cloud Backup
 description:
   - >-
-    <i>Yandex Cloud Backup is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
-  - >-
     With Yandex Cloud Backup, you can set up automatic backups for <a
     href="/docs/compute">Yandex Compute Cloud</a> VMs.
 meta:
@@ -18,6 +15,9 @@ links:
   - title: Concepts
     description: Learn more about backups and backup policies, as well as a VM agent.
     href: concepts/
+  - title: Quotas
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
   - title: Access management
     description: Set up access rights for the service
     href: security/

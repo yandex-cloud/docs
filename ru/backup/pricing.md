@@ -4,8 +4,6 @@ editable: false
 
 # Правила тарификации для {{ backup-full-name }}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ backup-name }} не тарифицируется.
-
 {% note info %}
 
 Сервис {{ backup-name }} переходит в [общий доступ](../overview/concepts/launch-stages.md) и начнет тарифицироваться 4 сентября 2023 года.

@@ -6224,6 +6224,7 @@ default:
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
+          additional-field-yandex-query: Yandex Query access
           backup-retain-period: Retention period for automatic backups, days
           backup-window-start: Backup start time (UTC)
           base_field_description: Description
