@@ -204,6 +204,8 @@
      
      1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+     1. Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`.
+
 
      1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
@@ -343,6 +345,7 @@
               data_lens  = <доступ из DataLens: true или false>
               metrika    = <доступ из Метрики и AppMetrika: true или false>
               serverless = <доступ из Cloud Functions: true или false>
+              yandex_query = <доступ из Yandex Query: true или false>
               web_sql    = <выполнение SQL-запросов из консоли управления: true или false>
             }
             ...
@@ -398,9 +401,9 @@
 
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+  Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
-  Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы задать [настройки гибридного хранилища](../concepts/storage.md##hybrid-storage-settings):
 

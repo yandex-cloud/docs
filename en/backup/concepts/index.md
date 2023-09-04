@@ -1,6 +1,6 @@
 # {{ backup-full-name }} overview
 
-{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. At the [Preview stage](../../overview/concepts/launch-stages.md), you can back up and restore [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server.
+{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. You can back up and restore [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server.
 
 Created VM backups are application-consistent: both data stored on disks and intermediate data of running applications (in-memory data and active reads and writes to disks) are saved. This approach allows you to resume applications that were running at backup creation immediately after restoring your VM. This is important for VMs that are part of data storage systems, such as when a DBMS is running on the VM.
 

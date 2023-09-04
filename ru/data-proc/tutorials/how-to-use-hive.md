@@ -1,8 +1,24 @@
-# Запуск заданий Apache Hive 
+# Запуск заданий Apache Hive
 
 [Hive](https://hive.apache.org/) — инструмент доступа к хранилищам данных в экосистеме Hadoop. Позволяет работать с данными в разных форматах и СУБД, используя SQL-подобный язык запросов. Преимущественно используется для работы с данными в HDFS, HBase, S3-совместимых хранилищах и реляционных СУБД.
 
 Вы можете запускать задания Hive как с помощью [CLI {{ yandex-cloud }}](#run-hive-job-cli), так и непосредственно на сервере с помощью [Hive CLI](#run-job-hive-shell).
+
+## Перед началом работы {#before-you-begin}
+
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `mdb.dataproc.agent`.
+
+1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+
+1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
+
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+        * `HDFS`
+        * `SPARK`
+        * `HIVE`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: выберите опцию для доступа к хостам всех подкластеров.
 
 ## Запуск задания с помощью CLI {{ yandex-cloud }} {#run-hive-job-cli}
 
@@ -14,7 +30,7 @@
 
 SQL-запрос для Hive можно передать двумя способами:
 
-*  В команде на запуск задачи:
+* В команде на запуск задачи:
 
     ```bash
     {{ yc-dp }} job create-hive \
@@ -36,18 +52,17 @@ SQL-запрос для Hive можно передать двумя способ
 
 Идентификатор задачи есть в выводе команды запуска задания YC CLI и есть в ответе [API](../../glossary/rest-api.md) на запуск задания.
 
-
 ## Запуск задания с помощью Hive CLI {#run-job-hive-shell}
 
-Чтобы запустить командную оболочку (CLI) для Apache Hive, подключитесь к хосту-мастеру по [SSH](../../glossary/ssh-keygen.md) и выполните команду `hive`.
+1. Подключитесь к хосту-мастеру по [SSH](../../glossary/ssh-keygen.md) и выполните команду `hive`.
 
-После этого проверьте работоспособность Hive — выполните команду `select 1;`. Корректный результат выглядит так:
+1. Проверьте работоспособность Hive — выполните команду `select 1;`. Корректный результат выглядит так:
 
-```text
-OK
-1
-Time taken: 0.077 seconds, Fetched: 1 row(s)
-```
+   ```text
+   OK
+   1
+   Time taken: 0.077 seconds, Fetched: 1 row(s)
+   ```
 
 1. Создайте внешнюю таблицу (external table) для данных примера в формате Parquet. Таблица будет содержать список перелетов между городами США в 2018-м году. Выполните следующий запрос с помощью Hive CLI:
 

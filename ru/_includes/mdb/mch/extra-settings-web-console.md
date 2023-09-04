@@ -4,14 +4,6 @@
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
-* **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — включите эту опцию, чтобы кластер использовал [гибридное хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Тип диска и его размер укажите в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
-
-   {% note alert %}
-
-   Эту опцию невозможно выключить.
-
-   {% endnote %}
-
 * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
 * {% include [datatransfer access](../console/datatransfer-access.md) %}
@@ -23,6 +15,8 @@
 * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html) в кластер.
 
 * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
+
+* **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query }}** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../../query/concepts/index.md).
 
 
 

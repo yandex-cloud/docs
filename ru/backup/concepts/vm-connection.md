@@ -1,5 +1,7 @@
 # Подключение виртуальных машин {{ compute-name }} к {{ backup-name }}
 
+{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
+
 Если вы хотите создавать резервные копии [ВМ](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/) в сервисе {{ backup-name }}, ее нужно подключить к сервису и корректно настроить.
 
 Чтобы ВМ можно было подключить к {{ backup-name }}, на ней должна быть установлена одна из [поддерживаемых операционных систем](#os): Linux (CentOS, Ubuntu) или Windows Server. Вы можете подключить существующие ВМ на Linux и Windows Server, а также создать ВМ Linux с подключением к {{ backup-name }}. Подробнее о подключении см. в [инструкциях](../operations/index.md#connect-vm).

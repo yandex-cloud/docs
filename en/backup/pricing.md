@@ -4,8 +4,6 @@ editable: false
 
 # Pricing for {{ backup-full-name }}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ backup-name }} can be used free of charge.
-
 {% note info %}
 
 {{ backup-name }} will become [generally available](../overview/concepts/launch-stages.md) and billable in 4th os September 2023.

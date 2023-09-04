@@ -22,6 +22,7 @@
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
 * {{ speechkit-full-name }}: [распознавание](../{{ speechkit-slug }}/release-notes-stt.md) и [синтез](../{{ speechkit-slug }}/release-notes-tts.md)
 * [{{ vision-full-name }}](../vision/release-notes.md)
+* [{{ yagpt-full-name }}](../yandexgpt/release-notes.md)
 
 ## Бизнес-инструменты {#business-tools}
 
