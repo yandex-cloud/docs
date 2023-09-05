@@ -159,7 +159,7 @@
 
   ```bash
   SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
-    grep admin-user | \
+    grep admin-user-token | \
     awk '{print $1}') -o json | \
     jq -r .data.token | \
     base64 --d)
