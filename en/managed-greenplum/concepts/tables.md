@@ -4,7 +4,7 @@
 
 * _Without clustered indexes_ (heap storage).
 
-   This type of table supports _row-oriented_ data storage only. They are best suited for online transaction processing (OLTP), when table data is often modified by `INSERT`, `UPDATE`, and `DELETE` operations.
+   This type of table supports _row-oriented_ data storage only. Such tables are best suited for online transaction processing (OLTP), when table data is often modified by `INSERT`, `UPDATE`, and `DELETE` operations.
 
    All tables created in {{ GP }} use this data storage type by default.
 

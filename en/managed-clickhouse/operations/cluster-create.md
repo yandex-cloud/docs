@@ -14,7 +14,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
    
-   This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
+   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
@@ -35,13 +35,14 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - Management console
 
+
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
       1. Select a **{{ mch-name }}** service.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing, including {{ mch-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ CH }} version from the **Version** drop-down list to use for the {{ mch-name }} cluster:
       * For most clusters, it is recommended to select the latest LTS version.
       * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
@@ -52,12 +53,12 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **Resources**:
 
-      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When changing the host class for the cluster, the configuration of all existing instances changes as well.
+      * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
       
       * Select the [disk type](../concepts/storage.md).
 
-                  
+         
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -85,7 +86,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. The database name may contain Latin letters, numbers, and underscores. The name may not be longer than 63 characters. You cannot create a database named `default`.
+      * DB name. Database name may contain Latin letters, numbers, and underscores. The name may be up to 63 characters in length. You cannot create a database named `default`.
 
       * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
@@ -242,6 +243,12 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              --cloud-storage-move-factor=<free space ratio>
            ...
          ```
+
+   {% note info %}
+
+   When creating a cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
+
+   {% endnote %}
 
 - {{ TF }}
 

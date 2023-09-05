@@ -20,13 +20,14 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 - Management console
 
+
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ mpg-name }}**.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mpg-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing, including {{ mpg-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the DBMS version.
 
       {% note info %}
@@ -72,7 +73,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 
-            
+      
       When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the cluster.
 
 
@@ -149,6 +150,12 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
+
+      {% note info %}
+
+      When creating a cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
+
+      {% endnote %}
 
 - {{ TF }}
 

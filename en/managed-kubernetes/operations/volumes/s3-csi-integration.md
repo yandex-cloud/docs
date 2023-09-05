@@ -70,7 +70,7 @@ See also:
    ```bash
    kubectl create -f secret.yaml && \
    kubectl create -f k8s-csi-s3/deploy/kubernetes/provisioner.yaml && \
-   kubectl create -f k8s-csi-s3/deploy/kubernetes/attacher.yaml && \
+   kubectl create -f k8s-csi-s3/deploy/kubernetes/driver.yaml && \
    kubectl create -f k8s-csi-s3/deploy/kubernetes/csi-s3.yaml && \
    kubectl create -f storageclass.yaml
    ```
@@ -251,7 +251,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
       apiVersion: v1
       kind: PersistentVolume
       metadata:
-        name: <Persistent Volume name>
+        name: s3-volume
       spec:
         storageClassName: csi-s3
         capacity:

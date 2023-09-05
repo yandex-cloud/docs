@@ -1,6 +1,5 @@
 {% note warning %}
 
-You cannot edit the **Data Schema Registry** setting after a cluster is created.
+You cannot disable the **Schema registry** setting after a cluster is created.
 
 {% endnote %}
-

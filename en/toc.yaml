@@ -21,6 +21,8 @@ items:
     href: cloud-apps/index.yaml
   - name: Cloud Backup
     href: backup/index.yaml
+  - name: Cloud Desktop
+    href: cloud-desktop/index.yaml
   - name: Cloud Interconnect
     href: interconnect/index.yaml
   - name: Cloud Logging
@@ -129,4 +131,6 @@ items:
     href: query/index.yaml
   - name: YandexGPT
     href: yandexgpt/index.yaml
+  - name: Management console
+    href: console/index.yaml
 base: en

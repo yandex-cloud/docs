@@ -82,7 +82,7 @@
      ```bash
      kubectl create -f secret.yaml && \
      kubectl create -f k8s-csi-s3/deploy/kubernetes/provisioner.yaml && \
-     kubectl create -f k8s-csi-s3/deploy/kubernetes/attacher.yaml && \
+     kubectl create -f k8s-csi-s3/deploy/kubernetes/driver.yaml && \
      kubectl create -f k8s-csi-s3/deploy/kubernetes/csi-s3.yaml && \
      kubectl create -f storageclass.yaml
      ```

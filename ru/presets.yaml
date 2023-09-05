@@ -13,7 +13,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
-  maf-full-name: Yandex Managed Service for Airflow®
+  maf-full-name: Yandex Managed Service for Apache Airflow®
   mes-full-name: Yandex Managed Service for Elasticsearch
   mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
@@ -304,6 +304,11 @@ default:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
         viewer: k8s.cluster-api.viewer
+    maf:
+      admin: managed-airflow.admin
+      editor: managed-airflow.editor
+      viewer: managed-airflow.viewer
+      user: managed-airflow.user
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
@@ -5036,6 +5041,10 @@ default:
         detail:
           column_cost: Общая стоимость
     yacloud:
+      airflow:
+        button_create-cluster: Создать кластер
+        section_airflow-configuration: Конфигурация Airflow
+        section_storage: Хранилище DAG-файлов
       alb:
         button_add-listener: Добавить обработчик
         button_add-route: Добавить маршрут
@@ -5881,6 +5890,7 @@ default:
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
+            label_managed-airflow: Managed Service for Airflow
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
@@ -6827,6 +6837,7 @@ default:
         sql:
           button_run: Выполнить
           label_query: Запрос
+          label_status_running: Running
         table:
           form:
             column_shard: Ключ партицирования

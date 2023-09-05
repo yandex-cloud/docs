@@ -5,3 +5,4 @@
 * [Не удается удалить кластер Managed Service for PostgreSQL в состоянии Dead, если на нем включена защита от удаления](unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md)
 * [Устранение проблем с изменением конфигурации кластера с дисками local-ssd](unproсessable-entity-issue-when-enlarging-local-disk.md)
 * [Устранение последствий переполнения хранилища кластера WAL-журналами](cluster-in-readonly-due-to-wal-overflow.md)
+* [Устранение ошибки psql: error: could not translate host name to address: nodename nor servname provided, or not known](error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md)

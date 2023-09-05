@@ -52,6 +52,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
    1. Click the name of the cluster you need.
 
    {% note tip %}
+
    
    To request access to [Point-in-Time-Recovery](../concepts/backup.md) (PITR) in the [Preview](../../overview/concepts/launch-stages.md) mode, click **Request access** in the **{{ ui-key.yacloud.mdb.cluster.overview.label_mongodb-pitr }}** line and fill out the form.
 

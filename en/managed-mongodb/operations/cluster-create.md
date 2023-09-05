@@ -33,7 +33,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ mmg-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       * Specify the DBMS version.
 
@@ -81,7 +81,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
 
 
-      By default, hosts are created in different availability zones. See also about [host management](hosts.md).
+      By default, hosts are created in different availability zones. See about [host management](hosts.md).
 
    1. Configure additional cluster settings, if required:
 
@@ -117,7 +117,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       {{ yc-mdb-mg }} cluster create --help
       ```
 
-   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+   1. Specify the cluster parameters in the create command (the example shows only some of the parameters):
 
       
       ```bash
@@ -138,6 +138,12 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      {% note info %}
+
+      When creating a cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
+
+      {% endnote %}
 
 - {{ TF }}
 

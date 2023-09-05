@@ -199,9 +199,9 @@
 
 - **Innodb lock wait timeout**{#setting-innodb-lock-wait-timeout} {{ tag-all }}
 
-   The maximum time (in seconds) an InnoDB transaction waits for a row lock. When a lock wait timeout occurs, an error is returned and the current SQL statement is rolled back (**not** the entire transaction).
+   The maximum time (in seconds) an InnoDB transaction waits for a row lock. When a lock wait timeout occurs, an error is returned and the current SQL statement (**not** the entire transaction) is rolled back.
 
-   You might decrease this value for OLTP systems and interactive user applications. You might increase this value for long-running operations in an application, such as a transform step for a large array of data in a data warehouse that waits for large `INSERT` or `UPDATE` queries to finish.
+   You can decrease this value for OLTP applications and interactive user applications. You can increase this value if your application has lengthy operations, e.g., large `INSERT` or `UPDATE` queries awaiting completion when transforming large arrays of data from the data storage.
 
    The minimum value is `1` and the maximum value is `28800` (480 minutes, or 8 hours). The default value is `50`.
 
@@ -600,12 +600,12 @@
 
    {{ MY }} cluster SQL modes:
    - [ALLOW_INVALID_DATES]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates): Do not perform full check of dates. In this mode, the server checks that the month is in the range from 1 to 12 and the day is in the range from 1 to 31. Invalid dates like `2004-04-31` are converted to `0000-00-00` and a warning is returned.
-   - [ANSI_QUOTES]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes): Treat `"` as an identifier quote character rather than a string quote character. With this mode enabled, use single quotes `'` rather than double quotes `"` for strings.
+   - [ANSI_QUOTES]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes): Treat `"` as an identifier quote character rather than a string quote character. With this mode enabled, use single quotes (`'`) rather than double quotes (`"`) for strings.
    - [ERROR_FOR_DIVISION_BY_ZERO]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero): Division by zero returns `NULL` and a warning. This SQL mode is deprecated.
    - [HIGH_NOT_PRECEDENCE]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence): Priority of the `NOT` operator is higher when parsing Boolean expressions. With this mode enabled, an expression like `NOT a BETWEEN b AND c` is parsed as `(NOT a) BETWEEN b AND c` instead of `NOT (a BETWEEN b AND c)`.
    - [IGNORE_SPACE]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_ignore_space): Allows spaces between a function name and the opening bracket `(`. As a result, built-in function names are treated as keywords. Identifiers that are the same as function names must be quoted.
    - [NO_AUTO_VALUE_ON_ZERO]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero): Only `NULL` inserted into a column with the `AUTO_INCREMENT` attribute generates the next sequence number for the column. Normally, new sequence numbers are generated when inserting either `0` or `NULL` into it. So this mode can be useful if you need to explicitly store `0` in this column.
-   - [NO_BACKSLASH_ESCAPES]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes): Disables the use of backslash `\` as an escape character. With this mode enabled, backslash is treated as an ordinary character.
+   - [NO_BACKSLASH_ESCAPES]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes): Disables the use of backslash (`\`) as an escape character. With this mode enabled, backslash is treated as an ordinary character.
    - [NO_DIR_IN_CREATE]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create): When creating a table, ignore all `INDEX DIRECTORY` and `DATA DIRECTORY` directives.
    - [NO_ENGINE_SUBSTITUTION]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution): Do not use the default storage engine automatically and return an error if the `CREATE TABLE` or `ALTER TABLE` statement specifies an engine that is unavailable.
    - [NO_UNSIGNED_SUBTRACTION]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction): Negative result is allowed when using subtraction between integer values, one of which is unsigned.
@@ -621,7 +621,7 @@
 
       This SQL mode is deprecated.
 
-      For details, see also: [NO_ZERO_DATE](#setting-no-zero-date).
+      See also: [NO_ZERO_DATE](#setting-no-zero-date).
 
    - [ONLY_FULL_GROUP_BY]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by): Reject queries in which `SELECT`, `HAVING`, or `ORDER BY` refer to non-aggregated columns that are not named in the `GROUP BY` clause ([SQL-92]({{ my.docs }}/refman/8.0/en/group-by-handling.html) style behavior).
    - [PAD_CHAR_TO_FULL_LENGTH]({{ my.docs }}/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length): `CHAR` column values are padded with spaces to their full length. This does not apply to `VARCHAR` columns.

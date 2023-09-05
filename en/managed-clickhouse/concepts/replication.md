@@ -29,7 +29,7 @@ If the cluster was created without {{ CK }} support, before adding new hosts to 
 You can enable fault tolerance and configure {{ ZK }} hosts [after creating a cluster](../operations/zk-hosts.md#add-zk) with a single host.
 
 
-You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. In this case:
+You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. In which case:
 
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), a {{ ZK }} host is automatically added to each subnet if you do not explicitly specify the settings for such hosts. You can explicitly specify three {{ ZK }} hosts and their settings when creating a cluster, if required.
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify three {{ ZK }} hosts and their settings when creating a cluster.
@@ -37,7 +37,7 @@ You can also configure {{ ZK }} hosts immediately when creating a cluster with m
 * If you did not specify any subnets for these hosts, {{ mch-short-name }} will automatically distribute them among the subnets of the network the {{ CH }} cluster is connected to.
 
 
-The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts:
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts:
 
 | Total number of {{ CH }} host cores | Minimum number of cores per {{ ZK }} host |
 |-------------------------------------------|-------------------------------------------------------|

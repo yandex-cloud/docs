@@ -13,9 +13,11 @@ To automate the handling of data format schemas, a _data format schema registry_
 
 ## Registry of data format schemas {#how-sr-works}
 
-Producers and consumers use the registry as follows:
+1. A producer transmits data format schemas to the registry. The following data schema formats are supported:
 
-1. A producer transmits data format schemas to the registry.
+   * [Avro](https://avro.apache.org/)
+   * [JSON Schema](https://json-schema.org/)
+   * [Protobuf](https://protobuf.dev/)
 
    When placed in the registry:
 
@@ -26,26 +28,16 @@ Producers and consumers use the registry as follows:
 1. Upon receiving a message, a consumer extracts the version number of the data format schema in it.
 1. If the required data format schema is missing from the local cache, the consumer looks it up in the registry. After getting the necessary schema, it correctly interprets the received message.
 
-For more about the registry, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/index.html).
-
 ## {{ mkf-msr }} {#msr}
 
 {{ mkf-name }} clusters already have a built-in {{ mkf-msr }} data format schema registry. The registry is deployed on each cluster broker host and is accessible via HTTPS on port 443.
 
 The registry provides a JSON REST API that is fully compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Queries require [authentication](#msr-auth).
 
-The following data schema formats are supported:
-
-* [Avro](https://avro.apache.org/).
-* [JSON Schema](https://json-schema.org/).
-* [Protobuf](https://protobuf.dev/).
-
 Schema information is posted to a [service topic](./topics.md#service-topics) called `__schema_registry`. You cannot use standard tools to write data to this topic.
 
 To use this registry, enable the relevant option when [creating a cluster](../operations/cluster-create.md).
 
-
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 Working with {{ mkf-msr }} requires an advanced [security group configuration](../operations/connect.md#configuring-security-groups).
 
@@ -69,6 +61,14 @@ Access to schemas depends on the selected [topic management method](./topics.md#
    * In addition, a user with the `ACCESS_ROLE_ADMIN` role for a topic has access to any operations with subjects related to the topic. This user can be granted access to any topics.
 
 For more information about roles, see [{#T}](../operations/cluster-accounts.md).
+
+## Confluent Schema Registry {#confluent-sr}
+
+[Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) is one of the software solutions that helps avoid the problem of data format schema synchronization between producers and consumers.
+
+Confluent Schema Registry allows you to store data format schemas in the {{ KF }} service topic named `_schemas`.
+
+For more information about the registry, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/index.html).
 
 ## See also {#see-also}
 

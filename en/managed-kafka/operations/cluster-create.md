@@ -28,7 +28,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       1. Enter a name and description of the {{ mkf-name }} cluster. It must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ mkf-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ KF }} version.
       1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
          1. Enable **Manage topics via the API**.
@@ -80,8 +80,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          When choosing the number of hosts, keep in mind that:
 
          * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
-                  
-         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+                  * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
          * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
          * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
@@ -113,7 +112,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       {{ yc-mdb-kf }} cluster create --help
       ```
 
-   1. Specify the {{ mkf-name }} cluster parameters in the create command (in our example, there are only some of the supported parameters):
+   1. Specify the {{ mkf-name }} cluster parameters in the create command (the example shows only some of the parameters):
 
       
       ```bash
@@ -145,18 +144,14 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
-      ...
-        --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly>
+        ...
+        --maintenance-window type=<type>[,day=<day of the week>,hour=<hour of the day>]
       ```
 
       Where:
-      * `type`: Maintenance type:
-         * `anytime`: Any time.
-         * `weekly`: On a schedule.
-      * `day`: Day of the week in `DDD` format for `weekly`. For example, `MON`.
-      * `hour`: Hour in `HH` format for `weekly`. For example, `21`.
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
    1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
       1. When creating a {{ mkf-name }} cluster, set the `--unmanaged-topics` parameter to `true`:
 

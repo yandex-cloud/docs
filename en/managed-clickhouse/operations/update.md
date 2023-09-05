@@ -6,11 +6,11 @@ After creating a cluster, you can:
 * [Change service account settings](#change-service-account).
 
 
-* [{#T}](#change-resource-preset).
+* [{#T}](#change-resource-preset)
 
-* [{#T}](#change-disk-size).
+* [{#T}](#change-disk-size)
 
-* [{#T}](#SQL-management).
+* [{#T}](#SQL-management)
 
 * [Configure the {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings).
 
@@ -532,7 +532,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 

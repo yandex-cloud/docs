@@ -84,6 +84,18 @@ items:
           Восстановление доступа к платежному аккаунту, созданному на основе
           упрощенной регистрации в Яндекс ID
         href: billing/how-to/recover-access-to-billing-account-via-lite-account.md
+  - name: Business
+    items:
+      - name: Все решения для Business
+        href: business/index.md
+      - name: Решения для известных проблем Business
+        href: business/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Business
+        href: business/how-to/index.md
+        hidden: true
+      - name: Получение доступа к дата-центрам в Казахстане
+        href: business/how-to/accessing-data-centers-in-kazakhstan.md
   - name: Certificate Manager
     items:
       - name: Все решения для Certificate Manager
@@ -177,6 +189,8 @@ items:
         href: compute/known-issues/restore-access-to-vm.md
       - name: Устранение проблем с созданием снимков дисков
         href: compute/known-issues/shapshots-creation-issue.md
+      - name: Не увеличился размер загрузочного диска
+        href: compute/known-issues/disk-volume-did-not-increase.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -200,6 +214,12 @@ items:
         href: compute/how-to/access-gui-and-xorg-on-linux-vm.md
       - name: Использование ISO-образа для развертывания виртуальных машин
         href: compute/how-to/using-iso-to-deploy-vm-is-not-supported.md
+      - name: Получение входящего или исходящего трафика ВМ
+        href: compute/how-to/incoming-and-outcoming-traffic-logs.md
+      - name: >-
+          Как подключиться к Linux-ВМ в Облаке через WinSCP со сгенерированным
+          при создании ключом
+        href: compute/how-to/winscp-and-key-authorization.md
   - name: Container Registry
     items:
       - name: Все решения для Container Registry
@@ -318,11 +338,15 @@ items:
       - name: Решения для известных проблем Cloud DNS
         href: dns/known-issues/index.md
         hidden: true
+      - name: Устранение ошибки Incorrect format. Text string too long
+        href: dns/known-issues/error-incorrect-format-text-string-too-long.md
       - name: Примеры конфигураций и сценариев Cloud DNS
         href: dns/how-to/index.md
         hidden: true
       - name: Делегирование домена на DNS-сервера Yandex Cloud
         href: dns/how-to/delegate-public-zone.md
+      - name: Перенос DNS в другой каталог или облако
+        href: dns/how-to/transferring-to-another-cloud.md
   - name: Data Transfer
     items:
       - name: Все решения для Data Transfer
@@ -338,6 +362,18 @@ items:
       - name: Примеры конфигураций и сценариев Data Transfer
         href: data-transfer/how-to/index.md
         hidden: true
+  - name: Forms
+    items:
+      - name: Все решения для Forms
+        href: forms/index.md
+      - name: Решения для известных проблем Forms
+        href: forms/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Forms
+        href: forms/how-to/index.md
+        hidden: true
+      - name: Настройка почтовых уведомлений
+        href: forms/how-to/customizing-mail-notifications.md
   - name: IAM
     items:
       - name: Все решения для IAM
@@ -368,9 +404,13 @@ items:
         href: iam/known-issues/unauthorised-client-issue.md
       - name: Устранение проблем при переносе облака между разными организациями
         href: iam/known-issues/move-org-public-access-bindings-error.md
+      - name: Устранение ошибки OAuth token is invalid or expired
+        href: iam/known-issues/error-oauth-token-is-invalid-or-expired.md
       - name: Примеры конфигураций и сценариев IAM
         href: iam/how-to/index.md
         hidden: true
+      - name: Удаление облака
+        href: iam/how-to/deleting-cloud.md
   - name: KMS
     items:
       - name: Все решения для Cloud KMS
@@ -449,7 +489,7 @@ items:
   - name: Network Level Balancer
     items:
       - name: Все решения для Network Level Balancer
-        href: kms/index.md
+        href: network-load-balancer/index.md
       - name: Решения для известных проблем Network Level Balancer
         href: network-load-balancer/known-issues/index.md
         hidden: true
@@ -461,6 +501,18 @@ items:
           при создании NLB-балансировщика
         href: >-
           network-load-balancer/known-issues/permission-denied-to-create-udp-listener-in-folder.md
+  - name: Legal
+    items:
+      - name: Все решения для Legal
+        href: legal/index.md
+      - name: Решения для известных проблем Legal
+        href: legal/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Legal
+        href: legal/how-to/index.md
+        hidden: true
+      - name: Получение доступа к дата-центрам в Казахстане
+        href: legal/how-to/accessing-data-centers-in-kazakhstan.md
   - name: Object Storage
     items:
       - name: Все решения для Object Storage
@@ -489,6 +541,8 @@ items:
         href: storage/how-to/moving-data-to-other-bucket-within-folder.md
       - name: Работа напрямую с API Object Storage без использования SDK
         href: storage/how-to/curl-api-request-example.md
+      - name: Просмотр и удаление незавершённых загрузок
+        href: storage/how-to/incomplete-downloads.md
   - name: Managed MySQL
     items:
       - name: Все решения для Managed MySQL
@@ -539,6 +593,11 @@ items:
       - name: Устранение последствий переполнения хранилища кластера WAL-журналами
         href: >-
           managed-postgresql/known-issues/cluster-in-readonly-due-to-wal-overflow.md
+      - name: >-
+          Устранение ошибки psql error could not translate host name to address
+          nodename nor servname provided, or not known
+        href: >-
+          managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md
       - name: Примеры конфигураций и сценариев Managed PostgreSQL
         href: managed-postgresql/how-to/index.md
         hidden: true
@@ -576,6 +635,20 @@ items:
       - name: Примеры конфигураций и сценариев Serverless Containers
         href: serverless-containers/how-to/index.md
         hidden: true
+  - name: SmartCaptcha
+    items:
+      - name: Все решения для SmartCaptcha
+        href: smartcaptcha/index.md
+      - name: Решения для известных проблем SmartCaptcha
+        href: smartcaptcha/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев SmartCaptcha
+        href: smartcaptcha/how-to/index.md
+        hidden: true
+      - name: >-
+          Как получить информацию о количестве использованных проверок за
+          определённый период
+        href: smartcaptcha/how-to/learning-about-monitoring-and-tarification.md
   - name: SpeechKit
     items:
       - name: Все решения для SpeechKit
@@ -618,6 +691,10 @@ items:
         href: vpc/how-to/disable-ddos-protection-on-external-ip.md
       - name: Перенос внешнего статического IP-адреса в другое облако
         href: vpc/how-to/move-external-ip-between-cloud.md
+      - name: Получение входящего или исходящего трафика ВМ
+        href: vpc/how-to/incoming-and-outcoming-traffic-logs.md
+      - name: Как узнать скорость каналов связи
+        href: vpc/how-to/connection-speed.md
   - name: Консоль управления
     items:
       - name: Все решения для Консоли управления
@@ -644,4 +721,18 @@ items:
       - name: Примеры конфигураций и сценариев провайдера Terraform для Yandex Cloud
         href: terraform/how-to/index.md
         hidden: true
+  - name: Tracker
+    items:
+      - name: Все решения для Tracker
+        href: tracker/index.md
+      - name: Решения для известных проблем c Tracker
+        href: tracker/known-issues/index.md
+        hidden: true
+      - name: Примеры конфигураций и сценариев Tracker
+        href: tracker/how-to/index.md
+        hidden: true
+      - name: Подключение Трекера после периода неактивности
+        href: tracker/how-to/activating-tracker-after-inactivity.md
+      - name: Отключение или удаление Трекера
+        href: tracker/how-to/deactivating-tracker.md
 base: ru/troubleshooting

@@ -15,8 +15,6 @@ items:
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
-          - name: Updating the {{ RD }} version
-            href: operations/cluster-version-update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
           - name: Managing hosts in a cluster

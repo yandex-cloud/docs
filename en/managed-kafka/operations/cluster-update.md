@@ -2,12 +2,12 @@
 
 After creating an {{ mkf-name }} cluster, you can:
 
-* [{#T}](#enable-api).
-* [{#T}](#change-brokers).
-* [{#T}](#change-zookeeper).
+* [{#T}](#enable-api)
+* [{#T}](#change-brokers)
+* [{#T}](#change-zookeeper)
 * [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
-* [{#T}](#change-additional-settings).
-* [{#T}](#change-kafka-settings).
+* [{#T}](#change-additional-settings)
+* [{#T}](#change-kafka-settings)
 * [{#T}](#move-cluster) from the current folder to another one.
 * [{#T}](#change-sg-set).
 
@@ -514,7 +514,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can change the following settings:
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
