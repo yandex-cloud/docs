@@ -129,11 +129,12 @@
    ---
    apiVersion: v1
    kind: Secret
+   type: kubernetes.io/service-account-token
    metadata:
      name: admin-user-token
+     namespace: kube-system
      annotations:
-       kubernetes.io/service-account.name: admin-user
-   type: kubernetes.io/service-account-token
+       kubernetes.io/service-account.name: "admin-user"
    ```
 
 1. Создайте объект `ServiceAccount`:
@@ -158,7 +159,7 @@
 
   ```bash
   SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
-    grep admin-user | \
+    grep admin-user-token | \
     awk '{print $1}') -o json | \
     jq -r .data.token | \
     base64 --d)

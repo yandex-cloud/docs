@@ -126,6 +126,17 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
    - kind: ServiceAccount
      name: admin-user
      namespace: kube-system
+   ---
+   apiVersion: v1
+   kind: Secret
+   type: kubernetes.io/service-account-token
+   metadata:
+     name: admin-user-token
+     namespace: kube-system
+     annotations:
+       kubernetes.io/service-account.name: "admin-user"
+
+
    ```
 
 1. Create a `ServiceAccount` object.
@@ -150,7 +161,7 @@ The token is required for `ServiceAccount` authentication in the {{ k8s }} clust
 
   ```bash
   SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
-    grep admin-user | \
+    grep admin-user-token | \
     awk '{print $1}') -o json | \
     jq -r .data.token | \
     base64 --d)
