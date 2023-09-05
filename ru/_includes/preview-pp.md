@@ -1,1 +1,1 @@
-Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md).
+Эта функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md).

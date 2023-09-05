@@ -46,7 +46,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Give your cluster a name and add a descritpion, if required. It must be unique within the folder.
       1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ mes-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -55,6 +55,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
+
    1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the `admin` user password.
 
    {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
@@ -62,7 +63,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    1. Configure hosts with the _Data node_ role by opening the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the platform, host type, and host class.
 
-         The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When changing the host class for the cluster, the configuration of all existing instances changes as well.
+        Host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change host class for a cluster, the characteristics of all existing instances change, too.
 
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -104,7 +105,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
             {% note tip %}
 
-            It's not recommended to enable public access for hosts with the _Master node_ role, because this might be unsafe.
+            It is not recommended to enable public access for hosts with the _Master node_ role as this might be unsafe.
 
             {% endnote %}
 
@@ -140,7 +141,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       {{ yc-mdb-es }} cluster create --help
       ```
 
-   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+   1. Specify the cluster parameters in the create command (the example shows only some of the parameters):
 
       
       ```bash
@@ -167,6 +168,12 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       Enter the subnet ID `subnet-id` if the availability zone includes more than one subnet.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      {% note info %}
+
+      When creating a cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the cluster settings](cluster-update.md#change-additional-settings).
+
+      {% endnote %}
 
 - {{ TF }}
 

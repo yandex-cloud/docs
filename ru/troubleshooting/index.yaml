@@ -12,6 +12,9 @@ links:
   - title: Billing
     description: Решения для Cloud Billing
     href: billing/
+  - title: Business
+    description: Решения для Cloud Business
+    href: business/
   - title: CDN
     description: Решения для Cloud CDN
     href: cdn/
@@ -45,6 +48,9 @@ links:
   - title: Data Transfer
     description: Решения для Data Transfer
     href: data-transfer/
+  - title: Forms
+    description: Решения для Forms
+    href: forms/
   - title: IAM
     description: Решения для Identity and Access Management
     href: iam/
@@ -57,6 +63,9 @@ links:
   - title: Managed Service for Kubernetes
     description: Решения для Managed Service for Kubernetes
     href: managed-kubernetes/
+  - title: Legal
+    description: Решения для Legal
+    href: legal/
   - title: Object Storage
     description: Решения для Object Storage
     href: storage/
@@ -78,6 +87,9 @@ links:
   - title: Serverless Containers
     description: Решения для Serverless Containers
     href: serverless-containers/
+  - title: SmartCaptcha
+    description: Решения для SmartCaptcha
+    href: smartcaptcha/
   - title: SpeechKit
     description: Решения для SpeechKit
     href: speechkit/
@@ -90,3 +102,6 @@ links:
   - title: Terraform-провайдер для Yandex Cloud
     description: Решения по Terraform-провайдеру для Yandex Cloud
     href: terraform/
+  - title: Tracker
+    description: Решения для Tracker
+    href: tracker/

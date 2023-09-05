@@ -13,7 +13,7 @@
 To view detailed information about the {{ mmg-name }} cluster status:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
+1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -104,9 +104,9 @@ This page displays charts showing the load on an individual host in the cluster:
 
    1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
-   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` threshold values to trigger the alert.
+   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger the alert.
 
    1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
@@ -160,7 +160,7 @@ To monitor storage usage on cluster hosts and get notifications when free space 
 To view a cluster's state and status:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the row of the cluster you need.
+1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
 ### Cluster states {#cluster-health}
 

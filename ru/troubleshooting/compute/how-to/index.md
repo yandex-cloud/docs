@@ -9,3 +9,5 @@
 * [Перенос ВМ между разными каталогами или облаками](transfer-vm-between-clouds.md)
 * [Использование ISO-образа для развертывания виртуальных машин](using-iso-to-deploy-vm-is-not-supported.md)
 * [Изменение типа загрузочного диска виртуальной машины на SSD](migrate-data-from-hdd-to-ssd.md)
+* [Получение входящего или исходящего трафика ВМ](incoming-and-outcoming-traffic-logs.md)
+* [Как подключиться к Linux-ВМ в Облаке через WinSCP со сгенерированным при создании ключом](winscp-and-key-authorization.md)

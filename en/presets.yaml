@@ -5024,6 +5024,10 @@ default:
         detail:
           column_cost: Cost
     yacloud:
+      airflow:
+        button_create-cluster: Create a cluster
+        section_airflow-configuration: Airflow configuration
+        section_storage: DAG file storage
       alb:
         button_add-listener: Add listener
         button_add-route: Add route
@@ -5869,6 +5873,7 @@ default:
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
+            label_managed-airflow: Managed Service for Airflow
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
@@ -6815,6 +6820,7 @@ default:
         sql:
           button_run: Run
           label_query: Query
+          label_status_running: Running
         table:
           form:
             column_shard: Partition key

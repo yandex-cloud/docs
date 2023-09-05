@@ -1,1 +1,3 @@
-{% include [_includes/tutorials/confluent-schema-registry](../../_tutorials/dataplatform/kafka-confluent-schema-registry.md) %}
+# Using Confluent Schema Registry with {{ mkf-name }}
+
+{% include [kafka-confluent-schema-registry](../../_tutorials/kafka/kafka-confluent-schema-registry.md) %}

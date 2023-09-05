@@ -74,8 +74,8 @@
 
 ## Getting session statistics {#get-sessions}
 
-1. In the management console () go to the folder page and select **{{ mpg-name }}**.
-1. Click on the name of the desired cluster and select **Performance diagnostics** → **Sessions**.
+1. In the management console, go to the folder page and select **{{ mpg-name }}**.
+1. Click the cluster name and select **Performance diagnostics** → **Sessions**.
 
    To view session statistics or the history of queries executed within a session, select the appropriate tab.
 
@@ -89,7 +89,7 @@
       1. (Optional) Set filters.
       1. Select the desired data segment.
 
-      To show or hide individual categories, click on the category name in the chart legend.
+      To show or hide individual categories, click the category name in the chart legend.
 
    * History
 
@@ -104,8 +104,8 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
 ## Getting query statistics {#get-queries}
 
-1. In the management console () go to the folder page and select **{{ mpg-name }}**.
-1. Click on the name of the desired cluster and select **Performance diagnostics** → **Queries**.
+1. In the management console, go to the folder page and select **{{ mpg-name }}**.
+1. Click the cluster name and select **Performance diagnostics** → **Queries**.
 
    To view query statistics or compare them in two time intervals, select the appropriate tab.
 
@@ -115,7 +115,7 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
       To view query statistics:
 
-      1. Select the desired time interval.
+      1. Select the time interval you need.
       1. (Optional) Set filters.
 
    * Two intervals
@@ -130,11 +130,11 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
    {% endlist %}
 
-For more information about what statistics you can get, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
+You can learn more about what statistics you can get in the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) and [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache) extensions documentation.
 
 ## Getting information about query execution plans {#auto-explain-enable}
 
-[The `auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html) lets you log execution plans for slow queries automatically, without the [`EXPLAIN` command](https://www.postgresql.org/docs/current/sql-explain.html). This is useful for tracking non-optimized queries. This logging feature uses the general {{ PG }} log.
+[The `auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html) allows you to log execution plans for slow queries automatically, without the [`EXPLAIN` command](https://www.postgresql.org/docs/current/sql-explain.html). This is useful for tracking non-optimized queries. This logging feature uses the general {{ PG }} log.
 
 To enable query logging, [change the DBMS settings](update.md#change-postgresql-config):
 

@@ -17,13 +17,14 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - Management console
 
+
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mmy-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing, including {{ mmy-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the DBMS version.
    1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -133,9 +134,6 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --backup-window-start <backup start time> \
         --backup-retain-period-days=<retention period for automatic backups, days> \
         --datalens-access=<cluster access from {{ datalens-name }}: true or false> \
-        --maintenance-window type=<maintenance type: anytime or weekly>,`
-                            `day=<day of week for weekly>,`
-                            `hour=<hour for weekly> \
         --websql-access=<queries from the management console: true or false> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
@@ -145,6 +143,12 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
+
+      {% note info %}
+
+      When creating a cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
+
+      {% endnote %}
 
 - {{ TF }}
 

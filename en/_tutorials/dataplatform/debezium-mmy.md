@@ -321,7 +321,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 1. Delete the [virtual machine](../../compute/operations/vm-control/vm-delete.md).
 

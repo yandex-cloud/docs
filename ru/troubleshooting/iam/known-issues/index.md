@@ -6,3 +6,4 @@
 * [Устранение ошибки The signature of response or assertion was invalid при авторизации федеративным аккаунтом](error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md)
 * [Устранение проблем при переносе облака между разными организациями](move-org-public-access-bindings-error.md)
 * [Устранение проблем при создании OAuth-токенов от имени учетных записей Яндекс ID](unauthorised-client-issue.md)
+* [Устранение ошибки OAuth token is invalid or expired](error-oauth-token-is-invalid-or-expired.md)

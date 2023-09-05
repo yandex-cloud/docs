@@ -1,5 +1,11 @@
 # Асимметричное шифрование данных
 
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 В этом разделе вы узнаете, как в {{ kms-short-name }} шифровать и расшифровывать данные по схеме [асимметричного шифрования](../concepts/asymmetric-encryption.md).
 
 ## Перед началом работы {#before-you-begin}

@@ -7,3 +7,4 @@
 * [Восстановление доступа к ВМ с утерянным SSH-ключом](restore-access-to-vm.md)
 * [Устранение ошибки Not enough resources при запуске виртуальной машины](not-enough-resources.md)
 * [ Устранение проблем с созданием снимков дисков](shapshots-creation-issue.md)
+* [Не увеличился размер загрузочного диска](disk-volume-did-not-increase.md)

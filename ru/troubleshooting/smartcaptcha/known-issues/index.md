@@ -1,0 +1,1 @@
+## Решения для известных проблем c SmartCaptcha для Yandex Cloud {#known-issues-resolving}

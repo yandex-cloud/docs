@@ -19,7 +19,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. (Optional) Enter a cluster description.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mgp-full-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing, including {{ mgp-full-name }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ GP }} version.
 
    
@@ -47,11 +47,11 @@ For more information, see [{#T}](../concepts/index.md).
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It must be from 1 to 32 characters long.
 
-         {% note info %}
+            {% note info %}
 
-         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
+            Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
 
-         {% endnote %}
+            {% endnote %}
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters.
 
@@ -157,7 +157,7 @@ For more information, see [{#T}](../concepts/index.md).
       * `--greenplum-version`: {{ GP }} version.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ GP }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ GP }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
       * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
       * `--user-password`: Password, from 8 to 128 characters long.
@@ -204,18 +204,12 @@ For more information, see [{#T}](../concepts/index.md).
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
          ...
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly>
+         --maintenance-window type=<type>[,day=<day of week>,hour=<hour>]
       ```
 
-      Where:
+      Where `type` is the maintenance type:
 
-      * `type`: Maintenance type:
-         * `anytime`: Any time.
-         * `weekly`: On a schedule.
-      * `day`: Day of the week in `DDD` format for `weekly`. For example, `MON`.
-      * `hour`: Hour in `HH` format for `weekly`. For example, `21`.
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    1. To allow access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) or [{{ data-transfer-full-name }}](../../data-transfer/), pass the `true` value in the corresponding parameters when creating a cluster:
 

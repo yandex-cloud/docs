@@ -31,12 +31,24 @@ description: "{{ kms-name }} — сервис для создания ключе
 
 ## Управление асимметричными ключевыми парами шифрования {#asymmetric-encryption-keys-control}
 
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 [Асимметричная ключевая пара шифрования](asymmetric-encryption-key.md) — это ресурс {{ kms-short-name }}, состоящий из двух частей: открытого ключа шифрования (Public key) и закрытого ключа шифрования (Private key). Открытый ключ используется для шифрования, а закрытый — для расшифрования. Управляйте ключевыми парами шифрования: 
 * [Создайте ключевую пару](../operations/asymmetric-encryption-key.md#create).
 * [Измените ключевую пару](../operations/asymmetric-encryption-key.md#update).
 * [Удалите ключевую пару](../operations/asymmetric-encryption-key.md#delete).
 
 ## Управление асимметричными ключевыми парами электронной подписи {#asymmetric-signature-keys-control}
+
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 [Асимметричная ключевая пара электронной подписи](asymmetric-signature-key.md) — это ресурс {{ kms-short-name }}, состоящий из двух частей: открытого ключа подписи (Public key) и закрытого ключа подписи (Private key). Закрытый ключ используется для создания электронной подписи, открытый ключ — для ее проверки. Управляйте ключевыми парами подписи: 
 * [Создайте ключевую пару](../operations/asymmetric-signature-key.md#create).

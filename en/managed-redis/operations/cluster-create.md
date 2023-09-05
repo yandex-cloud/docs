@@ -17,7 +17,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 - Management console
 
+
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
+
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
@@ -26,7 +28,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ mrd-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
@@ -53,13 +55,13 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       
-      * Select the [disk type](../concepts/storage.md):
+      * Select [disk type](../concepts/storage.md):
          * Either more flexible storage on network SSDs (`network-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`).
          * Or faster local SSD storage (`local-ssd`).
 
          {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
-      
+
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
@@ -151,6 +153,12 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      {% note info %}
+
+      When creating a cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
+
+      {% endnote %}
 
 - {{ TF }}
 
