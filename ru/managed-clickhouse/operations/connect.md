@@ -78,9 +78,9 @@
 Подробнее о группах безопасности см. в разделе [Сеть и кластеры БД](../concepts/network.md#security-groups).
 
 
-## Получение SSL-сертификата {#get-ssl-cert}
+## Получение SSL-сертификатов {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, получите SSL-сертификат:
+Чтобы использовать шифрованное соединение, получите SSL-сертификаты:
 
 {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
@@ -136,9 +136,10 @@
 
 ## Подключение из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификатов](#get-ssl-cert).
 
 Для подключения к кластеру {{ mch-name }} добавьте в Dockerfile строки:
+
 
 ```bash
 # Подключить DEB-репозиторий.
@@ -154,12 +155,18 @@ RUN apt-get update && \
     mkdir -p ~/.clickhouse-client && \
     wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
          --output-document ~/.clickhouse-client/config.xml && \
-    # Получить SSL-сертификат.
-    mkdir -p {{ crt-local-dir }} && \
-    wget "{{ crt-web-path }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+    # Получить SSL-сертификаты.
+    mkdir --parents {{ crt-local-dir }} && \
+    wget "{{ crt-web-path-root }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+    wget "{{ crt-web-path-int }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+    chmod 655 \
+         {{ crt-local-dir }}{{ crt-local-file-root }} \
+         {{ crt-local-dir }}{{ crt-local-file-int }} && \
+    update-ca-certificates
 ```
+
 
 
 ## Подключение из браузера {#browser-connection}
@@ -206,13 +213,13 @@ https://<FQDN любого хоста {{ CH }}>:8443/play
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием SSL-сертификата. Перед подключением [подготовьте сертификат](#get-ssl-cert).
+Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием SSL-сертификатов. Перед подключением [подготовьте сертификаты](#get-ssl-cert).
 
-В примерах ниже предполагается, что сертификат `{{ crt-local-file }}`:
-* расположен в директории `{{ crt-local-dir }}` — для Ubuntu;
-* импортирован в хранилище доверенных корневых сертификатов — для Windows.
+В примерах ниже предполагается, что сертификаты `{{ crt-local-file-root }}` и `{{ crt-local-file-int }}`:
+* расположены в директории `{{ crt-local-dir }}` — для Ubuntu;
+* импортированы в хранилище доверенных корневых сертификатов — для Windows.
 
-Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
+Подключение без использования SSL-сертификатов поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

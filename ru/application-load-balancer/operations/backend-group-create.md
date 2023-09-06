@@ -7,31 +7,31 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться группа бэкендов.
-  1. В списке сервисов выберите **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
-  1. Нажмите кнопку **Создать группу бэкендов**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов.
   1. Выберите [тип группы бэкендов](../concepts/backend-group.md#group-types):
      
-      * `HTTP` — для HTTP- или HTTPS-трафика.
-      * `gRPC` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
-      * `Stream` — для TCP-трафика без шифрования или с TLS-шифрованием.
+      * `{{ ui-key.yacloud.alb.label_proto-http }}` — для HTTP- или HTTPS-трафика.
+      * `{{ ui-key.yacloud.alb.label_proto-grpc }}` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
+      * `{{ ui-key.yacloud.alb.label_proto-stream }}` — для TCP-трафика без шифрования или с TLS-шифрованием.
 
-  1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `HTTP` или `gRPC` доступны следующие режимы привязки:
+  1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны следующие режимы привязки:
       
-     * `По IP-адресу`.
-     * `По HTTP-заголовку`.
-     * `По cookie`.
+     * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
+     * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
+     * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
  
-     Для группы бэкендов типа `Stream` сессии привязываются по IP-адресу клиента. 
+     Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-stream }}` сессии привязываются по IP-адресу клиента. 
 
      {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-  1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
+  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
      
      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

@@ -6,3 +6,5 @@ description: "Как получить логи моей работы в серв
 # Общие вопросы про {{ certificate-manager-name }}
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [checking-cname](../../_qa/checking-cname.md) %}

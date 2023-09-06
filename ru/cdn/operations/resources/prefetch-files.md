@@ -8,17 +8,17 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен [ресурс](../../concepts/resource.md).
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   
   1. Нажмите на имя необходимого ресурса.
   
-  1. Перейдите на вкладку **Контент**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
   
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **Предзагрузить контент**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
   
-  1. В поле **Пути к файлам** укажите имена нужных файлов.
+  1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите имена нужных файлов.
   
-  1. Нажмите кнопку **Предзагрузить контент**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 - CLI
   

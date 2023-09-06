@@ -80,6 +80,8 @@
    ```
    Строка `<Значение>` формируется по шаблону `<Идентификатор сертификата>.cm.yandexcloud.net.`
 
+   {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
+
 1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `CNAME`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}**, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. В открывшемся окне:
    1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **{{ ui-key.yacloud.dns.label_zone }}**. Если подходящей зоны DNS нет, нажмите **{{ ui-key.yacloud.dns.button_zone-create }}** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

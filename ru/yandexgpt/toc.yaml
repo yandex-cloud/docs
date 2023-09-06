@@ -8,6 +8,8 @@ items:
     items:
       - name: О сервисе {{ yagpt-name }}
         href: concepts/index.md
+      - name: Токены
+        href: concepts/tokens.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Справочник API

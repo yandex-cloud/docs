@@ -17,8 +17,8 @@
 
 1. Если провайдер CDN еще не активирован, активируйте его:
     
-   1. Перейдите на страницу каталога и выберите сервис **{{ cdn-name }}**.
-   1. Нажмите кнопку **Подключиться к провайдеру**.
+   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
    
 1. Если у вас еще нет бакета {{ objstorage-name }}:
    
@@ -28,14 +28,14 @@
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ cdn-name }}**.
-1. На вкладке **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. На вкладке **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 1. Настройте CDN-ресурс следующим образом:
 
-   * **Запрос контента** — выберите **Из одного источника**.
-   * **Тип источника** — выберите **Бакет**.
-   * **Бакет** — выберите бакет, созданный в {{ objstorage-name }}.
-   * **Доменные имена для раздачи контента** — укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.
+   * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+   * **{{ ui-key.yacloud.cdn.label_source-type }}** — выберите `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+   * **{{ ui-key.yacloud.cdn.label_bucket }}** — выберите бакет, созданный в {{ objstorage-name }}.
+   * **{{ ui-key.yacloud.cdn.label_section-domain }}** — укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.
 
      {% note alert %}
 
@@ -43,11 +43,11 @@
 
      {% endnote %}
 
-   * В блоке **Дополнительно**:
+   * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
 
-     1. В поле **Протокол для источников** выберите **HTTP**.
-     1. В поле **Заголовок Host** выберите **Свое значение**.
-     1. В поле **Значение заголовка** укажите доменное имя из [URL бакета](../storage/concepts/bucket.md#bucket-url) в формате `<имя бакета>.{{ s3-storage-host }}`. Схему (`http` или `https`) указывать не нужно. Например:
+     1. В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
+     1. В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}`.
+     1. В поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя из [URL бакета](../storage/concepts/bucket.md#bucket-url) в формате `<имя бакета>.{{ s3-storage-host }}`. Схему (`http` или `https`) указывать не нужно. Например:
      
         ```
         my-bucket.{{ s3-storage-host }}
@@ -59,7 +59,7 @@
         
         {% endnote %}
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 ## Загрузите контент в CDN {#upload-content-to-CDN}
 
@@ -71,9 +71,9 @@
 
 Чтобы заранее загрузить контент на серверы CDN:
 
-1. Перейдите на вкладку **Контент**.
-1. Нажмите кнопку **Предзагрузить контент**.
-1. В поле **Пути к файлам** укажите имена файлов, хранящихся в бакете, без указания имени бакета, например:
+1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите имена файлов, хранящихся в бакете, без указания имени бакета, например:
 
     ```text
     /index.html
@@ -81,12 +81,12 @@
     /static/app.js
     ```
 
-1. Нажмите кнопку **Предзагрузить контент**.
+1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 
 ## Настройте CNAME для своего домена {#setup-cname}
 
-1. На вкладке **Обзор** в разделе **Настройки DNS** скопируйте в буфер обмена сгенерированный сервисом адрес в домене `.edgecdn.ru`.
+1. На вкладке **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте в буфер обмена сгенерированный сервисом адрес в домене `.edgecdn.ru`.
 1. Перейдите в настройки DNS вашего домена на сайте компании, которая предоставляет вам услуги DNS-хостинга.
 1. Измените нужную CNAME-запись таким образом, чтобы она указывала на скопированный ранее адрес в домене `.edgecdn.ru`. Например, если при создании CDN-ресурса вы указали доменное имя для раздачи контента `cdn.example.com`, вам нужно создать следующую CNAME-запись или заменить на нее уже существующую запись для `cdn`:
 

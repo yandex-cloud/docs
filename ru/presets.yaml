@@ -407,6 +407,12 @@ default:
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexInternalRootCA.crt
   crt-alias: YandexCA
+  crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+  crt-local-file-root: RootCA.crt
+  crt-alias-root: RootCA
+  crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
+  crt-local-file-int: IntermediateCA.crt
+  crt-alias-int: IntermediateCA
   mdb-host: mdb.cloud.yandex.net
   dns-zone: mdb.yandexcloud.net
   network-name: default
@@ -783,6 +789,7 @@ default:
   ds: Serverless
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
+  yagpt-max-tokens: 7400
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
@@ -3901,7 +3908,7 @@ default:
         tab-title--team: Команда очереди
         tab-title--triggers: Триггеры
         tab-title--types: Типы задач
-        tab-title--workflows: Воркфлоу
+        tab-title--workflows: Рабочие процессы
       blocks-desktop_b-page-queue-description:
         description: Описание очереди
       blocks-desktop_b-page-queue:
@@ -4997,14 +5004,53 @@ default:
     yacloud_org:
       actions:
         add: Добавить
+        save-changes: Сохранить
       common:
         resource-acl:
           label_groups: Группы
           label_inherited-bindings: Наследуемые роли
           label_service-accounts: Сервисные аккаунты
+      component:
+        form-file-upload:
+          method:
+            manual: Текст
+        subject-select-dialog:
+          action_apply: Сохранить
+          title_dialog: Добавление участников
       entity:
+        certificate:
+          action:
+            add: Добавить сертификат
+        federation:
+          field:
+            autocreateUsers: Автоматически создавать пользователей
+            cookieMaxAge: Время жизни cookie
+            encryptedAssertions: Подписывать запросы аутентификации
+            forceAuthn: Принудительная повторная аутентификация (ForceAuthn) в IdP
+            issuer: IdP Issuer
+            ssoBinding: Single Sign-On метод
+            ssoUrl: Ссылка на страницу для входа в IdP
+        group:
+          action_add-acl: Назначить роли
+          action_add-member: Добавить участника
+          action_create: Создать группу
+          action_edit: Изменить
+          action_update-acl: Настроить доступ
+          title_tab-access: Права доступа к группе
+          title_tab-members: Участники
         invitation:
           action_send-invitation: Отправить приглашение
+          label_option-actual: Действующие
+          label_row-action-delete: Удалить приглашение
+          label_row-action-resend: Отправить повторно
+        user:
+          action:
+            acl: Назначить роли
+            remove: Исключить из организации
+          caption:
+            federation: Федерация
+            user: Пользователь
+            userId: ID
       form:
         acl:
           edit:
@@ -5012,6 +5058,8 @@ default:
               subject:
                 select: Выбрать пользователя
         federation:
+          action:
+            create: Создать федерацию
           create:
             action:
               create: Создать федерацию
@@ -5023,6 +5071,9 @@ default:
         action:
           save: Сохранить
       page:
+        context:
+          action:
+            create: Создать новую организацию
         settings:
           action:
             edit: Редактировать данные
@@ -5030,13 +5081,24 @@ default:
           action:
             add-federated-users: Добавить федеративных пользователей
             invite-users: Пригласить пользователей
+          label_tab-invitations: Приглашения
       pages:
+        acl: Права доступа
         create: Создать организацию
+        federations: Федерации
+        groups: Группы
+        raw_services: Облака и сервисы
+        settings: Об организации
+        users: Пользователи
     yacloud_portal:
       common:
         units:
           label_gigabyte: ГБ
           label_megabyte: МБ
+      component:
+        file-input:
+          button_choose: Выбрать файл
+          button_choose-multiple: Выбрать файлы
       subAccount:
         detail:
           column_cost: Общая стоимость
@@ -5046,34 +5108,123 @@ default:
         section_airflow-configuration: Конфигурация Airflow
         section_storage: Хранилище DAG-файлов
       alb:
+        button_add-backend: Добавить бэкенд
+        button_add-discard-rule: Добавить правило отбрасывания логов
+        button_add-healthcheck: Добавить проверку состояния
         button_add-listener: Добавить обработчик
         button_add-route: Добавить маршрут
+        button_add-sni-match: Добавить обработчик SNI
+        button_add-target: Добавить целевой ресурс
+        button_add-targets: Добавить целевые ресурсы
         button_backend-group-create: Создать группу бэкендов
         button_http-router-create: Создать HTTP-роутер
         button_load-balancer-create: Создать L7-балансировщик
+        button_routes-sort: Сортировать
+        button_select: Выбрать
+        button_target-group-create: Создать целевую группу
         button_virtual-host-add: Добавить виртуальный хост
+        column_target: IP-адрес
         label_address-auto: Автоматически
+        label_address-list: Список
+        label_affinity-connection: По IP-адресу
+        label_affinity-cookie: По cookie
+        label_affinity-header: По HTTP-заголовку
+        label_alb-create-form: Вручную
         label_authority: Authority
         label_backend-group: Группа бэкендов
         label_backend-groups: Группы бэкендов
         label_backend-type: Тип
         label_backend-weight: Вес
         label_backends: Бэкенды
+        label_body: Тело ответа
         label_bucket: Бакет
+        label_certificate: Сертификаты
+        label_default-log-group: Лог-группа по умолчанию
+        label_discard-grpc-codes: gRPC-коды
+        label_discard-http-code-intervals: Классы HTTP-кодов
+        label_discard-http-codes: HTTP-коды
+        label_discard-percent: Доля отбрасываемых логов
+        label_enable-proxy-protocol: Протокол PROXY
+        label_fqmn: FQMN
+        label_grpc-status-code: Код состояния gRPC
+        label_hc_host: Authority
+        label_hc-type-grpc: gRPC
+        label_hc-type-http: HTTP
+        label_hc-type-stream: Stream
+        label_healthy: Порог работоспособности
+        label_host-rewrite: Замена заголовка Host
         label_http-methods: Методы HTTP
         label_http-router: HTTP-роутер
         label_http-routers: HTTP-роутеры
+        label_http-status-code: Код состояния HTTP
+        label_idle-timeout: Таймаут простоя, с
+        label_interval: Интервал
+        label_lb-settings: Настройки балансировки
+        label_listener-type-http: HTTP
+        label_listener-type-stream: Stream
         label_listeners: Обработчики
+        label_load-balancers: Балансировщики
+        label_load-balancing-mode: Режим балансировки
+        label_locality-aware-routing: Локализация трафика
+        label_log-group: Лог-группа Cloud Logging
+        label_log-requests: Запись логов
+        label_match-exact: Совпадает с
         label_match-prefix: Начинается с
+        label_match-regex: Регулярное выражение
+        label_panic-threshold: Порог для режима паники
         label_path: Путь
         label_port: Порт
+        label_prefix-rewrite: Замена пути или начала
+        label_proto-grpc: gRPC
+        label_proto-grpc-plain: Открытый
+        label_proto-grpc-tls: Зашифрованный
         label_proto-http: HTTP
+        label_proto-http-plain: HTTP
+        label_proto-http-tls: HTTPS
+        label_proto-stream: Stream
+        label_proto-stream-plain: Открытый
+        label_proto-stream-tls: Зашифрованный
+        label_protocol: Протокол
+        label_protocol-settings: Настройки протокола
+        label_protocol-type: Протокол
+        label_receive: Получение
+        label_redirect-to-https: Перенаправлять на HTTPS
+        label_replace: Замена пути или начала
+        label_replace-host: Изменить хост
+        label_replace-port: Изменить порт
+        label_replace-scheme: Изменить схему
         label_route-action: Действие
+        label_route-action-redirect: Перенаправление
         label_route-action-route: Маршрутизация
+        label_route-action-statusResponse: Ответ
+        label_route-type: Тип
+        label_send: Отправка
+        label_server-names: Имена серверов
+        label_service-name: Имя сервиса
+        label_session-affinity: Привязка сессий
+        label_sni: SNI
+        label_strict-locality: Строгая локализация
+        label_strict-query: Удалить query-параметры
+        label_tab-capacity-stats: Статистика масштабирования
+        label_tab-http-stats: HTTP статистика
+        label_target-group: Целевая группа
+        label_target-groups: Целевые группы
         label_target-private-ip: Не из VPC
+        label_targets: Целевые ресурсы
+        label_timeout: Таймаут, с
+        label_trusted-ca: Сертификат от доверенного УЦ
+        label_unhealthy: Порог неработоспособности
+        label_upgrade-types: Допустимые значения заголовка Upgrade
+        label_use-http2: HTTP/2
         label_virtual-hosts: Виртуальные хосты
+        label_web-socket: WebSocket
         section_allocation-settings: Размещение
+        section_autoscale-settings: Настройки автомасштабирования
+        section_common-address-specs: Приём и обработка трафика
+        section_default-sni-match: Основной обработчик
         section_external-address-specs: Публичный IP-адрес
+        section_internal-address-specs: Внутренний IP-адрес
+        section_logs-settings: Настройки логов
       audit-trails:
         button_create-trail: Создать трейл
         button_process-in-yq: Обработать в YQ
@@ -5220,36 +5371,100 @@ default:
         label_service: Биллинг
         switch_accounts: Список аккаунтов
       cdn:
+        button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя
+        button_origins-group-create: Создать группу источников
+        button_resource-activate-raw-logs: Включить
+        button_resource-content-prefetch-cache: Предзагрузить контент
         button_resource-content-purge-cache: Очистить кеш
         button_resource-create: Создать ресурс
+        button_resource-deactivate-raw-logs: Выключить
+        column_name: Название
         field_access: Доступ конечных пользователей к контенту
+        field_group-name: Название группы
+        field_origin-state: Приоритет
+        label_access: Доступ к контенту
         label_activate-provider-empty-container_action-text: Подключиться к провайдеру
         label_additional: Дополнительно
         label_balancer: L7-балансировщик
+        label_bucket: Бакет
+        label_bucket-key-prefix: Префикс
+        label_cache-hit-ratio: Снижение нагрузки на источники
         label_certificate-type: Тип сертификата
         label_content-query-type: Запрос контента
+        label_custom-host-header: Значение заголовка
         label_dns-settings_title: Настройки DNS
+        label_headers: Заголовок
         label_host-header: Заголовок Host
         label_ip-address: IP-адрес
+        label_metrics-requests: Запросы от клиентов
+        label_metrics-send-bytes: Отправлено клиентам
+        label_metrics-shield-bytes: Загружено экранирующим сервером
+        label_metrics-total-bytes: Весь трафик
+        label_metrics-upstream-bytes: Загружено из источников
+        label_origins-group: Группа источников
+        label_origins-groups-list: Группы источников
         label_personal-domain: Доменное имя
         label_protocol: Протокол для источников
         label_redirect: Переадресация клиентов
         label_resource-cache: Кеширование
+        label_resource-cache-browser-cache: Браузер
+        label_resource-cache-browser-cache-enabled: Кеширование в браузере
+        label_resource-cache-cdn-cache: CDN
         label_resource-cache-cdn-cache-enabled: Кеширование в CDN
+        label_resource-cache-cdn-cache-settings-type-custom-settings: Свои настройки
+        label_resource-cache-cdn-cache-settings-type-source-settings: Как у источника
         label_resource-content: Контент
+        label_resource-content-compress-true: Сжимать файлы
+        label_resource-content-gzip-on: gzip-сжатие
+        label_resource-content-optimize-true: Сегментировать
+        label_resource-content-prefetch-cache-paths: Пути к файлам
+        label_resource-content-purging-cache-paths: Пути к файлам
         label_resource-content-purging-cache-type: Тип очистки
+        label_resource-content-purging-cache-type-full: Полная
         label_resource-content-purging-cache-type-selective: Выборочная
+        label_resource-content-slice: Сегментация больших файлов
+        label_resource-http-headers: HTTP-заголовки и методы
+        label_resource-http-headers-allowed-methods: Разрешенные методы
+        label_resource-http-headers-cors: CORS при ответе клиенту
+        label_resource-http-headers-cors-access: Заголовок Access-Control-Allow-Origin
+        label_resource-http-headers-cors-settings-http-origin-for-source-domains: Как в Origin, если входит в список
+        label_resource-http-headers-http-methods: Методы запросов от клиентов
+        label_resource-http-headers-request-headers: Заголовки запроса к источнику
+        label_resource-http-headers-response-headers: Заголовки ответа клиенту
+        label_resource-raw-logs: Выгрузка логов
+        label_resources-list: CDN-ресурсы
+        label_responses-hit: Ответы из кеша
+        label_responses-miss: Ответы с запросами к источникам
+        label_responses2xx: Ответы с кодами 2xx
         label_section-additional: Дополнительно
+        label_section-content: Контент
         label_section-domain: Доменные имена для раздачи контента
+        label_section-origins-list: Источники
+        label_shielding: Экранирование источников
+        label_shielding-location: Локация
+        label_shielding-settings-title: Настройки экранирования
         label_source-type: Тип источника
+        label_status-active: Основной
+        label_status-backup: Резервный
         md_value_certificate-le: Let's Encrypt^®^
+        value_active: Основной
+        value_backup: Резервный
+        value_certificate-custom: Свой сертификат
+        value_certificate-no: Не использовать
         value_certificate-status-ready: Выпущен
         value_do-not-use: Не использовать
+        value_host-header-custom: Свое значение
+        value_host-header-default: Основное доменное имя
         value_host-header-resend: Как у клиента
+        value_protocol-match: Как у клиента
+        value_query-type-group-origin: Из группы источников
         value_query-type-one-origin: Из одного источника
         value_redirect-http-to-https: С HTTP на HTTPS
+        value_redirect-https-to-http: С HTTPS на HTTP
         value_source-type-balancer: L7-балансировщик
+        value_source-type-bucket: Бакет
+        value_source-type-url: Сервер
       certificate-manager:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt
@@ -5360,9 +5575,11 @@ default:
         label_auto: Автоматически
         label_create-new_female: Создать новую
         label_http: HTTP
+        label_https: HTTPS
         label_key: Ключ
         label_list: Список
         label_seconds_many: секунд
+        label_subnet: Подсеть
         label_tcp: TCP
         label_udp: UDP
         label_value: Значение
@@ -5384,6 +5601,7 @@ default:
           button_new-bindings: Назначить роли
           label_access-bindings: Права доступа
           label_bindings: Роли
+          label_inherited-bindings: Наследуемые роли
           label_service-account: Сервисный аккаунт
         save: Сохранить
         section-base: Общая информация
@@ -5446,6 +5664,8 @@ default:
         file-content-dialog:
           button_submit: Добавить
           field_content: Содержимое
+          field_file: Файл
+          field_method: Способ
           value_manual: Текст
           value_upload: Файл
         iam-delete-folder-or-cloud-dialog:
@@ -5656,6 +5876,7 @@ default:
             field_access-advanced: Дополнительно
             field_coi-image: Docker-образ
             field_coi-name: Имя
+            field_description: Описание
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
             field_key: SSH-ключ
@@ -5826,6 +6047,7 @@ default:
         button_add-hosts: Добавить хосты
         label_kibana: Kibana
       forms:
+        label_form-id: ID
         label_form-list: Список
         label_service-account-select: Сервисный аккаунт
       gitlab:
@@ -5953,11 +6175,17 @@ default:
         label_registries: Реестры
       k8s:
         cluster:
+          marketplace:
+            button_install: Установить
+          switch_marketplace: Marketplace
           switch_workloads: Рабочая нагрузка
         clusters:
           create:
             field_address-type: Публичный адрес
             switch_auto: Автоматически
+        node-groups:
+          create:
+            field_key: SSH-ключ
       kafka:
         button_add-topic: Добавить топик
         button_create-connector: Создать коннектор
@@ -6100,6 +6328,9 @@ default:
         label_section-secrets: Секреты
       logging:
         button_create-group: Создать группу
+        column_header-level: Уровень
+        column_header-message: Сообщение
+        column_header-time: Время
         label_loggroup: Лог-группа
         label_retention-period: Срок хранения логов
       marketplace-v2:
@@ -6522,6 +6753,7 @@ default:
             field_container-registry: Реестр
             field_cron-expression: Cron-выражение
             field_cron-payload: Данные
+            field_cutoff: Время ожидания, с
             field_description: Описание
             field_device: Устройство
             field_dlq_service-account: Сервисный аккаунт
@@ -6531,10 +6763,12 @@ default:
             field_function-tag: Тег версии функции
             field_image-name: Имя Docker-образа
             field_invoke: Запускаемый ресурс
+            field_log-group: Лог-группа
             field_mqtt-topic: MQTT-топик
             field_name: Имя
             field_prefix: Префикс ключа объекта
             field_registry: Реестр
+            field_resource-type: Типы ресурсов
             field_retry-attempts: Количество попыток
             field_retry-interval: Интервал
             field_service-account: Сервисный аккаунт

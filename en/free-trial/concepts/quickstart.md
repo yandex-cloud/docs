@@ -10,7 +10,7 @@ To use the trial period, sign up for {{ yandex-cloud }} and create your first bi
 
 {% note info %}
 
-Residents and non-residents of the Russian Federation can sign up for {{ yandex-cloud }}. Non-residents of the Russian Federation can only register business accounts. Read the detailed terms and conditions in the Billing service [documentation](../../billing/qa/non-resident.md).
+Residents and non-residents of the Russian Federation can sign up for {{ yandex-cloud }}. Non-residents of the Russian Federation can only register business accounts. Read the detailed terms and conditions in the {{ billing-name }} service [documentation](../../billing/qa/non-resident.md).
 
 {% endnote %}
 

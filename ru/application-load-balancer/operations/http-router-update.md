@@ -7,12 +7,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **HTTP-роутеры**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
-  1. Нажмите **Редактировать**.
+  1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры роутера, виртуального хоста или маршрута.
-  1. Внизу страницы нажмите кнопку **Сохранить**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -150,12 +150,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **HTTP-роутеры**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
-  1. Нажмите **Редактировать**.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. Задайте параметры маршрута и нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Задайте параметры маршрута и нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI 
 
@@ -604,14 +604,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **HTTP-роутеры**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
-  1. Нажмите **Редактировать**.
-  1. Нажмите кнопку **Сортировать**.
+  1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_routes-sort }}**.
   1. В открывшемся окне перетащите маршрут на новое место в списке.
-  1. Нажмите **Сохранить**.
-  1. Завершите редактирование роутера и нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Завершите редактирование роутера и нажмите **{{ ui-key.yacloud.common.save }}**.
   
 - CLI 
 

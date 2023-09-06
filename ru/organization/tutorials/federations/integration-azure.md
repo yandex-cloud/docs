@@ -76,23 +76,23 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
-  1. На панели слева выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-  1. Нажмите кнопку **Создать федерацию**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
   1. Задайте имя федерации. Имя должно быть уникальным в каталоге.
 
   1. При необходимости добавьте описание.
 
-  1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-  1. В поле **IdP Issuer** вставьте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
+  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
       ```
       https://sts.windows.net/<ID SAML-приложения>/
       ```
 
-  1. В поле **Ссылка на страницу для входа в IdP** вставьте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
+  1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
       ```
       https://login.microsoftonline.com/<ID SAML-приложения>/saml2
@@ -100,13 +100,13 @@
 
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-  1. Включите опцию **Автоматически создавать пользователей**, чтобы пользователь после аутенцификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
+  1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы пользователь после аутенцификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
-  1. Нажмите кнопку **Создать федерацию**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 - CLI
 
@@ -300,7 +300,7 @@
 
      1. Подтвердите создание федерации.
 
-     После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [Федерации]({{ link-org-federations }}).
+     После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [{{ ui-key.yacloud_org.pages.federations }}({{ link-org-federations }}).
 
 {% endlist %}
 
@@ -312,21 +312,21 @@
 
 - Консоль управления
 
-  1. На панели слева выберите раздел [Федерации]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
   1. Нажмите имя федерации, для которой нужно добавить сертификат.
 
-  1. Внизу страницы нажмите кнопку **Добавить сертификат**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
   1. Введите название и описание сертификата.
 
   1. Выберите способ добавления сертификата:
 
-      * Чтобы добавить сертификат в виде файла, нажмите **Выбрать файл** и укажите путь к нему.
+      * Чтобы добавить сертификат в виде файла, нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** и укажите путь к нему.
 
-      * Чтобы вставить скопированное содержимое сертификата, выберите способ **Текст** и вставьте содержимое.
+      * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** и вставьте содержимое.
 
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
 - CLI
 
@@ -433,7 +433,7 @@
 
 ### Добавьте пользователей в организацию {#add-users-to-org}
 
-Если при [создании федерации](#yc-settings) вы не включили опцию **Автоматически создавать пользователей**, федеративных пользователей нужно добавить в организацию вручную.
+Если при [создании федерации](#yc-settings) вы не включили опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, федеративных пользователей нужно добавить в организацию вручную.
 
 Для этого вам понадобятся пользовательские Name ID. Их возвращает IdP-сервер вместе с ответом об успешной аутентификации.
 
@@ -449,15 +449,15 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
-  1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 
   1. Перечислите Name ID пользователей, разделяя их переносами строк.
 
-  1. Нажмите кнопку **Добавить**. Пользователи будут подключены к организации.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
 - CLI
 

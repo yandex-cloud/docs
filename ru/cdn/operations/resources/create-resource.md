@@ -8,29 +8,29 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ресурс.
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-  1. Если у вас еще нет CDN-ресурсов, нажмите кнопку **Подключиться к провайдеру**. Подключение происходит автоматически.
+  1. Если у вас еще нет CDN-ресурсов, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. Подключение происходит автоматически.
 
-  1. Нажмите кнопку **Создать ресурс**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
-  1. В блоке **Контент** выберите **Запрос контента** `Из одного источника` или `Из группы источников`:
+  1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** выберите **{{ ui-key.yacloud.cdn.label_content-query-type }}** `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` или `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
 
-      * При запросе контента `Из одного источника` выберите **Тип источника**: `Сервер`, `Бакет` или `L7-балансировщик`. Укажите источник. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
+      * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` выберите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Укажите источник. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
 
-      * При запросе контента `Из группы источников` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
-          * Нажмите кнопку **Создать новую**.
-          * Введите **Название группы**.
-          * Настройте **Источники**:
-              * Укажите **Тип источника**: `Сервер`, `Бакет` или `L7-балансировщик`. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
+      * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
+          * Нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}**.
+          * Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
+          * Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+              * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
               * Укажите источник.
-              * Выберите **Приоритет**: `Основной` или `Резервный`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
+              * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
           * Добавьте другие источники, если необходимо.
-          * Нажмите кнопку **Создать**. В поле **Группа источников** вы увидите название созданной группы.
+          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы.
 
      Подробнее см. в разделе [{#T}](../../concepts/origins.md).
 
-  1. В блоке **Доменные имена для раздачи контента** введите **Доменное имя**. Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из ASCII, например кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
+  1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** введите **{{ ui-key.yacloud.cdn.label_personal-domain }}**. Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из ASCII, например кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
 
      {% note warning %}
 
@@ -38,20 +38,20 @@
 
      {% endnote %}
       
-     В настройках вашего DNS-хостинга создайте для указанных доменных имен CNAME-записи со значением, которое отображается внизу блока **Доменные имена для раздачи контента**. Подробнее см. в разделе [{#T}](../../concepts/resource.md#hostnames).
+     В настройках вашего DNS-хостинга создайте для указанных доменных имен CNAME-записи со значением, которое отображается внизу блока **{{ ui-key.yacloud.cdn.label_section-domain }}**. Подробнее см. в разделе [{#T}](../../concepts/resource.md#hostnames).
 
-  1. В блоке **Дополнительно**:
+  1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
 
-      1. Выберите **Протокол для источников**.
-      1. Выберите способ переадресации клиентов: `Не использовать` или `С HTTPS на HTTP`.
+      1. Выберите **{{ ui-key.yacloud.cdn.label_protocol }}**.
+      1. Выберите способ переадресации клиентов: `{{ ui-key.yacloud.cdn.value_do-not-use }}` или `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
 
-         Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите TLS-сертификат для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `С HTTP на HTTPS`.
+         Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите TLS-сертификат для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
 
-      1. Включите или выключите **Доступ конечных пользователей к контенту**.
-      1. Если вы выбрали протокол `HTTP`, то в поле **Тип сертификата** выберите `Не использовать`. В других случаях выберите сертификат `Let's Encrypt®` или `Свой сертификат`. Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
-      1. Выберите значение **Заголовка Host**: `Основное доменное имя`, `Как у клиента` или выберите `Свое значение` и введите **Значение заголовка**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
+      1. Включите или выключите **{{ ui-key.yacloud.cdn.label_access }}**.
+      1. Если вы выбрали протокол `{{ ui-key.yacloud.common.label_http }}`, то в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-no }}`. В других случаях выберите сертификат `Let's Encrypt®` или `{{ ui-key.yacloud.cdn.value_certificate-custom }}`. Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+      1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
   

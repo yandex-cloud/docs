@@ -273,7 +273,7 @@
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="<имя пользователя для производителя>" \
        -X sasl.password="<пароль пользователя для производителя>" \
-       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
 Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect.md).

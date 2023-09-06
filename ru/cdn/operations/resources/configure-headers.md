@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Заголовок `Access-Control-Allow-Origin` для конфигурации CORS настраивается в блоке **CORS при ответе клиенту**. Подробнее читайте в разделе [{#T}](configure-cors.md).
+Заголовок `Access-Control-Allow-Origin` для конфигурации CORS настраивается в блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**. Подробнее читайте в разделе [{#T}](configure-cors.md).
 
 {% endnote %}
 
@@ -14,25 +14,25 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. Перейдите на вкладку **HTTP-заголовки и методы**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/pencil.svg) **Редактировать**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
   
-  1. В блоке **Заголовки запроса к источнику**:
+  1. В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-request-headers }}**:
 
-      * В поле **Заголовок** нажмите **Добавить**.
+      * В поле **{{ ui-key.yacloud.cdn.label_headers }}** нажмите **{{ ui-key.yacloud.common.add }}**.
       * Введите имена и значения нужных заголовков.
 
-  1. В блоке **Заголовки ответа клиенту**:
+  1. В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}**:
 
-      * В поле **Заголовок** нажмите **Добавить**.
+      * В поле **{{ ui-key.yacloud.cdn.label_headers }}** нажмите **{{ ui-key.yacloud.common.add }}**.
       * Введите имена и значения нужных заголовков.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

@@ -15,7 +15,7 @@ Odyssey supports two modes of connection management:
 * Session mode (default):
 
 
-    In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by another or the same client. This approach helps wait out the moment of establishing multiple client connections to the DBMS, e.g., when starting applications that access databases.
+    In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by another or the same client. This approach allows you to efficiently process multiple repeat client connections to the DBMS (for example, when starting applications that access databases).
 
     This mode is less productive than transaction mode.
 
@@ -24,7 +24,7 @@ Odyssey supports two modes of connection management:
 
    In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by another or the same client. This approach helps maintain a few server connections between the pooler and {{ GP }} hosts when there are multiple client connections.
 
-   The transaction mode provides high performance and allows the DBMS to load as efficiently as possible. However, this mode is not supported by all {{ GP }} clients and does not allow using:
+   The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ GP }} clients and does not allow using:
 
    * [Temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
    * [Prepared statements]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-PREPARE.html).
@@ -54,7 +54,7 @@ When integrated with Odyssey, {{ mgp-name }} clusters:
 
    * Errors on the {{ GP }} side are sent to the client application without changes.
 
-      For example, PgBouncer hides {{ GP }} error messages: for the client, all errors look like an error connecting to PgBouncer.
+      For example, PgBouncer hides {{ GP }} error messages: for the client, all errors look like an error when connecting to PgBouncer.
 
    * Odyssey can log all events in detail. Each client connection is also assigned a unique ID, which helps track the entire process of establishing a connection.
 

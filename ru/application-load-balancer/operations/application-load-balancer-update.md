@@ -7,24 +7,23 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ alb-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
-  1. Нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
+  1. Нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры балансировщика.
-  1. В блоке **Обработчики** напротив нужного обработчика нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
-  1. Измените параметры обработчика и нажмите **Сохранить**.
-  1. (Опционально) В блоке **Настройки логов**:
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** измените параметры нужных обработчиков.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
   
       1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
       1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
 
-          * **HTTP-коды** — измените HTTP-коды.
-          * **Классы HTTP-кодов** — измените классы HTTP-кодов.
-          * **gRPC-коды** — измените gRPC-коды.
-          * **Доля отбрасываемых логов** — измените процент отбрасываемых логов.
+          * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
+          * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
+          * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — измените gRPC-коды.
+          * **{{ ui-key.yacloud.alb.label_discard-percent }}** — измените процент отбрасываемых логов.
 
-          Чтобы добавить еще одно правило, нажмите кнопку **Добавить правило отбрасывания логов**.
-  1. Внизу страницы нажмите кнопку **Сохранить**.
+          Чтобы добавить еще одно правило, нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -316,10 +315,10 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
-  1. В блоке **Обработчики** напротив имени нужного обработчика нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-  1. Нажмите **Сохранить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** напротив имени нужного обработчика нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

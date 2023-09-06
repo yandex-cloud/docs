@@ -68,4 +68,4 @@ Grant terms of use depend on:
 
 {% endlist %}
 
-For more information about the [billing account](../../billing/concepts/billing-account.md) and the [terms and conditions](../../billing/qa/non-resident.md) for non-residents of the Russian Federation, read the Billing documentation.
+For more information about the [billing account](../../billing/concepts/billing-account.md) and the [terms and conditions](../../billing/qa/non-resident.md) for non-residents of the Russian Federation, read the {{ billing-name }} documentation.

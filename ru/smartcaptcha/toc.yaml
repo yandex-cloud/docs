@@ -45,6 +45,8 @@ items:
         href: concepts/js-interface.md
       - name: Ограниченный режим
         href: concepts/restricted-mode.md
+      - name: Публичные IP-адреса
+        href: concepts/ips.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

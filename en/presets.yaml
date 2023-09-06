@@ -4980,14 +4980,53 @@ default:
     yacloud_org:
       actions:
         add: Add
+        save-changes: Save
       common:
         resource-acl:
           label_groups: Groups
           label_inherited-bindings: Inherited roles
           label_service-accounts: Service accounts
+      component:
+        form-file-upload:
+          method:
+            manual: Text
+        subject-select-dialog:
+          action_apply: Save
+          title_dialog: Adding participants
       entity:
+        certificate:
+          action:
+            add: Adding a certificate
+        federation:
+          field:
+            autocreateUsers: Automatically create users
+            cookieMaxAge: Cookie lifetime
+            encryptedAssertions: Sign authentication requests
+            forceAuthn: Mandatory re-authentication (ForceAuthn) in IdP
+            issuer: IdP Issuer
+            ssoBinding: Single Sign-On method
+            ssoUrl: Link to the IdP login page
+        group:
+          action_add-acl: Assign roles
+          action_add-member: Add member
+          action_create: Create group
+          action_edit: Edit
+          action_update-acl: Configure access
+          title_tab-access: Group access rights
+          title_tab-members: Members
         invitation:
           action_send-invitation: Send invitation
+          label_option-actual: Pending
+          label_row-action-delete: Delete invitation
+          label_row-action-resend: Resend
+        user:
+          action:
+            acl: Assign bindings
+            remove: Remove from organization
+          caption:
+            federation: Federation
+            user: User
+            userId: ID
       form:
         acl:
           edit:
@@ -4995,6 +5034,8 @@ default:
               subject:
                 select: Select subject
         federation:
+          action:
+            create: Create federation
           create:
             action:
               create: Create federation
@@ -5006,6 +5047,9 @@ default:
         action:
           save: Save
       page:
+        context:
+          action:
+            create: Create new organization
         settings:
           action:
             edit: Edit data
@@ -5013,13 +5057,24 @@ default:
           action:
             add-federated-users: Add federated users
             invite-users: Invite users
+          label_tab-invitations: Invitations
       pages:
+        acl: Access bindings
         create: Create organization
+        federations: Federations
+        groups: Groups
+        raw_services: Clouds & services
+        settings: Organization information
+        users: Users
     yacloud_portal:
       common:
         units:
           label_gigabyte: GB
           label_megabyte: MB
+      component:
+        file-input:
+          button_choose: Choose a file
+          button_choose-multiple: Choose files
       subAccount:
         detail:
           column_cost: Cost
@@ -5029,34 +5084,123 @@ default:
         section_airflow-configuration: Airflow configuration
         section_storage: DAG file storage
       alb:
+        button_add-backend: Add backend
+        button_add-discard-rule: Add discard rule
+        button_add-healthcheck: Add health check
         button_add-listener: Add listener
         button_add-route: Add route
+        button_add-sni-match: Add SNI match
+        button_add-target: Add target resource
+        button_add-targets: Add targets
         button_backend-group-create: Create backend group
         button_http-router-create: Create HTTP router
         button_load-balancer-create: Create L7 load balancer
+        button_routes-sort: Sort
+        button_select: Select
+        button_target-group-create: Create target group
         button_virtual-host-add: Add virtual host
+        column_target: IP address
         label_address-auto: Automatically
+        label_address-list: List
+        label_affinity-connection: By IP address
+        label_affinity-cookie: By cookie
+        label_affinity-header: By HTTP header
+        label_alb-create-form: Manual
         label_authority: Authority
         label_backend-group: Backend group
         label_backend-groups: Backend groups
         label_backend-type: Type
         label_backend-weight: Weight
         label_backends: Backends
+        label_body: Response body
         label_bucket: Bucket
+        label_certificate: Certificates
+        label_default-log-group: Default log group
+        label_discard-grpc-codes: gRPC codes
+        label_discard-http-code-intervals: HTTP code classes
+        label_discard-http-codes: HTTP codes
+        label_discard-percent: Share of discarded logs
+        label_enable-proxy-protocol: PROXY protocol
+        label_fqmn: FQMN
+        label_grpc-status-code: gRPC status code
+        label_hc_host: Authority
+        label_hc-type-grpc: gRPC
+        label_hc-type-http: HTTP
+        label_hc-type-stream: Stream
+        label_healthy: Healthy threshold
+        label_host-rewrite: Host header rewrite
         label_http-methods: HTTP methods
         label_http-router: HTTP router
         label_http-routers: HTTP routers
+        label_http-status-code: HTTP status code
+        label_idle-timeout: Idle timeout, seconds
+        label_interval: Interval
+        label_lb-settings: Load balancing settings
+        label_listener-type-http: HTTP
+        label_listener-type-stream: Stream
         label_listeners: Listeners
+        label_load-balancers: Load balancers
+        label_load-balancing-mode: Balancing mode
+        label_locality-aware-routing: Locality aware routing
+        label_log-group: Cloud Logging log group
+        label_log-requests: Write logs
+        label_match-exact: Matches
         label_match-prefix: Starts with
+        label_match-regex: Regular expression
+        label_panic-threshold: Panic mode threshold
         label_path: Path
         label_port: Port
+        label_prefix-rewrite: Rewrite path or start
+        label_proto-grpc: gRPC
+        label_proto-grpc-plain: Plain-text
+        label_proto-grpc-tls: Encrypted
         label_proto-http: HTTP
+        label_proto-http-plain: HTTP
+        label_proto-http-tls: HTTPS
+        label_proto-stream: Stream
+        label_proto-stream-plain: Plain-text
+        label_proto-stream-tls: Encrypted
+        label_protocol: Protocol
+        label_protocol-settings: Protocol settings
+        label_protocol-type: Protocol
+        label_receive: Receive
+        label_redirect-to-https: Redirect to HTTPS
+        label_replace: Rewrite path or start
+        label_replace-host: Replace host
+        label_replace-port: Replace port
+        label_replace-scheme: Replace scheme
         label_route-action: Action
+        label_route-action-redirect: Forward
         label_route-action-route: Routing
+        label_route-action-statusResponse: Response
+        label_route-type: Type
+        label_send: Send
+        label_server-names: Server names
+        label_service-name: Service name
+        label_session-affinity: Session affinity
+        label_sni: SNI
+        label_strict-locality: Strict locality
+        label_strict-query: Delete query parameters
+        label_tab-capacity-stats: Capacity statistics
+        label_tab-http-stats: HTTP statistics
+        label_target-group: Target group
+        label_target-groups: Target groups
         label_target-private-ip: Outside VPC
+        label_targets: Targets
+        label_timeout: Timeout, s
+        label_trusted-ca: Trusted CA certificate
+        label_unhealthy: Unhealthy threshold
+        label_upgrade-types: Valid values for the Upgrade header
+        label_use-http2: HTTP/2
         label_virtual-hosts: Virtual hosts
+        label_web-socket: WebSocket
         section_allocation-settings: Allocation
+        section_autoscale-settings: Autoscaling settings
+        section_common-address-specs: Receiving and processing traffic
+        section_default-sni-match: Main listener
         section_external-address-specs: Public IP address
+        section_internal-address-specs: Internal IP address
+        section_logs-settings: Log settings
       audit-trails:
         button_create-trail: Create trail
         button_process-in-yq: Process in YQ
@@ -5203,36 +5347,100 @@ default:
         label_service: Billing
         switch_accounts: List of accounts
       cdn:
+        button_activate-shielding: Activate
         button_add-domain: Add domain name
+        button_origins-group-create: Create origin group
+        button_resource-activate-raw-logs: Activate
+        button_resource-content-prefetch-cache: Preload content
         button_resource-content-purge-cache: Purge cache
         button_resource-create: Create resource
+        button_resource-deactivate-raw-logs: Deactivate
+        column_name: Name
         field_access: End-user access to content
+        field_group-name: Group name
+        field_origin-state: Priority
+        label_access: Access to content
         label_activate-provider-empty-container_action-text: Activate provider
         label_additional: Additional
         label_balancer: L7 load balancer
+        label_bucket: Bucket
+        label_bucket-key-prefix: Prefix
+        label_cache-hit-ratio: Cache hit ratio
         label_certificate-type: Certificate type
         label_content-query-type: Content query
+        label_custom-host-header: Header value
         label_dns-settings_title: DNS settings
+        label_headers: Header
         label_host-header: Host header
         label_ip-address: IP address
+        label_metrics-requests: Requests
+        label_metrics-send-bytes: Sent
+        label_metrics-shield-bytes: Loaded by Origin shielding
+        label_metrics-total-bytes: All traffic
+        label_metrics-upstream-bytes: Upstream from origins
+        label_origins-group: Origin group
+        label_origins-groups-list: Origin groups
         label_personal-domain: Domain name
         label_protocol: Origin request protocol
         label_redirect: Redirect clients
         label_resource-cache: Caching
+        label_resource-cache-browser-cache: Browser
+        label_resource-cache-browser-cache-enabled: Browser caching
+        label_resource-cache-cdn-cache: CDN
         label_resource-cache-cdn-cache-enabled: CDN caching
+        label_resource-cache-cdn-cache-settings-type-custom-settings: Custom settings
+        label_resource-cache-cdn-cache-settings-type-source-settings: Same as origin
         label_resource-content: Content
+        label_resource-content-compress-true: Compress
+        label_resource-content-gzip-on: GZip
+        label_resource-content-optimize-true: Optimize delivery
+        label_resource-content-prefetch-cache-paths: File path
+        label_resource-content-purging-cache-paths: File path
         label_resource-content-purging-cache-type: Purge type
+        label_resource-content-purging-cache-type-full: Full
         label_resource-content-purging-cache-type-selective: Selective
+        label_resource-content-slice: Segmentation of large files
+        label_resource-http-headers: HTTP headers and methods
+        label_resource-http-headers-allowed-methods: Allowed methods
+        label_resource-http-headers-cors: CORS when responding to client requests
+        label_resource-http-headers-cors-access: Access-Control-Allow-Origin header
+        label_resource-http-headers-cors-settings-http-origin-for-source-domains: Same as Origin if on the list
+        label_resource-http-headers-http-methods: Client request methods
+        label_resource-http-headers-request-headers: Origin request headers
+        label_resource-http-headers-response-headers: Client response headers
+        label_resource-raw-logs: Export logs
+        label_resources-list: CDN resources
+        label_responses-hit: Responses hit
+        label_responses-miss: Response miss
+        label_responses2xx: Responses with 2xx codes
         label_section-additional: Additional
+        label_section-content: Content
         label_section-domain: Domain names for content distribution
+        label_section-origins-list: Origin
+        label_shielding: Origin shielding
+        label_shielding-location: Location
+        label_shielding-settings-title: Shielding settings
         label_source-type: Origin type
+        label_status-active: Active
+        label_status-backup: Backup
         md_value_certificate-le: Let's Encrypt^®^
+        value_active: Active
+        value_backup: Backup
+        value_certificate-custom: Your certificate
+        value_certificate-no: Don't use
         value_certificate-status-ready: Issued
         value_do-not-use: Don't use
+        value_host-header-custom: Custom
+        value_host-header-default: Primary domain name
         value_host-header-resend: Forward
+        value_protocol-match: HTTP and HTTPS
+        value_query-type-group-origin: From origin group
         value_query-type-one-origin: From one origin
         value_redirect-http-to-https: HTTP to HTTPS
+        value_redirect-https-to-http: HTTPS to HTTP
         value_source-type-balancer: L7 load balancer
+        value_source-type-bucket: Bucket
+        value_source-type-url: Server
       certificate-manager:
         action_import: User certificate
         action_request: Let's Encrypt certificate
@@ -5343,9 +5551,11 @@ default:
         label_auto: Auto
         label_create-new_female: Create new
         label_http: HTTP
+        label_https: HTTPS
         label_key: Key
         label_list: List
         label_seconds_many: seconds
+        label_subnet: Subnet
         label_tcp: TCP
         label_udp: UDP
         label_value: Value
@@ -5367,6 +5577,7 @@ default:
           button_new-bindings: Assign bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
+          label_inherited-bindings: Inherited roles
           label_service-account: Service account
         save: Save
         section-base: General information
@@ -5429,6 +5640,8 @@ default:
         file-content-dialog:
           button_submit: Add
           field_content: Content
+          field_file: File
+          field_method: Method
           value_manual: Text
           value_upload: File
         iam-delete-folder-or-cloud-dialog:
@@ -5639,6 +5852,7 @@ default:
             field_access-advanced: Advanced
             field_coi-image: Docker image
             field_coi-name: Name
+            field_description: Description
             field_instance-group-address: Public address
             field_instance-group-network: Network
             field_key: SSH key
@@ -5809,6 +6023,7 @@ default:
         button_add-hosts: Add hosts
         label_kibana: Kibana
       forms:
+        label_form-id: ID
         label_form-list: List
         label_service-account-select: Service account
       gitlab:
@@ -5936,11 +6151,17 @@ default:
         label_registries: Registries
       k8s:
         cluster:
+          marketplace:
+            button_install: Install
+          switch_marketplace: Marketplace
           switch_workloads: Workload
         clusters:
           create:
             field_address-type: Public address
             switch_auto: Auto
+        node-groups:
+          create:
+            field_key: SSH key
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector
@@ -6083,6 +6304,9 @@ default:
         label_section-secrets: Secrets
       logging:
         button_create-group: Create group
+        column_header-level: Level
+        column_header-message: Message
+        column_header-time: Time
         label_loggroup: Log group
         label_retention-period: Log retention
       marketplace-v2:
@@ -6505,6 +6729,7 @@ default:
             field_container-registry: Registry
             field_cron-expression: Cron expression
             field_cron-payload: Payload
+            field_cutoff: Waiting time, s
             field_description: Description
             field_device: Device
             field_dlq_service-account: Service account
@@ -6514,10 +6739,12 @@ default:
             field_function-tag: Function version tag
             field_image-name: Docker image name
             field_invoke: Launched resource
+            field_log-group: Log group
             field_mqtt-topic: MQTT topic
             field_name: Name
             field_prefix: Object key prefix
             field_registry: Registry
+            field_resource-type: Resource types
             field_retry-attempts: Number of attempts
             field_retry-interval: Interval
             field_service-account: Service account

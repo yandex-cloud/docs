@@ -4,19 +4,19 @@
 
    1. Выберите облако или каталог.
 
-   1. Перейдите на вкладку **Права доступа**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 
-   1. Нажмите **Назначить роли**.
+   1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
 
-   1. В окне **Настройка прав доступа** нажмите **Выбрать пользователя**.
+   1. В окне **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
 
-   1. Перейдите на вкладку **Группы** и выберите группу, или воспользуйтесь поиском по названию группы.
+   1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу, или воспользуйтесь поиском по названию группы.
 
-   1. Нажмите **Добавить роль**.
+   1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
 
    1. Выберите роль в облаке или каталоге.
 
-   1. Нажмите **Сохранить**.
+   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

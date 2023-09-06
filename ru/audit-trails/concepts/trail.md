@@ -30,27 +30,27 @@
 ## Настройки трейла {#trail-settings}
 
 Трейл содержит в себе все настройки аудитного лога:
-* **Имя** — обязательный параметр.
-* **Описание** — опциональный параметр.
-* Блок **Фильтр**:
-    * **Ресурс** — значения `Организация`, `Облако` или `Каталог`.
-    * Для значения `Организация`:
-        *  **Организация** – имя текущей организации. Значение подставляется автоматически.
-    * Для значения `Облако`:
-        * **Облако** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
-        * **Каталоги** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
-    * Для параметра `Каталог`:
-        * **Каталог** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
-* Блок **Назначение**:
-    * **Назначение** — значения `{{ objstorage-name }}`, `{{ cloud-logging-name }}` или `{{ yds-name }}`.
-    * Для значения `{{ objstorage-name }}`:
-        * **Бакет** — имя бакета.
-        * **Префикс объекта** — необязательный параметр, участвует в [полном имени](./format.md#log-file-name) файла аудитного лога.
-    * Для значения `{{ cloud-logging-name }}`:
-        * **Лог-группа** — имя лог-группы.
-    * Для значения `{{ yds-name }}`:
-        * **Поток данных** — имя потока данных.
-* Блок **Сервисный аккаунт** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
+* **{{ ui-key.yacloud.common.name }}** — обязательный параметр.
+* **{{ ui-key.yacloud.common.description }}** — опциональный параметр.
+* Блок **{{ ui-key.yacloud.audit-trails.label_filter }}**:
+    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`:
+        *  **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`:
+        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
+        * **{{ ui-key.yacloud.audit-trails.label_folders }}** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
+    * Для параметра `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`:
+        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
+* Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:
+    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}` или `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`:
+        * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя бакета.
+        * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./format.md#log-file-name) файла аудитного лога.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`:
+        * **{{ ui-key.yacloud.logging.label_loggroup }}** — имя лог-группы.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_dataStream }}`:
+        * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — имя потока данных.
+* Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
 
 ## Что дальше {#whats-next}
 

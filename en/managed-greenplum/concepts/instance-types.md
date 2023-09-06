@@ -1,22 +1,22 @@
 # {{ GP }} host classes
 
-The host class determines the computing power allocated for each host in the cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. Once a cluster is created, you cannot change its host classes.
+The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. Once a cluster is created, you cannot change its host classes.
 
 
-The host class affects the list of available [disk types](./storage.md):
+The host class also determines which [disk types](./storage.md) are available:
 
 * For master hosts:
 
-   * **s2**, **i2**: `local-ssd`.
-   * **s3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
-   * **i3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
+   * **s2**, **i2**: `local-ssd`
+   * **s3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`
+   * **i3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`
 
 * For segment hosts:
 
-   * **s2**, **i2**: `local-ssd`.
-   * **s3**, **i3**: `network-ssd-nonreplicated`.
+   * **s2**, **i2**: `local-ssd`
+   * **s3**, **i3**: `network-ssd-nonreplicated`
 
-The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 

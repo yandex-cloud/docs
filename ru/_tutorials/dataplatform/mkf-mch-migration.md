@@ -200,7 +200,7 @@
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="<имя пользователя для производителя>" \
        -X sasl.password="<пароль пользователя для производителя>" \
-       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
@@ -345,7 +345,7 @@
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="<имя пользователя для производителя>" \
        -X sasl.password="<пароль пользователя для производителя>" \
-       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
 1. Убедитесь, что в базе данных {{ mch-name }} отобразились новые значения:

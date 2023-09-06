@@ -348,32 +348,32 @@
 
   1. Запустите команду создания кластера {{ mmy-name }}:
 
-    
-    ```bash
-    {{ yc-mdb-my }} cluster create \
-      --name="my-mysql" \
-      --mysql-version {{ versions.cli.latest }} \
-      --environment=production \
-      --network-name=default \
-      --security-group-ids {{ security-group }} \
-      --host {{ host-net-example }} \
-      --resource-preset {{ host-class }} \
-      --disk-type {{ disk-type-example }} \
-      --disk-size 20 \
-      --user name=user1,password="user1user1" \
-      --database name=db1 \
-      --deletion-protection=true
-    ```
+     
+     ```bash
+     {{ yc-mdb-my }} cluster create \
+       --name="my-mysql" \
+       --mysql-version {{ versions.cli.latest }} \
+       --environment=production \
+       --network-name=default \
+       --security-group-ids {{ security-group }} \
+       --host {{ host-net-example }} \
+       --resource-preset {{ host-class }} \
+       --disk-type {{ disk-type-example }} \
+       --disk-size 20 \
+       --user name=user1,password="user1user1" \
+       --database name=db1 \
+       --deletion-protection=true
+     ```
 
 
   1. Запустите команду изменения привилегий пользователя `user1`.
 
-    ```bash
-    {{ yc-mdb-my }} user grant-permission user1 \
-      --cluster-name="my-mysql" \
-      --database=db1 \
-      --permissions ALL
-    ```
+     ```bash
+     {{ yc-mdb-my }} user grant-permission user1 \
+       --cluster-name="my-mysql" \
+       --database=db1 \
+       --permissions ALL
+     ```
 
 - {{ TF }}
 
@@ -386,7 +386,11 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-        * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
+
+    
+    * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
+
+
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
@@ -453,6 +457,198 @@
     zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+
+
+
+{% endlist %}
+
+### Создание кластера из нескольких хостов {#creating-multiple-hosts-cluster}
+
+{% list tabs %}
+
+- CLI
+
+  Чтобы создать кластер {{ mmy-name }} из нескольких хостов, передайте столько параметров `--host`, сколько должно быть хостов в кластере.
+
+  Создайте кластер {{ mmy-name }} с тестовыми характеристиками:
+
+  
+  * С именем `my-mysql-3`.
+  * Версии `{{ versions.cli.latest }}`.
+  * В окружении `prestable`.
+  * В сети `default`.
+  * В группе безопасности с идентификатором `{{ security-group }}`.
+  * С тремя хостами класса `{{ host-class }}` с публичным доступом к ним.
+
+    По одному хосту будет размещено в подсетях сети `default`:
+    * `subnet-a`: `10.5.0.0/24`, зона доступности `{{ region-id }}-a`.
+    * `subnet-b`: `10.6.0.0/24`, зона доступности `{{ region-id }}-b`.
+    * `subnet-c`: `10.7.0.0/24`, зона доступности `{{ region-id }}-c`.
+
+    Хосту в подсети `subnet-b` будет присвоен приоритет резервного копирования. Резервные копии будут создаваться из данных с этого хоста, если он не выбран хостом-мастером.
+
+  * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 32 ГБ.
+  * С одним пользователем (`user1`), с паролем `user1user1`.
+  * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+
+
+  1. Запустите команду создания кластера {{ mmy-name }}:
+
+     
+     ```bash
+     {{ yc-mdb-my }} cluster create \
+       --name="my-mysql-3" \
+       --mysql-version {{ versions.cli.latest }} \
+       --environment=prestable \
+       --network-name=default \
+       --security-group-ids {{ security-group }} \
+       --host zone-id={{ region-id }}-a,`
+              `subnet-name=subnet-a,`
+              `assign-public-ip=true \
+       --host zone-id={{ region-id }}-b,`
+              `subnet-name=subnet-b,`
+              `backup-priority=10,`
+              `assign-public-ip=true \
+       --host zone-id={{ region-id }}-c,`
+              `subnet-name=subnet-c,`
+              `assign-public-ip=true \
+       --resource-preset {{ host-class }} \
+       --disk-type {{ disk-type-example }} \
+       --disk-size 32 \
+       --user name=user1,password="user1user1" \
+       --database name=db1
+     ```
+
+
+  1. Запустите команду изменения привилегий пользователя `user1`.
+
+     ```bash
+     {{ yc-mdb-my }} user grant-permission user1 \
+       --cluster-name="my-mysql-3" \
+       --database=db1 \
+       --permissions ALL
+     ```
+
+- {{ TF }}
+
+  Создайте кластер {{ mmy-name }} и сеть для него с тестовыми характеристиками:
+
+    * С именем `my-mysql-3`.
+    * Версии `{{ versions.tf.latest }}`.
+    * В окружении `PRESTABLE`.
+    * В облаке с идентификатором `{{ tf-cloud-id }}`.
+    * В каталоге с идентификатором `{{ tf-folder-id }}`.
+    * В новой сети `mynet`.
+    * С тремя хостами класса `{{ host-class }}` с публичным доступом к ним.
+
+      По одному хосту будет размещено в новых подсетях:
+       * `mysubnet-a`: `10.5.0.0/24`, зона доступности `{{ region-id }}-a`.
+       * `mysubnet-b`: `10.6.0.0/24`, зона доступности `{{ region-id }}-b`.
+       * `mysubnet-c`: `10.7.0.0/24`, зона доступности `{{ region-id }}-c`.
+
+      Эти подсети будут принадлежать сети `mynet`.
+
+      Хосту в подсети `mysubnet-b` будет присвоен приоритет резервного копирования. Резервные копии будут создаваться из данных с этого хоста, если он не выбран хостом-мастером.
+
+    
+    * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
+
+
+    * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 32 ГБ.
+    * С одним пользователем (`user1`), с паролем `user1user1`.
+    * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+
+  Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
+
+  
+  
+  ```hcl
+  resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
+    name                = "my-mysql-3"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    version             = "{{ versions.tf.latest }}"
+    security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 32
+    }
+
+    host {
+      zone             = "{{ region-id }}-a"
+      subnet_id        = yandex_vpc_subnet.mysubnet-a.id
+      assign_public_ip = true
+    }
+
+    host {
+      zone             = "{{ region-id }}-b"
+      subnet_id        = yandex_vpc_subnet.mysubnet-b.id
+      assign_public_ip = true
+      backup_priority  = 10
+    }
+
+    host {
+      zone             = "{{ region-id }}-c"
+      subnet_id        = yandex_vpc_subnet.mysubnet-c.id
+      assign_public_ip = true
+    }
+  }
+
+  resource "yandex_mdb_mysql_database" "db1" {
+    cluster_id = yandex_mdb_mysql_cluster.my-mysql-3.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_mysql_user" "user1" {
+    cluster_id = yandex_mdb_mysql_cluster.my-mysql-3.id
+    name       = "user1"
+    password   = "user1user1"
+    permission {
+      database_name = yandex_mdb_mysql_database.db1.name
+      roles         = ["ALL"]
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_security_group" "mysql-sg" {
+    name       = "mysql-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "{{ MY }}"
+      port           = {{ port-mmy }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet-a" {
+    name             = "mysubnet-a"
+    zone             = "{{ region-id }}-a"
+    network_id       = yandex_vpc_network.mynet.id
+    v4_cidr_blocks   = ["10.5.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet-b" {
+    name             = "mysubnet-b"
+    zone             = "{{ region-id }}-b"
+    network_id       = yandex_vpc_network.mynet.id
+    v4_cidr_blocks   = ["10.6.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet-c" {
+    name             = "mysubnet-c"
+    zone             = "{{ region-id }}-c"
+    network_id       = yandex_vpc_network.mynet.id
+    v4_cidr_blocks   = ["10.7.0.0/24"]
   }
   ```
 

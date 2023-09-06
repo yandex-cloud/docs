@@ -45,16 +45,16 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Создайте бакет для файлов:
-     1. Нажмите кнопку **Создать бакет**.
-     1. Укажите **Имя** бакета.
-     1. В полях **Доступ на чтение объектов** и **Доступ к списку объектов** выберите **Публичный**.
-     1. Нажмите кнопку **Создать бакет**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. Укажите **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** бакета.
+     1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. Создайте бакет для логов:
-     1. Нажмите кнопку **Создать бакет**.
-     1. Укажите **Имя** бакета.
-     1. Нажмите кнопку **Создать бакет**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. Укажите **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** бакета.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI
 
@@ -180,11 +180,11 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет с файлами.
-  1. Нажмите кнопку **Загрузить**.
-  1. В появившемся окне выберите файл с патчем `ycgame-update-v1.1.exe` и нажмите кнопку **Открыть**.
-  1. Нажмите кнопку **Загрузить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. В появившемся окне выберите файл с патчем `ycgame-update-v1.1.exe` и нажмите кнопку **{{ ui-key.yacloud.common.open }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
 
 - AWS CLI
 
@@ -253,15 +253,15 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cdn-name }}**.
-  1. Если провайдер CDN еще не активирован, нажмите кнопку **Подключиться к провайдеру**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Если провайдер CDN еще не активирован, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
   1. Создайте CDN-ресурс:
-     1. На вкладке **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
+     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
      1. Задайте основные параметры CDN-ресурса следующим образом:
-        * **Запрос контента** — **Из одного источника**.
-        * **Тип источника** — **Бакет**.
-        * **Бакет** — `<имя_бакета_с_файлами>`.
-        * **Доменные имена для раздачи контента** — основное доменное имя, которое вы будете использовать для публикации патчей, например `cdn.ycprojectblue.example`.
+        * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+        * **{{ ui-key.yacloud.cdn.label_bucket }}** — `<имя_бакета_с_файлами>`.
+        * **{{ ui-key.yacloud.cdn.label_section-domain }}** — основное доменное имя, которое вы будете использовать для публикации патчей, например `cdn.ycprojectblue.example`.
 
           {% note alert %}
 
@@ -269,27 +269,27 @@
 
           {% endnote %}
 
-        * В блоке **Дополнительно**:
-          * В поле **Протокол для источников** выберите **HTTPS**.
-          * В поле **Переадресация клиентов** выберите **Не использовать**.
-          * Выберите опцию **Доступ конечных пользователей к контенту**.
-          * В поле **Тип сертификата** выберите **Let's Encrypt®**, чтобы автоматически выпустить [сертификат](../../certificate-manager/concepts/managed-certificate.md) для доменного имени `cdn.ycprojectblue.example` после создания CDN-ресурса.
-          * В поле **Заголовок Host** выберите **Свое значение**. В поле **Значение заголовка** укажите доменное имя источника, `<имя_бакета_с_файлами>.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
-     1. Нажмите кнопку **Создать**.
+        * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+          * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_https }}`.
+          * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
+          * Выберите опцию **{{ ui-key.yacloud.cdn.field_access }}**.
+          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `Let's Encrypt®`, чтобы автоматически выпустить [сертификат](../../certificate-manager/concepts/managed-certificate.md) для доменного имени `cdn.ycprojectblue.example` после создания CDN-ресурса.
+          * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. В поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника, `<имя_бакета_с_файлами>.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
      Дождитесь выпуска сертификата Let's Encrypt® для доменного имени. Этот процесс может занять до 30 минут.
   1. Включите переадресацию клиентов с HTTP на HTTPS:
-     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **CDN-ресурсы** выберите ресурс, созданный ранее.
-     1. Убедитесь, что в блоке **Дополнительно** статус сертификата изменился на `Выпущен`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
-     1. В блоке **Дополнительно** в поле **Переадресация клиентов** выберите **С HTTP на HTTPS**.
-     1. Нажмите кнопку **Сохранить**.
+     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
+     1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Включите для ресурса [кеширование](../../cdn/concepts/caching.md) на CDN-серверах:
-     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **CDN-ресурсы** выберите ресурс, созданный ранее.
-     1. Перейдите в раздел **Кеширование**.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
-     1. Включите опцию **Кеширование в CDN**.
-     1. Нажмите кнопку **Сохранить**.
+     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
+     1. Перейдите в раздел **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -421,9 +421,9 @@
 
    - Консоль управления
 
-     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cdn-name }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
-     1. На вкладке **Обзор** в разделе **Настройки DNS** скопируйте в буфер обмена сгенерированное сервисом имя в домене `.edgecdn.ru`.
+     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте в буфер обмена сгенерированное сервисом имя в домене `.edgecdn.ru`.
 
    {% endlist %}
 
@@ -442,20 +442,20 @@
 
    - Консоль управления
 
-     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ dns-name }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
-        1. Нажмите кнопку **Создать зону**.
-        1. Укажите **Имя** зоны: `cdn-dns-a`.
-        1. В поле **Зона** укажите ваш домен с точкой в конце: `ycprojectblue.example.`
-        1. Выберите **Тип** зоны — **Публичная**.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
+        1. Укажите **{{ ui-key.yacloud.common.name }}** зоны: `cdn-dns-a`.
+        1. В поле **{{ ui-key.yacloud.dns.label_zone }}** укажите ваш домен с точкой в конце: `ycprojectblue.example.`
+        1. Выберите **{{ ui-key.yacloud.common.type }}** зоны — `{{ ui-key.yacloud.dns.label_public }}`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Создайте [запись](../../dns/concepts/resource-record.md) в зоне:
         1. В списке зон нажмите на зону `cdn-dns-a`.
-        1. Нажмите кнопку **Создать запись**.
-        1. В поле **Имя** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojectblue.example`.
-        1. Выберите **Тип** записи — **CNAME**.
-        1. В поле **Значение** вставьте скопированный адрес в домене `.edgecdn.ru` с точкой на конце.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+        1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojectblue.example`.
+        1. Выберите **{{ ui-key.yacloud.common.type }}** записи — `CNAME`.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный адрес в домене `.edgecdn.ru` с точкой на конце.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI
 
@@ -528,17 +528,17 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cdn-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
-  1. Перейдите на вкладку **Контент**.
-  1. Нажмите кнопку **Предзагрузить контент**.
-  1. В поле **Пути к файлам** укажите путь к файлу, хранящемуся в источнике, без доменного имени:
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
+  1. Нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите путь к файлу, хранящемуся в источнике, без доменного имени:
 
      ```text
      /ycgame-update-v1.1.exe
      ```
 
-  1. Нажмите кнопку **Предзагрузить контент**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 - CLI
 
@@ -576,10 +576,10 @@
 
    - Консоль управления
 
-     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-name }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите бакет с логами.
      1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
-     1. Нажмите кнопку **Скачать**.
+     1. Нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
 
    - AWS CLI
 

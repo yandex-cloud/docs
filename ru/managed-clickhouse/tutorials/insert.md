@@ -237,7 +237,7 @@ pip3 install protobuf varint pycapnp
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
-     CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
      SCHEMA_NAME = 'schema-capnproto'
      SCHEMA_TYPE = "CapnProto"
@@ -303,7 +303,7 @@ pip3 install protobuf varint pycapnp
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
-     CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
      SCHEMA_NAME = 'schema-protobuf'
      SCHEMA_TYPE = "Protobuf"

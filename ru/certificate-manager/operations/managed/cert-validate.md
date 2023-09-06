@@ -168,3 +168,9 @@
     Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом REST API [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Get](../../api-ref/grpc/certificate_service.md#Get) с флагом `view=FULL`.
 
 {% endlist %}
+
+{% note info %}
+
+{% include [checking-domain-rights-cname](../../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
+
+{% endnote %}

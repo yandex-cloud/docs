@@ -18,28 +18,28 @@ description: "Пошаговая инструкция по изменению г
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана группа бэкендов.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите ![image](../../_assets/pencil.svg) **Редактировать**.
+  1. Нажмите ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры группы:
 
-     * **Имя** и **Описание** группы бэкендов.
-     * **Привязка сессий** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт. 
+     * **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yc-ui-datasphere.common.description }}** группы бэкендов.
+     * **{{ ui-key.yacloud.alb.label_session-affinity }}** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт. 
      
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-       Для группы бэкендов типа `HTTP` или `gRPC` доступны режимы:
+       Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны режимы:
        
-       * `По IP-адресу`;
-       * `По HTTP-заголовку`;
-       * `По cookie`.
+       * `{{ ui-key.yacloud.alb.label_affinity-connection }}`;
+       * `{{ ui-key.yacloud.alb.label_affinity-header }}`;
+       * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
        
-       Для типа `Stream` привязка сессий всегда работает по IP-адресу.
+       Для типа `{{ ui-key.yacloud.alb.label_proto-stream }}` привязка сессий всегда работает по IP-адресу.
        
        Подробнее о привязке сессий и её режимах см. в [разделе](../concepts/backend-group.md#session-affinity).
    
-  1. Внизу страницы нажмите кнопку **Сохранить**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -168,15 +168,15 @@ description: "Пошаговая инструкция по изменению г
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите кнопку ![image](../../_assets/plus.svg) **Добавить бэкенд**.
+  1. Нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
   1. В открывшемся окне задайте настройки бэкенда:
      
      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
      
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI
 
@@ -387,12 +387,12 @@ description: "Пошаговая инструкция по изменению г
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках см. [выше](#add-backend).
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -610,11 +610,11 @@ description: "Пошаговая инструкция по изменению г
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **Группы бэкендов**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
