@@ -1,6 +1,6 @@
 # Подключение группы источников к ресурсу
 
-Чтобы подключить [группу источников](../../concepts/origins.md#groups) к [ресурсу](../../concepts/resource.md), при [создании](../resources/create-resource.md) или [изменении настроек ресурса](../resources/configure-basics.md) в блоке **Контент** выберите **Группу источников**.
+Чтобы подключить [группу источников](../../concepts/origins.md#groups) к [ресурсу](../../concepts/resource.md), при [создании](../resources/create-resource.md) или [изменении настроек ресурса](../resources/configure-basics.md) в блоке **{{ ui-key.yacloud.cdn.label_section-content }}** выберите **Группу источников**.
 
 ## Подключение группы источников при создании ресурса {#connect-while-creating}
 
@@ -10,17 +10,17 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ресурс.
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-  1. Нажмите кнопку **Создать ресурс**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
-  1. В блоке **Контент** в поле **Запрос контента** выберите `Из группы источников`.
+  1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** в поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`.
 
   1. Выберите группу источников.
 
   1. Укажите остальные настройки ресурса. Подробнее см. в разделе [{#T}](../resources/create-resource.md).
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -186,17 +186,17 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/pencil.svg) **Редактировать**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. Выберите группу источников.
 
   1. Если нужно, укажите остальные настройки ресурса. Подробнее см. в разделе [{#T}](../resources/configure-basics.md). 
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

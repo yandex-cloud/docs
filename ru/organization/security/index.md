@@ -51,17 +51,17 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   
-  1. На левой панели выберите раздел [Права доступа]({{ link-org-acl }}) ![icon-acl](../../_assets/organization/acl.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/organization/acl.svg).
 
-  1. Если у нужного пользователя уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска вверху страницы. В строке пользователя нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **Назначить роли**.
+  1. Если у нужного пользователя уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска вверху страницы. В строке пользователя нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-     Если нужного пользователя нет в списке, в правом верхнем углу страницы нажмите кнопку **Назначить роли**. В открывшемся окне нажмите кнопку **Выбрать пользователя** и выберите пользователя из списка или воспользуйтесь строкой поиска.
+     Если нужного пользователя нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и выберите пользователя из списка или воспользуйтесь строкой поиска.
   
-  1. Нажмите **Добавить роль** и введите название роли или выберите роль в списке.
+  1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и введите название роли или выберите роль в списке.
   
      Описание доступных ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
   
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -198,15 +198,15 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   
-  1. На левой панели выберите раздел [Пользователи]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-users](../../_assets/organization/icon-users.svg).
 
   1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
   
-  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **Настроить доступ**.
+  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
   
   1. Нажмите значок ![cross](../../_assets/cross.svg) рядом с ролью, чтобы удалить ее.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

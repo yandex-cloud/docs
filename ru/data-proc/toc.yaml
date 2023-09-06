@@ -63,6 +63,8 @@ items:
               Диагностика и устранение проблем производительности
               Spark-приложений
             href: operations/spark-diagnostics.md
+      - name: Подготовка и использование виртуальных окружений Python
+        href: operations/python-env.md
   - name: Практические руководства
     items:
       - name: Все практические руководства

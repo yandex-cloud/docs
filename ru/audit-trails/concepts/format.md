@@ -203,12 +203,12 @@
 ### Запись в лог-группе {#logging-group-name}
 
 Значения записей в лог-группе:
-* **Время** — значение поля `event_time` события.
+* **{{ ui-key.yacloud.logging.column_header-time }}** — значение поля `event_time` события.
 * **JSON** — JSON-объект события.
-* **Уровень** — вычисляется в зависимости от значения `event_status` события:
+* **{{ ui-key.yacloud.logging.column_header-level }}** — вычисляется в зависимости от значения `event_status` события:
   * `ERROR` — для значения `ERROR`;
   * `WARN` — для значения `CANCELLED`;
   * `INFO` — в остальных случаях.
-* **Сообщение** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
+* **{{ ui-key.yacloud.logging.column_header-message }}** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
 
 

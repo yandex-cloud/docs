@@ -6,7 +6,7 @@
 
 The first backup and every seventh backup are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-All cluster data is backed up once a day. You cannot create a backup manually or disable auto backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set a start time for these backups. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+All cluster data is automatically backed up every day. You cannot create a backup manually or disable auto backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set a start time for these backups. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
 
 After a backup is created, it is compressed for storage. The exact backup size is not displayed.
 
@@ -20,9 +20,9 @@ Specifics of storing backups in {{ mgp-name }}:
 
 * {% include [backup-wal](../../_includes/mdb/mgp/backup-wal.md) %}
 
-* Backups are kept for 7 days.
+* Backups are kept for seven days.
 
-* Once you delete a cluster, all its backups persist for 7 days.
+* Once you delete a cluster, all its backups persist for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
@@ -34,6 +34,6 @@ Backup integrity is checked on synthetic data using integration tests available 
 
 ### Checking backup recovery {#capabilities}
 
-To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check the integrity of your data.
+To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check the integrity of your data.
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

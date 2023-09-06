@@ -8,20 +8,20 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. Перейдите на вкладку **Контент**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/basket.svg) **Очистить кеш**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/basket.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
   1. Выберите тип очистки кеша:
 
-      * `Полная` — для очистки кеша всех файлов.
-      * `Выборочная` — для очистки кеша выбранных файлов. Имена нужных файлов укажите в поле **Пути к файлам**.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-full }}` — для очистки кеша всех файлов.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}` — для очистки кеша выбранных файлов. Имена нужных файлов укажите в поле **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}**.
       
-  1. Нажмите кнопку **Очистить кеш**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
 - CLI
   

@@ -38,3 +38,7 @@
 * [{#T}](monitoring.md)
 * [{#T}](spark-monitoring.md)
 * [{#T}](spark-diagnostics.md)
+
+## Другие возможности
+
+* [{#T}](python-env.md)

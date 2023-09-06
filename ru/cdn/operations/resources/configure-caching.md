@@ -8,33 +8,33 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ cdn-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. Перейдите на вкладку **Кеширование**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/pencil.svg) **Редактировать**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. Выберите и настройте нужные варианты кеширования:
 
-      * В блоке **CDN**:
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache }}**:
 
-          * Включите опцию **Кеширование в CDN**.
-          * Выберите тип настроек: `Как у источника` или `Свои настройки`.
+          * Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+          * Выберите тип настроек: `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-source-settings }}` или `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}`.
           * Выберите время жизни кеша из списка.
-          * (Опционально) Для типа настроек `Свои настройки` задайте время жизни кеша для нужных HTTP-кодов ответа.
+          * (Опционально) Для типа настроек `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` задайте время жизни кеша для нужных HTTP-кодов ответа.
 
-      * В блоке **Браузер**:
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache }}**:
       
-          * Включите опцию **Кеширование в браузере**.
+          * Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache-enabled }}**.
 
-  1. (Опционально) В блоке **Дополнительно**:
+  1. (Опционально) В блоке **{{ ui-key.yacloud.cdn.label_additional }}**:
 
       * Выберите опцию игнорирования Cookie.
       * Выберите опцию игнорирования Query-параметров.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
   

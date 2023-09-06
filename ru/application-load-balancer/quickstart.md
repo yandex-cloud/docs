@@ -5,7 +5,7 @@
 ## Перед началом работы {#before-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
@@ -34,12 +34,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
-  1. В списке сервисов выберите **{{ alb-name }}**.
-  1. В меню слева выберите **Целевые группы**.
-  1. Нажмите кнопку **Создать целевую группу**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Введите имя целевой группы: `test-target-group`.
   1. Выберите ВМ `test-vm1`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -62,23 +62,23 @@
 
 - Консоль управления
 
-  1. В меню слева выберите **Группы бэкендов**.
-  1. Нажмите кнопку **Создать группу бэкендов**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов: `test-backend-group`.
-  1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
+  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
       1. Введите имя бэкенда: `backend-1`.
-      1. В списке **Целевая группа** выберите `test-target-group`.
-      1. Укажите **Порт**: `80`.
-  1. Разверните поле **Настройки протокола** и задайте их параметры:
-      1. Выберите тип `HTTP`.
-  1. Нажмите кнопку **Добавить проверку состояния** и задайте настройки проверки:
-      1. **Таймаут**: `1`.
-      1. **Интервал**: `3`.
-      1. **Порог работоспособности**: `2`.
-      1. **Порог неработоспособности**: `2`.
-      1. **Тип**: `HTTP`.
-      1. **Путь**: `/`.
-  1. Нажмите кнопку **Создать**.
+      1. В списке **{{ ui-key.yacloud.alb.label_target-group }}** выберите `test-target-group`.
+      1. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80`.
+  1. Разверните поле **{{ ui-key.yacloud.alb.label_protocol-settings }}** и задайте их параметры:
+      1. Выберите тип `{{ ui-key.yacloud.alb.label_proto-http-plain }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки:
+      1. **{{ ui-key.yacloud.alb.label_timeout }}**: `1`.
+      1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
+      1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_unhealthy }}**: `2`.
+      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`.
+      1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -110,17 +110,17 @@
 
 - Консоль управления
 
-  1. В меню слева выберите **HTTP-роутеры**.
-  1. Нажмите кнопку **Создать HTTP-роутер**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Введите имя роутера: `test-http-router`.
-  1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
+  1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Введите имя хоста: `test-virtual-host`.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. Введите **Имя**: `test-route`.
-  1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
-  1. В поле **Действие** оставьте `Маршрутизация`.
-  1. В списке **Группа бэкендов** выберите `test-backend-group`.
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Введите **{{ ui-key.yacloud.common.name }}**: `test-route`.
+  1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите путь `/`.
+  1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+  1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `test-backend-group`.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -158,18 +158,18 @@
 
 - Консоль управления
 
-  1. В меню слева выберите **Балансировщики**.
-  1. Нажмите кнопку **Создать балансировщик**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика: `test-load-balancer`.
-  1. В блоке **Сетевые настройки** выберите сеть, в подсетях которой будет размещаться узлы балансировщика.
-  1. В блоке **Размещение** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
-  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсетях которой будет размещаться узлы балансировщика.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
       1. Введите имя обработчика: `test-listener`.
-      1. В блоке **Настройки публичного IP-адреса** включите передачу трафика.
+      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** включите передачу трафика.
       1. Укажите порт `80`.
-      1. Выберите тип **Автоматически**.
-  1. В поле **HTTP-роутер** выберите `test-http-router`.
-  1. Нажмите кнопку **Создать**.
+      1. Выберите тип **{{ ui-key.yacloud.alb.label_address-auto }}**.
+  1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `test-http-router`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

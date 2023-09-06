@@ -140,7 +140,7 @@
 * В элементе `<zookeeper>` — адрес хоста, на котором установлен {{ ZK }}.
 * В элементе `<caConfig>` — путь к сертификату для подключения к {{ mch-name }}.
 
-Скачать сертификат можно по адресу [{{ crt-web-path }}]({{ crt-web-path }}).
+Скачать сертификат можно по адресу [{{ crt-web-path-root }}]({{ crt-web-path-root }}).
 
 Пример конфигурации:
 
@@ -163,7 +163,7 @@
   <openSSL>
     <client>
       <loadDefaultCAFile>true</loadDefaultCAFile>
-      <caConfig>CA.pem</caConfig>
+      <caConfig>{{ crt-local-file-root }}</caConfig>
       <cacheSessions>true</cacheSessions>
       <disableProtocols>sslv2,sslv3</disableProtocols>
       <preferServerCiphers>true</preferServerCiphers>

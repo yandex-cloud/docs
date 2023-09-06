@@ -11,12 +11,12 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **Целевые группы**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите **Добавить целевые ресурсы**.
+  1. Нажмите **{{ ui-key.yacloud.alb.button_add-targets }}**.
   1. Выберите ВМ из списка или добавьте целевой ресурс вручную:
-      1. В поле **IP-адрес** укажите адрес ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
+      1. В поле **{{ ui-key.yacloud.alb.column_target }}** укажите адрес ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
 
       
       1. (Опционально) Если IP-адрес ресурса находится вне {{ vpc-name }}, выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
@@ -24,8 +24,8 @@
           Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/index.yaml). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
 
 
-      1. Нажмите **Добавить целевой ресурс**.
-  1. Нажмите кнопку **Сохранить**.
+      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI
 
@@ -179,11 +179,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
-  1. Выберите сервис **{{ alb-name }}**.
-  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **Целевые группы**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Справа от нужной виртуальной машины нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить целевой ресурс**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Справа от нужной виртуальной машины нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

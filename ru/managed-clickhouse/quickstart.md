@@ -64,19 +64,19 @@ description: "В этой инструкции вы научитесь созд�
    {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
-1. Для подключения к серверу БД получите SSL-сертификат:
+1. Для подключения к серверу БД получите SSL-сертификаты:
 
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Используйте для подключения {{ CH }} CLI:
-   1. Укажите путь к SSL-сертификату в [конфигурационном файле]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
+   1. Укажите путь к SSL-сертификату `{{ crt-local-file-root }}` в [конфигурационном файле]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
 
       ```xml
       <config>
         <openSSL>
           <client>
             <loadDefaultCAFile>true</loadDefaultCAFile>
-            <caConfig>{{ crt-local-dir }}{{ crt-local-file }}</caConfig>
+            <caConfig>{{ crt-local-dir }}{{ crt-local-file-root }}</caConfig>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
             <preferServerCiphers>true</preferServerCiphers>

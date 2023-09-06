@@ -4,15 +4,15 @@
 
     1. Перейдите в сервис [{{ org-full-name }}]({{link-org-main}}).
 
-    1. На левой панели выберите раздел **Группы** ![icon-services](../../_assets/organization/icon-groups.svg) и нажмите строку с названием группы.
+    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg) и нажмите строку с названием группы.
 
-    1. Перейдите на вкладку **Участники**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
 
-    1. Нажмите **Добавить участника**.
+    1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
 
-    1. В окне **Добавление участников** выберите пользователей из списка или воспользуйтесь поиском по пользователям. Также в группу можно добавлять [сервисные аккаунты](../../iam/concepts/users/service-accounts.md).
+    1. В окне **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** выберите пользователей из списка или воспользуйтесь поиском по пользователям. Также в группу можно добавлять [сервисные аккаунты](../../iam/concepts/users/service-accounts.md).
 
-    1. Нажмите **Сохранить**.
+    1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 - {{ TF }}
 

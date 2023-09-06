@@ -1,14 +1,14 @@
 # Sharding in {{ GP }}
 
-_Sharding_ is a horizontal {{ GP }} cluster scaling strategy that puts parts of each DB table on different segment hosts. Any write or read request in {{ GP }} utilizes all cluster segments.
+_Sharding_ is a horizontal {{ GP }} cluster scaling strategy that puts parts of each DB table on different segment hosts. Every write or read request in {{ GP }} utilizes all cluster segments.
 
-By default, all tables in {{ GP }} are created with random distribution meaning that a segment for storing each row is determined randomly. This ensures even data distribution across segments.
+By default, all tables in {{ GP }} are created with random distribution, i.e., a segment for storing each row is determined randomly. This ensures even data distribution across segments.
 
 ## Distribution key {#distribution-key}
 
-To optimize `JOIN` operations on large tables, you can specify a [distribution key]({{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-table.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation is performed locally at the segment level and query processing is faster.
+To optimize `JOIN` operations on large tables, you can explicitly specify a [distribution key]({{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-table.html). In this case, when joining tables by the fields specified in the key, a join operation will be performed locally at the segment level, and the query processing will be faster.
 
-To create a table with a distribution key, pass one or more required fields in the `DISTRIBUTED BY` clause:
+To create a table with a distribution key, provide one or more required fields in the `DISTRIBUTED BY` clause:
 
 ```sql
 CREATE TABLE tableName
@@ -20,7 +20,7 @@ CREATE TABLE tableName
 ) DISTRIBUTED BY (column1);
 ```
 
-If you choose a key incorrectly, most of the data might be stored in a single segment. This will degrade cluster performance or shut down the cluster if its host runs out of storage space. Do not select the following as your distribution key:
+If you choose a key incorrectly, most of the data might be stored in a single segment. This will degrade the cluster performance or shut down the segment if its host runs out of storage space. This is why you should not select the following as your distribution key:
 
 * Date and time fields.
 * Fields that may contain a large number of identical values.

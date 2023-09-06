@@ -8,56 +8,56 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан балансировщик.
 
-  1. В списке сервисов выберите **{{ alb-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 
-  1. Нажмите кнопку **Создать балансировщик** и выберите **Вручную**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
 
   1. Введите имя балансировщика: `test-load-balancer`.
 
-  1. В блоке **Сетевые настройки** выберите сеть, в подсетях которой будут размещаться узлы балансировщика, и [подходящие группы безопасности](../concepts/application-load-balancer.md#security-groups) (если соответствующего поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик).
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсетях которой будут размещаться узлы балансировщика, и [подходящие группы безопасности](../concepts/application-load-balancer.md#security-groups) (если соответствующего поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик).
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-  1. (Опционально) В блоке **Настройки автомасштабирования** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
       Количество единиц будет меняться автоматически с учетом нагрузки на балансировщик и установленных ограничений. От количества единиц зависит [тарификация балансировщика](../pricing.md).
 
-  1. (Опционально) В блоке **Настройки логов**:
-      1. Включите опцию **Запись логов**.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+      1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-      1. Нажмите кнопку **Добавить правило отбрасывания логов** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+      1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
 
-          * **HTTP-коды** — добавьте HTTP-коды.
-          * **Классы HTTP-кодов** — добавьте классы HTTP-кодов.
-          * **gRPC-коды** — добавьте gRPC-коды.
-          * **Доля отбрасываемых логов** — добавьте процент отбрасываемых логов.
+          * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — добавьте HTTP-коды.
+          * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — добавьте классы HTTP-кодов.
+          * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — добавьте gRPC-коды.
+          * **{{ ui-key.yacloud.alb.label_discard-percent }}** — добавьте процент отбрасываемых логов.
       
           Вы можете задать больше одного правила.
 
 
-  1. В блоке **Размещение** выберите три подсети для узлов балансировщика и включите передачу трафика в эти подсети.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика и включите передачу трафика в эти подсети.
 
-  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
      1. Введите имя обработчика: `test-listener`.
-     1. (Опционально) Включите опцию **Публичный IP-адрес**. Укажите **Порт**: `80` и выберите **Тип**:
-        * `Автоматически`.
-        * `Список` — в появившемся поле справа выберите адрес в выпадающем списке.
-     1. (Опционально) Включите опцию **Внутренний IP-адрес**. Укажите **Порт** и выберите **Подсеть** в выпадающем списке.
-     1. В блоке **Прием и обработка трафика** выберите тип обработчика: `HTTP` или `Stream`.
+     1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80` и выберите **{{ ui-key.yacloud.common.type }}**:
+        * `{{ ui-key.yacloud.alb.label_address-auto }}`.
+        * `{{ ui-key.yacloud.alb.label_address-list }}` — в появившемся поле справа выберите адрес в выпадающем списке.
+     1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}** и выберите **{{ ui-key.yacloud.common.label_subnet }}** в выпадающем списке.
+     1. В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** выберите тип обработчика: `{{ ui-key.yacloud.alb.label_listener-type-http }}` или `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
      
-        Для `HTTP` выберите:
+        Для `{{ ui-key.yacloud.alb.label_listener-type-http }}` выберите:
         
-        * Протокол: `HTTP`,`HTTPS` или `Перенаправлять на HTTPS`.
+        * Протокол: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`,`{{ ui-key.yacloud.alb.label_proto-http-tls }}` или `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
         * [HTTP-роутер](http-router-create.md) в выпадающем списке.
         
-        Для `Stream` выберите протокол:
+        Для `{{ ui-key.yacloud.alb.label_listener-type-stream }}` выберите протокол:
         
-        * `Открытый`: выберите **Группы бэкендов** в выпадающем списке.
-        * `Зашифрованный`: в блоке **Основной обработчик** выберите **Сертификаты** и **Группы бэкендов** в выпадающих списках.
+        * `{{ ui-key.yacloud.alb.label_proto-stream-plain }}`: выберите **{{ ui-key.yacloud.alb.label_backend-groups }}** в выпадающем списке.
+        * `{{ ui-key.yacloud.alb.label_proto-stream-tls }}`: в блоке **{{ ui-key.yacloud.alb.section_default-sni-match }}** выберите **{{ ui-key.yacloud.alb.label_certificate }}** и **{{ ui-key.yacloud.alb.label_backend-groups }}** в выпадающих списках.
 
   1. При необходимости добавьте дополнительные обработчики.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

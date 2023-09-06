@@ -10,19 +10,19 @@
 
     1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
 
-    1. На левой панели выберите раздел **Группы** ![icon-services](../../_assets/organization/icon-groups.svg) и нажмите строку с названием группы.
+    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg) и нажмите строку с названием группы.
 
-    1. Перейдите на вкладку **Права доступа к группе**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-access }}**.
 
-    1. Нажмите **Назначить роли**.
+    1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
 
-    1. Нажмите **Выбрать пользователя**.
+    1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
 
     1. Выберите пользователя или группу из списка или воспользуйтесь поиском.
 
-    1. Нажмите **Добавить роль** и выберите `organization-manager.groups.memberAdmin`.
+    1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите `organization-manager.groups.memberAdmin`.
 
-    1. Нажмите **Сохранить**.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     Пользователь отобразится в списке прав доступа к группе.
 

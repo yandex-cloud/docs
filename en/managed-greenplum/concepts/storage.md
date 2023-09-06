@@ -18,7 +18,7 @@ Local SSDs do not provide fault-tolerant storage and impact the cost of the enti
 
 If any host storage is more than 95% full, the cluster will switch to read-only mode automatically, while all DBs get `DEFAULT_TRANSACTION_READ_ONLY` set to `TRUE` through the `ALTER DATABASE` query.
 
-In this mode, the data `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
+In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
 
 ### Monitoring the switch to read-only mode {#read-only-monitor}
@@ -60,15 +60,15 @@ If the cluster switched to read-only mode:
 
 * [Increase the storage capacity](../operations/update.md#change-disk-size) so that it exceeds the threshold value. {{ yandex-cloud }} will then disable read-only mode automatically.
 
-* Disable read-only mode manually and free up storage space by deleting some of the data.
+* Disable read-only mode manually and free up storage space by deleting some data.
 
    {% note alert %}
 
-   When doing so, make sure the amount of free disk space never reaches zero. Since the fail-safe is disabled, {{ GP }} will crash and the cluster will stop working.
+   When doing so, make sure the amount of free disk space never reaches zero. Otherwise, since the fail-safe is disabled, {{ GP }} will crash and the cluster will stop working.
 
    {% endnote %}
 
-To disable read-only mode manually, contact [technical support]({{ link-console-support }}) or follow the instructions below:
+To disable read-only mode manually, contact [technical support]({{ link-console-support }}) or follow the steps below:
 
 1. [Connect to the database](../operations/connect.md) in any appropriate way.
 
