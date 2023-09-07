@@ -22,44 +22,44 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click **Create cluster**.
-   1. Under **Basic parameters**:
-      1. Enter a name and description of the {{ mkf-name }} cluster. It must be unique within the folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+      1. Enter a name and description of the {{ mkf-name }} cluster. The cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including {{ mkf-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ KF }} version.
       1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-         1. Enable **Manage topics via the API**.
+         1. Enable the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting.
          1. After creating your {{ mkf-name }} cluster, [create an admin user](cluster-accounts.md#create-user).
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
 
-      1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
+      1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-   1. Under **Host class**, select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class.
 
       The host class defines the technical specifications of the [VMs](../../compute/concepts/vm.md) that {{ KF }} brokers will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
       When [changing the host class](cluster-update.md#change-brokers) for the {{ mkf-name }} cluster, the configuration of all existing instances changes as well.
-   1. Under **Storage**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
       * Select the disk type.
 
-               
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+         
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
          You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
       * Select the storage size to use for data.
 
    
-   1. Under **Network settings**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
       1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and brokers in the future.
       1. Select a [network](../../vpc/concepts/network.md#network).
-      1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** next to the availability zone in question.
+      1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone in question.
 
          {% note info %}
 
@@ -71,16 +71,16 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
          {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
+      1. To access broker hosts from the internet, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
 
-   1. Under **Hosts**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
       1. Specify the number of {{ KF }} broker hosts to be located in each of the selected availability zones.
 
          When choosing the number of hosts, keep in mind that:
 
          * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
-                  * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+                  * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
          * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
          * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
@@ -90,15 +90,15 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-   1. If you specify two or more broker hosts, then under **{{ ZK }} host class**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
+   1. If you specify several broker hosts, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
 
    1. Configure additional cluster settings, if required:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
    1. Configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings), if required.
-   1. Click **Create cluster**.
-   1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state to `Alive`. This may take some time.
 
 - CLI
 
@@ -254,7 +254,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 

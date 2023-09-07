@@ -82,11 +82,11 @@
 
 {% list tabs %}
 
-- Юридическим лицам и ИП
+- Юридические лица и ИП
   
   Организации и ИП могут отслеживать всю историю зачислений в сервисе Яндекс&#160;Баланс на странице [Счета]({{ link-balance-invoices }}).
   
-- Физическим лицам
+- Физические лица
 
   1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 

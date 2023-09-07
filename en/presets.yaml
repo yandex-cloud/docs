@@ -5732,6 +5732,7 @@ default:
             field_alb-pre-checks-timeout: Traffic timeout
             field_auto-scale-type: Autoscaling type
             field_cooldown-duration: Stabilization period
+            field_default-utilization-target: Default scaling
             field_deletion-protection: Deletion protection
             field_deploy-max-creating: Create simultaneously
             field_deploy-max-deleting: Stop simultaneously
@@ -5761,6 +5762,7 @@ default:
             field_target-group-attached: Create target group
             field_target-group-description: Description of the target group
             field_target-group-name: Name of the target group
+            field_utilization-target: CPU utilization target, %
             field_warmup-duration: Instance warmup period
             field_zone: Availability zone
             label_custom-metrics: Metrics
@@ -5986,8 +5988,14 @@ default:
         label_monitoring: Monitoring
       dataproc:
         jobs:
+          field_args: Arguments
+          field_driver: Driver
+          field_files: Files
+          field_main-class: Main class
+          field_main-jar: Main jar
           field_main-python-file: Main python file
           field_properties: Properties
+          field_query-file-uri: Query file uri
       dns:
         button_add-record: Add record
         button_record-set-create: Create record
@@ -6546,6 +6554,7 @@ default:
       metastore:
         field_s3config-access-key-id: Access key ID
         field_s3config-secret-access-key: Secret key
+        label_metastore: Metastore
         title_s3config: S3 access settings
       mongodb:
         cluster:

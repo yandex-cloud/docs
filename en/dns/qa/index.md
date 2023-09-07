@@ -11,6 +11,14 @@ We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as
 {% include [logs](../../_qa/logs.md) %}
 
 
-#### How do I create a zone using non-Latin characters?
+#### How do I create a zone using non-Latin characters? {#dns-create-rf-zone}
 
 Cloud DNS supports any domain names, including those with local characters. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+
+#### How do I delegate reverse zone management to {{ dns-name }}? {#dns-reverse-zone}
+
+To delegate reverse zone management to {{ dns-name }}:
+
+1. Confirm that you own the domain zone (dedicated IP). To do this, just provide a copy of the document confirming ownership right transfer and registration information from the RIPE database that identifies IP ownership.
+1. The {{ yandex-cloud }} information security service will check the data you provide and notify you of the results.
+1. After passing the verification, [contact support](../../support/overview.md).

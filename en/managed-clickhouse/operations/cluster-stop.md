@@ -1,6 +1,6 @@
 ---
 title: "Stopping and starting {{ CH }} clusters"
-description: "You can stop and restart a {{ CH }} DB cluster, if required. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups."
+description: "You can stop and restart a {{ CH }} DB cluster, if required. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups."
 ---
 
 # Stopping and starting {{ CH }} clusters
@@ -18,9 +18,9 @@ You can stop and restart a {{ CH }} DB cluster, if required. You are not charged
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Select the desired cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
-   1. Confirm that you want to stop the cluster and click **Stop**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Select the cluster you need from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-stop }}**.
+   1. Confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI
 
@@ -53,9 +53,9 @@ You can restart **STOPPED** clusters.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Select the stopped cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
-   1. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Select the stopped cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-start }}**.
+   1. Confirm that you want to start the cluster: click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** in the dialog box that opens.
 
 - CLI
 

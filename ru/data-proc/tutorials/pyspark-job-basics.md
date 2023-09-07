@@ -12,12 +12,12 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
-    * **Сервисы**:
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
-    * **Имя бакета**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание PySpark {#create-job}
 
@@ -64,8 +64,8 @@
 
 1. [Создайте задание PySpark](../operations/jobs-pyspark#create) с параметрами:
 
-    * **Main python файл**: `s3a://<имя бакета для исходных данных>/word_count.py`
-    * **Аргументы задания**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<имя бакета для исходных данных>/word_count.py`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
 
         * `s3a://<имя бакета для исходных данных>/text.txt`
         * `s3a://<имя бакета для результатов обработки>/<папка для результатов>`

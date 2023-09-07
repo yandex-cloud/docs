@@ -12,12 +12,12 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
-    * **Сервисы**:
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `HIVE`
-    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
-    * **Имя бакета**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание Hive {#create-job}
 
@@ -73,8 +73,8 @@
 
 1. [Создайте задание Hive](../operations/jobs-hive#create) с параметрами:
 
-    * **Драйвер**: `Файл`
-    * **Файл с запросами**: `s3a://<имя бакета для исходных данных>/cities.sql`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_driver }}**: `Файл`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<имя бакета для исходных данных>/cities.sql`
 
 1. Подождите, пока [статус задания](../operations/jobs-spark.md#get-info) изменится на `Done`.
 

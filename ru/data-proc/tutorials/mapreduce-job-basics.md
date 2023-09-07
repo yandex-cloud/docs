@@ -14,12 +14,12 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
-    * **Сервисы**:
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
-    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
-    * **Имя бакета**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание MapReduce {#create-job}
 
@@ -48,8 +48,8 @@
 
 1. [Создайте задание MapReduce](../operations/jobs-mapreduce.md#create) с параметрами:
 
-    * **Основной класс**: `org.apache.hadoop.streaming.HadoopStreaming`
-    * **Аргументы задания**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `org.apache.hadoop.streaming.HadoopStreaming`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
        * `-mapper`
        * `mapper.py`
        * `-reducer`
@@ -60,10 +60,10 @@
        * `s3a://<имя бакета для исходных данных>/cities500.txt`
        * `-output`
        * `s3a://<имя бакета для результатов обработки>/<папка для результатов>`
-    * **Файлы**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
        * `s3a://<имя бакета для исходных данных>/mapper.py`
        * `s3a://<имя бакета для исходных данных>/reducer.py`        
-    * **Настройки**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
        * `mapreduce.job.maps: 6`
        * `yarn.app.mapreduce.am.resource.mb: 2048`
        * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`

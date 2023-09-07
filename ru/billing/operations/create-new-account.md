@@ -20,7 +20,7 @@
 
    {% list tabs %}
 
-    - Физическое лицо
+    - Физические лица
 
        Укажите ваши фамилию, имя, отчество и привяжите банковскую карту:
        
@@ -32,7 +32,7 @@
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Юридическое лицо или ИП
+    - Юридические лица и ИП
 
       7.1. Выберите способ оплаты (банковская карта или банковский перевод):
       - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**.

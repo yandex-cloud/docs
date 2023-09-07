@@ -22,13 +22,13 @@
 
   {% list tabs %}
 
-  - Перевод с банковской карты
+  - Банковская карта
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Затем введите данные карты и нажмите кнопку **Оплатить**. К оплате принимаются банковские карты Visa, MasterCard и МИР.
 
     Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
 
-  - Перевод с расчетного счета (через банк)
+  - Банковский перевод
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 

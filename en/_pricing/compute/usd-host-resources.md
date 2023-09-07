@@ -3,7 +3,7 @@
 | 1 vCPU (100%) | {{ sku|USD|compute.hostgroup.cpu.c100.v3|string }} |
 | 1 GB RAM | {{ sku|USD|compute.hostgroup.ram.v3|string }} |
 
-| **Intel Ice Lake (Compute Optimized)**<br>`intel-6354-c56-m956-n3200x6` | Cost per hour, without VAT |
+| **Intel Ice Lake (Compute Optimized)**<br>`intel-6354-c56-m956-n3200x6` | Cost per hour, including VAT |
 | --- | --- |
 | 1 vCPU (100%) | $0.015520 |
 | 1 GB RAM | $0.002800 |

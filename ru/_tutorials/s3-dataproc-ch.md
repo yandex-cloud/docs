@@ -23,42 +23,42 @@
 
         * По одному правилу для входящего и исходящего служебного трафика:
 
-            * Диапазон портов — `{{ port-any }}`.
-            * Протокол — `Любой` (`Any`).
-            * Источник — `Группа безопасности`.
-            * Группа безопасности — `Текущая` (`Self`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
         * Правило для исходящего HTTPS-трафика:
 
-            * Диапазон портов — `{{ port-https }}`.
-            * Протокол — `TCP`.
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
         * Правило для исходящего трафика по протоколу TCP на порт {{ port-mch-http }} для доступа к {{ CH }}:
 
-            * Диапазон портов — `{{ port-mch-http }}`.
-            * Протокол — `TCP`.
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mch-http }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     1. [Создайте кластер {{ dataproc-name }}](../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../data-proc/concepts/instance-types.md) и следующими настройками:
 
-        * Компоненты:
+        * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`;
             * `YARN`;
             * `HDFS`.
-        * Сервисный аккаунт — `dataproc-sa`.
-        * Имя бакета — бакет, который вы создали для выходных данных.
-        * Сеть — `dataproc-network`.
-        * Группа безопасности — `dataproc-sg`.
-        * Настройка **UI Proxy** включена.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — бакет, который вы создали для выходных данных.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-sg`.
+        * Настройка **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** включена.
 
     1. [Создайте кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
         * С публичным доступом к хостам кластера.
-        * С базой данных `db1`.
-        * С пользователем `user1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
 * С помощью {{ TF }}
 
@@ -173,7 +173,7 @@
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../storage/operations/objects/upload.md#simple) в нее файл `join-tables.py`.
 
-1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/join-tables.py`.
+1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/join-tables.py`.
 
 1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `parquet` появился Parquet-файл `part-00000-***`.
 
@@ -221,7 +221,7 @@
 
     1. [Загрузите](../storage/operations/objects/upload.md#simple) файл `parquet-to-ch.py` в бакет для входных данных в папку `scripts`.
 
-1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/parquet-to-ch.py`.
+1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/parquet-to-ch.py`.
 1. Дождитесь выполнения задания и убедитесь, что объединенная таблица перенесена в кластер:
 
     1. [Подключитесь к базе данных](../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.

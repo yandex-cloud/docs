@@ -34,7 +34,7 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы привязать облако, у сервисного аккаунта должна быть [назначена роль](../security/index.md#set-role) `billing.accounts.owner` или `editor` на платежный аккаунт.
   

@@ -9,14 +9,14 @@ The guide in this checklist item will help you set up operations with logs and a
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../../logging/concepts/log-group.md).
-   1. Open **{{ cloud-logging-name }}**.
-   1. Click **Create group**.
-   1. (optional) Enter a name and description for the log group using the following format:
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
+   1. (Optional) Enter a name and description for the log group. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Set the log group record retention period. The maximum record retention period is 3 days, the minimum is 1 hour.
-   1. Click **Create group**.
+   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
 - CLI
 
@@ -109,12 +109,12 @@ The guide in this checklist item will help you set up operations with logs and a
 ## View charts
 
 1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
-1. Open **{{ cloud-logging-name }}**.
+1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
 1. Select a log group.
-1. Go to the **Monitoring** tab.
+1. Click the **{{ ui-key.yacloud.common.monitoring }}** tab.
 1. The following charts open on the page:
-* **Records successfully ingested**: The number of records delivered to the {{ cloud-logging-name }} system. Only user logs are counted.
-* **Records saved**: The number of records saved to the {{ cloud-logging-name }} system. Service and user logs are counted.
+* **Records successfully ingested**: Number of records delivered to the {{ cloud-logging-name }} system. Only user logs are counted.
+* **Records saved**: Number of records saved to the {{ cloud-logging-name }} system. Service and user logs are counted.
 * **Records read**: The number of records read.
 * **Records ingest errors**: The number of errors when adding records.
 * **Records save lag**: The difference between the time of record delivery and its saving to the {{ cloud-logging-name }} system.

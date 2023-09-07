@@ -8,7 +8,7 @@
 * включен [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions);
 * остальные параметры оставлены по умолчанию.
 
-Работа с API выполняется с помощью пакета `grpcio-tools`.
+Для работы с API нужен пакет `grpcio-tools`.
 
 Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об [аутентификации в API {{speechkit-name}}](../../concepts/auth.md).
 
@@ -34,10 +34,10 @@
         pip install grpcio-tools
         ```
 
-    1. Перейдите в директорию со склонированным репозиторием {{ yandex-cloud }} API, создайте директорию `output` и сгенерируйте в ней   код интерфейса клиента:
+    1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
         ```bash
-        cd <путь_к_директории_cloudapi>
+        cd <путь_к_папке_cloudapi>
         mkdir output
         python -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \
@@ -51,9 +51,9 @@
             yandex/cloud/ai/stt/v3/stt.proto
         ```
 
-        В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
+        В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
 
-    1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
+    1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
 
         ```python
         #coding=utf8
@@ -67,7 +67,7 @@
         CHUNK_SIZE = 4000
 
         def gen(audio_file_name):
-            # Задать настройки распознавания.
+            # Задайте настройки распознавания.
             recognize_options = stt_pb2.StreamingOptions(
                 recognition_model=stt_pb2.RecognitionModelOptions(
                     audio_format=stt_pb2.AudioFormatOptions(
@@ -90,10 +90,10 @@
                 )
             )
 
-            # Отправить сообщение с настройками распознавания.
+            # Отправьте сообщение с настройками распознавания.
             yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-            # Прочитать аудиофайл и отправить его содержимое порциями.
+            # Прочитайте аудиофайл и отправьте его содержимое порциями.
             with open(audio_file_name, 'rb') as f:
                 data = f.read(CHUNK_SIZE)
                 while data != b'':
@@ -101,17 +101,17 @@
                     data = f.read(CHUNK_SIZE)
 
         def run(iam_token, audio_file_name):
-            # Установить соединение с сервером.
+            # Установите соединение с сервером.
             cred = grpc.ssl_channel_credentials()
             channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
             stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
-            # Отправить данные для распознавания.
+            # Отправьте данные для распознавания.
             it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                 ('authorization', f'Bearer {iam_token}'),
             ))
 
-            # Обработать ответы сервера и вывести результат в консоль.
+            # Обработайте ответы сервера и выведите результат в консоль.
             try:
                 for r in it:
                     event_type, alternatives = r.WhichOneof('Event'), None

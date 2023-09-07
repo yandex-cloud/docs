@@ -98,7 +98,7 @@ For more information about CAA records, see [RFC-8659](https://tools.ietf.org/ht
 | second.example.com. | CNAME | 600 | host.example.com. |
 | host.example.com. | A | 600 | 192.0.2.100 |
 
-Note that CNAME records cannot be combined with other records in the same domain. For more information about CNAME records and their limitations, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+Note that CNAME records cannot be combined with other records in the same domain. For more information about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4), see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 
 ## ANAME {#aname}
 
@@ -235,13 +235,13 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 
 * The space character serves as a separator. If an input string has spaces, it will be perceived as multiple strings.
 
-   For example, the following string is entered:
+   For example, we have the following string:
 
    ```text
    Long string "string with spaces in quotes" #1 and_without_spaces
    ```
 
-   When saving, this string will not change, but will be processed as 5 strings:
+   When saving, this string will not change but will be processed as five strings:
 
    ```text
    "Long"

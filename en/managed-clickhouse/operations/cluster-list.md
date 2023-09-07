@@ -14,7 +14,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
+   In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
 - CLI
 
@@ -48,8 +48,8 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the cluster you need.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name.
 
 - CLI
 
@@ -81,9 +81,9 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the cluster you need.
-   1. Go to the **Operations** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name.
+   1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_operations }}** tab.
 
 - CLI
 
@@ -94,10 +94,10 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-ch }} cluster list-operations <cluster name and ID>
+   {{ yc-mdb-ch }} cluster list-operations <cluster name or ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

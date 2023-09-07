@@ -35,6 +35,10 @@
 
 {% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
 
+
+{% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
+
+
 ## Ошибки в API {#api}
 
 Пример ошибки:

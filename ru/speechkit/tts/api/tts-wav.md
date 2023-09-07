@@ -67,8 +67,8 @@
 
          static async Task Tts()
          {
-           const string iamToken = "<IAM-токен>"; // Укажите IAM-токен.
-           const string folderId = "<идентификатор каталога>"; // Укажите идентификатор каталога.
+           const string iamToken = "<IAM-токен>";
+           const string folderId = "<идентификатор каталога>";
 
            HttpClient client = new HttpClient();
            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);

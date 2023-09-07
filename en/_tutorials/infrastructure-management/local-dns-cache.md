@@ -18,6 +18,12 @@ You can get the status of the `systemd-resolved` caching DNS resolver in Ubuntu 
 systemd-resolve --status
 ```
 
+As the `systemd-resolved` utility was renamed to `resolvectl`, for Ubuntu 22.04+, the command will be different:
+
+```
+resolvectl status
+```
+
 Result:
 
 ```
@@ -104,7 +110,7 @@ Configuration parameters are given as an example. For information about how to s
 
       ```
       sudo apt-get update -y
-      
+
       sudo apt-get install dnsmasq dnsutils -y
       ```
 
@@ -121,7 +127,7 @@ Configuration parameters are given as an example. For information about how to s
 
       ```
       sudo systemctl restart dnsmasq.service
-      
+
       sudo systemctl status dnsmasq.service
       ● dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server
       Loaded: loaded (/lib/systemd/system/dnsmasq.service; enabled; vendor preset: enabled)

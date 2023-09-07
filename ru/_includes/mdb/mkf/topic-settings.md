@@ -10,7 +10,7 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#cleanup.policy).
 
-* **Compression type** {{ tag-all }} {#settings-topic-compression-type }
+* **Compression type** {{ tag-all }} {#settings-topic-compression-type}
 
     В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 

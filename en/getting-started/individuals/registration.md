@@ -9,7 +9,7 @@ description: "In this tutorial, you'll learn how to create an individual's billi
 
 ## Creating a billing account {#new-account}
 
-A billing account is required even if you plan to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
+A billing account is required even if you are going to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
 
 {% list tabs %}
 
@@ -43,13 +43,13 @@ Provide details to create a billing account:
 
    {% note info %}
 
-   In some cases, additional verification may be required when you create a billing account with a trial period. On the page of this billing account in the management console, you'll find a message with detailed instructions.
+   Sometimes, additional verification may be required when you create a billing account with a trial period. If this is the case, you will find a message with detailed instructions on the billing account page in the management console.
 
    {% endnote %}
 
    * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../free-trial/concepts/upgrade-to-paid.md).
-   * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../usage-grant.md), you will not have to upgrade to the paid version.
+   * If you do not activate the trial period at this stage, your account will be created as a paid account. In this case, [after using up the initial grant](../usage-grant.md), you will not have to upgrade to the paid version.
 
-1. Click **Create**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% include [start](../_includes/quickstart-qa-whats-next.md) %}

@@ -42,7 +42,7 @@ The infrastructure support costs include:
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
+     1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
      1. At the top of the screen, go to the **Service accounts** tab.
      1. Click **Create service account**.
      1. Enter the service account name and click **Create**.
@@ -126,20 +126,20 @@ The infrastructure support costs include:
           {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
         * Select the recently created [service account](../../iam/concepts/users/service-accounts.md).
-        * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+        * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
      1. Under **Images from {{ marketplace-name }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
      1. (Optional) Configure a boot disk under **Disks**:
         * Specify the required [disk](../../compute/concepts/disk.md) size.
         * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
-          If you wish to create a VM from an existing disk, under **Disks**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
+          If you want to create a VM from an existing disk, under **Disks**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
      1. Under **Computing resources**:
         * Choose a [platform](../../compute/concepts/vm-platforms.md).
         * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
         * If required, make your VM [preemptible](../../compute/concepts/preemptible-vm.md).
      1. Under **Network settings**:
-        * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create a new network** to create one:
-          * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have a minimum of one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). and click **Create**.
+        * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **Create a new network** to create one:
+          * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). Then click **Create**.
         * In the **Public IP** field, choose a method for assigning an IP address:
           * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
           * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
@@ -159,7 +159,7 @@ The infrastructure support costs include:
           {% endnote %}
 
         * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-     1. Click **Create VM**.
+     1. Click **Create VM**.
 
    - CLI
 
@@ -228,102 +228,102 @@ The infrastructure support costs include:
      1. Prepare the key pair (public and private keys) for SSH access to the VM.
      1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
 
-        
-        * [Instructions](../../iam/operations/iam-token/create.md) for users with a Yandex account.
+         
+         * [Guide](../../iam/operations/iam-token/create.md) for users with a Yandex account.
 
 
-        * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
-     1. [Get the ID](../../resource-manager/operations/folder/get-id.md) of the folder.
-     1. Get information about the image to create your VM from (image ID and minimum disk size):
-        * If you know the [image family](../../compute/concepts/image.md#family), get information about the latest image in this family:
+         * [Guide](../../iam/operations/iam-token/create-for-sa.md) for a service account.
+      1. [Get the ID](../../resource-manager/operations/folder/get-id.md) of the folder.
+      1. Get information about the image to create your VM from (image ID and minimum disk size):
+         * If you know the [image family](../../compute/concepts/image.md#family), get information about the latest image in this family:
 
-          ```bash
-          export IAM_TOKEN=CggaATEVAgA...
-          export FAMILY=ubuntu-1804
-          curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-          ```
-
-        * To learn more about the image, see the [list of public images](../../compute/operations/images-with-pre-installed-software/get-list.md).
-     1. Get the subnet ID and availability zone ID. Specify the ID of the folder where the subnet was created in your request:
-
-        ```bash
-        export IAM_TOKEN=CggaATEVAgA...
-        export FOLDER_ID=b1gvmob95yysaplct532
-        curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
-        {
-          "subnets": [
-            {
-              "v4CidrBlocks": [
-                "10.130.0.0/24"
-              ],
-            "id": "b0c6n43ftldh30l0vfg2",
-            "folderId": "b1gvmob95yysaplct532",
-            "createdAt": "2018-09-23T12:15:00Z",
-            "name": "default-{{ region-id }}-a",
-            "description": "Auto-created default subnet for zone {{ region-id }}-a",
-            "networkId": "enpe3m3fagludao8aslg",
-            "zoneId": "{{ region-id }}-a"
-          },
-          ...
-          ]}
-        ```
-
-     1. Create a file named `body.json` with the body of the request to create a VM:
-
-        ```json
-        {
-          "folderId": "b1gvmob95yysaplct532",
-          "name": "instance-demo-no-pwauth",
-          "zoneId": "{{ region-id }}-a",
-          "platformId": "standard-v3",
-          "resourcesSpec": {
-            "memory": "2147483648",
-            "cores": "2"
-          },
-          "metadata": {
-            "user-data": "#cloud-config\nusers:\n  - name: user\n  groups: sudo\n  shell: /bin/bash\n  sudo: ['ALL=(ALL) NOPASSWD:ALL']\n  ssh-authorized-keys:\n  - ssh-ed25519 AAAAB3N... user@example.com"
-          },
-          "bootDiskSpec": {
-            "diskSpec": {
-              "size": "2621440000",
-              "imageId": "fd8rc75pn12fe3u2dnmb"
-            }
-          },
-          "networkInterfaceSpecs": [
-            {
-              "subnetId": "b0c6n43ftldh30l0vfg2",
-              "primaryV4AddressSpec": {
-                "oneToOneNatSpec": {
-                  "ipVersion": "IPV4"
-                }
-              }
-            }
-          ],
-          "serviceAccountId": "ajelabcde12f33nol1v5"
-        }
-        ```
-
-        Where:
-        * `folderId`: Folder ID.
-        * `name`: Name assigned to the VM upon creation.
-        * `zoneId`: Availability zone that corresponds to the selected subnet.
-        * `platformId`: [Platform](../../compute/concepts/vm-platforms.md).
-        * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-        * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
-        * `bootDiskSpec`: Boot disk settings. Specify the selected image's ID and disk size. Set at least the minimum value specified in the image details.
-        * `networkInterfaceSpecs`: Network setting:
-          * `subnetId`: ID of the selected subnet.
-          * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../vpc/concepts/address.md#public-addresses) to your VM, specify:
-
-            ```yaml
-            "primaryV4AddressSpec": {
-              "oneToOneNatSpec": {
-                "ipVersion": "IPV4"
-              }
-            }
+            ```bash
+            export IAM_TOKEN=CggaATEVAgA...
+            export FAMILY=ubuntu-1804
+            curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+              "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
             ```
+
+         * To learn more about the image, see the [list of public images](../../compute/operations/images-with-pre-installed-software/get-list.md).
+      1. Get the subnet ID and availability zone ID. Specify the ID of the folder where the subnet was created in your request:
+
+         ```bash
+         export IAM_TOKEN=CggaATEVAgA...
+         export FOLDER_ID=b1gvmob95yysaplct532
+         curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+           "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
+         {
+           "subnets": [
+             {
+               "v4CidrBlocks": [
+                 "10.130.0.0/24"
+               ],
+             "id": "b0c6n43ftldh30l0vfg2",
+             "folderId": "b1gvmob95yysaplct532",
+             "createdAt": "2018-09-23T12:15:00Z",
+             "name": "default-{{ region-id }}-a",
+             "description": "Auto-created default subnet for zone {{ region-id }}-a",
+             "networkId": "enpe3m3fagludao8aslg",
+             "zoneId": "{{ region-id }}-a"
+           },
+           ...
+           ]}
+         ```
+
+      1. Create a file named `body.json` with the body of the request to create a VM:
+
+         ```json
+         {
+           "folderId": "b1gvmob95yysaplct532",
+           "name": "instance-demo-no-pwauth",
+           "zoneId": "{{ region-id }}-a",
+           "platformId": "standard-v3",
+           "resourcesSpec": {
+             "memory": "2147483648",
+             "cores": "2"
+           },
+           "metadata": {
+             "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
+           },
+           "bootDiskSpec": {
+             "diskSpec": {
+               "size": "2621440000",
+               "imageId": "fd8rc75pn12fe3u2dnmb"
+             }
+           },
+           "networkInterfaceSpecs": [
+             {
+               "subnetId": "b0c6n43ftldh30l0vfg2",
+               "primaryV4AddressSpec": {
+                 "oneToOneNatSpec": {
+                   "ipVersion": "IPV4"
+                 }
+               }
+             }
+           ],
+           "serviceAccountId": "ajelabcde12f33nol1v5"
+         }
+         ```
+
+         Where:
+         * `folderId`: Folder ID.
+         * `name`: Name assigned to the VM upon creation.
+         * `zoneId`: Availability zone that corresponds to the selected subnet.
+         * `platformId`: [Platform](../../compute/concepts/vm-platforms.md).
+         * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
+         * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../compute/concepts/vm-metadata.md).
+         * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size. Set at least the minimum value specified in the image details.
+         * `networkInterfaceSpecs`: Network setting:
+            * `subnetId`: ID of the selected subnet.
+            * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP](../../vpc/concepts/address.md#public-addresses) to your VM, specify:
+
+               ```yaml
+               "primaryV4AddressSpec": {
+                 "oneToOneNatSpec": {
+                  "ipVersion": "IPV4"
+                 }
+               }
+               ```
 
         * `serviceAccountId`: ID of the service account created in the previous step.
 
@@ -430,7 +430,7 @@ The infrastructure support costs include:
         "{{ registry }}": "yc"
         ```
 
-     1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You don't need to run `docker login` for that.
+     1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
 
    {% endlist %}
 
@@ -573,7 +573,7 @@ To create an infrastructure for running a Docker image on a VM using the registr
 
 1. Under `locals`, set the parameters for resources to create:
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that will host the VM.
-   * `username`: Name of a user to be created on the VM.
+   * `username`: Name of the user to be created on the VM.
    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `target_folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the VM.
    * `registry_name`: {{ container-registry-name }} registry name.

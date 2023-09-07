@@ -20,6 +20,6 @@
 
 {% include notitle [trial-commercial](../../_qa/billing/trial-commercial.md) %}
 
-## Вопросы по работе с нерезидентами РФ и РК
+## Вопросы по работе с нерезидентами Российской Федерации (РФ) и Республики Казахстан (РК)
 
 {% include notitle [non-resident](../../_qa/billing/non-resident.md) %}
