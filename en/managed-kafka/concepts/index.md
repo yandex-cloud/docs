@@ -36,7 +36,7 @@ You can change the {{ ZK }} host parameters using the [CLI](../operations/cluste
 
 {% endnote %}
 
-VMs corresponding to cluster hosts can be hosted:
+VMs for cluster hosts can be hosted on:
 * On {{ yandex-cloud }} *standard hosts*.
 
    These are physical servers for hosting cluster VMs. They are randomly selected from a pool of available hosts that meet the selected cluster configuration.
@@ -63,7 +63,7 @@ To make sure the cluster data is stored in a reliable way and continuously avail
 * Each of the three availability zones must host at least one broker host.
 * Cluster topics must have the following parameters:
 
-   * **Replication factor**: `3`.
-   * **Minimum number of in-sync replicas**: `2`.
+   * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `3`.
+   * **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**: `2`.
 
-Learn more in the [Service Level Agreement (SLA)]({{ link-sla-kafka }}).
+You can learn more in the [Service Level Agreement (SLA)]({{ link-sla-kafka }}).

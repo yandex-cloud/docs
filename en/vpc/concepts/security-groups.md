@@ -11,10 +11,10 @@ description: "Security groups allow you to manage VM access to resources and sec
 
 {% endnote %}
 
-Security groups allow you to manage [VM](../../compute/concepts/vm.md) access to resources and {{ yandex-cloud }} security groups or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
+Security groups allow you to manage [VM](../../compute/concepts/vm.md) access to {{ yandex-cloud }} resources and security groups, or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
 Security groups:
-* Are not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use the [{{ ddos-protection-full-name }}](../ddos-protection/index.md) service.
+* Are not designed to protect against DDoS attacks. To filter out large volumes of unsolicited traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
 * Operate based on the "what is not allowed is forbidden" principle. If you assign a security group without rules to the network interface of a VM, the VM will not be able to send or receive traffic.
 * Automatically terminate TCP connections in the `idle` status in 180 seconds. We do not recommend using session timeouts in applications for a longer period of time. See more about limits [here](limits.md#vpc-limits).
 
@@ -33,8 +33,8 @@ You can learn how to create a rule [here](../operations/security-group-add-rule.
 ### Types of rules {#rules-types}
 
 There are two types of rules:
-* For incoming traffic. Define IP address and port ranges or other security groups the VMs can receive traffic from.
-* For outgoing traffic. Define IP address and port ranges or other security groups the VMs can send traffic to.
+* For incoming traffic: define IP address and port ranges or other security groups the VMs can receive traffic from.
+* For outgoing traffic: define IP address and port ranges or other security groups the VMs can send traffic to.
 
 If a security group only contains a rule for outgoing traffic and no rules for incoming traffic, a VM can still receive the response traffic. If a security group only has rules for incoming traffic, the VM will only be able to respond to requests, but not initiate them.
 

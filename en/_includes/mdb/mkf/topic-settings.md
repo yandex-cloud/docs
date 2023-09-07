@@ -1,6 +1,6 @@
-* **Cleanup policy** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-cleanup-policy}
+* **Cleanup policy** {{ tag-all }} {#settings-topic-cleanup-policy}
 
-   In the management console, this setting corresponds to **Cleanup policy**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**.
 
    Retention policy to use on old log messages:
 
@@ -10,9 +10,9 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#cleanup.policy).
 
-* **Compression type** {{ tag-all }} {#settings-topic-compression-type }
+* **Compression type** {{ tag-all }} {#settings-topic-compression-type}
 
-   In the management console, this setting corresponds to **Compression type**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 
    See a description of the [Compression type](#settings-compression-type) cluster-level setting.
 
@@ -20,21 +20,21 @@
 
 * **Delete delay, ms** {{ tag-all }} {#settings-topic-file-delete-delay}
 
-   In the management console, this setting corresponds to **Delete delay, ms**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-delete-delay }}**.
 
-   The time to wait before deleting a file from the filesystem.
+   Time to wait before deleting a file from the file system.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#file.delete.delay.ms).
 
-* **Delete retention** {{ tag-con }} {#settings-delete-retention}
+* **Delete retention** {{ tag-all }} {#settings-delete-retention}
 
-   Time in milliseconds to retain delete tombstone markers for log compacted topics. This setting only applies if the [log cleanup policy](#settings-topic-cleanup-policy) is set to `Compact` or to `CompactAndDelete`.
+   Time in milliseconds to retain delete tombstone markers for log compacted topics. This setting only applies if the [log cleanup policy](#settings-topic-cleanup-policy) is set to `compact` or to `compactanddelete`.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#delete.retention.ms).
 
 * **Flush messages** {{ tag-all }} {#settings-topic-flush-messages}
 
-   In the management console, this setting corresponds to **Flush messages**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
 
    See a description of the [Log flush interval messages](#settings-log-flush-interval-messages) cluster-level setting.
 
@@ -42,17 +42,17 @@
 
 * **Flush, ms** {{ tag-all }} {#settings-topic-flush-ms}
 
-   In the management console, this setting corresponds to **Flush, ms**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-flush-ms }}**.
 
    See a description of the [Log flush interval ms](#settings-log-flush-interval-ms) cluster-level setting.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#topicconfigs_flush.ms).
 
-* **Message max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-message-max-bytes}
+* **Message max bytes** {{ tag-all }} {#settings-topic-message-max-bytes}
 
-   In the management console, this setting corresponds to **Maximum batch size**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_max-message-bytes }}**.
 
-   Producer's message maximum size in bytes.
+   Message maximum size (in bytes) set by the producer.
 
    The minimum value is `0` (unlimited size). Defaults to `1048588`. The setting value must not exceed the **Replica fetch max bytes** value by more than 12 bytes.
 
@@ -60,17 +60,17 @@
 
 * **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}
 
-   In the management console, this setting corresponds to **Minimum compaction lag, ms**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-min-compaction-lag }}**.
 
-   The minimum time a message will remain uncompacted in the log.
+   Minimum time a message will remain uncompacted in the log.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#min.compaction.lag.ms).
 
-* **Minimum number of in-sync replicas** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-min-insync-replicas}
+* **Minimum number of in-sync replicas** {{ tag-all }} {#settings-topic-min-insync-replicas}
 
-   In the management console, this setting corresponds to **Minimum number of in-sync replicas**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
 
-   The minimum number of replicas to wait for the record confirmation from in order to consider a message successfully written to a topic. Use this setting if the Producer has to wait too long for a successful write acknowledgement from all the broker hosts in the cluster.
+   Minimum number of replicas to wait for the record confirmation from in order to consider a message successfully written to a topic. Use this setting if the producer has to wait too long for all the broker hosts in the cluster to acknowledge a write.
 
    The minimum value depends on the number of [broker hosts](../../../managed-kafka/concepts/brokers.md):
 
@@ -81,9 +81,9 @@
 
 * **Num partitions** {{ tag-all }} {#settings-topic-num-partitions}
 
-   In the management console, this setting corresponds to **Number of partitions**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_partitions }}**.
 
-   The number of log partitions per topic.
+   Number of log partitions per topic.
 
    The minimum value is `1` (default).
 
@@ -91,9 +91,9 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
-* **Pre-allocation of the segment file** {{ tag-cli }} {{ tag-tf }} {#settings-topic-preallocate}
+* **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}
 
-   In the management console, this corresponds to **Pre-allocation of the segment file**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-preallocate }}**.
 
    See a description of the [Log preallocate](#settings-log-preallocate) cluster-level setting.
 
@@ -103,7 +103,7 @@
 
 * **Replication factor** {{ tag-all }} {#settings-topic-replication-factor}
 
-   In the management console, this setting corresponds to **Replication factor**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_replication-factor }}**.
 
    Number of [copies of data](../../../managed-kafka/concepts/brokers.md) for a topic.
 
@@ -115,7 +115,7 @@
 
 * **Retention, bytes** {{ tag-all }} {#settings-topic-retention-bytes}
 
-   In the management console, this setting corresponds to **Maximum partition size, bytes**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
 
    See a description of the [Log retention bytes](#settings-log-retention-bytes) cluster-level setting.
 
@@ -123,7 +123,7 @@
 
 * **Retention, ms** {{ tag-all }} {#settings-topic-log-retention-ms}
 
-   In the management console, this setting corresponds to **Retention, ms**.
+   In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
 
    See a description of the [Log retention ms](#settings-log-retention-ms) cluster-level setting.
 

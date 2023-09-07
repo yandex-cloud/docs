@@ -41,10 +41,10 @@
             pip install grpcio-tools
             ```
 
-        1. Перейдите в каталог со склонированным репозиторием {{ yandex-cloud }} API, создайте каталог `output` и сгенерируйте в нем код интерфейса клиента:
+        1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
             ```bash
-            cd <путь_к_каталогу_cloudapi>
+            cd <путь_к_папке_cloudapi>
             mkdir output
             python -m grpc_tools.protoc -I . -I third_party/googleapis \
                 --python_out=output \
@@ -58,9 +58,9 @@
                 yandex/cloud/ai/stt/v3/stt.proto
             ```
 
-            В результате в каталоге `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
+            В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
 
-        1. Создайте файл в корне каталога `output`, например `test.py`, и добавьте в него следующий код:
+        1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
 
             ```python
             #coding=utf8
@@ -74,7 +74,7 @@
             CHUNK_SIZE = 4000
 
             def gen(audio_file_name):
-                # Задать настройки распознавания.
+                # Задайте настройки распознавания.
                 recognize_options = stt_pb2.StreamingOptions(
                     recognition_model=stt_pb2.RecognitionModelOptions(
                         audio_format=stt_pb2.AudioFormatOptions(
@@ -84,20 +84,20 @@
                                 audio_channel_count=1
                             )
                         ),
-                        # Задать автоматическое распознавание языков.
-			            language_restriction=stt_pb2.LanguageRestrictionOptions(
+                        # Задайте автоматическое распознавание языков.
+                        language_restriction=stt_pb2.LanguageRestrictionOptions(
                             restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
                             language_code=['auto']
                         ),
-                        # Выбрать модели распознавание — потоковое распознавание.
+                        # Выберите модели распознавание — потоковое распознавание.
                         audio_processing_type=stt_pb2.RecognitionModelOptions.REAL_TIME
                     )
                 )
 
-                # Отправить сообщение с настройками распознавания.
+                # Отправьте сообщение с настройками распознавания.
                 yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-                # Прочитать аудиофайл и отправить его содержимое порциями.
+                # Прочитайте аудиофайл и отправьте его содержимое порциями.
                 with open(audio_file_name, 'rb') as f:
                     data = f.read(CHUNK_SIZE)
                     while data != b'':
@@ -105,17 +105,17 @@
                         data = f.read(CHUNK_SIZE)
 
             def run(iam_token, audio_file_name):
-                # Установить соединение с сервером.
+                # Установите соединение с сервером.
                 cred = grpc.ssl_channel_credentials()
                 channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
                 stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
-                # Отправить данные для распознавания.
+                # Отправьте данные для распознавания.
                 it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                     ('authorization', f'Bearer {iam_token}'),
                 ))
 
-                # Обработать ответы сервера и вывести результат в консоль.
+                # Обработайте ответы сервера и выведите результат в консоль.
                 try:
                     for r in it:
                         event_type, alternatives = r.WhichOneof('Event'), None
@@ -123,12 +123,12 @@
                             alternatives = [a.text for a in r.partial.alternatives]
                         if event_type == 'final':
                             alternatives = [a.text for a in r.final.alternatives]
-                            # получение языковых меток:
+                            # Получение языковых меток:
                             langs = [a.languages for a in r.final.alternatives]
                         if event_type == 'final_refinement':
                             alternatives = [a.text for a in r.final_refinement.normalized_text.alternatives]
                         print(f'type={event_type}, alternatives={alternatives}')
-                        # вывод в консоль языковых меток для финальных версий:
+                        # Вывод в консоль языковых меток для финальных версий:
                         if event_type == 'final':
                             print(f'Language labels:')
                             for lang in langs:

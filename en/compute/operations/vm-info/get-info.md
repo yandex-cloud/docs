@@ -183,7 +183,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 You can set up metadata service parameters when creating or updating VMs.
 
-You can use the following settings at the cluster level:
+You can use the following settings:
 * `aws-v1-http-endpoint` provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 * `aws-v1-http-endpoint` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 
@@ -234,7 +234,7 @@ To set up metadata service parameters for a VM instance:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -243,39 +243,36 @@ To set up metadata service parameters for a VM instance:
       ```hcl
       ...
       resource "yandex_compute_instance" "test-vm" {
+        ...
         metadata_options {
-          gce-http-endpoint = "enabled"
+          aws_v1_http_endpoint = 2
+          aws_v1_http_token    = 2
+          gce_http_endpoint    = 0
+          gce_http_token       = 0
         }
+        ...
       }
       ...
       ```
 
+      Where:
+      * `yandex_compute_instance`: Description of the VM:
+         * `metadata_options`: Metadata parameters:
+            * `aws_v1_http_endpoint` provides access to metadata using AWS format (IMDSv1). Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
+            * `aws_v1_http_token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
+            * `gce_http_endpoint` provides access to metadata using Google Compute Engine format. Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
+            * `gce_http_token` provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
+
       For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
-   1. Check the configuration using this command:
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      All the resources you need will then be created in the specified folder with the settings you defined. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this CLI command:
 
       ```bash
-      terraform validate
+      yc compute instance get <VM_name>
       ```
-
-      If the configuration is correct, you will get this message:
-
-      ```text
-      Success! The configuration is valid.
-      ```
-
-   1. Run this command:
-
-      ```bash
-      terraform plan
-      ```
-
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
-
-      ```bash
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
 {% endlist %}

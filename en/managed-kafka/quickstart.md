@@ -40,10 +40,10 @@ To get started with the service:
 
 To create a cluster:
 1. In the management console, select the folder where you want to create a cluster.
-1. Select **{{ mkf-name }}**.
-1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running` and its state to `Alive`. This may take some time.
 
 Then create a topic in the cluster.
 
@@ -53,10 +53,10 @@ A [topic](concepts/topics.md) is a way to group message streams into categories.
 
 To create a topic:
 1. In the management console, select the folder where the cluster is located.
-1. Select **{{ mkf-name }}**.
-1. Click on the name of the cluster you created and select the **Topics** tab.
-1. Click **Create topic**.
-1. Specify the topic settings and click **Create**. This process is described in detail in [{#T}](operations/cluster-topics.md).
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Click the name of the cluster you created and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
+1. Specify the topic settings and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-topics.md).
 
 Then create users for producers and consumers.
 
@@ -66,13 +66,13 @@ User settings let you manage [producer and consumer](./concepts/producers-consum
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
-1. Select **{{ mkf-name }}**.
-1. Click on the name of the cluster you created and select the **Users** tab.
-1. Click **Add**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Click the name of the cluster you created and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
 1. Enter a username and password (from 8 to 128 characters).
-1. Click **![image](../_assets/plus.svg) Add topic** and select a previously created topic from the drop-down list.
+1. Click **![image](../_assets/plus.svg) {{ ui-key.yacloud.kafka.button_add-topic }}** and select the previously created topic from the drop-down list.
 1. Add permissions to this topic for the producer and consumer. This process is described in detail in [{#T}](operations/cluster-accounts.md).
-1. Click **Add**.
+1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
 Then connect to the cluster using this username.
 

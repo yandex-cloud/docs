@@ -1,4 +1,6 @@
-* {% include [Maintenance window](../console/maintenance-window.md) %}
+* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../../../managed-kafka/concepts/maintenance.md) settings:
+
+   {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 * {% include [datatransfer access](../console/datatransfer-access.md) %}
 

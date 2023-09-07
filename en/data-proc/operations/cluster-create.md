@@ -52,6 +52,8 @@ Security groups must be created and configured before creating a cluster. If the
 
       {% endlist %}
 
+   * A rule that allows access to NTP servers for time syncing.
+
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
 {% note info %}
@@ -225,7 +227,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% note info %}
 
-      It must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. Maximum length: 63 characters.
+      The cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. It must be maximum 63 characters long.
 
       {% endnote %}
 

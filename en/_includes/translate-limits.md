@@ -3,8 +3,7 @@
 | Type of limit | Value |
 ----- | -----
 | Calls of one API method per second | 20 |
-| Characters sent for translation per hour | 1 million |
-| Characters sent for language detection per hour | 1 million |
+| Characters sent for translation or language detection, per hour | 1 million |
 
 #### Limits {#translate-limits}
 

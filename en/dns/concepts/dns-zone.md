@@ -1,6 +1,6 @@
 # DNS zones
 
-A DNS zone is a logical space that combines the domain names of your resources and stores the necessary [resource records](resource-record.md). There are two types of DNS zones: [public](#public-zones) and [internal](#private-zones). Regardless of the type, they have a hierarchy: a zone may have one or more subzones.
+A DNS zone is a logical space that combines the domain names of your resources and stores the necessary [resource records](resource-record.md). There are two types of DNS zones: [public](#public-zones) and [private](#private-zones). Regardless of the type, they have a hierarchy: a zone may have one or more subzones. There is a separate hierarchy of [reverse zones](#reverse-zone).
 
 You can manage the hierarchy of cloud resources and route DNS requests. For example, you can create subzones for the production and test environments and, within them, subzones for applications, DB clusters, caching servers, and more.
 
@@ -86,4 +86,12 @@ These zones contain records with internal FQDNs of VMs and MDB database names, V
 
 For security reasons, it is not allowed to create user records, such as `*.yandexcloud.net` and `*.cloud.yandex.net`. To set up easy-to-remember domain names for resources, we recommend registering [CNAME](resource-record.md#cname) or [ANAME](resource-record.md#aname) records in your private DNS zones.
 
-To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
+To increase fault tolerance, some traffic can be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
+
+## Reverse zones {#reverse-zone}
+
+In regular DNS records, a domain name is mapped to an IP address. For example, the `ya.ru` domain matches the `77.88.55.242` IP address. Reverse DNS resolves IP addresses back to domain names. For example, the `77.88.55.242` IP address will match the `ya.ru` domain.
+
+Reverse DNS records are placed in special DNS zones that are called ARPA zones. IPv4 and IPv6 blocks reside in separate zones.
+
+You can [delegate reverse zone management](../qa/index.md#dns-reverse-zone).

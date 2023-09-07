@@ -12,17 +12,17 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
 
-  1. Введите имя балансировщика: `test-load-balancer`.
+  1. Введите имя балансировщика.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсетях которой будут размещаться узлы балансировщика, и [подходящие группы безопасности](../concepts/application-load-balancer.md#security-groups) (если соответствующего поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик).
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
+  1. (опционально) В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
       Количество единиц будет меняться автоматически с учетом нагрузки на балансировщик и установленных ограничений. От количества единиц зависит [тарификация балансировщика](../pricing.md).
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+  1. (опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
       1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
       1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
@@ -38,11 +38,11 @@
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика и включите передачу трафика в эти подсети.
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
-     1. Введите имя обработчика: `test-listener`.
-     1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80` и выберите **{{ ui-key.yacloud.common.type }}**:
+     1. Введите имя обработчика.
+     1. (опционально) Включите опцию **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80` и выберите **{{ ui-key.yacloud.common.type }}**:
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
         * `{{ ui-key.yacloud.alb.label_address-list }}` — в появившемся поле справа выберите адрес в выпадающем списке.
-     1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}** и выберите **{{ ui-key.yacloud.common.label_subnet }}** в выпадающем списке.
+     1. (опционально) Включите опцию **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}** и выберите **{{ ui-key.yacloud.common.label_subnet }}** в выпадающем списке.
      1. В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** выберите тип обработчика: `{{ ui-key.yacloud.alb.label_listener-type-http }}` или `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
      
         Для `{{ ui-key.yacloud.alb.label_listener-type-http }}` выберите:
@@ -76,6 +76,7 @@
      ```bash
      yc alb load-balancer create <имя_балансировщика> \
        --network-name <имя_сети> \
+       --security-group-id <идентификатор_группы_безопасности>
        --location subnet-name=<имя_подсети>,zone=<зона_доступности>
      ```
      
@@ -84,23 +85,23 @@
      Результат:
      
           
-     ```yaml
+     ```text
      done (1m40s)
-     id: a5d88ep483cmbfm.....
+     id: a5d88ep483cm********
      name: test-balancer2
-     folder_id: aoe197919j8elpe.....
+     folder_id: aoe197919j8e********
      status: ACTIVE
      region_id: {{ region-id }}
-     network_id: c64l1c06d15178s.....
+     network_id: c64l1c06d151********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: buc4gsmpj8hvram.....
+         subnet_id: buc4gsmpj8hv********
        - zone_id: {{ region-id }}-b
-         subnet_id: blt6pcatjje62sq.....
+         subnet_id: blt6pcatjje6********
        - zone_id: {{ region-id }}-c
-         subnet_id: fo2ap2nrhjk9vpf.....
-     log_group_id: eolul9ap0bv02i8.....
+         subnet_id: fo2ap2nrhjk9********
+     log_group_id: eolul9ap0bv0********
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
      
@@ -138,14 +139,14 @@
 
           Результат:
 
-          ```yaml
+          ```text
           done (42s)
-          id: ds76g83js9gfej12nab6
+          id: ds76g83js9gf********
           name: test-load-balancer
-          folder_id: b1gu33ev7lh690at5bm7
+          folder_id: b1gu33ev7lh6********
           ...
           log_options:
-            log_group_id: e23p9bfjvsgra3tliktf
+            log_group_id: e23p9bfjvsgr********
             discard_rules:
               - http_codes:
                   - "200"
@@ -169,10 +170,10 @@
        1. Добавьте обработчик, выполнив команду:
 
           ```bash
-          yc alb load-balancer add-listener <имя балансировщика> \
-            --listener-name <имя обработчика> \
-            --http-router-id <идентификатор HTTP-роутера> \
-            --external-ipv4-endpoint port=<порт обработчика>
+          yc alb load-balancer add-listener <имя_балансировщика> \
+            --listener-name <имя_обработчика> \
+            --http-router-id <идентификатор_HTTP-роутера> \
+            --external-ipv4-endpoint port=<порт_обработчика>
           ```
 
      * Stream-обработчик:
@@ -186,21 +187,21 @@
        1. Добавьте обработчик, выполнив команду:
 
           ```bash
-          yc alb load-balancer add-stream-listener <имя балансировщика> \
-            --listener-name=<имя обработчика> \
-            --backend-group-id=<идентификатор группы бэкендов> \
-            --external-ipv4-endpoint port=<порт обработчика>
+          yc alb load-balancer add-stream-listener <имя_балансировщика> \
+            --listener-name=<имя_обработчика> \
+            --backend-group-id=<идентификатор_группы_бэкендов> \
+            --external-ipv4-endpoint port=<порт_обработчика>
           ```
 
      Результат после добавления двух обработчиков:
  
-     ```yaml
+     ```text
      done (42s)
-     id: ds76g8b2op3fej1.....
+     id: ds76g8b2op3f********
      name: test-load-balancer
-     folder_id: b1gu6g9ielh690a.....
+     folder_id: b1gu6g9ielh6********
      status: ACTIVE
-     network_id: enp0uulja5s3j1f.....
+     network_id: enp0uulja5s3********
      listeners:
      - name: tslistener
        endpoints:
@@ -211,7 +212,7 @@
          - "80"
        http:
          handler:
-           http_router_id: ds7d7b14b3fsv7q.....
+           http_router_id: ds7d7b14b3fs********
      - name: teststreamlistener
        endpoints:
        - addresses:
@@ -221,21 +222,21 @@
          - "443"
        stream:
          handler:
-           backend_group_id: ds77tero4f5h46l.....
+           backend_group_id: ds77tero4f5h********
      allocation_policy:
        locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: e9bs1hp7lgdl1g3.....
+         subnet_id: e9bs1hp7lgdl********
        - zone_id: {{ region-id }}-b
-         subnet_id: e2le8i7hqa216f6.....
+         subnet_id: e2le8i7hqa21********
        - zone_id: {{ region-id }}-c
-         subnet_id: b0cgk1au6fn203f.....
-     log_group_id: ckgs4u5km3u8j9f.....
+         subnet_id: b0cgk1au6fn2********
+     log_group_id: ckgs4u5km3u8********
      security_group_ids:
-     - enp49ot04g63ih1.....
+     - enp49ot04g63********
      created_at: "2022-04-04T02:12:40.160629110Z"
      log_options:
-       log_group_id: e23p9bfjvsgra3t.....
+       log_group_id: e23p9bfjvsgr********
        discard_rules:
          - http_codes:
              - "200"
@@ -258,6 +259,7 @@
      resource "yandex_alb_load_balancer" "test-balancer" {
        name        = "<имя_L7-балансировщика>"
        network_id  = "<идентификатор_сети>"
+       security_group_ids = ["<идентификатор_группы_безопасности>"]
 
        allocation_policy {
          location {

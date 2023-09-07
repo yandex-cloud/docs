@@ -1,6 +1,6 @@
 ---
 title: "Instructions for businesses on how to create a billing account in {{ yandex-cloud }}"
-description: "In this tutorial, you'll learn how to create a business's billing account in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
+description: "In this tutorial, you will learn how to create a billing account for a business in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
 ---
 
 # Getting started for businesses
@@ -9,7 +9,7 @@ description: "In this tutorial, you'll learn how to create a business's billing 
 
 ## Creating a billing account {#new-account}
 
-A billing account is required even if you plan to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
+A billing account is required even if you are going to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
 
 {% list tabs %}
 
@@ -27,7 +27,7 @@ A billing account is required even if you plan to use only free services. When y
 
 Provide details to create a billing account:
 
-1. Select a payment method: **Bank card** or **Bank transfer**. You can [change your payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
+1. Select a payment method: **{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}** or **{{ ui-key.yacloud.billing.account.overview.payment-type_label_invoice }}**. You can [change your payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
 
 {% list tabs %}
 
@@ -53,14 +53,14 @@ Provide details to create a billing account:
 
       {% note info %}
 
-      In some cases, additional verification may be required when you create a billing account with a trial period. On the page of this billing account in the management console, you'll find a message with detailed instructions.
+      Sometimes, additional verification may be required when you create a billing account with a trial period. If this is the case, you will find a message with detailed instructions on the billing account page in the management console.
 
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../free-trial/concepts/upgrade-to-paid.md).
-      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../usage-grant.md), you will not have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created as a paid account. In this case, [after using up the initial grant](../usage-grant.md), you will not have to upgrade to the paid version.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - Bank transfer
 
@@ -68,7 +68,7 @@ Provide details to create a billing account:
 
       {% include [contacts-note](../../_includes/billing/contacts-note.md) %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    You will receive an email with further instructions at the email address specified in your user account. It may take up to three business days to activate your billing account.
 

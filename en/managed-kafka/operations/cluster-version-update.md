@@ -2,13 +2,13 @@
 
 You can upgrade a {{ mkf-name }} cluster to any supported version.
 
-We recommend upgrading to a version that immediately follows the current one, such as version 2.8 to 3.0. Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0→ 3.1.
+We recommend upgrading to a version that immediately follows the current one, such as version 2.8 to 3.0. Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0 → 3.1.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
 ## Before updating the version {#before-update}
 
-Prior to upgrading a cluster, make sure this does not affect your applications. See the {{ KF }} [changelog](https://kafka.apache.org/downloads) to check which updates might affect your apps.
+Make sure this does not affect your applications: review the {{ KF }} [change log](https://kafka.apache.org/downloads).
 
 ## Upgrading a cluster {#start-update}
 
@@ -24,10 +24,10 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - Management console
 
-   1. Go to the folder page and select **{{ mkf-name }}**.
-   1. Select the desired cluster from the list and click **Edit**.
-   1. In the **Version** field, select a new version number.
-   1. Click **Save**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -91,7 +91,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
    * {{ KF }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -113,7 +113,7 @@ Let's assume you need to upgrade your cluster from version 2.8 to version 3.0.
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh |    kafka35    | 2021-10-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** |    kafka35    | 2021-10-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
@@ -124,7 +124,7 @@ Let's assume you need to upgrade your cluster from version 2.8 to version 3.0.
       ```
 
       ```text
-        id: c9q8p8j2gaih8iti42mh
+        id: c9q8p8j2gaih********
         ...
         config:
           version: "2.8"

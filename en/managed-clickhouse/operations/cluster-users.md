@@ -2,8 +2,14 @@
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
-* SQL queries to the cluster. Select this method if you wish to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
+* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* SQL queries to the cluster. Select this method to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
+
+{% note warning %}
+
+In a {{ mch-name }} cluster, you can only use one user management method at a time: either via standard interfaces or via SQL queries.
+
+{% endnote %}
 
 ## Managing users via SQL {#sql-user-management}
 
@@ -12,9 +18,9 @@ To enable management, activate the **User management via SQL** option when [crea
 In a cluster with user management via SQL enabled:
 
 * User management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-* You cannot activate user management via the standard {{ yandex-cloud }} interfaces.
+* You cannot enable user management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console).
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-* Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
+* Users are managed under the `admin` account. You set its password when selecting the **User management via SQL** option.
 
 For more information about managing users via SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 

@@ -11,7 +11,7 @@
 * длительность записи голоса — 30 секунд;
 * [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) — включен.
 
-Работа с API выполняется с помощью пакетов `grpcio-tools`, `PortAudio` и `PyAudio`.
+Для работы с API нужны пакеты `grpcio-tools`, `PortAudio` и `PyAudio`.
 
 Аутентификация выполняется от имени сервисного аккаунта с помощью [API-ключа](../../../iam/concepts/authorization/api-key.md). Подробнее об [аутентификации в API {{speechkit-name}}](../../concepts/auth.md).
 
@@ -47,10 +47,10 @@
       pip install grpcio-tools PyAudio
       ```
 
-   1. Перейдите в директорию с репозиторием {{ yandex-cloud }} API, создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
+   1. Перейдите в папку с репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
       ```bash
-      cd <путь_к_директории_cloudapi> && \
+      cd <путь к папке cloudapi> && \
       mkdir output && \
       python -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \
@@ -64,9 +64,9 @@
            yandex/cloud/ai/stt/v3/stt.proto
       ```
 
-      В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
+      В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
 
-   1. Создайте файл `test.py` в директории `output` и добавьте в него код:
+   1. Создайте файл `test.py` в папке `output` и добавьте в него код:
 
       ```python
       import pyaudio
@@ -87,7 +87,7 @@
       audio = pyaudio.PyAudio()
 
       def gen():
-         # Задать настройки распознавания.
+         # Задайте настройки распознавания.
          recognize_options = stt_pb2.StreamingOptions(
             recognition_model=stt_pb2.RecognitionModelOptions(
                audio_format=stt_pb2.AudioFormatOptions(
@@ -110,29 +110,29 @@
             )
          )
 
-         # Отправить сообщение с настройками распознавания.
+         # Отправьте сообщение с настройками распознавания.
          yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-         # Начать запись голоса.
+         # Начните запись голоса.
          stream = audio.open(format=FORMAT, channels=CHANNELS,
                      rate=RATE, input=True,
                      frames_per_buffer=CHUNK)
          print("recording")
          frames = []
 
-         # Распознать речь по порциям.
+         # Распознайте речь по порциям.
          for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
             data = stream.read(CHUNK)
             yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
             frames.append(data)
          print("finished")
 
-         # Остановить запись.
+         # Остановите запись.
          stream.stop_stream()
          stream.close()
          audio.terminate()
 
-         # Создать файл WAV с записанным голосом.
+         # Создайте файл WAV с записанным голосом.
          waveFile = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
          waveFile.setnchannels(CHANNELS)
          waveFile.setsampwidth(audio.get_sample_size(FORMAT))
@@ -141,17 +141,17 @@
          waveFile.close()
 
       def run(secret):
-         # Установить соединение с сервером.
+         # Установите соединение с сервером.
          cred = grpc.ssl_channel_credentials()
          channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
          stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
-         # Отправить данные для распознавания.
+         # Отправьте данные для распознавания.
          it = stub.RecognizeStreaming(gen(), metadata=(
             ('authorization', f'Api-Key {secret}'),
          ))
 
-         # Обработать ответы сервера и вывести результат в консоль.
+         # Обработайте ответы сервера и выведите результат в консоль.
          try:
             for r in it:
                event_type, alternatives = r.WhichOneof('Event'), None

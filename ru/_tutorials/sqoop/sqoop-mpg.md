@@ -16,8 +16,8 @@
 
 1. [Создайте кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
 
-    * базой данных `db1`;
-    * пользователем `user1`.
+    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`;
+    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
 1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
 

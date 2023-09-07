@@ -7,7 +7,7 @@ A {{ mkf-name }} cluster provides two ways for you to manage topics and partitio
 ## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
 
 To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
-1. Enable **Manage topics via the API** when [creating a cluster](cluster-create.md) or [changing its settings](cluster-update.md).
+1. Enable **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** when [creating a cluster](cluster-create.md) or [changing its settings](cluster-update.md).
 1. [Create](cluster-accounts.md#create-user) a cluster admin user.
 1. Manage topics on behalf of this user through [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
 
@@ -21,18 +21,18 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster and go to the **Topics** tab.
-   1. Click **Create topic**.
-   1. Under **Basic parameters**, set the basic parameters of the topic:
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+   1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic parameters of the topic:
       * The topic name (must be unique in the {{ KF }} cluster).
       * The number of topic partitions.
-      * The replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Maximum value: `3`. Default: 0.
-         * For a cluster of one or two brokers: `1`.
-         * For a cluster with three or more brokers: `3`.
-   1. Under **Topic settings**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
-   1. Click **Create**.
+      * The replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
+         * For a cluster with one or two brokers: `1`
+         * For a cluster with three or more brokers: `3`
+   1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -115,17 +115,17 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster and select the **Topics** tab.
-   1. Click ![image](../../_assets/options.svg) for the desired topic and select **Edit**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+   1. Click ![image](../../_assets/options.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
    1. Change the basic parameters of the topic:
       * The number of topic partitions.
-      * The replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Maximum value: `3`. Default: 0.
-         * For a cluster of one or two brokers: `1`.
-         * For a cluster with three or more brokers: `3`.
+      * The replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
+         * For a cluster with one or two brokers: `1`
+         * For a cluster with three or more brokers: `3`
    1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -202,11 +202,11 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster and go to the **Topics** tab.
-   1. Click ![image](../../_assets/options.svg) for the desired topic and select **Delete topic**.
-   1. In the window that opens, click **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+   1. Click ![image](../../_assets/options.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -259,9 +259,9 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster and go to the **Topics** tab.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
 - CLI
 
@@ -291,10 +291,10 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster and go to the **Topics** tab.
-   1. Click on the name of the topic.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+   1. Click the topic name.
 
 - CLI
 

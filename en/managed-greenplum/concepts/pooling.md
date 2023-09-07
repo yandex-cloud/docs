@@ -22,7 +22,7 @@ Odyssey supports two modes of connection management:
 * Transaction mode:
 
 
-   In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by another or the same client. This approach helps maintain a few server connections between the pooler and {{ GP }} hosts when there are multiple client connections.
+   In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by that or any other client. This approach helps maintain a few server connections between the pooler and {{ GP }} hosts when there are multiple client connections.
 
    The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ GP }} clients and does not allow using:
 

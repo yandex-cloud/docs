@@ -12,12 +12,12 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
-    * **Сервисы**:
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
-    * **Имя бакета**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт с ролью `mdb.dataproc.agent`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание Spark {#create-job}
 
@@ -71,9 +71,9 @@
 
 1. [Создайте задание Spark](../operations/jobs-spark#create) с параметрами:
 
-    * **Основной JAR файл**: `s3a://<имя бакета для исходных данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
-    * **Основной класс**: `com.yandex.cloud.dataproc.scala.Main`
-    * **Аргументы задания**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<имя бакета для исходных данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `com.yandex.cloud.dataproc.scala.Main`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
         * `s3a://<имя бакета для исходных данных>/text.txt`
         * `s3a://<имя бакета для результатов обработки>/<папка для результатов>`
 

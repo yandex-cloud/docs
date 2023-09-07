@@ -89,4 +89,6 @@ items:
     items:
       - name: SSL-сертификат
         href: ssl-certificate.md
+      - name: DDoS
+        href: ddos.md
 base: ru/glossary

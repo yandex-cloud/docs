@@ -10,7 +10,7 @@
 * [фильтр промежуточных результатов](streaming-api.md#specification-msg) — True;
 * остальные параметры оставлены по умолчанию.
 
-Работа с API выполняется с помощью пакетов `grpcio-tools` для Python и `grpc` для Node.js.
+Для работы с API нужны пакеты `grpcio-tools` для Python и `grpc` для Node.js.
 
 Аутентификация происходит от имени аккаунта на Яндексе или федеративного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно. Подробнее об [аутентификации в API {{ speechkit-name }}](../../concepts/auth.md).
 
@@ -36,7 +36,7 @@
         pip install grpcio-tools
         ```
 
-     1. Перейдите в директорию с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
+     1. Перейдите в папку с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/), создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
         ```bash
         cd cloudapi
@@ -52,9 +52,9 @@
             yandex/cloud/ai/stt/v2/stt_service.proto
         ```
 
-        В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
+        В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
 
-     1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
+     1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
 
         ```python
         #coding=utf8
@@ -68,7 +68,7 @@
         CHUNK_SIZE = 4000
 
         def gen(folder_id, audio_file_name):
-            # Задать настройки распознавания.
+            # Задайте настройки распознавания.
             specification = stt_service_pb2.RecognitionSpec(
                 language_code='ru-RU',
                 profanity_filter=True,
@@ -79,10 +79,10 @@
             )
             streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
 
-            # Отправить сообщение с настройками распознавания.
+            # Отправьте сообщение с настройками распознавания.
             yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
 
-            # Прочитать аудиофайл и отправить его содержимое порциями.
+            # Прочитайте аудиофайл и отправьте его содержимое порциями.
             with open(audio_file_name, 'rb') as f:
                 data = f.read(CHUNK_SIZE)
                 while data != b'':
@@ -90,18 +90,18 @@
                     data = f.read(CHUNK_SIZE)
 
         def run(folder_id, iam_token, audio_file_name):
-            # Установить соединение с сервером.
+            # Установите соединение с сервером.
             cred = grpc.ssl_channel_credentials()
             channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
             stub = stt_service_pb2_grpc.SttServiceStub(channel)
 
-            # Отправить данные для распознавания.
+            # Отправьте данные для распознавания.
             it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(
                 ('authorization', 'Bearer %s' % iam_token),
                 ('Transfer-encoding', 'chunked'),
             ))
 
-            # Обработать ответы сервера и вывести результат в консоль.
+            # Обработайте ответы сервера и выведите результат в консоль.
             try:
                 for r in it:
                     try:
@@ -168,7 +168,7 @@
 
    - Node.js
 
-     1. Перейдите в директорию с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi), создайте директорию `src` и сгенерируйте в ней файл зависимостей `package.json`:
+     1. Перейдите в папку с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi), создайте папку `src` и сгенерируйте в ней файл зависимостей `package.json`:
 
         ```bash
         cd cloudapi
@@ -183,8 +183,8 @@
         npm install grpc @grpc/proto-loader google-proto-files --save
         ```
 
-     1. Скачайте [публичный сертификат](https://github.com/grpc/grpc/blob/master/etc/roots.pem) gRPC из официального репозитория и сохраните его в корне директории `src`.
-     1. Создайте файл в корне директории `src`, например `index.js`, и добавьте в него следующий код:
+     1. Скачайте [публичный сертификат](https://github.com/grpc/grpc/blob/master/etc/roots.pem) gRPC из официального репозитория и сохраните его в корне папки `src`.
+     1. Создайте файл в корне папки `src`, например `index.js`, и добавьте в него следующий код:
 
         ```js
         const fs = require('fs');
@@ -192,14 +192,14 @@
         const protoLoader = require('@grpc/proto-loader');
         const CHUNK_SIZE = 4000;
 
-        // Получаем ID каталога и IAM-токен из переменных окружения.
+        // Получите ID каталога и IAM-токен из переменных окружения.
         const folderId = process.env.FOLDER_ID;
         const iamToken = process.env.IAM_TOKEN;
 
-        // Читаем файл, указанный в аргументах.
+        // Прочитайте файл, указанный в аргументах.
         const audio = fs.readFileSync(process.argv[2]);
 
-        // Задать настройки распознавания.
+        // Задайте настройки распознавания.
         const request = {
             config: {
                 specification: {
@@ -214,7 +214,7 @@
             }
         };
 
-        // Частота отправки аудио в миллисекундах.
+        // Задайте частоту отправки аудио в миллисекундах.
         // Для формата LPCM частоту можно рассчитать по формуле: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz);
         const FREQUENCY = 250;
 
@@ -227,16 +227,16 @@
         });
         const packageObject = grpc.loadPackageDefinition(packageDefinition);
 
-        // Установить соединение с сервером.
+        // Установите соединение с сервером.
         const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
         const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
         const service = new serviceConstructor('stt.{{ api-host }}:443', grpcCredentials);
         const call = service['StreamingRecognize'](serviceMetadata);
 
-        // Отправить сообщение с настройками распознавания.
+        // Отправьте сообщение с настройками распознавания.
         call.write(request);
 
-        // Прочитать аудиофайл и отправить его содержимое порциями.
+        // Прочитайте аудиофайл и отправьте его содержимое порциями.
         let i = 1;
         const interval = setInterval(() => {
             if (i * CHUNK_SIZE <= audio.length) {
@@ -250,7 +250,7 @@
             }
         }, FREQUENCY);
 
-        // Обработать ответы сервера и вывести результат в консоль.
+        // Обработайте ответы сервера и выведите результат в консоль.
         call.on('data', (response) => {
             console.log('Start chunk: ');
             response.chunks[0].alternatives.forEach((alternative) => {
@@ -261,7 +261,7 @@
         });
 
         call.on('error', (response) => {
-            // Обрабатываем ошибки
+            // Выведите ошибки в консоль.
             console.log(response);
         });
         ```

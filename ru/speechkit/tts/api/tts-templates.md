@@ -99,8 +99,8 @@
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
           def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
-              template = "<шаблонная_фраза_с_разметкой>"
-              # Пример: 'Напоминаем, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
+              template = "<шаблонная фраза с разметкой>"
+              # Пример шаблона: 'Напоминаем, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
               request = tts_pb2.UtteranceSynthesisRequest(
                   output_audio_spec=tts_pb2.AudioFormatOptions(
                       container_audio=tts_pb2.ContainerAudio(
@@ -111,6 +111,7 @@
                   text_template = tts_pb2.TextTemplate(
                       text_template = template,
                       variables = [
+                          # Задайте список переменных шаблона.
                           # Количество элементов tts_pb2.TextVariable() в списке определяется количеством переменных в шаблоне.
                           tts_pb2.TextVariable(
                               variable_name = "<имя_переменной_в_template>",
@@ -124,7 +125,7 @@
                       tts_pb2.Hints(
                           audio_template = tts_pb2.AudioTemplate(
                               audio = tts_pb2.AudioContent(
-                                  # Исходное аудио для шаблона.
+                                  # Загрузите исходное аудио для шаблона.
                                   content = bytes_array,
                                   audio_spec = tts_pb2.AudioFormatOptions(
                                       container_audio = tts_pb2.ContainerAudio(
@@ -135,14 +136,16 @@
                               text_template = tts_pb2.TextTemplate(
                                   text_template = template,
                                   variables = [
+                                      # Задайте список переменных шаблона.
                                       # Количество элементов tts_pb2.TextVariable() в списке определяется количеством переменных в шаблоне.
                                       tts_pb2.TextVariable(
                                           variable_name = "<имя_переменной_в_template>",
-                                          variable_value = "<текст_переменной_части_фразы_в_звуковом_файле_шаблона>"
+                                          variable_value = "<текст переменной части фразы в звуковом файле шаблона>"
                                       )
                                   ]
                               ),
                               variables = [
+                                  # Задайте список аудиопараметров переменных шаблона.
                                   # Количество элементов tts_pb2.AudioVariable() в списке определяется количеством переменных в шаблоне.
                                   tts_pb2.AudioVariable(
                                       variable_name = "<имя_переменной_в_template>",
@@ -160,17 +163,17 @@
                   ],
               )
 
-              # Установить соединение с сервером.
+              # Установите соединение с сервером.
               cred = grpc.ssl_channel_credentials()
               channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
-              # Отправить данные для синтеза.
+              # Отправьте данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
                   ("authorization", f"Bearer {iam_token}"),
               ))
 
-              # Обработать ответы сервера и записать результат в файл.
+              # Обработайте ответы сервера и запишите результат в файл.
               try:
                   audio = io.BytesIO()
                   for response in it:

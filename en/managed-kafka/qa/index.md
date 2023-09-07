@@ -32,15 +32,15 @@ Here is an alternative solution:
 
 [Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `Alarm`: 90% of disk space.
-* `Warning`: 80% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space
 
-The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `96636764160` bytes (90%).
-* `Warning`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
 
 #### Why is a cluster working slowly even though it still has free computing resources? {#throttling}
 

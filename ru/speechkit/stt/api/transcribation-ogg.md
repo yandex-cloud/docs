@@ -112,11 +112,11 @@
       import time
       import json
 
-      # Укажите ваш API-ключ и ссылку на аудиофайл в Object Storage.
+      # Укажите ваш IAM-токен и ссылку на аудиофайл в Object Storage.
       key = '<IAM-токен_сервисного_аккаунта>'
       filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
      
-      POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"
+      POST ='https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize'
 
       body ={
           "config": {
@@ -131,14 +131,14 @@
 
       header = {'Authorization': 'Bearer {}'.format(key)}
 
-      # Отправить запрос на распознавание.
+      # Отправьте запрос на распознавание.
       req = requests.post(POST, headers=header, json=body)
       data = req.json()
       print(data)
 
       id = data['id']
 
-      # Запрашивать на сервере статус операции, пока распознавание не будет завершено.
+      # Запрашивайте на сервере статус операции, пока распознавание не будет завершено.
       while True:
 
           time.sleep(1)
@@ -150,11 +150,11 @@
           if req['done']: break
           print("Not ready")
 
-      # Показать полный ответ сервера в формате JSON.
+      # Покажите полный ответ сервера в формате JSON.
       print("Response:")
       print(json.dumps(req, ensure_ascii=False, indent=2))
 
-      # Показать только текст из результатов распознавания.
+      # Покажите только текст из результатов распознавания.
       print("Text chunks:")
       for chunk in req['response']['chunks']:
           print(chunk['alternatives'][0]['text'])

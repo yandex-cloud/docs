@@ -13,8 +13,8 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 
 
 - CLI
@@ -35,7 +35,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
    +----------------------+----------+---------------------+--------+---------+
    |          ID          |   NAME   |     CREATED AT      | HEALTH | STATUS  |
    +----------------------+----------+---------------------+--------+---------+
-   | c9qaruvk2mmaeaf8h0el | kafka750 | 2020-12-18 05:21:27 | ALIVE  | RUNNING |
+   | c9qaruvk2mma******** | kafka750 | 2020-12-18 05:21:27 | ALIVE  | RUNNING |
    | ...                                                                      |
    +----------------------+----------+---------------------+--------+---------+
    ```
@@ -55,9 +55,9 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster you need.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name.
 
 
 - CLI
@@ -91,10 +91,10 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Click the name of the cluster you need.
-   1. Go to the **Operations** tab.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name.
+   1. Click the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI
 
@@ -105,10 +105,10 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-kf }} cluster list-operations <cluster name and ID>
+   {{ yc-mdb-kf }} cluster list-operations <cluster name or ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 
 - API

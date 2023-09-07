@@ -28,7 +28,7 @@
   1. Выполните команду:
 
      ```bash
-     yc alb load-balancer delete <идентификатор или имя балансировщика>
+     yc alb load-balancer delete <идентификатор_или_имя_балансировщика>
      ```
 
      Результат:
@@ -49,7 +49,7 @@
      ```hcl
      ...
      resource "yandex_alb_load_balancer" "test-balancer" {
-       name        = "my-load-balancer"
+       name        = "<имя_балансировщика>"
        network_id  = yandex_vpc_network.test-network.id
 
        allocation_policy {
@@ -60,7 +60,7 @@
        }
 
        listener {
-         name = "my-listener"
+         name = "<имя_обработчика>"
          endpoint {
            address {
              external_ipv4_address {

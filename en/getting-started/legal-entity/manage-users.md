@@ -30,10 +30,10 @@ To add federation users to an organization:
    1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
    1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
-   1. In the top right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
    1. Select the identity federation to add users from.
    1. List the Name IDs of users, separating them with line breaks.
-   1. Click **Add**. This will give the users access to the organization.
+   1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
 
 - CLI
 
@@ -106,12 +106,12 @@ To add federation users to an organization:
 
    Where:
 
-   * `<SERVICE-NAME>` is the name of the service that the resource belongs to (for example, `resource-manager`).
-   * `<RESOURCE>` is the resource category, for example, `cloud`.
-   * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or ID.
-   * `<RESOURCE-ID>` is the resource ID.
-   * `<ROLE-ID>` is the role ID, for example `{{ roles-cloud-owner }}`.
-   * `<USER-ACCOUNT-ID>` is the ID of the user account assigned the role.
+   * `<SERVICE-NAME>`: Name of the service to whose resource a role, e.g., `resource-manager`, is assigned.
+   * `<RESOURCE>`: Resource category, e.g., `cloud`.
+   * `<RESOURCE-NAME>`: Name of the resource. You can specify a resource by its name or ID.
+   * `<RESOURCE-ID>`: Resource ID.
+   * `<ROLE-ID>`: Role ID, e.g., `{{ roles-cloud-owner }}`.
+   * `<USER-ACCOUNT-ID>`: ID of the user account to which the role is assigned.
 
    For example, assign the `viewer` role for the `mycloud` [cloud](../../resource-manager/concepts/resources-hierarchy.md#folder):
 

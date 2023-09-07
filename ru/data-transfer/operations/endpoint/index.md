@@ -31,6 +31,9 @@
 
 ## Создать эндпоинт {#create}
 
+{% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
+
+
 {% list tabs %}
 
 - Консоль управления
@@ -148,6 +151,9 @@
 {% endlist %}
 
 ## Изменить эндпоинт {#update}
+
+{% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
+
 
 {% note info %}
 

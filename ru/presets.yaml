@@ -5756,6 +5756,7 @@ default:
             field_alb-pre-checks-timeout: Время ожидания трафика
             field_auto-scale-type: Тип автомасштабирования
             field_cooldown-duration: Период стабилизации
+            field_default-utilization-target: Масштабирование по умолчанию
             field_deletion-protection: Защита от удаления
             field_deploy-max-creating: Одновременно создавать
             field_deploy-max-deleting: Одновременно останавливать
@@ -5785,6 +5786,7 @@ default:
             field_target-group-attached: Создать целевую группу
             field_target-group-description: Описание целевой группы
             field_target-group-name: Имя целевой группы
+            field_utilization-target: Целевой уровень загрузки CPU, %
             field_warmup-duration: Время на разогрев ВМ
             field_zone: Зона доступности
             label_custom-metrics: Метрики
@@ -6010,8 +6012,14 @@ default:
         label_monitoring: Мониторинг
       dataproc:
         jobs:
+          field_args: Аргументы
+          field_driver: Драйвер
+          field_files: Файлы
+          field_main-class: Основной класс
+          field_main-jar: Основной JAR файл
           field_main-python-file: Main python файл
           field_properties: Настройки
+          field_query-file-uri: Файл с запросами
       dns:
         button_add-record: Добавить запись
         button_record-set-create: Создать запись
@@ -6570,6 +6578,7 @@ default:
       metastore:
         field_s3config-access-key-id: Идентификатор ключа доступа
         field_s3config-secret-access-key: Секретный ключ
+        label_metastore: Metastore-сервер
         title_s3config: Настройки доступа к S3
       mongodb:
         cluster:

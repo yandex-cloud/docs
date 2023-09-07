@@ -29,22 +29,22 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
    1. Make sure that the network hosting the source cluster is configured to allow source cluster connections from the internet.
    1. [For the target cluster, create a connector](../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
 
-      * **Topics**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
-      * Under **Source cluster**, specify the parameters for connecting to the source cluster:
-         * **Alias**: A prefix to indicate the source cluster in the connector settings. Defaults to `source`. Topics in the target cluster are created with the indicated prefix.
-         * **Bootstrap servers**: Comma-separated list of source cluster broker host FQDNs with port numbers, for example:
+      * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
+      * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}**, specify the parameters for connecting to the source cluster:
+         * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Prefix for the source cluster in the connector settings. Defaults to `source`. Topics in the target cluster are created with the indicated prefix.
+         * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of source cluster broker host FQDNs with port numbers, for example:
 
             ```text
             FQDN1:9091,FQDN2:9091,...,FQDN:9091
             ```
 
-         * **SASL username**, **SASL password**: Username and password for the previously created `admin-source` user.
-         * **SASL mechanism**: `SCRAM-SHA-512` mechanism for username and password encryption.
-         * **Security protocol**: Select a protocol for connecting the connector:
+         * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**, **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: Username and password for the previously created `admin-source` user.
+         * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: `SCRAM-SHA-512` mechanism for username and password encryption.
+         * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select a protocol for connecting the connector:
             * `SASL_PLAINTEXT`: For connecting to the source cluster without SSL.
             * `SASL_SSL`: For SSL connections to the source cluster.
 
-      * Under **Target cluster**, select **Use this cluster**.
+      * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}**, select **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**.
 
 * Using {{ TF }}
 
@@ -75,7 +75,7 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -133,7 +133,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * {{ mkf-name }} admin user password.
       * ID of the public [image](../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-      * Username and path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
+      * Username and path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -142,7 +142,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 

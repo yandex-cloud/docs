@@ -82,3 +82,4 @@ description: "Из статьи вы узнаете, как подключить
 
 * **TLS** — опция определяет необходимость использования протокола TLS. Когда опция включена, параметр `sslmode` принимает значение `required`, когда выключена — `prefer`.
 * **CA Certificate** — чтобы загрузить сертификат, нажмите кнопку **Прикрепить файл** и укажите файл сертификата. Когда сертификат загружен, поле отображает название файла.
+* {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}

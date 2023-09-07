@@ -75,6 +75,7 @@
     ])
 
     url = urllib.request.Request("https://stt.{{ api-host }}/speech/v1/stt:recognize?%s" % params, data=data)
+    # Аутентификация через IAM-токен.
     url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
 
     responseData = urllib.request.urlopen(url).read().decode('UTF-8')

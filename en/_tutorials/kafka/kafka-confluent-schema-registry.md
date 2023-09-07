@@ -34,22 +34,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
-    * **Port range**: `8081`.
-    * **Protocol**: `TCP`.
-    * **Destination**: `CIDR`.
-    * **CIDR blocks**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8081`
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run.
 
 
 ## Create a topic for notifications about changes in data format schemas {#create-schemas-topic}
 
 1. [Create a service topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `_schemas` with the following settings:
 
-   * **Number of partitions**: `1`.
-   * **Cleanup policy**: `Compact`.
+    * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Compact`
 
    {% note warning %}
 
-   Confluent Schema Registry requires the specified **Number of partitions** and **Cleanup policy** settings to operate.
+    The specified settings of the **{{ ui-key.yacloud.kafka.label_partitions }}** and **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** values are necessary for Confluent Schema Registry to work.
 
    {% endnote %}
 
@@ -99,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     KafkaClient {
       org.apache.kafka.common.security.scram.ScramLoginModule required
       username="registry"
-      password="<password for the registry account>";
+      password="<registry user password>";
     };
     ```
 

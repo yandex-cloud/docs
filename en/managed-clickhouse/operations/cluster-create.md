@@ -37,13 +37,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-      1. Select a **{{ mch-name }}** service.
-   1. Click **Create cluster**.
-   1. Name the cluster in the **Cluster name** field. It must be unique within the folder.
+         1. Select a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including {{ mch-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-   1. Select the {{ CH }} version from the **Version** drop-down list to use for the {{ mch-name }} cluster:
+   1. Select the {{ CH }} version from the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list to use for the {{ mch-name }} cluster:
       * For most clusters, it is recommended to select the latest LTS version.
       * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
 
@@ -51,7 +51,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 
-   1. Under **Resources**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
       * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
@@ -65,20 +65,20 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * Select the size of disk to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-   1. Under **Hosts**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
-      * To create additional DB hosts, click **Add host**. Once the second host is added, the **Configure {{ ZK }}** button appears. Change the {{ ZK }} settings in **{{ ZK }} resources** and **{{ ZK }} hosts**, if required.
+      * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. Once the second host is added, the **{{ ui-key.yacloud.mdb.forms.button_expand-zookeeper-settings }}** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
       * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
 
-   1. Under **DBMS settings**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-      * If you want to manage cluster users via SQL, select **Enabled** in the drop-down list of the **User management via SQL** field and enter the `admin` user password. This disables user management through other interfaces.
+      * If you want to manage cluster users via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field and enter the `admin` user password. This disables user management through other interfaces.
 
-         Otherwise, select **Disabled**.
+         Otherwise, select **{{ ui-key.yacloud.common.disabled }}**.
 
-      * If you want to manage databases via SQL, select **Enabled** in the drop-down list of the **Database management via SQL** field. This disables database management through other interfaces. The field is inactive if user management via SQL is disabled.
+      * If you want to manage databases via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** field. This disables database management through other interfaces. The field is inactive if user management via SQL is disabled.
 
-         Otherwise, select **Disabled**.
+         Otherwise, select **{{ ui-key.yacloud.common.disabled }}**.
 
          {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
@@ -99,24 +99,24 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
    
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
 
 
-   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
 
-      * **Availability zone**: Select an [availability zone](../../overview/concepts/geo-scope.md).
-      * **Subnet**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
-      * **Public access**: Allow [access](connect.md) to the host from the internet.
+      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_zones }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
+      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect.md) to the host from the internet.
 
-      To add hosts to the cluster, click **Add host**.
+      To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
    1. Configure cluster service settings, if required:
 
       {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
-   1. Click **Create cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 

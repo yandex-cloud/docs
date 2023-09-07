@@ -17,14 +17,15 @@ The owner can create new folders and resources in this cloud, and manage access 
    1. See a description of the create folder command:
 
       ```
-      $ yc resource-manager folder create --help
+      yc resource-manager folder create --help
       ```
 
    1. Create a new folder:
 
       * with a name and without a description:
+
          ```
-         $ yc resource-manager folder create \
+         yc resource-manager folder create \
              --name new-folder
          ```
 
@@ -33,7 +34,7 @@ The owner can create new folders and resources in this cloud, and manage access 
       * with a name and description:
 
          ```
-         $ yc resource-manager folder create \
+         yc resource-manager folder create \
              --name new-folder \
              --description "my first folder with description"
          ```
@@ -52,19 +53,19 @@ The management console only allows you to change the name of a folder. To change
 
 - Management console
 
-   1. Select the folder on the management console [home page]({{ link-console-main }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../../resource-manager/operations/cloud/switch-cloud.md).
-   2. Click ![image](../../_assets/options.svg) next to the folder and select **Rename**.
-   3. Enter a new name for the folder.
-   4. Click **Rename**.
+   1. On the [home page]({{ link-console-main }}) of the management console, select the folder. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../../resource-manager/operations/cloud/switch-cloud.md).
+   1. Click ![image](../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Enter a new name for the folder.
+   1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
 
    1. See the description of the update folder command:
 
       ```
-      $ yc resource-manager folder update --help
+      yc resource-manager folder update --help
       ```
-   1. If you know the folder ID or name, proceed to the next step. If not, use one of these methods to get them:
+   1. If you know the folder ID or name, proceed to the next step. Otherwise, use one of these methods to get them:
 
       * Get a list of folders:
 
@@ -81,26 +82,26 @@ The management console only allows you to change the name of a folder. To change
       * If you know the ID of the resource that belongs to the required folder, you can get the folder ID from the information about that resource:
 
          ```
-         $ yc <SERVICE-NAME> <RESOURCE> get <RESOURCE-ID>
+         yc <SERVICE-NAME> <RESOURCE> get <RESOURCE-ID>
          ```
 
          Where:
-         * `<SERVICE-NAME>` is the name of the service, such as `compute`.
-         * `<RESOURCE>`: The resource type, such as `instance`.
-         * `<RESOURCE-ID>` is the resource ID.
+         * `<SERVICE-NAME>`: Name of the service, such as `compute`.
+         * `<RESOURCE>`: Resource category, e.g., `instance`.
+         * `<RESOURCE-ID>`: Resource ID.
 
          For example, the `fhmp74bfis2aim728p2a` VM belongs to the `b1gpvjd9ir42nsng55ck` folder:
 
          ```
-         $ yc compute instance get fhmp74bfis2ais728p2a
+         yc compute instance get fhmp74bfis2ais728p2a
          id: fhmp74bfis2ais728p2a
          folder_id: b1gpvjd9ia42nsng55ck
          ...
          ```
-   1. Change the folder parameters, such as name and description. You can specify the folder to update by its name or ID.
+   1. Change the folder parameters, e.g., name and description. You can specify the folder to update by its name or ID.
 
       ```
-      $ yc resource-manager folder update default \
+      yc resource-manager folder update default \
           --new-name myfolder \
           --description "this is my default-folder"
       ```
@@ -125,7 +126,7 @@ The management console only allows you to change the name of a folder. To change
 
    1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
    1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-   1. Select a folder in the **Roles in folders** section and click ![image](../../_assets/plus-sign.svg).
+   1. Select a folder in the **{{ ui-key.yacloud.iam.users.label_folders-roles }}** section and click ![image](../../_assets/plus-sign.svg).
    1. Select a role from the list.
 
 - CLI
@@ -133,13 +134,13 @@ The management console only allows you to change the name of a folder. To change
    1. See the description of the command to assign a role for a folder:
 
       ```
-      $ yc resource-manager folder add-access-binding --help
+      yc resource-manager folder add-access-binding --help
       ```
 
    1. Select a folder (for example, `my-folder`):
 
       ```
-      $ yc resource-manager folder list
+      yc resource-manager folder list
       +----------------------+-----------+--------+--------+
       |          ID          |   NAME    | LABELS | STATUS |
       +----------------------+-----------+--------+--------+
@@ -150,7 +151,7 @@ The management console only allows you to change the name of a folder. To change
    1. Choose the [role](../../iam/concepts/access-control/roles.md).
 
       ```
-      $ yc iam role list
+      yc iam role list
       +--------------------------------+-------------+
       |               ID               | DESCRIPTION |
       +--------------------------------+-------------+
@@ -160,10 +161,10 @@ The management console only allows you to change the name of a folder. To change
       | ...                            |             |
       +--------------------------------+-------------+
       ```
-   1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
+   1. Find out the user ID from the login or email address. To assign a role to a service account or a user group rather than to a single user, see the [examples](#examples) below.
 
       ```
-      $ yc iam user-account get test-user
+      yc iam user-account get test-user
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
           login: test-user
@@ -172,7 +173,7 @@ The management console only allows you to change the name of a folder. To change
    1. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
 
       ```
-      $ yc resource-manager folder add-access-binding my-folder \
+      yc resource-manager folder add-access-binding my-folder \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
       ```
@@ -198,9 +199,11 @@ The management console only allows you to change the name of a folder. To change
        ]
       }
       ```
-   1. Find out the user ID from the login using the [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+
+   1. Find out the user ID from the login using the [getByLogin](../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
+
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
       {
@@ -211,10 +214,11 @@ The management console only allows you to change the name of a folder. To change
        }
       }
       ```
+
    1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
           -H 'Content-Type: application/json' \
           -H "Authorization: Bearer <IAM-TOKEN>" \
           -d '{
@@ -237,9 +241,9 @@ The management console only allows you to change the name of a folder. To change
 
 - Management console
 
-   Follow the instructions at the [beginning of the section](#access-to-user) and assign the user multiple roles.
+   Follow the guide at the [beginning of the section](#access-to-user) and assign the user multiple roles.
 
-   To assign a role to another user, select the user on the [Users and roles]({{ link-console-access-management }}) tab and click **Configure roles**.
+   To assign a role to another user, select the user on the [Users and roles]({{ link-console-access-management }}) tab and click **{{ ui-key.yacloud.iam.users.button_tune-role }}**.
 
 - CLI
 
@@ -251,13 +255,16 @@ The management console only allows you to change the name of a folder. To change
 
    {% endnote %}
 
-   1. Make sure the resource doesn't have any roles that you don't want to lose:
+   1. Make sure the resource does not have any roles that you do not want to lose:
+
       ```
-      $ yc resource-manager folder list-access-binding my-folder
+      yc resource-manager folder list-access-binding my-folder
       ```
+
    1. For example, assign a role to multiple users:
+
       ```
-      $ yc resource-manager folder set-access-bindings my-folder \
+      yc resource-manager folder set-access-bindings my-folder \
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
@@ -267,7 +274,7 @@ The management console only allows you to change the name of a folder. To change
    Assign the `editor` role to one user and the `viewer` role to another user:
 
    ```bash
-   $ curl -X POST \
+   curl -X POST \
        -H 'Content-Type: application/json' \
        -H "Authorization: Bearer <IAM-TOKEN>" \
        -d '{

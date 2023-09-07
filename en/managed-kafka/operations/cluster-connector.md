@@ -18,9 +18,9 @@ You can:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
 
 - CLI
 
@@ -61,10 +61,10 @@ You can:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
-   1. Click the name of the desired connector.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
+   1. Click the name of the connector you need.
 
 - CLI
 
@@ -105,16 +105,16 @@ You can:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
-   1. Click **Create connector**.
-   1. Under **Basic parameters**, specify:
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
+   1. Click **{{ ui-key.yacloud.kafka.button_create-connector }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
 
       * Connector name.
-      * Task limit: The number of concurrent processes. A value of at least `2` is recommended for even replication load distribution.
+      * Task limit: Number of concurrent processes. We recommend a value not less than `2` for even replication load distribution.
 
-   1. Under **Additional properties**, specify the connector properties in the following format:
+   1. Under **{{ ui-key.yacloud.kafka.section_properties }}**, specify the connector properties in the following format:
 
       ```text
       <key>:<value>
@@ -132,7 +132,7 @@ You can:
 
       For more information about the supported connector types, see [{#T}](../concepts/connectors.md).
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -294,12 +294,12 @@ You can:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
-   1. In the line with the required connector, click ![image](../../_assets/options.svg) and select **Edit connector**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
+   1. In the line with the required connector, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
    1. Edit the connector properties as needed.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -443,10 +443,10 @@ To pause a connector:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Pause**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
 - CLI
 
@@ -476,10 +476,10 @@ To pause a connector:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Resume**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
 - CLI
 
@@ -509,11 +509,11 @@ To pause a connector:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select a cluster and open the **Connectors** tab.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Delete**.
-   1. Click **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -562,10 +562,10 @@ To pause a connector:
 
 - Management console
 
-   * **Topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * **Replication factor** — the number of topic copies stored in the cluster.
-   * Under **Source cluster**, specify the parameters for connecting to the source cluster:
-      * **Alias**: A prefix to indicate the source cluster in the connector settings.
+   * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
+   * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: Number of topic copies stored in the cluster.
+   * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}**, specify the parameters for connecting to the source cluster:
+      * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Prefix for the source cluster in the connector settings.
 
          {% note info %}
 
@@ -573,35 +573,35 @@ To pause a connector:
 
          {% endnote %}
 
-      * **Use this cluster**: Select this option to use the current cluster as a source.
-      * **Bootstrap servers**: A comma-separated list of the FQDNs of the source cluster's broker hosts with the port numbers to connect to. For example: `broker1.example.com:9091,broker2.example.com`.
+      * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a source.
+      * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the source cluster broker hosts with the port numbers to connect to, e.g., `broker1.example.com:9091,broker2.example.com`.
 
          You can request the FQDNs of {{ mkf-name }} broker hosts with a [list of cluster hosts](cluster-hosts.md#list-hosts).
 
-      * **SASL username**: The username to use for connecting the connector to the source cluster.
-      * **SASL password**: The user password to use for connecting the connector to the source cluster.
-      * **SASL mechanism**: Select a mechanism for name and password encryption.
-      * **Security protocol**: Select a protocol for connecting the connector:
-         * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
-         * `SSL`, `SASL_SSL`: For SSL connections.
-      * **PEM certificate**: Upload a PEM certificate to access the external cluster.
+      * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**: Username for connecting the connector to the source cluster.
+      * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: User password for connecting the connector to the source cluster.
+      * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: Select a mechanism for name and password encryption.
+      * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select a protocol for connecting the connector:
+         * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections
+         * `SSL`, `SASL_SSL`: For SSL connections
+      * **{{ ui-key.yacloud.kafka.field_connector-ssl-truststore-certificates }}**: Upload a PEM certificate to access the external cluster.
 
-   * Under **Target cluster**, specify the parameters for connecting to the target cluster:
-      * **Alias**: A prefix to indicate the target cluster in the connector settings.
-      * **Use this cluster**: Select this option to use the current cluster as a target.
-      * **Bootstrap servers**: Comma-separated list of the FQDNs or IPs of the target cluster's broker hosts with the ports to connect to.
+   * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}**, specify the parameters for connecting to the target cluster:
+      * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Prefix for the target cluster in the connector settings.
+      * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a target.
+      * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs or IPs of the target cluster broker hosts with the ports to connect to.
 
          You can request the FQDNs of {{ mkf-name }} broker hosts with a [list of cluster hosts](cluster-hosts.md#list-hosts).
 
-      * **SASL username**: The username to use for connecting the connector to the target cluster.
-      * **SASL password**: The user password to use for connecting the connector to the target cluster.
-      * **SASL mechanism**: Select a mechanism for name and password encryption.
-      * **Security protocol**: Select a protocol for connecting the connector:
-         * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
-         * `SSL`, `SASL_SSL`: For SSL connections.
-      * **PEM certificate**: Upload a PEM certificate to access the external cluster.
+      * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**: Username for connecting the connector to the target cluster.
+      * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: User password for connecting the connector to the target cluster.
+      * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: Select a mechanism for name and password encryption.
+      * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select a protocol for connecting the connector:
+         * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections
+         * `SSL`, `SASL_SSL`: For SSL connections
+      * **{{ ui-key.yacloud.kafka.field_connector-ssl-truststore-certificates }}**: Upload a PEM certificate to access the external cluster.
 
-   * To specify additional setting values not on this list, create the relevant keys and specify their values under **Advanced properties** when [creating](#create) or [editing](#update) a connector. Sample keys:
+   * To specify additional setting values not listed above, create the relevant keys and specify their values under **{{ ui-key.yacloud.kafka.section_properties }}** when [creating](#create) or [editing](#update) a connector. Here are some sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -680,27 +680,27 @@ To pause a connector:
 
 - Management console
 
-   * **Topics**: Template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * **Compression type**: Select the codec to compress messages:
+   * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
+   * **{{ ui-key.yacloud.kafka.field_connector-compression-type }}**: Select the codec to compress messages:
 
-      * `none` (default): No compression.
-      * `gzip`: [gzip](https://www.gzip.org) codec.
+      * `none` (default): No compression
+      * `gzip`: [gzip](https://www.gzip.org) codec
       * `snappy`: [snappy](https://github.com/google/snappy) codec.
       * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
 
       You cannot change this parameter after creating the cluster.
 
-   * (Optional) **Max records per file**: Maximum number of records that can be written to a single file in an S3-compatible storage.
-   * Under **S3 connector**, specify the storage connection parameters:
-      * **Bucket name**: Storage bucket name.
-      * **Endpoint**: Endpoint for storage access (to find out from storage provider).
-      * (Optional) **Region**: Region description. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+   * (Optional) **{{ ui-key.yacloud.kafka.field_connector-file-max-records }}**: Maximum number of records that can be written to a single file in an S3-compatible storage.
+   * Under **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}**, specify the storage connection parameters:
+      * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}**: Storage bucket name
+      * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: Endpoint for storage access (to be requested from the storage provider)
+      * (Optional) **{{ ui-key.yacloud.kafka.field_connector-region }}**: Region name. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
       
-      * (Optional) **Access key ID**, **Secret key**: [ID and contents of the AWS compatible key](../../iam/concepts/authorization/access-key.md).
+      * (Optional) **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: [ID and contents of the AWS compatible key](../../iam/concepts/authorization/access-key.md).
 
 
-   * To specify additional setting values not on this list, create the relevant keys and specify their values under **Advanced properties** when [creating](#create) or [editing](#update) a connector. Sample keys:
+   * To specify additional setting values not listed above, create the relevant keys and specify their values under **{{ ui-key.yacloud.kafka.section_properties }}** when [creating](#create) or [editing](#update) a connector. Here are some sample keys:
 
       * `key.converter`
       * `value.converter`

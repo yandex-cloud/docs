@@ -39,16 +39,16 @@
 
           Пакет `pydub` нужен для обработки полученных аудиофайлов.
 
-      1. [Скачайте](https://www.ffmpeg.org/download.html) утилиту FFmpeg для корректной работы пакета `pydub`. Добавьте путь к директории, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду:
+      1. [Скачайте](https://www.ffmpeg.org/download.html) утилиту FFmpeg для корректной работы пакета `pydub`. Добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду:
 
           ```bash
           export PATH=$PATH:<путь_к_папке_с_исполняемым_файлом_FFmpeg>
           ```
 
-      1. Перейдите в директорию со склонированным репозиторием {{ yandex-cloud }} API, создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
+      1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
           ```bash
-          cd <путь_к_директории_cloudapi>
+          cd <путь_к_папке_cloudapi>
           mkdir output
           python -m grpc_tools.protoc -I . -I third_party/googleapis \
             --python_out=output \
@@ -62,9 +62,9 @@
             yandex/cloud/ai/tts/v3/tts.proto
           ```
 
-          В результате в директории `output` будут созданы файлы с интерфейсом клиента: `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, `tts_service_pb2_grpc.py` и файлы зависимостей.
+          В результате в папке `output` будут созданы файлы с интерфейсом клиента: `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, `tts_service_pb2_grpc.py` и файлы зависимостей.
 
-      1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
+      1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
 
           ```python
           import io
@@ -75,7 +75,7 @@
           import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
-          # Определить параметры запроса. 
+          # Задайте настройки синтеза.
           def synthesize(iam_token, text) -> pydub.AudioSegment:
               request = tts_pb2.UtteranceSynthesisRequest(
                   text=text,
@@ -87,17 +87,17 @@
                   loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
               )
 
-              # Установить соединение с сервером.
+              # Установите соединение с сервером.
               cred = grpc.ssl_channel_credentials()
               channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
-              # Отправить данные для синтеза.
+              # Отправьте данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
                   ('authorization', f'Bearer {iam_token}'),
               ))
 
-              # Собрать аудиозапись по чанкам.
+              # Соберите аудиозапись по порциям.
               try:
                   audio = io.BytesIO()
                   for response in it:
@@ -138,7 +138,7 @@
           * `TEXT` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
           * `--output` — имя файла для записи аудио.
 
-          В результате в директории `cloudapi` будет создан файл `speech.wav` с синтезированной речью.
+          В результате в папке `cloudapi` будет создан файл `speech.wav` с синтезированной речью.
 
     {% endlist %}
 

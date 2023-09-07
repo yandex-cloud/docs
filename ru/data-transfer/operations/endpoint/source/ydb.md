@@ -6,6 +6,14 @@
 
 ## Настройки {#settings}
 
+
+{% note warning %}
+
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `ydb.viewer`](../../../../ydb/security/index.md#ydb-viewer) или примитивная [роль `viewer`](../../../../iam/concepts/access-control/roles.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+
+{% endnote %}
+
+
 {% list tabs %}
 
 - Консоль управления

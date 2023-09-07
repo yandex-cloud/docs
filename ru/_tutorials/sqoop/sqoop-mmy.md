@@ -16,8 +16,8 @@
 
 1. [Создайте кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-mysql/concepts/instance-types.md) со следующими настройками:
 
-    * базой данных `db1`;
-    * пользователем `user1`.
+    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`;
+    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
 1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
 

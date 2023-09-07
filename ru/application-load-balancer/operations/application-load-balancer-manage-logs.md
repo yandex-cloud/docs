@@ -58,14 +58,14 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f*********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       ...
       log_options:
-        log_group_id: e23p9bfj2kyra3t.....
+        log_group_id: e23p9bfj2kyr********
         discard_rules:
           - http_codes:
               - "200"
@@ -173,14 +173,14 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       ...
       log_options:
-        log_group_id: e23p9bfj2kyra3t.....
+        log_group_id: e23p9bfj2kyr********
         discard_rules:
           - http_codes:
               - "200"
@@ -268,11 +268,11 @@
 
       Результат:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       ...
       log_options:
         disable: true
