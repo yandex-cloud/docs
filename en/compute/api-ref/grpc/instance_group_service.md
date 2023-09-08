@@ -283,6 +283,7 @@ zones[] | **[Zone](#Zone)**<br>List of availability zones. The minimum number of
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState}
@@ -666,6 +667,7 @@ zones[] | **[Zone](#Zone1)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState1}
@@ -1028,6 +1030,7 @@ zones[] | **[Zone](#Zone2)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerSpec {#LoadBalancerSpec2}
@@ -1476,6 +1479,7 @@ zones[] | **[Zone](#Zone3)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState3}
@@ -1839,6 +1843,7 @@ zones[] | **[Zone](#Zone4)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### HealthChecksSpec {#HealthChecksSpec4}
@@ -2287,6 +2292,7 @@ zones[] | **[Zone](#Zone5)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState5}
@@ -2685,6 +2691,7 @@ zones[] | **[Zone](#Zone6)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState6}
@@ -3084,6 +3091,7 @@ zones[] | **[Zone](#Zone7)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState7}
@@ -3483,6 +3491,7 @@ zones[] | **[Zone](#Zone8)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState8}
@@ -3881,6 +3890,7 @@ zones[] | **[Zone](#Zone9)**<br>List of availability zones. The minimum number o
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState9}
@@ -4080,6 +4090,7 @@ status_message | **string**<br>Status message for the managed instance.
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the managed instance. 
 status_changed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the status of the managed instance was last changed. 
+instance_tag | **string**<br>Managed instance tag. 
 
 
 ### NetworkInterface {#NetworkInterface}
@@ -4399,6 +4410,7 @@ zones[] | **[Zone](#Zone10)**<br>List of availability zones. The minimum number 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState10}
@@ -4798,6 +4810,7 @@ zones[] | **[Zone](#Zone11)**<br>List of availability zones. The minimum number 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState11}
@@ -5429,6 +5442,7 @@ zones[] | **[Zone](#Zone12)**<br>List of availability zones. The minimum number 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState12}
@@ -5827,6 +5841,7 @@ zones[] | **[Zone](#Zone13)**<br>List of availability zones. The minimum number 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. 
+instance_tags_pool[] | **string**<br>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}. The string length in characters for each value must be 3-50.
 
 
 ### LoadBalancerState {#LoadBalancerState13}

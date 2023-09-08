@@ -24,24 +24,24 @@ Prepare the infrastructure:
 
       * One rule for inbound and another one for outbound service traffic:
 
-         * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
-         * Source: `Security group`.
-         * Security group: `Self` (`Self`).
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` `Self`.
 
       * Rule for outgoing HTTPS traffic:
 
-         * Port range: `{{ port-https }}`.
-         * Protocol: `TCP`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
       * Rule for outgoing TCP traffic on port {{ port-mch-http }} to access {{ CH }}:
 
-         * Port range: `{{ port-mch-http }}`.
-         * Protocol: `TCP`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mch-http }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
       {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
@@ -51,10 +51,10 @@ Prepare the infrastructure:
          * **SPARK**
          * **YARN**
          * **HDFS**
-      * Service account: `dataproc-sa`.
-      * Bucket name: Bucket you created for output data.
-      * Network: `dataproc-network`.
-      * Security group: `dataproc-sg`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
@@ -88,7 +88,7 @@ Prepare the infrastructure:
 
    1. In the `data-proc-data-exchange-with-mch.tf` file, specify:
 
-      * `folder_id`: Cloud folder ID, the same as specified in the provider settings.
+      * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
       * `input_bucket`: Name of the bucket for input data.
       * `output_bucket`: Name of the bucket for output data.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
@@ -101,7 +101,7 @@ Prepare the infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -193,7 +193,7 @@ Prepare the infrastructure:
 
    1. Create a `scripts` folder in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the `ch-to-dataproc.py` file to it.
 
-1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/ch-to-dataproc.py`) in the **Main python file** field.
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/ch-to-dataproc.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 
 1. Wait for the job to complete and make sure the output bucket's `csv` folder contains the source table.
 
@@ -251,7 +251,7 @@ Prepare the infrastructure:
 
     1. Create a `scripts` folder in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the `dataproc-to-ch.py` file to it.
 
-1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/dataproc-to-ch.py`) in the **Main python file** field.
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/dataproc-to-ch.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 
 1. Wait for the job to complete and make sure the data has been transferred to {{ mch-name }}:
 
@@ -289,9 +289,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

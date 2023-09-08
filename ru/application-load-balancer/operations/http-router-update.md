@@ -470,7 +470,7 @@
          name: grpc-host
          authority:
          - *
-         routes:       
+         routes:
          ...
          - name: grpc-route-before
            grpc:
@@ -513,7 +513,7 @@
           name: grpc-host
           authority:
           - *
-          routes:       
+          routes:
           ...
           - name: grpc-route
           ...

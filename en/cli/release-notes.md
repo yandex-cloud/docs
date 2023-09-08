@@ -2195,7 +2195,7 @@ Added support for {{ api-gw-full-name }}.
 **Improved**
 
 * When you start `yc` with the `--help` or `-h` flag, interactive help opens: in `less` (`$PAGER`) on Linux and macOS and in `more` on Windows. Now you no longer have to scroll up through the help result.
-* The execution and API interaction debug logs are now saved to the `$HOME/.config/yandex-cloud/logs` configuration directory instead of the installation directory. This fixes the issue where `yc`, installed as a stand-alone binary file, would suddenly save its log in the same directory without the rights for it.
+* The execution and API interaction debug logs are now saved to the `$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the issue where `yc`, installed as a stand-alone binary file, would suddenly try to save its log in the same directory without proper authorization.
 * Debug logs are also saved for successful requests. When reporting an issue with a `yc` command, attach your saved log file so we can help you faster.
 
 **Fixed**

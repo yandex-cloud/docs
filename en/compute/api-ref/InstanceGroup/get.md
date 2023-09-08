@@ -237,7 +237,10 @@ view | <p>Defines which information about the Instance template should be return
   "allocationPolicy": {
     "zones": [
       {
-        "zoneId": "string"
+        "zoneId": "string",
+        "instanceTagsPool": [
+          "string"
+        ]
       }
     ]
   },
@@ -448,6 +451,7 @@ deployPolicy.<br>strategy | **string**<br><p>Affects the lifecycle of the instan
 allocationPolicy | **object**<br><p>Allocation policy of the instance group by zones and regions.</p> 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 
+allocationPolicy.<br>zones[].<br>instanceTagsPool[] | **string**<br><p>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}.</p> <p>The string length in characters for each value must be 3-50.</p> 
 loadBalancerState | **object**<br><p>Status of the Network Load Balancer target group attributed to the instance group.</p> 
 loadBalancerState.<br>targetGroupId | **string**<br><p>ID of the Network Load Balancer target group attributed to the instance group.</p> 
 loadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 

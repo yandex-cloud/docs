@@ -58,7 +58,7 @@ pooled | **boolean** (boolean)<br><p>When true, an image pool will be created fo
 imageId | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>ID of the source image to create the new image from.</p> <p>The maximum string length in characters is 50.</p> 
 diskId | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>ID of the disk to create the image from.</p> <p>The maximum string length in characters is 50.</p> 
 snapshotId | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>ID of the snapshot to create the image from.</p> <p>The maximum string length in characters is 50.</p> 
-uri | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports Qcow2, VMDK, and VHD formats.</p> 
+uri | **string** <br> includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`<br><br><p>URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports Qcow2, VMDK, and RAW formats.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

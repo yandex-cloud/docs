@@ -135,7 +135,7 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following par
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 
-In the [management console]({{ link-console-main }}), go to the folder page, select **{{ mch-short-name }}** and click on the appropriate cluster. The right side of the screen shows the cost of using your cluster per month. For details, see [{#T}](../../managed-clickhouse/pricing.md).
+In the [management console]({{ link-console-main }}), go to the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** and click the appropriate cluster. The cost of your cluster usage per month will be shown on the right side of the screen. For more information, see [{#T}](../../managed-clickhouse/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 

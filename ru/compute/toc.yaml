@@ -591,6 +591,8 @@ items:
                 href: api-ref/Instance/getSerialPortOutput.md
               - name: list
                 href: api-ref/Instance/list.md
+              - name: listAccessBindings
+                href: api-ref/Instance/listAccessBindings.md
               - name: listOperations
                 href: api-ref/Instance/listOperations.md
               - name: move
@@ -601,12 +603,16 @@ items:
                 href: api-ref/Instance/removeOneToOneNat.md
               - name: restart
                 href: api-ref/Instance/restart.md
+              - name: setAccessBindings
+                href: api-ref/Instance/setAccessBindings.md
               - name: start
                 href: api-ref/Instance/start.md
               - name: stop
                 href: api-ref/Instance/stop.md
               - name: update
                 href: api-ref/Instance/update.md
+              - name: updateAccessBindings
+                href: api-ref/Instance/updateAccessBindings.md
               - name: updateMetadata
                 href: api-ref/Instance/updateMetadata.md
               - name: updateNetworkInterface

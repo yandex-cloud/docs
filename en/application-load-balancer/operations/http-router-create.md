@@ -10,21 +10,52 @@ To create an HTTP router and add a route to it:
    1. In the list of services, select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
    1. Click **Create HTTP router**.
-   1. Enter the router name: `test-router`.
+   1. Enter the router name.
    1. Under **Virtual hosts**, click **Add virtual host**.
-   1. Enter the host name: `test-host-1`.
+   1. Enter the host name.
    1. Click **Add route**.
-   1. Enter **Name**: `test-route`.
-   1. In the **Path** field, select `Matches` and specify the path `/`.
+   1. Enter the route **Name**.
+   1. In the **Path** field, select one of the options:
 
-      To specify the path, you can use the following options:
+      * `Matches` and specify the path `/` to route all requests that match the specified path.
       * `Starts with` to route all requests with a specific beginning.
       * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
-   1. In the **HTTP methods** list, select `GET`.
-   1. In the **Action** field, leave the `Routing` value.
-   1. In the **Backend group**, select the backend group name from the same folder where you create the router.
-   1. Leave all other settings as they are and click **Create**.
+   1. In the **HTTP methods** list, select the required methods.
+   1. In the **Action** field, select one of the options: `Routing`, `Forward`, or `Response`. Depending on the selected option:
+
+      * `Routing`:
+
+         * In the **Backend group** field, select the backend group name from the same folder where you create the router.
+         * (Optional) In the **Rewrite path or start** field, specify where the router should redirect traffic. If you select `Matches` in the **Path** field, the path will be completely rewritten. If you select `Starts with`, only the start will be rewritten.
+         * (Optional) In the **Host header rewrite** field, select one of the options:
+
+            * `none`: Do not rewrite.
+            * `rewrite`: Rewrite the header to the specified value.
+            * `auto`: Automatically rewrite the header to the target VM's address.
+         * (Optional) In the **Timeout, sec** field, specify the maximum connection time.
+         * (Optional) In the **Idle timeout, sec** field, specify the maximum connection keep-alive time without data transmission.
+         * (Optional) In the **Valid values for the Upgrade header** field, list the protocols the backend group can switch to within a TCP connection on the client's request.
+         * (Optional) Select **WebSocket** if you want to use the WebSocket protocol.
+
+      * `Forwarding`:
+
+         * In the **HTTP status code** field, select the code to be used for forwarding.
+         * (Optional) In the **Rewrite path or start** field, specify where the router should redirect traffic. If you select `Matches` in the **Path** field, the path will be completely rewritten. If you select `Starts with`, only the start will be rewritten.
+         * (Optional) Select the **Delete query parameters** option.
+         * (Optional) Select the **Replace scheme** option.
+         * (Optional) Select the **Replace host** option and specify a new host.
+         * (Optional) Select the **Replace port** option and specify a new port.
+
+      * `Response`:
+
+         * In the **HTTP status code** field, select the code to be used for response.
+         * In the **Response body** field, click **Select** and do the following in the window that opens:
+
+            * Select a response **Method**: **Text** or **File**.
+            * Depending on the selected method, attach a file or specify the response text.
+
+   1. Click **Create**.
 
 - CLI
 
@@ -47,9 +78,9 @@ To create an HTTP router and add a route to it:
       Result:
 
       ```text
-      id: a5dcsselagj4o2v4a6e7
+      id: a5dcsselagj4********
       name: test-http-router
-      folder_id: aoerb349v3h4bupphtaf
+      folder_id: aoerb349v3h4********
       created_at: "2021-02-11T21:04:59.438292069Z"
       ```
 
@@ -123,6 +154,8 @@ To create an HTTP router and add a route to it:
       * `--request-timeout`: Request timeout, seconds.
       * `--request-max-timeout`: Maximum request idle timeout, seconds.
 
+      For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+
       Result:
 
       ```text
@@ -137,7 +170,7 @@ To create an HTTP router and add a route to it:
             path:
               prefix_match: /
           route:
-            backend_group_id: a5d4db973944t2fh8gor
+            backend_group_id: a5d4db973944********
             timeout: 2s
             idle_timeout: 3s
       modify_request_headers:
@@ -206,7 +239,7 @@ To create an HTTP router and add a route to it:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb http-router get <HTTP_router_name>

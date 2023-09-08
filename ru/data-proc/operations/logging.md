@@ -12,8 +12,8 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **Логи**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mdb.cluster.switch_logs }}**.
     1. (Опционально) Укажите настройки вывода:
         * [фильтр сообщений](../concepts/logs.md):
            * Получение вывода запуска задания {{ dataproc-name }}:

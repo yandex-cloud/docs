@@ -11,7 +11,7 @@
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
    1. In the list of services, select **{{ compute-name }}**.
    1. Click **Create VM**.
-   1. Under **Image/boot disk selection**, choose Ubuntu 20.04 and lower or CentOS 7.
+   1. Under **Image/boot disk selection**, choose [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) or lower or [CentOS 7](/marketplace/products/yc/centos-7).
    1. Specify the VM parameters. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm).
 
       {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}

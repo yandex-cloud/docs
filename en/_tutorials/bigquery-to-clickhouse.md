@@ -54,7 +54,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 1. [Create a {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-create.md) with any suitable configuration. When creating a cluster:
 
    * Use the service account you created earlier.
-   * Enable **DataLens access**.
+   * Enable the **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** parameter.
 
 1. [Use Zookeeper to enable fault-tolerance](../managed-clickhouse/operations/zk-hosts.md).
 
@@ -81,7 +81,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
    Where:
 
-   * `<Google Cloud service account>`:[Name of the Google Cloud service account](service-account-name@project-id.iam.gserviceaccount.com) in the format: `service-account-name@project-id.iam.gserviceaccount.com`.
+   * `<Google Cloud service account>`: [Name of the Google Cloud service account](service-account-name@project-id.iam.gserviceaccount.com), such as `service-account-name@project-id.iam.gserviceaccount.com`.
    * `<ID of the Google Cloud project>`: [Project ID in Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
 1. Create a `main.py` script file for data compression and migration:

@@ -257,9 +257,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       ```bash
       Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
 
-       * Documentation:  https://help.ubuntu.com
-       * Management:     https://landscape.canonical.com
-       * Support:        https://ubuntu.com/advantage
+       * Documentation: https://help.ubuntu.com
+       * Management:    https://landscape.canonical.com
+       * Support:       https://ubuntu.com/advantage
       Last login: Mon Mar 13 15:23:28 2023 from 123.456.789.101
       ```
 

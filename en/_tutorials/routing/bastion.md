@@ -2,250 +2,249 @@
 
 ## Overview {#overview}
 
-The term bastion comes from the fortifications. A bastion was a part of an outer wall, placed around the corners of a fort. Like Medieval structures, computer networks need layered protection against intruders. Bastion hosts, like their physical counterparts, are a part of this defense perimeter.
+If you have ever had an interest in early modern fortifications, the word "bastion" should sound familiar to you. A bastion is a structure projecting outward from the outer wall of a fortification. Just like early modern fortresses, computer networks require multi-layer protection against external attacks. Such network bastions are called bastion hosts, and they form part of a network perimeter.
 
 {% note info %}
 
-This tutorial may incur costs. Use the [pricing page](/prices) to generate a cost estimate based on your projected usage.
+The steps provided in this tutorial involve using paid resources. Go to the [service plans](/prices) page to estimate your costs depending on what amount of resources you are going to use.
 
 {% endnote %}
 
-This tutorial walks you through the deployment of a bastion host to securely access remote instances within a virtual private cloud. Bastion host is an instance that is provisioned with a public IP address and can be accessed via SSH. Once set up, the bastion host acts as a jump server allowing secure connection to instances provisioned without a public IP address.
+In this tutorial, you will learn how to deploy a bastion host and secure access to remote VMs hosted in your virtual private cloud (VPC). A bastion host is a VM that is assigned a public IP address to enable SSH access. By configuring a bastion host, you get sort of a jump server that allows you to establish secure connections to VMs that have no public IPs.
 
-To reduce exposure of servers within the VPC you will create and use a bastion host. Administrative tasks on the individual servers are going to be performed using SSH, proxied through the bastion.
+A bastion host will help you make your VPC servers less vulnerable. At the same time, administrative tasks on specific servers will be handled within a proxy connection via a bastion host over SSH.
 
-Objectives:
-* Learn how to set up a bastion host and security groups with rules
-* Securely manage servers via the bastion host
+In this tutorial, you will learn how to:
+* Use bastion host and security group setup rules.
+* Manage servers using a bastion host.
 
-Before you begin:
-* You need an SSH key to connect to the virtual servers. If you don't have an SSH key, see [the instructions](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for creating a key.
-* The tutorial assumes that you are adding the bastion host in an existing virtual private cloud. If you don't have a virtual private cloud in your account, create one before proceeding with the next steps.
+Getting started:
+* To connect to virtual servers, generate an SSH key. If you have no SSH key, generate one by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+* This tutorial assumes that you will create a bastion host as part of an existing VPC. If you do not have a cloud created in your account, create one before proceeding to the next steps.
 
 {% note info %}
 
-* Select correct Cloud and Folder in main menu.
-* Put all resources (networks/subnets/security groups/vm) to the same availability zone.
+* Select the cloud and folder you need in the main menu.
+* Place all resources (networks, subnets, security groups, and VMs) in the same availability zone.
 
 {% endnote %}
 
-## Create bastion host {#create-bastion-host}
+## Create a bastion host {#create-bastion-host}
 
-In this section, you will create and configure a bastion host along with a required networks, segments and security groups.
-
-
-![bastion-yc](../../_assets/tutorials/bastion-yc.svg)
+In this section, you will learn how to create and configure a bastion host after setting up all required networks, segments, and security groups.
 
 
+![](../../_assets/tutorials/bastion-yc.svg)
 
-### Create external network and subnet {#create-external-network}
 
-1. In [Main]({{ link-console-main }}) menu select **{{ vpc-name }}**.
-1. Click **Cloud Networks** on the left pane, then click **Create Network**.
-   * Enter `external-bastion-network` as name.
-   * Do not select Create subnets.
-1. Click on newly created network to open network configuration page.
-1. Click **Create** button under Subnets part to create a new subnet:
+
+### Create an external network and subnet {#create-external-network}
+
+1. In the [main]({{ link-console-main }}) menu, select **{{ vpc-name }}**.
+1. In the left-hand panel, select **Cloud networks** and click **Create network**.
+   * Enter the network name: `external-bastion-network`.
+   * Do not select the **Create subnets** option.
+1. Click the name of the created network to open the network settings page.
+1. Under **Subnets**, click **Create** to create a new subnet:
    * Name: `bastion-external-segment`.
    * CIDR: `172.16.17.0/28`.
 
-### Create internal network and subnet {#create-internal-network}
+### Create an internal network and subnet {#create-internal-network}
 
-1. In Main menu select {{ vpc-name }}.
-1. Click **Cloud Networks** on the left pane, then click **Create Network**.
-   * Enter `internal-bastion-network` as name.
-1. Click on newly created network to open network configuration page.
-1. Click **Create** button under Subnets part to create a new subnet:
+1. In the main menu, select {{ vpc-name }}.
+1. In the left-hand panel, select **Cloud networks** and click **Create network**.
+   * Enter the network name: `internal-bastion-network`.
+1. Click the name of the created network to open the network settings page.
+1. Under **Subnets**, click **Create** to create a new subnet.
    * Name: `bastion-internal-segment`.
    * CIDR: `172.16.16.0/24`.
 
-### Create and configure bastion security group to access from internet {#create-internet-sg}
+### Create and set up a security group for the bastion host {#create-internet-sg}
 
-Let's create a security group and configure inbound rules to your bastion host.
+Create a security group and set up rules for incoming traffic on the bastion host to allow accessing it from the internet:
 
-1. Select **Security groups** under **Network** `bastion-external-network`, then click **Create group** button.
-1. Enter `secure-bastion-sg` as name.
-1. Now, create the following Ingress rules by clicking **Add rule** in the ingress rules section. This allow SSH access from Internet to bastion host:
+1. Under **Network**: `bastion-external-network`, select **Security groups** and click **Create group**.
+1. Enter the security group name: `secure-bastion-sg`.
+1. Go to the section with the incoming traffic rules and add the rules specified below by clicking **Add rule**. This rule allows access to the bastion host from the internet:
    * Name: `secure-bastion-sg`.
-   * **Ingress** rule:
+   * **Incoming traffic**:
       * Protocol: `TCP`.
       * Port range: `22`.
       * Source type: `CIDR`.
       * Source: `0.0.0.0/0`.
-1. Click **Save** to create it.
+1. Click **Save**. Your rule has been created.
 
-### Create and configure bastion security group to internal hosts {#create-internal-hosts-sg}
+### Create and set up a security group for the bastion host to allow access to internal hosts {#create-internal-hosts-sg}
 
-Let's create a security group and configure inbound rules from bastion host.
+Create a security group and set up rules for incoming traffic from the bastion host to internal hosts:
 
-1. Select**Security groups** under **Network**: `bastion-internal-network`, then click **Create group** button.
-1. Enter `internal-bastion-sg` as name.
-1. **Ingress**: create the following Ingress rules by clicking **Add rule** in the ingress rules section:
+1. Under **Network**: `bastion-internal-network`, select **Security groups** and click **Create group**.
+1. Enter the security group name: `internal-bastion-sg`.
+1. **Incoming traffic**: Go to the section with the incoming traffic rules and add the rules specified below by clicking **Add rule**:
    * Port range: `22`.
    * Protocol: `TCP`.
    * Source: `CIDR`.
-   * CIDR blocks: `172.16.16.254/32` (Internal static IP address of bastion host).
-1. **Egress**: create the following Egress rule by clicking **Add rule** in the egress rules section:
+   * CIDR blocks: `172.16.16.254/32` (bastion host's internal static IP).
+1. **Outgoing traffic**: Go to the section with the outgoing traffic rules and add the following rule by clicking **Add rule**:
    * Port range: `22`.
    * Protocol: `TCP`.
    * Source: `Security group`.
    * `Current`.
-   This allow SSH access from bastion internal interface IP towards internal hosts.
-1. Click **Save** to create it.
+   This rule allows SSH access from the bastion host's internal interface IPs to the internal hosts.
+1. Click **Save**. Your rule has been created.
 
-### Create a bastion instance {#create-bastion-instance}
+### Create a VM for the bastion host {#create-bastion-instance}
 
-With the subnet and security group already in place, next, create the bastion virtual server instance.
+After you created the subnet and security group, proceed to create a virtual server for the bastion host:
 
-1. From **Main** menu select **{{ compute-name }}**.
-1. Click **Create VM** button and choose the host name and operating system.
-1. Leave most parameters as default.
-1. Under **Network setting** configure first network interface (**external**):
-   * Select **Subnet**: `bastion-external-subnet`.
-   * Public IP: `Auto`.
+1. In the main menu, select **{{ compute-name }}**.
+1. Click **Create VM** and specify the host name and OS.
+1. For most parameters, use the default values.
+1. Under **Network settings**, configure the first (**external**) network interface:
+   * Select the **Subnet**: `bastion-external-subnet`.
+   * Public address: `Auto`.
    * Internal IP address: `Auto`.
-   * Select **Security group** you created before `secure-bastion-sg`.
-1. Click on **Add network** interface to add second interface (**internal**):
-   * Select **Subnet**: `bastion-internal-subnet`.
-   * Public IP: `No Address`.
+   * Select the previously created **Security group**: `secure-bastion-sg`.
+1. Click **Add network** to add the second (**internal**) interface:
+   * Select the **Subnet**: `bastion-internal-subnet`.
+   * Public address: `No address`.
    * Internal IP address: `Manual`.
    * Address field: `172.16.16.254`.
-   * Select **Security group**: `internal-bastion-sg`.
+   * Select the **Security group**: `internal-bastion-sg`.
 
    {% note info %}
 
-   Make sure the first interface on new VM is from external segment, because the default gateway automatically will be defined on this interface.
+   Make sure the first interface on the new VM belongs to an external segment, since the default gateway is automatically specified on this interface.
 
    {% endnote %}
 
-   We allocate external IP address on external segment.
-   And select to use static IP address on internal segment.
-1. In **Access** section fill the **Login** field with linux username for example **bastion** (do not use root or other default linuxuser names).
-1. Paste your SSH public key to **SSH key** field.
+   The external IP is set on the external segment. Select the static IP to use on the internal segment.
+1. Under **Access**, in the **Login** field, enter a Linux username, such as **bastion**. Avoid standard Linux usernames, such as root.
+1. Copy your public SSH key and paste it to the **SSH key** field.
 1. Click **Create VM**.
-1. Once the instance is up and **Running**, you may see the public IP address assigned to it, see field **Public IPv4** in instance information table.
+1. Once the server VM is started and its status changes to **Running**, you will see the public IP address assigned to it in the **Public IPv4** field (in the table with server VM details).
 
-### Test your bastion {#test-bastion}
+### Test your bastion host {#test-bastion}
 
-Once your bastion's host is active, try connecting to it using ssh client:
+After you start your bastion host, try to connect to it via the SSH client:
 
 ```
-ssh -i ~/.ssh/<PRIVATE_KEY>bastion@<PUBLIC_IPv4_ADDRESS>
+ssh -i ~/.ssh/<private_key>bastion@<public_IPv4>
 ```
 
-## Add virtual server instance to the internal bastion segment {#add-virtual-server}
+## Add your virtual server to the bastion host's internal segment {#add-virtual-server}
 
-For administrative work on the servers, you have to add network interface in the same network segment like bastion host internal segment, in our case **bastion-internal-segment**.
+To administer your servers, add a network interface to the bastion host's internal network segment (in our case, **bastion-internal-segment**).
 
-If you have already VMs just add new network interface to it, or create new VM to test bastion host configuration:
-1. From **Main** menu select **{{ compute-name }}**.
-1. Click **Create VM** button and choose the host name and operating system.
-1. Leave most parameters as default.
-1. Under **Network setting** configure network interface:
-   * Select **Subnet**: `bastion-internal-subnet`.
-   * Public IP: `No Address`.
+If you have an existing VM, add the new network interface to it or create a new VM to test the bastion host configuration.
+1. In the main menu, select **{{ compute-name }}**.
+1. Click **Create VM** and specify the host name and OS.
+1. For most parameters, use the default values.
+1. Set up another network interface under **Network settings**:
+   * Select the **Subnet**: `bastion-internal-subnet`.
+   * Public address: `No address`.
    * Internal IP address: `Auto`.
-   * Select **Security group**: `secure-bastion-sg`.
-1. In **Access** section fill the **Login** field with linux username for example **test** (do not use root or other default linuxuser names).
-1. Paste your SSH public key to **SSH key** field.
+   * Select the **Security group**: `secure-bastion-sg`.
+1. Under **Access**, in the **Login** field, enter a Linux username, such as `test`. Avoid standard Linux usernames, such as `root`.
+1. Copy your public SSH key and paste it to the **SSH key** field.
 1. Click **Create VM**.
 
-### Connect to the instance {#connect-to-instance}
+### Connect to the created VM {#connect-to-instance}
 
-To SSH into an instance using its **private IP**, you will use the bastion host as your **jump host**.
+If you connect to the VM over SSH via a private IP address, you will be using your bastion host as a _jump host_.
 
-Obtain the private IP address of a virtual server instance under **{{ compute-name }} > Virtual machines** table.
+Find out your virtual server's private IP in the **{{ compute-name }} > Virtual machines** table.
 
-To simplify SSH access and configuration, add the `-J` (ProxyJump) parameter to the ssh command. Following is an example of ProxyJump usage:
-
-```
-ssh -i ~/.ssh/id_rsa -J bastion@<BASTION_PUBLIC_IP_ADDRESS>test@<PRIVATE_IP_ADDRESS>
-```
-
-As a result, the SSH client automatically connects to internal server.
-
-`-J` flag is supported in OpenSSH version 7.3+. In older versions `-J` is not available. In this case the safest and most straightforward way is to use ssh's stdio forwarding (`-W`) mode to "bounce" the connection through a bastion host. e.g.,
+To simplify SSH access and configure it, add the `-J` (ProxyJump) parameter to the appropriate SSH command. Here is how you can use ProxyJump:
 
 ```
-ssh -i ~/.ssh/id_rsa -o ProxyCommand="ssh -W %h:%p bastion@<BASTION_PUBLIC_IP_ADDRESS" test@<PRIVATE_IP_ADDRESS>
+ssh -i ~/.ssh/id_rsa -J bastion@<bastion_host_public_IP>test@<private_IP>
 ```
 
-## More connectivity options {#more-options}
+As a result, the SSH client will automatically connect to the internal server.
 
-### Make external IP address static {#static-ip-address}
-
-In order to fix external IP address and be the same after bastion host reboots, you may [make it static](../../vpc/operations/set-static-ip.md).
-
-### Using ssh-agent to Connect Through the Bastion Host {#using-ssh-agent}
-
-By default, access to the server is configured to use only SSH public key authentication. We recommend using **ssh-agent** instead of storing SSH keys (especially without a passphrase) on the bastion hosts. This way, private SSH keys exist only on your computer and can be safely used to authenticate to the next server.
-
-To add a key to the authentication agent, use the **ssh-add** command. If the key is **~/.ssh/id_rsa**, it’s added automatically. You can also specify which key to use by running the following command:
+The `-J` flag is supported in OpenSSH 7.3+. In earlier versions, `-J` is not available. In this case, the easiest and most secure way is to use standard I/O redirection (the `-W` flag) for connection forwarding through the bastion host, e.g.:
 
 ```
-ssh-add [path_to_keyfile]
+ssh -i ~/.ssh/id_rsa -o ProxyCommand="ssh -W %h:%p bastion@<bastion_host_public_IP>test@<private_IP>
 ```
 
-Mac OS X users can configure the **~/.ssh/config** file to enable loading keys into the agent with the following command:
+## Additional connection options {#more-options}
+
+### Make the external IP static {#static-ip-address}
+
+You may want to make the external IP address [static](../../vpc/operations/set-static-ip.md) to avoid issues related to changing the external IP each time the bastion host restarts.
+
+### Using an SSH-agent for connections via the bastion host {#using-ssh-agent}
+
+By default, server access is only set up for authentication using a public SSH key. We do not recommend storing keys directly on bastion hosts, especially without a passphrase. You should use an **SSH agent** instead.  In this case, private SSH keys will only be stored on your computer and you will be able to safely use them for authentication on the next server.
+
+To add a key to an authentication agent, use the **ssh-add** command. If the key is stored in the **~/.ssh/id_rsa** file, it is added automatically. You can also set a specific key to use by running the command below:
+
+```
+ssh-add [key_file_path]
+```
+
+Mac OS X users can set up the **~/.ssh/config** file. In this case, the keys can be uploaded to the agent with this command:
 
 ```
 AddKeysToAgent yes
 ```
 
-Using the following command to connect to the bastion host enables agent forwarding and allows logging in to the next server by forwarding credentials from your local machine:
+The following command used to connect to the bastion host allows you to perform agent forwarding and log in to the next server by providing the credentials from your local machine:
 
 ```
 SSH -A bastion@bastion_host
 ```
 
-Windows users can use the Pageant application, import their private key file there, and enable agent forwarding by selecting **Connection**, then **SSH**, and then **Auth** in the PuTTY Configuration window.
+Windows users can use the Pageant application and upload their private key file to it. Next, to ensure agent forwarding, open the PuTTY configuration window and select **Connection** > **SSH** > **Authentication**.
 
-### Service Access Through SSH Tunneling {#ssh-tunneling}
+### Access to services through SSH-tunnels {#ssh-tunneling}
 
-Sometimes SSH access might not be enough to perform the task. In this case, SSH tunneling can provide an easy way to access a web application or other listening service.
+At times SSH access alone is not enough to complete your task. If this is the case, use SSH tunnels to easily connect to web apps and other services that handle incoming connections.
 
-The main types of SSH tunneling are local, remote, and dynamic:
-* The **local** tunnel provides an exposed port on the local loopback interface that’s connected to the **IP:port** from your SSH server.
-  For example, you can connect local port 8080 to **web_server_ip:80**, which is accessible from your bastion host, and point your web browser to **http://localhost:8080**:
+The main types of SSH tunnels are local, remote, and dynamic:
+* A **local** tunnel is an open port in a local loopback interface, which connects to the **IP:port** address on your SSH server.
+   For example, you can connect local port 8080 to the **web_server_ip:80** address that is accessible from your local bastion host and then open **http://localhost:8080** in your browser:
 
    ```
    SSH bastion@bastion_public_ip -L 8080:web_server_ip:80
    ```
 
-* The **remote** tunnel is outside the scope of this tutorial, but it works the opposite of local forwarding — it exposes a local port to connections coming to the remote server.
-* The **dynamic** tunnel provides a SOCKS proxy on the local port, but connections originate from the remote host. For example, you can set up a dynamic tunnel on port 1080 and configure it as SOCKS proxy in the web browser. As a result, you can connect to all the resources available from your bastion host that are in the private subnet.
+* This tutorial does not include a detailed description of **remote** tunnels. In brief, a remote tunnel works in the direction opposite to that of a local tunnel by opening a local port to connect to a remote server.
+* A **dynamic** tunnel provides a SOCKS proxy on a local port with connections established from a remote host. For example, you can set up a dynamic tunnel on port 1080 and then specify it as a SOCKS proxy in your browser. As a result, you will be able to connect to any resources that are accessible from your bastion host and reside in a private subnet.
 
    ```
    SSH bastion@bastion_host -D 1080
    ```
 
-These techniques are simple replacements that often require a VPN connection and can be combined with ProxyJump or ProxyCommand connections.
+These methods are based on a simple replacement that often requires a VPN connection and a combination with ProxyJump or ProxyCommand connections.
 
-Windows users can find the tunnel configuration in PuTTY by selecting **Connection**, **SSH**, and then **Tunnels**.
+Windows users can set up tunnels using PuTTY by selecting **Connection** > **SSH** > **Tunnels**.
 
-You can use port forwarding, especially a local one, to easily establish the connection to Remote Desktop Services — enabled Windows hosts in the cloud, by tunneling port 3389 and connecting to localhost from a Remote Desktop client. If RDS is already listening on the local machine, you can select another port, as shown in the following example:
+To easily establish connections to Remote Desktop Services (RDS), i.e., Windows hosts running in a cloud, you can use port redirection (especially local one) by establishing a tunnel connection to port 3389 and then connecting to the localhost via an RDS client. If the RDS client is already waiting for a connection on the local machine, you can choose a different port as shown in the example below:
 
 ```
 SSH bastion@bastion_host -L 3390:windows_host:3389
 ```
 
-### File Transfers {#file-transfers}
+### Transferring files {#file-transfers}
 
-For a Linux client and servers, you can use secure copy protocol (SCP) to securely transfer files to and from hosts through the bastion host by using the same ProxyCommand or ProxyJump options specified from the SSH command line. For example:
+For Linux clients and servers, you can configure SCP for a secure file transfer via a bastion host to internal hosts and back. This is done using the same ProxyCommand and ProxyJump options specified in the SSH command line, E.g.:
 
 ```
 scp -o "ProxyJump bastion@bastion_host" filename bastion@private_host:/path/to/file
 ```
 
-If you’re using a Windows client, one of the most popular applications for SCP is WinSCP. To transfer the files through the bastion host to a remote Linux instance, use the following steps:
+If you are using a Windows client, one of the most popular SCP apps for Windows is WinSCP. To transfer files via your bastion host to a remote Linux machine:
 
-1. Create a session with a private host IP address without a password. The Linux instance is configured with the SSH key.
-1. In the left navigation menu, click **Advanced** and select **Tunnel**.
-1. Enter your bastion host IP address and username. In the **Private key file** field, navigate and select the private key to authenticate with the bastion host.
-1. In the left navigation menu, under **SSH**, select **Authentication**.
-1. Ensure that **Allow agent forwarding** is selected.
-1. Select the private key that authenticates with the private host.
+1. Create a session to connect to a private host IP with no password. Set up an SSH key on the Linux machine.
+1. In the left-hand navigation menu, click **Advanced** and select **Tunnel**.
+1. Enter the IP address and username for your bastion host. In the **Private key file** field, select and set the private key file to use for authentication on your bastion host.
+1. In the left-hand navigation menu, select **Authentication** under **SSH**.
+1. Make sure to select **Allow agent forwarding**.
+1. Choose the private key to use for authentication on a private host.
 
-This setup allows direct file transfer between your Windows machine and Linux private host, protected by the bastion.
+This configuration enables a direct file transfer between your Windows machine and Linux private host. The bastion host will secure connections between them.
 
-For Windows hosts behind a Linux bastion, you can transfer files by using Remote Desktop Protocol (RDP) and tunneling. This method is effective and secure for transferring files.
+If the Windows hosts are located behind the Linux bastion, you can transfer files using Remote Desktop Protocol (RDP) via a tunnel. This method ensures an efficient and secure file transfer.

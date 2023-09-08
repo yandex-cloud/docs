@@ -35,7 +35,7 @@ To delete a backend group:
    1. Run the command, specifying the name of the backend group you want to delete:
 
       ```bash
-      yc alb backend-group delete --name <backend group name>
+      yc alb backend-group delete --name <backend_group_name>
       ```
 
       To check the deletion, get a list of backend groups by running the command:
@@ -48,20 +48,20 @@ To delete a backend group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the backend group description.
 
       Sample backend group description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
-        name                     = "<backend group name>"
+        name                     = "<backend_group_name>"
 
         http_backend {
-          name                   = "<backend name>"
+          name                   = "<backend_name>"
           weight                 = 1
           port                   = 80
-          target_group_ids       = ["<target group ID>"]
+          target_group_ids       = ["<target_group_ID>"]
           load_balancing_config {
             panic_threshold      = 90
           }    

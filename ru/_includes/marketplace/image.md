@@ -6,4 +6,4 @@
 	* В качестве базового используйте образ из [публичного каталога](../../compute/operations/images-with-pre-installed-software/get-list) {{ yandex-cloud }}.
 	* Посмотрите [примеры packer-рецептов](https://github.com/yandex-cloud/examples/tree/master/jenkins-packer/packer).
 	* [Автоматизируйте](../../tutorials/infrastructure-management/jenkins) сборку образов с помощью Jenkins.
-* используя другие удобные для вас инструменты. Тогда вам потребуется самостоятельно [загрузить](../../compute/operations/image-create/upload.md) образ в {{ compute-name }}. Поддерживаемые форматы образов: Qcow2, VMDK и VHD.
+* используя другие удобные для вас инструменты. Тогда вам потребуется самостоятельно [загрузить](../../compute/operations/image-create/upload.md) образ в {{ compute-name }}. Поддерживаемые форматы образов: Qcow2, VMDK и RAW.

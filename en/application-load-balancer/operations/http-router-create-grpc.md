@@ -8,15 +8,15 @@ To create an HTTP router and add a route to it:
 
    1. In the left menu, select **HTTP routers**.
    1. Click **Create HTTP router**.
-   1. Enter the router name: `test-grpc-router`.
+   1. Enter the router name.
    1. Under **Virtual hosts**, click **Add virtual host**.
-   1. Enter the **Name**: `test-virtual-host`.
+   1. Enter the **Name**.
    1. In the **Authority** field, specify the `*` or IP address of the load balancer
    1. Click **Add route** and select `gRPC` as a **Type**.
-      1. Enter the **Name**: `grpc-route`.
-      1. Under **FQMN**, select `Starts with` and, in the input field, specify the `/<first_word_in_service_name>`, e.g., `/helloworld`.
+      1. Enter the **Name**.
+      1. Under **FQMN**, select one of the options:
 
-         To specify the FQMN, you can use the following options:
+         * `Starts with` to route all requests starting with a specific FQMN. In the input field, specify the `/<first_word_in_service_name>`, e.g., `/helloworld`.
          * `Matches` to route all requests that match the specified FQMN.
          * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
@@ -26,9 +26,25 @@ To create an HTTP router and add a route to it:
 
          {% endnote %}
 
-      1. In the **Action** field, leave the `Routing` value.
-      1. In the **Backend group**, select the backend group name from the same folder where you create the router.
-      1. Leave all other settings as they are and click **Create**.
+      1. In the **Action** field, select one of the options: `Routing` or `Response`. Depending on the selected option:
+
+         * `Routing`:
+
+            * In the **Backend group**, select the backend group name from the same folder where you create the router.
+            * (Optional) In the **Host header rewrite** field, select one of the options:
+
+               * `none`: Do not rewrite.
+               * `rewrite`: Rewrite the header to the specified value.
+               * `auto`: Automatically rewrite the header to the target VM's address.
+
+            * (Optional) In the **Timeout, sec** field, specify the maximum connection time.
+            * (Optional) In the **Idle timeout, sec** field, specify the maximum connection keep-alive time without data transmission.
+
+         * `Response`:
+
+            * In the **gRPC status code** field, select the code to be used for response.
+
+   1. Click **Create**.
 
 - CLI
 
@@ -51,9 +67,9 @@ To create an HTTP router and add a route to it:
       Result:
 
       ```text
-      id: a5dcsselagj4o2v4a6e7
+      id: a5dcsselagj4********
       name: <HTTP_router_name>
-      folder_id: aoerb349v3h4bupphtaf
+      folder_id: aoerb349v3h4********
       created_at: "2022-06-16T21:04:59.438292069Z"
       ```
 
@@ -111,6 +127,8 @@ To create an HTTP router and add a route to it:
       * `--backend-group-name`: Name of the backend group.
       * `--request-max-timeout`: Maximum request idle timeout, seconds.
 
+      For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md).
+
       Result:
 
       ```text
@@ -125,7 +143,7 @@ To create an HTTP router and add a route to it:
            fqmn:
             prefix_match: /helloworld
          route:
-           backend_group_id: ds7snban2dvnedokp6kc
+           backend_group_id: ds7snban2dvn********
            max_timeout: 60s
       ```
 

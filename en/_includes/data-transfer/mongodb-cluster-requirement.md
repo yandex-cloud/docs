@@ -1,0 +1,1 @@
+Make sure the {{ MG }} cluster is configured so that it returns correctly resolving IP addresses or FQDNs (fully qualified domain names) in response to requests.

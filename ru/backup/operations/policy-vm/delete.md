@@ -1,6 +1,9 @@
-# Удалить политику резервного копирования
+---
+title: "Удалить политику резервного копирования"
+description: "Из статьи вы узнаете, как удалить политику резервного копирования в **{{ backup-name }}**."
+---
 
-Чтобы удалить [политику резервного копирования](../../concepts/policy.md):
+# Удалить политику резервного копирования
 
 {% list tabs %}
 
@@ -35,5 +38,9 @@
       ```
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/delete.md).
+
+- API
+
+  Чтобы удалить [политику резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [delete](../../backup/api-ref/Policy/delete.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Delete](../../backup/api-ref/grpc/policy_service.md#Delete).
 
 {% endlist %}

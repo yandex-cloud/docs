@@ -1,3 +1,8 @@
+---
+title: "Удалить резервную копию"
+description: "Из статьи вы узнаете, как удалить резервную копию ВМ в **{{ backup-name }}**."
+---
+
 # Удалить резервную копию
 
 {% list tabs %}
@@ -44,6 +49,10 @@
       * `--instance-id` — идентификатор ВМ, резервную копию которой нужно удалить.
 
   Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/backup/delete.md).
+
+- API
+
+  Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../../backup/api-ref/Backup/delete.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../../backup/api-ref/grpc/backup_service.md#Delete).
 
 {% endlist %}
 

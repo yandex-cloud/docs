@@ -27,31 +27,36 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-  1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
-     * **Cluster name**: `chcluster`.
-     * **Disk type**: Select the relevant disk type.
+   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
-       The disk type determines the minimum number of hosts per shard:
-       * Two hosts, if you select local SSD disks (`local-ssd`).
-       * Three hosts, if you select non-replicated SSD disks (`network-ssd-nonreplicated`).
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `cluster`
+      * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Select the required disk type.
 
-       Additional hosts for these disk types are required for fault tolerance.
+         The disk type determines the minimum number of hosts per shard:
 
-       For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
-     * **DB name**: `tutorial`.
+         * Two hosts, if you select local SSD disks (`local-ssd`).
+         * Three hosts, if you select non-replicated SSD disks (`network-ssd-nonreplicated`).
 
-     Cluster hosts must be available online.
-  1. [Create two additional shards](../../managed-clickhouse/operations/shards.md#add-shard) with the names `shard2` and `shard3`.
-  1. [Add three {{ ZK }} hosts to the cluster](../../managed-clickhouse/operations/zk-hosts.md#add-zk-host).
-  1. [Create shard groups](../../managed-clickhouse/operations/shard-groups.md#create-shard-group). Their number depends on the sharding type:
-     * [Regular group-based sharding](#shard-groups-example) requires one shard group named `sgroup`, which includes the `shard1` and `shard2` shards.
-     * [Advanced group-based sharding](#shard-groups-advanced-example) requires two groups:
-       * `sgroup` includes `shard1` and `shard2`.
-       * `sgroup_data` includes `shard3`.
+         Additional hosts for these disk types are required for fault tolerance.
 
-     No shard groups are needed for [classic sharding](#shard-example).
+         For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
-  
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`
+
+      Cluster hosts must be available online.
+
+   1. [Create two additional shards](../../managed-clickhouse/operations/shards.md#add-shard) with the names `shard2` and `shard3`.
+   1. [Add three {{ ZK }} hosts to the cluster](../../managed-clickhouse/operations/zk-hosts.md#add-zk-host).
+   1. [Create shard groups](../../managed-clickhouse/operations/shard-groups.md#create-shard-group). Their number depends on the sharding type:
+
+      * [Regular group-based sharding](#shard-groups-example) requires one shard group named `sgroup`, which includes the `shard1` and `shard2` shards.
+      * [Advanced group-based sharding](#shard-groups-advanced-example) requires two groups:
+         * `sgroup` includes `shard1` and `shard2`.
+         * `sgroup_data` includes `shard3`.
+
+      No shard groups are needed for [classic sharding](#shard-example).
+
+   
   1. If you are using security groups, [configure them](../../managed-clickhouse/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
 
      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
@@ -64,30 +69,33 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 
-  1. In the same working directory, download the configuration file for one of the sharding examples described below:
-     * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf): Classic sharding.
-     * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf): Group-based sharding.
-     * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/advanced-sharding-with-groups.tf): Advanced group-based sharding.
+   1. In the same working directory, download the configuration file for one of the sharding examples described below:
 
-     Each file describes:
-     * Network.
-     * Subnet.
-     * Default security group and rules required to connect to the cluster from the internet.
-     * A {{ mch-name }} cluster with relevant hosts and shards.
-  1. In the configuration file, specify the username and password to access the {{ mch-name }} cluster.
-  1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+      * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf): Classic sharding
+      * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf): Group-based sharding
+      * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/advanced-sharding-with-groups.tf): Advanced group-based sharding
 
-     ```bash
-     terraform validate
-     ```
+      Each file describes:
 
-     If there are any errors in the configuration files, {{ TF }} will point to them.
-  1. Create the required infrastructure:
+      * Network
+      * Subnet
+      * Default security group and rules required to connect to the cluster from the internet.
+      * {{ mch-name }} cluster with relevant hosts and shards
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. In the configuration file, specify the username and password to access the {{ mch-name }} cluster.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
-     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -265,17 +273,19 @@ Delete the resources you no longer need to avoid being charged for them:
 
 - Using {{ TF }}
 
-  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-  1. In the terminal window, switch to the directory containing the infrastructure plan.
-  1. Delete the configuration file (`simple-sharding.tf`, `sharding-with-group.tf`, or `advanced-sharding-with-groups.tf`).
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-     ```bash
-     terraform validate
-     ```
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete the configuration file (`simple-sharding.tf`, `sharding-with-group.tf`, or `advanced-sharding-with-groups.tf`).
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
-     If there are any errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the resources have been updated.
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+
+   1. Confirm that the resources have been updated.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

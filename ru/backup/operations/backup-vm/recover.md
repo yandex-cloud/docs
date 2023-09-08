@@ -58,6 +58,10 @@
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
 
+- API
+
+  Чтобы восстановить виртуальную машину из резервной копии, воспользуйтесь методом REST API [startRecovery](../../backup/api-ref/Backup/startRecovery.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery).
+
 {% endlist %}
 
 #### См. также {#see-also}

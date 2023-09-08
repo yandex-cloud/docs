@@ -821,6 +821,7 @@ default:
   tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
+  packer-source-link: github.com/hashicorp/yandex
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
@@ -3872,9 +3873,6 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_types:
         add-issue-type: Add issue type
         save: Save
-      blocks-desktop_b-page-queue-admin-tab_type_workflows:
-        actions--copy: Copy
-        copy-queue-workflow: Copy workflow from another queue
       blocks-desktop_b-page-queue-admin:
         group-title--automatization: Automation
         tab-title--events: Changelog
@@ -3885,8 +3883,6 @@ default:
         tab-title--sla: SLA
         tab-title--team: Queue team
         tab-title--triggers: Triggers
-        tab-title--types: Issue types
-        tab-title--workflows: Workflow
       blocks-desktop_b-page-queue-description:
         description: Queue description
       blocks-desktop_b-page-queue:
@@ -3928,9 +3924,6 @@ default:
         add-issue-key-in-email-checkbox: Add the issue number in the subject line
         advanced-settings: Advanced settings
         advanced-settings-show: Show advanced settings
-        choose-issue-type: Choose issue type
-        choose-resolutions: Choose resolutions
-        choose-workflow: Workflow
         commits: Show "Сommits" tab
         department: Department
         goals: ' Show "Goals" tab'
@@ -3953,10 +3946,6 @@ default:
         show-create-issue-form--team: Team only
         status-on-link: Status after adding external link
         voting: Voting in issues
-      blocks-desktop_b-queue-issue-type__workflow-table:
-        button-name: Button name
-      blocks-desktop_b-queue-issue-type:
-        workflow-view-label: Statuses and transitions
       blocks-desktop_b-queues-info:
         admin: Configure
         projects: Projects
@@ -4093,7 +4082,6 @@ default:
         field-type--uri: URL
         table-head--type: Type
       blocks-desktop_page-admin-tab_type_repositories:
-        connect: Connect repository
         status--success: Connected
       blocks-desktop_page-admin-tab:
         create--resolutions: Create resolution
@@ -4236,13 +4224,6 @@ default:
         title: Conditions to be met
       blocks-desktop_wiki-widget-copy-url:
         title: Get the Wiki code
-      blocks-desktop_workflow-condition:
-        type--all: all
-        type--any: any
-      blocks-desktop_workflow-editor--action_tab_general:
-        name-en--label: Button name in English
-        name-ru--label: Button name in Russian
-        target-status--label: Transition to status
       blocks-desktop_workflow-editor--action_tab_screen:
         comment-enable: Form for comments
         linking-enable: Adding links on transition screen
@@ -4250,29 +4231,13 @@ default:
         screen-title--label-en: Screen title
         screen-title--label-ru: Screen title
         worklogs-enable: Form for time spent
-      blocks-desktop_workflow-editor--action:
-        tab-title--conditions: Conditions
-        tab-title--functions: Functions
-        tab-title--general: General information
-        tab-title--screen: Screen
       blocks-desktop_workflow-editor--step_tab_actions-on-comment:
-        make-no-transition: Do nothing
-        make-transition: Make transition
         on-assignee-comment-only: Only if comment was left by assignee
-        prev-status: Return to previous status
         revert-assignee: Set assignee from previous status
-        select-action: Choose an action
-      blocks-desktop_workflow-editor--step_tab_create-action:
-        name-en--label: Button name in English
-        target-status--label: Transition to status
       blocks-desktop_workflow-editor--step:
         button--submit: Save
-        tab-title--actions-on-comment: Actions on comment
         tab-title--create-action: Add transition
       blocks-desktop_workflow-editor:
-        add-status-popup--name: Transition button name in Russian
-        add-status-popup--name-en: Transition button name
-        sidebar-add-status: Add status
         sidebar-title: Statuses and transitions
       components_Checklist:
         header-title: Checklist
@@ -4326,6 +4291,11 @@ default:
       ui_components_AddWorklogDialog:
         apply-button: Save
         duration-label: Time spent
+      ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
+        server-url-label: Server link
+      ui_components_admin-repositories_ConnectRepositoryDialog:
+        connect: Connect
+        token-label: Token
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Delete board
         migration-rollback: Switch back to the old version
@@ -4640,11 +4610,9 @@ default:
         title_access: Access to Tracker
       ui_components_page-admin_PageAdmin:
         menu-item-groups: Groups
-        menu-item-issue-statuses: Issue statuses
         menu-item-orgs: Organizations
         menu-item-repositories: Repositories
         menu-item-users: Users
-        tracker-settings: Tracker Settings
       ui_components_page-issues_touch_FilterSettingsMenu:
         item-filters: Filters
         item-group: Grouping
@@ -4685,6 +4653,7 @@ default:
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
         menu-item-calendars: Schedules
+        menu-item-workflows: Workflows
       ui_components_page-queue-admin_Signature:
         alias-title: Alias
       ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
@@ -4766,10 +4735,31 @@ default:
         login-button-label: Log in to Tracker
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Save
+      ui_components_queue-admin-tab-workflows_IssueTypesListCell:
+        remove-issue-type: Remove issue type from the queue
+      ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:
+        create: Create
+      ui_components_queue-admin-tab-workflows_StatusEdit:
+        action-remove: Remove from workflow
+        add-transition: Add
+        meta-status-title: Allow transitions from any status
+        settings-comment: Changing the status when commenting
+        transitions-title: Transitions
       ui_components_queue-admin-tab-workflows_StatusTypeSelector:
         status-canceled-name: Canceled
+      ui_components_queue-admin-tab-workflows_TransitionEdit:
+        field-from-status: Source status
+        field-name-en-title: Name in English
+        field-name-ru-title: Name
+        field-to-status: New status
+        settings-conditions: Transition conditions
+        settings-functions: Automation
+        settings-screen: Transition screen
       ui_components_queue-admin-tab-workflows_TransitionEditPageScreen:
+        enable-transition-screen: Enable transition screen
         time-spent: Time spent
+      ui_components_queue-admin-tab-workflows_WorkflowsStateList:
+        action-new-process: Create workflow
       ui_components_QueueAdminTemplateOptions:
         allow-empty-template: Allow issues to be created without a form
         always: Always
@@ -4791,6 +4781,22 @@ default:
         screen-next-button: Continue
       ui_components_workflow-conditions_ConditionsMenu:
         add-condition: Add condition
+      ui_components_workflow-conditions_WorkflowGroupCondition:
+        add-conditions-group: Add condition group
+      ui_components_workflow-functions_WorkflowFunctionMenu:
+        menu-title: Add automation
+      ui_components_workflow-functions:
+        type-AddCommentFunction: Add comment
+        type-AddTextToFieldFunction: Fill in the field
+        type-CalculateFieldFunction: Enter totals in the field
+        type-MoveUsersFunction: Move or copy the list of users to another field
+        type-NotifyBillingFunction: Send notification
+        type-RemoveFieldValueFunction: Clear field content
+        type-RemoveUsersFromCcFunction: Delete user from observers
+        type-SendEmailFunction: Send email
+        type-SetActiveSprintFunction: Set active sprint
+        type-SetCurrentTimeFunction: Enter current time in field
+        type-UnsetResolutionFunction: Unset resolution
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: New payer
@@ -5204,7 +5210,6 @@ default:
       audit-trails:
         button_create-trail: Create trail
         button_process-in-yq: Process in YQ
-        label_all-folders: All folders
         label_bucket: Bucket
         label_cloudLogging: Cloud Logging
         label_dataStream: Data Streams
@@ -5536,6 +5541,7 @@ default:
         button_cron-day: Every day
         button_logout: Log out
         button_update: Update
+        cancel: Cancel
         clone: Clone
         continue: Continue
         create: Create
@@ -5988,14 +5994,23 @@ default:
         label_monitoring: Monitoring
       dataproc:
         jobs:
+          button_create: Submit job
           field_args: Arguments
+          field_continue-on-failure: Continue on failure
           field_driver: Driver
           field_files: Files
+          field_hive-job-type: Hive
+          field_job-type: Job type
           field_main-class: Main class
           field_main-jar: Main jar
           field_main-python-file: Main python file
+          field_mapreduce-job-type: Mapreduce
           field_properties: Properties
+          field_pyspark-job-type: PySpark
           field_query-file-uri: Query file uri
+          field_script-variables: Script variables
+          field_spark-job-type: Spark
+        switch_operations: Operations
       dns:
         button_add-record: Add record
         button_record-set-create: Create record
@@ -6067,12 +6082,24 @@ default:
           overview:
             label_id: ID
           quotas:
+            label_quota-name-compute:
+              disks:
+                count: Number of disks
+              hddDisks:
+                size: Total HDD capacity
+              instanceCores:
+                count: Number of vCPUs for instances
+              instances:
+                count: Number of instances
+              ssdDisks:
+                size: Total SSD capacity
             label_quota-name-mdb:
               hdd:
                 size: HDD storage capacity
               ssd:
                 size: SSD storage capacity
           switch_overview: Overview
+          switch_quotas: Quotas
         folder:
           dashboard:
             button_add: Create resource
@@ -6329,6 +6356,8 @@ default:
           databases:
             button_action-remove: Delete
             button_add: Add
+          delete-dialog:
+            popup-confirm_button_delete: Delete
           diagnostics:
             label_indexes: Suggested indexes
             label_interval-first: Interval 1
@@ -6378,6 +6407,7 @@ default:
             button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
             button_rebalance-cluster-short: Rebalance
+            host_column_name: Host FQDN
             host_column_public-ip: Public access
             host_column_role: Role
             label_title: Hosts
@@ -6407,6 +6437,7 @@ default:
             label_storage-enabled: enabled
             section_additional: Advanced settings
             section_resource: Resources
+            section_ui-proxy: UI Proxy
           shards:
             button_action-edit: Edit
             button_action-remove: Remove
@@ -6417,9 +6448,16 @@ default:
             popup-confirm_button: Start
           stop-dialog:
             popup-confirm_button: Stop
+          subclusters:
+            button_action-delete: Delete
+            button_action-edit: Modify
+            button_create: Add subcluster
           switch_backups: Backups
           switch_hosts: Hosts
+          switch_jobs: Jobs
+          switch_logs: Logs
           switch_monitoring: Monitoring
+          switch_subclusters: Subclusters
           switch_users: Users
           users:
             button_action-password: Change password
@@ -6439,6 +6477,7 @@ default:
           button_action-start: Start
           button_action-stop: Stop
           button_create: Create cluster
+          button_empty-create: Create cluster
           column_availability: Availability
           label_title: Clusters
         datalens:
@@ -6446,11 +6485,13 @@ default:
           label_activate-datalens-title: DataLens not activated
         dialogs:
           button_add-database: Add database
+          popup_button_cancel: Cancel
           popup_button_move-cluster: Move
           popup_button_save: Save
           popup_field_roles: Roles
           popup-add-db_button_add: Add
           popup-confirm-delete-cluster_button: Delete
+          popup-confirm-remove-subcluster_button: Delete
           popup-confirm-switch-master_button: Switch
           popup-confirm-switch-master_label_confirmation: I want to switch the master
           popup-confirm-switch-master_label-title: Switch master host
@@ -6467,15 +6508,20 @@ default:
           base_field_description: Description
           base_field_environment: Environment
           base_field_folder: Folder
+          base_field_hosts-count: Hosts
           base_field_name: Cluster name
+          base_field_roles: Roles
           base_field_service-account: Service account
           base_field_shard-name: Shard name
           base_field_version: Version
           button_add-host: Add host
           button_add-initialization-action: Add
+          button_add-subcluster: Add
+          button_configure: Add
           button_configure-settings: Settings
           button_create: Create cluster
           button_create-shard: Create shard
+          button_create-subcluster: Add subcluster
           button_edit: Save changes
           button_expand-zookeeper-settings: Configure ZooKeeper
           button_restore: Restore cluster
@@ -6503,12 +6549,15 @@ default:
           field_diagnostics-sessions-interval: Sessions sampling interval
           field_diagnostics-statements-interval: Statements sampling interval
           field_initialization-action-args: Arguments
+          field_initialization-action-timeout: Timeout
           field_initialization-action-uri: URI
           field_security-group: Security groups
           host_column_assign_public_ip: Public access
           host_column_shard-name: Shard name
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
+          label_autoscaling-activated: Autoscaling
+          label_create-subcluster: ' Add subcluster'
           label_deletion-protection: Deletion protection
           label_diskTypeId: Disk type
           label_greenplum_pool_client-idle-timeout: Client Idle Timeout
@@ -6518,6 +6567,8 @@ default:
           label_max-size-units: GB
           label_network: Network
           maintenance-window-type: Maintenance window
+          network_field_form-type: Network ID format
+          network_field_subnetwork: Subnet
           new_section_resource: Resources
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Platform
@@ -6525,6 +6576,7 @@ default:
           section_additional: Advanced settings
           section_base: Basic parameters
           section_config: Cluster configuration
+          section_configuration: Configuration
           section_database: Database
           section_disk: Size of storage
           section_host: Hosts
@@ -6532,6 +6584,7 @@ default:
           section_network-settings: Network settings
           section_pooler: Connection pooler
           section_resource: Host class
+          section_scaling: Scaling
           section_service-settings: Service settings
           section_settings: DBMS settings
           section_settings-kafka: Kafka Settings

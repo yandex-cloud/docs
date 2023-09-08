@@ -1,35 +1,40 @@
-* **Name** of the backend.
-* **Weight**: The relative weight of the backend when distributing traffic. If the option is disabled in the field, the backend endpoints won't receive any traffic (the weight will be equal to 0).
-* **Type** of the backend (for an HTTP backend group): `Target group` ( {{ alb-name }} [target groups](../../application-load-balancer/concepts/target-group.md)) or `Bucket` ({{ objstorage-name }} [bucket](../../storage/concepts/bucket.md)). For a gRPC or Stream backend group, the type of any backend is `Target group`. For more information about backend types, see [{#T}](../../application-load-balancer/concepts/backend-group.md#types).
+* Backend **name**.
+* **Weight**: The relative weight of the backend when distributing traffic. If the option is disabled in the field, the backend endpoints will not receive any traffic (weight will be equal to 0).
+* Backend **type** (for an `HTTP` backend group): `Target group` ({{ alb-name }} [target groups](../../application-load-balancer/concepts/target-group.md)) or `Bucket` ({{ objstorage-name }} [bucket](../../storage/concepts/bucket.md)). For a `gRPC` or Stream backend group, the type of any backend is `Target group`. For more information about backend types, see [{#T}](../../application-load-balancer/concepts/backend-group.md#types).
 
-The settings described below are only applicable to backends of the **Target group** type.
+* The settings described below are only applicable to backends of the **Target group** type:
 
-* Under **Load balancing settings**:
+  * Under **Load balancing settings**:
 
-   * **Balancing mode**: [Mode for distributing traffic](../../application-load-balancer/concepts/backend-group.md#balancing-mode) across backend endpoints.
-   * **Panic mode threshold**: Percentage of healthy endpoints for enabling [panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode): the load balancer will distribute requests across all endpoints, regardless of health check results.
-   * **Locality aware routing**: Percentage of incoming traffic that a load balancer node routes to the backends from its availability zone. The rest traffic is evenly distributed between other availability zones. For more information, see [{#T}](../../application-load-balancer/concepts/backend-group.md#locality).
-   * **Strict locality**: If this option is enabled, the load balancer will respond with an error (`503 Service Unavailable`) if no application backends are running in the availability zone that accepted the request.
+     * **Balancing mode**: [Mode for distributing traffic](../../application-load-balancer/concepts/backend-group.md#balancing-mode) across backend endpoints.
+     * **Panic mode threshold**: Percentage of healthy endpoints for enabling [panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode): the load balancer will distribute requests across all endpoints, regardless of health check results.
+     * **Locality aware routing**: Percentage of incoming traffic that a load balancer node routes to the backends from its availability zone. The rest traffic is evenly distributed between other availability zones. For more information, see [{#T}](../../application-load-balancer/concepts/backend-group.md#locality).
+     * **Strict locality**: If this option is enabled, the load balancer will respond with an error (`503 Service Unavailable`) if no application backends are running in the availability zone that accepted the request.
 
-* Under **Protocol settings**:
+  * Under **Protocol settings**:
 
-   * For an `HTTP` backend group:
+     * For an `HTTP` backend group:
 
-      * **HTTP/2**: Option to use HTTP/2 when routing requests to the backend of an `HTTP` backend group. By default, the protocol version is 1.1. Backend groups of the `gRPC` type only support HTTP/2 connections.
-      * **Protocol**: Backend connection protocol: `HTTP` (without encryption) or `HTTPS` (with TLS encryption). For `HTTPS`, specify:
+        * **HTTP/2**: Option to use HTTP/2 when routing requests to the backend of an `HTTP` backend group. By default, the protocol version is 1.1. Backend groups of the `gRPC` type only support HTTP/2 connections.
+        * **Protocol**: Backend connection protocol: `HTTP` (without encryption) or `HTTPS` (with TLS encryption). For `HTTPS`, specify:
 
-         * **SNI**. Host domain name for Server Name Indication, an extension to the TLS protocol.
-         * **Trusted CA certificate**. Specify a certificate from the certificate authority that the load balancer will trust when establishing a secure connection with backend endpoints. X.509 certificates in PEM format are supported.
+           * **SNI**. Host domain name for Server Name Indication, an extension to the TLS protocol.
+           * **Trusted CA certificate**. Specify a certificate from the certificate authority that the load balancer will trust when establishing a secure connection with backend endpoints. X.509 certificates in PEM format are supported.
 
-   * For a `gRPC` backend group:
+     * For a `gRPC` backend group:
 
-      * **Protocol**: The backend connection protocol: `Open` or `Encrypted`. For the encrypted protocol, set the **SNI** and **Trusted CA certificate** (see above).
+        * **Protocol**: The backend connection protocol: `Open` or `Encrypted`. For the encrypted protocol, set the **SNI** and **Trusted CA certificate** (see above).
 
-   * For a `Stream` backend group:
+     * For a `Stream` backend group:
 
-      * **PROXY protocol**: If this option is enabled, the load balancer will pass metadata about its connection with the client, including the IP address, to the backend over [PROXY protocol from HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt).
+        * **PROXY protocol**: If this option is enabled, the load balancer will provide the metadata of its connection with the client, including its IP address, to the backend over [PROXY protocol from HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt).
 
-      * **Protocol**: The backend connection protocol: `Open` or `Encrypted`. For the encrypted protocol, set the **SNI** and **Trusted CA certificate** (see above).
+        * **Protocol**: The backend connection protocol: `Open` or `Encrypted`. For the encrypted protocol, set the **SNI** and **Trusted CA certificate** (see above).
+
+* The settings described below are only applicable to backends of the **Bucket** type in backend groups of the **HTTP** type:
+
+   * **Bucket ID format**: Select either the `List` or `ID` option.
+   * **Bucket**: Select a bucket from the list or specify its ID.
 
 * Under **HTTP health check**, **gRPC health check**, or **Stream health check**:
 

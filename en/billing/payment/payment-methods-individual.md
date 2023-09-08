@@ -6,7 +6,7 @@ Individuals can top up their personal account and pay for the resources they use
 
 ## Linking a bank card {#pin-card}
 
-Individuals are required to link a bank card to their billing account when [creating](../quickstart/index.md) it.
+When [creating](../quickstart/index.md) a billing account, you need to link a bank card.
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 

@@ -8,4 +8,4 @@ See the interface definitions of the API on [GitHub](https://github.com/yandex-c
 
 Service | Description
 --- | ---
-[TextGenerationService](./llm_service.md) | 
+[TextGenerationService](./llm_service.md) | Service for text generation and conversation.

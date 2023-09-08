@@ -10,14 +10,14 @@
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
-   1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and select the ![image](../../_assets/managed-clickhouse/logs.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}** tab.
+   1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the hosts and logging level in the drop-down lists next to the date input field, if required.
 
-   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
+   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-   If there are too many records and only some of them are displayed, click the **Load more** link at the end of the list.
+   If there are too many records and not all of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
 
 - CLI
 

@@ -20,14 +20,14 @@ If there is a problem with your infrastructure's production environment, specify
 
 The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
-Channel | Basic | Standard^*^  | Business | Premium
--------------------------------------------|-----------------------------------------------| --- | --- | ---
-| | For personal and research projects | For development and pilot projects | For professional projects | For business projects with stringent fault tolerance requirements
-Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes
-Chat | - | 15 minutes | 5 minutes | Immediate
-Phone | - | - | On additional request | On additional request
+| Channel | Basic | Standard^*^ | Business | Premium |
+-------------------------------------------|-----------------------------------------------|----------------------------------------------------------------------| --- | ---
+| | For personal and research projects | For development and pilot projects | For professional projects | For business projects with stringent fault tolerance requirements |
+| Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
+| Chat | - | 15 minutes | 5 minutes | Immediate |
+| Phone | - | - | On additional request | On additional request |
 
-^*^ The service plan is effective until October 1, 2023.
+^*^ This service plan is valid until October 1, 2023.
 
 
 ## Types of requests to {#request-types} support
@@ -42,8 +42,8 @@ The list of services offered under the "Premium" plan isn't fixed and can update
 
 {% endnote %}
 
-| Request type | Basic | Standard^*^  | Business | Premium |
---- | --- | --- | --- | ---
+| Request type | Basic | Standard^*^ | Business | Premium |
+--- | --- |-------------------------------------| --- | ---
 | Restore access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Diagnose errors in {{ yandex-cloud }} services and fix identified problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
@@ -60,7 +60,7 @@ The list of services offered under the "Premium" plan isn't fixed and can update
 | Personal technical manager | | | | ![image](../_assets/common/yes.svg) |
 | Additional {{ yandex-cloud }} services (case-by-case basis) | | | | ![image](../_assets/common/yes.svg) |
 
-^*^ The service plan is effective until October 1, 2023.
+^*^ This service plan is valid until October 1, 2023.
 
 
 {{ yandex-cloud }} technical support engineers don't address the following issues:

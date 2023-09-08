@@ -11,16 +11,22 @@ In a {{ mch-name }} cluster, you can only use one user management method at a ti
 
 {% endnote %}
 
+{% note warning %}
+
+In a {{ mch-name }} cluster, you can only use one user management method at a time: either using standard interfaces or via SQL queries.
+
+{% endnote %}
+
 ## Managing users via SQL {#sql-user-management}
 
-To enable management, activate the **User management via SQL** option when [creating](cluster-create.md) or [reconfiguring](update.md#SQL-management) a cluster.
+To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [reconfiguring](update.md#SQL-management) a cluster.
 
 In a cluster with user management via SQL enabled:
 
-* User management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-* You cannot enable user management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console).
+* User management using the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
+* User management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console) isn't possible.
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-* Users are managed under the `admin` account. You set its password when selecting the **User management via SQL** option.
+* Users are managed under the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
 For more information about managing users via SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 
@@ -30,8 +36,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the cluster you need and then select the **Users** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
 - CLI
 
@@ -71,9 +77,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click **Add**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter the database username and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
@@ -83,12 +89,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       1. Repeat the previous step until all the required databases are selected.
       1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name.
    1. Configure [additional settings](../concepts/settings-list.md) for the user:
-      1. Set [quotas](../concepts/settings-list.md#quota-settings) in **Additional settings → Quotas**:
+      1. Set [quotas](../concepts/settings-list.md#quota-settings) in **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
          1. To add a quota, click ![image](../../_assets/plus.svg) or the **+ Quotas** button. You can add multiple quotas that will be valid at the same time.
-         1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **Delete**.
+         1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
          1. To change a quota, set the required values of its settings.
-      1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
-   1. Click **Add**.
+      1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
    See the [example of creating a user with read-only access](#example-create-readonly-user).
 
@@ -152,7 +158,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -194,10 +200,10 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/options.svg) and select **Change password**.
-   1. Set a new password and click **Edit**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
@@ -246,7 +252,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -321,7 +327,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -350,20 +356,20 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/options.svg) and select **Configure**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Set up user permissions to access certain databases:
       1. To grant access to the required databases:
          1. Click ![image](../../_assets/plus-sign.svg) and select a database from the drop-down list.
          1. Repeat the previous step until all the required databases are selected.
       1. To delete a database, click ![image](../../_assets/cross.svg) to the right of the database name.
-   1. Set [quotas](../concepts/settings-list.md#quota-settings) for the user in **Additional settings → Quotas**:
+   1. Set [quotas](../concepts/settings-list.md#quota-settings) for the user in **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
       1. To add a quota, click **+ Quotas**. You can add multiple quotas that will be valid at the same time.
-      1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **Delete**.
+      1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
       1. To change a quota, set the required values of its settings.
-   1. Edit the user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) under **Advanced settings → Settings**.
-   1. Click **Save**.
+   1. Edit the user [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) under **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
 - CLI
 
@@ -489,7 +495,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -539,9 +545,9 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/options.svg) and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
 
 - CLI
 
@@ -570,7 +576,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -610,14 +616,14 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the cluster named `mych` and select the **Users** tab.
-   1. Click **Add**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter `ro-user` as the DB username and `Passw0rd` as the password.
    1. Click ![image](../../_assets/plus-sign.svg) and select the `db1` database from the drop-down list.
-   1. Choose **Additional settings → Settings → Readonly**.
+   1. Select **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings → Readonly**.
    1. Set the **Readonly** field value to `1`.
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
 - CLI
 
@@ -679,7 +685,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

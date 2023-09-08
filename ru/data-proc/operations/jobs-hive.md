@@ -8,17 +8,17 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
-    1. Нажмите кнопку **Создать задание**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. (Опционально) Укажите имя задания.
-    1. В поле **Тип задания** выберите `Hive`.
+    1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** выберите `{{ ui-key.yacloud.dataproc.jobs.field_hive-job-type }}`.
     1. (Опционально) В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства компонентов](../concepts/settings-list.md) в виде пары `ключ-значение`.
 
        {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
-    1. (Опционально) Включите настройку **Продолжать при ошибке**.
-    1. Укажите **Переменные скрипта** в виде пары `ключ-значение`.
+    1. (Опционально) Включите настройку **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}**.
+    1. Укажите **{{ ui-key.yacloud.dataproc.jobs.field_script-variables }}** в виде пары `ключ-значение`.
     1. (Опционально) Укажите пути к JAR-файлам, если они используются:
 
         {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
@@ -26,7 +26,7 @@
     1. Выберите один из типов драйвера и укажите, что использовать для запуска задания:
         * список запросов, которые необходимо выполнить;
         * путь к файлу с запросами, которые нужно выполнить.
-    1. Нажмите кнопку **Создать задание**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI
 

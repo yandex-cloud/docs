@@ -94,7 +94,8 @@ filter | <p>A filter expression that filters resources listed in the response. C
           }
         }
       ],
-      "statusChangedAt": "string"
+      "statusChangedAt": "string",
+      "instanceTag": "string"
     }
   ],
   "nextPageToken": "string"
@@ -147,4 +148,5 @@ instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>dn
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if 0, a reasonable default is used).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
 instances[].<br>networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 instances[].<br>statusChangedAt | **string** (date-time)<br><p>The timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format when the status of the managed instance was last changed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+instances[].<br>instanceTag | **string**<br><p>Managed instance tag.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

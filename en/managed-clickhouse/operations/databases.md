@@ -7,14 +7,14 @@
 
 ## Managing databases via SQL {#sql-database-management}
 
-To enable management, select **User management via SQL** and **Database management via SQL** when [creating](cluster-create.md) or [reconfiguring](./update.md#SQL-management) a cluster.
+To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options when [creating](cluster-create.md) or [reconfiguring](./update.md#SQL-management) a cluster.
 
 In a cluster with DB management via SQL enabled:
 
-* Database and [user](./cluster-users.md#sql-user-management) management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-* You cannot enable user or database management via the standard {{ yandex-cloud }} interfaces.
+* Database and [user](./cluster-users.md#sql-user-management) management using the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
+* You cannot enable user or database management using the standard {{ yandex-cloud }} interfaces.
 * The existing users as well as user and database settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-* Users are managed under the `admin` account. You set its password when you select the **User management via SQL** and the **Database management via SQL** options.
+* Users are managed under the `admin` account. You set its password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options.
 
 ## Getting a list of cluster databases {#list-db}
 
@@ -22,8 +22,8 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
 
 - CLI
 
@@ -63,11 +63,11 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the cluster you need.
-   1. Select the **Databases** tab.
-   1. Click **Add**.
-   1. Enter the database name and click **Add**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name.
+   1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Enter the database name and click **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
@@ -113,7 +113,7 @@ In a cluster with DB management via SQL enabled:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -146,9 +146,9 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired DB and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
+   1. Click ![image](../../_assets/options.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 
@@ -177,7 +177,7 @@ In a cluster with DB management via SQL enabled:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

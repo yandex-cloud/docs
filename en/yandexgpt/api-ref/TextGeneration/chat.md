@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/TextGeneration/chat.md
 ---
 
 # YandexGPT API, REST: TextGeneration.chat
-
+RPC method for engaging in a chat conversation with the model.
  
 
  
@@ -32,19 +32,19 @@ POST https://llm.{{ api-host }}/llm/v1alpha/chat
   "instructionText": "string"
 }
 ```
-Describe your chat query: set generation options, context in the instruction part and message history.
+Request to engage in a chat conversation with a text generation model.
  
 Field | Description
 --- | ---
-model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
-generationOptions | **object**<br>Generation options
-generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of the partially generated text.</p> 
-generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness.</p> 
-generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. The total length of [instruction_text], [request_text], and ``maxTokens`` should be equal or less than 7400 tokens.</p> 
-messages[] | **object**<br><p>Message history.</p> 
-messages[].<br>role | **string**<br><p>Identifies who sent message. For message from the LLM model, the mandatory value is "assistant".</p> 
-messages[].<br>text | **string**<br><p>Text of the message.</p> 
-instructionText | **string**<br><p>Text of the instruction.</p> 
+model | **string**<br><p>The name or identifier of the model to be used for the chat. Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
+generationOptions | **object**<br>Configuration options for text generation.
+generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of partially generated text.</p> 
+generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and infinity. Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness.</p> 
+generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets the maximum limit on the total number of tokens used for both the input prompt and the generated response. Must be greater than zero and not exceed 7400 tokens.</p> 
+messages[] | **object**<br><p>A list of messages in the conversation.</p> 
+messages[].<br>role | **string**<br><p>Identifies the sender of the message.</p> 
+messages[].<br>text | **string**<br><p>The text content of the message.</p> 
+instructionText | **string**<br><p>The text-based instruction for the conversation.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -58,11 +58,11 @@ instructionText | **string**<br><p>Text of the instruction.</p>
   "numTokens": "string"
 }
 ```
-Contains a model-generated assistant's response for the chat query.
+Contains a model-generated response for a chat query.
  
 Field | Description
 --- | ---
-message | **object**<br><p>Assistant's message.</p> <p>Contains description of the message for Chat.</p> 
-message.<br>role | **string**<br><p>Identifies who sent message. For message from the LLM model, the mandatory value is "assistant".</p> 
-message.<br>text | **string**<br><p>Text of the message.</p> 
-numTokens | **string** (int64)<br><p>Total number of tokens for chat request and chat response.</p> 
+message | **object**<br><p>The assistant's message in the chat conversation.</p> <p>Represents a message within a chat.</p> 
+message.<br>role | **string**<br><p>Identifies the sender of the message.</p> 
+message.<br>text | **string**<br><p>The text content of the message.</p> 
+numTokens | **string** (int64)<br><p>Total number of tokens used in both the chat request and chat response.</p> 

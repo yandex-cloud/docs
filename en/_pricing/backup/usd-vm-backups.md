@@ -1,3 +1,3 @@
-| Resource category | Cost per VM (per month), without VAT  |
+| Resource category | Cost of 1 VM (per month), without VAT |
 | --- | --- |
-| Attached to the {{ backup-name }} VM | $1.910400 |
+| VM connected to {{ backup-name }} | $1.910400 |

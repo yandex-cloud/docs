@@ -6,7 +6,7 @@ Businesses and individual entrepreneurs can top up their personal accounts and p
 
 ## Linking a bank card {#pin-card}
 
-Businesses can link a bank card to their billing account only when [creating](../quickstart/index.md) it.
+When [creating](../quickstart/index.md) a billing account, you need to link a bank card.
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
@@ -16,6 +16,8 @@ If you want to use only the **Transfer from your bank account** payment method, 
 
 {% endnote %}
 
+
+You cannot unlink a bank card from your billing account. Instead, you can [change the linked bank card](../operations/pin-card.md) in the billing account settings.
 
 ## Personal account top-up {#refill}
 

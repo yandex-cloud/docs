@@ -3894,9 +3894,6 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_types:
         add-issue-type: Добавить тип задачи
         save: Сохранить
-      blocks-desktop_b-page-queue-admin-tab_type_workflows:
-        actions--copy: Копировать
-        copy-queue-workflow: Скопировать воркфлоу из другой очереди
       blocks-desktop_b-page-queue-admin:
         group-title--automatization: Автоматизация
         tab-title--events: Журнал изменений
@@ -3907,8 +3904,6 @@ default:
         tab-title--sla: SLA
         tab-title--team: Команда очереди
         tab-title--triggers: Триггеры
-        tab-title--types: Типы задач
-        tab-title--workflows: Рабочие процессы
       blocks-desktop_b-page-queue-description:
         description: Описание очереди
       blocks-desktop_b-page-queue:
@@ -3950,9 +3945,6 @@ default:
         add-issue-key-in-email-checkbox: Добавлять номер задачи в тему письма
         advanced-settings: Расширенные настройки
         advanced-settings-show: Показать расширенные настройки
-        choose-issue-type: Тип задачи
-        choose-resolutions: Резолюции
-        choose-workflow: Воркфлоу
         commits: Отображать вкладку «Коммиты»
         department: Подразделение
         goals: Отображать вкладку «Цели»
@@ -3975,10 +3967,6 @@ default:
         show-create-issue-form--team: Только команде
         status-on-link: Статус при добавлении внешней связи
         voting: Голосование в задачах
-      blocks-desktop_b-queue-issue-type__workflow-table:
-        button-name: Название кнопки
-      blocks-desktop_b-queue-issue-type:
-        workflow-view-label: Статусы и переходы
       blocks-desktop_b-queues-info:
         admin: Администрирование
         projects: Проекты
@@ -4115,7 +4103,6 @@ default:
         field-type--uri: Ссылка
         table-head--type: Тип
       blocks-desktop_page-admin-tab_type_repositories:
-        connect: Подключить репозиторий
         status--success: Подключен
       blocks-desktop_page-admin-tab:
         create--resolutions: Создать резолюцию
@@ -4258,13 +4245,6 @@ default:
         title: Будут выполнены условия
       blocks-desktop_wiki-widget-copy-url:
         title: Получить код для Вики
-      blocks-desktop_workflow-condition:
-        type--all: все
-        type--any: любые
-      blocks-desktop_workflow-editor--action_tab_general:
-        name-en--label: Название кнопки на английском
-        name-ru--label: Название кнопки
-        target-status--label: Переход в статус
       blocks-desktop_workflow-editor--action_tab_screen:
         comment-enable: Форма для комментария
         linking-enable: Добавление связей на экране перехода
@@ -4272,29 +4252,13 @@ default:
         screen-title--label-en: Название экрана на английском языке
         screen-title--label-ru: Название экрана
         worklogs-enable: Форма учёта времени
-      blocks-desktop_workflow-editor--action:
-        tab-title--conditions: Условия
-        tab-title--functions: Функции
-        tab-title--general: Основная информация
-        tab-title--screen: Экран перехода
       blocks-desktop_workflow-editor--step_tab_actions-on-comment:
-        make-no-transition: Ничего не делать
-        make-transition: Выполнить переход
         on-assignee-comment-only: Только если комментарий оставил исполнитель
-        prev-status: Вернуться в предыдущий статус
         revert-assignee: Назначить исполнителя из предыдущего статуса
-        select-action: Выберите действие
-      blocks-desktop_workflow-editor--step_tab_create-action:
-        name-en--label: Название кнопки на английском
-        target-status--label: Переход в статус
       blocks-desktop_workflow-editor--step:
         button--submit: Сохранить
-        tab-title--actions-on-comment: Действия при комментировании
         tab-title--create-action: Добавить переход
       blocks-desktop_workflow-editor:
-        add-status-popup--name: Название кнопки перехода
-        add-status-popup--name-en: Название кнопки перехода на английском
-        sidebar-add-status: Добавить статус
         sidebar-title: Статусы и переходы
       components_Checklist:
         header-title: Чеклист
@@ -4348,6 +4312,11 @@ default:
       ui_components_AddWorklogDialog:
         apply-button: Сохранить
         duration-label: Затрачено времени
+      ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
+        server-url-label: Ссылка на репозиторий
+      ui_components_admin-repositories_ConnectRepositoryDialog:
+        connect: Подключить
+        token-label: Токен
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Удалить доску
         migration-rollback: Миграция в старую версию
@@ -4662,11 +4631,9 @@ default:
         title_access: Доступ в Tracker
       ui_components_page-admin_PageAdmin:
         menu-item-groups: Группы
-        menu-item-issue-statuses: Статусы задач
         menu-item-orgs: Организации
         menu-item-repositories: Репозитории
         menu-item-users: Пользователи
-        tracker-settings: Настройки Tracker
       ui_components_page-issues_touch_FilterSettingsMenu:
         item-filters: Фильтры
         item-group: Группировка
@@ -4707,6 +4674,7 @@ default:
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Почтовые ящики
         menu-item-calendars: Графики работы
+        menu-item-workflows: Рабочие процессы
       ui_components_page-queue-admin_Signature:
         alias-title: Псевдоним
       ui_components_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
@@ -4790,10 +4758,31 @@ default:
         login-button-label: Войти в Tracker
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Сохранить
+      ui_components_queue-admin-tab-workflows_IssueTypesListCell:
+        remove-issue-type: Удалить тип задачи из очереди
+      ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:
+        create: Создать
+      ui_components_queue-admin-tab-workflows_StatusEdit:
+        action-remove: Убрать из процесса
+        add-transition: Добавить
+        meta-status-title: Разрешить переходы из любого статуса
+        settings-comment: Смена статуса при комментарии
+        transitions-title: Переходы
       ui_components_queue-admin-tab-workflows_StatusTypeSelector:
         status-canceled-name: Отменен
+      ui_components_queue-admin-tab-workflows_TransitionEdit:
+        field-from-status: Исходный статус
+        field-name-en-title: Название на английском
+        field-name-ru-title: Название
+        field-to-status: Новый статус
+        settings-conditions: Условия перехода
+        settings-functions: Автоматизация
+        settings-screen: Экран перехода
       ui_components_queue-admin-tab-workflows_TransitionEditPageScreen:
+        enable-transition-screen: Включить экран перехода
         time-spent: Затраченное время
+      ui_components_queue-admin-tab-workflows_WorkflowsStateList:
+        action-new-process: Создать рабочий процесс
       ui_components_QueueAdminTemplateOptions:
         allow-empty-template: Разрешить создание задач без формы
         always: всегда
@@ -4815,6 +4804,22 @@ default:
         screen-next-button: Продолжить
       ui_components_workflow-conditions_ConditionsMenu:
         add-condition: Добавить условие
+      ui_components_workflow-conditions_WorkflowGroupCondition:
+        add-conditions-group: Добавить группу условий
+      ui_components_workflow-functions_WorkflowFunctionMenu:
+        menu-title: Добавить автоматизацию
+      ui_components_workflow-functions:
+        type-AddCommentFunction: Добавить комментарий
+        type-AddTextToFieldFunction: Заполнить поле
+        type-CalculateFieldFunction: Записать сумму чисел в поле
+        type-MoveUsersFunction: Переместить или скопировать список пользователей в другое поле
+        type-NotifyBillingFunction: Отправить уведомление
+        type-RemoveFieldValueFunction: Очистить содержимое поля
+        type-RemoveUsersFromCcFunction: Удалить пользователя из наблюдателей
+        type-SendEmailFunction: Отправить письмо
+        type-SetActiveSprintFunction: Установить активный спринт
+        type-SetCurrentTimeFunction: Записать текущее время в поле
+        type-UnsetResolutionFunction: Снять резолюцию
     yacloud_billing_account:
       cloud-billing-account:
         account_label_new: Новый плательщик
@@ -5228,7 +5233,6 @@ default:
       audit-trails:
         button_create-trail: Создать трейл
         button_process-in-yq: Обработать в YQ
-        label_all-folders: Все каталоги
         label_bucket: Бакет
         label_cloudLogging: Cloud Logging
         label_dataStream: Data Streams
@@ -5560,6 +5564,7 @@ default:
         button_cron-day: Каждый день
         button_logout: Выйти
         button_update: Обновить
+        cancel: Отменить
         clone: Клонировать
         continue: Продолжить
         create: Создать
@@ -6012,14 +6017,23 @@ default:
         label_monitoring: Мониторинг
       dataproc:
         jobs:
+          button_create: Создать задание
           field_args: Аргументы
+          field_continue-on-failure: Продолжать при ошибке
           field_driver: Драйвер
           field_files: Файлы
+          field_hive-job-type: Hive
+          field_job-type: Тип задания
           field_main-class: Основной класс
           field_main-jar: Основной JAR файл
           field_main-python-file: Main python файл
+          field_mapreduce-job-type: Mapreduce
           field_properties: Настройки
+          field_pyspark-job-type: PySpark
           field_query-file-uri: Файл с запросами
+          field_script-variables: Переменные скрипта
+          field_spark-job-type: Spark
+        switch_operations: Операции
       dns:
         button_add-record: Добавить запись
         button_record-set-create: Создать запись
@@ -6091,12 +6105,24 @@ default:
           overview:
             label_id: Идентификатор
           quotas:
+            label_quota-name-compute:
+              disks:
+                count: Количество дисков
+              hddDisks:
+                size: Общий объём HDD-дисков
+              instanceCores:
+                count: Количество vCPU виртуальных машин
+              instances:
+                count: Количество виртуальных машин
+              ssdDisks:
+                size: Общий объём SSD-дисков
             label_quota-name-mdb:
               hdd:
                 size: Объём HDD-хранилищ
               ssd:
                 size: Объём SSD-хранилищ
           switch_overview: Обзор
+          switch_quotas: Квоты
         folder:
           dashboard:
             button_add: Создать ресурс
@@ -6353,6 +6379,8 @@ default:
           databases:
             button_action-remove: Удалить
             button_add: Добавить
+          delete-dialog:
+            popup-confirm_button_delete: Удалить
           diagnostics:
             label_indexes: Предлагаемые индексы
             label_interval-first: Интервал 1
@@ -6402,6 +6430,7 @@ default:
             button_manual-failover: Переключить мастер
             button_rebalance-cluster: Ребалансировать кластер
             button_rebalance-cluster-short: Ребалансировать
+            host_column_name: FQDN хоста
             host_column_public-ip: Публичный доступ
             host_column_role: Роль
             label_title: Хосты
@@ -6431,6 +6460,7 @@ default:
             label_storage-enabled: включено
             section_additional: Дополнительные настройки
             section_resource: Ресурсы
+            section_ui-proxy: UI Proxy
           shards:
             button_action-edit: Изменить
             button_action-remove: Удалить
@@ -6441,9 +6471,16 @@ default:
             popup-confirm_button: Запустить
           stop-dialog:
             popup-confirm_button: Остановить
+          subclusters:
+            button_action-delete: Удалить
+            button_action-edit: Изменить
+            button_create: Добавить подкластер
           switch_backups: Резервные копии
           switch_hosts: Хосты
+          switch_jobs: Задания
+          switch_logs: Логи
           switch_monitoring: Мониторинг
+          switch_subclusters: Подкластеры
           switch_users: Пользователи
           users:
             button_action-password: Изменить пароль
@@ -6463,6 +6500,7 @@ default:
           button_action-start: Запустить
           button_action-stop: Остановить
           button_create: Создать кластер
+          button_empty-create: Создать кластер
           column_availability: Доступность
           label_title: Кластеры
         datalens:
@@ -6470,11 +6508,13 @@ default:
           label_activate-datalens-title: DataLens ещё не активирован
         dialogs:
           button_add-database: Добавить базу данных
+          popup_button_cancel: Отменить
           popup_button_move-cluster: Переместить
           popup_button_save: Сохранить
           popup_field_roles: Роли
           popup-add-db_button_add: Добавить
           popup-confirm-delete-cluster_button: Удалить
+          popup-confirm-remove-subcluster_button: Удалить
           popup-confirm-switch-master_button: Переключить
           popup-confirm-switch-master_label_confirmation: Я хочу переключить мастер
           popup-confirm-switch-master_label-title: Переключение мастера
@@ -6491,15 +6531,20 @@ default:
           base_field_description: Описание
           base_field_environment: Окружение
           base_field_folder: Каталог
+          base_field_hosts-count: Хосты
           base_field_name: Имя кластера
+          base_field_roles: Роли
           base_field_service-account: Сервисный аккаунт
           base_field_shard-name: Имя шарда
           base_field_version: Версия
           button_add-host: Добавить хост
           button_add-initialization-action: Добавить
+          button_add-subcluster: Добавить
+          button_configure: Добавить
           button_configure-settings: Настроить
           button_create: Создать кластер
           button_create-shard: Создать шард
+          button_create-subcluster: Добавить подкластер
           button_edit: Сохранить изменения
           button_expand-zookeeper-settings: Настроить ZooKeeper
           button_restore: Восстановить кластер
@@ -6527,12 +6572,15 @@ default:
           field_diagnostics-sessions-interval: Интервал сбора сессий
           field_diagnostics-statements-interval: Интервал сбора запросов
           field_initialization-action-args: Аргументы
+          field_initialization-action-timeout: Таймаут
           field_initialization-action-uri: URI
           field_security-group: Группы безопасности
           host_column_assign_public_ip: Публичный доступ
           host_column_shard-name: Имя шарда
           host_column_subnetwork: Подсеть
           host_column_zone: Зона доступности
+          label_autoscaling-activated: Автоматическое масштабирование
+          label_create-subcluster: Добавить подкластер
           label_deletion-protection: Защита от удаления
           label_diskTypeId: Тип диска
           label_greenplum_pool_client-idle-timeout: Тайм-аут ожидания клиента
@@ -6542,6 +6590,8 @@ default:
           label_max-size-units: ГБ
           label_network: Сеть
           maintenance-window-type: Окно обслуживания
+          network_field_form-type: Формат указания сети
+          network_field_subnetwork: Подсеть
           new_section_resource: Ресурсы
           resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
@@ -6549,6 +6599,7 @@ default:
           section_additional: Дополнительные настройки
           section_base: Базовые параметры
           section_config: Настройки кластера
+          section_configuration: Настройки
           section_database: База данных
           section_disk: Размер хранилища
           section_host: Хосты
@@ -6556,6 +6607,7 @@ default:
           section_network-settings: Сетевые настройки
           section_pooler: Менеджер подключений
           section_resource: Класс хоста
+          section_scaling: Масштабирование
           section_service-settings: Сервисные настройки
           section_settings: Настройки СУБД
           section_settings-kafka: Настройки Kafka

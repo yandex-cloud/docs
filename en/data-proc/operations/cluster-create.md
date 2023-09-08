@@ -96,7 +96,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% endnote %}
 
    1. Enter the public part of your SSH key in the **SSH key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
+   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access. Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the cluster service account.
    1. Select the availability zone for the cluster.
    1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
    1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
@@ -233,10 +233,10 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       Where:
 
-      * `--bucket`: The name of the bucket in {{ objstorage-full-name }} to store job dependencies and results. The cluster service account must have `READ and WRITE` permissions for this bucket.
-      * `--zone`: The [availability zone](../../overview/concepts/geo-scope.md) to host the cluster hosts.
-      * `--service-account-name`: The name of the [cluster service account](../../iam/concepts/users/service-accounts.md). Be sure to assign the cluster service account the `mdb.dataproc.agent` role.
-      * `--version`: The [image version](../concepts/environment.md).
+      * `--bucket`: Name of the bucket in {{ objstorage-full-name }} to store job dependencies and results. The cluster service account must have `READ and WRITE` permissions for this bucket.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) to host the cluster hosts.
+      * `--service-account-name`: Name of the [cluster service account](../../iam/concepts/users/service-accounts.md). Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the cluster service account.
+      * `--version`: [Image version](../concepts/environment.md).
 
          {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -386,13 +386,13 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
         folder_id = "<folder ID>"
-        role      = "mdb.dataproc.agent"
+        role      = "dataproc.agent"
         member    = "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
         folder_id = "<folder ID>"
-        role      = "editor"
+        role      = "dataproc.editor"
         member    = "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
       }
 

@@ -1,5 +1,5 @@
 ---
-title: "Create an {{ alb-full-name }} target group"
+title: "Creating an {{ alb-full-name }} target group"
 description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click Create target group. Enter the name of the target group. Select the VMs. Click Create."
 ---
 
@@ -25,7 +25,7 @@ To create a target group:
       
       1. (Optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-         For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+         For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
 
       1. Click **Add target resource**.
@@ -70,9 +70,9 @@ To create a target group:
       created_at: "2021-02-11T11:16:27.770674538Z
       ```
 
-      You can also create a target group with targets that reside outside {{ vpc-name }}, e.g., in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/). The IP addresses of targets must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+      You can also create a target group with targets residing outside {{ vpc-name }}, e.g., in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml). The target IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
-      Run the following command, specifying the target group name and target private IPv4 addresses as parameters:
+      Run the following command, specifying the target group name and and target private IPv4 addresses as parameters:
 
       ```bash
       yc alb target-group create \
@@ -131,9 +131,9 @@ To create a target group:
       * `name`: Target group name.
       * `target`: Target parameters:
          * `subnet_id`: ID of the [subnet](../../vpc/concepts/network.md#subnet) hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
-         * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
+         * `ip_address`: VM internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
 
-      You can also create a target group with targets that reside outside {{ vpc-name }}, e.g., in your data center connected to {{ yandex-cloud }} though [{{ interconnect-name }}](../../interconnect/):
+      You can also create a target group with targets residing outside {{ vpc-name }}, e.g., in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml):
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {
@@ -159,15 +159,15 @@ To create a target group:
       Where `yandex_alb_target_group` specifies the target group parameters:
       * `name`: Target group name.
       * `target`: Target parameters:
-         * `private_ipv4_address`: Parameter indicating that the IP is outside {{ vpc-name }}.
-         * `ip_address`: Private IPv4 address of the target. The IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+        * `private_ipv4_address`: Parameter indicating that the IP is outside {{ vpc-name }}.
+        * `ip_address`: Private IPv4 address of the target. The IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
       For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. To check whether the resources are there, use the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb target-group list

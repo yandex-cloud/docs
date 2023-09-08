@@ -27,10 +27,10 @@ Rule settings depend on the connection method you select:
 
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in a cluster to allow incoming traffic on ports 8443 and 9440 from any IP address. To do this, create the following rules for incoming traffic:
 
-   * Port range: `8443`, `9440`.
-   * Protocol: `TCP`.
-   * Source: `CIDR`.
-   * CIDR blocks: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8443`, `9440`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
    A separate rule is created for each port.
 
@@ -38,30 +38,30 @@ Rule settings depend on the connection method you select:
 
    1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 
-      * Port range: `8123` (or any of the other ports listed).
-      * Protocol: `TCP`.
-      * Source: `Security group`.
-      * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8123` (or any of the other ports listed)
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) as the value. Otherwise, specify the VM security group.
 
       A separate rule is created for each port.
 
-   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
 
-      Example of rules for a VM:
+      For example, you can set the following rules for a VM:
 
       * For incoming traffic:
-         * Port range: `22`.
-         * Protocol: `TCP`.
-         * Source: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
          This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
-         * Port range: `{{ port-any }}`.
-         * Protocol: `Any`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
          This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
@@ -176,9 +176,9 @@ When connecting from the browser, SQL queries are executed separately, without c
 
 {% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 
-To connect to a {{ mch-name }} cluster, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
+To connect to a {{ mch-name }} cluster, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
 
-To allow connections, activate the **Access from management console** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+To allow connections, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
 
 For more information, see [{#T}](web-sql-query.md).
 

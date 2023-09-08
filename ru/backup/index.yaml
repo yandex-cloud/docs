@@ -25,3 +25,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+  - title: Справочник API (англ.)
+    description: Описание методов HTTP API
+    href: backup/api-ref/

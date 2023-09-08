@@ -39,6 +39,38 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
       * `Value`: Label value of the `string` type.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
+- {{ TF }}
+
+  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Open the {{ TF }} configuration file and add a section called `tags` to the fragment describing the bucket:
+
+      ```hcl
+      resource "yandex_storage_bucket" "test-bucket" {
+        bucket           = "<bucket_name>"
+        ...
+        tags             = {
+          <key_of_label_1> = "<value_of_label_1>"
+          <key_of_label_2> = "<value_of_label_2>"
+        }
+        ...
+      }
+      ```
+
+      Where `tags` is an array of bucket labels in `<key> = "<value>"` format.
+
+      For more information about the `yandex_storage_bucket` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  That will add the labels to the bucket. You can check the new labels and the bucket's configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+  ```bash
+  yc storage bucket get <bucket_name> --full
+  ```
+
 - API
 
    To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
@@ -205,6 +237,38 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
    Where:
    * `--bucket`: Bucket name.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
+
+- {{ TF }}
+
+  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Open the {{ TF }} configuration file and delete the `tags` section from the fragment describing the bucket.
+
+     {% cut "Example of a bucket tag description in {{ TF }} configuration" %}
+
+     ```hcl
+     resource "yandex_storage_bucket" "test-bucket" {
+       bucket           = "<bucket_name>"
+       ...
+       tags             = {
+         <key_of_label_1> = "<value_of_label_1>"
+         <key_of_label_2> = "<value_of_label_2>"
+       }
+       ...
+     }
+     ```
+
+     {% endcut %}
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  That will delete the bucket's labels. You can check the deletion of labels and the bucket's configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+  ```bash
+  yc storage bucket get <bucket_name> --full
+  ```
 
 - API
 

@@ -21,10 +21,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
-      * **Version**: {{ mch-ck-version }} or higher.
-            * **Disk type**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
-      * **DB name**: `tutorial`.
-      * **Hybrid storage**: `Enabled`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ mch-ck-version }} or higher.
+            * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
+      * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
 
    1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
@@ -264,9 +264,9 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

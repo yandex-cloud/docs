@@ -16,10 +16,10 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
-    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **Изменить кластер** на панели сверху.
-    1. В блоке **Настройки** включите опцию **UI Proxy**.
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_configuration }}** включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -54,9 +54,9 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
-    1. Ссылки для подключения к веб-интерфейсам компонентов находятся в блоке **UI Proxy**.
+    1. Ссылки для подключения к веб-интерфейсам компонентов находятся в блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 
 - CLI
 
@@ -113,6 +113,6 @@ ssh -A \
     Для подключения к хостам кластера с [версией образа](../concepts/environment.md) 1.x используйте имя пользователя `root`, для версии 2.x — `ubuntu`.
 
 
-Найти FQDN хоста {{ dataproc-name }} можно на странице кластера {{ dataproc-name }}, на вкладке **Хосты**, в столбце **Имя хоста**.
+Найти FQDN хоста {{ dataproc-name }} можно на странице кластера {{ dataproc-name }}, на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**, в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
 Номера портов для компонентов {{ dataproc-name }} приведены в разделе [Интерфейсы и порты компонентов](../concepts/interfaces.md#port-numbers).

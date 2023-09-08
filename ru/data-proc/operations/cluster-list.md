@@ -8,7 +8,7 @@
 
 - Консоль управления
 
-    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
 - CLI
 
@@ -34,7 +34,7 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
 
 - CLI
@@ -65,8 +65,8 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Операции**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.dataproc.switch_operations }}**.
 
 - CLI
 

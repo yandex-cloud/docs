@@ -4,6 +4,8 @@
 
 File storage is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
+File storage will be [publicly available](../../overview/concepts/launch-stages.md) and charged for starting September 20, 2023.
+
 {% endnote %}
 
 _File storage_ is a virtual file system that can be attached to multiple {{ compute-name }} [VMs](vm.md) in the same availability zone. Users can share files in storage and use them from different VMs.

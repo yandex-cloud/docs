@@ -153,6 +153,8 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. Make sure that the {{ MG }} version on the target is `4.0` or higher.
 
+   1. {% include [mondodb cluster requirement](../../_includes/data-transfer/mongodb-cluster-requirement.md) %}
+
    1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external). To configure a [source cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) for connections from the internet:
 
       1. In the configuration file, change the `net.bindIp` setting from `127.0.0.1` to `0.0.0.0`:
@@ -340,7 +342,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
 
    * To prepare the source for the _{{ dt-type-repl }}_ transfer:
 
-      1. Create a user account the transfer will use to connect to the source:
+      1. Create a user account the transfer will utilize to connect to the source:
 
          ```sql
          CREATE USER <username> IDENTIFIED BY <password>;
@@ -403,7 +405,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
          TO C##<username> CONTAINER=ALL;
          ```
 
-         If required, you can only specify the `cdb$root` container and the container with the tables you need to transfer.
+         If required, you can only specify the `cdb$root` container and the container with the tables to transfer.
 
       1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
 
@@ -445,26 +447,26 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
 - {{ mpg-name }}
 
-   1. Configure the user the transfer will use to connect to the source:
+   1. Configure the user the transfer will connect to the source under:
 
       1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
 
-      1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
+      1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../managed-postgresql/operations/grant.md#grant-role) to this user.
 
-      1. [Connect to the database](../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
+      1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the database owner and [configure privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
 
          * `SELECT` for all the database tables to be transferred.
          * `SELECT` for all the database sequences to be transferred.
          * `USAGE` for the schemas of these tables and sequences.
          * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This allows replication to continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
     1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+   1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
 
-   1. Find and terminate DDL queries that are running for too long. To do this, make a selection from the {{ PG }} `pg_stat_activity` housekeeping table:
+   1. Find and terminate DDL queries that are running for too long. To do this, run a `SELECT` query against the {{ PG }} `pg_stat_activity` housekeeping table:
 
       ```sql
       SELECT NOW() - query_start AS duration, query, state
@@ -472,7 +474,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
       WHERE state != 'idle' ORDER BY 1 DESC;
       ```
 
-      This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
+      This will return a list of queries running on the server. Check queries that have a large value for the `duration` parameter.
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -484,7 +486,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-   1. Create a user account the transfer will use to connect to the source:
+   1. Create a user account the transfer will utilize to connect to the source:
 
       * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
 
@@ -527,8 +529,8 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
             * MSBuild
             * MSVC v141 x86/x64 build tools
             * C++\CLI support for v141 build tools
-            * MSVC v141 - VS 2017 C++ x64\x86 build tools
-            * MSVC v141 - VS 2017 C++ x64\x86 Spectre-mitigated libs
+            * MSVC v141 — VS 2017 C++ x64\x86 build tools
+            * MSVC v141 — VS 2017 C++ x64\x86 Spectre-mitigated libs
             * The latest version of the Windows SDK for the active OS version.
             * Other dependencies that are installed automatically for selected components.
 
@@ -875,10 +877,10 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
 - {{ mmg-name }}
 
-   1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) a with the same name as the source database.
+   1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) with the same name as the source database.
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
    1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-      1. In the target database, create and configure blank sharded collections with the same names as in the source by following these [instructions](../../managed-mongodb/tutorials/sharding.md).
+      1. Follow the [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure, in the target database, blank sharded collections with the same names as in the source one.
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
@@ -896,6 +898,8 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
    1. Make sure that the {{ MG }} version on the target is not lower than that on the source.
+
+   1. {% include [mondodb cluster requirement](../../_includes/data-transfer/mongodb-cluster-requirement.md) %}
 
    1. [Configure the target cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) to allow connections from the internet:
 
@@ -970,7 +974,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
       1. Prepare the database and create blank collections with the same names as in the source database.
 
-         {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
+         {{ data-transfer-name }} does not automatically shard migrating collections. Sharding large collections may take a long time and slow down the transfer.
 
       1. Enable target database sharding:
 
@@ -992,7 +996,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
          sh.status()
          ```
 
-      1. If sharding is performed by any key other than the default `_id`, assign the `clusterManager` system role to the user that {{ data-transfer-name }} will connect to the target cluster as.
+      1. If sharding is performed by any key other than the default `_id`, assign the `clusterManager` system role to the user {{ data-transfer-name }} will use for connection to the target cluster.
 
          ```javascript
          use admin;

@@ -55,10 +55,10 @@ To add your own geobase to a {{ CH }} cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **DBMS settings**, click **Settings**.
-   1. In the **Geobase uri** field, provide a link to the geobase archive in {{ objstorage-full-name }}.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+   1. In the **Geobase uri** field, enter a link to the geobase archive in {{ objstorage-full-name }}.
 
 - CLI
 
@@ -109,7 +109,7 @@ To add your own geobase to a {{ CH }} cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

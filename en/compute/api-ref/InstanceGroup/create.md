@@ -223,7 +223,10 @@ POST https://compute.{{ api-host }}/compute/v1/instanceGroups
   "allocationPolicy": {
     "zones": [
       {
-        "zoneId": "string"
+        "zoneId": "string",
+        "instanceTagsPool": [
+          "string"
+        ]
       }
     ]
   },
@@ -417,6 +420,7 @@ deployPolicy.<br>strategy | **string**<br><p>Affects the lifecycle of the instan
 allocationPolicy | **object**<br><p>Required. Allocation policy of the instance group by zones and regions.</p> 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 
+allocationPolicy.<br>zones[].<br>instanceTagsPool[] | **string**<br><p>Each instance in a zone will be associated with exactly one of a tag from a pool below. All specified tags must be unique across the whole group not only the zone. It is guaranteed that during whole deploy only tags from prefix of the specified list will be used. It is possible to use tag associated with instance in templating via {instance.tag}.</p> <p>The string length in characters for each value must be 3-50.</p> 
 loadBalancerSpec | **object**<br><p>Settings for balancing load between instances via <a href="/docs/network-load-balancer/concepts">Network Load Balancer</a> (OSI model layer 3).</p> <p>If specified, a Network Load Balancer target group containing all instances from the instance group will be created and attributed to the instance group.</p> 
 loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
