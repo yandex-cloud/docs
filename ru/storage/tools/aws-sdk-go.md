@@ -114,7 +114,7 @@ func main() {
 	// Создаем клиента для доступа к хранилищу S3
 	client := s3.NewFromConfig(cfg)
 
-	// Запрашиваем список бакетов
+	// Запрашиваем список всех файлов в бакете
 	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
 		Bucket: aws.String(*bucketName),
 	})

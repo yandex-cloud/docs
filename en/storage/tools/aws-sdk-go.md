@@ -114,7 +114,7 @@ func main() {
 	// Creating the S3 client
 	client := s3.NewFromConfig(cfg)
 
-	// Getting the list of buckets
+	// Getting list of objects in a bucket
 	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
 		Bucket: aws.String(*bucketName),
 	})
