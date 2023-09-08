@@ -127,7 +127,8 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
         "host": "string",
         "port": "string",
         "user": "string",
-        "password": "string"
+        "password": "string",
+        "options": "string"
       },
       "postgresqlSource": {
         "db": "string",
@@ -223,6 +224,7 @@ externalDictionaries[].<br>mongodbSource.<br>host | **string**<br><p>Required. M
 externalDictionaries[].<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 externalDictionaries[].<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 externalDictionaries[].<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
+externalDictionaries[].<br>mongodbSource.<br>options | **string**
 externalDictionaries[].<br>postgresqlSource | **object**<br>PostgreSQL source for the dictionary. <br>`externalDictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 externalDictionaries[].<br>postgresqlSource.<br>db | **string**<br><p>Required. Name of the PostrgreSQL database.</p> 
 externalDictionaries[].<br>postgresqlSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 

@@ -10,7 +10,7 @@
 1. [Создайте виртуальную машину](#create-vm).
 1. [Создайте управляемую БД](#create-db).
 1. [Создайте бакет](#create-bucket).
-1. [Установите MLFlow tracking server]({#setup-mlflow}).
+1. [Установите MLFlow Tracking Server и добавьте его в автозагрузку ВМ](#setup-mlflow).
 1. [Создайте секреты](#create-secrets).
 1. [Обучите модель](#train-model).
 
@@ -126,10 +126,11 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите `Ubuntu 22.04`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** настройте загрузочный диск:
      * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`.
-     * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `50 ГБ`.
+     * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `20 ГБ`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть, которая указана в [настройках проекта](../../datasphere/operations/projects/update.md) {{ ml-platform-name }}. У подсети должен быть [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
      * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** — `datasphere-sa`.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
@@ -175,7 +176,7 @@
 
 {% endlist %}
 
-## Установите MLFlow tracking server {#setup-mlflow}
+## Установите MLFlow Tracking Server и добавьте его в автозагрузку ВМ {#setup-mlflow}
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальной машине через SSH.
 1. Скачайте дистрибутив `Anaconda`:
@@ -249,14 +250,66 @@
      aws_access_key_id=<id_статического_ключа>
      aws_secret_access_key=<секретный_ключ>
      ```
+   
+1. Добавьте аутентификацию при запуске сервера:
+
+   ```bash
+   mlflow server --app-name basic-auth
+   ```
 
 1. Запустите MLFlow Tracking Server, подставив данные вашего кластера:
 
    ```bash
-   mlflow server --backend-store-uri postgresql://<имя_пользователя>:<пароль>@<хост>:6432/db1 --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000
+   mlflow server --backend-store-uri postgresql://<имя_пользователя>:<пароль>@<хост>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000
    ```   
 
    Проверить подключение к MLFlow можно по ссылке `http://<публичный_ip_виртуальной_машины>:8000`.
+
+### Включите автозапуск MLFlow {#autorun}
+
+Чтобы MLFlow автоматически запускался после перезагрузки виртуальной машины, нужно сделать его службой `Systemd`.
+
+1. Создайте директории для хранения логов и ошибок:
+
+   ```bash
+   mkdir ~/mlflow_logs/
+   mkdir ~/mlflow_errors/
+   ```
+
+1. Создайте файл `mlflow-tracking.service`:
+
+   ```bash
+   sudo nano /etc/systemd/system/mlflow-tracking.service
+   ```
+
+1. Добавьте в него следующие строки, подставив данные вашего кластера:
+
+   ```bash
+   [Unit]
+   Description=MLflow Tracking Server
+   After=network.target
+
+   [Service]
+   Environment=MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
+   Restart=on-failure
+   RestartSec=30
+   StandardOutput=file:/home/ubuntu/mlflow_logs/stdout.log
+   StandardError=file:/home/ubuntu/mlflow_errors/stderr.log
+   User=ubuntu
+   ExecStart=/bin/bash -c 'PATH=/home/ubuntu/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<имя_пользователя>:<пароль>@<хост>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+1. Запустите сервис и активируйте автозагрузку при старте системы:
+
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable mlflow-tracking
+   sudo systemctl start mlflow-tracking
+   sudo systemctl status mlflow-tracking
+   ```
 
 ## Создайте секреты {#create-secrets}
 
@@ -281,7 +334,6 @@
 
     ```python
     %pip install mlflow
-    %pip install scikit-learn
     ```
 
 1. Импортируйте необходимые библиотеки:

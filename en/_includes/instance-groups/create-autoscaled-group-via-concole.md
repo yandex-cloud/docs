@@ -9,7 +9,7 @@
 
       {% include [name-fqdn](../compute/name-fqdn.md) %}
 
-   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. In {{ ig-name }}, all operations are performed on behalf of a service account.
+   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -20,8 +20,8 @@
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../compute/concepts/disk.md).
 
    * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-      * Specify the disk size.
+      * Select [disk type](../../compute/concepts/disk.md#disks_types).
+      * Specify disk size.
       * To add more disks, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -33,8 +33,7 @@
 
    * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Select a service account to link to the instance.
-      * If you selected a Linux [image](../../compute/concepts/image.md), fill out **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. As the key, use the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
-      * If you selected a Windows image, enter the `Administrator` user password.
+      * If you selected a Linux [image](../../compute/concepts/image.md), fill out the fields **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For the key, use the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` if needed.
    * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:

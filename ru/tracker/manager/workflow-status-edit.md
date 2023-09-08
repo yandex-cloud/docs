@@ -1,13 +1,85 @@
-# Настроить статусы
+# Статусы задач
+
+Статус — это атрибут задачи, который обозначает, на каком этапе находится ее выполнение. Например: <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.testing }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
+
+В рамках [рабочего процесса](./add-workflow.md) для каждого [типа задач](./add-ticket-type.md) в очереди можно определить свой набор статусов и [переходов](./workflow-action-edit.md) между ними. Редактировать статусы в рабочих процессах очереди может владелец очереди и пользователи, которым он выдал [доступ к настройкам очереди](queue-access.md).
+
+В {{ tracker-name }} есть системные статусы — их список доступен в [настройках {{ tracker-name }}]({{ link-tracker-statuses }}). Эти статусы можно использовать в любых рабочих процессах. Если среди системных статусов не нашлось подходящих, [администратор](../role-model.md) {{ tracker-name }} может создать новые. Они появятся в общем списке статусов, и пользователи смогут использовать их в своих рабочих процессах.
+
+## Настройки статусов в редакторе рабочих процессов {#status-settings}
+
+В визуальном редакторе рабочих процессов можно настраивать статусы в рамках рабочего процесса. Чтобы открыть редактор рабочих процессов:
+
+1. Перейдите на страницу очереди.
+
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса, статусы которого вы хотите редактировать.
+
+Откроется визуальный редактор рабочих процессов. Здесь можно редактировать уже добавленные статусы — для этого достаточно нажать на статус на схеме, и откроется страница с его настройками. Кроме того, на схему можно [добавлять новые статусы](#add-status).
+
+### Начало рабочего процесса {#initial-status}
+
+Начало рабочего процесса — статус, в котором находится только что созданная задача. В визуальном редакторе рабочих процессов статус, который является началом рабочего процесса, отмечен флажком.
+
+Чтобы сделать статус началом рабочего процесса, нажмите на нужный статус на схеме — откроется окно с настройками этого статуса. В правом верхнем углу окна с настройками нажмите на ![](../../_assets/tracker/initial-ststus-icon.png).
 
 {% note warning %}
 
-По умолчанию настраивать очередь может [только ее владелец](queue-access.md).
+В рабочем процессе обязательно должен быть один статус, который является началом рабочего процесса. Началом рабочего процесса может быть статус любого типа.
 
 {% endnote %}
 
-Для каждого воркфлоу вы можете задать набор допустимых статусов. Эти статусы можно будет назначить задачам, к которым применяется ваш воркфлоу.
+### Типы статусов {#status-types}
 
+В рамках рабочего процесса для статуса можно определить тип. Все статусы одного типа окрашиваются в определенный цвет:
+* ![](../../_assets/tracker/changelogs/status-1-open.svg) — задачу создали и еще не взяли в работу.
+* ![](../../_assets/tracker/changelogs/status-2-in-progress.svg) — задачу взяли в работу.
+* ![](../../_assets/tracker/changelogs/status-3-needs-info.svg) — работу над задачей приостановили.
+* ![](../../_assets/tracker/changelogs/status-4-solved.svg) — задачу выполнили и закрыли.
+* ![](../../_assets/tracker/changelogs/status-5-closed.svg) — задачу не выполнили и закрыли.
+
+Задачи со статусами типа <q>Завершен</q> и <q>Отменен</q> считаются закрытыми: у таких задач в очереди ключ отображается зачеркнутым.
+
+### Смена статуса при комментарии {#change-with-comment}
+
+Настройка **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.settings-comment }}** позволяет изменить статус после добавления в задачу комментария. Такая настройка пригодится в линейных процессах, например, для службы поддержки.
+
+1. Откройте настройки того статуса, из которого должен осуществиться переход при появлении в задаче комментария, и нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.settings-comment }}**.
+
+1. Выберите из списка, в какой статус должен выполниться переход после добавления комментария. В списке содержатся переходы для настраиваемого статуса, которые уже добавлены на схему рабочего процесса. Пример переходов в списке:
+   * В предыдущий статус — задача будет переведена в предшествующий статус;
+   * Переход <q>Закрыть</q> — задача будет переведена в статус типа <q>Завершен</q>;
+   * Переход <q>Нужна информация</q> — задача будет переведена в статус типа <q>На паузе</q>;
+   * Переход <q>Переоткрыть</q> — задача будет переведена в статус типа <q>Начальный</q>.
+
+1. При необходимости включите опции **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.revert-assignee }}** и **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.on-assignee-comment-only }}**.
+
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.button--submit }}**.
+
+### Переходы между статусами {#add-action}
+
+Для корректной работы рабочего процесса между статусами обязательно должны быть настроены [переходы](./workflow-action-edit.md).
+
+Чтобы настроить переход для статуса:
+
+1. Откройте настройки статуса и в разделе **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.transitions-title }}** нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.add-transition }}**.
+   Поле **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-from-status }}** будет заполнено названием статуса, из которого настраивается переход, а поле **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-to-status}}** нужно заполнить и выбрать статус из списка. В списке предложены статусы, которые уже были добавлены на схему рабочего процесса.
+
+1. **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-name-ru-title }}** — это поле для названия кнопки в интерфейсе {{ tracker-name }}, которая будет переводить задачу в этот статус. Это же название будет использоваться для обозначения перехода в редакторе. По умолчанию название совпадает с новым статусом в переходе, но вы можете скорректировать его. **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-name-en-title }}** заполняется автоматически.
+
+1. Выберите рабочий процесс и нажмите кнопку ![](../../_assets/tracker/button-edit.png).
+
+1. Выберите исходный статус на панели **{{ ui-key.startrek.blocks-desktop_workflow-editor.sidebar-title }}**.
+
+1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.tab-title--create-action }}**.
+
+1. Для перехода можно настроить:
+   * [автоматизацию](./workflow-action-edit.md#automatization) — автоматические действия, которые должны выполняться при переходе.
+   * [условия перехода](./workflow-action-edit.md#conditions) — условия, при которых переход будет доступен.
+   * [экран перехода](./workflow-action-edit.md#screen) — всплывающее окно, в котором пользователь обязательно должен будет заполнить поля, чтобы изменить параметры задачи.
+
+Для удобства работы есть специальный тип переходов — **{{  ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}**. Например, если требуется добавить в рабочий процесс статус, который достижим из любого другого статуса, вам не придется вручную настраивать эти переходы для каждого статуса на схеме. Достаточно включить опцию **{{  ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}** — на схеме для этого статуса будет изображен метапереход. 
 
 ## Создать статус {#create-status}
 
@@ -17,112 +89,72 @@
 
 {% endnote %}
 
-Статус — это атрибут задачи, который обозначает, на каком этапе находится выполнение задачи. Например: <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.testing }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
-
-По умолчанию в {{ tracker-name }} доступны наиболее популярные статусы задач. Если подходящего статуса среди них нет, создайте новый:
+Чтобы создать новый статус:
 
 1. Убедитесь, что вы авторизованы в {{ tracker-full-name }} как [администратор](../role-model.md).
 
-1. На панели справа выберите ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue.cp }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.tracker-settings }}**.
-
-1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-issue-statuses }}**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue.cp }}** → **Статусы задач**.
 
 1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab.create--statuses }}**.
 
-1. Заполните поля и нажмите **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.
+1. Заполните поля:
+   * **Название** — укажите название статуса на русском.
+   * **Название на английском** — будет сформировано автоматически из названия на русском.
+   * **Ключ** — будет сгенерирован автоматически из названия на русском.
 
+1. Нажмите **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form__labels.submit }}**.
 
-## Добавить статус в воркфлоу {#section_dcl_jdv_vbb}
+Также создать новый статус можно на странице рабочих процессов. Новый статус будет сразу же добавлен в рабочий процесс текущей очереди, но использовать его можно будет и в других очередях.
 
-1. Выберите воркфлоу и нажмите кнопку ![](../../_assets/tracker/button-edit.png).
+1. Перейдите на страницу очереди.
 
-1. На панели **{{ ui-key.startrek.blocks-desktop_workflow-editor.sidebar-title }}** нажмите кнопку **{{ ui-key.startrek.blocks-desktop_workflow-editor.sidebar-add-status }}**.
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Здесь вы увидите список рабочих процессов в очереди. Выберите рабочий процесс, в который хотите добавить новый статус, и нажмите на его название. Откроется визуальный редактор рабочих процессов.
+
+1. На верхней панели визуального редактора процессов нажмите **Добавить статус**. Начните вводить название нового статуса и нажмите на кнопку создания.
 
 1. Заполните поля:
+   * **Название** — укажите название статуса на русском.
+   * **Название на английском** — будет сформировано автоматически из названия на русском.
+   * **Ключ** — будет сгенерирован автоматически из названия на русском.
 
-    Поле | Описание
-    ----- | -----
-    **Выберите новый статус** | Выберите один из доступных статусов.
-    **Статус до перехода** | Выберите из какого статуса будет осуществляться переход. Если таких статусов несколько, вы сможете [добавить их позже](workflow-action-edit.md#section_en2_fhb_wbb).
-    **{{ ui-key.startrek.blocks-desktop_workflow-editor.add-status-popup--name }}** | Название кнопки в интерфейсе {{ tracker-name }}, которая будет переводить задачу в этот статус. Это же название используется для обозначения перехода в редакторе.
-    **{{ ui-key.startrek.blocks-desktop_workflow-editor.add-status-popup--name-en }}** | Название кнопки в английском интерфейсе {{ tracker-name }}, которая будет переводить задачу в этот статус.
-    
+1. Выберите из списка подходящий для статуса тип.
+
+1. Нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_OrgAdminEntityForm.create }}**.
+
+## Добавить статус в рабочий процесс {#add-status}
+
+Чтобы добавить статус в рабочий процесс:
+
+1. Перейдите на страницу очереди.
+
+1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса. Откроется визуальный редактор рабочих процессов.
+
+1. На верхней панели визуального редактора процессов нажмите **Добавить статус**. Начните вводить название нового статуса и нажмите на кнопку создания.
+
+1. Из предложенного списка статусов выберите тот, который хотите добавить в процесс.
+
    
    По умолчанию в {{ tracker-name }} доступны наиболее популярные статусы. Если нужного вам статуса среди них нет, администратор может [создать его](#create-status).
 
-   
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.button--submit }}**.
 
-## Изменить статус в воркфлоу {#section_q4q_nfv_vbb}
+1. Настройте статус. Вы можете:
+   * сделать его [началом рабочего процесса](#initial-status);
+   * выбрать [тип статуса](#status-types);
+   * настроить [смену статуса при комментарии](#change-with-comment);
+   * настроить [переходы](#add-action).
 
-#### Сделать начальным статусом
+## Удалить статус из рабочего процесса {#remove-status}
 
-Начальный статус — статус, в котором находится только что созданная задача. Чтобы сделать статус начальным:
+При удалении статуса будут удалены все связанные с ним переходы. Если вы удаляете статус — начало рабочего процесса, на схеме возникнут ошибки, потому что рабочий процесс не может быть без начала.
 
-1. Выберите воркфлоу и нажмите кнопку ![](../../_assets/tracker/button-edit.png).
+Чтобы удалить статус из рабочего процесса:
 
-1. Наведите указатель на нужный статус.
+1. На странице очереди в верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Нажмите на появившийся значок ![](../../_assets/tracker/initial-ststus-icon.png).
+1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**. Откройте в редакторе рабочий процесс, из которого хотите удалить статус.
 
-#### Настроить действие при комментировании
-
-Вы можете настроить автоматическое изменение статуса задачи при комментировании:
-
-1. Выберите воркфлоу и нажмите кнопку ![](../../_assets/tracker/button-edit.png).
-
-1. Выберите статус на панели **{{ ui-key.startrek.blocks-desktop_workflow-editor.sidebar-title }}**.
-
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.tab-title--actions-on-comment }}**.
-
-1. В списке **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.select-action }}** выберите один из вариантов:
-
-    - <q>{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.make-no-transition }}</q> — новые комментарии не будут менять статус задачи.
-
-    - <q>{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.prev-status }}</q> — задача будет переведена в свой предыдущий статус.
-
-    - <q>{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.make-transition }}</q> — при добавлении комментария задача будет переведена в выбранный статус.
-
-1. При необходимости включите опции **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.revert-assignee }}** и **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.on-assignee-comment-only }}**.
-
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.button--submit }}**.
-
-#### Добавить переход
-
-Вы можете добавить переход между статусами, которые заданы для вашего воркфлоу:
-
-1. Выберите воркфлоу и нажмите кнопку ![](../../_assets/tracker/button-edit.png).
-
-1. Выберите исходный статус на панели **{{ ui-key.startrek.blocks-desktop_workflow-editor.sidebar-title }}**.
-
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.tab-title--create-action }}**.
-
-1. Настройте новый переход:
-
-    Поле | Описание
-    ---- | --------
-    **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_general.target-status--label }}** | Укажите статус, в который осуществляется переход.
-    **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_general.name-ru--label }}** | Название кнопки в интерфейсе {{ tracker-name }}, которая будет переводить задачу в этот статус. Это же название используется для обозначения перехода в редакторе.
-    **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_general.name-en--label }}** | Название кнопки в английском интерфейсе {{ tracker-name }}, которая будет переводить задачу в этот статус.
-
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.button--submit }}**.
-
-1. Если вы хотите добавить к переходу условия или автоматические действия, [отредактируйте переход](workflow-action-edit.md).
-
-## Удалить статус из воркфлоу {#section_mqt_5fv_vbb}
-
-{% note warning %}
-
-Нельзя удалить начальный статус или статус, из которого есть переходы.
-
-{% endnote %}
-
-Чтобы удалить статус из воркфлоу:
-
-1. Выберите воркфлоу и нажмите кнопку ![](../../_assets/tracker/button-edit.png).
-
-1. Наведите указатель на нужный статус.
-
-1. Нажмите на появившийся значок ![](../../_assets/tracker/remove-task-type.png).
-
-1. Подтвердите удаление.
+1. Нажмите на удаляемый статус и нажмите на клавиатуре **Delete** или перейдите в настройки статуса и нажмите ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-remove }}**.

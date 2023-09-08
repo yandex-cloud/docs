@@ -8,7 +8,7 @@
 
 Подключите ваши репозитории к {{ tracker-name }}, чтобы привязывать коммиты к задачам. Вы можете подключить любое количество репозиториев, размещенных в сервисах GitHub, GitLab и Bitbucket.
 
-Используйте инструкции в этом разделе для подключения репозиториев, которые размещены в облачных сервисах. Чтобы подключить к {{ tracker-name }} Git-репозиторий, размещенный на вашем собственном сервере, обратитесь в [техническую поддержку]({{ link-tracker-support}}).
+Вы также можете подключить к {{ tracker-name }} собственный сервер, связанный с сервисами GitHub, GitLab и Bitbucket. В таком случае к {{ tracker-name }} будут подключены все репозитории, к которым есть доступ у токена.
 
 ## GitHub {#section_mhj_yrk_m2b}
 
@@ -17,6 +17,8 @@
 {% list tabs %}
 
 - Публичный репозиторий
+
+    1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %} 
 
@@ -30,7 +32,7 @@
 
 - Закрытый репозиторий
 
-    1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
+    1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
@@ -41,7 +43,7 @@
         - Авторизуйтесь на GitHub. Если репозиторий прикреплен к GitHub-организации, убедитесь, что у вас есть права администратора.
 
         - Нажмите на свое фото в правом верхнем углу и выберите **Settings**.
-        - На панели слева выберите **Developer settings** → **Personal access token**.
+        - На панели слева выберите **Developer settings** → **Personal access token** → **Tokens (classic)**.
         - Нажмите кнопку **Generate new token**.
 
         - Придумайте название для токена.
@@ -83,7 +85,7 @@
 
 - Публичный репозиторий
 
-    1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
+    1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
@@ -103,7 +105,7 @@
 
     {% endnote %}
 
-    1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
+    1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
@@ -154,6 +156,8 @@
 
 Чтобы подключить репозиторий на [Bitbucket](https://bitbucket.org) к {{ tracker-name }}:
 
+1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
+
 1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
 1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите Bitbucket.
@@ -189,3 +193,21 @@
 - на странице очереди на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**.
 
 Если вы не видите вкладки **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
+
+## Собственный сервер {#server}
+
+Чтобы подключить к {{ tracker-name }} собственный сервер:
+
+1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
+
+1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
+
+1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите платформу, к которой подключен ваш сервер.
+
+1. В поле **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField.server-url-label }}** укажите адрес вашего сервера до любого доступного по токену репозитория.
+
+1. В поле **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog.token-label }}** укажите токен для подключения к вашему серверу.
+
+1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+
+1. Убедитесь, что статус репозиториев отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.

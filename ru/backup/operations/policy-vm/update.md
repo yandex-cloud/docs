@@ -1,8 +1,11 @@
+---
+title: "Изменить политику резервного копирования"
+description: "Из статьи вы узнаете, как изменить политику резервного копирования в **{{ backup-name }}**."
+---
+
 # Изменить политику резервного копирования
 
 ## Изменить основные параметры {#update-basic-parameters}
-
-Чтобы изменить основные параметры [политики резервного копирования](../../concepts/policy.md):
 
 {% list tabs %}
 
@@ -116,11 +119,13 @@
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/update.md).
 
+- API
+
+  Чтобы изменить основные параметры [политики резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update).
+
 {% endlist %}
 
 ## Изменить список виртуальных машин {#update-vm-list}
-
-Чтобы изменить список ВМ, копии которых создаются согласно политике резервного копирования:
 
 {% list tabs %}
 
@@ -188,6 +193,10 @@
         Где `--instance-ids` — идентификаторы ВМ, которые нужно отвязать от политики резервного копирования. Несколько идентификаторов указываются через запятую.
 
         Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
+
+- API
+
+  Чтобы изменить список виртуальных машин, копии которых создаются согласно [политике резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update).
 
 {% endlist %}
 

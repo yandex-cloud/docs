@@ -247,13 +247,16 @@ Method | Description
 [get](get.md) | Returns the specified Instance resource.
 [getSerialPortOutput](getSerialPortOutput.md) | Returns the serial port output of the specified Instance resource.
 [list](list.md) | Retrieves the list of Instance resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the instance.
 [listOperations](listOperations.md) | Lists operations for the specified instance.
 [move](move.md) | Moves the specified instance to another folder of the same cloud.
 [relocate](relocate.md) | Moves the specified instance to another availability zone
 [removeOneToOneNat](removeOneToOneNat.md) | Removes One-to-one NAT from the network interface.
 [restart](restart.md) | Restarts the running instance.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the instance.
 [start](start.md) | Starts the stopped instance.
 [stop](stop.md) | Stops the running instance.
 [update](update.md) | Updates the specified instance.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the instance.
 [updateMetadata](updateMetadata.md) | Updates the metadata of the specified instance.
 [updateNetworkInterface](updateNetworkInterface.md) | Updates the specified instance network interface.

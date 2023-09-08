@@ -3,7 +3,7 @@
 
 #### How do I create a user to access a cluster from {{ datalens-name }} with read-only permissions? {#datalens-readonly}
 
-Follow the [instructions](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. If the cluster settings have the **Access from {{ datalens-name }}** [option enabled](../../managed-clickhouse/operations/update.md#change-additional-settings), the service can [connect](../../managed-clickhouse/operations/datalens-connect.md#create-connector) to the cluster through this user.
+Follow the [guide](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. If the cluster settings have the **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** [option enabled](../../managed-clickhouse/operations/update.md#change-additional-settings), the service can [connect](../../managed-clickhouse/operations/datalens-connect.md#create-connector) to the cluster through this user.
 
 
 

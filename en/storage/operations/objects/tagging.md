@@ -30,6 +30,36 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
       * `Value`: Label value of the `string` type.
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and add a section called `tags` to the fragment describing the object:
+
+      ```hcl
+      resource "yandex_storage_object" "test-object" {
+        access_key       = "<static_key_ID>"
+        secret_key       = "<secret_key>"
+        bucket           = "<bucket_name>"
+        key              = "<object_name>"
+        source           = "<file_path>"
+        tags             = {
+          <key_of_label_1> = "<value_of_label_1>"
+          <key_of_label_2> = "<value_of_label_2>"
+        }
+      }
+      ```
+
+      Where `tags` is an array of object labels in `<key> = "<value>"` format.
+
+      For more information about the `yandex_storage_object` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   That will add the labels to the object. You can check the new labels and the object's configuration using the [AWS CLI or S3 API](#get-tag).
+
 - API
 
    To add or edit object labels, use the [putObjectTagging](../../s3/api-ref/object/putobjecttagging.md) S3 API method.
@@ -102,6 +132,33 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
    * `--bucket`: Bucket name.
    * `--key`: Bucket object [key](../../concepts/object.md#key).
    * `--endpoint-url`: {{ objstorage-name }} endpoint.
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and delete the `tags` section from the fragment describing the object.
+
+      {% cut "Sample object tag description in a {{ TF }} configuration" %}
+
+      ```hcl
+       resource "yandex_storage_object" "test-object" {
+         ...
+         tags             = {
+           <key_of_label_1> = "<value_of_label_1>"
+           <key_of_label_2> = "<value_of_label_2>"
+         }
+       }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   That will delete the object's labels. You can check the deletion of labels and the object's configuration using the [AWS CLI or S3 API](#get-tag).
 
 - API
 

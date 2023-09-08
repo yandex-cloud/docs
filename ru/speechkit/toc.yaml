@@ -31,6 +31,8 @@ items:
             href: stt/transcribation.md
       - name: Нормализация результатов распознавания
         href: stt/normalization.md
+      - name: Анализ результатов распознавания
+        href: stt/analysis.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
       - name: Определение конца фразы

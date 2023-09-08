@@ -174,7 +174,7 @@ source | **oneof:** `image_id`, `disk_id`, `snapshot_id` or `uri`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the source image to create the new image from. The maximum string length in characters is 50.
 &nbsp;&nbsp;disk_id | **string**<br>ID of the disk to create the image from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to create the image from. The maximum string length in characters is 50.
-&nbsp;&nbsp;uri | **string**<br>URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports Qcow2, VMDK, and VHD formats. 
+&nbsp;&nbsp;uri | **string**<br>URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports Qcow2, VMDK, and RAW formats. 
 os | **[Os](#Os3)**<br>Operating system that is contained in the image. <br>If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource. 
 pooled | **bool**<br>When true, an image pool will be created for fast creation disks from the image. 
 

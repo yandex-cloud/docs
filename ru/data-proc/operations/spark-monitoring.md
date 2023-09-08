@@ -18,17 +18,17 @@
 
 ## Проверить список приложений {#list}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **UI Proxy** перейдите в интерфейс **YARN Resource Manager Web UI**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
 
 Здесь представлена информация обо всех работающих и завершенных приложениях.
 
 ## Проверить логи приложения {#logs}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **UI Proxy** выберите интерфейс **YARN Resource Manager Web UI**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
 1. Найдите нужное приложение и нажмите на его идентификатор в столбце **ID**.
 
     Откроется окно с информацией о работе приложения и таблицей со списком попыток запуска приложения.
@@ -37,9 +37,9 @@
 
 ## Проверить очередь выполнения приложений {#queue}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **UI Proxy** выберите интерфейс **YARN Resource Manager Web UI**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
 1. В левом меню перейдите в раздел **Scheduler**.
 
 В разделе **Application Queues** графически представлена очередь выполнения приложений и занимаемые ими ресурсы.
@@ -50,9 +50,9 @@
 
 * YARN Resource Manager Web UI
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
-    1. В блоке **UI Proxy** выберите интерфейс **YARN Resource Manager Web UI**.
+    1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
     1. Найдите нужное приложение и перейдите по ссылке в столбце **Tracking UI**. Название ссылки зависит от статуса приложения:
 
         * **ApplicationMaster** — для запущенных приложений;
@@ -60,9 +60,9 @@
 
 * Spark History Server Web UI
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
-    1. В блоке **UI Proxy** выберите интерфейс **Spark History Server Web UI**.
+    1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 
         Откроется список завершенных приложений. Чтобы перейти к списку запущенных приложений, внизу таблицы нажмите **Show incomplete applications**.
 
@@ -85,9 +85,9 @@
 
 ## Проверить выделенные для приложения ресурсы {#resources}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **UI Proxy** выберите интерфейс **Spark History Server Web UI**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **Executors**.
 
 В интерфейсе представлено две таблицы:
@@ -111,9 +111,9 @@
 
 ## Проверить кешируемые таблицы {#tables}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **UI Proxy** выберите интерфейс **Spark History Server Web UI**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **Storage**.
 
 В интерфейсе представлен список кешируемых таблиц ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). Для каждой таблицы приведена информация об используемой оперативной памяти и занимаемом дисковом пространстве, а также прогресс кеширования.
@@ -122,9 +122,9 @@
 
 ## Проверить список и планы SQL-запросов {#sql}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **UI Proxy** выберите интерфейс **Spark History Server Web UI**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **SQL**.
 
 В таблице представлен список выполненных SQL-запросов с информацией о времени запуска и продолжительности их выполнения.

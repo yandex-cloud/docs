@@ -44,7 +44,7 @@
       Where:
 
       * `index`: Absolute path to the file of the website home page.
-      * `error`: Absolute path to the file to display to the user in the event of 4xx errors.
+      * `error`: Absolute path to the file displayed to the user upon a 4xx error.
 
    1. Run the following command:
 
@@ -124,8 +124,8 @@
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website home page. This parameter is required.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
+         * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
 
    1. Make sure the configuration files are valid.
 
@@ -148,7 +148,7 @@
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -255,8 +255,8 @@
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website home page. This parameter is required.
-         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. Optional parameter.
+         * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
          * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
@@ -279,7 +279,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -442,8 +442,8 @@
       * `bucket`: Bucket name.
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
-         * `index_document`: Absolute path to the file of the website home page. This parameter is required.
-         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. Optional parameter.
+         * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+         * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
@@ -466,7 +466,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

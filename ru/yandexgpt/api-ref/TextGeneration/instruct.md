@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/TextGeneration/instruct.md
 ---
 
 # YandexGPT API, REST: TextGeneration.instruct
-
+RPC method for instructing the model to generate text.
  
 
  
@@ -32,18 +32,18 @@ POST https://llm.{{ api-host }}/llm/v1alpha/instruct
   "requestText": "string"
 }
 ```
-Describe your query: set generation options, context in the instruction part and query in the request.
+Request for instructing the model to generate text.
  
 Field | Description
 --- | ---
-model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
-generationOptions | **object**<br>Generation options
-generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of the partially generated text.</p> 
-generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of the responses. It is a double number between 0 and infinity. A low temperature causes the responses to be straightforward, a high temperature causes high-level creativity and randomness.</p> 
-generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets response limit in tokens. The total length of [instruction_text], [request_text], and ``maxTokens`` should be equal or less than 7400 tokens.</p> 
-instructionText | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>Text of the instruction. The total length of <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">instructionText</a>, <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">requestText</a>, and [max_tokens] should be equal or less than 7400 tokens.</p> 
-instructionUri | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br>
-requestText | **string**<br><p>Text of the instruction. The total length of <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">instructionText</a>, <a href="/docs/yandexgpt/api-ref/TextGeneration/instruct#body_params">requestText</a>, and [max_tokens] should be equal or less than 7400 tokens.</p> 
+model | **string**<br><p>The name or identifier of the model to be used for text generation. Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
+generationOptions | **object**<br>Configuration options for text generation.
+generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of partially generated text.</p> 
+generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and infinity. Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness.</p> 
+generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets the maximum limit on the total number of tokens used for both the input prompt and the generated response. Must be greater than zero and not exceed 7400 tokens.</p> 
+instructionText | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>The text-based instruction for text generation.</p> 
+instructionUri | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>A URI containing instructions for text generation.</p> 
+requestText | **string**<br><p>The text-based request for text generation.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,12 +60,12 @@ requestText | **string**<br><p>Text of the instruction. The total length of <a h
   "numPromptTokens": "string"
 }
 ```
-Contains a set of alternative responses.
+Response containing generated text alternatives and token count.
  
 Field | Description
 --- | ---
-alternatives[] | **object**<br><p>Generated alternatives</p> 
-alternatives[].<br>text | **string**<br><p>Text of the response.</p> 
-alternatives[].<br>score | **number** (double)<br><p>Text log likelihood.</p> 
-alternatives[].<br>numTokens | **string** (int64)<br><p>Number of tokens in the response.</p> 
-numPromptTokens | **string** (int64)<br><p>Number of tokens for instruction text and request text</p> 
+alternatives[] | **object**<br><p>A list of alternative text responses.</p> 
+alternatives[].<br>text | **string**<br><p>The generated text response.</p> 
+alternatives[].<br>score | **number** (double)<br><p>The score or confidence of the generated text.</p> 
+alternatives[].<br>numTokens | **string** (int64)<br><p>The number of tokens in the generated response.</p> 
+numPromptTokens | **string** (int64)<br><p>The number of tokens used in the prompt, including both the [instruction_text] and [request_text].</p> 

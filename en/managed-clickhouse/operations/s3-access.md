@@ -30,22 +30,22 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located. If there is no bucket, [create](../../storage/operations/buckets/create.md) one and [populate](../../storage/operations/objects/upload.md) it with the necessary data.
+   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located. If there is no bucket, [create](../../storage/operations/buckets/create.md) one and [populate](../../storage/operations/objects/upload.md) it with the required data.
 
-   1. Select **{{ objstorage-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
    1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
 
       1. In the list of buckets or objects, select the required item and click ![image](../../_assets/options.svg).
-      1. Click **Bucket ACL** or **Object ACL**.
-      1. In the **Select user** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
-      1. Click **Add**.
-      1. Set the necessary permissions for the service account from the drop-down list.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** or **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
+      1. Click **{{ ui-key.yacloud.common.add }}**.
+      1. Set the required permissions for the service account from the drop-down list.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
       {% note info %}
 
-      If necessary, revoke access from one or more users by clicking **Revoke** in the appropriate line.
+      If necessary, revoke access from one or more users by clicking **{{ ui-key.yacloud.component.acl-dialog.button_remove-new }}** in the appropriate line.
 
       {% endnote %}
 

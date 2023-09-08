@@ -26,7 +26,7 @@ To build an image and create a VM from it:
 1. [Build the image](#create-image).
 1. [Create a VM from the image](#create-vm).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -35,8 +35,8 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of building a VM image and creating a VM from it includes:
-* A fee for storing built images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* A fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
+* Fee for storing built images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 
 ## Set up a working environment {#environment-prepare}
 
@@ -59,14 +59,41 @@ The cost of building a VM image and creating a VM from it includes:
 
       {% endnote %}
 
+1. Configure the [Yandex Compute Builder plugin](https://developer.hashicorp.com/packer/plugins/builders/yandex):
+
+   1. Create a `config.pkr.hcl` file with the following contents:
+
+      ```hcl
+      packer {
+        required_plugins {
+          yandex = {
+            version = ">= 1.1.2"
+            source  = "{{ packer-source-link }}"
+          }
+        }
+      }
+      ```
+
+   1. Install the plugin:
+
+      ```bash
+      packer init <config.pkr.hcl_file_path>
+      ```
+
+      Result:
+
+      ```text
+      Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
+      ```
+
 1. [Install](../../cli/quickstart.md#install) the {{ yandex-cloud }} CLI and [create](../../cli/quickstart.md#initialize) a profile.
-1. Get information about available subnets and availability zones. If you don't have any subnets, [create](../../vpc/operations/subnet-create.md) one.
+1. Get information about available subnets and availability zones. If you do not have any subnets, [create](../../vpc/operations/subnet-create.md) one.
 
    {% list tabs %}
 
    - CLI
 
-      * Run the following command:
+      * Run this command:
 
          ```bash
          yc vpc subnet list
@@ -78,13 +105,17 @@ The cost of building a VM image and creating a VM from it includes:
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
          |          ID          |         NAME         |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
-         | b0c29k6anelkik7jg5v1 | intro2-{{ region-id }}-c | enp45glgitd6e44dn1fj |                | {{ region-id }}-c | [10.130.0.0/24] |
-         | e2ltcj4urgpbsbaq9977 | intro2-{{ region-id }}-b | enp45glgitd6e44dn1fj |                | {{ region-id }}-b | [10.129.0.0/24] |
-         | e9bn57jvjnbujnmk3mba | intro2-{{ region-id }}-a | enp45glgitd6e44dn1fj |                | {{ region-id }}-a | [10.128.0.0/24] |
+         | b0c29k6anelk******** | intro2-{{ region-id }}-c | enp45glgitd6******** |                | {{ region-id }}-c | [10.130.0.0/24] |
+         | e2ltcj4urgpb******** | intro2-{{ region-id }}-b | enp45glgitd6******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+         | e9bn57jvjnbu******** | intro2-{{ region-id }}-a | enp45glgitd6******** |                | {{ region-id }}-a | [10.128.0.0/24] |
          +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
          ```
 
-      * Save the ID of the [subnet](../../vpc/concepts/network.md#subnet) (the `ID` column) that will host the auxiliary VM that you're creating an image on and the respective [availability zone](../../overview/concepts/geo-scope.md) (the `ZONE` column). You'll need these parameters in the next steps.
+      * Save the ID of the [subnet](../../vpc/concepts/network.md#subnet) (the `ID` column) to host the auxiliary VM used to create the image and the corresponding [availability zone](../../overview/concepts/geo-scope.md) (the `ZONE` column). You will need these parameters in the next steps.
+
+   - API
+
+      Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) gRPC API call.
 
    {% endlist %}
 
@@ -99,10 +130,10 @@ The cost of building a VM image and creating a VM from it includes:
 
    Where:
 
-   * `YC_FOLDER_ID`: ID of the folder that will host the auxiliary VM used for creating the image. This value is provided automatically.
-   * `YC_ZONE`: ID of the availability zone that will host the auxiliary VM used for creating the image. This is the value you previously obtained.
-   * `YC_SUBET_ID`: ID of the subnet that will host the auxiliary VM used for creating the image. This is the value you previously obtained.
-   * `YC_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md), which is required for creating VM images. The value is provided automatically.
+   * `YC_FOLDER_ID`: ID of the folder to host the auxiliary VM used for creating the image. Provided automatically.
+   * `YC_ZONE`: ID of the availability zone to host the auxiliary VM used for creating the image. Previously obtained.
+   * `YC_SUBET_ID`: ID of the subnet to host the auxiliary VM used for creating the image. Previously obtained.
+   * `YC_TOKEN`: [IAM token](../../iam/concepts/authorization/iam-token.md) required for creating VM images. Provided automatically.
 1. [Generate](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair. You will need them to create a VM and connect to it.
 
 ## Prepare the image configuration {#prepare-image-config}
@@ -117,52 +148,52 @@ The cost of building a VM image and creating a VM from it includes:
    # Provisioner docs:
    # https://www.packer.io/docs/builders/yandex
    #
-   
+
    variable "YC_FOLDER_ID" {
      type = string
      default = env("YC_FOLDER_ID")
    }
-   
+
    variable "YC_ZONE" {
      type = string
      default = env("YC_ZONE")
    }
-   
+
    variable "YC_SUBNET_ID" {
      type = string
      default = env("YC_SUBNET_ID")
    }
-   
+
    variable "TF_VER" {
      type = string
      default = "1.1.9"
    }
-   
+
    variable "KCTL_VER" {
      type = string
      default = "1.23.0"
    }
-   
+
    variable "HELM_VER" {
      type = string
      default = "3.9.0"
    }
-   
+
    variable "GRPCURL_VER" {
      type = string
      default = "1.8.6"
    }
-   
+
    variable "GOLANG_VER" {
      type = string
      default = "1.17.2"
    }
-   
+
    variable "PULUMI_VER" {
      type = string
      default = "3.33.2"
    }
-   
+
    source "yandex" "yc-toolbox" {
      folder_id           = "${var.YC_FOLDER_ID}"
      source_image_family = "ubuntu-2004-lts"
@@ -175,10 +206,10 @@ The cost of building a VM image and creating a VM from it includes:
      disk_type           = "network-hdd"
      zone                = "${var.YC_ZONE}"
    }
-   
+
    build {
      sources = ["source.yandex.yc-toolbox"]
-   
+
      provisioner "shell" {
        inline = [
          # Global Ubuntu things
@@ -283,7 +314,7 @@ The cost of building a VM image and creating a VM from it includes:
    cd <path_to_configuration_file_directory>
    ```
 
-1. Make sure the image configuration file is correct using the command:
+1. Make sure the image configuration file is correct using this command:
 
    ```bash
    packer validate yc-toolbox.pkr.hcl
@@ -291,7 +322,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    Where `yc-toolbox.pkr.hcl` is the configuration file name.
 
-   If the configuration is correct, the following message is returned:
+   If the configuration is correct, you will get this message:
 
    ```bash
    The configuration is valid.
@@ -309,7 +340,7 @@ The cost of building a VM image and creating a VM from it includes:
    ```bash
    ...
    ==> Builds finished. The artifacts of successful builds are:
-   --> yandex.yc-toolbox: A disk image was created: yc-toolbox (id: fd83j475posvi0ffmi5b) with family name infra-images
+   --> yandex.yc-toolbox: A disk image was created: yc-toolbox (id: fd83j475posv********) with family name infra-images
    ```
 
    Save the ID of the built image (the `id` parameter). Use this ID to create a VM later.
@@ -320,7 +351,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - CLI
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc compute image list
@@ -332,15 +363,19 @@ The cost of building a VM image and creating a VM from it includes:
       +----------------------+------------+-----------+----------------------+--------+
       |          ID          |    NAME    |  FAMILY   |     PRODUCT IDS      | STATUS |
       +----------------------+------------+-----------+----------------------+--------+
-      | fd83j475posvi0ffmi5b | yc-toolbox | my-images | f2ek1vhoppg2l2afslmq | READY  |
+      | fd83j475posv******** | yc-toolbox | my-images | f2ek1vhoppg2******** | READY  |
       +----------------------+------------+-----------+----------------------+--------+
       ```
+
+   - API
+
+      Use the [list](../../compute/api-ref/Image/list.md) REST API method for the [Image](../../compute/api-ref/Image/) resource or the [ImageService/List](../../compute/api-ref/grpc/image_service.md#List) gRPC API call.
 
    {% endlist %}
 
 ## Create a VM from the image {#create-vm}
 
-1. Specify the values of the variables used when creating your VM. To do this, run the command:
+1. Specify the values of the variables used when creating your VM. To do this, run the following command:
 
    ```bash
    export VM_NAME="<VM_name>"
@@ -351,10 +386,10 @@ The cost of building a VM image and creating a VM from it includes:
 
    Where:
 
-   * `VM_NAME` is the name of the new VM.
-   * `YC_IMAGE_ID` is the ID of the image used for VM creation. Obtained earlier.
-   * `YC_SUBNET_ID` is the ID of the subnet hosting the VM. Obtained earlier.
-   * `YC_ZONE` is the availability zone to place the VM in. Obtained earlier.
+   * `VM_NAME`: Name of the new VM.
+   * `YC_IMAGE_ID`: ID of the image used to create the VM. Previously obtained.
+   * `YC_SUBNET_ID`: ID of the subnet to host the VM. Previously obtained.
+   * `YC_ZONE`: Availability zone for the VM. Previously obtained.
 
 1. Create your VM from the built image.
 
@@ -362,7 +397,7 @@ The cost of building a VM image and creating a VM from it includes:
 
    - CLI
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc compute instance create \
@@ -381,13 +416,13 @@ The cost of building a VM image and creating a VM from it includes:
 
       * `name`: The name of the new VM.
       * `hostname`: The VM's host name.
-      * `zone`: availability zone.
-      * `create-boot-disk` are the boot disk parameters: `size` is the size and `image-id` is the ID of the image used.
-      * `cores`: The number of vCPUs.
-      * `memory`: The amount of RAM.
-      * `core-fraction`: The vCPU basic performance in %.
-      * `network-interface` are the network interface parameters: `subnet-id` is the subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for egress NAT.
-      * `ssh-key`: The public part of the SSH key.
+      * `zone`: Availability zone.
+      * `create-boot-disk` are the boot disk parameters: `size` is disk size and `image-id` is the ID of the image used.
+      * `cores`: Number of vCPUs.
+      * `memory`: Amount of RAM.
+      * `core-fraction`: vCPU basic performance in %.
+      * `network-interface` are the network interface parameters: `subnet-id` is subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for egress NAT.
+      * `ssh-key`: Public part of the SSH key.
 
       The command outputs information about the VM created. Save the VM's public IP address:
 
@@ -400,6 +435,10 @@ The cost of building a VM image and creating a VM from it includes:
 
       Learn more about [creating a VM from a custom image](../../compute/operations/vm-create/create-from-user-image.md).
 
+   - API
+
+      Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
+
    {% endlist %}
 
 1. Connect to the VM via SSH:
@@ -408,8 +447,8 @@ The cost of building a VM image and creating a VM from it includes:
    ssh -i <path_to_SSH_key_private_part> yc-user@<VM_public_IP_address>
    ```
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 * [deleting a VM](../../compute/operations/vm-control/vm-delete.md).
 * [delete the image](../../compute/operations/image-control/delete.md).

@@ -23,7 +23,7 @@ Analyzes a batch of images and returns results with annotations.
 
 Field | Description
 --- | ---
-analyze_specs[] | **[AnalyzeSpec](#AnalyzeSpec)**<br>A list of specifications. Each specification contains the file to analyze and features to use for analysis. <br>Restrictions: <ul><li>Supported file formats: JPEG, PNG. </li><li>Maximum file size: 1 MB. </li><li>Image size should not exceed 20M pixels (length x width).</li></ul> The number of elements must be in the range 1-8.
+analyze_specs[] | **[AnalyzeSpec](#AnalyzeSpec)**<br>A list of specifications. Each specification contains the file to analyze and features to use for analysis. <br>Restrictions: <ul><li>Supported file formats: `JPEG`, `PNG`. </li><li>Maximum file size: 1 MB. </li><li>Image size should not exceed 20M pixels (length x width).</li></ul> The number of elements must be in the range 1-8.
 folder_id | **string**<br>ID of the folder to which you have access. Required for authorization with a user account (see `yandex.cloud.iam.v1.UserAccount` resource). Don't specify this field if you make the request on behalf of a service account. The maximum string length in characters is 50.
 
 
@@ -59,8 +59,8 @@ model | **string**<br>Model to use for image classification. The maximum string 
 
 Field | Description
 --- | ---
-language_codes[] | **string**<br>List of the languages to recognize text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``). The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.
-model | **string**<br>Model to use for text detection. Possible values: <ul><li>page (default) - this model is suitable for detecting multiple text entries in an image. </li><li>line - this model is suitable for cropped images with one line of text.</li></ul> The maximum string length in characters is 50.
+language_codes[] | **string**<br>List of the languages to recognize text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.
+model | **string**<br>Model to use for text detection. Possible values: <ul><li>`page` (default): this model is suitable for detecting multiple text entries in an image. </li><li>`line`: this model is suitable for cropped images with one line of text.</li></ul> The maximum string length in characters is 50.
 
 
 ### BatchAnalyzeResponse {#BatchAnalyzeResponse}

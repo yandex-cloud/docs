@@ -85,14 +85,18 @@
       ```bash
       yc iam service-account create --name sa-terraform
       ```
+
       Где `name` — имя сервисного аккаунта.
+
       Результат:
+
       ```yaml
       id: ajehr0to1g8b********
       folder_id: b1gv87ssvu49********
       created_at: "2023-06-20T09:03:11.665153755Z"
       name: sa-terraform
       ```
+
    - API
 
       Чтобы создать сервисный аккаунт, воспользуйтесь методом [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
@@ -114,6 +118,7 @@
    - CLI
 
       Выполните команду:
+
       ```
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
          --role admin \
@@ -133,38 +138,51 @@
    - CLI
 
       1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его в файл:
+
          ```bash
          yc iam key create \
          --service-account-id <идентификатор_сервисного_аккаунта> \
          --folder-id <id_каталога_с_сервисным_аккаунтом> \
          --output key.json
          ```
+
          Где:
          * `service-account-id` — идентификатор сервисного аккаунта.
          * `folder-id` — идентификатор каталога, в котором создан сервисный аккаунт.
          * `output` — имя файла с авторизованным ключом.
+
          Результат:
+
          ```bash
          id: aje8nn871qo4********
          service_account_id: ajehr0to1g8b********
          created_at: "2023-06-20T09:16:43.479156798Z"
          key_algorithm: RSA_2048
          ```
+
       1. Создайте профиль CLI для выполнения операций от имени сервисного аккаунта:
          ```bash
          yc config profile create sa-terraform
          ```
+
          Результат:
+
          ```bash
          Profile 'sa-terraform' created and activated
          ```
+
       1. Задайте конфигурацию профиля:
+
          ```bash
          yc config set service-account-key key.json
          ```
+
          Где:
+
          `service-account-key` — файл с авторизованным ключом сервисного аккаунта.
+
       1. Добавьте аутентификационные данные в переменные окружения:
+
          ```bash
          export YC_TOKEN=$(yc iam create-token)
          ```
@@ -175,64 +193,83 @@
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Установите [Git](https://ru.wikipedia.org/wiki/Git) с помощью команды:
+
    ```bash
    sudo apt install git
    ```
+
 1. Клонируйте репозиторий `yandex-cloud/yc-architect-solution-library` из GitHub и перейдите в папку сценария:
+
     ```bash
     git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
     cd yc-architect-solution-library/yc-route-switcher-v2/examples
     ```
+
 1. Откройте файл `terraform.tfvars`, например, с помощью редактора `nano`:
+
     ```bash
     nano terraform.tfvars
     ```
+
 1. Отредактируйте:
 
-   1. Строку, содержащую идентификатор каталога:     
+   1. Строку, содержащую идентификатор каталога:   
+
       ```text
       folder_id = "<идентификатор_каталога>"
       ```
-   1. Строку, содержащую список разрешенных публичных IP-адресов для доступа к ВМ `test-vm`:      
+
+   1. Строку, содержащую список разрешенных публичных IP-адресов для доступа к ВМ `test-vm`:
+
       ```text
       trusted_ip_for_mgmt = ["<внешний_IP_рабочей_станции>/32"]
       ```
+
       Где:
       `<внешний_IP_рабочей_станции>` — публичный IP-адрес вашей рабочей станции. 
 
       Чтобы узнать внешний IP рабочей станции, выполните:
+
       ```bash
       curl 2ip.ru
       ```
 
       Результат:
+
       ```bash
       192.240.24.87
       ```
 
 ## Разверните ресурсы {#create-resources}
 
-1. Выполните инициализацию {{ TF }}:       
+1. Выполните инициализацию {{ TF }}: 
+
    ```bash
    terraform init
    ```
-1. Проверьте конфигурацию {{ TF }}-файлов:       
+
+1. Проверьте конфигурацию {{ TF }}-файлов:
+
    ```bash
    terraform validate
    ```
-1. Проверьте список создаваемых облачных ресурсов:       
+
+1. Проверьте список создаваемых облачных ресурсов:
+
    ```bash
    terraform plan
    ```
-1. Создайте ресурсы:       
+
+1. Создайте ресурсы:
+
    ```bash
    terraform apply 
    ```
+
 1. Дождитесь окончания развертывания ресурсов и сохраните итоговую выдачу команды: {#final-output}
 
    ```bash
    Outputs:
-
    nat-a_public_ip_address = "***.***.129.139"
    nat-b_public_ip_address = "***.***.105.234"
    path_for_private_ssh_key = "./pt_key.pem"
@@ -255,11 +292,14 @@
    {% endlist %}
 
 1. Откройте файл `route-switcher.tf`, например, с помощью редактора `nano`:
+
     ```bash
     nano route-switcher.tf
     ```
+
 1. Измените значение параметра `start_module` модуля `route-switcher` на `true`. 
 1. Запустите модуль, выполнив команду:
+
    ```bash
    terraform apply 
    ```
@@ -286,21 +326,27 @@
 
 1. Введите логин `admin` и пароль. 
    Чтобы узнать пароль, на рабочей станции в папке с terraform-сценарием выполните команду:
+
     ```bash
     terraform output test_vm_password
     ```
 
 1. Убедитесь, что доступ в интернет ВМ `test-vm` получает через публичный IP-адрес NAT-инстанса `nat-a`. Для этого в серийной консоли выполните команду:
+
    ```bash
    curl ifconfig.co
    ```
+
    Сравните IP-адрес со значением `nat-a_public_ip_address` из [итоговой выдачи](#final-output).
 
 1. Запустите исходящий трафик с помощью команды `ping` на тестовой ВМ к ресурсу в интернете:
+
    ```bash
    ping ya.ru
    ```
+
    Убедитесь, что пакеты возвращаются:
+
    ```bash
    PING ya.ru (77.88.55.242) 56(84) bytes of data.
    64 bytes from ya.ru (77.88.55.242): icmp_seq=1 ttl=56 time=4.67 ms
@@ -308,6 +354,7 @@
    64 bytes from ya.ru (77.88.55.242): icmp_seq=3 ttl=56 time=3.80 ms
    64 bytes from ya.ru (77.88.55.242): icmp_seq=4 ttl=56 time=3.78 ms
    ```
+
 1. Убедитесь, что значение `Next hop` в таблице маршрутизации для сети `demo` соответствует внутреннему IP-адресу ВМ `nat-a`.
 
 ### Тестирование отказоустойчивости системы {#fault-tolerance-test}
@@ -326,10 +373,13 @@
    - CLI
 
       1. Посмотрите описание команды CLI для остановки ВМ:
+
          ```bash
          yc compute instance stop --help
          ```
+
       1. Остановите ВМ:
+
          ```bash
          yc compute instance stop nat-a
          ```
@@ -343,9 +393,11 @@
 1. Наблюдайте за пропаданием пакетов, отправляемых `ping`. 
    После отключения основного NAT-инстанса может наблюдаться пропадание трафика в среднем в течение 1 минуты, после чего трафик должен восстановиться.
 1. Убедитесь, что доступ в интернет теперь осуществляется через публичный IP-адрес NAT-инстанса `nat-b`. Для этого в серийной консоли остановите `ping` и выполните команду:
+
    ```bash
    curl ifconfig.co
    ```
+
    Сравните IP-адрес со значением `nat-b_public_ip_address` из [итоговой выдачи](#final-output).
 1. Убедитесь, что route-switcher изменил значение `Next hop` в таблице маршрутизации для сети `demo`, и теперь оно соответствует внутреннему IP-адресу ВМ `nat-b`.
 1. Запустите исходящий трафик с помощью команды `ping` на тестовой ВМ.
@@ -363,10 +415,13 @@
    - CLI
 
       1. Посмотрите описание команды CLI для остановки ВМ:
+
          ```bash
          yc compute instance start --help
          ```
+
       1. Остановите ВМ:
+
          ```bash
          yc compute instance start nat-a
          ```
@@ -379,9 +434,11 @@
 
 1. Наблюдайте за выдачей утилиты `ping`. В процессе восстановления NAT-A может не наблюдаться потери отправляемых пакетов. 
 1. Убедитесь, что доступ в интернет опять осуществляется через публичный IP-адрес NAT-инстанса `nat-a`. Для этого в серийной консоли остановите `ping` и выполните команду:
+
    ```bash
    curl ifconfig.co
    ```
+
    Сравните IP-адрес со значением `nat-a_public_ip_address` из [итоговой выдачи](#final-output).
 1. Убедитесь, что route-switcher изменил значение `Next hop` в таблице маршрутизации для сети `demo`, и оно опять соответствует внутреннему IP-адресу ВМ `nat-a`.
 
@@ -392,6 +449,7 @@
   ```bash
   terraform destroy
   ```
+  
   {% note warning %}
 
   {{ TF }} удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщик и т.д.

@@ -1,11 +1,11 @@
 # Disk types in {{ mch-name }}
 
 
-{{ mch-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
+{{ mch-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
-If you enable the **Hybrid storage** setting when creating or updating a cluster, you will be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used (_hot_) data in cluster storage and rarely used (_cold_) data in less expensive and slower object storage. For details, see [{#T}](#hybrid-storage-features).
+If you enable the **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** setting when creating or updating a cluster, you will be able distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. For example, you can store frequently used (_hot_) data in cluster storage and rarely used (_cold_) data in less expensive and slower object storage. For more information, see [{#T}](#hybrid-storage-features).
 
 ## Hybrid storage {#hybrid-storage-features}
 
@@ -105,13 +105,13 @@ The number of hosts that can be created along with a {{ CH }} cluster depends on
 
 * With local SSD (`local-ssd`) storage, you can create a cluster with two or more hosts.
 
-   This cluster will be fault-tolerant.
+   Such a cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: it is charged even if not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. You can find more information in the [pricing policy](../pricing.md).
 
 * With non-replicated network SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 
-   This cluster will be fault-tolerant.
+   Such a cluster will be fault-tolerant.
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 

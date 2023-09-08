@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vision/classifier/classifier/api-ref/grpc/image_classifier_service.md
 ---
 
-# Vision API, gRPC: ImageClassifierService
+# Vision Classifier API, gRPC: ImageClassifierService
 
 
 

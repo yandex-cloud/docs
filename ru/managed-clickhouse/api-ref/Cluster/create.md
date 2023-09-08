@@ -47,13 +47,18 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
           "maxPartsInTotal": "integer",
           "maxNumberOfMergesWithTtlInPool": "integer",
           "cleanupDelayPeriod": "integer",
-          "numberOfFreeEntriesInPoolToExecuteMutation": "integer"
+          "numberOfFreeEntriesInPoolToExecuteMutation": "integer",
+          "maxAvgPartSizeForTooManyParts": "integer",
+          "minAgeToForceMergeSeconds": "integer",
+          "minAgeToForceMergeOnPartitionOnly": true,
+          "mergeSelectingSleepMs": "integer"
         },
         "compression": [
           {
             "method": "string",
             "minPartSize": "string",
-            "minPartSizeRatio": "number"
+            "minPartSizeRatio": "number",
+            "level": "integer"
           }
         ],
         "dictionaries": [
@@ -152,7 +157,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
               "host": "string",
               "port": "string",
               "user": "string",
-              "password": "string"
+              "password": "string",
+              "options": "string"
             },
             "postgresqlSource": {
               "db": "string",
@@ -189,7 +195,10 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
           "securityProtocol": "string",
           "saslMechanism": "string",
           "saslUsername": "string",
-          "saslPassword": "string"
+          "saslPassword": "string",
+          "enableSslCertificateVerification": true,
+          "maxPollIntervalMs": "integer",
+          "sessionTimeoutMs": "integer"
         },
         "kafkaTopics": [
           {
@@ -198,7 +207,10 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
               "securityProtocol": "string",
               "saslMechanism": "string",
               "saslUsername": "string",
-              "saslPassword": "string"
+              "saslPassword": "string",
+              "enableSslCertificateVerification": true,
+              "maxPollIntervalMs": "integer",
+              "sessionTimeoutMs": "integer"
             }
           }
         ],
@@ -244,7 +256,27 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "backgroundMessageBrokerSchedulePoolSize": "integer",
         "defaultDatabase": "string",
         "totalMemoryProfilerStep": "integer",
-        "totalMemoryTrackerSampleProbability": "number"
+        "totalMemoryTrackerSampleProbability": "number",
+        "backgroundCommonPoolSize": "integer",
+        "backgroundMergesMutationsConcurrencyRatio": "integer",
+        "queryViewsLogEnabled": true,
+        "queryViewsLogRetentionSize": "integer",
+        "queryViewsLogRetentionTime": "integer",
+        "asynchronousMetricLogEnabled": true,
+        "asynchronousMetricLogRetentionSize": "integer",
+        "asynchronousMetricLogRetentionTime": "integer",
+        "opentelemetrySpanLogRetentionSize": "integer",
+        "opentelemetrySpanLogRetentionTime": "integer",
+        "sessionLogEnabled": true,
+        "sessionLogRetentionSize": "integer",
+        "sessionLogRetentionTime": "integer",
+        "zookeeperLogEnabled": true,
+        "zookeeperLogRetentionSize": "integer",
+        "zookeeperLogRetentionTime": "integer",
+        "asynchronousInsertLogEnabled": true,
+        "asynchronousInsertLogRetentionSize": "integer",
+        "asynchronousInsertLogRetentionTime": "integer",
+        "geobaseEnabled": true
       },
       "resources": {
         "resourcePresetId": "string",
@@ -277,7 +309,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
       "enabled": true,
       "moveFactor": "number",
       "dataCacheEnabled": true,
-      "dataCacheMaxSize": "integer"
+      "dataCacheMaxSize": "integer",
+      "preferNotToMerge": true
     },
     "sqlDatabaseManagement": true,
     "sqlUserManagement": true,
@@ -427,6 +460,14 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "inputFormatImportNestedJson": true,
         "localFilesystemReadMethod": "string",
         "maxReadBufferSize": "integer",
+        "insertKeeperMaxRetries": "integer",
+        "maxTemporaryDataOnDiskSizeForUser": "integer",
+        "maxTemporaryDataOnDiskSizeForQuery": "integer",
+        "maxParserDepth": "integer",
+        "remoteFilesystemReadMethod": "string",
+        "memoryOvercommitRatioDenominator": "integer",
+        "memoryOvercommitRatioDenominatorForUser": "integer",
+        "memoryUsageOvercommitMaxWaitMicroseconds": "integer",
         "compile": true,
         "minCountToCompile": "integer"
       },
@@ -506,10 +547,15 @@ configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxPartsInTotal | **integ
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxNumberOfMergesWithTtlInPool | **integer** (int64)
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>cleanupDelayPeriod | **integer** (int64)
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>numberOfFreeEntriesInPoolToExecuteMutation | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxAvgPartSizeForTooManyParts | **integer** (int64)<br><p>The 'too many parts' check according to 'parts_to_delay_insert' and 'parts_to_throw_insert' will be active only if the average part size (in the relevant partition) is not larger than the specified threshold. If it is larger than the specified threshold, the INSERTs will be neither delayed or rejected. This allows to have hundreds of terabytes in a single table on a single server if the parts are successfully merged to larger parts. This does not affect the thresholds on inactive parts or total parts. Default: 1 GiB Min version: 22.10 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Storages/MergeTree/MergeTreeSettings.h#L80">ClickHouse GitHub</a></p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>minAgeToForceMergeSeconds | **integer** (int64)<br><p>Merge parts if every part in the range is older than the value of min_age_to_force_merge_seconds. Default: 0 - disabled Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>minAgeToForceMergeOnPartitionOnly | **boolean** (boolean)<br><p>Whether min_age_to_force_merge_seconds should be applied only on the entire partition and not on subset. Default: false Min_version: 22.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds">ClickHouse documentation</a></p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>mergeSelectingSleepMs | **integer** (int64)<br><p>Sleep time for merge selecting when no part is selected. A lower setting triggers selecting tasks in background_schedule_pool frequently, which results in a large number of requests to ClickHouse Keeper in large-scale clusters. Default: 5000 Min_version: 21.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#merge_selecting_sleep_ms">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>minPartSizeRatio | **number** (double)<br><p>Minimum ratio of a part relative to the size of all the data in the table.</p> 
+configSpec.<br>clickhouse.<br>config.<br>compression[].<br>level | **integer** (int64)<br><p>The minimum value is 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[] | **object**<br><p>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/query_language/dicts/external_dicts/">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>name | **string**<br><p>Required. Name of the external dictionary.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>structure | **object**<br>Required. Set of attributes for the external dictionary. For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/).
@@ -583,6 +629,7 @@ configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>mongodbSource.<br>ho
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>mongodbSource.<br>options | **string**
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>postgresqlSource | **object**<br>PostgreSQL source for the dictionary. <br>`configSpec.clickhouse.config.dictionaries[]` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>postgresqlSource.<br>db | **string**<br><p>Required. Name of the PostrgreSQL database.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[].<br>postgresqlSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 
@@ -605,6 +652,9 @@ configSpec.<br>clickhouse.<br>config.<br>kafka.<br>securityProtocol | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslMechanism | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslUsername | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslPassword | **string**
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>enableSslCertificateVerification | **boolean** (boolean)
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[] | **object**
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
@@ -612,6 +662,9 @@ configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>security
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslMechanism | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>enableSslCertificateVerification | **boolean** (boolean)
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>maxPollIntervalMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>sessionTimeoutMs | **integer** (int64)<br><p>The minimum value is 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>rabbitmq | **object**
 configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>username | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> username</p> 
 configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>password | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> password</p> 
@@ -654,6 +707,26 @@ configSpec.<br>clickhouse.<br>config.<br>backgroundMessageBrokerSchedulePoolSize
 configSpec.<br>clickhouse.<br>config.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>totalMemoryTrackerSampleProbability | **number** (double)
+configSpec.<br>clickhouse.<br>config.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 Min version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 Min_version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
+configSpec.<br>clickhouse.<br>config.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 20.11</p> 
+configSpec.<br>clickhouse.<br>config.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>Default: 0 Min version: 20.11</p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.11</p> 
+configSpec.<br>clickhouse.<br>config.<br>sessionLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
+configSpec.<br>clickhouse.<br>config.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 22.10</p> 
+configSpec.<br>clickhouse.<br>config.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>geobaseEnabled | **boolean** (boolean)
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -680,6 +753,7 @@ configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to
 configSpec.<br>cloudStorage.<br>moveFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>cloudStorage.<br>dataCacheEnabled | **boolean** (boolean)
 configSpec.<br>cloudStorage.<br>dataCacheMaxSize | **integer** (int64)
+configSpec.<br>cloudStorage.<br>preferNotToMerge | **boolean** (boolean)
 configSpec.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
 configSpec.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
 configSpec.<br>adminPassword | **string**<br><p>Password for user 'admin' that has SQL user management access.</p> 
@@ -818,6 +892,14 @@ userSpecs[].<br>settings.<br>inputFormatParallelParsing | **boolean** (boolean)<
 userSpecs[].<br>settings.<br>inputFormatImportNestedJson | **boolean** (boolean)<br><p>Enables or disables the insertion of JSON data with nested objects. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing">ClickHouse documentation</a></p> 
 userSpecs[].<br>settings.<br>localFilesystemReadMethod | **string**<br><p>Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.</p> 
 userSpecs[].<br>settings.<br>maxReadBufferSize | **integer** (int64)<br><p>The maximum size of the buffer to read from the filesystem. See in-depth description in <a href="https://clickhouse.com/codebrowser/ClickHouse/src/Core/Settings.h.html#DB::SettingsTraits::Data::max_read_buffer_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+userSpecs[].<br>settings.<br>insertKeeperMaxRetries | **integer** (int64)<br><p>The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree. Only Keeper requests which failed due to network error, Keeper session timeout, or request timeout are considered for retries. Default: 20 from 23.2, 0(disabled) before Min_version: 22.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#insert_keeper_max_retries">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>maxTemporaryDataOnDiskSizeForUser | **integer** (int64)<br><p>The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. Zero means unlimited. Default: 0 - unlimited Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>maxTemporaryDataOnDiskSizeForQuery | **integer** (int64)<br><p>The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. Zero means unlimited. Default: 0 - unlimited Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>maxParserDepth | **integer** (int64)<br><p>Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size. Default: 1000 Special: 0 - unlimited See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#max_parser_depth">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>remoteFilesystemReadMethod | **string**<br><p>Method of reading data from remote filesystem, one of: read, threadpool. Default: read Min_version: 21.11 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L660">ClickHouse GitHub</a></p> 
+userSpecs[].<br>settings.<br>memoryOvercommitRatioDenominator | **integer** (int64)<br><p>It represents soft memory limit in case when hard limit is reached on user level. This value is used to compute overcommit ratio for the query. Zero means skip the query. Default: 1GiB Min_version: 22.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>memoryOvercommitRatioDenominatorForUser | **integer** (int64)<br><p>It represents soft memory limit in case when hard limit is reached on global level. This value is used to compute overcommit ratio for the query. Zero means skip the query. Default: 1GiB Min_version: 22.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>settings.<br>memoryUsageOvercommitMaxWaitMicroseconds | **integer** (int64)<br><p>Maximum time thread will wait for memory to be freed in the case of memory overcommit on a user level. If the timeout is reached and memory is not freed, an exception is thrown. Default: 5000000 Min_version: 22.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
 userSpecs[].<br>settings.<br>compile | **boolean** (boolean)<br><p>The setting is deprecated and has no effect.</p> 
 userSpecs[].<br>settings.<br>minCountToCompile | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 userSpecs[].<br>quotas[] | **object**<br><p>Set of quotas assigned to the user.</p> 

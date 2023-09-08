@@ -14,4 +14,8 @@ The error occurs if the source and target hosts are within {{ yandex-cloud }} bu
 **Solution:**
 
 * Add a host to a cluster so that the hosts have a common availability zone.
-* Change the type of one of the endpoints to `On-premise`.
+* Set up routing through subnets in one availability zone:
+   * Check that the network of the endpoint from availability zone 2 has a subnet in availability zone 1. If not, [create one](../../../../vpc/operations/subnet-create.md).
+   * Change the type of the endpoint from availability zone 2 to `On-premise`.
+   * Specify the subnet from availability zone 1 for this endpoint.
+   * As a host, specify the internal IP address (without a port number) of the endpoint hosted in the subnet of availability zone 2.

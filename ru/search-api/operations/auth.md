@@ -18,7 +18,7 @@ API-ключи не имеют срока действия. Если ваш кл
      Authorization: Api-Key <API-ключ>
      ```
 
-   * Для [GET-запросов](../concepts/get-request.md) передавате значения идентификатора каталога и API-ключа в полях `foldeid` и `apikey` запроса:
+   * Для [GET-запросов](../concepts/get-request.md) передавате значения идентификатора каталога и API-ключа в полях `folderid` и `apikey` запроса:
    
      ```curl
      curl 'https://yandex.ru/search/xml?folderid=<идентификатор_каталога>&apikey=<значение_API-ключа>&query=<текст_поискового_запроса>'

@@ -30,7 +30,7 @@ To authenticate using a [SAML-compatible identity federation](../../organization
 
    {% include [include](success-auth-via-federation.md) %}
 
-1. Go back to the command-line interface to finish creating the profile.
+1. Go back to the command line interface to finish creating the profile.
 
 1. Select one of the [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) from the list of those you have access to:
 

@@ -21,7 +21,7 @@ To add a VM to a target group:
       
       1. (Optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-         For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+         For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
 
       1. Click **Add target resource**.
@@ -56,12 +56,12 @@ To add a VM to a target group:
       folder_id: aoerb349v3h4bupph...
       targets:
       ...
-      - ip_address: <VM_internal_IP_address>
-        subnet_id: fo2tgfikh3hergif2...
+        - ip_address: <VM_internal_IP_address>
+          subnet_id: fo2tgfikh3hergif2...
       created_at: "2021-02-11T11:16:27.770674538Z"
       ```
 
-      You can also add targets that reside outside {{ vpc-name }}, to a target group, e.g., those in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/). The IP addresses of targets must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
+      You can also add to a target group targets residing outside {{ vpc-name }}, e.g., those in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml). The IP addresses of targets must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
       Run the following command, specifying the target group name and private IPv4 address of the target as parameters:
 
@@ -122,7 +122,36 @@ To add a VM to a target group:
       * `name`: Target group name.
       * `target`: Target parameters:
          * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
-         * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
+         * `ip_address`: VM internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
+
+      You can also add to a target group targets residing outside {{ vpc-name }}, e.g., those in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml):
+
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name                   = "<target_group_name>"
+
+        target {
+          private_ipv4_address = true
+          ip_address           = "<private_IPv4_address_of_target_1>"
+        }
+
+        target {
+          private_ipv4_address = true
+          ip_address           = "<private_IPv4_address_of_target_2>"
+        }
+
+        target {
+          private_ipv4_address = true
+          ip_address           = "<private_IPv4_address_of_target_3>"
+        }
+      }
+      ```
+
+      Where `yandex_alb_target_group` specifies the target group parameters:
+      * `name`: Target group name.
+      * `target`: Target parameters:
+         * `private_ipv4_address`: Parameter indicating that the IP is outside {{ vpc-name }}.
+         * `ip_address`: Private IPv4 address of the target. The IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
       You can also add targets that reside outside {{ vpc-name }}, to a target group, e.g., those in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/):
 
@@ -214,7 +243,7 @@ To remove a VM from a target group:
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
 
-      To remove a target that resides outside {{ vpc-name }}, e.g., in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/), from your target group, run the following command, specifying the target group name and private IPv4 address of the target:
+      To remove from your target group a target residing outside {{ vpc-name }}, e.g., in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml), run the following command, specifying the target group name and private IPv4 address of the target:
 
       ```bash
       yc alb target-group remove-targets \

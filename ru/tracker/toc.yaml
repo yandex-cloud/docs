@@ -95,20 +95,22 @@ items:
         href: user/queue.md
       - name: Изменить основные параметры очереди
         href: manager/edit-queue-general.md
-      - name: Настроить типы и статусы задач
+      - name: Рабочие процессы в очереди
         items:
           - name: Обзор
             href: manager/workflow.md
-          - name: Настроить типы задач
+          - name: Типы задач
             href: manager/add-ticket-type.md
-          - name: Создать воркфлоу
-            href: manager/add-workflow.md
-          - name: Настроить статусы
-            href: manager/workflow-status-edit.md
-          - name: Настроить переходы
-            href: manager/workflow-action-edit.md
-          - name: Настроить резолюции
+          - name: Резолюции
             href: manager/create-resolution.md
+          - name: Статусы
+            href: manager/workflow-status-edit.md
+          - name: Переходы между статусами
+            href: manager/workflow-action-edit.md
+          - name: Управление рабочими процессами
+            href: manager/add-workflow.md
+          - name: Поддержка обратной совместимости
+            href: manager/backward-compatibility.md
       - name: Локальные поля задач
         href: local-fields.md
       - name: Добавить команду очереди

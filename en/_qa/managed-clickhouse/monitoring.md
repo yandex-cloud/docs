@@ -29,12 +29,12 @@ Follow the instructions in [{#T}](../../managed-clickhouse/operations/monitoring
 
 [Create an alert](../../managed-clickhouse/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mch-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Here are their recommended values:
+For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `Alarm`: 95% of disk space.
-* `Warning`: 80% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 95% of the disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space.
 
-The thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `102005473280` bytes (95%).
-* `Warning`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `102,005,473,280` bytes (95%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%).

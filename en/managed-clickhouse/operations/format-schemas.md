@@ -28,11 +28,11 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Data format schemas** tab.
-   1. Click **Add schema**.
-   1. In the **Add schema** dialog box, fill out the form by completing the **URL** field with the previously generated link to the format schema file.
-   1. Click **Add**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
+   1. In the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** dialog box, fill out the form by completing the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** field with the previously generated link to the format schema file.
+   1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.label_add }}**.
 
 - CLI
 
@@ -84,7 +84,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -119,9 +119,9 @@ To update the contents of a schema that is already connected to the cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Data format schemas** tab.
-   1. Select the schema, click ![image](../../_assets/options.svg), and select **Edit**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. Select the appropriate schema, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-edit-format-schema }}**.
 
 - CLI
 
@@ -162,7 +162,7 @@ To update the contents of a schema that is already connected to the cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -197,9 +197,9 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Data format schemas** tab.
-   1. Select the appropriate schema, click ![image](../../_assets/options.svg), and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. Select the appropriate schema, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-delete-format-schema }}**.
 
 - CLI
 
@@ -228,7 +228,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -251,8 +251,8 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need and select the **Data format schemas** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
 
 - CLI
 

@@ -8,20 +8,20 @@ You can enable sharding for a cluster as well as add and configure individual sh
 
 ## Adding a shard {#add-shard}
 
-The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mch-full-name }}**.
+The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click the cluster name and go to the **Shards** tab.
-   1. Click **Add shard**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
    1. Specify the shard parameters:
-      * Name and weight.
-      * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **Copy data schema** option.
-      * The required number of hosts.
-   1. Click **Create shard**.
+      * Name and weight
+      * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}** option.
+      * Required number of hosts
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI
 
@@ -81,7 +81,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -109,8 +109,8 @@ Use the copy data schema option only if the schema is the same on all cluster sh
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of a cluster and open the **Shards** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
 
 - CLI
 
@@ -140,9 +140,9 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of a cluster and open the **Shards** tab.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-edit }}**.
 
 - CLI
 
@@ -198,9 +198,9 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of a cluster and open the **Shards** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
 
 - CLI
 

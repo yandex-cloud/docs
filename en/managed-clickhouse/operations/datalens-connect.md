@@ -22,7 +22,7 @@ If {{ datalens-name }} is activated in a different folder, you can connect a clu
 
 ## Allowing access to a cluster from {{ datalens-name }} {#allow-access}
 
-To enable {{ datalens-name }} to connect to your cluster and work with its data, activate the **Access from {{ datalens-name }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
+To enable {{ datalens-name }} to connect to your cluster and work with its data, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
 
 ## Creating a connection to a cluster {#create-connector}
 
@@ -31,14 +31,14 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 - Management console
 
    1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and [allowed](#allow-access) to access the cluster.
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
-   1. Click **Create connection**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
-      {% cut "I have no "Create connection" button" %}
+      {% cut "I have no "{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}" button" %}
 
       
-      If instead of the **Create connection** button you see a "{{ datalens-name }} not activated" message, it means that you either didn't activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
+      If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
 
       {% endcut %}
@@ -55,7 +55,7 @@ Once the connection is created, you can:
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 
-For details, see an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
+See an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 
 ## Viewing a list of cluster connections {#connectors-list}
@@ -64,8 +64,8 @@ For details, see an [example of data visualization from {{ CH }}](../../tutorial
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 
       {% cut "My connection is not in the list" %}
 
@@ -81,8 +81,8 @@ For details, see an [example of data visualization from {{ CH }}](../../tutorial
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
    1. Select a connection from the list.
 
       {% cut "My connection is not in the list" %}
@@ -103,8 +103,8 @@ For details, see an [example of data visualization from {{ CH }}](../../tutorial
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
    1. Select a connection from the list.
 
       {% cut "My connection is not in the list" %}
@@ -131,7 +131,7 @@ For details, see an [example of data visualization from {{ CH }}](../../tutorial
    1. Select a user from the drop-down list.
    1. Enter this user's password.
 
-      Leave the values of the following settings unchanged: **HTTP interface port**, **HTTPS**, **Cache lifetime in seconds**, and **Raw SQL level**.
+      Leave the values of the following settings unchanged: **HTTP interface port**, **HTTPS**, **Cache TTL in seconds**, and **Raw SQL level**.
 
 {% endlist %}
 
@@ -141,4 +141,5 @@ If the cluster and {{ datalens-name }} are in different folders, use the setting
 
 {% endcut %}
 
-If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`. Otherwise, the connection will not work.
+If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`.
+ Otherwise, the connection will not work.

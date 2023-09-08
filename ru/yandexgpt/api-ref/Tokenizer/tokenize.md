@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/Tokenizer/tokenize.md
 ---
 
 # YandexGPT API, REST: Tokenizer.tokenize
-
+RPC method for tokenizing input text.
  
 
  
@@ -21,12 +21,12 @@ POST https://llm.{{ api-host }}/llm/v1alpha/tokenize
   "text": "string"
 }
 ```
-Tokenization request.
+Request to tokenize input text.
  
 Field | Description
 --- | ---
-model | **string**<br><p>Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
-text | **string**<br><p>Text for tokenization request.</p> 
+model | **string**<br><p>The name or identifier of the model to be used for tokenization. Possible values for now: ``general``, ``general:embedding``.</p> <p>The maximum string length in characters is 50.</p> 
+text | **string**<br><p>The input text to tokenize.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -46,7 +46,7 @@ Tokenization response.
  
 Field | Description
 --- | ---
-tokens[] | **object**<br><p>Sequence of tokens in tokenized text.</p> 
-tokens[].<br>id | **string** (int64)<br><p>Internal token ID.</p> 
-tokens[].<br>text | **string**<br><p>Token text representation.</p> 
-tokens[].<br>special | **boolean** (boolean)<br><p>Type of token (special or not special). Special tokens define the behaviour of the model and are not visible for users.</p> 
+tokens[] | **object**<br><p>A list of tokens obtained from tokenization.</p> 
+tokens[].<br>id | **string** (int64)<br><p>An internal token identifier.</p> 
+tokens[].<br>text | **string**<br><p>The textual representation of the token.</p> 
+tokens[].<br>special | **boolean** (boolean)<br><p>Indicates whether the token is special or not. Special tokens define the model's behavior and are not visible to users.</p> 

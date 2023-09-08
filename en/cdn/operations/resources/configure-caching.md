@@ -23,7 +23,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
          * Enable **CDN caching**.
          * Select the setting type: `Same as origin` or `Custom`.
          * Select the cache lifetime from the list.
-         * (optional) For the settings type `Custom`, set the cache lifetime for the desired HTTP response codes.
+         * (Optional) For the `Custom` setting type, set the cache lifetime for the required HTTP response codes.
 
       * Under **Browser**:
 
@@ -189,7 +189,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

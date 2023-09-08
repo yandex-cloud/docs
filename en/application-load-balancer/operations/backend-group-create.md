@@ -10,7 +10,7 @@ To create a [backend group](../concepts/backend-group.md):
    1. In the list of services, select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
    1. Click **Create backend group**.
-   1. Enter the backend group name: `test-backend-group`.
+   1. Enter a name for the backend group.
    1. Select the [backend group type](../concepts/backend-group.md#group-types):
 
       * `HTTP`: For HTTP or HTTPS traffic.
@@ -41,7 +41,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    {% note info %}
 
-   You can create a gRPC backend group in the [management console]({{ link-console-main }}) or using {{ TF }}.
+   You can create a `gRPC` backend group in the [management console]({{ link-console-main }}) or using {{ TF }}.
 
    {% endnote %}
 
@@ -52,7 +52,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    1. Create a backend group by running the command:
       ```
-      yc alb backend-group create <backend group name>
+      yc alb backend-group create <backend_group_name>
       ```
 
       Result:
@@ -64,29 +64,29 @@ To create a [backend group](../concepts/backend-group.md):
       created_at: "2021-02-11T20:46:21.688940670Z"
       ```
 
-   1. Add a backend and health check to the group. All backends within the group must have the same [type](../concepts/backend-group.md#group-types): HTTP or Stream.
+   1. Add a backend and health check to the group. All backends within the group must have the same [type](../concepts/backend-group.md#group-types): `HTTP`, `gRPC`, or `Stream`.
 
       {% cut "HTTP backend" %}
 
       Run this command:
 
-      ```
+      ```bash
       yc alb backend-group add-http-backend \
-        --backend-group-name <name of the backend group> \
-        --name <name of the backend to be added> \
-        --weight <backend weight> \
-        --port <backend port> \
-        --target-group-id=<target group ID> \
+        --backend-group-name <backend_group_name> \
+        --name <name_of_backend_to_be_added> \
+        --weight <backend_weight> \
+        --port <backend_port> \
+        --target-group-id=<target_group_ID> \
         --panic-threshold 90 \
-        --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
-      timeout=10s,interval=2s,host=your-host.com,path=/ping
+        --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+      timeout=10s,interval=2s,host=<host_address>,path=<path>
       ```
 
       Where:
 
-      * `--panic-threshold`: The threshold for panic mode.
+      * `--panic-threshold`: Threshold for panic mode.
       * `--http-healthcheck`: Parameters for checking the resource status:
-         * `port`: The port.
+         * `port`: Port.
          * `healthy-threshold`: Healthy threshold.
          * `unhealthy-threshold`: Unhealthy threshold.
          * `timeout`: Timeout.
@@ -96,20 +96,20 @@ To create a [backend group](../concepts/backend-group.md):
 
       Result:
 
-      ```
-      id: a5dqkr2mk3rr799f1npa
-      name: test-backend-group
-      folder_id: aoe197919j8elpeg1lkp
+      ```text
+      id: a5dqkr2mk3rr********
+      name: <backend_group_name>
+      folder_id: aoe197919j8e********
       http:
         backends:
-        - name: backend1
+        - name: <backend_name>
           backend_weight: "1"
           load_balancing_config:
             panic_threshold: "90"
           port: "80"
           target_groups:
             target_group_ids:
-            - a5d2iap3nue9s3anblu6
+            - a5d2iap3nue9********
           healthchecks:
           - timeout: 10s
             interval: 2s
@@ -117,9 +117,63 @@ To create a [backend group](../concepts/backend-group.md):
             unhealthy_threshold: "15"
             healthcheck_port: "80"
             http:
-              host: your-host.com
-              path: /ping
+              host: <host_address>
+              path: <path>
       created_at: "2021-02-11T20:46:21.688940670Z"
+      ```
+
+      {% endcut %}
+
+      {% cut "gRPC backend" %}
+
+      ```bash
+      yc alb backend-group add-grpc-backend \
+        --backend-group-name <backend_group_name> \
+        --name <name_of_backend_to_be_added> \
+        --weight <backend_weight> \
+        --port <backend_port> \
+        --target-group-id=<target_group_ID> \
+        --panic-threshold 90 \
+        --grpc-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+      timeout=10s,interval=2s,service-name=<gRPC_service_name>
+      ```
+
+      Where:
+
+      * `--panic-threshold`: Threshold for panic mode.
+      * `--grpc-healthcheck`: Parameters for checking the resource status:
+         * `port`: Port.
+         * `healthy-threshold`: Healthy threshold.
+         * `unhealthy-threshold`: Unhealthy threshold.
+         * `timeout`: Timeout.
+         * `interval`: Interval.
+         * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend's general health is checked.
+
+      Result:
+
+      ```text
+      id: a5dqkr2mk3rr********
+      name: <backend_group_name>
+      folder_id: aoe197919j8e********
+      grpc:
+        backends:
+          - name: <backend_name>
+            backend_weight: "12"
+            load_balancing_config:
+              panic_threshold: "90"
+            port: "80"
+            target_groups:
+              target_group_ids:
+                - a5d2iap3nue9********
+            healthchecks:
+              - timeout: 10s
+                interval: 2s
+                healthy_threshold: "10"
+                unhealthy_threshold: "15"
+                healthcheck_port: "80"
+                grpc:
+                  service_name: <gRPC_service_name>
+      created_at: "2023-06-17T13:04:08.567141292Z"
       ```
 
       {% endcut %}
@@ -128,53 +182,55 @@ To create a [backend group](../concepts/backend-group.md):
 
       Run this command:
 
-      ```
+      ```bash
       yc alb backend-group add-stream-backend \
-        --backend-group-name <name of the backend group> \
-        --name <name of the backend to be added> \
-        --weight <backend weight> \
-        --port <backend port> \
-        --target-group-id=<target group ID> \
+        --backend-group-name <backend_group_name> \
+        --name <name_of_backend_to_be_added> \
+        --weight <backend_weight> \
+        --port <backend_port> \
+        --target-group-id=<target_group_ID> \
         --panic-threshold 90 \
-        --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
-      timeout=10s,interval=2s,host=your-host.com,path=/ping
+        --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+      timeout=10s,interval=2s,send-text=<data_sent_to_endpoint>,receive-text=<data_received_from_endpoint>
       ```
 
       Where:
 
-      * `--panic-threshold`: The threshold for panic mode.
-      * `--http-healthcheck`: Parameters for checking the resource status:
-         * `port`: The port.
+      * `--panic-threshold`: Threshold for panic mode.
+      * `--stream-healthcheck`: Parameters for checking the resource status:
+         * `port`: Port.
          * `healthy-threshold`: Healthy threshold.
          * `unhealthy-threshold`: Unhealthy threshold.
          * `timeout`: Timeout.
          * `interval`: Interval.
-         * `host`: Host address.
-         * `path`: Path.
+         * `send-text`: Data to be sent to the endpoint for a health check.
+         * `receive-text`: Data to be received from the endpoint for it to pass the health check.
 
       Result:
 
-      ```
-      id: ds77tero4f5h46l4e2gl
-      name: test-backend-group
-      folder_id: b1gu6g9ielh690at5bm7
+      ```text
+      id: ds77tero4f5********
+      name: <backend_group_name>
+      folder_id: b1gu6g9ielh6********
       stream:
         backends:
-        - name: stream-backend
+        - name: <backend_name>
       backend_weight: "1"
           port: "80"
           target_groups:
             target_group_ids:
-            - ds7eof3r2cte9u069p97
+            - ds7eof3r2cte********
           healthchecks:
-          - timeout: 10s
-            interval: 2s
-            healthy_threshold: "10"
-            unhealthy_threshold: "15"
-            healthcheck_port: "80"
-            http:
-              host: your-host.com
-              path: /ping
+            - timeout: 10s
+              interval: 2s
+              healthy_threshold: "10"
+              unhealthy_threshold: "15"
+              healthcheck_port: "80"
+              stream:
+                send:
+                  text: <data_sent_to_endpoint>
+                receive:
+                  text: <data_received_from_endpoint>
       created_at: "2022-04-06T09:17:57.104324513Z"
       ```
 
@@ -226,9 +282,9 @@ To create a [backend group](../concepts/backend-group.md):
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
-      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: `HTTP`, `gRPC`, or `Stream`.
 
       Backend parameters:
       * `name`: Backend name.
@@ -242,7 +298,7 @@ To create a [backend group](../concepts/backend-group.md):
          * `interval`: Interval.
          * `healthy_threshold`: Healthy threshold.
          * `unhealthy_threshold`: Unhealthy threshold.
-         * `http_healthcheck`: Parameters for HTTP health checks:
+         * `http_healthcheck`: Parameters for `HTTP` health checks:
             * `path`: Path.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
@@ -250,7 +306,7 @@ To create a [backend group](../concepts/backend-group.md):
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb backend-group list

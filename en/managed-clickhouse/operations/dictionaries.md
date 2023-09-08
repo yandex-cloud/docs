@@ -18,8 +18,8 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Dictionaries** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
 
 - CLI
 
@@ -66,10 +66,10 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
    {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Dictionaries** tab.
-   1. In the upper-right corner, click **Add dictionary**.
-   1. Specify [dictionary settings](#settings-console) and click **Save**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+   1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
+   1. Specify [dictionary settings](#settings-console) and click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
 
 - CLI
 
@@ -139,9 +139,9 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Dictionaries** tab.
-   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+   1. Click ![image](../../_assets/options.svg) next to the dictionary you want to delete and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
 - CLI
 
@@ -191,7 +191,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
 
 ### Management console {#settings-console}
 
-* **Name**: Name of a new dictionary.
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}**: Name of a new dictionary.
 
 #### Source {#console-source}
 
@@ -199,54 +199,54 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
 
 - {{ CH }}
 
-   * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
-   * **Port**: Port for connecting to the source.
-   * **User**: Source database username.
-   * **Password**: Password to access the source database.
-   * **Database**: Name of source database.
-   * **Table**: Source table name.
-   * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
-   * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: Source host name. The host must be in the same network as the {{ CH }} cluster.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+   * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 - HTTP(s)
 
-   * **URL**: HTTP(s) source URL.
-   * **File format**: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}**: HTTP(s) source URL.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}**: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
 - {{ MG }}
 
-   * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
-   * **Port**: Port for connecting to the source.
-   * **User**: Source database username.
-   * **Password**: Password to access the source database.
-   * **Database**: Name of source database.
-   * **Collection**: Name of the collection for the source.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: Source host name. The host must be in the same network as the {{ CH }} cluster.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}**: Name of the collection for the source.
 
 - {{ MY }}
 
-   * **Replicas**: List of {{ MY }} replicas to use as the dictionary source.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}**: List of {{ MY }} replicas to use as the dictionary source.
       For replicas, you can set general connection settings or set up a port, username and password.
-   * **Port**: Port for connecting to the source.
-   * **User**: Source database username.
-   * **Password**: Password to access the source database.
-   * **Database**: Name of source database.
-   * **Table**: Source table name.
-   * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
-   * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+   * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 - {{ PG }}
 
-   * **Hosts**: Names of a {{ PG }} host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
-   * **Port**: Port for connecting to the source.
-   * **User**: Source database username.
-   * **Password**: Password to access the source database.
-   * **Database**: Name of source database.
-   * **Table**: Source table name.
-   * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}**: Names of a {{ PG }} host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
+   * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
-   * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_postgresql-ssl-mode }}**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
       For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 {% endlist %}
@@ -255,32 +255,32 @@ For more information about dictionary sources and their connection settings, see
 
 #### Layout {#console-method}
 
-* **Layout**: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-* **Numeric key**: Dictionary key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-* **Data columns**: List of columns with dictionary data:
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Dictionary layouts. The supported layouts are `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}**: Number of cache cells for the `cache` and `complex_key_cache` layouts. For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Key column name. The key column must be in UInt64 data type. It is used for `flat`, `hashed`, `cache`, and `range_hashed` layouts. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: List of columns with dictionary data:
 
-   * **Name**: Column name.
-   * **Type**: Column data type.
-   * (Optional) **Default value**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
-   * (Optional) **Expression**: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
-   * **Hierarchical**: Hierarchical support flag.
-   * **Injective**: Flag that shows whether the `id` -> `attribute` image is injective
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}**: Column name.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}**: Column data type.
+   * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
+   * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}**: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}**: Hierarchical support flag.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Flag that shows whether the `id` → `attribute` image is injective.
 
 For more information about the column settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
 #### Update rate {#console-rate}
 
-* **Lifetime**: Set how often the dictionary updates:
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-interval }}**: Set how often the dictionary updates:
 
-   * **Fixed**: Fixed period between dictionary updates:
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}**: Fixed period between dictionary updates:
 
-      * **Period duration**: Update interval for dictionary data in seconds.
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}**: Update interval for dictionary data in seconds.
 
-   * **Variable**: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers:
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}**: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers:
 
-      * **Minimum**: Minimum value of the interval between dictionary updates in seconds.
-      * **Maximum**: Maximum value of the interval between dictionary updates in seconds.
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}**: Minimum interval between dictionary updates in seconds.
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}**: Maximum interval between dictionary updates in seconds.
 
 For more information about dictionary updates, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 

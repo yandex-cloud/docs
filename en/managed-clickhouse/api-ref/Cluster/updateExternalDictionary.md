@@ -118,7 +118,8 @@ clusterId | <p>Required. ID of the ClickHouse cluster to update the external dic
       "host": "string",
       "port": "string",
       "user": "string",
-      "password": "string"
+      "password": "string",
+      "options": "string"
     },
     "postgresqlSource": {
       "db": "string",
@@ -213,6 +214,7 @@ externalDictionary.<br>mongodbSource.<br>host | **string**<br><p>Required. Mongo
 externalDictionary.<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 externalDictionary.<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 externalDictionary.<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
+externalDictionary.<br>mongodbSource.<br>options | **string**
 externalDictionary.<br>postgresqlSource | **object**<br>PostgreSQL source for the dictionary. <br>`externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br>
 externalDictionary.<br>postgresqlSource.<br>db | **string**<br><p>Required. Name of the PostrgreSQL database.</p> 
 externalDictionary.<br>postgresqlSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 

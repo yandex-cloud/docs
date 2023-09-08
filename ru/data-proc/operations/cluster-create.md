@@ -22,10 +22,10 @@
 
     * По одному правилу для входящего и исходящего служебного трафика:
 
-        * Диапазон портов — `{{ port-any }}`.
-        * Протокол — `Любой` (`Any`).
-        * Источник — `Группа безопасности`.
-        * Группа безопасности — `Текущая` (`Self`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**  — `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**— `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
     * Отдельное правило для исходящего HTTPS-трафика. Это позволит использовать [бакеты {{ objstorage-full-name }}](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md) и [автоматическое масштабирование](../concepts/autoscaling.md) кластеров.
 
@@ -35,17 +35,17 @@
 
         - На все адреса
 
-            * Диапазон портов — `{{ port-https }}`.
-            * Протокол — `TCP`.
-            * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
         - На адреса, используемые {{ yandex-cloud }}
 
-            * Диапазон портов — `{{ port-https }}`.
-            * Протокол — `TCP`.
-            * Назначение — `CIDR`.
-            * CIDR блоки:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
                 * `84.201.181.26/32` — получение статуса кластера, запуск заданий, UI Proxy.
                 * `158.160.59.216/32` — мониторинг состояния кластера, автомасштабирование.
                 * `213.180.193.243/32` — доступ к {{ objstorage-name }}.
@@ -77,9 +77,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
 
-  1. Нажмите кнопку **Создать ресурс** и выберите ![image](../../_assets/data-proc/data-proc.svg) **Кластер {{ dataproc-name }}** в выпадающем списке.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
 
-  1. Введите имя кластера в поле **Имя кластера**. Требования к имени:
+  1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Требования к имени:
 
      * Должно быть уникальным в рамках каталога
 
@@ -95,15 +95,15 @@
 
      {% endnote %}
 
-  1. Вставьте в поле **SSH-ключ** публичную часть вашего SSH-ключа. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
+  1. Вставьте в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** публичную часть вашего SSH-ключа. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
   1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру. Сервисному аккаунту кластера должна быть [назначена роль](../security/index.md#grant-role) `dataproc.agent`.
   1. Выберите зону доступности для кластера.
   1. При необходимости задайте [свойства компонентов кластера, заданий и среды окружения](../concepts/settings-list.md).
   1. При необходимости укажите пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите:
 
-      * **URI** — ссылка на скрипт инициализации в схеме `https://`, `http://`, `hdfs://` или `s3a://`.
-      * (Опционально) **Таймаут** —  таймаут (в секундах) выполнения скрипта. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
-      * (Опционально) **Аргументы** — заключенные в квадратные скобки `[]` и разделенные запятыми аргументы, с которыми должен быть выполнен скрипт инициализации, например:
+      * **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** — ссылка на скрипт инициализации в схеме `https://`, `http://`, `hdfs://` или `s3a://`.
+      * (Опционально) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-timeout }}** —  таймаут (в секундах) выполнения скрипта. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
+      * (Опционально) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** — заключенные в квадратные скобки `[]` и разделенные запятыми аргументы, с которыми должен быть выполнен скрипт инициализации, например:
 
           ```text
           ["arg1","arg2",...,"argN"]
@@ -119,7 +119,7 @@
 
       {% endnote %}
 
-  1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
+  1. Включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
 
   
   1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
@@ -140,7 +140,7 @@
 
           В подсети для подкластера с управляющим хостом нужно [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md). Подробнее см. в разделе [{#T}](#setup-network).
 
-      * Для доступа к хостам подкластера из интернета выберите опцию **Публичный доступ**. В этом случае подключаться к хостам подкластера можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
+      * Для доступа к хостам подкластера из интернета выберите опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. В этом случае подключаться к хостам подкластера можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
 
           {% note warning %}
 
@@ -152,20 +152,20 @@
 
      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
-     1. В блоке **Добавить подкластер** нажмите кнопку **Добавить**.
-     1. В поле **Роли** выберите `COMPUTENODE`.
-     1. В блоке **Масштабирование** включите настройку **Автоматическое масштабирование**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.label_create-subcluster }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure }}**.
+     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_roles }}** выберите `COMPUTENODE`.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_scaling }}** включите настройку **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
      1. Задайте параметры автоматического масштабирования.
-     1. По умолчанию в качестве метрики для автоматического масштабирования используется `yarn.cluster.containersPending`. Чтобы включить масштабирование на основе загрузки CPU, выключите настройку **Масштабирование по умолчанию** и укажите целевой уровень загрузки CPU.
-     1. Нажмите кнопку **Добавить**.
+     1. По умолчанию в качестве метрики для автоматического масштабирования используется `yarn.cluster.containersPending`. Чтобы включить масштабирование на основе загрузки CPU, выключите настройку **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** и укажите целевой уровень загрузки CPU.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
 
   1. При необходимости задайте дополнительные настройки кластера:
 
-      **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления пользователем.
+      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления пользователем.
 
       Включенная защита не помешает подключиться к кластеру вручную и удалить данные.
 
-  1. Нажмите кнопку **Создать кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 

@@ -189,6 +189,8 @@ items:
             href: tools/sftps.md
   - name: API reference
     items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
       - name: REST (Amazon S3-compatible)
         items:
           - name: How to use the API
@@ -365,8 +367,6 @@ items:
                 href: s3/api-ref/response-codes.md
       - name: gRPC and REST
         items:
-          - name: Authentication in the API
-            href: api-ref/authentication.md
           - name: gRPC
             items:
               - name: Overview

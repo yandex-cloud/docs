@@ -160,6 +160,14 @@ userName | <p>Required. Name of the user to be updated. To get the name of the u
     "inputFormatImportNestedJson": true,
     "localFilesystemReadMethod": "string",
     "maxReadBufferSize": "integer",
+    "insertKeeperMaxRetries": "integer",
+    "maxTemporaryDataOnDiskSizeForUser": "integer",
+    "maxTemporaryDataOnDiskSizeForQuery": "integer",
+    "maxParserDepth": "integer",
+    "remoteFilesystemReadMethod": "string",
+    "memoryOvercommitRatioDenominator": "integer",
+    "memoryOvercommitRatioDenominatorForUser": "integer",
+    "memoryUsageOvercommitMaxWaitMicroseconds": "integer",
     "compile": true,
     "minCountToCompile": "integer"
   },
@@ -310,6 +318,14 @@ settings.<br>inputFormatParallelParsing | **boolean** (boolean)<br><p>Enables or
 settings.<br>inputFormatImportNestedJson | **boolean** (boolean)<br><p>Enables or disables the insertion of JSON data with nested objects. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing">ClickHouse documentation</a></p> 
 settings.<br>localFilesystemReadMethod | **string**<br><p>Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.</p> 
 settings.<br>maxReadBufferSize | **integer** (int64)<br><p>The maximum size of the buffer to read from the filesystem. See in-depth description in <a href="https://clickhouse.com/codebrowser/ClickHouse/src/Core/Settings.h.html#DB::SettingsTraits::Data::max_read_buffer_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
+settings.<br>insertKeeperMaxRetries | **integer** (int64)<br><p>The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree. Only Keeper requests which failed due to network error, Keeper session timeout, or request timeout are considered for retries. Default: 20 from 23.2, 0(disabled) before Min_version: 22.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#insert_keeper_max_retries">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+settings.<br>maxTemporaryDataOnDiskSizeForUser | **integer** (int64)<br><p>The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. Zero means unlimited. Default: 0 - unlimited Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+settings.<br>maxTemporaryDataOnDiskSizeForQuery | **integer** (int64)<br><p>The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. Zero means unlimited. Default: 0 - unlimited Min_version: 22.10 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+settings.<br>maxParserDepth | **integer** (int64)<br><p>Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size. Default: 1000 Special: 0 - unlimited See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#max_parser_depth">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+settings.<br>remoteFilesystemReadMethod | **string**<br><p>Method of reading data from remote filesystem, one of: read, threadpool. Default: read Min_version: 21.11 See in-depth description in <a href="https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L660">ClickHouse GitHub</a></p> 
+settings.<br>memoryOvercommitRatioDenominator | **integer** (int64)<br><p>It represents soft memory limit in case when hard limit is reached on user level. This value is used to compute overcommit ratio for the query. Zero means skip the query. Default: 1GiB Min_version: 22.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+settings.<br>memoryOvercommitRatioDenominatorForUser | **integer** (int64)<br><p>It represents soft memory limit in case when hard limit is reached on global level. This value is used to compute overcommit ratio for the query. Zero means skip the query. Default: 1GiB Min_version: 22.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
+settings.<br>memoryUsageOvercommitMaxWaitMicroseconds | **integer** (int64)<br><p>Maximum time thread will wait for memory to be freed in the case of memory overcommit on a user level. If the timeout is reached and memory is not freed, an exception is thrown. Default: 5000000 Min_version: 22.5 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds">ClickHouse documentation</a></p> <p>The minimum value is 0.</p> 
 settings.<br>compile | **boolean** (boolean)<br><p>The setting is deprecated and has no effect.</p> 
 settings.<br>minCountToCompile | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 quotas[] | **object**<br><p>ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. See in-depth description <a href="https://clickhouse.com/docs/en/operations/quotas/">ClickHouse documentation</a>.</p> 

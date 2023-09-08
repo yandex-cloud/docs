@@ -8,8 +8,8 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Shard groups** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
 
 - CLI
 
@@ -40,8 +40,8 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Shard groups** tab.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
    1. Select a shard group to view detailed information.
 
 - CLI
@@ -74,10 +74,10 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Shard groups** tab.
-   1. Click **Create shard group**.
-   1. Fill in the form fields and click **Apply**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
+   1. Fill in the form fields and click **{{ ui-key.yacloud.common.apply }}**.
 
 - CLI
 
@@ -126,7 +126,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -150,9 +150,9 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Shard groups** tab.
-   1. Click ![image](../../_assets/options.svg) for the desired shard group and select **Edit**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
+   1. Click ![image](../../_assets/options.svg) for the required shard group and select **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI
 
@@ -205,7 +205,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -236,9 +236,9 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster and open the **Shard groups** tab.
-   1. Click ![image](../../_assets/options.svg) for the desired shard group and select **Delete**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
+   1. Click ![image](../../_assets/options.svg) for the required shard group and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

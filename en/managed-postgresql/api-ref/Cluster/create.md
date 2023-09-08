@@ -45,7 +45,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "dataLens": true,
       "webSql": true,
       "serverless": true,
-      "dataTransfer": true
+      "dataTransfer": true,
+      "yandexQuery": true
     },
     "performanceDiagnostics": {
       "enabled": true,
@@ -58,7 +59,7 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "diskSizeLimit": "string"
     },
 
-    // `configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`
+    // `configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`
     "postgresqlConfig_9_6": {
       "maxConnections": "integer",
       "sharedBuffers": "integer",
@@ -1776,6 +1777,13 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "pgQualstatsSampleRate": "number",
       "maxStackDepth": "integer",
       "enableGroupByReordering": true,
+      "geqo": true,
+      "geqoThreshold": "integer",
+      "geqoEffort": "integer",
+      "geqoPoolSize": "integer",
+      "geqoGenerations": "integer",
+      "geqoSelectionBias": "number",
+      "geqoSeed": "number",
       "pgTrgmSimilarityThreshold": "number",
       "pgTrgmWordSimilarityThreshold": "number",
       "pgTrgmStrictWordSimilarityThreshold": "number",
@@ -1932,6 +1940,336 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "pgQualstatsResolveOids": true,
       "pgQualstatsSampleRate": "number",
       "plantunerFixEmptyTable": true,
+      "maxStackDepth": "integer",
+      "enableGroupByReordering": true,
+      "geqo": true,
+      "geqoThreshold": "integer",
+      "geqoEffort": "integer",
+      "geqoPoolSize": "integer",
+      "geqoGenerations": "integer",
+      "geqoSelectionBias": "number",
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
+    },
+    "postgresqlConfig_16": {
+      "maxConnections": "integer",
+      "sharedBuffers": "integer",
+      "tempBuffers": "integer",
+      "maxPreparedTransactions": "integer",
+      "workMem": "integer",
+      "maintenanceWorkMem": "integer",
+      "autovacuumWorkMem": "integer",
+      "tempFileLimit": "integer",
+      "vacuumCostDelay": "integer",
+      "vacuumCostPageHit": "integer",
+      "vacuumCostPageMiss": "integer",
+      "vacuumCostPageDirty": "integer",
+      "vacuumCostLimit": "integer",
+      "bgwriterDelay": "integer",
+      "bgwriterLruMaxpages": "integer",
+      "bgwriterLruMultiplier": "number",
+      "bgwriterFlushAfter": "integer",
+      "backendFlushAfter": "integer",
+      "oldSnapshotThreshold": "integer",
+      "walLevel": "string",
+      "synchronousCommit": "string",
+      "checkpointTimeout": "integer",
+      "checkpointCompletionTarget": "number",
+      "checkpointFlushAfter": "integer",
+      "maxWalSize": "integer",
+      "minWalSize": "integer",
+      "maxStandbyStreamingDelay": "integer",
+      "defaultStatisticsTarget": "integer",
+      "constraintExclusion": "string",
+      "cursorTupleFraction": "number",
+      "fromCollapseLimit": "integer",
+      "joinCollapseLimit": "integer",
+      "debugParallelQuery": "string",
+      "clientMinMessages": "string",
+      "logMinMessages": "string",
+      "logMinErrorStatement": "string",
+      "logMinDurationStatement": "integer",
+      "logCheckpoints": true,
+      "logConnections": true,
+      "logDisconnections": true,
+      "logDuration": true,
+      "logErrorVerbosity": "string",
+      "logLockWaits": true,
+      "logStatement": "string",
+      "logTempFiles": "integer",
+      "searchPath": "string",
+      "rowSecurity": true,
+      "defaultTransactionIsolation": "string",
+      "statementTimeout": "integer",
+      "lockTimeout": "integer",
+      "idleInTransactionSessionTimeout": "integer",
+      "byteaOutput": "string",
+      "xmlbinary": "string",
+      "xmloption": "string",
+      "ginPendingListLimit": "integer",
+      "deadlockTimeout": "integer",
+      "maxLocksPerTransaction": "integer",
+      "maxPredLocksPerTransaction": "integer",
+      "arrayNulls": true,
+      "backslashQuote": "string",
+      "defaultWithOids": true,
+      "escapeStringWarning": true,
+      "loCompatPrivileges": true,
+      "quoteAllIdentifiers": true,
+      "standardConformingStrings": true,
+      "synchronizeSeqscans": true,
+      "transformNullEquals": true,
+      "exitOnError": true,
+      "seqPageCost": "number",
+      "randomPageCost": "number",
+      "autovacuumMaxWorkers": "integer",
+      "autovacuumVacuumCostDelay": "integer",
+      "autovacuumVacuumCostLimit": "integer",
+      "autovacuumNaptime": "integer",
+      "archiveTimeout": "integer",
+      "trackActivityQuerySize": "integer",
+      "enableBitmapscan": true,
+      "enableHashagg": true,
+      "enableHashjoin": true,
+      "enableIndexscan": true,
+      "enableIndexonlyscan": true,
+      "enableMaterial": true,
+      "enableMergejoin": true,
+      "enableNestloop": true,
+      "enableSeqscan": true,
+      "enableSort": true,
+      "enableTidscan": true,
+      "maxWorkerProcesses": "integer",
+      "maxParallelWorkers": "integer",
+      "maxParallelWorkersPerGather": "integer",
+      "autovacuumVacuumScaleFactor": "number",
+      "autovacuumAnalyzeScaleFactor": "number",
+      "defaultTransactionReadOnly": true,
+      "timezone": "string",
+      "enableParallelAppend": true,
+      "enableParallelHash": true,
+      "enablePartitionPruning": true,
+      "enablePartitionwiseAggregate": true,
+      "enablePartitionwiseJoin": true,
+      "jit": true,
+      "maxParallelMaintenanceWorkers": "integer",
+      "parallelLeaderParticipation": true,
+      "logTransactionSampleRate": "number",
+      "planCacheMode": "string",
+      "effectiveIoConcurrency": "integer",
+      "effectiveCacheSize": "integer",
+      "sharedPreloadLibraries": [
+        "string"
+      ],
+      "autoExplainLogMinDuration": "integer",
+      "autoExplainLogAnalyze": true,
+      "autoExplainLogBuffers": true,
+      "autoExplainLogTiming": true,
+      "autoExplainLogTriggers": true,
+      "autoExplainLogVerbose": true,
+      "autoExplainLogNestedStatements": true,
+      "autoExplainSampleRate": "number",
+      "pgHintPlanEnableHint": true,
+      "pgHintPlanEnableHintTable": true,
+      "pgHintPlanDebugPrint": "string",
+      "pgHintPlanMessageLevel": "string",
+      "hashMemMultiplier": "number",
+      "logicalDecodingWorkMem": "integer",
+      "maintenanceIoConcurrency": "integer",
+      "maxSlotWalKeepSize": "integer",
+      "walKeepSize": "integer",
+      "enableIncrementalSort": true,
+      "autovacuumVacuumInsertThreshold": "integer",
+      "autovacuumVacuumInsertScaleFactor": "number",
+      "logMinDurationSample": "integer",
+      "logStatementSampleRate": "number",
+      "logParameterMaxLength": "integer",
+      "logParameterMaxLengthOnError": "integer",
+      "clientConnectionCheckInterval": "integer",
+      "enableAsyncAppend": true,
+      "enableGathermerge": true,
+      "enableMemoize": true,
+      "logRecoveryConflictWaits": true,
+      "vacuumFailsafeAge": "integer",
+      "vacuumMultixactFailsafeAge": "integer",
+      "pgQualstatsEnabled": true,
+      "pgQualstatsTrackConstants": true,
+      "pgQualstatsMax": "integer",
+      "pgQualstatsResolveOids": true,
+      "pgQualstatsSampleRate": "number",
+      "maxStackDepth": "integer",
+      "enableGroupByReordering": true,
+      "geqo": true,
+      "geqoThreshold": "integer",
+      "geqoEffort": "integer",
+      "geqoPoolSize": "integer",
+      "geqoGenerations": "integer",
+      "geqoSelectionBias": "number",
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "integer",
+      "sessionDurationTimeout": "integer",
+      "logReplicationCommands": true,
+      "logAutovacuumMinDuration": "integer"
+    },
+    "postgresqlConfig_16_1C": {
+      "maxConnections": "integer",
+      "sharedBuffers": "integer",
+      "tempBuffers": "integer",
+      "maxPreparedTransactions": "integer",
+      "workMem": "integer",
+      "maintenanceWorkMem": "integer",
+      "autovacuumWorkMem": "integer",
+      "tempFileLimit": "integer",
+      "vacuumCostDelay": "integer",
+      "vacuumCostPageHit": "integer",
+      "vacuumCostPageMiss": "integer",
+      "vacuumCostPageDirty": "integer",
+      "vacuumCostLimit": "integer",
+      "bgwriterDelay": "integer",
+      "bgwriterLruMaxpages": "integer",
+      "bgwriterLruMultiplier": "number",
+      "bgwriterFlushAfter": "integer",
+      "backendFlushAfter": "integer",
+      "oldSnapshotThreshold": "integer",
+      "walLevel": "string",
+      "synchronousCommit": "string",
+      "checkpointTimeout": "integer",
+      "checkpointCompletionTarget": "number",
+      "checkpointFlushAfter": "integer",
+      "maxWalSize": "integer",
+      "minWalSize": "integer",
+      "maxStandbyStreamingDelay": "integer",
+      "defaultStatisticsTarget": "integer",
+      "constraintExclusion": "string",
+      "cursorTupleFraction": "number",
+      "fromCollapseLimit": "integer",
+      "joinCollapseLimit": "integer",
+      "debugParallelQuery": "string",
+      "clientMinMessages": "string",
+      "logMinMessages": "string",
+      "logMinErrorStatement": "string",
+      "logMinDurationStatement": "integer",
+      "logCheckpoints": true,
+      "logConnections": true,
+      "logDisconnections": true,
+      "logDuration": true,
+      "logErrorVerbosity": "string",
+      "logLockWaits": true,
+      "logStatement": "string",
+      "logTempFiles": "integer",
+      "searchPath": "string",
+      "rowSecurity": true,
+      "defaultTransactionIsolation": "string",
+      "statementTimeout": "integer",
+      "lockTimeout": "integer",
+      "idleInTransactionSessionTimeout": "integer",
+      "byteaOutput": "string",
+      "xmlbinary": "string",
+      "xmloption": "string",
+      "ginPendingListLimit": "integer",
+      "deadlockTimeout": "integer",
+      "maxLocksPerTransaction": "integer",
+      "maxPredLocksPerTransaction": "integer",
+      "arrayNulls": true,
+      "backslashQuote": "string",
+      "defaultWithOids": true,
+      "escapeStringWarning": true,
+      "loCompatPrivileges": true,
+      "quoteAllIdentifiers": true,
+      "standardConformingStrings": true,
+      "synchronizeSeqscans": true,
+      "transformNullEquals": true,
+      "exitOnError": true,
+      "seqPageCost": "number",
+      "randomPageCost": "number",
+      "autovacuumMaxWorkers": "integer",
+      "autovacuumVacuumCostDelay": "integer",
+      "autovacuumVacuumCostLimit": "integer",
+      "autovacuumNaptime": "integer",
+      "archiveTimeout": "integer",
+      "trackActivityQuerySize": "integer",
+      "onlineAnalyzeEnable": true,
+      "enableBitmapscan": true,
+      "enableHashagg": true,
+      "enableHashjoin": true,
+      "enableIndexscan": true,
+      "enableIndexonlyscan": true,
+      "enableMaterial": true,
+      "enableMergejoin": true,
+      "enableNestloop": true,
+      "enableSeqscan": true,
+      "enableSort": true,
+      "enableTidscan": true,
+      "maxWorkerProcesses": "integer",
+      "maxParallelWorkers": "integer",
+      "maxParallelWorkersPerGather": "integer",
+      "autovacuumVacuumScaleFactor": "number",
+      "autovacuumAnalyzeScaleFactor": "number",
+      "defaultTransactionReadOnly": true,
+      "timezone": "string",
+      "enableParallelAppend": true,
+      "enableParallelHash": true,
+      "enablePartitionPruning": true,
+      "enablePartitionwiseAggregate": true,
+      "enablePartitionwiseJoin": true,
+      "jit": true,
+      "maxParallelMaintenanceWorkers": "integer",
+      "parallelLeaderParticipation": true,
+      "logTransactionSampleRate": "number",
+      "planCacheMode": "string",
+      "effectiveIoConcurrency": "integer",
+      "effectiveCacheSize": "integer",
+      "sharedPreloadLibraries": [
+        "string"
+      ],
+      "autoExplainLogMinDuration": "integer",
+      "autoExplainLogAnalyze": true,
+      "autoExplainLogBuffers": true,
+      "autoExplainLogTiming": true,
+      "autoExplainLogTriggers": true,
+      "autoExplainLogVerbose": true,
+      "autoExplainLogNestedStatements": true,
+      "autoExplainSampleRate": "number",
+      "pgHintPlanEnableHint": true,
+      "pgHintPlanEnableHintTable": true,
+      "pgHintPlanDebugPrint": "string",
+      "pgHintPlanMessageLevel": "string",
+      "hashMemMultiplier": "number",
+      "logicalDecodingWorkMem": "integer",
+      "maintenanceIoConcurrency": "integer",
+      "maxSlotWalKeepSize": "integer",
+      "walKeepSize": "integer",
+      "enableIncrementalSort": true,
+      "autovacuumVacuumInsertThreshold": "integer",
+      "autovacuumVacuumInsertScaleFactor": "number",
+      "logMinDurationSample": "integer",
+      "logStatementSampleRate": "number",
+      "logParameterMaxLength": "integer",
+      "logParameterMaxLengthOnError": "integer",
+      "clientConnectionCheckInterval": "integer",
+      "enableAsyncAppend": true,
+      "enableGathermerge": true,
+      "enableMemoize": true,
+      "logRecoveryConflictWaits": true,
+      "vacuumFailsafeAge": "integer",
+      "vacuumMultixactFailsafeAge": "integer",
+      "pgQualstatsEnabled": true,
+      "pgQualstatsTrackConstants": true,
+      "pgQualstatsMax": "integer",
+      "pgQualstatsResolveOids": true,
+      "pgQualstatsSampleRate": "number",
+      "plantunerFixEmptyTable": true,
+      "maxStackDepth": "integer",
+      "enableGroupByReordering": true,
       "geqo": true,
       "geqoThreshold": "integer",
       "geqoEffort": "integer",
@@ -2006,7 +2344,7 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "priority": "integer",
       "configSpec": {
 
-        // `hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`
+        // `hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`
         "postgresqlConfig_9_6": {
           "recoveryMinApplyDelay": "integer",
           "sharedBuffers": "integer",
@@ -2890,6 +3228,142 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
           "effectiveIoConcurrency": "integer",
           "effectiveCacheSize": "integer"
         },
+        "postgresqlConfig_16": {
+          "recoveryMinApplyDelay": "integer",
+          "sharedBuffers": "integer",
+          "tempBuffers": "integer",
+          "workMem": "integer",
+          "tempFileLimit": "integer",
+          "backendFlushAfter": "integer",
+          "oldSnapshotThreshold": "integer",
+          "maxStandbyStreamingDelay": "integer",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "integer",
+          "joinCollapseLimit": "integer",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "integer",
+          "logCheckpoints": true,
+          "logConnections": true,
+          "logDisconnections": true,
+          "logDuration": true,
+          "logErrorVerbosity": "string",
+          "logLockWaits": true,
+          "logStatement": "string",
+          "logTempFiles": "integer",
+          "searchPath": "string",
+          "rowSecurity": true,
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "integer",
+          "lockTimeout": "integer",
+          "idleInTransactionSessionTimeout": "integer",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "integer",
+          "deadlockTimeout": "integer",
+          "maxLocksPerTransaction": "integer",
+          "maxPredLocksPerTransaction": "integer",
+          "arrayNulls": true,
+          "backslashQuote": "string",
+          "defaultWithOids": true,
+          "escapeStringWarning": true,
+          "loCompatPrivileges": true,
+          "quoteAllIdentifiers": true,
+          "standardConformingStrings": true,
+          "synchronizeSeqscans": true,
+          "transformNullEquals": true,
+          "exitOnError": true,
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "enableBitmapscan": true,
+          "enableHashagg": true,
+          "enableHashjoin": true,
+          "enableIndexscan": true,
+          "enableIndexonlyscan": true,
+          "enableMaterial": true,
+          "enableMergejoin": true,
+          "enableNestloop": true,
+          "enableSeqscan": true,
+          "enableSort": true,
+          "enableTidscan": true,
+          "maxParallelWorkers": "integer",
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string",
+          "effectiveIoConcurrency": "integer",
+          "effectiveCacheSize": "integer"
+        },
+        "postgresqlConfig_16_1C": {
+          "recoveryMinApplyDelay": "integer",
+          "sharedBuffers": "integer",
+          "tempBuffers": "integer",
+          "workMem": "integer",
+          "tempFileLimit": "integer",
+          "backendFlushAfter": "integer",
+          "oldSnapshotThreshold": "integer",
+          "maxStandbyStreamingDelay": "integer",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "integer",
+          "joinCollapseLimit": "integer",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "integer",
+          "logCheckpoints": true,
+          "logConnections": true,
+          "logDisconnections": true,
+          "logDuration": true,
+          "logErrorVerbosity": "string",
+          "logLockWaits": true,
+          "logStatement": "string",
+          "logTempFiles": "integer",
+          "searchPath": "string",
+          "rowSecurity": true,
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "integer",
+          "lockTimeout": "integer",
+          "idleInTransactionSessionTimeout": "integer",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "integer",
+          "deadlockTimeout": "integer",
+          "maxLocksPerTransaction": "integer",
+          "maxPredLocksPerTransaction": "integer",
+          "arrayNulls": true,
+          "backslashQuote": "string",
+          "defaultWithOids": true,
+          "escapeStringWarning": true,
+          "loCompatPrivileges": true,
+          "quoteAllIdentifiers": true,
+          "standardConformingStrings": true,
+          "synchronizeSeqscans": true,
+          "transformNullEquals": true,
+          "exitOnError": true,
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "enableBitmapscan": true,
+          "enableHashagg": true,
+          "enableHashjoin": true,
+          "enableIndexscan": true,
+          "enableIndexonlyscan": true,
+          "enableMaterial": true,
+          "enableMergejoin": true,
+          "enableNestloop": true,
+          "enableSeqscan": true,
+          "enableSort": true,
+          "enableTidscan": true,
+          "maxParallelWorkers": "integer",
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string",
+          "effectiveIoConcurrency": "integer",
+          "effectiveCacheSize": "integer"
+        },
         // end of the list of possible fields`hostSpecs[].configSpec`
 
       }
@@ -2935,6 +3409,7 @@ configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access fo
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the management console.</p> <p>See <a href="/docs/managed-postgresql/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless</p> 
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
+configSpec.<br>access.<br>yandexQuery | **boolean** (boolean)<br><p>Allow access for YandexQuery.</p> 
 configSpec.<br>performanceDiagnostics | **object**<br>Configuration of the performance diagnostics service.
 configSpec.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Configuration setting which enables/disables performance diagnostics service in cluster.</p> 
 configSpec.<br>performanceDiagnostics.<br>sessionsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for pg_stat_activity sampling</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
@@ -2943,7 +3418,7 @@ configSpec.<br>diskSizeAutoscaling | **object**<br>Disk size autoscaling
 configSpec.<br>diskSizeAutoscaling.<br>plannedUsageThreshold | **string** (int64)<br><p>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 configSpec.<br>diskSizeAutoscaling.<br>emergencyUsageThreshold | **string** (int64)<br><p>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 configSpec.<br>diskSizeAutoscaling.<br>diskSizeLimit | **string** (int64)<br><p>Limit on how large the storage for database instances can automatically grow, in bytes.</p> 
-configSpec.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a PostgreSQL 9.6 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a PostgreSQL 9.6 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_9_6.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)
@@ -3025,7 +3500,7 @@ configSpec.<br>postgresqlConfig_9_6.<br>archiveTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>trackActivityQuerySize | **integer** (int64)<br><p>Acceptable values are 100 to 102400, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-configSpec.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a PostgreSQL 10 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a PostgreSQL 10 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_10_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_10_1C.<br>tempBuffers | **integer** (int64)
@@ -3156,7 +3631,7 @@ configSpec.<br>postgresqlConfig_10_1C.<br>maxStandbyArchiveDelay | **integer** (
 configSpec.<br>postgresqlConfig_10_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10_1C.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_10_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_10 | **object**<br>Configuration for a PostgreSQL 10 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_10 | **object**<br>Configuration for a PostgreSQL 10 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_10.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)
@@ -3285,7 +3760,7 @@ configSpec.<br>postgresqlConfig_10.<br>maxStandbyArchiveDelay | **integer** (int
 configSpec.<br>postgresqlConfig_10.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_10.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_10.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a PostgreSQL 11 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a PostgreSQL 11 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_11.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_11.<br>tempBuffers | **integer** (int64)
@@ -3425,7 +3900,7 @@ configSpec.<br>postgresqlConfig_11.<br>maxStandbyArchiveDelay | **integer** (int
 configSpec.<br>postgresqlConfig_11.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_11.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a PostgreSQL 11 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_11_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_11_1C.<br>tempBuffers | **integer** (int64)
@@ -3567,7 +4042,7 @@ configSpec.<br>postgresqlConfig_11_1C.<br>maxStandbyArchiveDelay | **integer** (
 configSpec.<br>postgresqlConfig_11_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_11_1C.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_11_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a PostgreSQL 12 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a PostgreSQL 12 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_12.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_12.<br>tempBuffers | **integer** (int64)
@@ -3709,7 +4184,7 @@ configSpec.<br>postgresqlConfig_12.<br>maxStandbyArchiveDelay | **integer** (int
 configSpec.<br>postgresqlConfig_12.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_12.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a PostgreSQL 12 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_12_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_12_1C.<br>tempBuffers | **integer** (int64)
@@ -3853,7 +4328,7 @@ configSpec.<br>postgresqlConfig_12_1C.<br>maxStandbyArchiveDelay | **integer** (
 configSpec.<br>postgresqlConfig_12_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_12_1C.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_12_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a PostgreSQL 13 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a PostgreSQL 13 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_13.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_13.<br>tempBuffers | **integer** (int64)
@@ -4007,7 +4482,7 @@ configSpec.<br>postgresqlConfig_13.<br>maxStandbyArchiveDelay | **integer** (int
 configSpec.<br>postgresqlConfig_13.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_13.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a PostgreSQL 13 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_13_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_13_1C.<br>tempBuffers | **integer** (int64)
@@ -4162,7 +4637,7 @@ configSpec.<br>postgresqlConfig_13_1C.<br>maxStandbyArchiveDelay | **integer** (
 configSpec.<br>postgresqlConfig_13_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_13_1C.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_13_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a PostgreSQL 14 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a PostgreSQL 14 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_14.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_14.<br>tempBuffers | **integer** (int64)
@@ -4321,7 +4796,7 @@ configSpec.<br>postgresqlConfig_14.<br>maxStandbyArchiveDelay | **integer** (int
 configSpec.<br>postgresqlConfig_14.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_14.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a PostgreSQL 14 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_14_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_14_1C.<br>tempBuffers | **integer** (int64)
@@ -4481,7 +4956,7 @@ configSpec.<br>postgresqlConfig_14_1C.<br>maxStandbyArchiveDelay | **integer** (
 configSpec.<br>postgresqlConfig_14_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_14_1C.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_14_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a PostgreSQL 15 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a PostgreSQL 15 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_15.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_15.<br>tempBuffers | **integer** (int64)
@@ -4627,6 +5102,13 @@ configSpec.<br>postgresqlConfig_15.<br>pgQualstatsResolveOids | **boolean** (boo
 configSpec.<br>postgresqlConfig_15.<br>pgQualstatsSampleRate | **number** (double)
 configSpec.<br>postgresqlConfig_15.<br>maxStackDepth | **integer** (int64)<br><p>Acceptable values are 65536 to 134217728, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>enableGroupByReordering | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15.<br>geqo | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15.<br>geqoThreshold | **integer** (int64)<br><p>Acceptable values are 2 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>geqoEffort | **integer** (int64)<br><p>Acceptable values are 1 to 10, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>geqoPoolSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_15.<br>geqoGenerations | **integer** (int64)
+configSpec.<br>postgresqlConfig_15.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
@@ -4634,7 +5116,7 @@ configSpec.<br>postgresqlConfig_15.<br>maxStandbyArchiveDelay | **integer** (int
 configSpec.<br>postgresqlConfig_15.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_15.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
-configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a PostgreSQL 15 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a PostgreSQL 15 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 configSpec.<br>postgresqlConfig_15_1C.<br>maxConnections | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>sharedBuffers | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>tempBuffers | **integer** (int64)
@@ -4780,6 +5262,8 @@ configSpec.<br>postgresqlConfig_15_1C.<br>pgQualstatsMax | **integer** (int64)
 configSpec.<br>postgresqlConfig_15_1C.<br>pgQualstatsResolveOids | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_15_1C.<br>pgQualstatsSampleRate | **number** (double)
 configSpec.<br>postgresqlConfig_15_1C.<br>plantunerFixEmptyTable | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_15_1C.<br>maxStackDepth | **integer** (int64)<br><p>Acceptable values are 65536 to 134217728, inclusive.</p> 
+configSpec.<br>postgresqlConfig_15_1C.<br>enableGroupByReordering | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_15_1C.<br>geqo | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_15_1C.<br>geqoThreshold | **integer** (int64)<br><p>Acceptable values are 2 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>geqoEffort | **integer** (int64)<br><p>Acceptable values are 1 to 10, inclusive.</p> 
@@ -4794,6 +5278,328 @@ configSpec.<br>postgresqlConfig_15_1C.<br>maxStandbyArchiveDelay | **integer** (
 configSpec.<br>postgresqlConfig_15_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 configSpec.<br>postgresqlConfig_15_1C.<br>logReplicationCommands | **boolean** (boolean)
 configSpec.<br>postgresqlConfig_15_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16 | **object**<br>Configuration for a PostgreSQL 16 cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
+configSpec.<br>postgresqlConfig_16.<br>maxConnections | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>sharedBuffers | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>tempBuffers | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>maxPreparedTransactions | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>workMem | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>maintenanceWorkMem | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>autovacuumWorkMem | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>tempFileLimit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>vacuumCostDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>vacuumCostPageHit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>vacuumCostPageMiss | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>vacuumCostPageDirty | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>vacuumCostLimit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>bgwriterLruMaxpages | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>bgwriterLruMultiplier | **number** (double)
+configSpec.<br>postgresqlConfig_16.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>walLevel | **string**
+configSpec.<br>postgresqlConfig_16.<br>synchronousCommit | **string**
+configSpec.<br>postgresqlConfig_16.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>checkpointCompletionTarget | **number** (double)
+configSpec.<br>postgresqlConfig_16.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>maxWalSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>minWalSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>maxStandbyStreamingDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>defaultStatisticsTarget | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>constraintExclusion | **string**
+configSpec.<br>postgresqlConfig_16.<br>cursorTupleFraction | **number** (double)
+configSpec.<br>postgresqlConfig_16.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>debugParallelQuery | **string**
+configSpec.<br>postgresqlConfig_16.<br>clientMinMessages | **string**
+configSpec.<br>postgresqlConfig_16.<br>logMinMessages | **string**
+configSpec.<br>postgresqlConfig_16.<br>logMinErrorStatement | **string**
+configSpec.<br>postgresqlConfig_16.<br>logMinDurationStatement | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>logCheckpoints | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logConnections | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logDisconnections | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logDuration | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logErrorVerbosity | **string**
+configSpec.<br>postgresqlConfig_16.<br>logLockWaits | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logStatement | **string**
+configSpec.<br>postgresqlConfig_16.<br>logTempFiles | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>searchPath | **string**
+configSpec.<br>postgresqlConfig_16.<br>rowSecurity | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>defaultTransactionIsolation | **string**
+configSpec.<br>postgresqlConfig_16.<br>statementTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>lockTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>idleInTransactionSessionTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>byteaOutput | **string**
+configSpec.<br>postgresqlConfig_16.<br>xmlbinary | **string**
+configSpec.<br>postgresqlConfig_16.<br>xmloption | **string**
+configSpec.<br>postgresqlConfig_16.<br>ginPendingListLimit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>deadlockTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>maxLocksPerTransaction | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>maxPredLocksPerTransaction | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>arrayNulls | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>backslashQuote | **string**
+configSpec.<br>postgresqlConfig_16.<br>defaultWithOids | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>escapeStringWarning | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>loCompatPrivileges | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>quoteAllIdentifiers | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>standardConformingStrings | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>synchronizeSeqscans | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>transformNullEquals | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>exitOnError | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>seqPageCost | **number** (double)
+configSpec.<br>postgresqlConfig_16.<br>randomPageCost | **number** (double)
+configSpec.<br>postgresqlConfig_16.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Acceptable values are 1 to 32, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Acceptable values are -1 to 100, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Acceptable values are -1 to 10000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autovacuumNaptime | **integer** (int64)<br><p>Acceptable values are 1000 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>archiveTimeout | **integer** (int64)<br><p>Acceptable values are 10000 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>trackActivityQuerySize | **integer** (int64)<br><p>Acceptable values are 100 to 102400, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>enableBitmapscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableHashagg | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableHashjoin | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableIndexscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableIndexonlyscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableMaterial | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableMergejoin | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableNestloop | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableSeqscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableSort | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableTidscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>defaultTransactionReadOnly | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>timezone | **string**
+configSpec.<br>postgresqlConfig_16.<br>enableParallelAppend | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableParallelHash | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enablePartitionPruning | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enablePartitionwiseAggregate | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enablePartitionwiseJoin | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>jit | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>postgresqlConfig_16.<br>parallelLeaderParticipation | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logTransactionSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>planCacheMode | **string**
+configSpec.<br>postgresqlConfig_16.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>sharedPreloadLibraries[] | **string**
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogAnalyze | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogBuffers | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogTiming | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogTriggers | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogVerbose | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autoExplainLogNestedStatements | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autoExplainSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>pgHintPlanEnableHint | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>pgHintPlanEnableHintTable | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>pgHintPlanDebugPrint | **string**
+configSpec.<br>postgresqlConfig_16.<br>pgHintPlanMessageLevel | **string**
+configSpec.<br>postgresqlConfig_16.<br>hashMemMultiplier | **number** (double)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>logicalDecodingWorkMem | **integer** (int64)<br><p>Acceptable values are 65536 to 1099511627776, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>maintenanceIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>Acceptable values are -1 to 2251799812636672, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>walKeepSize | **integer** (int64)<br><p>Acceptable values are -1 to 2251799812636672, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>enableIncrementalSort | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>autovacuumVacuumInsertThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>autovacuumVacuumInsertScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>logMinDurationSample | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>logStatementSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>logParameterMaxLength | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>logParameterMaxLengthOnError | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>clientConnectionCheckInterval | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>enableAsyncAppend | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableGathermerge | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>enableMemoize | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logRecoveryConflictWaits | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>vacuumFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>vacuumMultixactFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>pgQualstatsEnabled | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>pgQualstatsTrackConstants | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>pgQualstatsMax | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>pgQualstatsResolveOids | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>pgQualstatsSampleRate | **number** (double)
+configSpec.<br>postgresqlConfig_16.<br>maxStackDepth | **integer** (int64)<br><p>Acceptable values are 65536 to 134217728, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>enableGroupByReordering | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>geqo | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>geqoThreshold | **integer** (int64)<br><p>Acceptable values are 2 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>geqoEffort | **integer** (int64)<br><p>Acceptable values are 1 to 10, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>geqoPoolSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>geqoGenerations | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_16.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C | **object**<br>Configuration for a PostgreSQL 16 1C cluster. <br>`configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
+configSpec.<br>postgresqlConfig_16_1C.<br>maxConnections | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>sharedBuffers | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>tempBuffers | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxPreparedTransactions | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>workMem | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>maintenanceWorkMem | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumWorkMem | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>tempFileLimit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumCostDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumCostPageHit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumCostPageMiss | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumCostPageDirty | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumCostLimit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Acceptable values are 10 to 10000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterLruMaxpages | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterLruMultiplier | **number** (double)
+configSpec.<br>postgresqlConfig_16_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>walLevel | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>synchronousCommit | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Acceptable values are 30000 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>checkpointCompletionTarget | **number** (double)
+configSpec.<br>postgresqlConfig_16_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>maxWalSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>minWalSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>defaultStatisticsTarget | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>constraintExclusion | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>cursorTupleFraction | **number** (double)
+configSpec.<br>postgresqlConfig_16_1C.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>debugParallelQuery | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>clientMinMessages | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>logMinMessages | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>logMinErrorStatement | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>logMinDurationStatement | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>logCheckpoints | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logConnections | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logDisconnections | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logDuration | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logErrorVerbosity | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>logLockWaits | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logStatement | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>logTempFiles | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>searchPath | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>rowSecurity | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>defaultTransactionIsolation | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>statementTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>lockTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>byteaOutput | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>xmlbinary | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>xmloption | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>ginPendingListLimit | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>deadlockTimeout | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxLocksPerTransaction | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxPredLocksPerTransaction | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>arrayNulls | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>backslashQuote | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>defaultWithOids | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>escapeStringWarning | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>loCompatPrivileges | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>quoteAllIdentifiers | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>standardConformingStrings | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>synchronizeSeqscans | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>transformNullEquals | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>exitOnError | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>seqPageCost | **number** (double)
+configSpec.<br>postgresqlConfig_16_1C.<br>randomPageCost | **number** (double)
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Acceptable values are 1 to 32, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Acceptable values are -1 to 100, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Acceptable values are -1 to 10000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumNaptime | **integer** (int64)<br><p>Acceptable values are 1000 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>archiveTimeout | **integer** (int64)<br><p>Acceptable values are 10000 to 86400000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>trackActivityQuerySize | **integer** (int64)<br><p>Acceptable values are 100 to 102400, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>onlineAnalyzeEnable | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableBitmapscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableHashagg | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableHashjoin | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableIndexscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableIndexonlyscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableMaterial | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableMergejoin | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableNestloop | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableSeqscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableSort | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableTidscan | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>defaultTransactionReadOnly | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>timezone | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>enableParallelAppend | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableParallelHash | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enablePartitionPruning | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enablePartitionwiseAggregate | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enablePartitionwiseJoin | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>jit | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>The minimum value is 0.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>parallelLeaderParticipation | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logTransactionSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>planCacheMode | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>sharedPreloadLibraries[] | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogAnalyze | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogBuffers | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogTiming | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogTriggers | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogVerbose | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainLogNestedStatements | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autoExplainSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>pgHintPlanEnableHint | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>pgHintPlanEnableHintTable | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>pgHintPlanDebugPrint | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>pgHintPlanMessageLevel | **string**
+configSpec.<br>postgresqlConfig_16_1C.<br>hashMemMultiplier | **number** (double)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>logicalDecodingWorkMem | **integer** (int64)<br><p>Acceptable values are 65536 to 1099511627776, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>maintenanceIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>Acceptable values are -1 to 2251799812636672, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>walKeepSize | **integer** (int64)<br><p>Acceptable values are -1 to 2251799812636672, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>enableIncrementalSort | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumVacuumInsertThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>autovacuumVacuumInsertScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>logMinDurationSample | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>logStatementSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>logParameterMaxLength | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>logParameterMaxLengthOnError | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>clientConnectionCheckInterval | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>enableAsyncAppend | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableGathermerge | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>enableMemoize | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logRecoveryConflictWaits | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>vacuumMultixactFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>pgQualstatsEnabled | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>pgQualstatsTrackConstants | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>pgQualstatsMax | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>pgQualstatsResolveOids | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>pgQualstatsSampleRate | **number** (double)
+configSpec.<br>postgresqlConfig_16_1C.<br>plantunerFixEmptyTable | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>maxStackDepth | **integer** (int64)<br><p>Acceptable values are 65536 to 134217728, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>enableGroupByReordering | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>geqo | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>geqoThreshold | **integer** (int64)<br><p>Acceptable values are 2 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>geqoEffort | **integer** (int64)<br><p>Acceptable values are 1 to 10, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>geqoPoolSize | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>geqoGenerations | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>geqoSelectionBias | **number** (double)<br><p>Acceptable values are 1.5 to 2, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>geqoSeed | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>pgTrgmSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>pgTrgmWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>pgTrgmStrictWordSimilarityThreshold | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>maxStandbyArchiveDelay | **integer** (int64)
+configSpec.<br>postgresqlConfig_16_1C.<br>sessionDurationTimeout | **integer** (int64)<br><p>Acceptable values are 0 to 2147483647, inclusive.</p> 
+configSpec.<br>postgresqlConfig_16_1C.<br>logReplicationCommands | **boolean** (boolean)
+configSpec.<br>postgresqlConfig_16_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 databaseSpecs[] | **object**<br><p>Required. Descriptions of databases to be created in the PostgreSQL cluster.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Required. Name of the PostgreSQL database. 1-63 characters long.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 databaseSpecs[].<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
@@ -4833,7 +5639,7 @@ hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host sh
 hostSpecs[].<br>replicationSource | **string**<br><p>``name`` of the host to be used as the replication source (for cascading replication).</p> 
 hostSpecs[].<br>priority | **integer** (int64)<br><p>Priority of the host as a replica. A higher value corresponds to higher priority.</p> <p>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed.</p> <p>When a replica becomes the master, its priority is ignored.</p> 
 hostSpecs[].<br>configSpec | **object**<br><p>Configuration of a PostgreSQL server for the host.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a host with PostgreSQL 9.6 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a host with PostgreSQL 9.6 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)
@@ -4889,7 +5695,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>randomPageCost | **numbe
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>This option has been removed in PostgreSQL 10.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_9_6.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a host with PostgreSQL 10 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a host with PostgreSQL 10 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>tempBuffers | **integer** (int64)
@@ -4958,7 +5764,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>maxParallelWorkersPerG
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_10 | **object**<br>Configuration for a host with PostgreSQL 10 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_10 | **object**<br>Configuration for a host with PostgreSQL 10 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)
@@ -5027,7 +5833,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>maxParallelWorkersPerGath
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>tempBuffers | **integer** (int64)
@@ -5095,7 +5901,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>maxParallelWorkersPerGath
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a host with PostgreSQL 11 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a host with PostgreSQL 11 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>tempBuffers | **integer** (int64)
@@ -5163,7 +5969,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>maxParallelWorkersPerG
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_11_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a host with PostgreSQL 12 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_12 | **object**<br>Configuration for a host with PostgreSQL 12 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>tempBuffers | **integer** (int64)
@@ -5231,7 +6037,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>maxParallelWorkersPerGath
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a host with PostgreSQL 12 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a host with PostgreSQL 12 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>tempBuffers | **integer** (int64)
@@ -5299,7 +6105,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>maxParallelWorkersPerG
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a host with PostgreSQL 13 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_13 | **object**<br>Configuration for a host with PostgreSQL 13 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>tempBuffers | **integer** (int64)
@@ -5367,7 +6173,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>maxParallelWorkersPerGath
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a host with PostgreSQL 13 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C | **object**<br>Configuration for a host with PostgreSQL 13 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>tempBuffers | **integer** (int64)
@@ -5435,7 +6241,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>maxParallelWorkersPerG
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_13_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a host with PostgreSQL 14 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_14 | **object**<br>Configuration for a host with PostgreSQL 14 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>tempBuffers | **integer** (int64)
@@ -5502,7 +6308,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>maxParallelWorkersPerGath
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a host with PostgreSQL 14 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C | **object**<br>Configuration for a host with PostgreSQL 14 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>tempBuffers | **integer** (int64)
@@ -5569,7 +6375,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>maxParallelWorkersPerG
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_14_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a host with PostgreSQL 15 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_15 | **object**<br>Configuration for a host with PostgreSQL 15 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>tempBuffers | **integer** (int64)
@@ -5636,7 +6442,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>maxParallelWorkersPerGath
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a host with PostgreSQL 15 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C | **object**<br>Configuration for a host with PostgreSQL 15 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>recoveryMinApplyDelay | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>sharedBuffers | **integer** (int64)
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>tempBuffers | **integer** (int64)
@@ -5703,6 +6509,140 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>maxParallelWorkersPerG
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>timezone | **string**
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_15_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16 | **object**<br>Configuration for a host with PostgreSQL 16 server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>recoveryMinApplyDelay | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>sharedBuffers | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>tempBuffers | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>workMem | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>tempFileLimit | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>maxStandbyStreamingDelay | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>constraintExclusion | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>cursorTupleFraction | **number** (double)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>debugParallelQuery | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>clientMinMessages | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logMinMessages | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logMinErrorStatement | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logMinDurationStatement | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logCheckpoints | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logConnections | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logDisconnections | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logDuration | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logErrorVerbosity | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logLockWaits | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logStatement | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>logTempFiles | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>searchPath | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>rowSecurity | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>defaultTransactionIsolation | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>statementTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>lockTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>byteaOutput | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>xmlbinary | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>xmloption | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>ginPendingListLimit | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>deadlockTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>maxLocksPerTransaction | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>maxPredLocksPerTransaction | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>arrayNulls | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>backslashQuote | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>defaultWithOids | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>escapeStringWarning | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>loCompatPrivileges | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>quoteAllIdentifiers | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>standardConformingStrings | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>synchronizeSeqscans | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>transformNullEquals | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>exitOnError | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>seqPageCost | **number** (double)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>randomPageCost | **number** (double)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableBitmapscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableHashagg | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableHashjoin | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableIndexscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableIndexonlyscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableMaterial | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableMergejoin | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableNestloop | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableSeqscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableSort | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>enableTidscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>timezone | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C | **object**<br>Configuration for a host with PostgreSQL 16 1C server deployed. <br>`hostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_13_1C`, `postgresqlConfig_14`, `postgresqlConfig_14_1C`, `postgresqlConfig_15`, `postgresqlConfig_15_1C`, `postgresqlConfig_16`, `postgresqlConfig_16_1C`<br>
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>recoveryMinApplyDelay | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>sharedBuffers | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>tempBuffers | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>workMem | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>tempFileLimit | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>constraintExclusion | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>cursorTupleFraction | **number** (double)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>debugParallelQuery | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>clientMinMessages | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logMinMessages | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logMinErrorStatement | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logMinDurationStatement | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logCheckpoints | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logConnections | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logDisconnections | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logDuration | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logErrorVerbosity | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logLockWaits | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logStatement | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>logTempFiles | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>searchPath | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>rowSecurity | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>defaultTransactionIsolation | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>statementTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>lockTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>byteaOutput | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>xmlbinary | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>xmloption | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>ginPendingListLimit | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>deadlockTimeout | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>maxLocksPerTransaction | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>maxPredLocksPerTransaction | **integer** (int64)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>arrayNulls | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>backslashQuote | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>defaultWithOids | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>escapeStringWarning | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>loCompatPrivileges | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>quoteAllIdentifiers | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>standardConformingStrings | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>synchronizeSeqscans | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>transformNullEquals | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>exitOnError | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>seqPageCost | **number** (double)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>randomPageCost | **number** (double)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableBitmapscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableHashagg | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableHashjoin | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableIndexscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableIndexonlyscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableMaterial | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableMergejoin | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableNestloop | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableSeqscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableSort | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>enableTidscan | **boolean** (boolean)
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>timezone | **string**
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+hostSpecs[].<br>configSpec.<br>postgresqlConfig_16_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

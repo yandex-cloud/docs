@@ -6,13 +6,13 @@ editable: false
 
 {% note info %}
 
-{{ backup-name }} will become [generally available](../overview/concepts/launch-stages.md) and billable in 4th os September 2023.
+{{ backup-name }} will become [publicly available](../overview/concepts/launch-stages.md) and chargeable starting September 4, 2023.
 
 {% endnote %}
 
-When using {{ backup-name }}, you pay for each of VM's that attached to the {{ backup-name }} and storage of those backups.
+You will be charged for each VM connected to {{ backup-name }} and for the volume of your stored backups.
 
-## VM's attached to {{ backup-name }} {#backups}
+## VMs connected to {{ backup-name }} {#backups}
 
 
 
