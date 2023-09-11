@@ -524,6 +524,7 @@ default:
   s2-7xlarge: s2.7xlarge (80 vCPU, 320 ГБ)
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
+  highfreq-ice-lake: Intel Ice Lake Compute-Optimized
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   h100-sapphire-rapids: Intel Sapphire Rapids with NVIDIA® Hopper® H100
@@ -762,6 +763,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     version-cdc: 22.5
+    document-api-endpoint: https://docapi.serverless.yandexcloud.net
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   yq-full-name: Yandex Query
@@ -6165,6 +6167,8 @@ default:
             label_search-api: Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
+            label_smartcaptcha: SmartCaptcha
+            label_smartcaptcha_ru: Yandex SmartCaptcha
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
@@ -6214,8 +6218,10 @@ default:
           switch_marketplace: Marketplace
           switch_workloads: Рабочая нагрузка
         clusters:
+          button_create: Создать кластер
           create:
             field_address-type: Публичный адрес
+            field_kms-key: Ключ шифрования
             switch_auto: Автоматически
         node-groups:
           create:
@@ -6269,12 +6275,36 @@ default:
         section_topic-config: Настройки топика
         section_zookeeper-resources: Класс хоста ZooKeeper
       kms:
+        asymmetric-key:
+          form:
+            label_encryption: Шифрование
+            label_signature: Подпись
+            title_algorithm: Алгоритм
+            title_type: Тип
+        asymmetric-keys:
+          action_public-key: Публичный ключ
+          button_download: Скачать
+          title_create: Создать ключ
+          title_key-type-encryption: Шифрование
+        switch_asymmetric-keys: Асимметричные ключи
+        switch_symmetric-keys: Симметричные ключи
         symmetric-key:
           create:
             button_create: Создать
           form:
             field_algorithm: Алгоритм шифрования
             field_rotation: Период ротации, дни
+            value_no-rotation: Нет ротации
+          overview:
+            button_action-cancel-destruction: Отменить удаление
+            button_action-delete: Удалить
+            button_action-rotate: Ротировать
+            button_action-schedule-destruction: Запланировать удаление
+            button_action-set-primary: Сделать основной
+            column_version-destroy: Дата удаления
+            label_rotation: Период ротации
+            label_title-versions: Версии
+            popup-confirm_button_delete: Удалить
         symmetric-keys:
           button_create: Создать
           button_empty-create: Создать ключ
@@ -6876,6 +6906,19 @@ default:
         switch_appearance: Оформление
         switch_experiments: Эксперименты
         switch_lang: Язык и регион
+      smartcaptcha:
+        button_captcha-settings-create: Создать капчу
+        label_allowed-sites: Список сайтов
+        label_captcha-settings-list: Список капч
+        label_client-key: Ключ клиента
+        label_complexity: Сложность
+        label_section-customization: Настройка внешнего вида
+        label_section-style: Внешний вид
+        label_server-key: Ключ сервера
+        value_complexity-easy: Легкая
+        value_complexity-hard: Высокая
+        value_complexity-medium: Средняя
+        value_config-standard: Стандартный
       storage:
         bucket:
           button_action-delete: Удалить

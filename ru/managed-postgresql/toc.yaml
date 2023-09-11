@@ -33,6 +33,8 @@ items:
             href: operations/connect.md
           - name: SQL-запросы в консоли управления
             href: operations/web-sql-query.md
+          - name: Копирование и заполнение таблицы
+            href: operations/copy-write-data.md
           - name: Управление базами данных
             href: operations/databases.md
       - name: Пользователи {{ PG }}

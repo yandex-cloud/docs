@@ -92,19 +92,6 @@
 
 - API
 
-  Воспользуйтесь методом API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) и передайте в запросе:
-
-  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
-  * Имя обработчика в параметре `listenerSpec.name`.
-  * Порт обработчика в параметре `listenerSpec.port`.
-  * Протокол обработчика в параметре `listenerSpec.protocol`.
-  * Целевой порт обработчика в параметре `listenerSpec.targetPort`.
-  * Параметры внешнего адреса обработчика в параметре `listenerSpec.externalAddressSpec`.
-
-  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
-
-- API
-
   Чтобы добавить обработчик к сетевому балансировщику, воспользуйтесь методом REST API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AddListener](../api-ref/grpc/network_load_balancer_service.md#AddListener).
 
 {% endlist %}

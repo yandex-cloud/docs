@@ -13,6 +13,7 @@ _Подключение_ содержит информацию о парамет
 * [Oracle Database](../operations/connection/create-oracle.md)
 * [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
 * [{{ GP }}](../operations/connection/create-greenplum.md)
+* [CHYT](../operations/connection/chyt/create-chyt.md)
 * [Файлы](../operations/connection/create-file.md)
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [BigQuery](../operations/connection/create-big-query.md)
@@ -26,7 +27,9 @@ _Подключение_ содержит информацию о парамет
 
 
 
+
 Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
+ 
  
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}

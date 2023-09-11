@@ -71,7 +71,7 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
      1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
      1. Выберите созданную БД.
-     1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_database }}** и сохраните их значения. Они понадобятся при создании функций.
+     1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поле **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и сохраните его значение. Оно понадобится при создании функций.
 
    {% endlist %}
 
@@ -139,8 +139,8 @@
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `5`.
   1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).
   1. Добавьте переменные окружения:
-     * `ENDPOINT` — введите значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}**, сохраненное при [создании базы данных {{ ydb-short-name }}](#create-db).
-     * `DATABASE` — введите значение поля **{{ ui-key.yacloud.ydb.overview.label_database }}**, также сохраненное при [создании базы данных {{ ydb-short-name }}](#create-db).
+     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+     * `DATABASE` — введите вторую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
   1. Повторите шаги 3-12 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
   1. Повторите шаги 3-12 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.

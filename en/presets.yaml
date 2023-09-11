@@ -741,6 +741,7 @@ default:
     aws-ep: >-
       https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     version-cdc: 22.5
+    document-api-endpoint: https://docapi.serverless.yandexcloud.net
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   stt-short-fileSize: 1 MB
@@ -4292,7 +4293,7 @@ default:
         apply-button: Save
         duration-label: Time spent
       ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
-        server-url-label: Server link
+        server-url-label: Link to repository
       ui_components_admin-repositories_ConnectRepositoryDialog:
         connect: Connect
         token-label: Token
@@ -6142,6 +6143,8 @@ default:
             label_search-api: Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
+            label_smartcaptcha: SmartCaptcha
+            label_smartcaptcha_ru: Yandex SmartCaptcha
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
@@ -6191,8 +6194,10 @@ default:
           switch_marketplace: Marketplace
           switch_workloads: Workload
         clusters:
+          button_create: Create cluster
           create:
             field_address-type: Public address
+            field_kms-key: Encryption key
             switch_auto: Auto
         node-groups:
           create:
@@ -6246,12 +6251,36 @@ default:
         section_topic-config: Topic settings
         section_zookeeper-resources: ZooKeeper host class
       kms:
+        asymmetric-key:
+          form:
+            label_encryption: Encryption
+            label_signature: Signature
+            title_algorithm: Algorithm
+            title_type: Type
+        asymmetric-keys:
+          action_public-key: Public key
+          button_download: Download
+          title_create: Creating a key
+          title_key-type-encryption: Encryption
+        switch_asymmetric-keys: Asymmetric keys
+        switch_symmetric-keys: Symmetric keys
         symmetric-key:
           create:
             button_create: Create
           form:
             field_algorithm: Encryption algorithm
             field_rotation: Rotation period, days
+            value_no-rotation: No rotation
+          overview:
+            button_action-cancel-destruction: Cancel destruction
+            button_action-delete: Delete
+            button_action-rotate: Rotate
+            button_action-schedule-destruction: Schedule destruction
+            button_action-set-primary: Make primary
+            column_version-destroy: Destruction date
+            label_rotation: Rotation period
+            label_title-versions: Versions
+            popup-confirm_button_delete: Delete
         symmetric-keys:
           button_create: Create
           button_empty-create: Create key
@@ -6853,6 +6882,19 @@ default:
         switch_appearance: Appearance
         switch_experiments: Experiments
         switch_lang: Language and region
+      smartcaptcha:
+        button_captcha-settings-create: Create captcha
+        label_allowed-sites: Site list
+        label_captcha-settings-list: Captcha list
+        label_client-key: Client key
+        label_complexity: Complexity
+        label_section-customization: Сustomize style
+        label_section-style: Style
+        label_server-key: Server key
+        value_complexity-easy: Easy
+        value_complexity-hard: Hard
+        value_complexity-medium: Medium
+        value_config-standard: Standard
       storage:
         bucket:
           button_action-delete: Delete
@@ -7741,7 +7783,7 @@ default:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON:
                         title: JSON
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
-                        title: Raw Data
+                        title: Raw data
                     ObjectStorageTarget:
                       any_as_string:
                         title: Convert complex data to strings

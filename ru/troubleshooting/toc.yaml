@@ -57,6 +57,10 @@ items:
           Устранение проблем с привязкой номера телефона для SMS-уведомлений к
           платежному аккаунту
         href: billing/known-issues/sms-alerts-are-not-arriving.md
+      - name: >-
+          Устранение ошибки ILLEGAL_REQUEST_CONTRACT при формировании счета на
+          оплату
+        href: billing/known-issues/illegal_request_contract.md
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
@@ -141,6 +145,10 @@ items:
           фронтенда веб-приложения
         href: >-
           functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md
+      - name: >-
+          Устранение ошибок с HTTP 499 при работе облачной функции или
+          serverless-контейнера
+        href: functions/known-issues/errors-499-in-function-or-container-logs.md
       - name: Примеры конфигураций и сценариев Cloud Functions
         href: functions/how-to/index.md
         hidden: true
@@ -249,6 +257,8 @@ items:
         hidden: true
       - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
         href: datalens/known-issues/err-ds_api_field-title_conflict.md
+      - name: Устранение ошибки ERR.DS_API.REQUEST_TIMEOUT в DataLens
+        href: datalens/known-issues/err-ds_api_request_timeout.md
       - name: >-
           Устранение ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED в
           DataLens
@@ -268,25 +278,27 @@ items:
           Устранение проблем использования связанных таблиц при подключении к
           Bitrix
         href: datalens/known-issues/bitrix24-linking-talbes-issue.md
-      - name: Устранение ошибки ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE
+      - name: Устранение ошибки ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE в DataLens
         href: datalens/known-issues/err-ds_api_formula-translation-data_type.md
       - name: >-
           Устранение проблем с доступом к дашборду со статистикой подкастов в
           Яндекс Музыке
         href: datalens/known-issues/yandex-music-stats-dashboard-issue.md
-      - name: Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT
+      - name: >-
+          Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT в
+          DataLens
         href: >-
           datalens/known-issues/err-ds_api_formula-validation-agg-inconsistent.md
       - name: >-
           Устранение проблем при загрузке CSV-файла в датасет в качестве
-          источника данных
+          источника данных в DataLens
         href: datalens/known-issues/csv-upload-issue.md
       - name: >-
           Устранение ошибки Validation error Request failed with status code 500
-          при сохранении дашборда
+          при сохранении дашборда в DataLens
         href: >-
           datalens/known-issues/validation-error-request-failed-with-status-code-500.md
-      - name: Поддержка пользовательских полей Битрикс24
+      - name: Поддержка пользовательских полей Битрикс24 в DataLens
         href: datalens/known-issues/bitrix24-user-fields-support.md
   - name: DataProc
     items:
@@ -411,6 +423,8 @@ items:
         hidden: true
       - name: Удаление облака
         href: iam/how-to/deleting-cloud.md
+      - name: Отмена удаления облака
+        href: iam/how-to/cancel-pending-deletion.md
   - name: KMS
     items:
       - name: Все решения для Cloud KMS
@@ -586,7 +600,7 @@ items:
         href: >-
           managed-postgresql/known-issues/cluster-with-b1-nano-flavor-goes-into-unknown-status-after-creation.md
       - name: >-
-          Устранение проблем с изменением конфигурации кластера с дисками
+          Устранение проблем изменения конфигурации кластеров с дисками
           local-ssd
         href: >-
           managed-postgresql/known-issues/unproсessable-entity-issue-when-enlarging-local-disk.md

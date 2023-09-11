@@ -8,6 +8,7 @@
 
 
 
+
 1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. Нажмите кнопку **Создать чарт**.
 
@@ -16,9 +17,6 @@
 
 1. На верхней панели выберите [тип визуализации](../../visualization-ref/index.md).
 
+#### См. также {#see-also}
 
-##### См. также
-
-- [{#T}](../../concepts/chart/index.md).
-
-
+* [{#T}](../../concepts/chart/index.md).

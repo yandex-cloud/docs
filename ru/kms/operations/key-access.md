@@ -5,14 +5,14 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится секрет.
-   1. В списке сервисов выберите **{{ kms-name }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. На панели слева выберите ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Нажмите на имя нужного ключа.
-   1. На панели слева выберите **Симметричные ключи**.
-   1. На панели слева выберите раздел ![image](../../_assets/organization/icon-groups.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
-   1. В открывшемся окне нажмите ![image](../../_assets/plus-sign.svg) **Выбрать пользователя**.
+   1. Перейдите в раздел ![image](../../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. В открывшемся окне нажмите ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
    1. Выберите группу, пользователя или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которым нужно предоставить доступ к секрету.
-   1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **Добавить роль** и выберите необходимые [роли](../security/index.md#roles-list).
-   1. Нажмите **Сохранить**.
+   1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../security/index.md#roles-list).
+   1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI
 

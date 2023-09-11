@@ -11,7 +11,7 @@
 ## Перед началом работы {#before-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}). Войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
+1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 
 
 ## Создайте капчу {#creat-captcha}
@@ -21,13 +21,13 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Выберите сервис **{{ captcha-full-name }}**.
-    1. Нажмите кнопку **Создать капчу**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
     1. Введите имя капчи.
-    1. Выберите сложность `Medium`.
+    1. Выберите сложность `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
     1. Укажите список сайтов, на которых будет размещаться капча.
-    1. **Типа конфигурации** оставьте стандартным.
-    1. Нажмите кнопку **Создать**.
+    1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте стандартным.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -39,9 +39,9 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Выберите сервис **{{ captcha-full-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите на имя капчи или [создайте](#creat-captcha) новую капчу.
-    1. На вкладке **Обзор** скопируйте `ключ_клиента` и `ключ_сервера`.
+    1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
 
 {% endlist %}
 

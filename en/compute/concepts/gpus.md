@@ -111,12 +111,6 @@ For more information about organizational and technical limitations for VMs, see
 
 {% note info %}
 
-To use GPU clusters, contact your account manager.
-
-{% endnote %}
-
-{% note info %}
-
 GPU clusters will be [publicly available](../../overview/concepts/launch-stages.md) and charged for starting September 1, 2023.
 
 {% endnote %}

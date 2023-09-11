@@ -14,9 +14,6 @@ items:
         href: concepts/limits.md
       - name: Обучающие курсы
         href: training.md
-      - name: Пошаговые инструкции
-        href: operations/index.md
-        hidden: true
   - name: Воркбуки и коллекции
     items:
       - name: Обзор

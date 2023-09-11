@@ -10,7 +10,7 @@
 
 1. [Разместите HTML-код](../smartcaptcha/tutorials/mobile-app/website.md) для работы {{ captcha-name }} (или воспользуйтесь готовым `{{ captcha-mobile-site }}`).
 1. Создайте капчу по [инструкции](../smartcaptcha/operations/create-captcha.md).
-1. [Получите ключи](../smartcaptcha/operations/get-keys.md) капчи. Скопируйте **ключ клиента** и **ключ сервера** на вкладке **Обзор** созданной вами капчи. **Ключ клиента** понадобится для загрузки страницы с капчей, **ключ сервера** — для получения результата прохождения капчи.
+1. [Получите ключи](../smartcaptcha/operations/get-keys.md) капчи. Скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** на вкладке **{{ ui-key.yacloud.common.overview }}** созданной вами капчи. **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** понадобится для загрузки страницы с капчей, **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для получения результата прохождения капчи.
 
 ## Создайте Javascript Interface {#create-js-interface}
 

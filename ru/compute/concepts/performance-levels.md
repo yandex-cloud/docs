@@ -46,7 +46,7 @@
     Макс. | 96 | 640
 
 
-* Платформа Intel Ice Lake Compute-Optimized (`highfreq-v3`):
+* Платформа {{ highfreq-ice-lake }} (`highfreq-v3`):
 
     Конфигурация | vCPU | RAM, ГБ
     --- | --- | --- 

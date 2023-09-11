@@ -24,7 +24,7 @@ You can also:
 
 {{ k8s }} clusters that don't use tunnel mode are subject to the following limitations:
 * The ranges of the subnets being created should not overlap with the existing ranges.
-* Only half of the possible subnet range is available for nodes.
+* Only 50% of the possible subnet range is available for pods, nodes, and services. This limitation is due to the specifics of [{{ vpc-name }}](../../vpc/) and ensures the availability of an unused IP range for cluster service distribution.
 
 The following subnet ranges are available for the pods, nodes, and services of such clusters:
 * `10.0.0.0/8`.
@@ -33,11 +33,7 @@ The following subnet ranges are available for the pods, nodes, and services of s
 
 The node subnet mask and the subnet size for the pods determines the maximum number of nodes in the cluster and the maximum number of pods per node.
 
-{% note info %}
-
-Changes to the node subnet mask or the size of cluster pod subnets only affect the parameters of newly created node groups. The parameters of the existing node groups remain unchanged.
-
-{% endnote %}
+In addition, {{ k8s }} has a [standard limit](https://kubernetes.io/docs/setup/best-practices/cluster-large/) of 110 pods per node.
 
 For clusters in [tunnel mode](network-policy.md#cilium), the following subnet ranges are available:
 * `10.0.0.0/8`.

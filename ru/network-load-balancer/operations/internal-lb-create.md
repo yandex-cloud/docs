@@ -170,18 +170,6 @@
 
 - API
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в запросе:
-
-  * Идентификатор каталога, в котором должен быть размещен сетевой балансировщик, в параметре `folderId`.
-  * Имя сетевого балансировщика в параметре `name`.
-  * Тип сетевого балансировщика в параметре `type`. Используйте `INTERNAL`, чтобы создать внутренний балансировщик.
-  * Описание [обработчиков](../concepts/listener.md) в параметре `listenerSpecs`.
-  * Идентификаторы [целевых групп](../concepts/target-resources.md) и настройки [проверки состояния их ресурсов](../concepts/health-check.md) в параметре `attachedTargetGroups`.
-
-  Идентификаторы целевых групп можно получить со [списком целевых групп в каталоге](target-group-list.md#list).
-
-- API
-
   Чтобы создать внутренний сетевой балансировщик, воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create).
 
 {% endlist %}

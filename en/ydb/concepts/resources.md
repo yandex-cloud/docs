@@ -6,7 +6,12 @@
 
 ### Serverless database {#serverless}
 
-Computing resources for serverless {{ ydb-short-name }} DBs in {{ ydb-name }} are provided automatically for DB query purposes. The payment amount depends on the CPU capacity actually used and the I/O operations required to execute the database query. The amount of data stored in the database is paid additionally.
+Computing resources for serverless {{ ydb-short-name }} DBs in {{ ydb-name }} are provided automatically for DB query purposes.
+
+
+The payment amount depends on the CPU capacity actually used and the I/O operations required to execute the database query. The amount of data stored in the database is paid additionally.
+
+
 
 ### Database on dedicated resources {#resource-presets}
 
@@ -25,7 +30,10 @@ The following VM configurations are available in {{ ydb-name }}:
 
 
 
+
 Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
+
+
 
 ## Cluster {#cluster}
 

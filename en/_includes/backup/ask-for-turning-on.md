@@ -1,1 +1,0 @@
-To activate {{ backup-name }}, [request access to the service from the support team]({{ link-console-support }}/create-ticket).

@@ -13,10 +13,12 @@ You can create and use multiple {{ ydb-short-name }} databases. When creating a 
 * _Serverless_: A DB that doesn't require you to configure, administer, or monitor load or manage resources. To create a database, you only need to enter a name, and you'll get the URL for the connection. Payment is charged for the execution of queries and the actual amount of stored data.
 * _Dedicated_: You determine the computing resources that will be reserved for the DB: CPU and RAM on the nodes, the number of nodes, and the storage size. You need to make sure there are sufficient resources to handle the load and add more when necessary. Payment is charged for dedicated resources per hour, regardless of their actual use.
 
+
 Additional information about {{ yandex-cloud }} pricing:
 
 * For [_Serverless_ DBs](../pricing/serverless.md).
 * For [_Dedicated_ DBs](../pricing/dedicated.md).
+
 
 In {{ yandex-cloud }}, a serverless database supports data operations using both the {{ ydb-short-name }} API and [Document API](../docapi/tools/aws-http.md), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
@@ -52,9 +54,11 @@ The quota for the number of serverless queries is also a tool to protect from pa
 
 ### Limitation: Maximum amount of data {#volume}
 
+
 When using a Serverless DB, the amount you pay depends on the amount of data stored.
 
 Because the storage size in a Serverless DB is indefinitely large, the maximum amount of data that can be stored can also be any value, leading to surprisingly high charges. For example, this can happen as the result of an error in the code causing an infinite loop of data being added or if you accidentally import the wrong backup.
+
 
 The **Maximum amount of data** limit for a Serverless DB enables you to restrict the amount of data in this DB allowed by {{ ydb-short-name }}. By default, a limit of 50 GB is set for new DBs, which limits your monthly charges for the amount of stored data to approximately ₽650 according to the pricing policy as of the date of this documentation (₽13.41 per GB, 1 GB for free).
 
@@ -81,3 +85,5 @@ Dedicated mode assumes that resources for tablet instances and YQL queries are s
 In the Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate for maintaining the user DB. The amount of allocated resources can be either very large (an arbitrary number of cores) or very small (significantly less than one core). If a user created a DB with a single table with a single entry and only rarely makes DB queries, {{ ydb-short-name }} actually uses a small amount of RAM on tablet instances that are part of the user DB. This is possible because the user DB components are objects rather than processes. If the load increases, the DB components start using more CPU time and memory. If load grows to the point where there aren't enough VM resources, the {{ ydb-short-name }} infrastructure can balance the system granularly spawning tablet instances on other VMs.
 
 This technology lets you package virtual entities (tablet instances) very tightly together into physical resources based on actual consumption. This makes it possible to invoice the user for the operations performed rather than the allocated resources.
+
+
