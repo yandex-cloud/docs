@@ -73,12 +73,6 @@
 
 - API
 
-  Воспользуйтесь методом API [delete](../api-ref/NetworkLoadBalancer/delete.md) и передайте значение идентификатора нужного балансировщика в параметре `networkLoadBalancerId` запроса.
-
-  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
-
-- API
-
   Чтобы удалить сетевой балансировщик, воспользуйтесь методом REST API [delete](../api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../api-ref/grpc/network_load_balancer_service.md#Delete).
 
 {% endlist %}

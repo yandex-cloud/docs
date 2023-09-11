@@ -5,15 +5,10 @@
 {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../compute/concepts/vm.md) с операционными системами Ubuntu, CentOS и Windows Server. Подробнее см. в разделе [{#T}](concepts/vm-connection.md#os).
 
 Чтобы начать работать с {{ backup-name }}:
-1. [Запросите доступ к сервису](#write-to-support).
 1. [Активируйте сервис](#activate-provider).
 1. [Настройте сервисный аккаунт](#prepare-service-account).
 1. [Создайте ВМ](#vm-create).
 1. [Привяжите ВМ к политике резервного копирования](#add-policy).
-
-## Запросите доступ к сервису {#write-to-support}
-
-{% include [ask-for-turning-on](../_includes/backup/ask-for-turning-on.md) %}
 
 ## Активируйте сервис {#activate-provider}
 

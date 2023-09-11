@@ -76,16 +76,6 @@
 
 - API
 
-  Воспользуйтесь методом API [create](../api-ref/TargetGroup/create.md) и передайте в запросе:
-
-  * Идентификатор каталога, в котором должен быть размещена целевая группа, в параметре `folderId`.
-  * Имя целевой группы в параметре `name`.
-  * Идентификатор подсети и внутренний IP-адрес целевых ресурсов в параметре `targets`.
-
-  Целевые ресурсы можно добавить после создания целевой группы с помощью метода API [addTargets](../api-ref/TargetGroup/addTargets).
-
-- API
-
   Чтобы создать новую целевую группу, воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
   
   После создания целевой группы следует добавить в нее целевые ресурсы, по которым будет распределяться нагрузка. Для этого воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets).

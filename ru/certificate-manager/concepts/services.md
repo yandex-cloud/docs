@@ -30,6 +30,12 @@
 
 Для обеспечения TLS-соединения будет использован привязанный к домену сертификат.
 
+## {{ cdn-full-name }} {#cdn}
+
+{{ cdn-full-name }} позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN). 
+
+Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из {{ certificate-manager-name }}.
+
 
 #### См. также {#see-also}
 

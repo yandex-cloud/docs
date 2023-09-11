@@ -48,7 +48,14 @@
          Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите TLS-сертификат для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
 
       1. Включите или выключите **{{ ui-key.yacloud.cdn.label_access }}**.
-      1. Если вы выбрали протокол `{{ ui-key.yacloud.common.label_http }}`, то в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-no }}`. В других случаях выберите сертификат `Let's Encrypt®` или `{{ ui-key.yacloud.cdn.value_certificate-custom }}`. Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+      1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+      
+          * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+          * `Let's Encrypt®` — сертификат будет выпущен CDN-провайдером. Управлять таким сертификатом из {{ certificate-manager-name }} будет невозможно.
+          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат в {{ certificate-manager-name }}. Это может быть как [сертификат от Let's Encrypt®](../../../certificate-manager/concepts/managed-certificate.md), так и [пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md).
+          
+          Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+
       1. Выберите значение **{{ ui-key.yacloud.cdn.label_host-header }}**: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. Подробнее см. в разделе [{#T}](../../concepts/servers-to-origins-host.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

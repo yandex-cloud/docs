@@ -1,7 +1,5 @@
 # Connecting {{ compute-name }} VMs to {{ backup-name }}
 
-{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
-
 If you want to back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
 
 To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. You can connect existing Linux and Windows Server VMs or create a Linux VM with a connection to {{ backup-name }}. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).

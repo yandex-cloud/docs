@@ -8,8 +8,8 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Выберите сервис **{{ captcha-full-name }}**.
-    1. Выберите капчу и нажмите ![image](../../_assets/options.svg) → **Удалить**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+    1. Выберите капчу и нажмите ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
     1. Подтвердите удаление.
 
 {% endlist %}

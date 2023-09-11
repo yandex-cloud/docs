@@ -61,4 +61,6 @@
 
 ## Безопасность
 * [{#T}](ssl-certificate.md)
+* [{#T}](ipsec.md)
 * [{#T}](ddos.md)
+* [{#T}](waf.md)

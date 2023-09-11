@@ -2,8 +2,6 @@
 
 Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами Windows Server 2019 и 2022. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
 
-{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
-
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
 Чтобы подключить ВМ Windows к {{ backup-name }}:

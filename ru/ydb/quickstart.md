@@ -1,5 +1,6 @@
 # Как начать работать с {{ ydb-name }}
 
+
 В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/ru) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
 Для работы с БД в {{ ydb-full-name }} также доступны:
@@ -78,7 +79,7 @@
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       monitoring_config: {}
       ```
 

@@ -58,6 +58,42 @@ Where:
 * $0.001920 is the cost of using a public IP address per hour.
 * $0.002480 is the cost of reserving an inactive public static IP address for an hour.
 
+
+### NAT gateways {#nat-gateways}
+
+When using NAT gateway, you pay for every hour of using a gateway and for traffic outgoing via gateway. Billing starts when you add a gateway to a route table.
+
+{% note info %}
+
+NAT gateways will be [publicly available](../overview/concepts/launch-stages.md) and charged for starting September 25, 2023.
+
+{% endnote %}
+
+
+
+
+{% include notitle [usd-egress-nat.md](../_pricing/vpc/usd-egress-nat.md) %}
+
+
+#### Egress traffic via NAT gateway {#nat-gateway-egress-traffic}
+
+You pay for traffic from outgoing via NAT gateway to the internet.
+
+Please note that traffic transmitted via NAT gateway is billed separately from other egress [traffic](#prices-traffic) but billed by the same rules.
+
+> For example:
+>
+> If you sent 110 GB of egress traffic to the internet via NAT gateway and 5 GB of other traffic, you will pay for 10 GB of egress traffic via NAT gateway.
+>
+> If you sent 110 GB of egress traffic to the internet via NAT gateway and 105 GB of other traffic, you will pay for 10 GB of egress traffic via NAT gateway and for 5 GB of other traffic.
+
+
+
+
+{% include notitle [usd-egress-nat-traffic.md](../_pricing/vpc/usd-egress-nat-traffic.md) %}
+
+
+
 ### Using security groups {#prices-security-groups}
 
 The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.

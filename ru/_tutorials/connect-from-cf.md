@@ -61,7 +61,7 @@
 
      Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`. Когда база станет готова к использованию, статус сменится на `Running`.
   1. Нажмите на имя созданной БД.
-  1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_database }}** и сохраните их значения. Они понадобятся на следующем шаге.
+  1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поле **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и сохраните его значение. Оно понадобится на следующем шаге.
 
 {% endlist %}
 
@@ -127,8 +127,8 @@
   1. В качестве точки входа укажите `index.handler`.
   1. Выберите сервисный аккаунт, например `sa-function`.
   1. Настройте переменные окружения:
-     * `YDB_ENDPOINT` — введите сохраненное ранее значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}**, например `grpcs://ydb.serverless.yandexcloud.net:2135`.
-     * `YDB_DATABASE` — введите сохраненное ранее значение поля **{{ ui-key.yacloud.ydb.overview.label_database }}**, например `/{{ region-id }}/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
+     * `YDB_ENDPOINT` — введите первую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+     * `YDB_DATABASE` — введите вторую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

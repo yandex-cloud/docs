@@ -175,8 +175,8 @@
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
    1. Добавьте переменные для работы с {{ ydb-name }}:
-      * `DATABASE` — значение поля **{{ ui-key.yacloud.ydb.overview.label_database }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot`. Например: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`.
-      * `ENDPOINT` — значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot`. Например: `grpcs://ydb.serverless.yandexcloud.net:1234`.
+      * `ENDPOINT` — первая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot` (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+      * `DATABASE` — вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot` (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
       * `USE_METADATA_CREDENTIALS` = 1.
 
 ## Отредактируйте API-шлюз {#create-api-gw}

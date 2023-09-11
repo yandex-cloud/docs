@@ -1,5 +1,6 @@
 # {{ ydb-full-name }} overview
 
+
 {{ ydb-full-name }} lets you create and manage {{ ydb-short-name }} databases in {{ yandex-cloud }}.
 
 To learn more about {{ ydb-full-name }} concepts, see the following articles:

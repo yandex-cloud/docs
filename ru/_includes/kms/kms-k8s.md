@@ -8,11 +8,11 @@
 
     Укажите ключ при создании кластера {{ k8s }}:
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан кластер {{ k8s }}.
-    1. В списке сервисов выберите **{{ managed-k8s-name }}**.
-    1. Нажмите кнопку **Создать кластер**.
-    1. В поле **Ключ шифрования** укажите необходимый ключ или [создайте новый](../../kms/operations/key.md#create).
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
+    1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** укажите необходимый ключ или [создайте новый](../../kms/operations/key.md#create).
     1. Закончите заполнение параметров [создания кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
-    1. Нажмите кнопку **Создать кластер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

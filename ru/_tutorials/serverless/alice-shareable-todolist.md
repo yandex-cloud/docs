@@ -35,7 +35,7 @@
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-full-name }}.
 1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_id }}** и **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
-1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_database }}** из раздела **{{ ui-key.yacloud.ydb.overview.section_connection }}**. Они понадобятся при конфигурации проекта.
+1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.section_connection }}**. Оно понадобится при конфигурации проекта.
 1. [Создайте приложение](https://oauth.yandex.ru/) в Яндекс OAuth:
    1. Перейдите на [сайт сервиса](https://oauth.yandex.ru/) и авторизуйтесь.
    1. Нажмите кнопку **Зарегистрировать новое приложение**.
@@ -65,8 +65,8 @@ cp variables-template.json variables.json
 *  `folder-id` — идентификатор каталога в облаке.
 *  `domain` — служебный домен API-шлюза.
 *  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс OAuth](https://oauth.yandex.ru/).
-*  `database` — размещение базы данных из конфигурации {{ ydb-name }}.
-*  `database-endpoint` — эндпоинт из конфигурации {{ ydb-name }}.
+*  `database-endpoint` — эндпоинт: первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+*  `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
 *  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
 *  `secure-config-path` — путь к файлу секретов.
 *  `storage-bucket` — имя созданного бакета для хранения статических данных.

@@ -1,6 +1,6 @@
 # Points of presence
 
-A point of presence is a communication object where the {{ yandex-cloud }} equipment is placed. The {{ yandex-cloud }} equipment is installed at multiple points of presence. 
+A point of presence is where the {{ yandex-cloud }} equipment is placed. The {{ yandex-cloud }} equipment is installed at multiple points of presence.
 
 The client equipment can connect to the {{ yandex-cloud }} equipment directly via a cross connection.
 

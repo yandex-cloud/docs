@@ -31,6 +31,8 @@ items:
             href: operations/backup-vm/recover.md
           - name: Восстановить ВМ из копии другой ВМ
             href: operations/backup-vm/non-native-recovery.md
+          - name: Восстановить на ВМ отдельные директории и файлы
+            href: operations/backup-vm/recover-file-by-file.md
           - name: Удалить копию
             href: operations/backup-vm/delete.md
   - name: Концепции

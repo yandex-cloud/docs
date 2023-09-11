@@ -1,5 +1,6 @@
 # Getting started with {{ ydb-name }}
 
+
 In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/en) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
@@ -78,7 +79,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       monitoring_config: {}
       ```
 

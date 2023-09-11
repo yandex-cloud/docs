@@ -2,8 +2,6 @@
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running such Linux OS's as Ubuntu 20.04 or lower and CentOS 7. For more information, see [{#T}](../concepts/vm-connection.md#os).
 
-{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
-
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).

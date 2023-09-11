@@ -5,15 +5,10 @@
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
 
 To get started with {{ backup-name }}:
-1. [Request access to the service](#write-to-support).
 1. [Activate the service](#activate-provider).
 1. [Set up a service account](#prepare-service-account).
 1. [Create a VM](#vm-create).
 1. [Link your VM to a backup policy](#add-policy).
-
-## Request access to the service {#write-to-support}
-
-{% include [ask-for-turning-on](../_includes/backup/ask-for-turning-on.md) %}
 
 ## Activate the service {#activate-provider}
 
