@@ -11,9 +11,9 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Выберите сервис **{{ serverless-containers-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, графики мониторинга которого хотите посмотреть.
-  1. Перейдите на вкладку **Мониторинг**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. На странице появятся следующие графики:
       * **Requests** — количество вызовов контейнера.
       * **Requests latency** — среднее время обработки вызова контейнером.
@@ -25,7 +25,7 @@
 
 ## Пользовательские метрики {#metrics}
 
- Чтобы перейти к работе с [метриками](../../monitoring/concepts/data-model.md#metric), [дашбордами](../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../monitoring/concepts/alerting.md#alert) в сервисе {{ monitoring-name }}, в правом верхнем углу нажмите кнопку **Открыть в Мониторинге**. 
+ Чтобы перейти к работе с [метриками](../../monitoring/concepts/data-model.md#metric), [дашбордами](../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../monitoring/concepts/alerting.md#alert) в сервисе {{ monitoring-name }}, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. 
 
 | Имя метрики | Единицы измерения | Пояснения |
 |----|----|----|

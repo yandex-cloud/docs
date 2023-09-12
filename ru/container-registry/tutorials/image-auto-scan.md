@@ -154,7 +154,7 @@
         * Таймаут, с – 60.
         * Память – 128 МБ.
         * Сервисный аккаунт – `scanner`.
-     1. В верхнем правом углу нажмите **Создать версию**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 

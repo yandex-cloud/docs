@@ -260,7 +260,8 @@ view | <p>Defines which information about the Instance template should be return
           "description": "string",
           "labels": "object"
         },
-        "maxOpeningTrafficDuration": "string"
+        "maxOpeningTrafficDuration": "string",
+        "ignoreHealthChecks": true
       },
       "healthChecksSpec": {
         "healthCheckSpecs": [
@@ -299,7 +300,8 @@ view | <p>Defines which information about the Instance template should be return
           "description": "string",
           "labels": "object"
         },
-        "maxOpeningTrafficDuration": "string"
+        "maxOpeningTrafficDuration": "string",
+        "ignoreHealthChecks": true
       },
       "applicationLoadBalancerState": {
         "targetGroupId": "string",
@@ -470,6 +472,7 @@ instanceGroups[].<br>loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<
 instanceGroups[].<br>loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 instanceGroups[].<br>loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 instanceGroups[].<br>loadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+instanceGroups[].<br>loadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p>Do not wait load balancer health checks.</p> 
 instanceGroups[].<br>healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
 instanceGroups[].<br>healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Required. Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> <p>The minimum number of elements is 1.</p> 
 instanceGroups[].<br>healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> <p>Acceptable values are 1 seconds to 300 seconds, inclusive.</p> 
@@ -494,6 +497,7 @@ instanceGroups[].<br>applicationLoadBalancerSpec.<br>targetGroupSpec.<br>name | 
 instanceGroups[].<br>applicationLoadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> 
 instanceGroups[].<br>applicationLoadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 instanceGroups[].<br>applicationLoadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+instanceGroups[].<br>applicationLoadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p>Do not wait load balancer health checks.</p> 
 instanceGroups[].<br>applicationLoadBalancerState | **object**<br><p>Status of the Application Load Balancer target group attributed to the instance group.</p> <p>Returned if there is a working load balancer that the target group is connected to.</p> 
 instanceGroups[].<br>applicationLoadBalancerState.<br>targetGroupId | **string**<br><p>ID of the Application Load Balancer target group attributed to the instance group.</p> 
 instanceGroups[].<br>applicationLoadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 

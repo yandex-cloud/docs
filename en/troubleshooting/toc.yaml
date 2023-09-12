@@ -1,0 +1,411 @@
+title: All solutions
+href: index.yaml
+items:
+  - name: Console
+    items:
+      - name: All solutions for Console
+        href: console/index.md
+      - name: Solutions for known Console issues
+        href: console/known-issues/index.md
+        hidden: true
+      - name: Sample Console configurations and use cases
+        href: console/how-to/index.md
+        hidden: true
+      - name: How to increase quotas
+        href: console/how-to/increase-quota.md
+  - name: Cloud Billing
+    items:
+      - name: All solutions for Cloud Billing
+        href: billing/index.md
+      - name: Solutions for known Cloud Billing issues
+        href: billing/known-issues/index.md
+        hidden: true
+      - name: >-
+          Cloud Logging consumption started showing up in your billing account
+          itemization
+        href: >-
+          billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
+      - name: >-
+          You are unable to add a Committed Volume of Services (CVoS) for
+          Compute Cloud
+        href: billing/known-issues/unable-to-issue-a-new-cvos-position.md
+      - name: You are still billed for your deleted KMS keys
+        href: billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md
+      - name: Fixing an Unauthorized error when creating a billing account
+        href: >-
+          billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
+      - name: Troubleshooting payment issues
+        href: billing/known-issues/payment-problems.md
+      - name: What to do if the trial period is over
+        href: billing/known-issues/trial-expired-issue.md
+      - name: Sample Cloud Billing configurations and use cases
+        href: billing/how-to/index.md
+        hidden: true
+      - name: How to use grants and promo codes in the Yandex Cloud billing
+        href: billing/how-to/promocodes-and-grants-features-in-billing.md
+      - name: Where to see consumption costs for individual resources?
+        href: billing/how-to/how-to-view-separate-resource-consumption.md
+  - name: Cloud CDN
+    items:
+      - name: All solutions for Cloud CDN
+        href: cdn/index.md
+      - name: Solutions for known Cloud CDN issues
+        href: cdn/known-issues/index.md
+        hidden: true
+      - name: Sample Cloud CDN configurations and use cases
+        href: cdn/how-to/index.md
+        hidden: true
+      - name: >-
+          Restricting access to an Object Storage bucket using an IP range from
+          Cloud CDN
+        href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
+  - name: Cloud Functions
+    items:
+      - name: All solutions for Cloud Functions
+        href: functions/index.md
+      - name: Solutions for known Cloud Functions issues
+        href: functions/known-issues/index.md
+        hidden: true
+      - name: >-
+          You see a CORS error when accessing the SpeechKit, Vision, or
+          Translate API from your web application frontend
+        href: >-
+          functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md
+      - name: Sample Cloud Functions configurations and use cases
+        href: functions/how-to/index.md
+        hidden: true
+  - name: Cloud Logging
+    items:
+      - name: All solutions for Cloud Logging
+        href: cloud-logging/index.md
+      - name: Solutions for known Cloud Logging issues
+        href: cloud-logging/known-issues/index.md
+        hidden: true
+      - name: >-
+          Cloud Logging consumption started showing up in your billing account
+          itemization
+        href: >-
+          cloud-logging/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
+      - name: Sample Cloud Logging configurations and use cases
+        href: cloud-logging/how-to/index.md
+        hidden: true
+      - name: Setting up delivery of third-party application logs to Cloud Logging
+        href: >-
+          cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md
+  - name: Compute Cloud
+    items:
+      - name: All solutions for Compute Cloud
+        href: compute/index.md
+      - name: Solutions for known Compute Cloud issues
+        href: compute/known-issues/index.md
+        hidden: true
+      - name: >-
+          You are unable to add a Committed Volume of Services (CVoS) for
+          Compute Cloud
+        href: compute/known-issues/unable-to-issue-a-new-cvos-position.md
+      - name: >-
+          You see a "Permission denied" error when connecting to a VM created in
+          Terraform
+        href: >-
+          compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md
+      - name: No nested virtualization support
+        href: compute/known-issues/nested-virtualisation-is-not-supported.md
+      - name: "UEFI support and\_data import from GPT-formatted disks"
+        href: >-
+          compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
+      - name: Sample Cloud CDN configurations and use cases
+        href: compute/how-to/index.md
+        hidden: true
+      - name: Options to migrate a VM image to Yandex Cloud
+        href: compute/how-to/possible-vm-migration-scenarios.md
+      - name: Changing the boot disk for an instance to SSD
+        href: compute/how-to/migrate-data-from-hdd-to-ssd.md
+      - name: "Getting details about\_RAM consumption for Compute Cloud instances"
+        href: compute/how-to/view-ram-usage-in-monitoring.md
+      - name: Creating VMs having multiple network interfaces
+        href: compute/how-to/creating-instances-with-multiple-network-interfaces.md
+      - name: Decreasing VM disk size
+        href: compute/how-to/shrink-instance-disk.md
+  - name: Container Registry
+    items:
+      - name: All solutions for Container Registry
+        href: container-registry/index.md
+      - name: Solutions for known Container Registry issues
+        href: container-registry/known-issues/index.md
+        hidden: true
+      - name: "Exceeded limits on\_images uploaded from a DockerHub folder"
+        href: >-
+          container-registry/known-issues/docker-pull-limit-reached-in-dockerhub.md
+      - name: Sample Container Registry configurations and use cases
+        href: container-registry/how-to/index.md
+        hidden: true
+  - name: DataLens
+    items:
+      - name: All solutions for DataLens
+        href: datalens/index.md
+      - name: Sample DataLens configurations and use cases
+        href: datalens/how-to/index.md
+        hidden: true
+      - name: Connecting to Yandex Direct from DataLens
+        href: datalens/how-to/access-yandex-direct-data.md
+      - name: Fixing the ERR.DS_API.FIELD.TITLE.CONFLICT error in DataLens
+        href: datalens/known-issues/err-ds_api_field-title_conflict.md
+      - name: Solutions for known DataLens issues
+        href: datalens/known-issues/index.md
+        hidden: true
+      - name: >-
+          Fixing the ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED error in
+          DataLens
+        href: >-
+          datalens/known-issues/validation-error-in-dataset-preview-when-using-csv-or-gsheets-as-data-source.md
+      - name: >-
+          Error when creating a connection to a Google Sheets table from
+          DataLens
+        href: >-
+          datalens/known-issues/unable-to-load-file-when-using-gsheets-as-data-source.md
+      - name: "Values\_in Total fields of tabular DataLens charts mismatch those in Yandex Metrica"
+        href: >-
+          datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md
+      - name: Fixing the "ERR.DS_API.US Not correct folder_id" error in DataLens
+        href: datalens/known-issues/err-ds_api_us-not-correct-folder-id.md
+  - name: DataProc
+    items:
+      - name: All solutions for DataProc
+        href: dataproc/index.md
+      - name: Solutions for known DataProc issues
+        href: dataproc/known-issues/index.md
+        hidden: true
+      - name: DataProc cluster is in the Unknown state immediately after creation
+        href: >-
+          dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
+      - name: Sample DataProc configurations and use cases
+        href: dataproc/how-to/index.md
+        hidden: true
+  - name: DataSphere
+    items:
+      - name: All solutions for DataSphere
+        href: datasphere/index.md
+      - name: Solutions for known DataSphere issues
+        href: datasphere/known-issues/index.md
+        hidden: true
+      - name: Fixing project startup errors
+        href: datasphere/known-issues/datasphere-projects-starting-issue.md
+      - name: Fixing the "Failed to deserialize variable" error
+        href: >-
+          datasphere/known-issues/failed-to-deserialize-variable-in-yandex-datasphere.md
+      - name: >-
+          You do not see the Table of Contents extension in the JupyterLab
+          extension list
+        href: >-
+          datasphere/known-issues/toc-extension-is-missing-in-jupyterlab-extensions-catalog.md
+      - name: Sample DataSphere configurations and use cases
+        href: datasphere/how-to/index.md
+        hidden: true
+  - name: Data Transfer
+    items:
+      - name: All solutions for Data Transfer
+        href: data-transfer/index.md
+      - name: Solutions for known Data Transfer issues
+        href: data-transfer/known-issues/index.md
+        hidden: true
+      - name: >-
+          Fixing the "failed to connect to the destination cluster to get type
+          information" error
+        href: >-
+          data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
+      - name: Sample Data Transfer configurations and use cases
+        href: data-transfer/how-to/index.md
+        hidden: true
+  - name: IAM
+    items:
+      - name: All solutions for IAM
+        href: iam/index.md
+      - name: Solutions for known IAM issues
+        href: iam/known-issues/index.md
+        hidden: true
+      - name: >-
+          Fixing errors when assigning the resource-manager.clouds.owner role to
+          the Yandex Cloud user
+        href: >-
+          iam/known-issues/resource-manager_clouds_owner-is-only-applicable-to-resources-of-type-resource-manager_cloud.md
+      - name: Fixing errors related to invitations to a cloud organization
+        href: iam/known-issues/error-when-users-accepts-invite-to-organisation.md
+      - name: Fixing errors when adding a new user to a cloud organization
+        href: >-
+          iam/known-issues/permission-denied-error-when-addng-new-user-to-organisation.md
+      - name: "Fixing the \"The signature of response or assertion was invalid\" error when authorizing\_by a federated account"
+        href: >-
+          iam/known-issues/error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md
+      - name: Sample IAM configurations and use cases
+        href: iam/how-to/index.md
+        hidden: true
+  - name: KMS
+    items:
+      - name: All solutions for Cloud KMS
+        href: kms/index.md
+      - name: Solutions for known KMS issues
+        href: kms/known-issues/index.md
+        hidden: true
+      - name: You are still billed for your deleted KMS keys
+        href: kms/known-issues/kms-keys-are-charged-in-billing-after-deletion.md
+      - name: Sample KMS configurations and use cases
+        href: kms/how-to/index.md
+        hidden: true
+  - name: Managed Kubernetes
+    items:
+      - name: All solutions for Managed Service for Kubernetes
+        href: managed-kubernetes/index.md
+      - name: Solutions for known Managed Service for Kubernetes issues
+        href: managed-kubernetes/known-issues/index.md
+        hidden: true
+      - name: >-
+          Fixing the "timed out waiting for the condition" error when mounting a
+          PVC
+        href: >-
+          managed-kubernetes/known-issues/error-unable-to-attach-or-mount-volumes-timed-out-waiting-for-the-condition.md
+      - name: >-
+          Hosts of the Managed Service for Kubernetes node groups stay in the
+          Reconciling status for a long time
+        href: >-
+          managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md
+      - name: Sample Managed Service for Kubernetes configurations and use cases
+        href: managed-kubernetes/how-to/index.md
+        hidden: true
+      - name: >-
+          Adding and updating Linux SSH keys on Managed Services for Kubernetes
+          node group hosts
+        href: >-
+          managed-kubernetes/how-to/adding-and-changing-ssh-keys-for-linux-users-on-node-groups.md
+      - name: >-
+          Assigning static external IP addresses for Managed Service for
+          Kubernetes cluster nodes
+        href: >-
+          managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
+  - name: Object Storage
+    items:
+      - name: All solutions for Object Storage
+        href: storage/index.md
+      - name: Solutions for known Object Storage issues
+        href: storage/known-issues/index.md
+        hidden: true
+      - name: Sample Object Storage configurations and use cases
+        href: storage/how-to/index.md
+        hidden: true
+      - name: Moving data from an Object Storage bucket to an ice storage
+        href: storage/how-to/moving-objects-to-glacier-storage-type.md
+      - name: >-
+          Restricting access to an Object Storage bucket using an IP range from
+          Cloud CDN
+        href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
+      - name: Moving bucket contents to another bucket in the same the folder
+        href: storage/how-to/moving-data-to-other-bucket-within-folder.md
+      - name: Accessing Object Storage API directly, bypassing the SDK
+        href: storage/how-to/curl-api-request-example.md
+  - name: Managed MySQL
+    items:
+      - name: All solutions for Managed MySQL
+        href: managed-mysql/index.md
+      - name: Solutions for known Managed MySQL issues
+        href: managed-mysql/known-issues/index.md
+        hidden: true
+      - name: >-
+          Managed Service for MySQL cluster switches to Read Only due to free
+          space getting quickly consumed by temporary files
+        href: >-
+          managed-mysql/known-issues/free-space-in-cluster-storage-is-exhausted-with-temp-files.md
+      - name: >-
+          Error saving an SQL dump of a database from a Managed Service for
+          MySQL cluster using mysqldump
+        href: >-
+          managed-mysql/known-issues/mysqldump-needs-reload-or-flush-talbes-privileges.md
+      - name: Sample Managed MySQL configurations and use cases
+        href: managed-mysql/how-to/index.md
+        hidden: true
+  - name: Managed PostgreSQL
+    items:
+      - name: All solutions for Managed PostgreSQL
+        href: managed-postgresql/index.md
+      - name: Solutions for known Managed PostgreSQL issues
+        href: managed-postgresql/known-issues/index.md
+        hidden: true
+      - name: >-
+          Recovering a Managed Services for PostgreSQL cluster after its disks
+          become Read Only
+        href: >-
+          managed-postgresql/known-issues/restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md
+      - name: >-
+          You are unable to delete your Managed Service for PostgreSQL cluster
+          in the Dead status if deletion protection was enabled for it
+        href: >-
+          managed-postgresql/known-issues/unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md
+      - name: >-
+          Managed Service for PostgreSQL cluster switches to the Unknown state
+          immediately after creation
+        href: >-
+          managed-postgresql/known-issues/cluster-with-b1-nano-flavor-goes-into-unknown-status-after-creation.md
+      - name: Sample Managed PostgreSQL configurations and use cases
+        href: managed-postgresql/how-to/index.md
+        hidden: true
+  - name: Monitoring
+    items:
+      - name: All solutions for Yandex Monitoring
+        href: monitoring/index.md
+      - name: Solutions for known Yandex Monitoring issues
+        href: monitoring/known-issues/index.md
+        hidden: true
+      - name: >-
+          You set up a notification channel in Yandex Monitoring, but you don't
+          receive any event alerts
+        href: >-
+          monitoring/known-issues/no-incoming-sms-and-emails-after-alert-config.md
+      - name: "Your cloud resources are running\_normally, but you see\_gaps in monitoring charts"
+        href: monitoring/known-issues/gaps-in-chart-lines.md
+      - name: Sample Yandex Monitoring configurations and use cases
+        href: monitoring/how-to/index.md
+        hidden: true
+  - name: Serverless Containers
+    items:
+      - name: All solutions for Serverless Containers
+        href: serverless-containers/index.md
+      - name: Solutions for known Serverless Containers issues
+        href: serverless-containers/known-issues/index.md
+        hidden: true
+      - name: >-
+          You called a Serverless Container, but got the Code 502 Message Error
+          during function invocation
+        href: >-
+          serverless-containers/known-issues/serverless-container-invoking-error-502.md
+      - name: Sample Serverless Containers configurations and use cases
+        href: serverless-containers/how-to/index.md
+        hidden: true
+  - name: SpeechKit
+    items:
+      - name: All solutions for SpeechKit
+        href: speechkit/index.md
+      - name: Solutions for known SpeechKit issues
+        href: speechkit/known-issues/index.md
+        hidden: true
+      - name: Fixing the "audio duration should be less than 30s" error in SpeechKit
+        href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
+      - name: Sample SpeechKit configurations and use cases
+        href: speechkit/how-to/index.md
+        hidden: true
+      - name: Enabling automated punctuation in the recognized text
+        href: speechkit/how-to/enabling-punctuator-in-speechkit.md
+  - name: VPC
+    items:
+      - name: All solutions for VPC
+        href: vpc/index.md
+      - name: Solutions for known VPC issues
+        href: vpc/known-issues/index.md
+        hidden: true
+      - name: Fixing errors at cloud network deletion
+        href: vpc/known-issues/unable-to-delete-cloud-network.md
+      - name: Errors in geographic attribution of Yandex Cloud resource IP addresses
+        href: vpc/known-issues/external-ip-address-country-affiliation-issue.md
+      - name: Sample VPC configurations and use cases
+        href: vpc/how-to/index.md
+        hidden: true
+      - name: How to disable DDoS protection
+        href: vpc/how-to/disable-ddos-protection-on-external-ip.md
+base: en/troubleshooting

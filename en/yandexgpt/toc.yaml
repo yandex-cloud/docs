@@ -20,6 +20,10 @@ items:
             href: api-ref/grpc/index.md
           - name: TextGenerationService
             href: api-ref/grpc/llm_service.md
+          - name: TokenizerService
+            href: api-ref/grpc/TokenizerService.md
+          - name: EmbeddingsService
+            href: api-ref/grpc/EmbeddingsService.md
       - name: REST
         items:
           - name: Overview

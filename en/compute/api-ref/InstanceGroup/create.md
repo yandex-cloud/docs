@@ -236,7 +236,8 @@ POST https://compute.{{ api-host }}/compute/v1/instanceGroups
       "description": "string",
       "labels": "object"
     },
-    "maxOpeningTrafficDuration": "string"
+    "maxOpeningTrafficDuration": "string",
+    "ignoreHealthChecks": true
   },
   "healthChecksSpec": {
     "healthCheckSpecs": [
@@ -274,7 +275,8 @@ POST https://compute.{{ api-host }}/compute/v1/instanceGroups
       "description": "string",
       "labels": "object"
     },
-    "maxOpeningTrafficDuration": "string"
+    "maxOpeningTrafficDuration": "string",
+    "ignoreHealthChecks": true
   }
 }
 ```
@@ -427,6 +429,7 @@ loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the tar
 loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 loadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+loadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p>Do not wait load balancer health checks.</p> 
 healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
 healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Required. Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> <p>The minimum number of elements is 1.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> <p>Acceptable values are 1 seconds to 300 seconds, inclusive.</p> 
@@ -450,6 +453,7 @@ applicationLoadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> 
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 applicationLoadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+applicationLoadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p>Do not wait load balancer health checks.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

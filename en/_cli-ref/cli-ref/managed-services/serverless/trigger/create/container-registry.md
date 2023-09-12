@@ -24,6 +24,8 @@ Syntax:
 |`--image-name`|<b>`string`</b><br/>Container image name filter.|
 |`--tag`|<b>`string`</b><br/>Container image tag filter.|
 |`--events`|<b>`value[,value]`</b><br/>List of container registry events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times.<br/>Available events are: 'create-image' , 'delete-image', 'create-image-tag', 'delete-image-tag'.<br/>|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 10. Default: 1|
+|`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on the data from Container Registry.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on the data from Container Registry.|
 |`--invoke-function-tag`|<b>`string`</b><br/>Function tag.|

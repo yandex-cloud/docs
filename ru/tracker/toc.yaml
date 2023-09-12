@@ -117,6 +117,8 @@ items:
         href: manager/queue-team.md
       - name: Настроить доступ к очереди
         href: manager/queue-access.md
+      - name: Настроить учет времени
+        href: manager/queue-spent-time.md
       - name: Расширенные возможности очереди
         href: manager/queue-advanced.md
       - name: Посмотреть историю изменений очереди

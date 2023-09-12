@@ -4462,6 +4462,12 @@ default:
         title: Filter actions
       ui_components_FilterFieldsSelect:
         applyChanges: Apply
+      ui_components_FormField_TimeTrackingBlock:
+        field-comment-title: Explanation
+        field-datetime-title: On what day
+        field-estimation-title: Task evaluation
+        field-remain-title: Time left
+        field-spent-title: Time spent
       ui_components_Gantt_IssueActionsCell:
         choose-color: Choose color
         issue-action-menu-title: Issue actions menu
@@ -4654,6 +4660,7 @@ default:
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
         menu-item-calendars: Schedules
+        menu-item-timetracking: Time tracking
         menu-item-workflows: Workflows
       ui_components_page-queue-admin_Signature:
         alias-title: Alias
@@ -4736,6 +4743,14 @@ default:
         login-button-label: Log in to Tracker
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Save
+      ui_components_queue-admin-tab-timetracking_TimetackingForm:
+        field-can-assignee-update-time: Allow the assignee to edit the time
+        field-show-time-field-on-close: Automatically calculate the time spent when the task is closed
+        field-track-time-in-issues: Track time in queue issues
+        field-use-remaining-time: Use the field “Time left”
+        field-use-summary-time: Use the field “Overall assessment of the issue”
+        field-working-calendar: Work schedule
+        save: Save
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
         remove-issue-type: Remove issue type from the queue
       ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:
@@ -4774,6 +4789,12 @@ default:
         added-columns: Added
       ui_components_TextEditor:
         submit: Send
+      ui_components_timetracking-history-dialog_TimeTrackingDialogBody:
+        column-comment: Comment
+        column-date: Date of works
+        column-spent: Spent
+      ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog:
+        title: History of time accounting records
       ui_components_TrackerSearch:
         queues: Queues
       ui_components_TrackerSelect:
@@ -5659,6 +5680,9 @@ default:
         ip-address-form:
           label_button-save: Save
           label_field-search-type: Search type
+        key-values-input:
+          label_key: Key
+          label_value: Value
         label-set:
           button_add-label: Add label
         mdb:
@@ -6148,6 +6172,7 @@ default:
             label_storage: Object Storage
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
+            label_ymq: Message Queue
             value_audit-trails: Audit trail
             value_compute: Virtual machine instance
             value_data-proc: Data Proc cluster
@@ -6181,7 +6206,9 @@ default:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
       iot:
+        button_add-alias: Add alias
         button_add-device: Add device
+        button_add-label: Add label
         button_create-broker: Create broker
         button_create-registry: Create registry
         label_brokers: Brokers
@@ -6722,9 +6749,15 @@ default:
           label_search_type-turkish: Turkish
           label_title: Test queries
       serverless-containers:
+        button_create-container: Create container
         button_deploy-revision: Create revision
+        label_containers: Containers
         label_editor: Editor
+        label_timeout: Timeout, s
+        label_url: Link to invoke
         section_image: Image settings
+        section_parameters: Settings
+        section-revisions: Revisions
       serverless-functions:
         create:
           button_create: Create
@@ -6847,6 +6880,7 @@ default:
             label_any-budget: Any budget
             label_billing-budget: Budget
             label_cloud-logs: Cloud Logs
+            label_container: Container
             label_container-registry: Container Registry
             label_data-streams: Data Streams
             label_function: Function
@@ -6860,6 +6894,7 @@ default:
             section_batch-settings: Batch message settings
             section_billing-budget: Budget settings
             section_cloud-logs: Cloud Logs settings
+            section_container: Container settings
             section_container-registry: Container Registry settings
             section_data-streams: Data Streams settings
             section_dlq: Dead Letter Queue settings
@@ -8443,7 +8478,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.16
+        tag: v0.1.22
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -8455,7 +8490,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.31.8
+        tag: 0.35.5
     yc_external-secrets:
       helmChart:
         name: >-
@@ -8473,26 +8508,26 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging
-        tag: 1.0-7
+        tag: 1.0-9
     yc_gateway-api:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.20
+        tag: 0.4.24
     yc_gitlab-agent:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent
-        tag: 1.10.0-4
+        tag: 1.16.0-1
     yc_gitlab-runner:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
-        tag: 0.49.1-8
+        tag: 0.54.0-8
     yc_kyverno:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/marketplace/charts/kyverno
-        tag: 2.3.2
+        name: cr.yandex/yc-marketplace/multi-kyverno
+        tag: 1.0.0
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
@@ -8516,4 +8551,4 @@ default:
     yc_vault-yckms-k8s:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
-        tag: 0.22.0-1
+        tag: 0.25.0-1

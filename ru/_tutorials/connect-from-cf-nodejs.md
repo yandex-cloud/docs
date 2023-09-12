@@ -31,8 +31,8 @@
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 
-* плата за использование функции (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
-* плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}](../ydb/pricing/serverless.md)).
+* Плата за использование функции (см. [тарифы {{ sf-full-name }}](../functions/pricing.md)).
+* Плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}](../ydb/pricing/serverless.md)).
 
 
 ## Подготовьте окружение {#prepare-environment}
@@ -43,25 +43,44 @@
    git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. В репозитории перейдите в папку с файлами проекта: `examples/serverless/functions/YDB-connect-from-serverless-function`.
 1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../cli/quickstart.md).
-1. Установите утилиту [jq](https://stedolan.github.io/jq/download/). В корне папки с файлами проекта запустите терминал и выполните команду:
+
+1. Перейдите в корневую директорию проекта:
+
+   ```bash
+   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   ```
+
+   Все последующие команды выполняйте в этой директории.
+
+1. Установите утилиту [jq](https://stedolan.github.io/jq/download/):
 
    ```bash
    sudo apt-get install jq
    ```
 
-1. Установите [Node.js](https://nodejs.org/en/download/package-manager/), выполнив команду:
+1. Установите [Node.js](https://nodejs.org/en/download/package-manager/):
 
    ```
    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - \
    sudo apt-get install -y nodejs
    ```
 
-1. Установите зависимости, выполнив команду:
+1. Установите зависимости:
 
-   ```
+   ```bash
    npm install
+   ```
+
+   Результат:
+
+   ```bash
+   up to date, audited 269 packages in 1s
+
+   29 packages are looking for funding
+      run `npm fund` for details
+   
+   found 0 vulnerabilities
    ```
 
 ## Создайте сервисный аккаунт {#create-sa}
@@ -79,13 +98,43 @@
  
 - CLI
 
-  Выполните команду:
+  1. [Создайте](../iam/operations/sa/create.md#create-sa) сервисный аккаунт:
 
-  ```bash
-  yc iam service-account create --name sa-function
-  ```
+      ```bash
+      yc iam service-account create --name sa-function
+      ```
 
-  Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Результат:
+
+      ```bash
+      id: aje028do8n9r********
+      folder_id: b1g681qpemb4********
+      created_at: "2023-08-23T06:24:49.759304161Z"
+      name: sa-function
+      ```
+   
+  1. [Назначьте](../iam/operations/sa/set-access-bindings.md#assign-role-to-sa) сервисному аккаунту роль `editor`:
+
+      ```bash
+      yc resource-manager folder add-access-binding <идентификатор_каталога> \
+         --role editor \
+         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+      ```
+
+      Результат:
+
+      ```bash
+      ...1s...done (4s)
+      effective_deltas:
+      - action: ADD
+         access_binding:
+            role_id: viewer
+            subject:
+            id: aje028do8n9r********
+            type: serviceAccount
+      ```
+
+  Подробнее о командах см. в [справочнике CLI](../cli/cli-ref/managed-services/iam/service-account/index.md).
 
 - {{ TF }}
 
@@ -103,7 +152,7 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. В командной строке перейдите в директорию, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
         ```
@@ -124,7 +173,7 @@
 
 - API
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md).
+  Чтобы создать сервисный аккаунт и назначить ему роль, воспользуйтесь методами [create](../iam/api-ref/ServiceAccount/create.md) и [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md).
 
 {% endlist %}
 
@@ -141,11 +190,11 @@
   1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
-  1. Сохраните открытый и закрытый ключи в файл `service_account_key_file.json`:
+  1. Сохраните открытый и закрытый ключи в файл `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json`:
 
      ```json
      {
-        "service_account_id": "<идентификатор сервисного аккаунта sa-function>",
+        "service_account_id": "<идентификатор_сервисного_аккаунта_sa-function>",
         "key_algorithm": "RSA_2048",
         "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
         "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
@@ -179,7 +228,7 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. В командной строке перейдите в директорию, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
 
         ```
@@ -231,9 +280,15 @@
 
 {% note info %}
 
-Перед созданием функции убедитесь, что в файле `.env` и файлах `create-func.sh` и `create-func-ver.sh` из папки `deploy` в качестве символа перевода строки установлен `LF`.
+Перед созданием функции убедитесь, что в файле `.env` и файлах `create-func.sh` и `create-func-ver.sh` из директории `deploy` в качестве символа перевода строки установлен `LF`.
 
 {% endnote %}
+
+1. Перейдите в корневую директорию проекта:
+
+   ```bash
+   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   ```
 
 1. Отредактируйте файл `.env`:
 
@@ -242,8 +297,8 @@
    * `FUNCTION_NAME` — имя функции: `func-test-ydb`.
    * `FOLDER_ID` — идентификатор каталога.
    * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта `sa-function`.
-   
-1. В корне проекта запустите командную строку и выполните команду:
+
+1. Создайте функцию:
 
    ```bash
    ./deploy/create-func.sh
@@ -257,6 +312,46 @@
    ./deploy/create-func-ver.sh
    ```
 
+   Результат:
+
+   ```bash
+   npx tsc --build tsconfig.json
+   rm: невозможно удалить '../build/func.zip': Нет такого файла или каталога
+   adding: queries/ (stored 0%)
+   adding: queries/clients-table.js (deflated 57%)
+   adding: queries/helpers.js.map (deflated 43%)
+   adding: queries/helpers.js (deflated 48%)
+   adding: queries/clients-table.js.map (deflated 59%)
+   adding: index.js (deflated 49%)
+   adding: index.js.map (deflated 56%)
+   adding: database.js.map (deflated 62%)
+   adding: index-local.js (deflated 42%)
+   adding: package.json (deflated 55%)
+   adding: database.js (deflated 60%)
+   adding: index-local.js.map (deflated 43%)
+   yc function version create func-test-ydb 
+   done (27s)
+   id: abcd2d363b4b********
+   function_id: efghm9el0ja9********
+   created_at: "2023-08-15T07:41:07.591Z"
+   runtime: nodejs16
+   entrypoint: index.handler
+   resources:
+         memory: "268435456"
+   execution_timeout: 5s
+   service_account_id: hijk3hlu8gqe********
+   image_size: "33497088"
+   status: ACTIVE
+   tags:
+         - $latest
+   log_group_id: lmnoivbe341g********
+   environment:
+         DATABASE: /ru-central1/b1gia87mbaom********/etnilt3o6v9e********
+         ENDPOINT: grpcs://ydb.serverless.yandexcloud.net:2135
+   log_options:
+         folder_id: pqrs81qpemb********
+   ```
+
 ## Протестируйте функцию {#test-function}
 
 {% list tabs %}
@@ -268,7 +363,12 @@
   1. Выберите функцию `func-test-ydb`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** нажмите на ссылку.
-  1. В адресной строке браузера добавьте в ссылке параметр `api_key`, например `?api_key=b95`.
+  1. В адресной строке браузера добавьте в ссылке параметр `api_key`, например `?api_key=b95`:
+
+      ```
+      https://functions.yandexcloud.net/efghm9el0ja9********?api_key=b95
+      ```
+
   1. При успешном подключении в БД будет создана таблица `b95` и в нее будет добавлена одна запись. На странице появится сообщение в формате JSON, например:
 
      ```json
@@ -283,5 +383,5 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [удалите базу данных](../ydb/operations/manage-databases.md#delete-db);
-* [удалите функцию](../functions/operations/function/function-delete.md).
+1. [Удалите базу данных](../ydb/operations/manage-databases.md#delete-db).
+1. [Удалите функцию](../functions/operations/function/function-delete.md).

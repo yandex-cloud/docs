@@ -177,7 +177,7 @@ You can only create a disk in an existing disk placement group.
       ```
 
    1. In a placement group, create a non-replicated disk in the default folder using one of the strategies:
-      * Distributed placement ([spread](../../concepts/disk-placement-group.md#spread)):
+      * [Spread](../../concepts/disk-placement-group.md#spread) placement:
 
       ```bash
       yc compute disk create \

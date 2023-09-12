@@ -65,10 +65,10 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
 
 * `object storage`: In tables with this policy, rows are placed only in object storage. There is no data transfer between storages.
 
-Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks:
+Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks. For any storage policy you can:
 
-* Merging data chunks in storage (the `prefer_not_to_merge` policy setting) is permitted.
-* This does not restrict the maximum size of the resulting data chunk (the `max_data_part_size_bytes` value setting), which you may get after merging smaller chunks.
+* Turn on or off the `prefer_not_to_merge` setting which disables merging data chunks in storage.
+* Set any value for the `max_data_part_size_bytes` setting which limits the size of a chunk merged from smaller chunks.
 
 However, you can configure the behavior of these operations using the [ClickHouse settings](./settings-list.md) available in the cluster.
 

@@ -35,7 +35,7 @@ Create a [placement group](../../concepts/placement-groups.md).
       This command creates a placement group with the following characteristics:
 
       - Named `my-group`.
-      - Distributed placement strategy (`spread`).
+      - Spread placement strategy.
 
    1. Check that the placement group was added:
 

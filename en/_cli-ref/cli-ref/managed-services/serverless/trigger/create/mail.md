@@ -19,6 +19,11 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Trigger name.|
 |`--description`|<b>`string`</b><br/>Trigger description.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--attachements-bucket`|<b>`string`</b><br/>S3 bucket to store attachements.|
+|`--attachements-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to store attachements to storage.|
+|`--attachements-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to store attachements to storage.|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 10. Default: 1|
+|`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on receiving email.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on receiving email.|
 |`--invoke-function-tag`|<b>`string`</b><br/>Function tag.|

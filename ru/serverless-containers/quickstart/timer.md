@@ -17,23 +17,23 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать таймер.
 
-    1. Выберите сервис **{{ serverless-containers-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя триггера — `timer`.
-        * В поле **Тип** выберите **Таймер**.
-        * В поле **Запускаемый ресурс** выберите **Контейнер**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. В блоке **Настройки таймера** введите `* * ? * * *` или выберите `Каждую минуту`.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** введите `* * ? * * *` или выберите `{{ ui-key.yacloud.common.button_cron-1min }}`.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -85,9 +85,9 @@
 Чтобы проверить, что таймер работает корректно, посмотрите логи контейнера. В них должно отображаться, что контейнер вызывается каждую минуту.
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-1. Выберите сервис **{{ serverless-containers-name }}**.
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 1. Нажмите на контейнер, журнал вызовов которого хотите посмотреть.
-1. В открывшемся окне перейдите в раздел **Логи** и укажите период, за который хотите их посмотреть. По умолчанию задан период 1 час.
+1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.common.logs }}** и укажите период, за который хотите их посмотреть. По умолчанию задан период 1 час.
 
 ## Что дальше {#what-is-next}
 

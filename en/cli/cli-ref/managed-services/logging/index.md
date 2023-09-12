@@ -34,6 +34,17 @@ Aliases:
 	- [yc logging group add-access-binding](group/add-access-binding.md) — Add access binding for the specified log group
 	- [yc logging group remove-access-binding](group/remove-access-binding.md) — Removes access binding from the specified log group
 	- [yc logging group list-operations](group/list-operations.md) — List log group operations
+- [yc logging sink](sink/index.md) — Manage log groups
+	- [yc logging sink get](sink/get.md) — Show information about the specified logging sink
+	- [yc logging sink list](sink/list.md) — List log sinks
+	- [yc logging sink create](sink/create.md) — Create log sink
+	- [yc logging sink update](sink/update.md) — Update log sink
+	- [yc logging sink delete](sink/delete.md) — Delete log sink
+	- [yc logging sink list-operations](sink/list-operations.md) — List sink operations
+	- [yc logging sink list-access-bindings](sink/list-access-bindings.md) — List log group access bindings
+	- [yc logging sink set-access-bindings](sink/set-access-bindings.md) — Set access bindings for the specified log group and delete all existing access bindings if there were any
+	- [yc logging sink add-access-binding](sink/add-access-binding.md) — Add access binding for the specified sink
+	- [yc logging sink remove-access-binding](sink/remove-access-binding.md) — Rempve access binding from the specified sink
 
 #### Global Flags
 

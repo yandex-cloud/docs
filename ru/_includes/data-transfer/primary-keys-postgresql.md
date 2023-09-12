@@ -13,3 +13,17 @@
         ```sql
         ALTER TABLE MY_TBL REPLICA IDENTITY FULL;
         ```
+Если в таблице нет первичных ключей, тогда в логической репликации [не будет событий изменений строк]({{ pg-docs }}/logical-replication-publication.html) (`UPDATE`, `DELETE`).
+
+* Во время трансфера из {{ PG }} в {{ PG }}, если у вас в источнике трансфера не будет исключена таблица без первичных ключей, то вы увидите ошибку: 
+
+   ```text
+    failed to run (abstract1 source): Cannot parse logical replication message: failed to reload schema: primary key check failed: Tables: n / N check failed: "public"."MY_TBL": no key columns found
+    ```
+
+ * Во время трансфера из {{ PG }} в другую базу данных, если у вас будет добавлена таблица без первичных ключей, то вы увидите ошибку:
+
+   ```text
+   failed to run (abstract1 source): Cannot parse logical replication message: failed to reload schema: primary key check failed: Tables: n / N check failed:
+   "public"."MY_TBL": no key columns found
+   ``` 

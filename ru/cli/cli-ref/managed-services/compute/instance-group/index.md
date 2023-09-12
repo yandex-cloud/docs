@@ -40,6 +40,8 @@ Aliases:
 - [yc compute instance-group set-access-bindings](set-access-bindings.md) — Set access bindings for the specified instance group and delete all existing access bindings if there were any
 - [yc compute instance-group add-access-binding](add-access-binding.md) — Add access binding for the specified instance group
 - [yc compute instance-group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified instance group
+- [yc compute instance-group rolling-restart](rolling-restart.md) — Restart instances of the specified instance group respecting policies
+- [yc compute instance-group rolling-recreate](rolling-recreate.md) — Recreate instances of the specified instance group respecting policies
 
 #### Global Flags
 

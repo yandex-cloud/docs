@@ -3,13 +3,13 @@
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать контейнер.
-	1. Выберите сервис **{{ serverless-containers-name }}**.
-	1. Нажмите кнопку **Создать контейнер**.
+	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+	1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
 	1. Введите имя и описание контейнера. Формат имени:
 
 		{% include [name-format](../../_includes/name-format.md) %}
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 
 - CLI

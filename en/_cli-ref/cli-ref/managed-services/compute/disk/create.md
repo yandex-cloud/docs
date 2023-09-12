@@ -31,6 +31,7 @@ Syntax:
 |`--source-image-folder-id`|<b>`string`</b><br/>The folder ID against which all image and image family references will be resolved.|
 |`--disk-placement-group-id`|<b>`string`</b><br/>Placement group to create the disk in.|
 |`--disk-placement-group-name`|<b>`string`</b><br/>Placement group to create the disk in.|
+|`--disk-placement-group-partition`|<b>`int`</b><br/>Placement group partition. Used when a placement group is created with the partition strategy.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

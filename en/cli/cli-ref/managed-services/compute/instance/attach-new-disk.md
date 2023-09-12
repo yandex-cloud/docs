@@ -32,6 +32,7 @@ Syntax:
 |`--image-folder-id`|<b>`string`</b><br/>The folder ID that is used to resolve references for image-name or image-family.|
 |`--disk-placement-group-id`|<b>`string`</b><br/>An ID of the placement group to create the disk in|
 |`--disk-placement-group-name`|<b>`string`</b><br/>A placement group to create the disk in|
+|`--disk-placement-group-partition`|<b>`int`</b><br/>A placement group partition to create the disk in. Used when a placement group is created with the partition strategy.|
 |`--device-name`|<b>`string`</b><br/>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.|
 |`--auto-delete`|Specifies if this persistent disk will be automatically deleted when the instance is deleted.|
 

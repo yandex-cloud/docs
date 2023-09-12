@@ -4,64 +4,110 @@
 
 - Консоль управления
 
-  Чтобы создать реестр:
-
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
-  1. Выберите сервис **{{ iot-short-name }}**.
-  1. Нажмите кнопку **Создать реестр**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_registries }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. В блоке **Общая информация** добавьте:
-      * **Имя** реестра. Например, `my-registry`.
-      * (Опционально) **Описание** с дополнительной информацией о реестре.
-      * **Пароль**, который вы будете использовать для доступа к реестру.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
-      * (Опционально) Для присвоения реестру метки заполните поля **Ключ**, **Значение** и нажмите кнопку **Добавить метку**.
-  1. (Опционально) Добавьте [сертификаты](../../operations/certificates/create-certificates.md):
+
+      * **{{ ui-key.yacloud.common.name }}** реестра. Например, `my-registry`.
+      * (Опционально) **{{ ui-key.yacloud.common.description }}** с дополнительной информацией о реестре.
+      * **Пароль**, который вы будете использовать для доступа к реестру. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+
+          {% note info %}
+
+          Сохраните пароль, он вам понадобится для [аутентификации](../../concepts/authorization.md).
+
+          {% endnote %}
+
+      * (Опционально) Для присвоения реестру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.iot.button_add-label }}**.
+
+  1. (Опционально) Добавьте [сертификат](../certificates/create-certificates.md):
+
       * Чтобы добавить файл:
-        1. Выберите способ **Файл**.
-        1. Нажмите **Выбрать файл**.
-        1. Укажите файл сертификата на вашем компьютере, нажмите **Открыть**.
-        1. Нажмите **Добавить**.
+
+        1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
+        1. Нажмите кнопку **Прикрепить файл**.
+        1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
       * Чтобы добавить текст:
-        1. Выберите способ **Текст**.
-        1. Вставьте тело сертификата в поле **Содержимое**.
-        1. Нажмите **Добавить**.
+
+        1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}**.
+        1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
   1. Нажмите кнопку **Создать**.
 
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Создайте реестр:
-  
+
+      ```bash
+      yc iot registry create --name <название реестра>
       ```
-      yc iot registry create --name my-registry
-      ```
-	 
+
+      Требования к названию реестра:
+
       {% include [name-format](../../../_includes/name-format.md) %}
 
       Результат:
-	   
+
+      ```text
+      id: b91hafek85**********
+      folder_id: aoek49ghmk*********
+      created_at: "2019-05-27T13:40:06.923Z"
+      name: <название реестра>
+      status: ACTIVE
+      log_group_id: ckghotead**********
       ```
-      id: b91ki3851hab9m0l68je
-      folder_id: aoek49ghmknnpj1ll45e
-      created_at: "2019-05-28T11:29:42.420Z"
-      name: my-registry
+
+  1. (Опционально) Присвойте реестру пароль для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass):
+
+      ```bash
+      yc iot registry password add --registry-name <название реестра>
       ```
-	 
-  1. Проверьте, что реестр создался:
-  
+
+      Команда предложит ввести пароль. Требования к нему:
+
+      * пароль должен содержать цифры, буквы в верхнем и нижнем регистре, специальные символы;
+      * длина пароля — не менее 14 символов.
+
+      Результат:
+
+      ```text
+      registry_id: b91hafek85**********
+      id: aoek49ghmk*********
+      created_at: "2019-05-27T13:44:06.923Z"
       ```
-      yc iot registry list
-	    ```
-	  
-	    Результат:
-	    ```
-      +----------------------+-------------+
-      |          ID          |    NAME     |
-      +----------------------+-------------+
-      | b91ki3851hab9m0l68je | my-registry |
-      +----------------------+-------------+
+
+  1. (Опционально) Добавьте реестру сертификат для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs):
+
+      ```bash
+      yc iot registry certificate add \
+         --registry-name <название реестра> \
+         --certificate-file <сертификат>
+      ```
+
+      Где:
+
+      * `--registry-name` — имя реестра;
+      * `--certificate-file` — путь к публичному ключу сертификата, например `cert.pem`.
+
+      Результат:
+
+      ```text
+      registry_id: b91hafek85**********
+      fingerprint: 589ce16050****
+      certificate_data: |
+         -----BEGIN CERTIFICATE-----
+         MIIE/jCCAuagAwIBAgIJAPRA...
+         -----END CERTIFICATE-----
+      created_at: "2019-05-27T13:41:45.295Z"
       ```
 
 - {{ TF }} 
@@ -81,11 +127,18 @@
   1. Опишите в конфигурационном файле параметры ресурса, который необходимо создать:
 
      * `yandex_iot_core_registry` — параметры реестра:
-       * `name` — имя реестра.
-       * `description` — описание реестра.
-       * `labels` — метки реестра в формате `ключ:значение`.
-       * `passwords` — список паролей реестра для авторизации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
-       * `certificates` — список сертификатов реестра для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+
+        * `name` — имя реестра;
+        * `description` — описание реестра;
+        * `labels` — метки реестра в формате `ключ:значение`;
+        * `passwords` — список паролей реестра для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass);
+        * `certificates` — список сертификатов реестра для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
+
+      {% note info %}
+
+      Используйте только один из двух способов аутентификации.
+
+      {% endnote %}
 
       Пример структуры ресурса в конфигурационном файле:
 

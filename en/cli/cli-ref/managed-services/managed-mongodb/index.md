@@ -61,6 +61,7 @@ Aliases:
 	- [yc managed-mongodb user revoke-permission](user/revoke-permission.md) — Revoke a permission from the specified MongoDB user.
 - [yc managed-mongodb backup](backup/index.md) — Manage MongoDB backups.
 	- [yc managed-mongodb backup get](backup/get.md) — Get information about the specified MongoDB backup.
+	- [yc managed-mongodb backup delete](backup/delete.md) — Delete MongoDB backup.
 	- [yc managed-mongodb backup list](backup/list.md) — List MongoDB backups available in a folder.
 - [yc managed-mongodb resource-preset](resource-preset/index.md) — Learn about MongoDB resource presets.
 	- [yc managed-mongodb resource-preset get](resource-preset/get.md) — Get information about a MongoDB resource preset.

@@ -10,13 +10,13 @@ For more information about the organizational and technical limits of placement 
 
 In a placement group, non-replicated disks are located in the server racks of the data center of the selected availability zone according to one of the placement strategies.
 
-## Distributed placement {#spread}
+## Spread placement {#spread}
 
-_Distributed placement_ (`spread`) is a non-replicated disk placement strategy that ensures that each disk resides in a separate server rack in the data center of the selected availability zone. If one of the server racks hosting the group's disks fails, only one disk will be affected.
+_Spread placement_ is a non-replicated disk placement strategy that ensures that each disk resides in a separate server rack in the data center of the selected availability zone. If one of the server racks hosting the group's disks fails, only one disk will be affected.
 
 ## Partition placement {#partition}
 
-_Partition_ `placement` is a non-replicated disk placement strategy that ensures that partitions with disks reside in different server racks in the data center of the selected availability zone. If one of the server racks hosting the group's partitions fails, only one partition will be affected. A single partition may host multiple disks. A single placement group may contain up to 5 partitions.
+_Partition placement_ is a non-replicated disk placement strategy that ensures that partitions with disks reside in different server racks in the data center of the selected availability zone. If one of the server racks hosting the group's partitions fails, only one partition will be affected. A single partition may host multiple disks. A single placement group may contain up to 5 partitions.
 
 ### See also {#see-also}
 

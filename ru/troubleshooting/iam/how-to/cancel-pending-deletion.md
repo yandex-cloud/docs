@@ -9,6 +9,7 @@
 ## Решение {#case-resolution}
 
 Отменить удаление можно вручную, пока облако находится в статусе ожидания удаления `PENDING_DELETION`.
+
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 
 Чтобы отменить удаление облака, у вас должна быть роль `{{ roles-cloud-owner }}` на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../../resource-manager/concepts/resources-hierarchy.md#owner)
