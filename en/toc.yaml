@@ -127,6 +127,8 @@ items:
     href: wiki/index.yaml
   - name: '{{ ydb-name }}'
     href: ydb/index.yaml
+  - name: Troubleshooting
+    href: troubleshooting/index.yaml
   - name: Query
     href: query/index.yaml
   - name: YandexGPT

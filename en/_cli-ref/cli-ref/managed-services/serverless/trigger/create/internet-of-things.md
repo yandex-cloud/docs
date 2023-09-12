@@ -26,6 +26,8 @@ Aliases:
 |`--registry-id`|<b>`string`</b><br/>Internet of Things registry ID.|
 |`--device-id`|<b>`string`</b><br/>Internet of Things device ID.|
 |`--mqtt-topic`|<b>`string`</b><br/>Internet of Things MQTT topic.|
+|`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 10. Default: 1|
+|`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on the data from IoT.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on the data from IoT.|
 |`--invoke-function-tag`|<b>`string`</b><br/>Function tag.|

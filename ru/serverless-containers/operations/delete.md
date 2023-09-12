@@ -5,10 +5,10 @@
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-	1. Выберите сервис **{{ serverless-containers-name }}**.
+	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 	1. В строке с контейнером нажмите значок ![image](../../_assets/horizontal-ellipsis.svg).
-	1. В открывшемся меню нажмите кнопку **Удалить**.
-	1. В открывшемся окне нажмите кнопку **Удалить**.
+	1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+	1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

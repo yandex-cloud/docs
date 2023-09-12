@@ -20,6 +20,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/>A textual description of the disk placement group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--zone`|<b>`string`</b><br/>The zone of the disk placement group to create.|
+|`--strategy`|<b>`string`</b><br/>Placement strategy. When empty used SPREAD strategy. One of SPREAD, PARTITION. For PARTITION, you should specify the number of partitions.|
+|`--partition-count`|<b>`int`</b><br/>Partition count for PARTITION placement strategy. Should be between 1 and 5|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

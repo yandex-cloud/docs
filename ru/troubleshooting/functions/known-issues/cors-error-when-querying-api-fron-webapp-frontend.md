@@ -1,7 +1,7 @@
 # Ошибка CORS при обращении к API SpeechKit/Vision/Translate из фронтенда веб-приложения
 
 ## Описание проблемы {#issue-description}
-При обращении к API SpeechKit, Visio или Translate сервис возвращает ошибку CORS. 
+При обращении к API SpeechKit, Vision или Translate сервис возвращает ошибку CORS. 
 
 Например:
 ```

@@ -33,6 +33,8 @@ Syntax:
 |`--core-fraction`|<b>`int`</b><br/>Specifies baseline performance for a core in percent.|
 |`--gpus`|<b>`int`</b><br/>Specifies how many GPUs instances should have.|
 |`--preemptible`|Specifies if created nodes will be preemptible.|
+|`--gpu-cluster-id`|<b>`string`</b><br/>Specifies if created nodes will be part of the GPU cluster.|
+|`--gpu-environment`|<b>`string`</b><br/>Specifies GPU environment for created nodes. Values: 'runc-drivers-cuda', 'runc'|
 |`--disk-type`|<b>`string`</b><br/>Specifies boot disk type for instances, valid values: network-ssd\|network-hdd|
 |`--disk-size`|<b>`byteSize`</b><br/>Specifies boot disk size for instances.|
 |`--fixed-size`|<b>`int`</b><br/>Specifies fixed scale policy size.|

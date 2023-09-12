@@ -219,6 +219,8 @@ items:
             href: api-ref/grpc/community_service.md
           - name: ProjectService
             href: api-ref/grpc/project_service.md
+          - name: ProjectJobService
+            href: api-ref/grpc/project_job_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST (англ.)

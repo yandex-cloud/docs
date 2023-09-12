@@ -19,7 +19,9 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Asymmetric encryption key id.|
 |`--name`|<b>`string`</b><br/>Asymmetric encryption key name.|
 |`--ciphertext-file`|<b>`string`</b><br/>Required. Ciphertext file.|
+|`--inform`|<b>`string`</b><br/>Ciphertext file format. Can be 'raw' (default), 'hex' and 'base64'.|
 |`--plaintext-file`|<b>`string`</b><br/>Required. File to write plaintext.|
+|`--outform`|<b>`string`</b><br/>Plaintext file format. Can be 'raw' (default), 'hex' and 'base64'.|
 
 #### Global Flags
 

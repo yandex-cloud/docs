@@ -149,7 +149,7 @@
       `ITEM4_SENSOR_VALUE` | Остаток товара типа 4. | `15.15`
       `REGISTRY_ID` | Идентификатор реестра, который вы создали. | См. консоль управления <br>сервиса **{{ iot-name }}**.
 
-1. В правой верхней части окна нажмите кнопку **Создать версию**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 ### Протестируйте функцию эмуляции {#test-emulation-function}
 
@@ -320,7 +320,7 @@
       `DB_USER` | Имя пользователя для подключения к кластеру в {{ mpg-name }}. | `user1`
       `DB_PASSWORD` | Пароль подключения к кластеру в {{ mpg-name }}. | Пароль, который вы задали в {{ mpg-name }}.
 
-1. В правой верхней части окна нажмите кнопку **Создать версию**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 ### Протестируйте функцию обработки данных {#test-processing-function}
 

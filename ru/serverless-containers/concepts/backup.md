@@ -15,16 +15,16 @@
 
 ## Получить список ревизий контейнера {#revision-list}
 
-{% include [container-list](../../_includes/serverless-containers/revision-list.md) %}
+{% include [revision-list](../../_includes/serverless-containers/revision-list.md) %}
 
 ## Получить информацию о ревизии контейнера {#revision-get}
 
-{% include [container-ger](../../_includes/serverless-containers/revision-get.md) %}
+{% include [revision-get](../../_includes/serverless-containers/revision-get.md) %}
 
 ## Получить список триггеров {#trigger-list}
 
-{% include [version-list](../../_includes/serverless-containers/trigger-list.md) %}
+{% include [trigger-list](../../_includes/serverless-containers/trigger-list.md) %}
 
 ## Получить информацию о триггере {#trigger-get}
 
-{% include [version-list](../../_includes/serverless-containers/trigger-get.md) %}
+{% include [trigger-get](../../_includes/serverless-containers/trigger-get.md) %}

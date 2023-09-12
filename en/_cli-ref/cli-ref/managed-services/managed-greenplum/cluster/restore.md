@@ -17,6 +17,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--backup-id`|<b>`string`</b><br/>ID of the backup to create a cluster from.|
+|`--time`|<b>`timestamp`</b><br/>Timestamp in RFC3339 of the moment to which the Greenplum cluster should be restored.|
 |`--name`|<b>`string`</b><br/>Cluster name.|
 |`--description`|<b>`string`</b><br/>Cluster description.|
 |`--environment`|<b>`string`</b><br/>Cluster environment. Values: production, prestable.|

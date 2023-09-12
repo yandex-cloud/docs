@@ -265,7 +265,8 @@ instanceGroupId | <p>Required. ID of the instance group to update. To get the in
       "description": "string",
       "labels": "object"
     },
-    "maxOpeningTrafficDuration": "string"
+    "maxOpeningTrafficDuration": "string",
+    "ignoreHealthChecks": true
   },
   "variables": [
     {
@@ -280,7 +281,8 @@ instanceGroupId | <p>Required. ID of the instance group to update. To get the in
       "description": "string",
       "labels": "object"
     },
-    "maxOpeningTrafficDuration": "string"
+    "maxOpeningTrafficDuration": "string",
+    "ignoreHealthChecks": true
   }
 }
 ```
@@ -446,6 +448,7 @@ loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the tar
 loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 loadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+loadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p>Do not wait load balancer health checks.</p> 
 variables[] | **object**
 variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression ``[a-zA-Z0-9._-]*``.</p> 
 variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 
@@ -456,6 +459,7 @@ applicationLoadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> 
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 applicationLoadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
+applicationLoadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p>Do not wait load balancer health checks.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

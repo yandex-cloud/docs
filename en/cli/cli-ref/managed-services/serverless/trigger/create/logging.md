@@ -24,6 +24,7 @@ Syntax:
 |`--log-group-name`|<b>`string`</b><br/>Log group name.|
 |`--resource-ids`|<b>`value[,value]`</b><br/>List of resources to subscribe.|
 |`--resource-types`|<b>`value[,value]`</b><br/>List of resource types to subscribe.|
+|`--stream-names`|<b>`value[,value]`</b><br/>List of stream names to subscribe.|
 |`--log-levels`|<b>`value[,value]`</b><br/>List of log levels to subscribe.<br/>Available levels are: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'.|
 |`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 100. Default: 1|
 |`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|

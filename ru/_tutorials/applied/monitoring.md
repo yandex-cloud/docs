@@ -150,7 +150,7 @@
       `IOT_CORE_DEVICE_ID` | Идентификатор устройства, которое вы создали. | См. в консоли управления <br>сервиса **{{ iot-name }}**.
       `DEVICE_ID` | Пользовательское название устройства. | Задается пользователем.
 
-1. В правой верхней части окна нажмите кнопку **Создать версию**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 ### Протестируйте функцию эмуляции {#test-emulation-function}
 
@@ -302,7 +302,7 @@
          `VERBOSE_LOG` | Включение и отключение записи данных. | `True`
          `METRICS_FOLDER_ID` | Идентификатор каталога, в котором развернуты сервисы и для которого вы создадите дашборд в сервисе {{ monitoring-name }}. | См. в консоли управления.
 
-1. В правой верхней части окна нажмите кнопку **Создать версию**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 ### Протестируйте функцию обработки данных {#test-processing-function}
 
@@ -467,7 +467,7 @@
    `SMOKE_SENSOR_VALUE` | `False` | `True`
    `WATER_SENSOR_VALUE` | `False` | `True`
 
-1. Нажмите кнопку **Создать версию** в верхней части окна.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете сценарий.
 1. Выберите сервис **{{ monitoring-short-name }}** и посмотрите, как изменились показатели графиков.
 

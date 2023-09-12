@@ -326,6 +326,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec}
@@ -387,6 +388,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec}
@@ -710,6 +712,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec1}
@@ -771,6 +774,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec1)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec1}
@@ -1039,6 +1043,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec2}
@@ -1100,6 +1105,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec2)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec2}
@@ -1522,6 +1528,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec3}
@@ -1583,6 +1590,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec3)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec3}
@@ -1888,6 +1896,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec4}
@@ -1913,6 +1922,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec4)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec4}
@@ -2335,6 +2345,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec5}
@@ -2396,6 +2407,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec5)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec5}
@@ -2734,6 +2746,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec6}
@@ -2795,6 +2808,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec6)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec6}
@@ -3134,6 +3148,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec7}
@@ -3195,6 +3210,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec7)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec7}
@@ -3534,6 +3550,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec8}
@@ -3595,6 +3612,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec8)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec8}
@@ -3933,6 +3951,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec9}
@@ -3994,6 +4013,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec9)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec9}
@@ -4453,6 +4473,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec10}
@@ -4514,6 +4535,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec10)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec10}
@@ -4853,6 +4875,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec11}
@@ -4914,6 +4937,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec11)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec11}
@@ -5485,6 +5509,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec12)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec12}
@@ -5546,6 +5571,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec12)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec12}
@@ -5884,6 +5910,7 @@ Field | Description
 --- | ---
 target_group_spec | **[TargetGroupSpec](#TargetGroupSpec13)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### TargetGroupSpec {#TargetGroupSpec13}
@@ -5945,6 +5972,7 @@ Field | Description
 --- | ---
 target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec13)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+ignore_health_checks | **bool**<br>Do not wait load balancer health checks. 
 
 
 ### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec13}

@@ -19,6 +19,7 @@ Aliases:
 #### Command Tree
 
 - [yc managed-mongodb backup get](get.md) — Get information about the specified MongoDB backup.
+- [yc managed-mongodb backup delete](delete.md) — Delete MongoDB backup.
 - [yc managed-mongodb backup list](list.md) — List MongoDB backups available in a folder.
 
 #### Global Flags

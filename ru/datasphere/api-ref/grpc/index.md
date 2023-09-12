@@ -10,4 +10,5 @@ Service | Description
 --- | ---
 [CommunityService](./community_service.md) | 
 [ProjectService](./project_service.md) | A set of methods for managing Project resources.
+[ProjectJobService](./project_job_service.md) | A set of methods for managing Project Jobs.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

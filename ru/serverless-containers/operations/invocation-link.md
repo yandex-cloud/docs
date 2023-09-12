@@ -5,8 +5,8 @@
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-	1. Выберите сервис **{{ serverless-containers-name }}**.
-	1. Выберите контейнер. Ссылка для вызова будет в поле **Ссылка для вызова**.
+	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+	1. Выберите контейнер. Ссылка для вызова будет в поле **{{ ui-key.yacloud.serverless-containers.label_url }}**.
 
 - CLI
 

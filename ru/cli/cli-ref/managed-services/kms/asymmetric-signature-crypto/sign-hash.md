@@ -19,8 +19,10 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Asymmetric signature key id.|
 |`--name`|<b>`string`</b><br/>Asymmetric signature key name.|
-|`--signature-file`|<b>`string`</b><br/>Required. Signature file.|
+|`--signature-output-file`|<b>`string`</b><br/>Required. File to write signature value to.|
+|`--outform`|<b>`string`</b><br/>Signature output format. Can be 'raw' (default), 'hex' and 'base64'.|
 |`--message-hash-file`|<b>`string`</b><br/>Required. Message hash file.|
+|`--inform`|<b>`string`</b><br/>Message hash file format. Can be 'raw' (default), 'hex' and 'base64'.|
 
 #### Global Flags
 

@@ -131,7 +131,7 @@ items:
         hidden: true
       - name: >-
           Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
-          принадлежащиих Cloud CDN
+          принадлежащих Cloud CDN
         href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
   - name: Cloud Functions
     items:
@@ -549,7 +549,7 @@ items:
         href: storage/how-to/moving-objects-to-glacier-storage-type.md
       - name: >-
           Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
-          принадлежащиих Cloud CDN
+          принадлежащих Cloud CDN
         href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
       - name: Перенос содержимого бакета в другой бакет в пределах каталога
         href: storage/how-to/moving-data-to-other-bucket-within-folder.md

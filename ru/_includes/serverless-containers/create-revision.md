@@ -6,11 +6,11 @@
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-	1. Выберите сервис **{{ serverless-containers-name }}**.
+	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 	1. Выберите контейнер, ревизию которого хотите создать.
-	1. Перейдите на вкладку **Редактор**.
+	1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
 	1. Укажите параметры ревизии.
-	1. Нажмите кнопку **Создать ревизию**.
+	1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI
 

@@ -17,6 +17,7 @@ Syntax:
 - [yc serverless function version list](list.md) — List function versions
 - [yc serverless function version get](get.md) — Show information about the specified function version
 - [yc serverless function version create](create.md) — Create new function version
+- [yc serverless function version delete](delete.md) — Delete the specified function version
 - [yc serverless function version set-tag](set-tag.md) — Set a tag on the specified function version
 - [yc serverless function version remove-tag](remove-tag.md) — Remove a tag from the specified function version
 - [yc serverless function version get-by-tag](get-by-tag.md) — Get function version by tag

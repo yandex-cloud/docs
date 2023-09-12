@@ -13,11 +13,11 @@
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Выберите сервис **{{ serverless-containers-name }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер.
-    1. Перейдите на вкладку **Редактор**.
-    1. В блоке **Настройки** укажите количество подготовленных экземпляров.
-    1. Нажмите кнопку **Создать ревизию**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** укажите количество подготовленных экземпляров.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI
 

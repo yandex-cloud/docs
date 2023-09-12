@@ -4,67 +4,143 @@
 
 - Консоль управления
 
-   Чтобы создать устройство:
-
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать устройство.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **Устройства**.
-   1. Нажмите кнопку **Добавить устройство**.
+   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
    1. В блоке **Общая информация** добавьте:
-      * **Имя** устройства. Например, `my-device`.
-      * (Опционально) **Описание** с дополнительной информацией об устройстве.
-      * **Пароль**, который вы будете использовать для доступа к устройству.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
+
+      * **{{ ui-key.yacloud.common.name }}** устройства. Например, `my-device`.
+      * (Опционально) **{{ ui-key.yacloud.common.description }}** с дополнительной информацией об устройстве.
+      * (Опционально) **Пароль**, который вы будете использовать для доступа к устройству. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+
+         {% note info %}
+
+         Сохраните пароль, он вам понадобится для [аутентификации](../../concepts/authorization.md).
+
+         {% endnote %}
+
    1. (Опционально) Добавьте [алиасы](../../concepts/topic/usage.md#aliases):
-      1. Нажмите кнопку **Добавить алиас**.
-      1. Заполните поля: введите алиас (например, `events`) и тип топика после `$devices/<deviceID>` (например, `events`).<br/>Вы сможете использовать алиас `events` вместо топика `$devices/<deviceID>/events`.
-   1. (Опционально) Добавьте [сертификаты](../../operations/certificates/create-certificates.md):
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-alias }}**.
+      1. Заполните поля: введите алиас (например, `events`) и тип топика после `$devices/<deviceID>` (например, `events`). Вы сможете использовать алиас `events` вместо топика `$devices/<deviceID>/events`.
+
+   1. (Опционально) Добавьте [сертификат](../../operations/certificates/create-certificates.md):
+
       * Чтобы добавить файл:
-         1. Выберите способ **Файл**.
-         1. Нажмите **Выбрать файл**.
-         1. Укажите файл сертификата на вашем компьютере, нажмите **Открыть**.
-         1. Нажмите **Добавить**.
+
+         1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
+         1. Нажмите кнопку **Прикрепить файл**.
+         1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
+         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
       * Чтобы добавить текст:
-         1. Выберите способ **Текст**.
-         1. Вставьте тело сертификата в поле **Содержимое**.
-         1. Нажмите **Добавить**.
+
+         1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}**.
+         1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
+         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
    1. Нажмите кнопку **Создать**.
 
 - CLI
-  
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-  
-  1. [Посмотрите список реестров](../registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../registry/registry-create.md).
-  
-  1. Создайте устройство:
-  
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   1. [Посмотрите список реестров](../registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../registry/registry-create.md).
+
+   1. Создайте устройство:
+
+      ```bash
+      yc iot device create \
+         --registry-name <название реестра> \
+         --name <название устройства>
       ```
-      yc iot device create --registry-name my-registry --name my-device
-      ```
-	  
-     {% include [name-format](../../../_includes/name-format.md) %}
-	  
-	  Результат:
-	  ```
-      id: b9135goeh1uc1s2i07nm
-      registry_id: b91ki3851hab9m0l68je
+
+      Требования к названию устройства:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+      Результат:
+
+      ```text
+      id: b9135goeh**********
+      registry_id: b91ki3851h**********
       created_at: "2019-05-28T16:08:30.938Z"
-      name: my-device
+      name: <название устройства>
+      status: ACTIVE
       ```
- 
-  1. Проверьте, что устройство создалось:
-  
+
+   1. (Опционально) Присвойте устройству пароль для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass):
+
+      ```bash
+      yc iot device password add --device-name <название устройства>
       ```
-      yc iot device list --registry-name my-registry
-	   ```
-	  
-	   Результат:
-	   ```
-      +----------------------+-----------+
-      |          ID          |   NAME    |
-      +----------------------+-----------+
-      | b9135goeh1uc1s2i07nm | my-device |
-      +----------------------+-----------+
+
+      Команда предложит ввести пароль. Требования к нему:
+
+      * пароль должен содержать цифры, буквы в верхнем и нижнем регистре, специальные символы;
+      * длина пароля — не менее 14 символов.
+
+      Результат:
+
+      ```text
+      device_id: b9135goeh**********
+      id: aoek49ghmk*********
+      created_at: "2019-05-28T16:12:30.938Z"
+      ```
+
+   1. (Опционально) Добавьте реестру сертификат для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs):
+
+      ```bash
+      yc iot device certificate add \
+         --device-name <название устройства> \
+         --certificate-file <сертификат>
+      ```
+
+      Где:
+
+      * `--device-name` — имя устройства;
+      * `--certificate-file` — путь к публичному ключу сертификата, например `cert.pem`.
+
+      Результат:
+
+      ```text
+      device_id: b9135goeh**********
+      fingerprint: 589ce16050****
+      certificate_data: |
+         -----BEGIN CERTIFICATE-----
+         MIIE/jCCAuagAwIBAgIJAPRA...
+         -----END CERTIFICATE-----
+      created_at: "2019-05-28T16:15:30.938Z"
+      ```
+
+   1. (Опционально) Добавьте [алиасы](../../concepts/topic/usage.md#aliases):
+
+      ```bash
+      yc iot device add-topic-aliases \
+         --name <название устройства> \
+         --topic-aliases <алиас>='<топик>'
+      ```
+
+      Пример:
+
+      ```bash
+      yc iot device add-topic-aliases \
+         --name my-device \
+         --topic-aliases events='$devices/are0ej5kpik15mulb4do/events'
+      ```
+
+      Результат:
+
+      ```text
+      id: aoek49ghmk*********
+      registry_id: b91ki3851h**********
+      created_at: "2019-05-28T16:17:30.938Z"
+      name: <название устройства>
+      topic_aliases:
+        <алиас>: <топик>
+      status: ACTIVE
       ```
 
 - {{ TF }} 
@@ -86,12 +162,19 @@
    1. Опишите в конфигурационном файле параметры ресурса, который необходимо создать:
 
       * `yandex_iot_core_device` — параметры устройства:
-       * `registry_id` — идентификатор реестра, в котором создается устройство.
-       * `name` — имя устройства.
-       * `description` — описание устройства.
-       * `aliases` — алиасы топиков. Подробнее см. [Создание алиаса](../device/alias/alias-create.md)
-       * `passwords` — список паролей для авторизации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
-       * `certificates` — список сертификатов для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+
+         * `registry_id` — идентификатор реестра, в котором создается устройство.
+         * `name` — имя устройства.
+         * `description` — описание устройства.
+         * `aliases` — алиасы топиков. Подробнее см. [Создание алиаса](../device/alias/alias-create.md).
+         * `passwords` — список паролей для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
+         * `certificates` — список сертификатов для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
+
+      {% note info %}
+
+      Используйте только один из двух способов аутентификации.
+
+      {% endnote %}
 
       Пример структуры ресурса в конфигурационном файле:
       

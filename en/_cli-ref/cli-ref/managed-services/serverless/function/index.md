@@ -42,6 +42,7 @@ Aliases:
 	- [yc serverless function version list](version/list.md) — List function versions
 	- [yc serverless function version get](version/get.md) — Show information about the specified function version
 	- [yc serverless function version create](version/create.md) — Create new function version
+	- [yc serverless function version delete](version/delete.md) — Delete the specified function version
 	- [yc serverless function version set-tag](version/set-tag.md) — Set a tag on the specified function version
 	- [yc serverless function version remove-tag](version/remove-tag.md) — Remove a tag from the specified function version
 	- [yc serverless function version get-by-tag](version/get-by-tag.md) — Get function version by tag

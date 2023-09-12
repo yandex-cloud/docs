@@ -129,6 +129,12 @@
             time.sleep(1)
     ```
 
+1. Обновите версии установленных пакетов:
+
+    ```bash
+    sudo apt-get update
+    ```
+
 1. Создайте виртуальную среду и установите необходимые зависимости:
 
     ```bash
@@ -236,7 +242,7 @@
     deb https://packages.fluentbit.io/ubuntu/focal focal main
     ```
 
-1. Обновите индексы `apt`:
+1. Обновите версии установленных пакетов:
 
     ```bash
     sudo apt-get update
@@ -306,7 +312,7 @@
         Path /usr/lib/td-agent-bit/yc-logging.so
     ```
 
-1. Добавьте в файл `/etc/td-agent-bit/td-agent-bit.conf`  настройки сервиса `td-agent-bit`:
+1. Добавьте в файл `/etc/td-agent-bit/td-agent-bit.conf` настройки сервиса `td-agent-bit`:
 
 
     ```
@@ -326,7 +332,10 @@
         authorization   instance-service-account
     ```
 
-    В поле `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../../logging/concepts/log-group.md) которого будут передаваться логи.
+    Где:
+    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../../logging/concepts/log-group.md) которого будут передаваться логи.
+    * `authorization` — настройки авторизации. Укажите `instance-service-account`, чтобы авторизоваться от имени сервисного аккаунта, который указали в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** при [создании ВМ](#before-you-begin).
+
 1. Перезапустите сервис `td-agent-bit`:
 
     ```bash

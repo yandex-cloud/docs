@@ -24,7 +24,7 @@
 
   1. Выберите стратегию: [распределенное размещение](../../concepts/disk-placement-group.md#spread) (spread) или [размещение разделами](../../concepts/disk-placement-group.md#partition) (partition).
 
-      Для распределенного размещения укажите количество разделов для нереплицируемых дисков.
+      Для размещения разделами укажите количество разделов для нереплицируемых дисков.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 

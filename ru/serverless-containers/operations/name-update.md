@@ -5,14 +5,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Выберите сервис **{{ serverless-containers-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер.
-  1. Нажмите кнопку **Редактировать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. Измените имя контейнера. Формат имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

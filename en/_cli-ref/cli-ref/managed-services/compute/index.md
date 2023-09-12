@@ -113,6 +113,8 @@ Syntax:
 	- [yc compute instance-group set-access-bindings](instance-group/set-access-bindings.md) — Set access bindings for the specified instance group and delete all existing access bindings if there were any
 	- [yc compute instance-group add-access-binding](instance-group/add-access-binding.md) — Add access binding for the specified instance group
 	- [yc compute instance-group remove-access-binding](instance-group/remove-access-binding.md) — Remove access binding for the specified instance group
+	- [yc compute instance-group rolling-restart](instance-group/rolling-restart.md) — Restart instances of the specified instance group respecting policies
+	- [yc compute instance-group rolling-recreate](instance-group/rolling-recreate.md) — Recreate instances of the specified instance group respecting policies
 - [yc compute placement-group](placement-group/index.md) — Manage placement groups
 	- [yc compute placement-group get](placement-group/get.md) — Show information about the specified placement group
 	- [yc compute placement-group list](placement-group/list.md) — List placement groups

@@ -20,6 +20,7 @@ Syntax:
 	- [yc dns zone list](zone/list.md) — List dns zones in folder.
 	- [yc dns zone create](zone/create.md) — Create a dns zone in the specified folder.
 	- [yc dns zone update](zone/update.md) — Modify configuration or attributes of a dns zone.
+	- [yc dns zone update-private-networks](zone/update-private-networks.md) — Modify private networks of a dns zone.
 	- [yc dns zone delete](zone/delete.md) — Delete a dns zone.
 	- [yc dns zone list-records](zone/list-records.md) — List dns zone records.
 	- [yc dns zone add-records](zone/add-records.md) — Add records to dns zone.
