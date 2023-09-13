@@ -59,7 +59,7 @@
            --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
            --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' \
-           --max-items 1000)"
+           --max-keys 1000)"
      ```
        
      Результат:
